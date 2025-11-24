@@ -1,0 +1,48 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(export GOOGLE_APPLICATION_CREDENTIALS=/workspaces/bqx_ml_v3/credentials/gcp-sa-key.json)",
+      "Bash(python:*)",
+      "Bash(env)",
+      "Bash(gh secret:*)",
+      "Bash(chmod:*)",
+      "Bash(scripts/monitor_bqx_progress.sh:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(git pull:*)",
+      "Bash(source:*)",
+      "Bash(export GCP_PROJECT_ID=\"bqx-ml\")",
+      "Bash(export AIRTABLE_BASE_ID=\"appR3PPnrNkVo48mO\")",
+      "Bash(python scripts/phase1_bqx_tables/*.py)",
+      "Bash(python scripts/phase2_secondary_features/*.py)",
+      "Bash(cd /workspaces/bqx_ml_v3:*)",
+      "Read(/workspaces/bqx_ml_v3/**)"
+    ]
+  },
+  "context": {
+    "project": "BQX ML v3",
+    "repository": "https://github.com/Schmidtlappin/bqx_ml_v3",
+    "codespace": "bqx-ml-v3-cs",
+    "airtable_project": "P03",
+    "phase": "P03.2 - Data Pipeline Starting",
+    "critical_mandates": {
+      "interval_centric": "ROWS BETWEEN only",
+      "bqx_as_targets": "BQX never features",
+      "28_independent_models": "No cross-contamination",
+      "airtable_is_truth": "P03 is source of truth"
+    },
+    "next_tasks": [
+      "Create lag_bqx_* tables",
+      "Create regime_bqx_* tables", 
+      "Create agg_bqx_* tables",
+      "Create align_bqx_* tables"
+    ],
+    "airtable": {
+      "base_id": "appR3PPnrNkVo48mO",
+      "project": "P03",
+      "phases": ["P00", "P03.1", "P03.2", "P03.3", "P03.4", "P03.5"],
+      "current_phase": "P03.2"
+    }
+  }
+}
