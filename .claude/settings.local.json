@@ -36,7 +36,9 @@
       "Bash(gh --version:*)",
       "Bash(sudo mv:*)",
       "Bash(bash:*)",
-      "Bash(cat:*)"
+      "Bash(cat:*)",
+      "Bash(gh repo view:*)",
+      "Bash(pkill:*)"
     ]
   },
   "context": {
