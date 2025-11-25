@@ -1,0 +1,11 @@
+# System Requirements
+# These must be installed at the system level before setting up the Python environment
+
+# Node.js (required by VS Code extensions like Claude)
+# Install on Ubuntu/Debian: curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash - && sudo apt-get install -y nodejs
+# Install on macOS: brew install node@18
+# Verify: node --version (should be >= 18.0.0)
+Node.js >= 18.0.0
+
+# Python 3.10 or higher (for the main application)
+Python >= 3.10.0

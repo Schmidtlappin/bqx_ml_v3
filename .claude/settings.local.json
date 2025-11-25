@@ -1,48 +1,96 @@
 {
   "permissions": {
     "allow": [
-      "Bash(export GOOGLE_APPLICATION_CREDENTIALS=/workspaces/bqx_ml_v3/credentials/gcp-sa-key.json)",
+      "Bash(export GOOGLE_APPLICATION_CREDENTIALS=/home/codespace/bqx_ml_v3/credentials/gcp-sa-key.json)",
       "Bash(python:*)",
       "Bash(env)",
       "Bash(gh secret:*)",
       "Bash(chmod:*)",
-      "Bash(scripts/monitor_bqx_progress.sh:*)",
-      "Bash(git add:*)",
-      "Bash(git commit:*)",
-      "Bash(git push:*)",
-      "Bash(git pull:*)",
+      "Bash(scripts/:*)",
+      "Bash(git:*)",
       "Bash(source:*)",
-      "Bash(export GCP_PROJECT_ID=\"bqx-ml\")",
-      "Bash(export AIRTABLE_BASE_ID=\"appR3PPnrNkVo48mO\")",
-      "Bash(python scripts/phase1_bqx_tables/*.py)",
-      "Bash(python scripts/phase2_secondary_features/*.py)",
-      "Bash(cd /workspaces/bqx_ml_v3:*)",
-      "Read(/workspaces/bqx_ml_v3/**)"
+      "Bash(export:*)",
+      "Bash(cd /home/codespace/bqx_ml_v3:*)",
+      "Read(/home/codespace/bqx_ml_v3/**)",
+      "Bash(bq:*)",
+      "Bash(gsutil:*)",
+      "Bash(gcloud:*)",
+      "Bash(bq query:*)",
+      "Bash(python3:*)",
+      "Bash(gh auth:*)",
+      "Bash(find:*)",
+      "Bash(apt list:*)",
+      "Bash(curl:*)",
+      "Bash(tar:*)",
+      "Bash(./google-cloud-sdk/install.sh:*)",
+      "Bash(sudo dd:*)",
+      "Bash(sudo chmod:*)",
+      "Bash(sudo tee:*)",
+      "Bash(sudo apt update:*)",
+      "Bash(sudo apt install:*)",
+      "Bash(sudo rm:*)",
+      "Bash(wget:*)",
+      "Bash(sudo dpkg:*)",
+      "Bash(bash scripts/setup_github_secrets.sh:*)",
+      "Bash(sudo cp:*)",
+      "Bash(gh --version:*)",
+      "Bash(sudo mv:*)",
+      "Bash(bash:*)",
+      "Bash(cat:*)"
     ]
   },
   "context": {
-    "project": "BQX ML v3",
+    "role": "BQXML CHIEF ENGINEER",
+    "project": "BQX ML v3 - 28 Independent Models",
     "repository": "https://github.com/Schmidtlappin/bqx_ml_v3",
-    "codespace": "bqx-ml-v3-cs",
+    "instance": "bqx-ml-master (34.148.152.67)",
     "airtable_project": "P03",
-    "phase": "P03.2 - Data Pipeline Starting",
-    "critical_mandates": {
-      "interval_centric": "ROWS BETWEEN only",
-      "bqx_as_targets": "BQX never features",
-      "28_independent_models": "No cross-contamination",
-      "airtable_is_truth": "P03 is source of truth"
+    "current_phase": "P03.2 - Data Pipeline",
+    "PARADIGM_SHIFT_2024_11_24": {
+      "CRITICAL": "BQX values can now be used as BOTH features AND targets",
+      "OLD_RULE": "BQX values were restricted to targets only",
+      "NEW_RULE": "BQX values (bqx_ask, bqx_bid, bqx_mid) can be features AND targets",
+      "IMPACT": "Include BQX lags in feature engineering for autoregressive prediction"
     },
-    "next_tasks": [
-      "Create lag_bqx_* tables",
-      "Create regime_bqx_* tables", 
-      "Create agg_bqx_* tables",
-      "Create align_bqx_* tables"
+    "UPDATED_CRITICAL_MANDATES": {
+      "1_BQX_USAGE": "BQX values can be BOTH features AND targets (paradigm shift!)",
+      "2_INTERVAL_CENTRIC": "Use ROWS BETWEEN only, NEVER time-based windows",
+      "3_INDEPENDENT_MODELS": "28 completely isolated models, no cross-contamination",
+      "4_AIRTABLE_TRUTH": "P03 is the single source of truth for all work"
+    },
+    "feature_engineering_update": {
+      "include_bqx_lags": true,
+      "bqx_features": [
+        "bqx_ask_lag_1 through bqx_ask_lag_60",
+        "bqx_bid_lag_1 through bqx_bid_lag_60",
+        "bqx_mid_lag_1 through bqx_mid_lag_60"
+      ],
+      "rationale": "Historical BQX values contain momentum signals that predict future BQX"
+    },
+    "current_tasks": [
+      "Create lag_bqx_* tables WITH BQX features (paradigm shift)",
+      "Create regime_bqx_* tables including BQX regimes",
+      "Create agg_bqx_* tables with BQX aggregations",
+      "Create align_bqx_* tables with all features including BQX"
     ],
-    "airtable": {
-      "base_id": "appR3PPnrNkVo48mO",
-      "project": "P03",
-      "phases": ["P00", "P03.1", "P03.2", "P03.3", "P03.4", "P03.5"],
-      "current_phase": "P03.2"
-    }
+    "validation_rules_updated": [
+      "Check: BQX features ARE present in feature columns (paradigm shift)",
+      "Check: All windows use ROWS BETWEEN",
+      "Check: Model isolation maintained",
+      "Check: AirTable progress updated"
+    ],
+    "key_documents": {
+      "paradigm_shift": "/home/codespace/bqx_ml_v3/docs/PARADIGM_SHIFT_UPDATE_20241124.md",
+      "updated_response": "/home/codespace/bqx_ml_v3/docs/MENTOR_RESPONSE_UPDATED_V2.md",
+      "pipeline": "/home/codespace/bqx_ml_v3/docs/BQX_ML_V3_PIPELINE.md",
+      "feature_matrix": "/home/codespace/bqx_ml_v3/docs/BQX_ML_FEATURE_MATRIX.md"
+    },
+    "sql_template_updated": "CREATE OR REPLACE TABLE bqx_ml.lag_bqx_[pair] AS SELECT *, LAG(close, 1) OVER (ORDER BY bar_start_time) AS close_lag_1, LAG(bqx_mid, 1) OVER (ORDER BY bar_start_time) AS bqx_mid_lag_1 /* NEW! */, ... FROM bqx_ml.regression_bqx_[pair]",
+    "advantages_of_paradigm_shift": [
+      "Autoregressive prediction capability",
+      "Momentum persistence capture",
+      "Enhanced prediction accuracy",
+      "Natural time series progression"
+    ]
   }
 }

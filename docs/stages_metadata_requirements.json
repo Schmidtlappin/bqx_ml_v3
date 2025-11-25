@@ -1,0 +1,40 @@
+{
+  "required_fields": [
+    "stage_id",
+    "status",
+    "name",
+    "description"
+  ],
+  "optional_fields": [
+    "notes",
+    "realized_cost",
+    "plan_link",
+    "phase_link",
+    "task_link",
+    "blocked_by",
+    "attachments",
+    "source",
+    "record_audit",
+    "record_score"
+  ],
+  "scoring_requirements": {
+    "min_description_length": 300,
+    "min_notes_length": 200,
+    "required_elements": [
+      "quantified_deliverables",
+      "resource_estimates",
+      "technology_stack",
+      "timeline",
+      "dependencies",
+      "risk_factors",
+      "success_metrics"
+    ]
+  },
+  "template": {
+    "stage_id": "S03.01.01",
+    "status": "Todo",
+    "name": "Deploy GitHub secrets and configure authentication",
+    "description": "**Objective**: Deploy 12 GitHub secrets via automated script and configure multi-service authentication.\n\n**Technical Approach**:\n\u2022 Execute setup_github_secrets.sh script\n\u2022 Validate secret deployment via GitHub API\n\u2022 Configure service account authentication\n\u2022 Test API access for BigQuery, Vertex AI, Storage\n\n**Quantified Deliverables**:\n\u2022 12 secrets deployed to GitHub\n\u2022 3 service accounts configured\n\u2022 7 API authentications verified\n\u2022 100% test coverage achieved\n\n**Success Criteria**:\n\u2022 All secrets accessible in GitHub Actions\n\u2022 Zero authentication failures\n\u2022 <5 second API response time\n\u2022 Automated tests pass",
+    "notes": "**Resource Allocation**:\n\u2022 Engineering Hours: 4 hours\n\u2022 GCP API Costs: $5\n\u2022 GitHub API calls: 50\n\u2022 Total Cost: $25\n\n**Technology Stack**:\n\u2022 GitHub CLI (gh)\n\u2022 Python 3.10 requests library\n\u2022 GCP SDK (gcloud, gsutil, bq)\n\u2022 Bash scripting\n\n**Dependencies**:\n\u2022 Requires: GitHub repository access\n\u2022 Requires: .secrets/github_secrets.json file\n\u2022 Blocks: All subsequent API operations\n\n**Risk Mitigation**:\n\u2022 API rate limiting \u2192 Implement exponential backoff\n\u2022 Permission errors \u2192 Validate IAM roles first\n\u2022 Secret exposure \u2192 Use secure storage only\n\n**Timeline**:\nHour 1: Deploy secrets\nHour 2: Configure authentication\nHour 3: Validation testing\nHour 4: Documentation\n\n**Team Assignment**:\n\u2022 Lead: BQXML CHIEF ENGINEER\n\u2022 Support: DevOps Team"
+  }
+}

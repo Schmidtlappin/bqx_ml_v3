@@ -1,0 +1,13 @@
+
+# Secrets - NEVER COMMIT
+.secrets/
+.secrets/*
+credentials/*.json
+credentials/*key*
+*.pem
+*.key
+*_key.json
+*-key.json
+.env
+.env.*
+!.env.example

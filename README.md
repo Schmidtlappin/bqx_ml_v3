@@ -33,8 +33,26 @@ Status: Foundation Phase
 
 ## Setup
 
+### System Requirements
+
+Install system-level dependencies first (see `system_requirements.txt`):
+
+- **Node.js >= 18.0.0** (required for VS Code extensions like Claude)
+  ```bash
+  # Ubuntu/Debian
+  curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
+  sudo apt-get install -y nodejs
+  
+  # Verify installation
+  node --version
+  ```
+
+- **Python >= 3.10.0**
+
+### Python Dependencies
+
 ```bash
-# Install dependencies
+# Install Python dependencies
 pip install -r requirements.txt
 
 # Set up credentials
