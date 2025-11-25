@@ -38,7 +38,8 @@
       "Bash(bash:*)",
       "Bash(cat:*)",
       "Bash(gh repo view:*)",
-      "Bash(pkill:*)"
+      "Bash(pkill:*)",
+      "Bash(tree:*)"
     ]
   },
   "context": {
