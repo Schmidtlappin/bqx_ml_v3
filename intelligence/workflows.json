@@ -1,0 +1,285 @@
+{
+  "data_ingestion_workflow": {
+    "name": "Real-Time Data Ingestion",
+    "trigger": "1-minute bar completion",
+    "steps": [
+      {
+        "step": 1,
+        "name": "Fetch Market Data",
+        "action": "Query market data provider API",
+        "output": "Raw OHLCV data",
+        "error_handling": "Retry 3 times with exponential backoff"
+      },
+      {
+        "step": 2,
+        "name": "Validate Data",
+        "action": "Check schema and value ranges",
+        "output": "Validated data or error",
+        "error_handling": "Log error and alert if validation fails"
+      },
+      {
+        "step": 3,
+        "name": "Transform Data",
+        "action": "Convert to BigQuery schema",
+        "output": "Transformed data records",
+        "error_handling": "Skip malformed records, log warnings"
+      },
+      {
+        "step": 4,
+        "name": "Load to BigQuery",
+        "action": "Insert into regression_bqx_{pair} tables",
+        "output": "28 table inserts",
+        "error_handling": "Rollback on failure, retry once"
+      },
+      {
+        "step": 5,
+        "name": "Trigger Feature Pipeline",
+        "action": "Pub/Sub message to feature pipeline",
+        "output": "Pipeline triggered",
+        "error_handling": "Queue message for retry if pipeline unavailable"
+      }
+    ],
+    "sla": "< 5 seconds from bar close to BigQuery",
+    "monitoring": ["ingestion_latency", "error_rate", "data_completeness"]
+  },
+  "feature_engineering_workflow": {
+    "name": "Feature Table Generation",
+    "trigger": "New data in regression tables",
+    "steps": [
+      {
+        "step": 1,
+        "name": "Lag Features",
+        "action": "Create lag_bqx_{pair} tables with 1-60 period lags",
+        "sql": "CREATE OR REPLACE TABLE lag_bqx_{pair} AS SELECT *, LAG(close, 1)...",
+        "duration": "~30 seconds per pair"
+      },
+      {
+        "step": 2,
+        "name": "Regime Classification",
+        "action": "Create regime_bqx_{pair} with market state features",
+        "sql": "CREATE OR REPLACE TABLE regime_bqx_{pair} AS SELECT *, CASE WHEN...",
+        "duration": "~45 seconds per pair"
+      },
+      {
+        "step": 3,
+        "name": "Aggregations",
+        "action": "Create agg_bqx_{pair} with cross-window aggregations",
+        "sql": "CREATE OR REPLACE TABLE agg_bqx_{pair} AS SELECT *, AVG(close) OVER...",
+        "duration": "~60 seconds per pair"
+      },
+      {
+        "step": 4,
+        "name": "Feature Alignment",
+        "action": "Create align_bqx_{pair} with final feature matrix",
+        "sql": "CREATE OR REPLACE TABLE align_bqx_{pair} AS SELECT * FROM agg...",
+        "duration": "~15 seconds per pair"
+      },
+      {
+        "step": 5,
+        "name": "Quality Check",
+        "action": "Validate feature completeness and ranges",
+        "checks": ["no_nulls", "value_ranges", "row_counts"],
+        "duration": "~10 seconds per pair"
+      }
+    ],
+    "parallelization": "All 28 pairs processed simultaneously",
+    "total_duration": "~3 minutes for all pairs",
+    "monitoring": ["pipeline_duration", "table_sizes", "validation_errors"]
+  },
+  "model_training_workflow": {
+    "name": "Weekly Model Retraining",
+    "trigger": "Every Sunday 00:00 UTC",
+    "steps": [
+      {
+        "step": 1,
+        "name": "Extract Training Data",
+        "action": "Query last 90 days from align_bqx_{pair} tables",
+        "output": "Training dataset per pair"
+      },
+      {
+        "step": 2,
+        "name": "Data Split",
+        "action": "Split into train/val/test (80/10/10)",
+        "output": "3 datasets per pair"
+      },
+      {
+        "step": 3,
+        "name": "Hyperparameter Tuning",
+        "action": "Bayesian optimization for each algorithm",
+        "iterations": 50,
+        "duration": "~1 hour per pair per algorithm"
+      },
+      {
+        "step": 4,
+        "name": "Model Training",
+        "action": "Train 5 algorithms per pair (140 models total)",
+        "algorithms": ["RandomForest", "XGBoost", "LightGBM", "LSTM", "GRU"],
+        "duration": "~30 minutes per model"
+      },
+      {
+        "step": 5,
+        "name": "Model Evaluation",
+        "action": "Test set evaluation with multiple metrics",
+        "metrics": ["MAE", "RMSE", "R²", "Sharpe Ratio"],
+        "output": "Performance report per model"
+      },
+      {
+        "step": 6,
+        "name": "Model Registration",
+        "action": "Upload to Vertex AI Model Registry",
+        "metadata": ["version", "metrics", "training_date"],
+        "output": "Model URI"
+      },
+      {
+        "step": 7,
+        "name": "A/B Testing",
+        "action": "Deploy new model to 10% traffic for 24 hours",
+        "comparison": "New model vs current production",
+        "decision": "Promote if 5% better performance"
+      }
+    ],
+    "total_duration": "~24 hours for full training cycle",
+    "parallelization": "4 pairs trained simultaneously",
+    "monitoring": ["training_progress", "model_performance", "resource_usage"]
+  },
+  "prediction_workflow": {
+    "name": "Real-Time Prediction Generation",
+    "trigger": "REST API request or WebSocket connection",
+    "steps": [
+      {
+        "step": 1,
+        "name": "Authenticate Request",
+        "action": "Validate API key and rate limits",
+        "duration": "< 10ms"
+      },
+      {
+        "step": 2,
+        "name": "Fetch Latest Features",
+        "action": "Query most recent row from align_bqx_{pair}",
+        "duration": "< 20ms"
+      },
+      {
+        "step": 3,
+        "name": "Load Models",
+        "action": "Retrieve 5 models from cache or registry",
+        "duration": "< 30ms (cached) or < 200ms (cold start)"
+      },
+      {
+        "step": 4,
+        "name": "Generate Predictions",
+        "action": "Run inference with 5 algorithms",
+        "output": "5 predictions per pair",
+        "duration": "< 50ms"
+      },
+      {
+        "step": 5,
+        "name": "Ensemble Prediction",
+        "action": "Weighted average based on recent performance",
+        "output": "Final BQX prediction",
+        "duration": "< 5ms"
+      },
+      {
+        "step": 6,
+        "name": "Log Prediction",
+        "action": "Store prediction in BigQuery for validation",
+        "async": true,
+        "duration": "< 10ms async"
+      },
+      {
+        "step": 7,
+        "name": "Return Response",
+        "action": "Format and send JSON response",
+        "format": "{\"pair\": \"EURUSD\", \"bqx_mid\": 1.234, \"confidence\": 0.89}",
+        "duration": "< 5ms"
+      }
+    ],
+    "total_latency": "< 100ms (warm) or < 300ms (cold start)",
+    "throughput": "> 1000 predictions/second",
+    "monitoring": ["latency_p50", "latency_p95", "latency_p99", "error_rate"]
+  },
+  "deployment_workflow": {
+    "name": "Blue-Green Deployment",
+    "trigger": "Manual or automated after A/B test success",
+    "steps": [
+      {
+        "step": 1,
+        "name": "Build Docker Image",
+        "action": "Build container with new models",
+        "registry": "Google Container Registry",
+        "tags": ["latest", "v{version}"]
+      },
+      {
+        "step": 2,
+        "name": "Deploy Green Environment",
+        "action": "Create new Cloud Run revision",
+        "traffic": "0% initially",
+        "health_check": "HTTP /health endpoint"
+      },
+      {
+        "step": 3,
+        "name": "Smoke Tests",
+        "action": "Run automated smoke tests against green",
+        "tests": ["health", "authentication", "sample_predictions"],
+        "duration": "~5 minutes"
+      },
+      {
+        "step": 4,
+        "name": "Gradual Traffic Shift",
+        "action": "Shift traffic 10% → 50% → 100% over 30 minutes",
+        "monitoring": "Error rate and latency",
+        "rollback_trigger": "Error rate > 1% or latency > 500ms"
+      },
+      {
+        "step": 5,
+        "name": "Validation",
+        "action": "Monitor green environment for 1 hour",
+        "metrics": ["error_rate", "latency", "prediction_accuracy"],
+        "threshold": "No degradation vs blue"
+      },
+      {
+        "step": 6,
+        "name": "Decommission Blue",
+        "action": "Delete old Cloud Run revision after 24 hours",
+        "retention": "Keep blue available for quick rollback"
+      }
+    ],
+    "rollback_time": "< 2 minutes to previous revision",
+    "monitoring": ["deployment_success_rate", "rollback_count", "downtime"]
+  },
+  "monitoring_workflow": {
+    "name": "Continuous Monitoring & Alerting",
+    "frequency": "Real-time",
+    "dashboards": {
+      "infrastructure": ["uptime", "latency", "error_rate", "cpu", "memory"],
+      "data": ["ingestion_rate", "data_quality", "table_sizes"],
+      "models": ["prediction_accuracy", "drift_score", "confidence"],
+      "business": ["request_volume", "active_users", "revenue_impact"]
+    },
+    "alerts": [
+      {
+        "name": "High Error Rate",
+        "condition": "error_rate > 1% for 5 minutes",
+        "severity": "critical",
+        "action": "Page on-call engineer"
+      },
+      {
+        "name": "Model Drift Detected",
+        "condition": "drift_score > 0.3",
+        "severity": "warning",
+        "action": "Notify ML team, trigger retraining"
+      },
+      {
+        "name": "Data Pipeline Failure",
+        "condition": "no new data for 10 minutes",
+        "severity": "critical",
+        "action": "Alert data team, check data sources"
+      },
+      {
+        "name": "High Latency",
+        "condition": "p95_latency > 500ms for 5 minutes",
+        "severity": "warning",
+        "action": "Alert infrastructure team"
+      }
+    ]
+  }
+}

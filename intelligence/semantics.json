@@ -1,0 +1,85 @@
+{
+  "core_concepts": {
+    "BQX": {
+      "definition": "Proprietary momentum indicator consisting of ask, bid, and mid values",
+      "purpose": "Primary target for prediction AND feature for autoregressive modeling",
+      "components": ["bqx_ask", "bqx_bid", "bqx_mid"],
+      "paradigm_shift": "BQX values can now be used as BOTH features AND targets (since 2024-11-24)"
+    },
+    "Interval_Centric": {
+      "definition": "All calculations use row-based windows (ROWS BETWEEN) instead of time-based",
+      "rationale": "Ensures consistent sample sizes regardless of data gaps",
+      "implementation": "ROWS BETWEEN N PRECEDING AND CURRENT ROW",
+      "forbidden": "Any time-based windows (e.g., INTERVAL, date arithmetic)"
+    },
+    "Independent_Models": {
+      "definition": "Each currency pair has its own isolated model",
+      "count": 28,
+      "isolation": "Complete - no feature or data sharing between pairs",
+      "rationale": "Each pair has unique dynamics requiring specialized modeling"
+    },
+    "Feature_Target_Separation": {
+      "old_rule": "BQX values strictly prohibited as features",
+      "new_rule": "BQX values can be features (lags) AND targets (forward predictions)",
+      "features": "Historical (backward-looking) data including BQX lags",
+      "targets": "Future (forward-looking) BQX predictions"
+    }
+  },
+  "terminology": {
+    "Lag": "Historical value N bars ago (e.g., close_lag_1, bqx_mid_lag_1)",
+    "Lead": "Future value N bars ahead (e.g., bqx_mid_lead_1)",
+    "Regime": "Market state categorization (trending, ranging, volatile, calm)",
+    "Centric": "Calculation perspective (tick, bar, order, trade, position, portfolio)",
+    "Cell_Type": "Unique combination of feature × centric × variant (96 total)",
+    "Table": "BigQuery table containing specific feature set for a currency pair",
+    "Stage": "Project plan stage in AirTable (70 total)",
+    "Phase": "Project plan phase in AirTable (11 total)"
+  },
+  "feature_categories": {
+    "Price_Features": {
+      "base": ["open", "high", "low", "close", "volume"],
+      "derived": ["returns", "log_returns", "volatility", "range"],
+      "lags": "1-60 bars historical"
+    },
+    "BQX_Features": {
+      "base": ["bqx_ask", "bqx_bid", "bqx_mid"],
+      "derived": ["bqx_spread", "bqx_momentum", "bqx_volatility"],
+      "lags": "1-60 bars historical (NEW - paradigm shift!)"
+    },
+    "Technical_Indicators": {
+      "momentum": ["RSI", "MACD", "Stochastic"],
+      "trend": ["SMA", "EMA", "Bollinger Bands"],
+      "volume": ["OBV", "VWAP", "Volume Profile"]
+    },
+    "Regime_Features": {
+      "categories": ["trending", "ranging", "volatile", "calm"],
+      "detection": "Statistical and pattern-based classification",
+      "window": "Multiple timeframes"
+    }
+  },
+  "model_types": {
+    "algorithms": [
+      "RandomForest",
+      "XGBoost",
+      "LightGBM",
+      "LSTM",
+      "GRU"
+    ],
+    "ensemble": "5-algorithm weighted ensemble per pair",
+    "total_models": 140,
+    "breakdown": "28 pairs × 5 algorithms"
+  },
+  "data_pipeline_stages": {
+    "regression": "Base price/volume data extraction",
+    "lag": "Historical feature calculation",
+    "regime": "Market state classification",
+    "agg": "Cross-window aggregations",
+    "align": "Final feature matrix assembly"
+  },
+  "quality_metrics": {
+    "completeness": "100%",
+    "gap_coverage": "100%",
+    "stages_90plus": "100%",
+    "stages_95plus": "74.3%"
+  }
+}

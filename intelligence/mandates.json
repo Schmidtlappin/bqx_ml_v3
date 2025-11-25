@@ -1,0 +1,184 @@
+{
+  "critical_mandates": {
+    "1_BQX_PARADIGM_SHIFT": {
+      "mandate": "BQX values can be BOTH features AND targets",
+      "old_rule": "BQX values were restricted to targets only (DEPRECATED 2024-11-24)",
+      "new_rule": "BQX values (bqx_ask, bqx_bid, bqx_mid) can be features (lags) AND targets (leads)",
+      "rationale": "Historical BQX values contain momentum signals that predict future BQX - autoregressive prediction",
+      "implementation": [
+        "Include bqx_ask_lag_1 through bqx_ask_lag_60 in features",
+        "Include bqx_bid_lag_1 through bqx_bid_lag_60 in features",
+        "Include bqx_mid_lag_1 through bqx_mid_lag_60 in features"
+      ],
+      "impact": "Enables autoregressive BQX prediction with historical BQX momentum",
+      "date_effective": "2024-11-24",
+      "severity": "CRITICAL"
+    },
+    "2_INTERVAL_CENTRIC": {
+      "mandate": "Use ROWS BETWEEN only, NEVER time-based windows",
+      "forbidden": [
+        "INTERVAL keyword",
+        "DATE_SUB() or DATE_ADD()",
+        "TIMESTAMP_SUB() or TIMESTAMP_ADD()",
+        "Time-based window functions",
+        "Any date/time arithmetic for windowing"
+      ],
+      "required": "ROWS BETWEEN N PRECEDING AND CURRENT ROW",
+      "rationale": "Ensures consistent sample sizes regardless of market gaps (weekends, holidays)",
+      "examples": {
+        "correct": "AVG(close) OVER (ORDER BY bar_start_time ROWS BETWEEN 20 PRECEDING AND CURRENT ROW)",
+        "incorrect": "AVG(close) OVER (ORDER BY bar_start_time RANGE BETWEEN INTERVAL 20 MINUTE PRECEDING AND CURRENT ROW)"
+      },
+      "severity": "CRITICAL"
+    },
+    "3_INDEPENDENT_MODELS": {
+      "mandate": "28 completely isolated models, no cross-contamination",
+      "requirements": [
+        "Each currency pair has dedicated model",
+        "No feature sharing between pairs",
+        "No parameter sharing between pairs",
+        "Separate training datasets per pair",
+        "Isolated prediction pipelines"
+      ],
+      "forbidden": [
+        "Multi-pair models",
+        "Cross-pair features (e.g., EURUSD using GBPUSD data)",
+        "Shared model parameters",
+        "Joint training across pairs"
+      ],
+      "rationale": "Each pair has unique market dynamics requiring specialized modeling",
+      "pair_count": 28,
+      "models_per_pair": 5,
+      "total_models": 140,
+      "severity": "CRITICAL"
+    },
+    "4_AIRTABLE_TRUTH": {
+      "mandate": "AirTable P03 is the single source of truth for all work",
+      "requirements": [
+        "All stages defined in AirTable",
+        "Real-time status updates to AirTable",
+        "Progress tracking via AirTable API",
+        "Quality scores maintained in AirTable"
+      ],
+      "structure": {
+        "project": "P03",
+        "phases": 11,
+        "stages": 70,
+        "hierarchy": "Plan → Phases → Stages"
+      },
+      "compliance": [
+        "Check AirTable before starting new work",
+        "Update AirTable upon stage completion",
+        "Maintain 90+ scores for all stages",
+        "Follow stage sequence defined in plan"
+      ],
+      "severity": "HIGH"
+    }
+  },
+  "operational_mandates": {
+    "code_quality": {
+      "testing": "Minimum 80% test coverage required",
+      "linting": "PEP 8 compliance enforced",
+      "type_hints": "Required for all functions",
+      "documentation": "Docstrings mandatory for public APIs"
+    },
+    "security": {
+      "secrets": "Never commit secrets to git",
+      "credentials": "Use GitHub Secrets or GCP Secret Manager only",
+      "authentication": "Service accounts with least privilege",
+      "encryption": "TLS 1.3 for transit, AES-256 for rest"
+    },
+    "deployment": {
+      "testing": "All tests must pass before deployment",
+      "blue_green": "Zero-downtime deployments required",
+      "rollback": "Rollback capability < 5 minutes",
+      "monitoring": "Continuous monitoring with alerting"
+    },
+    "data_quality": {
+      "validation": "Schema and value range validation required",
+      "completeness": "No missing values in features or targets",
+      "consistency": "Cross-table bar_start_time alignment",
+      "auditability": "All data transformations logged"
+    }
+  },
+  "development_mandates": {
+    "git_workflow": {
+      "commits": "Conventional commits with Claude Code co-authorship",
+      "branches": "main branch protected, requires PR for changes",
+      "review": "Code review required for protected branches",
+      "signing": "Commit signing required for production"
+    },
+    "documentation": {
+      "code": "Inline comments for complex logic",
+      "api": "OpenAPI specs for all endpoints",
+      "architecture": "Markdown docs in /docs directory",
+      "changelog": "CHANGELOG.md maintained with every release"
+    },
+    "dependencies": {
+      "python": ">= 3.10 required",
+      "updates": "Security patches applied within 7 days",
+      "licensing": "Only approved OSS licenses allowed",
+      "auditing": "Dependency audit monthly"
+    }
+  },
+  "performance_mandates": {
+    "latency": {
+      "api_response": "< 200ms (95th percentile)",
+      "prediction": "< 100ms per prediction",
+      "batch_processing": "> 1000 predictions/second",
+      "data_ingestion": "< 5 seconds from market close to BigQuery"
+    },
+    "reliability": {
+      "uptime": "99.9% SLA",
+      "error_rate": "< 0.1% for all endpoints",
+      "data_freshness": "< 60 seconds latency",
+      "backup_recovery": "< 4 hours RTO, < 1 hour RPO"
+    },
+    "scalability": {
+      "concurrent_users": "Support 10,000+ concurrent API users",
+      "request_rate": "Handle 100,000 requests/minute",
+      "data_volume": "Process 28 currency pairs × 1,440 bars/day",
+      "model_training": "Train 140 models in < 24 hours"
+    }
+  },
+  "validation_mandates": {
+    "pre_commit": [
+      "Unit tests passing",
+      "Linting passing",
+      "Type checking passing"
+    ],
+    "pre_deploy": [
+      "All tests passing (unit + integration + validation)",
+      "No security vulnerabilities",
+      "Performance benchmarks met",
+      "Documentation updated"
+    ],
+    "post_deploy": [
+      "Smoke tests passing",
+      "Monitoring dashboards green",
+      "No error spikes",
+      "Latency within SLA"
+    ]
+  },
+  "paradigm_shift_notes": {
+    "date": "2024-11-24",
+    "title": "BQX Values as Features Paradigm Shift",
+    "summary": "Historical BQX values (lags) can now be used as features in addition to being targets",
+    "advantages": [
+      "Autoregressive prediction capability",
+      "Momentum persistence capture",
+      "Enhanced prediction accuracy",
+      "Natural time series progression"
+    ],
+    "implementation_impact": [
+      "Updated lag_bqx_* table creation to include BQX features",
+      "Modified feature engineering to include BQX lags 1-60",
+      "Enhanced model training to leverage BQX momentum signals",
+      "Improved prediction accuracy through autoregression"
+    ],
+    "document_references": [
+      "/docs/PARADIGM_SHIFT_UPDATE_20241124.md",
+      "/docs/MENTOR_RESPONSE_UPDATED_V2.md"
+    ]
+  }
+}

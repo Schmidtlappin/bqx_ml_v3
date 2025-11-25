@@ -1,0 +1,113 @@
+{
+  "entities": {
+    "CurrencyPair": {
+      "definition": "Trading pair of two currencies (e.g., EURUSD)",
+      "count": 28,
+      "attributes": ["base_currency", "quote_currency", "model_id", "dataset_tables"],
+      "relationships": {
+        "has_model": "One-to-One with Model",
+        "generates_data": "One-to-Many with BarData",
+        "produces_predictions": "One-to-Many with Prediction"
+      }
+    },
+    "Model": {
+      "definition": "Machine learning model for specific currency pair",
+      "types": ["RandomForest", "XGBoost", "LightGBM", "LSTM", "GRU"],
+      "attributes": ["model_type", "pair_id", "training_date", "performance_metrics"],
+      "relationships": {
+        "belongs_to_pair": "Many-to-One with CurrencyPair",
+        "trained_on": "Many-to-Many with Feature",
+        "produces": "One-to-Many with Prediction"
+      }
+    },
+    "Feature": {
+      "definition": "Input variable for model training and prediction",
+      "categories": ["price", "bqx", "technical", "regime"],
+      "attributes": ["feature_name", "feature_type", "calculation_method", "lag_periods"],
+      "relationships": {
+        "used_by": "Many-to-Many with Model",
+        "derived_from": "Many-to-One with BarData"
+      }
+    },
+    "Target": {
+      "definition": "Prediction objective (future BQX values)",
+      "types": ["bqx_ask", "bqx_bid", "bqx_mid"],
+      "attributes": ["target_name", "horizon", "prediction_time"],
+      "relationships": {
+        "predicted_by": "Many-to-One with Model",
+        "validates_against": "One-to-One with ActualBQX"
+      }
+    },
+    "BarData": {
+      "definition": "OHLCV candlestick data point",
+      "attributes": ["timestamp", "open", "high", "low", "close", "volume", "pair_id"],
+      "relationships": {
+        "belongs_to": "Many-to-One with CurrencyPair",
+        "generates": "One-to-Many with Feature"
+      }
+    },
+    "Prediction": {
+      "definition": "Model output predicting future BQX values",
+      "attributes": ["prediction_time", "horizon", "predicted_value", "confidence", "model_id"],
+      "relationships": {
+        "made_by": "Many-to-One with Model",
+        "for_pair": "Many-to-One with CurrencyPair"
+      }
+    },
+    "Stage": {
+      "definition": "Project plan stage in AirTable",
+      "count": 70,
+      "attributes": ["stage_id", "name", "description", "score", "status"],
+      "relationships": {
+        "belongs_to": "Many-to-One with Phase",
+        "part_of": "Many-to-One with Plan"
+      }
+    },
+    "Phase": {
+      "definition": "Project plan phase grouping related stages",
+      "count": 11,
+      "attributes": ["phase_id", "name", "description", "score"],
+      "relationships": {
+        "contains": "One-to-Many with Stage",
+        "part_of": "Many-to-One with Plan"
+      }
+    }
+  },
+  "relationships": {
+    "hierarchical": {
+      "Plan": ["Phase", "Stage"],
+      "CurrencyPair": ["Model", "BarData", "Prediction"],
+      "Model": ["Prediction"]
+    },
+    "computational": {
+      "BarData → Feature": "Transformation and lag calculation",
+      "Feature → Model": "Training and prediction input",
+      "Model → Prediction": "Inference and output generation",
+      "Prediction → Validation": "Performance measurement"
+    }
+  },
+  "data_flow": {
+    "ingestion": "Market Data → BarData → BigQuery",
+    "processing": "BarData → Feature Engineering → Feature Tables",
+    "training": "Features + Targets → Model Training → Trained Model",
+    "prediction": "Latest Features → Inference → BQX Predictions",
+    "validation": "Predictions vs Actuals → Performance Metrics"
+  },
+  "storage_hierarchy": {
+    "BigQuery": {
+      "dataset": "bqx_ml",
+      "table_types": [
+        "regression_bqx_{pair}",
+        "lag_bqx_{pair}",
+        "regime_bqx_{pair}",
+        "agg_bqx_{pair}",
+        "align_bqx_{pair}"
+      ],
+      "total_tables": 1736
+    },
+    "Vertex_AI": {
+      "models": 140,
+      "structure": "28 pairs × 5 algorithms"
+    }
+  }
+}

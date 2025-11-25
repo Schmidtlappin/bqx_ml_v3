@@ -1,0 +1,231 @@
+{
+  "intelligence_system": {
+    "version": "1.0.0",
+    "created": "2025-11-25",
+    "last_updated": "2025-11-25",
+    "author": "BQXML Chief Engineer",
+    "purpose": "Comprehensive knowledge base for BQX ML V3 project",
+    "files": [
+      "context.json - Project context and infrastructure",
+      "semantics.json - Terminology and concept definitions",
+      "ontology.json - Entity relationships and data model",
+      "protocols.json - Development and operational procedures",
+      "constraints.json - Architectural and business constraints",
+      "workflows.json - End-to-end process workflows",
+      "mandates.json - Critical user mandates and requirements",
+      "metadata.json - Intelligence system metadata (this file)"
+    ]
+  },
+  "project_metadata": {
+    "name": "BQX ML V3",
+    "full_name": "BQX Machine Learning System Version 3.0",
+    "description": "28 independent machine learning models for forex momentum prediction",
+    "type": "Machine Learning / Financial Technology",
+    "domain": "Forex Trading / Quantitative Finance",
+    "methodology": "Supervised Learning / Time Series Prediction",
+    "technology_stack": {
+      "languages": ["Python 3.10+", "SQL", "Bash"],
+      "frameworks": ["scikit-learn", "XGBoost", "LightGBM", "TensorFlow", "PyTorch"],
+      "infrastructure": ["Google Cloud Platform", "BigQuery", "Vertex AI", "Cloud Run"],
+      "tools": ["AirTable", "GitHub", "Claude Code", "Docker"],
+      "monitoring": ["Grafana", "Prometheus", "Datadog"]
+    }
+  },
+  "repository_metadata": {
+    "platform": "GitHub",
+    "owner": "Schmidtlappin",
+    "repository": "bqx_ml_v3",
+    "url": "https://github.com/Schmidtlappin/bqx_ml_v3",
+    "visibility": "Private",
+    "default_branch": "main",
+    "created": "2024-11-24",
+    "latest_commit": "8091732",
+    "total_commits": 7,
+    "contributors": 1,
+    "lines_of_code": 23500,
+    "files": 76,
+    "directories": {
+      "docs": "35 documentation files",
+      "scripts": "33 Python/Bash scripts",
+      "src": "Source code (8 subdirectories)",
+      "tests": "Test suite (3 subdirectories)",
+      "intelligence": "7 intelligence JSON files",
+      "credentials": "Credentials (gitignored)",
+      ".secrets": "Secrets (gitignored)"
+    }
+  },
+  "planning_metadata": {
+    "project_management": "AirTable",
+    "project_id": "P03",
+    "base_id": "appR3PPnrNkVo48mO",
+    "hierarchy": {
+      "plan": 1,
+      "phases": 11,
+      "stages": 70
+    },
+    "status": {
+      "completion": "100%",
+      "stages_90plus": "100%",
+      "stages_95plus": "74.3%",
+      "gap_coverage": "100%"
+    },
+    "current_phase": "P03.02 - Intelligence Architecture",
+    "next_milestone": "Create 7 Intelligence JSON Files (S03.02.05)"
+  },
+  "data_metadata": {
+    "source": "Forex market data providers",
+    "frequency": "1-minute OHLCV bars",
+    "currency_pairs": 28,
+    "historical_period": "7+ years",
+    "data_warehouse": "BigQuery",
+    "dataset": "bqx_ml",
+    "tables": {
+      "total": 1736,
+      "per_pair": 62,
+      "types": ["regression", "lag", "regime", "agg", "align"]
+    },
+    "features": {
+      "price_features": "~100 per pair",
+      "bqx_features": "~180 per pair (NEW - includes lags)",
+      "technical_indicators": "~50 per pair",
+      "regime_features": "~20 per pair",
+      "total_per_pair": "~350 features"
+    }
+  },
+  "model_metadata": {
+    "architecture": "Independent Model per Currency Pair",
+    "total_models": 140,
+    "breakdown": "28 pairs × 5 algorithms",
+    "algorithms": [
+      {
+        "name": "RandomForest",
+        "type": "Ensemble",
+        "count": 28
+      },
+      {
+        "name": "XGBoost",
+        "type": "Gradient Boosting",
+        "count": 28
+      },
+      {
+        "name": "LightGBM",
+        "type": "Gradient Boosting",
+        "count": 28
+      },
+      {
+        "name": "LSTM",
+        "type": "Deep Learning",
+        "count": 28
+      },
+      {
+        "name": "GRU",
+        "type": "Deep Learning",
+        "count": 28
+      }
+    ],
+    "ensemble": "Weighted average based on recent performance",
+    "target": "BQX momentum values (bqx_ask, bqx_bid, bqx_mid)",
+    "training_frequency": "Weekly full retrain + daily fine-tuning",
+    "validation": "Time-series cross-validation (5 folds)"
+  },
+  "api_metadata": {
+    "rest_api": {
+      "framework": "FastAPI",
+      "deployment": "Cloud Run",
+      "authentication": "API Key + OAuth2",
+      "rate_limiting": "1000 requests/min per client",
+      "endpoints": [
+        "GET /predict/{pair}",
+        "POST /predict/batch",
+        "GET /health",
+        "GET /models/{pair}/info"
+      ]
+    },
+    "websocket_api": {
+      "protocol": "WebSocket",
+      "purpose": "Real-time streaming predictions",
+      "frequency": "Every 1-minute bar close",
+      "authentication": "Token-based"
+    }
+  },
+  "security_metadata": {
+    "secrets_management": {
+      "github_secrets": 4,
+      "gcp_secret_manager": true,
+      "rotation_policy": "Every 90 days"
+    },
+    "authentication": {
+      "gcp": "Service account (codespace-bqx-ml@bqx-ml.iam.gserviceaccount.com)",
+      "github": "Personal access token (Schmidtlappin)",
+      "api": "API keys + OAuth2"
+    },
+    "compliance": {
+      "standards": ["GDPR", "SOC2", "ISO27001"],
+      "encryption_at_rest": "AES-256",
+      "encryption_in_transit": "TLS 1.3",
+      "audit_logging": "Enabled for all operations"
+    }
+  },
+  "documentation_metadata": {
+    "types": {
+      "architecture": "System design and component interaction",
+      "api": "OpenAPI specifications for REST and WebSocket",
+      "user": "Usage guides and tutorials",
+      "developer": "Development setup and contribution guidelines",
+      "operational": "Deployment, monitoring, and maintenance"
+    },
+    "formats": ["Markdown", "JSON", "YAML", "OpenAPI"],
+    "location": "/docs directory",
+    "total_files": 35,
+    "total_lines": "~15,500 lines"
+  },
+  "testing_metadata": {
+    "framework": "pytest",
+    "coverage_target": "80%",
+    "test_types": {
+      "unit": "Individual function/class testing",
+      "integration": "Component interaction testing",
+      "validation": "End-to-end pipeline validation"
+    },
+    "ci_cd": "GitHub Actions",
+    "test_execution": "On every commit and PR"
+  },
+  "version_history": {
+    "v3.0.0": {
+      "date": "2025-11-25",
+      "status": "Development",
+      "features": [
+        "28 independent models",
+        "BQX paradigm shift (features + targets)",
+        "Interval-centric architecture",
+        "Complete AirTable integration",
+        "100% project plan coverage"
+      ]
+    },
+    "v2.0.0": {
+      "date": "2024",
+      "status": "Deprecated",
+      "notes": "Migrated from bqx-db monolithic approach"
+    }
+  },
+  "references": {
+    "key_documents": [
+      "/docs/PROJECT_PLAN_100_PERCENT_COMPLETE.md",
+      "/docs/WORKSPACE_AUDIT_AND_GAP_ANALYSIS.md",
+      "/docs/BQX_ML_V3_PIPELINE.md",
+      "/docs/BQX_ML_FEATURE_MATRIX.md",
+      "/docs/PARADIGM_SHIFT_UPDATE_20241124.md",
+      "/docs/SESSION_STATUS_REPORT.md"
+    ],
+    "scripts": [
+      "/scripts/gap_remediation_stages.py",
+      "/scripts/airtable_stage_loader_optimized.py",
+      "/scripts/setup_github_secrets.sh",
+      "/scripts/create_intelligence_files.py"
+    ],
+    "external_resources": [
+      "https://github.com/Schmidtlappin/bqx_ml_v3",
+      "AirTable Base: appR3PPnrNkVo48mO"
+    ]
+  }
+}

@@ -1,0 +1,120 @@
+{
+  "development": {
+    "git_workflow": {
+      "branching": "main (protected)",
+      "commits": "Conventional commits with Claude Code co-authorship",
+      "pull_requests": "Required for protected branches",
+      "code_review": "Automated + manual review"
+    },
+    "testing": {
+      "pre_commit": "Unit tests must pass",
+      "pre_push": "Integration tests must pass",
+      "pre_deploy": "Full test suite + validation",
+      "coverage": "Minimum 80%"
+    },
+    "documentation": {
+      "code": "Docstrings for all functions/classes",
+      "api": "OpenAPI specifications",
+      "architecture": "Markdown docs in /docs",
+      "changelog": "CHANGELOG.md maintained"
+    }
+  },
+  "data_pipeline": {
+    "ingestion": {
+      "frequency": "Real-time for 1-min bars",
+      "validation": "Schema and data quality checks",
+      "error_handling": "Retry with exponential backoff",
+      "monitoring": "Dataflow metrics and alerts"
+    },
+    "processing": {
+      "sequence": ["regression", "lag", "regime", "agg", "align"],
+      "parallelization": "Per currency pair",
+      "checkpointing": "After each stage completion",
+      "validation": "Row counts and value ranges"
+    },
+    "feature_engineering": {
+      "calculation": "Interval-centric (ROWS BETWEEN)",
+      "lag_periods": "1-60 bars",
+      "window_types": ["rolling", "expanding"],
+      "regime_detection": "Statistical + pattern-based"
+    }
+  },
+  "model_training": {
+    "workflow": {
+      "data_split": "80% train, 10% validation, 10% test",
+      "cross_validation": "Time-series split (5 folds)",
+      "hyperparameter_tuning": "Bayesian optimization",
+      "model_selection": "Best validation performance"
+    },
+    "training_schedule": {
+      "initial": "Full historical data",
+      "retraining": "Weekly with new data",
+      "incremental": "Daily fine-tuning"
+    },
+    "performance_monitoring": {
+      "metrics": ["MAE", "RMSE", "R²", "Sharpe Ratio"],
+      "drift_detection": "Continuous monitoring",
+      "alert_thresholds": "20% performance degradation"
+    }
+  },
+  "deployment": {
+    "model_versioning": {
+      "registry": "Vertex AI Model Registry",
+      "naming": "{pair}_{algorithm}_v{version}",
+      "metadata": "Training date, metrics, features"
+    },
+    "api_deployment": {
+      "rest": "Cloud Run containerized endpoints",
+      "websocket": "Real-time streaming predictions",
+      "authentication": "API key + OAuth2",
+      "rate_limiting": "1000 requests/min per client"
+    },
+    "monitoring": {
+      "infrastructure": ["uptime", "latency", "throughput"],
+      "model": ["drift", "accuracy", "confidence"],
+      "business": ["prediction count", "client usage"]
+    }
+  },
+  "security": {
+    "authentication": {
+      "gcp": "Service account with least privilege",
+      "github": "Personal access token with scoped permissions",
+      "api": "API keys + OAuth2 for production"
+    },
+    "secrets_management": {
+      "storage": "GitHub Secrets + GCP Secret Manager",
+      "rotation": "Every 90 days",
+      "access": "Logged and audited"
+    },
+    "data_protection": {
+      "encryption_at_rest": "AES-256",
+      "encryption_in_transit": "TLS 1.3",
+      "pii_handling": "No PII collected"
+    }
+  },
+  "project_management": {
+    "airtable_workflow": {
+      "plan_structure": "Plan → Phases → Stages",
+      "status_updates": "Real-time via API",
+      "scoring": "AI-assisted quality assessment",
+      "linking": "Complete hierarchical relationships"
+    },
+    "communication": {
+      "slack": "Automated notifications",
+      "email": "Weekly summary reports",
+      "dashboard": "Real-time metrics visualization"
+    }
+  },
+  "disaster_recovery": {
+    "backup": {
+      "frequency": "Daily automated backups",
+      "retention": "30 days rolling + yearly snapshots",
+      "validation": "Monthly restore tests"
+    },
+    "failover": {
+      "database": "Multi-region replication",
+      "compute": "Auto-scaling with health checks",
+      "dns": "Global load balancing"
+    }
+  }
+}
