@@ -1,0 +1,18 @@
+{
+  "total_tasks": 173,
+  "empty_descriptions": 1,
+  "minimal_descriptions": 0,
+  "short_descriptions": 0,
+  "normal_descriptions": 172,
+  "audit_mismatches": 1,
+  "mismatch_details": [
+    {
+      "task_id": "MP03.P07.S04.T01",
+      "name": "Isotonic regression to calibrate predictions",
+      "actual_length": 0,
+      "claimed_length": 222,
+      "score": 100,
+      "audit_snippet": "Score: 100\nDescription Status: Good (222 chars)\nEmpty Field Penalties: None\nIssues: None\nCode Blocks Found: 2\nNotes Character Count: 2345\nRemediation:"
+    }
+  ]
+}

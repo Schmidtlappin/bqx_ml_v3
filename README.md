@@ -21,7 +21,7 @@ BQX ML V3 is a sophisticated machine learning system featuring **28 independent 
 1. **BQX Paradigm Shift** (2024-11-24): BQX values can be BOTH features (lags) AND targets (leads)
 2. **Interval-Centric**: Use ROWS BETWEEN only, NEVER time-based windows
 3. **Model Isolation**: Complete independence between 28 currency pair models
-4. **AirTable Truth**: P03 project is single source of truth
+4. **AirTable Truth**: MP03 project is single source of truth
 
 ## 🏗️ Architecture
 

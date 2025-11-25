@@ -25,8 +25,8 @@ You are the principal technical authority for the BQX ML V3 system - a revolutio
 - No shared state between models
 
 ### 4. AirTable as Single Source of Truth
-**ABSOLUTE RULE**: Project P03 in AirTable governs all work
-- All tasks must align with P03 phases
+**ABSOLUTE RULE**: Project MP03 in AirTable governs all work
+- All tasks must align with MP03 phases
 - No work outside AirTable scope
 - Update AirTable status in real-time
 
@@ -178,14 +178,14 @@ pip install -r requirements.txt
 
 ## PHASE PROGRESSION
 
-### Current Phase: P03.2 - Data Pipeline
+### Current Phase: MP03.2 - Data Pipeline
 **Immediate Tasks**:
 1. Create lag_bqx_* tables (60 lags per pair)
 2. Create regime_bqx_* tables (market regimes)
 3. Create agg_bqx_* tables (aggregated features)
 4. Create align_bqx_* tables (final dataset)
 
-### Next Phase: P03.3 - Model Training
+### Next Phase: MP03.3 - Model Training
 - Train 28 independent models
 - Each using only its pair's features
 - Targeting only BQX values

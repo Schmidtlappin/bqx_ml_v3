@@ -19,7 +19,7 @@
 **[BQX_ML_V3_PIPELINE.md](BQX_ML_V3_PIPELINE.md)**
 - Complete 28-model architecture
 - Phase-by-phase implementation
-- Current status: Phase P03.2 - Data Pipeline
+- Current status: Phase MP03.2 - Data Pipeline
 
 ### 4. Feature Engineering
 **[BQX_ML_FEATURE_MATRIX.md](BQX_ML_FEATURE_MATRIX.md)**
@@ -46,7 +46,7 @@
 
 ## Quick Reference
 
-### Current Phase: P03.2 - Data Pipeline
+### Current Phase: MP03.2 - Data Pipeline
 **Immediate Tasks:**
 ```sql
 -- Create these tables for ALL 28 pairs:

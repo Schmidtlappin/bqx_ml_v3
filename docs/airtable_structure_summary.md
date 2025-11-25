@@ -11,7 +11,7 @@
 
 | Field Name | Type | Description |
 |------------|------|-------------|
-| plan_id | singleLineText | Unique plan identifier using hierarchical format. Format: P## (e.g., P01, P02). Sequential numbering for each plan. Example: P01 |
+| plan_id | singleLineText | Unique plan identifier using hierarchical format. Format: P## (e.g., MP01, P02). Sequential numbering for each plan. Example: MP01 |
 | name | singleLineText | Concise, actionable title describing WHAT needs to be done. Write 5-10 word action-oriented title. Start with verb. Be specific. Example: Configure BigQuery Dataset for EUR/USD Data |
 | description | richText | Detailed explanation of WHY this matters, HOW to approach it, and success criteria. Include: 1) Context and objectives, 2) Technical approach, 3) Success metrics. Use 2-5 sentences. Example: Set up partitioned BigQuery tables for EUR/USD 1-minute OHLCV data. Configure daily partitioning on timestamp field for query efficiency. Success: Tables created with proper schemas, <100ms query performance. |
 | status | singleSelect | Current execution status of the work item. Select from: Not Started | In Progress | Completed | Blocked | Cancelled Example: In Progress |
@@ -40,7 +40,7 @@
 
 | Field Name | Type | Description |
 |------------|------|-------------|
-| phase_id | singleLineText | Unique phase identifier with plan reference. Format: P##.## (e.g., P01.01). First part is plan, second is phase number. Example: P01.03 |
+| phase_id | singleLineText | Unique phase identifier with plan reference. Format: P##.## (e.g., MP01.01). First part is plan, second is phase number. Example: MP01.03 |
 | status | singleSelect | Current execution status of the work item. Select from: Not Started | In Progress | Completed | Blocked | Cancelled Example: In Progress |
 | name | singleLineText | Concise, actionable title describing WHAT needs to be done. Write 5-10 word action-oriented title. Start with verb. Be specific. Example: Configure BigQuery Dataset for EUR/USD Data |
 | description | richText | Detailed explanation of WHY this matters, HOW to approach it, and success criteria. Include: 1) Context and objectives, 2) Technical approach, 3) Success metrics. Use 2-5 sentences. Example: Set up partitioned BigQuery tables for EUR/USD 1-minute OHLCV data. Configure daily partitioning on timestamp field for query efficiency. Success: Tables created with proper schemas, <100ms query performance. |

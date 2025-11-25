@@ -190,7 +190,7 @@ def complete_task(record_id, result, progress_percent):
 complete_task(task['id'], "BigQuery dataset created successfully", 100)
 ```
 
-## 📊 TASK TEMPLATES FOR P03.2
+## 📊 TASK TEMPLATES FOR MP03.2
 
 ### Pre-loaded Tasks for AirTable
 ```python
@@ -266,7 +266,7 @@ subprocess.run(['bash', 'setup_github_secrets.sh'], check=True)
 ```python
 def calculate_phase_progress():
     """
-    P03.2 has 112 tables total:
+    MP03.2 has 112 tables total:
     - 28 lag tables
     - 28 regime tables
     - 28 aggregation tables

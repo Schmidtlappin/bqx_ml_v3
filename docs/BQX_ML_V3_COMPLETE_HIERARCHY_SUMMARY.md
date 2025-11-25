@@ -5,7 +5,7 @@
 
 ## 📊 PROJECT OVERVIEW
 
-**Project**: P03 - BQX ML V3 Ground-Up Implementation
+**Project**: MP03 - BQX ML V3 Ground-Up Implementation
 **Duration**: 75 days
 **Budget**: $5,000
 **Expected Score**: 95-100 on all records
@@ -125,7 +125,7 @@ Each stage contains 3-6 tasks, for example:
 3. **Tasks Third** - Need to create task loader
 
 ### Pre-Upload Checklist:
-- [x] P03 Plan exists in AirTable
+- [x] MP03 Plan exists in AirTable
 - [x] All metadata requirements understood
 - [x] Scoring criteria documented
 - [x] Phase records optimized for 95+ scores

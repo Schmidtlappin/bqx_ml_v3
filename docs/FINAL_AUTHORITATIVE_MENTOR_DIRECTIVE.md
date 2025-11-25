@@ -108,7 +108,7 @@ Complete feature set per table:
 ### 6️⃣ DELETED DOCUMENT - DEFINITIVE ANSWER
 **NO RECOVERY NEEDED**
 
-The AWS sanitization was correct. The document referenced AWS services which are deprecated. Focus on pure GCP implementation. Parallel work streams are defined in AirTable P03.
+The AWS sanitization was correct. The document referenced AWS services which are deprecated. Focus on pure GCP implementation. Parallel work streams are defined in AirTable MP03.
 
 ### 7️⃣ CLOUD STORAGE - DEFINITIVE ANSWER
 **CREATE IMMEDIATELY WITH AUTOMATION**

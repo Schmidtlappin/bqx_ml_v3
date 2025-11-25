@@ -98,7 +98,7 @@ gsutil mb -p bqx-ml -c STANDARD -l us-east1 gs://bqx-ml-experiments/
 ## 7️⃣ PROJECT MANAGEMENT
 
 ### AirTable Setup:
-**Q7.1**: NO - The structure exists in P03. Just update progress.
+**Q7.1**: NO - The structure exists in MP03. Just update progress.
 **Q7.2**: Use the API key from secrets file (pat9wRDiRC8Fen7CO...)
 **Q7.3**: Workers: "Claude", "Michael", "System" (for automated tasks)
 
@@ -152,7 +152,7 @@ gsutil mb -p bqx-ml -c STANDARD -l us-east1 gs://bqx-ml-experiments/
 # Hour 4-5: Create lag_bqx_* for cross pairs (21 pairs)
 # Hour 6: Create regime_bqx_eurusd with trend/volatility
 # Hour 7: Deploy GitHub secrets (if time permits)
-# Hour 8: Update AirTable P03.2 progress to 10%
+# Hour 8: Update AirTable MP03.2 progress to 10%
 ```
 
 ### CRITICAL INSTRUCTION

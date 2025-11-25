@@ -9,7 +9,7 @@
 ### Strengths Identified
 1. **Documentation Ingestion**: Successfully ingested `/docs` and `/.secrets` directories
 2. **Paradigm Awareness**: Showing understanding of BQX values as targets (not features)
-3. **AirTable Tracking**: Referencing P03 project appropriately
+3. **AirTable Tracking**: Referencing MP03 project appropriately
 4. **Todo Management**: Using TodoWrite tool effectively (6 recent uses)
 5. **Security Focus**: Working on GitHub secrets deployment
 
@@ -17,7 +17,7 @@
 
 ### 1. Task Prioritization
 **Current Focus**: GitHub secrets and GCP migration
-**REQUIRED Focus**: Phase P03.2 Data Pipeline tasks
+**REQUIRED Focus**: Phase MP03.2 Data Pipeline tasks
 
 You have 3 tasks in progress but they're administrative. The CRITICAL work is:
 ```sql
@@ -53,7 +53,7 @@ cd /home/micha/bqx_ml_v3/.secrets
 gh secret list --repo Schmidtlappin/bqx_ml_v3
 ```
 
-### Priority 2: Start Phase P03.2 Data Pipeline (MAIN WORK)
+### Priority 2: Start Phase MP03.2 Data Pipeline (MAIN WORK)
 ```python
 # Start with lag_bqx_* tables
 import pandas as pd
@@ -99,7 +99,7 @@ todos = [
     {"content": "Create regime_bqx_* tables for all 28 pairs", "status": "pending"},
     {"content": "Create agg_bqx_* tables for all 28 pairs", "status": "pending"},
     {"content": "Create align_bqx_* tables for all 28 pairs", "status": "pending"},
-    {"content": "Update AirTable P03.2 progress", "status": "pending"}
+    {"content": "Update AirTable MP03.2 progress", "status": "pending"}
 ]
 ```
 
@@ -132,7 +132,7 @@ AVG(close) OVER (
 
 ### For Your Questions Preparation
 Focus questions on:
-1. Expected completion timeline for P03.2
+1. Expected completion timeline for MP03.2
 2. Specific aggregation features needed
 3. Market regime definitions required
 4. Validation metrics for each phase
@@ -172,7 +172,7 @@ Contact immediately if:
 You're doing well with administrative tasks, but remember: **The pipeline is the priority!**
 - GitHub secrets can wait if needed
 - GCP migration is already complete (per docs)
-- Focus on the 4 table types for Phase P03.2
+- Focus on the 4 table types for Phase MP03.2
 
 Every day without progress on the pipeline delays the entire V3 launch.
 

@@ -120,7 +120,7 @@ Defines the vocabulary, terminology, and meaning of domain-specific concepts.
     "GCP": "Google Cloud Platform",
     "ML": "Machine Learning",
     "V3": "Version 3",
-    "P03": "Project 03 in AirTable"
+    "MP03": "Project 03 in AirTable"
   },
   "data_types": {
     "price": "FLOAT64",
