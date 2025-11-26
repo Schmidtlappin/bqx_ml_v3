@@ -1,0 +1,33 @@
+{
+  "active_messages": {
+    "20251126_2203_CE-to-BA_critical_questions_response": {
+      "sender": "CE",
+      "receiver": "BA",
+      "subject": "critical_questions_response",
+      "priority": "HIGH",
+      "type": "RESPONSE",
+      "timestamp": "2025-11-26T22:03:00Z",
+      "status": "DELIVERED",
+      "thread_id": null,
+      "location": "communications/20251126_2203_CE-to-BA_critical_questions_response.md"
+    }
+  },
+  "active_threads": {},
+  "pending_responses": {},
+  "statistics": {
+    "total_messages_today": 1,
+    "unread_by_agent": {
+      "CE": 0,
+      "BA": 1,
+      "TA": 0,
+      "MA": 0,
+      "USER": 0
+    },
+    "escalations_open": 0
+  },
+  "index_metadata": {
+    "last_updated": "2025-11-26T22:30:00Z",
+    "version": "1.0",
+    "update_frequency": "On every new message"
+  }
+}

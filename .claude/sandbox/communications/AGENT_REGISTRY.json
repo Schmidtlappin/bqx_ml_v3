@@ -1,0 +1,85 @@
+{
+  "agent_registry": {
+    "CE": {
+      "full_name": "Chief Engineer",
+      "agent_id": "CE",
+      "role": "Project oversight and technical decisions",
+      "active": true,
+      "inbox_filter": ["*-to-CE_*", "*-to-ALL_*"],
+      "primary_contact": "Claude (BQX ML V3)",
+      "monitoring_pattern": "CE|ALL",
+      "response_sla_hours": {
+        "URGENT": 1,
+        "HIGH": 4,
+        "NORMAL": 24,
+        "LOW": 48
+      }
+    },
+    "BA": {
+      "full_name": "Builder Agent",
+      "agent_id": "BA",
+      "role": "Execute real implementation of all tasks",
+      "active": true,
+      "inbox_filter": ["*-to-BA_*", "*-to-ALL_*"],
+      "primary_contact": "Builder Agent Instance",
+      "monitoring_pattern": "BA|ALL",
+      "response_sla_hours": {
+        "URGENT": 1,
+        "HIGH": 4,
+        "NORMAL": 24,
+        "LOW": 48
+      }
+    },
+    "TA": {
+      "full_name": "Test Agent",
+      "agent_id": "TA",
+      "role": "Validate implementations and quality gates",
+      "active": false,
+      "inbox_filter": ["*-to-TA_*", "*-to-ALL_*"],
+      "primary_contact": "Test Agent Instance",
+      "monitoring_pattern": "TA|ALL",
+      "response_sla_hours": {
+        "URGENT": 2,
+        "HIGH": 6,
+        "NORMAL": 24,
+        "LOW": 48
+      }
+    },
+    "MA": {
+      "full_name": "Monitoring Agent",
+      "agent_id": "MA",
+      "role": "Monitor system health and performance",
+      "active": false,
+      "inbox_filter": ["*-to-MA_*", "*-to-ALL_*"],
+      "primary_contact": "Monitoring Agent Instance",
+      "monitoring_pattern": "MA|ALL",
+      "response_sla_hours": {
+        "URGENT": 0.5,
+        "HIGH": 2,
+        "NORMAL": 12,
+        "LOW": 24
+      }
+    },
+    "USER": {
+      "full_name": "Human User",
+      "agent_id": "USER",
+      "role": "Project owner and final authority",
+      "active": true,
+      "inbox_filter": ["*-to-USER_*"],
+      "primary_contact": "Project Owner",
+      "monitoring_pattern": "USER",
+      "response_sla_hours": {
+        "URGENT": "As available",
+        "HIGH": "As available",
+        "NORMAL": "As available",
+        "LOW": "As available"
+      }
+    }
+  },
+  "registry_metadata": {
+    "version": "1.0",
+    "last_updated": "2025-11-26T22:25:00Z",
+    "maintained_by": "Chief Engineer",
+    "update_protocol": "Update when new agents added or status changes"
+  }
+}

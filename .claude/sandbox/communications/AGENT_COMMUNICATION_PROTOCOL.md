@@ -2,8 +2,44 @@
 
 **Document Type**: Communication Standards & Guidelines
 **Date**: November 26, 2025
-**Version**: 1.0
+**Version**: 2.0
 **Location**: `/home/micha/bqx_ml_v3/.claude/sandbox/communications/`
+
+---
+
+## 🤖 AGENT IDENTIFICATION & DISCOVERY
+
+### How to Know You're the Recipient
+
+Each agent must:
+1. **Check AGENT_REGISTRY.json** to confirm your agent_id
+2. **Monitor files matching your inbox_filter patterns**
+3. **Look for messages containing**:
+   - Your agent_id in the RECEIVER position (`*-to-[YOUR_ID]_*`)
+   - "ALL" in the RECEIVER position (`*-to-ALL_*`)
+
+### Self-Identification Protocol
+
+When starting a session, each agent must:
+```python
+# 1. Load agent registry
+import json
+with open('.claude/sandbox/communications/AGENT_REGISTRY.json') as f:
+    registry = json.load(f)
+
+# 2. Identify yourself
+MY_AGENT_ID = "CE"  # or "BA", "TA", etc. based on your role
+
+# 3. Get your inbox pattern
+my_info = registry['agent_registry'][MY_AGENT_ID]
+inbox_patterns = my_info['inbox_filter']
+
+# 4. Monitor for messages
+import glob
+for pattern in inbox_patterns:
+    messages = glob.glob(f'communications/active/{pattern}')
+    # Process messages directed to you
+```
 
 ---
 
@@ -45,7 +81,9 @@ YYYYMMDD_HHMM_[SENDER]-to-[RECEIVER]_[subject_brief].md
 
 ```
 /home/micha/bqx_ml_v3/.claude/sandbox/communications/
-├── AGENT_COMMUNICATION_PROTOCOL.md     # This document
+├── AGENT_COMMUNICATION_PROTOCOL.md     # This document (v2.0)
+├── AGENT_REGISTRY.json                 # Agent identification registry
+├── MESSAGE_INDEX.json                  # Active message index
 ├── active/                              # Current ongoing conversations
 │   └── [timestamped messages]
 ├── archive/                            # Completed conversations
@@ -53,8 +91,15 @@ YYYYMMDD_HHMM_[SENDER]-to-[RECEIVER]_[subject_brief].md
 │       └── [timestamped messages]
 ├── escalations/                        # Priority escalations
 │   └── [timestamped urgent messages]
-└── broadcasts/                         # All-agent announcements
-    └── [timestamped broadcasts]
+├── broadcasts/                         # All-agent announcements
+│   └── [timestamped broadcasts]
+└── inboxes/                            # Agent-specific message tracking
+    ├── CE/                             # Chief Engineer inbox
+    │   └── unread.json                # Unread message tracker
+    ├── BA/                             # Builder Agent inbox
+    │   └── unread.json
+    └── [AGENT_ID]/                    # Other agent inboxes
+        └── unread.json
 ```
 
 ---
@@ -105,6 +150,65 @@ Every agent communication must follow this structure:
 **Message ID**: [YYYYMMDD_HHMM_SENDER_RECEIVER]
 **Thread ID**: [If part of ongoing conversation]
 ```
+
+---
+
+## 📡 MESSAGE MONITORING PROTOCOL
+
+### Agent Polling Strategy
+
+Each agent should implement this monitoring approach:
+
+```python
+import os
+import json
+import glob
+from datetime import datetime
+
+class AgentMessageMonitor:
+    def __init__(self, agent_id):
+        self.agent_id = agent_id
+        self.comms_dir = "/home/micha/bqx_ml_v3/.claude/sandbox/communications"
+        self.inbox_file = f"{self.comms_dir}/inboxes/{agent_id}/unread.json"
+
+    def check_for_messages(self):
+        """Check for new messages directed to this agent"""
+        # Load registry to get inbox patterns
+        with open(f'{self.comms_dir}/AGENT_REGISTRY.json') as f:
+            registry = json.load(f)
+
+        patterns = registry['agent_registry'][self.agent_id]['inbox_filter']
+        new_messages = []
+
+        # Check active directory for matching messages
+        for pattern in patterns:
+            messages = glob.glob(f'{self.comms_dir}/active/{pattern}')
+            new_messages.extend(messages)
+
+        # Check escalations if urgent
+        escalations = glob.glob(f'{self.comms_dir}/escalations/*-to-{self.agent_id}_*')
+        new_messages.extend(escalations)
+
+        return new_messages
+
+    def mark_as_read(self, message_path):
+        """Mark a message as read in the tracking system"""
+        # Update unread.json to track read status
+        pass
+
+# Example usage for Builder Agent
+monitor = AgentMessageMonitor("BA")
+my_messages = monitor.check_for_messages()
+for msg in my_messages:
+    print(f"New message for me: {msg}")
+```
+
+### Message Discovery Rules
+
+1. **On Session Start**: Check for unread messages immediately
+2. **During Work**: Poll every 15 minutes for normal operations
+3. **For Escalations**: Check escalations folder every 5 minutes
+4. **Broadcast Awareness**: Always check broadcasts at session start
 
 ---
 
@@ -284,6 +388,29 @@ This protocol is version controlled. Suggested improvements should be:
 **Protocol Effective Date**: November 26, 2025
 **Next Review Date**: December 26, 2025
 **Owner**: Chief Engineer
+**Version**: 2.0 (Enhanced with agent identification)
+
+---
+
+## 🎯 QUICK AGENT IDENTIFICATION GUIDE
+
+### "How Do I Know Which Messages Are For Me?"
+
+1. **Identify yourself** - Know your agent_id (CE, BA, TA, MA, or USER)
+
+2. **Check your inbox**:
+   ```bash
+   cat communications/inboxes/[YOUR_ID]/unread.json
+   ```
+
+3. **Look for your patterns**:
+   - Messages TO you: `*-to-[YOUR_ID]_*.md`
+   - Broadcasts: `*-to-ALL_*.md`
+
+4. **Quick scan for Builder Agent (BA)**:
+   ```bash
+   ls communications/active/*-to-BA_* communications/active/*-to-ALL_*
+   ```
 
 ---
 

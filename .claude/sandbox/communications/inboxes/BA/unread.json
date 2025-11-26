@@ -1,0 +1,13 @@
+{
+  "agent_id": "BA",
+  "unread_messages": [
+    {
+      "message_id": "20251126_2203_CE-to-BA_critical_questions_response",
+      "sender": "CE",
+      "priority": "HIGH",
+      "received": "2025-11-26T22:03:00Z",
+      "location": "communications/20251126_2203_CE-to-BA_critical_questions_response.md"
+    }
+  ],
+  "last_checked": null
+}
