@@ -1,0 +1,757 @@
+{
+  "total_tasks": 125,
+  "batch_size": 10,
+  "total_batches": 13,
+  "tasks": [
+    {
+      "id": "MP03.P02.S02.T03",
+      "name": "Test and validate document paradigm alignment and requiremen",
+      "priority": "High",
+      "status": "Todo"
+    },
+    {
+      "id": "MP03.P02.S03.T02",
+      "name": "Configure monitoring and alerting systems",
+      "priority": "High",
+      "status": "Todo"
+    },
+    {
+      "id": "MP03.P02.S05.T01",
+      "name": "Design intelligence file schema and structure",
+      "priority": "High",
+      "status": "Todo"
+    },
+    {
+      "id": "MP03.P02.S03.T01",
+      "name": "Train TFT on EURUSD, GBPUSD, USDJPY, AUDUSD first",
+      "priority": "High",
+      "status": "Todo"
+    },
+    {
+      "id": "MP03.P02.S04.T03",
+      "name": "Test and validate establish baseline metrics and assessments",
+      "priority": "High",
+      "status": "Todo"
+    },
+    {
+      "id": "MP03.P02.S06.T02",
+      "name": "Implement intelligence file generation scripts",
+      "priority": "High",
+      "status": "Todo"
+    },
+    {
+      "id": "MP03.P02.S06.T01",
+      "name": "Design intelligence file schema and structure",
+      "priority": "High",
+      "status": "Todo"
+    },
+    {
+      "id": "MP03.P02.S04.T01",
+      "name": "Use Vertex AI Vizier for Bayesian optimization ",
+      "priority": "High",
+      "status": "Todo"
+    },
+    {
+      "id": "MP03.P02.S01.T02",
+      "name": "Implement core functionality for train-validation-test split",
+      "priority": "High",
+      "status": "Todo"
+    },
+    {
+      "id": "MP03.P02.S02.T02",
+      "name": "Implement core functionality for document paradigm alignment",
+      "priority": "High",
+      "status": "Todo"
+    },
+    {
+      "id": "MP03.P02.S01.T03",
+      "name": "Test and validate train-validation-test split",
+      "priority": "High",
+      "status": "Todo"
+    },
+    {
+      "id": "MP03.P02.S07.T02",
+      "name": "Implement intelligence file generation scripts",
+      "priority": "High",
+      "status": "Todo"
+    },
+    {
+      "id": "MP03.P02.S05.T02",
+      "name": "Implement intelligence file generation scripts",
+      "priority": "High",
+      "status": "Todo"
+    },
+    {
+      "id": "MP03.P02.S02.T01",
+      "name": "Complete: Save models and log metrics",
+      "priority": "High",
+      "status": "Todo"
+    },
+    {
+      "id": "MP03.P02.S06.T03",
+      "name": "Create intelligence validation and testing framework",
+      "priority": "High",
+      "status": "Todo"
+    },
+    {
+      "id": "MP03.P02.S05.T03",
+      "name": "Create intelligence validation and testing framework",
+      "priority": "High",
+      "status": "Todo"
+    },
+    {
+      "id": "MP03.P03.S07.T01",
+      "name": "Retrain production models using selected optima",
+      "priority": "Critical",
+      "status": "Todo"
+    },
+    {
+      "id": "MP03.P03.S03.T01",
+      "name": "28\u00d77 matrix of R2 scores for all pair-window co",
+      "priority": "High",
+      "status": "Todo"
+    },
+    {
+      "id": "MP03.P03.S03.T03",
+      "name": "Test and validate create implementation plan and timelines",
+      "priority": "High",
+      "status": "Todo"
+    },
+    {
+      "id": "MP03.P03.S04.T01",
+      "name": "Visualizations of cumulative returns for all 28",
+      "priority": "Medium",
+      "status": "Todo"
+    },
+    {
+      "id": "MP03.P03.S06.T01",
+      "name": "Train LightGBM with cross-validation",
+      "priority": "Medium",
+      "status": "Todo"
+    },
+    {
+      "id": "MP03.P04.S05.T01",
+      "name": "Decide per-pair whether to deploy ensemble or s",
+      "priority": "Critical",
+      "status": "Todo"
+    },
+    {
+      "id": "MP03.P04.S06.T02",
+      "name": "Configure monitoring and alerting systems",
+      "priority": "High",
+      "status": "Todo"
+    },
+    {
+      "id": "MP03.P04.S03.T02",
+      "name": "Create data quality monitoring system",
+      "priority": "High",
+      "status": "Todo"
+    },
+    {
+      "id": "MP03.P04.S03.T01",
+      "name": "Features from Bid/Ask spread data: current spre",
+      "priority": "High",
+      "status": "Todo"
+    },
+    {
+      "id": "MP03.P04.S04.T02",
+      "name": "Create data quality monitoring system",
+      "priority": "High",
+      "status": "Todo"
+    },
+    {
+      "id": "MP03.P04.S04.T01",
+      "name": "Train ensemble model",
+      "priority": "High",
+      "status": "Todo"
+    },
+    {
+      "id": "MP03.P04.S02.T02",
+      "name": "Implement core functionality for set up vertex ai environmen",
+      "priority": "High",
+      "status": "Todo"
+    },
+    {
+      "id": "MP03.P05.S07.T01",
+      "name": "Generate PDF report with model validation metrics, feature i",
+      "priority": "Critical",
+      "status": "Todo"
+    },
+    {
+      "id": "MP03.P05.S01.T03",
+      "name": "Test and validate hyperparameter optimization",
+      "priority": "High",
+      "status": "Todo"
+    },
+    {
+      "id": "MP03.P05.S04.T02",
+      "name": "Create data quality monitoring system",
+      "priority": "High",
+      "status": "Todo"
+    },
+    {
+      "id": "MP03.P05.S06.T02",
+      "name": "Create data quality monitoring system",
+      "priority": "High",
+      "status": "Todo"
+    },
+    {
+      "id": "MP03.P05.S02.T02",
+      "name": "Create data quality monitoring system",
+      "priority": "High",
+      "status": "Todo"
+    },
+    {
+      "id": "MP03.P05.S01.T02",
+      "name": "Create data quality monitoring system",
+      "priority": "High",
+      "status": "Todo"
+    },
+    {
+      "id": "MP03.P05.S05.T01",
+      "name": "Implement data ingestion pipeline",
+      "priority": "High",
+      "status": "Todo"
+    },
+    {
+      "id": "MP03.P05.S04.T01",
+      "name": "Evaluate all models across 4 market regimes",
+      "priority": "High",
+      "status": "Todo"
+    },
+    {
+      "id": "MP03.P05.S03.T01",
+      "name": "Complete: Implement trend_strength metric",
+      "priority": "Medium",
+      "status": "Todo"
+    },
+    {
+      "id": "MP03.P05.S06.T01",
+      "name": "Tune LightGBM hyperparameters with Optuna",
+      "priority": "Medium",
+      "status": "Todo"
+    },
+    {
+      "id": "MP03.P06.S08.T03",
+      "name": "Validate no future data",
+      "priority": "High",
+      "status": "Todo"
+    },
+    {
+      "id": "MP03.P06.S07.T01",
+      "name": "Calculate single-interval velocity",
+      "priority": "High",
+      "status": "Todo"
+    },
+    {
+      "id": "MP03.P06.S06.T02",
+      "name": "Configure monitoring and alerting systems",
+      "priority": "High",
+      "status": "Todo"
+    },
+    {
+      "id": "MP03.P06.S05.T03",
+      "name": "Test and validate implement bqx paradigm feature generation ",
+      "priority": "High",
+      "status": "Todo"
+    },
+    {
+      "id": "MP03.P06.S03.T01",
+      "name": "Design and plan create lag and window features",
+      "priority": "High",
+      "status": "Todo"
+    },
+    {
+      "id": "MP03.P06.S04.T02",
+      "name": "Implement core functionality for build feature store and ser",
+      "priority": "High",
+      "status": "Todo"
+    },
+    {
+      "id": "MP03.P06.S04.T03",
+      "name": "Test and validate build feature store and serving layer",
+      "priority": "High",
+      "status": "Todo"
+    },
+    {
+      "id": "MP03.P06.S04.T01",
+      "name": "Design and plan build feature store and serving layer",
+      "priority": "High",
+      "status": "Todo"
+    },
+    {
+      "id": "MP03.P06.S08.T01",
+      "name": "Implement temporal isolation",
+      "priority": "High",
+      "status": "Todo"
+    },
+    {
+      "id": "MP03.P06.S03.T03",
+      "name": "Test and validate create lag and window features",
+      "priority": "High",
+      "status": "Todo"
+    },
+    {
+      "id": "MP03.P06.S07.T03",
+      "name": "Compute acceleration derivatives",
+      "priority": "High",
+      "status": "Todo"
+    },
+    {
+      "id": "MP03.P06.S05.T01",
+      "name": "Design and plan implement bqx paradigm feature generation co",
+      "priority": "High",
+      "status": "Todo"
+    },
+    {
+      "id": "MP03.P06.S08.T04",
+      "name": "Build leakage detection tests",
+      "priority": "High",
+      "status": "Todo"
+    },
+    {
+      "id": "MP03.P06.S07.T04",
+      "name": "Generate reversal signals",
+      "priority": "High",
+      "status": "Todo"
+    },
+    {
+      "id": "MP03.P06.S01.T03",
+      "name": "Test and validate engineer core ohlcv features for all pairs",
+      "priority": "High",
+      "status": "Todo"
+    },
+    {
+      "id": "MP03.P06.S02.T01",
+      "name": "Design and plan implement bqx paradigm transformations",
+      "priority": "High",
+      "status": "Todo"
+    },
+    {
+      "id": "MP03.P06.S03.T02",
+      "name": "Implement core functionality for create lag and window featu",
+      "priority": "High",
+      "status": "Todo"
+    },
+    {
+      "id": "MP03.P06.S02.T03",
+      "name": "Test and validate implement bqx paradigm transformations",
+      "priority": "High",
+      "status": "Todo"
+    },
+    {
+      "id": "MP03.P06.S07.T02",
+      "name": "Calculate multi-interval velocities",
+      "priority": "High",
+      "status": "Todo"
+    },
+    {
+      "id": "MP03.P06.S06.T01",
+      "name": "Provision cloud infrastructure resources",
+      "priority": "High",
+      "status": "Todo"
+    },
+    {
+      "id": "MP03.P07.S01.T01",
+      "name": "Gap between train/test to prevent leakage",
+      "priority": "Critical",
+      "status": "Todo"
+    },
+    {
+      "id": "MP03.P07.S02.T03",
+      "name": "Test and validate create macro and sentiment features",
+      "priority": "High",
+      "status": "Todo"
+    },
+    {
+      "id": "MP03.P07.S03.T02",
+      "name": "Implement core functionality for implement advanced feature ",
+      "priority": "High",
+      "status": "Todo"
+    },
+    {
+      "id": "MP03.P07.S02.T01",
+      "name": "Fit StandaCloud SQLcaler on training set features",
+      "priority": "High",
+      "status": "Todo"
+    },
+    {
+      "id": "MP03.P07.S03.T01",
+      "name": "Implement purged cross-validation to prevent temporal data l",
+      "priority": "High",
+      "status": "Todo"
+    },
+    {
+      "id": "MP03.P07.S05.T04",
+      "name": "Naming convention validation",
+      "priority": "High",
+      "status": "Todo"
+    },
+    {
+      "id": "MP03.P07.S05.T01",
+      "name": "SQL validation for ROWS BETWEEN",
+      "priority": "High",
+      "status": "Todo"
+    },
+    {
+      "id": "MP03.P07.S03.T05",
+      "name": "Implement Hyperparameter Tuning Framework",
+      "priority": "High",
+      "status": "Todo"
+    },
+    {
+      "id": "MP03.P07.S05.T03",
+      "name": "Gap consistency validation",
+      "priority": "High",
+      "status": "Todo"
+    },
+    {
+      "id": "MP03.P07.S01.T02",
+      "name": "Develop model evaluation and validation framework",
+      "priority": "High",
+      "status": "Todo"
+    },
+    {
+      "id": "MP03.P07.S04.T01",
+      "name": "Isotonic regression to calibrate predictions",
+      "priority": "High",
+      "status": "Todo"
+    },
+    {
+      "id": "MP03.P07.S03.T06",
+      "name": "Configure Grid Search for Model Parameters",
+      "priority": "Medium",
+      "status": "Todo"
+    },
+    {
+      "id": "MP03.P08.S02.T02",
+      "name": "Implement core functionality for perform hyperparameter opti",
+      "priority": "High",
+      "status": "Todo"
+    },
+    {
+      "id": "MP03.P08.S03.T02",
+      "name": "Develop model evaluation and validation framework",
+      "priority": "High",
+      "status": "Todo"
+    },
+    {
+      "id": "MP03.P08.S04.T01",
+      "name": "Implement model training pipeline",
+      "priority": "High",
+      "status": "Todo"
+    },
+    {
+      "id": "MP03.P08.S05.T02",
+      "name": "Implement core functionality for optimize inference performa",
+      "priority": "High",
+      "status": "Todo"
+    },
+    {
+      "id": "MP03.P08.S01.T02",
+      "name": "Develop model evaluation and validation framework",
+      "priority": "High",
+      "status": "Todo"
+    },
+    {
+      "id": "MP03.P08.S04.T02",
+      "name": "Develop model evaluation and validation framework",
+      "priority": "High",
+      "status": "Todo"
+    },
+    {
+      "id": "MP03.P08.S06.T01",
+      "name": "Implement model training pipeline",
+      "priority": "High",
+      "status": "Todo"
+    },
+    {
+      "id": "MP03.P08.S02.T01",
+      "name": "Check residuals for: autocorrelation, heterosce",
+      "priority": "High",
+      "status": "Todo"
+    },
+    {
+      "id": "MP03.P08.S05.T01",
+      "name": "Design and plan optimize inference performance",
+      "priority": "High",
+      "status": "Todo"
+    },
+    {
+      "id": "MP03.P08.S07.T01",
+      "name": "Implement model training pipeline",
+      "priority": "High",
+      "status": "Todo"
+    },
+    {
+      "id": "MP03.P08.S03.T93",
+      "name": "Implement Residual Analysis for Model Diagnostics",
+      "priority": "Medium",
+      "status": "Todo"
+    },
+    {
+      "id": "MP03.P08.S02.T94",
+      "name": "Implement Confusion Matrix for Directional Predictions",
+      "priority": "Medium",
+      "status": "Todo"
+    },
+    {
+      "id": "MP03.P08.S03.T01",
+      "name": "Identify conditions causing largest errors",
+      "priority": "Medium",
+      "status": "Todo"
+    },
+    {
+      "id": "MP03.P09.S01.T02",
+      "name": "Configure monitoring and alerting systems",
+      "priority": "High",
+      "status": "Todo"
+    },
+    {
+      "id": "MP03.P09.S06.T01",
+      "name": "Design and plan implement websocket streaming for real-time ",
+      "priority": "High",
+      "status": "Todo"
+    },
+    {
+      "id": "MP03.P09.S07.T01",
+      "name": "Provision cloud infrastructure resources",
+      "priority": "High",
+      "status": "Todo"
+    },
+    {
+      "id": "MP03.P09.S04.T02",
+      "name": "Implement core functionality for implement a/b testing frame",
+      "priority": "High",
+      "status": "Todo"
+    },
+    {
+      "id": "MP03.P09.S04.T01",
+      "name": "Design and plan implement a/b testing framework",
+      "priority": "High",
+      "status": "Todo"
+    },
+    {
+      "id": "MP03.P09.S08.T02",
+      "name": "Develop model evaluation and validation framework",
+      "priority": "High",
+      "status": "Todo"
+    },
+    {
+      "id": "MP03.P09.S06.T02",
+      "name": "Implement core functionality for implement websocket streami",
+      "priority": "High",
+      "status": "Todo"
+    },
+    {
+      "id": "MP03.P09.S07.T02",
+      "name": "Configure monitoring and alerting systems",
+      "priority": "High",
+      "status": "Todo"
+    },
+    {
+      "id": "MP03.P09.S05.T02",
+      "name": "Configure monitoring and alerting systems",
+      "priority": "High",
+      "status": "Todo"
+    },
+    {
+      "id": "MP03.P09.S01.T95",
+      "name": "Configure Scheduled Batch Prediction Jobs",
+      "priority": "High",
+      "status": "Todo"
+    },
+    {
+      "id": "MP03.P09.S04.T96",
+      "name": "Configure Cloud Scheduler for Periodic Model Retraining",
+      "priority": "High",
+      "status": "Todo"
+    },
+    {
+      "id": "MP03.P09.S02.T03",
+      "name": "Test and validate implement real-time monitoring and alertin",
+      "priority": "High",
+      "status": "Todo"
+    },
+    {
+      "id": "MP03.P09.S06.T03",
+      "name": "Test and validate implement websocket streaming for real-tim",
+      "priority": "High",
+      "status": "Todo"
+    },
+    {
+      "id": "MP03.P09.S04.T03",
+      "name": "Test and validate implement a/b testing framework",
+      "priority": "High",
+      "status": "Todo"
+    },
+    {
+      "id": "MP03.P09.S05.T01",
+      "name": "Provision cloud infrastructure resources",
+      "priority": "High",
+      "status": "Todo"
+    },
+    {
+      "id": "MP03.P09.S03.T03",
+      "name": "Test and validate create prediction serving apis",
+      "priority": "High",
+      "status": "Todo"
+    },
+    {
+      "id": "MP03.P09.S03.T01",
+      "name": "Design and plan create prediction serving apis",
+      "priority": "High",
+      "status": "Todo"
+    },
+    {
+      "id": "MP03.P09.S02.T01",
+      "name": "Detect 4 market regimes: trending (high R\u00b2, low RM",
+      "priority": "Medium",
+      "status": "Todo"
+    },
+    {
+      "id": "MP03.P09.S02.T05",
+      "name": "Implement Multi-Model Serving and Ensemble Routing",
+      "priority": "Medium",
+      "status": "Todo"
+    },
+    {
+      "id": "MP03.P09.S02.T06",
+      "name": "Create Model Ensemble Orchestration Layer",
+      "priority": "Medium",
+      "status": "Todo"
+    },
+    {
+      "id": "MP03.P10.S07.T01",
+      "name": "Retrain 28 models with full data at optimal win",
+      "priority": "Critical",
+      "status": "Todo"
+    },
+    {
+      "id": "MP03.P10.S01.T02",
+      "name": "Implement core functionality for execute comprehensive syste",
+      "priority": "High",
+      "status": "Todo"
+    },
+    {
+      "id": "MP03.P10.S02.T02",
+      "name": "Implement core functionality for implement disaster recovery",
+      "priority": "High",
+      "status": "Todo"
+    },
+    {
+      "id": "MP03.P10.S04.T02",
+      "name": "Implement core functionality for write 2000+ unit and integr",
+      "priority": "High",
+      "status": "Todo"
+    },
+    {
+      "id": "MP03.P10.S02.T03",
+      "name": "Test and validate implement disaster recovery procedures",
+      "priority": "High",
+      "status": "Todo"
+    },
+    {
+      "id": "MP03.P10.S05.T01",
+      "name": "Compute directional accuracy",
+      "priority": "High",
+      "status": "Todo"
+    },
+    {
+      "id": "MP03.P10.S05.T02",
+      "name": "Create data quality monitoring system",
+      "priority": "High",
+      "status": "Todo"
+    },
+    {
+      "id": "MP03.P10.S03.T02",
+      "name": "Implement core functionality for validate business requireme",
+      "priority": "High",
+      "status": "Todo"
+    },
+    {
+      "id": "MP03.P10.S03.T03",
+      "name": "Test and validate validate business requirements and kpis",
+      "priority": "High",
+      "status": "Todo"
+    },
+    {
+      "id": "MP03.P10.S03.T01",
+      "name": "Design and plan validate business requirements and kpis",
+      "priority": "High",
+      "status": "Todo"
+    },
+    {
+      "id": "MP03.P10.S01.T03",
+      "name": "Test and validate execute comprehensive system testing",
+      "priority": "High",
+      "status": "Todo"
+    },
+    {
+      "id": "MP03.P11.S04.T03",
+      "name": "Test and validate implement end-to-end encryption and key ma",
+      "priority": "High",
+      "status": "Todo"
+    },
+    {
+      "id": "MP03.P11.S03.T01",
+      "name": "Design and plan establish compliance and governance framewor",
+      "priority": "High",
+      "status": "Todo"
+    },
+    {
+      "id": "MP03.P11.S03.T02",
+      "name": "Implement core functionality for establish compliance and go",
+      "priority": "High",
+      "status": "Todo"
+    },
+    {
+      "id": "MP03.P11.S02.T01",
+      "name": "Design and plan perform security audits and penetration test",
+      "priority": "High",
+      "status": "Todo"
+    },
+    {
+      "id": "MP03.P11.S04.T02",
+      "name": "Implement core functionality for implement end-to-end encryp",
+      "priority": "High",
+      "status": "Todo"
+    },
+    {
+      "id": "MP03.P11.S02.T02",
+      "name": "Implement core functionality for perform security audits and",
+      "priority": "High",
+      "status": "Todo"
+    },
+    {
+      "id": "MP03.P11.S01.T02",
+      "name": "Implement core functionality for implement security controls",
+      "priority": "High",
+      "status": "Todo"
+    },
+    {
+      "id": "MP03.P11.S02.T98",
+      "name": "Create INTERVAL-CENTRIC Glossary and Notation Guide",
+      "priority": "High",
+      "status": "Todo"
+    },
+    {
+      "id": "MP03.P11.S02.T03",
+      "name": "Test and validate perform security audits and penetration te",
+      "priority": "High",
+      "status": "Todo"
+    },
+    {
+      "id": "MP03.P11.S05.T03",
+      "name": "Test and validate build comprehensive security controls and ",
+      "priority": "High",
+      "status": "Todo"
+    },
+    {
+      "id": "MP03.P11.S01.T03",
+      "name": "Test and validate implement security controls and encryption",
+      "priority": "High",
+      "status": "Todo"
+    }
+  ]
+}

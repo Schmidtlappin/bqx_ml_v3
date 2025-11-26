@@ -71,9 +71,18 @@
           "description": "Budget allocation in USD. Format: #####.##"
         },
         {
-          "type": "number",
+          "type": "rollup",
           "options": {
-            "precision": 2
+            "isValid": true,
+            "recordLinkFieldId": "fld2QPX5mTkehJsiT",
+            "fieldIdInLinkedTable": "fld3w6mQsAMYtlrpu",
+            "referencedFieldIds": [],
+            "result": {
+              "type": "number",
+              "options": {
+                "precision": 2
+              }
+            }
           },
           "id": "fldBnhNg4ZT4XaQQG",
           "name": "realized_cost",
@@ -258,9 +267,18 @@
           "description": "Estimated budget in USD. Format: #####.##"
         },
         {
-          "type": "number",
+          "type": "rollup",
           "options": {
-            "precision": 2
+            "isValid": true,
+            "recordLinkFieldId": "fldCq7z3Q2rDdS3om",
+            "fieldIdInLinkedTable": "fldsw7KXl3HbMAR77",
+            "referencedFieldIds": [],
+            "result": {
+              "type": "number",
+              "options": {
+                "precision": 2
+              }
+            }
           },
           "id": "fld3w6mQsAMYtlrpu",
           "name": "realized_cost",
@@ -282,6 +300,76 @@
           "description": "Related files and documents. Upload supporting materials here."
         },
         {
+          "type": "singleLineText",
+          "id": "fldeEBhQTMumKUi4D",
+          "name": "predecessor",
+          "description": "Predecessor phase ID (##.##)"
+        },
+        {
+          "type": "aiText",
+          "options": {
+            "referencedFieldIds": [
+              "fld1EaJnUVOsEbFzD",
+              "fldvHFSkzGkfvIbdW",
+              "fldIni3IHnu4u0J4W",
+              "fldjCOIAMqTOTvtTN",
+              "fldpmxzviwY6oUeOM",
+              "fldZSa4Rd27JW5Hqc"
+            ],
+            "prompt": [
+              "You are an AI tasked with evaluating the strategic planning quality of a phase record. Your expertise lies in assessing project documentation for completeness and clarity.\n\nBegin by calculating a base score of 30 points. Evaluate critical requirements by checking the length of the notes, presence of dollar amounts, hour estimates, countable deliverables, and success metrics. Detect generic content and apply penalties for phrases like \"Complete phase\" or \"Execute stages\". Score each field based on specific criteria, such as format validation and content specificity.\n\nOutput the score as a plain text string starting with \"Score: [number]\". Follow with planning quality, budget, timeline, deliverables, and success metrics findings. If the score is below 60, provide a remediation message. Do not include any additional text or formatting.\n\nContext and Data:\nPhase ID: ",
+              {
+                "field": {
+                  "fieldId": "fld1EaJnUVOsEbFzD"
+                }
+              },
+              "\nName: ",
+              {
+                "field": {
+                  "fieldId": "fldvHFSkzGkfvIbdW"
+                }
+              },
+              "\nDescription: ",
+              {
+                "field": {
+                  "fieldId": "fldIni3IHnu4u0J4W"
+                }
+              },
+              "\nNotes: ",
+              {
+                "field": {
+                  "fieldId": "fldjCOIAMqTOTvtTN"
+                }
+              },
+              "\nSource: ",
+              {
+                "field": {
+                  "fieldId": "fldpmxzviwY6oUeOM"
+                }
+              },
+              "\nStatus: ",
+              {
+                "field": {
+                  "fieldId": "fldZSa4Rd27JW5Hqc"
+                }
+              },
+              "\n\nOutput:"
+            ]
+          },
+          "id": "fldjqSSaavK5cXEeV",
+          "name": "record_audit",
+          "description": "Evaluates the strategic planning quality of a phase based on specific criteria and outputs a score with detailed analysis."
+        },
+        {
+          "type": "number",
+          "options": {
+            "precision": 1
+          },
+          "id": "fldPt7AUAsT23z38b",
+          "name": "record_score",
+          "description": "Extracts the assigned score from the record_audit field, defaulting to 0 if no score is present."
+        },
+        {
           "type": "multipleRecordLinks",
           "options": {
             "linkedTableId": "tblTtBE4sEa5ibCHE",
@@ -292,12 +380,6 @@
           "id": "fldWHcL6hfIlpI1uj",
           "name": "plan_link",
           "description": "Link to parent plan record"
-        },
-        {
-          "type": "singleLineText",
-          "id": "fldeEBhQTMumKUi4D",
-          "name": "predecessor",
-          "description": "Predecessor phase ID (##.##)"
         },
         {
           "type": "multipleRecordLinks",
@@ -320,117 +402,6 @@
           },
           "id": "fldajUzeZDIQ9fzaA",
           "name": "task_link"
-        },
-        {
-          "type": "aiText",
-          "options": {
-            "referencedFieldIds": [
-              "fld1EaJnUVOsEbFzD",
-              "fldZSa4Rd27JW5Hqc",
-              "fldvHFSkzGkfvIbdW",
-              "fldIni3IHnu4u0J4W",
-              "fldjCOIAMqTOTvtTN",
-              "fldjyKn2LDptegoea",
-              "fldbzEXtjkdemceR0",
-              "fld7ChxvqqrADK8bq",
-              "fld3w6mQsAMYtlrpu",
-              "fldpmxzviwY6oUeOM",
-              "fldpTLEeXxI4raX2z",
-              "fldWHcL6hfIlpI1uj",
-              "fldeEBhQTMumKUi4D",
-              "fldCq7z3Q2rDdS3om",
-              "fldajUzeZDIQ9fzaA"
-            ],
-            "prompt": [
-              "You are a strict quality assessment agent for the BQX ML project Phases table. Apply rigorous standards for strategic planning documentation.\n\nLocate and familiarize yourself with the structure of these fields: ",
-              {
-                "field": {
-                  "fieldId": "fld1EaJnUVOsEbFzD"
-                }
-              },
-              {
-                "field": {
-                  "fieldId": "fldZSa4Rd27JW5Hqc"
-                }
-              },
-              {
-                "field": {
-                  "fieldId": "fldvHFSkzGkfvIbdW"
-                }
-              },
-              {
-                "field": {
-                  "fieldId": "fldIni3IHnu4u0J4W"
-                }
-              },
-              {
-                "field": {
-                  "fieldId": "fldjCOIAMqTOTvtTN"
-                }
-              },
-              {
-                "field": {
-                  "fieldId": "fldjyKn2LDptegoea"
-                }
-              },
-              {
-                "field": {
-                  "fieldId": "fldbzEXtjkdemceR0"
-                }
-              },
-              {
-                "field": {
-                  "fieldId": "fld7ChxvqqrADK8bq"
-                }
-              },
-              {
-                "field": {
-                  "fieldId": "fld3w6mQsAMYtlrpu"
-                }
-              },
-              {
-                "field": {
-                  "fieldId": "fldpmxzviwY6oUeOM"
-                }
-              },
-              {
-                "field": {
-                  "fieldId": "fldpTLEeXxI4raX2z"
-                }
-              },
-              {
-                "field": {
-                  "fieldId": "fldWHcL6hfIlpI1uj"
-                }
-              },
-              {
-                "field": {
-                  "fieldId": "fldeEBhQTMumKUi4D"
-                }
-              },
-              {
-                "field": {
-                  "fieldId": "fldCq7z3Q2rDdS3om"
-                }
-              },
-              {
-                "field": {
-                  "fieldId": "fldajUzeZDIQ9fzaA"
-                }
-              },
-              "\n\n## STARTING SCORE: 30 POINTS\nEvery phase starts at 30/100. Points must be EARNED through comprehensive planning.\n\n## CRITICAL: Vague Phase Detection (-60 points)\nImmediately check for high-level fluff without substance. If notes < 300 characters OR lacks specific deliverables with metrics, apply -60 penalty.\n\n## GENERIC TEMPLATE DETECTION (-50 points)\nPenalize these worthless patterns:\n- \"Complete phase implementation\"\n- \"Execute all stages\"\n- \"As per project plan\"\n- \"According to timeline\"\n- \"Based on requirements\"\n- \"TODO\", \"TBD\", \"[PLACEHOLDER]\"\n- \"See documentation for details\"\n- Strategy buzzwords without numbers\n\n## REQUIRED PHASE ELEMENTS\nCount ONLY these as valid elements:\n1. **Quantified deliverables** (28 models, 2,492 features, not \"ML models\")\n2. **Resource estimates** ($5,000 GCP costs, 120 hours, not \"resources needed\")\n3. **Technology specifics** (Vertex AI endpoints, BigQuery datasets, not \"cloud infrastructure\")\n4. **Success metrics** (R\u00b2 > 0.30, PSI < 0.2, not \"good performance\")\n5. **Dependencies** (Requires P02 complete, not \"after previous phase\")\n\n### Minimum Requirements:\n- Phases MUST have at least 2 quantified deliverables\n- Must include cost or hour estimates\n- Notes must be >300 characters\n- Must reference specific technologies\n\nIf fewer than 2 quantified deliverables: -40 points\nIf notes < 300 characters: -30 points\n\n## FIELD SCORING (Maximum possible from base 30)\n\n### phase_id (5 points)\n{phase_id}\n- Valid P## format: +5\n- Invalid: +0\n\n### name (15 points MAX)\n{name}\n- Specific phase with scope: +15\n- Clear but generic: +8\n- Vague phase name: +3\n- Template: +0\n\n### description (25 points MAX)\n{description}\n- Objectives + deliverables + metrics: +25\n- Has objectives but vague outputs: +15\n- High-level description only: +8\n- Generic/template: +0\n\n### notes (35 points MAX)\n{notes}\nAward points ONLY for concrete planning:\n- Resource estimates + deliverables + timeline: +35\n- 2+ quantified deliverables: +25\n- 1 clear deliverable with details: +15\n- Strategy without specifics: +5\n- Generic or <300 chars: +0\n\nExample of valid phase content:\n- \"Deploy 28 Vertex AI endpoints, $3,500/month\"\n- \"196 XGBoost models (28 pairs \u00d7 7 windows)\"\n- \"120 hours development, 48 hours testing\"\n\nNOT valid phase content:\n- \"ML infrastructure\" (what specifically?)\n- \"Model deployment\" (how many? where?)\n- \"Significant resources\" (how much?)\n\n### source (5 points)\n{source}\n- Valid documentation file: +5\n- Missing/generic: +0\n\n### status (10 points)\n{status}\n- Current accurate status: +10\n- Outdated/unclear: +5\n- Invalid: +0\n\n## PHASE VALIDATION CRITERIA\nFor each phase, verify:\n1. Can you calculate the budget?\n2. Do you know exact deliverable counts?\n3. Is the technology stack specified?\n4. Are success criteria measurable?\n\nInvalid phase content (scores 0):\n- \"Infrastructure setup\" (what infrastructure?)\n- \"Feature engineering\" (how many features?)\n- \"Model training\" (what models? how many?)\n\nValid phase content (scores points):\n- \"P01: Setup BigQuery dataset (bqx_bq), Vertex AI project, $500 initial\"\n- \"P02: Generate 2,492 features \u2192 select 300 per model, 80 hours\"\n- \"P03: Train 196 XGBoost models, target R\u00b2 > 0.30, $5,000 compute\"\n\n## PENALTIES SUMMARY\n- Vague content (<300 chars): -30\n- No quantified deliverables: -40\n- Generic templates: -50\n- Missing resource estimates: -30\n- No success metrics: -20\n\n## BQX PHASE CONTEXT\nThe 5 phases with required specifics:\n- P01: BigQuery + Vertex AI setup ($500, 20 hours)\n- P02: 2,492 features \u2192 300 selected (80 hours)\n- P03: 196 models (28 pairs \u00d7 7 windows), R\u00b2 > 0.30 ($5,000)\n- P04: 28 endpoints, Cloud Run API, Redis cache ($3,500/mo)\n- P05: MLOps pipeline, drift detection PSI > 0.2 ($2,000/mo)\n\n## FINAL SCORE CALCULATION\n1. Start with base: 30\n2. Add field points (max +90 possible)\n3. Apply ALL penalties\n4. Minimum: 0, Maximum: 100\n\nMost phases should score 10-40. Only detailed strategic plans with budgets score >60.\n\n## REMEDIATION OUTPUT\nFor scores <60, provide HARSH requirements:\n\"PHASE LACKS PLANNING. Required:\n1. Quantify ALL deliverables (e.g., '28 models', not 'models')\n2. Provide resource estimates (hours and $ costs)\n3. Specify exact technologies (Vertex AI, BigQuery, XGBoost)\n4. Include measurable success criteria (R\u00b2 > 0.30)\n5. Expand notes to >300 characters with concrete details\nReference: docs/BQX_ML_DATA_PLAN.md Section 3-7 for phase details\"\n\n## Output Format\nScore: [0-100]\nIssues: [List ALL penalties with amounts]\nDeliverables Found: [Count of quantified outputs]\nResource Estimates: [Yes/No]\nCharacter Count: [Notes field length]\nRemediation: [Harsh specific requirements if <60]\n```\n"
-            ]
-          },
-          "id": "fld037qvIDk5RdaG7",
-          "name": "record_audit"
-        },
-        {
-          "type": "number",
-          "options": {
-            "precision": 1
-          },
-          "id": "fld2ZVIVRJVrLuiCx",
-          "name": "record_score"
         }
       ],
       "views": [
@@ -497,9 +468,18 @@
           "description": "Living documentation capturing decisions, blockers, learnings, and progress updates. Document journey not destination. Include: decisions made, trade-offs, current blockers, lessons learned, links to discussions, warnings/gotchas, stakeholder feedback. Format: Date-stamped entries for traceability. Example: 2025-11-20: Chose BigQuery clustering over partitioning after testing showed 3x improvement. Blocked by GCP quota (ticket #123). DevOps recommends hourly partitions. Design doc: docs.google.com/...\n2025-11-22: Unblocked - quota increased. Implementing hourly partitions as suggested."
         },
         {
-          "type": "number",
+          "type": "rollup",
           "options": {
-            "precision": 2
+            "isValid": true,
+            "recordLinkFieldId": "fldXYz7iVXewFxyB5",
+            "fieldIdInLinkedTable": "fldOgJxAdjQcbUm1z",
+            "referencedFieldIds": [],
+            "result": {
+              "type": "number",
+              "options": {
+                "precision": 2
+              }
+            }
           },
           "id": "fldsw7KXl3HbMAR77",
           "name": "realized_cost",
@@ -565,86 +545,62 @@
           "options": {
             "referencedFieldIds": [
               "fldMKoZ8jzqVv1aap",
-              "fldAogG22VD1j94im",
               "fld5L19S2mrozfLzd",
               "fldmOnnszGCIm1LaG",
               "fld6dUOUccKSFESvY",
-              "fldsw7KXl3HbMAR77",
-              "fldM2D46Px7HIIqi0",
+              "fldcWlVksTmJTzkNr",
               "fldUIpWumkgNm9oWI",
-              "fldXYz7iVXewFxyB5",
-              "fldr4qFzCRg7i9bYx",
-              "fldEvj4y1iYhnUT9b",
-              "fldcWlVksTmJTzkNr"
+              "fldAogG22VD1j94im"
             ],
             "prompt": [
-              "You are a strict quality assessment agent for the BQX ML project Stages table. Apply rigorous standards for stage-level documentation.\n\nLocate and familiarize yourself with the structure of these fields:",
+              "You are an evaluator assessing the quality of tactical planning for a stage in a project. Your expertise lies in identifying key deliverables, technical approaches, dependencies, and task quantification.\n\nBegin by calculating a base score of 35 points. Evaluate the notes for length, named outputs, technical methods, dependencies, and task count. Apply penalties for generic content and missing critical requirements. Score each field based on specific criteria, adding points for valid formats and specific objectives.\n\nOutput the score as a plain text string starting with \"Score: [number]\". Follow with a quality assessment, named outputs count, technical method presence, dependencies presence, and task count. If the score is below 60, provide a remediation message detailing missing specifications. Do not include any additional text.\n\nContext and Data:\nStage ID: ",
               {
                 "field": {
                   "fieldId": "fldMKoZ8jzqVv1aap"
                 }
               },
-              {
-                "field": {
-                  "fieldId": "fldAogG22VD1j94im"
-                }
-              },
+              "\nName: ",
               {
                 "field": {
                   "fieldId": "fld5L19S2mrozfLzd"
                 }
               },
+              "\nDescription: ",
               {
                 "field": {
                   "fieldId": "fldmOnnszGCIm1LaG"
                 }
               },
+              "\nNotes: ",
               {
                 "field": {
                   "fieldId": "fld6dUOUccKSFESvY"
                 }
               },
-              {
-                "field": {
-                  "fieldId": "fldsw7KXl3HbMAR77"
-                }
-              },
-              {
-                "field": {
-                  "fieldId": "fldM2D46Px7HIIqi0"
-                }
-              },
-              {
-                "field": {
-                  "fieldId": "fldUIpWumkgNm9oWI"
-                }
-              },
-              {
-                "field": {
-                  "fieldId": "fldXYz7iVXewFxyB5"
-                }
-              },
-              {
-                "field": {
-                  "fieldId": "fldr4qFzCRg7i9bYx"
-                }
-              },
-              {
-                "field": {
-                  "fieldId": "fldEvj4y1iYhnUT9b"
-                }
-              },
-              "{",
+              "\nSource: ",
               {
                 "field": {
                   "fieldId": "fldcWlVksTmJTzkNr"
                 }
               },
-              "\n\n## CRITICAL: Generic Content Detection (-50 points)\nImmediately check for these generic patterns that indicate template or placeholder co## STARTING SCORE: 35 POINTS\nEvery stage starts at 35/100. Points must be EARNED through comprehensive documentation.\n\n## CRITICAL: Vague Stage Detection (-60 points)\nImmediately check for vague, high-level descriptions without specifics. If notes < 400 characters OR lacks concrete deliverables, apply -60 penalty.\n\n## GENERIC TEMPLATE DETECTION (-50 points)\nPenalize these worthless patterns:\n- \"Complete stage implementation\"\n- \"Execute all tasks\"\n- \"Implement functionality\"\n- \"As per specifications\" or \"Based on requirements\"\n- \"TODO\", \"TBD\", \"See documentation\"\n- Buzzword lists without details (\"ML pipeline\", \"data processing\")\n- Management speak without substance\n\n## REQUIRED STAGE ELEMENTS\nCount ONLY these as valid elements:\n1. **Specific deliverables** with names (train_eurusd_w360 table, not \"training tables\")\n2. **Concrete metrics** with numbers (2,492 features \u2192 300 selected, not \"feature selection\")\n3. **Technical approach** with methods (PurgedTimeSeriesSplit with 2880 gap, not \"cross-validation\")\n4. **Task breakdown** with counts (12 tasks, 48 hours estimated)\n5. **Dependencies** with stage IDs (requires S02.14 idx_* tables complete)\n\n### Minimum Requirements:\n- Stages MUST specify at least 3 concrete deliverables\n- Must include estimated hours or task count\n- Notes must be >400 characters\n- Must reference specific stages or phases\n\nIf fewer than 3 concrete deliverables: -40 points\nIf notes < 400 characters: -30 points\n\n## FIELD SCORING (Maximum possible from base 35)\n\n### stage_id (5 points)\n{stage_id}\n- Valid S##.## format: +5\n- Invalid: +0\n\n### name (15 points MAX)\n{name}\n- Specific objective with deliverable: +15\n- Clear objective, vague output: +8\n- Generic stage name: +3\n- Template language: +0\n\n### description (20 points MAX)\n{description}\n- Scope + approach + deliverables: +20\n- Has approach but vague outputs: +10\n- High-level description only: +5\n- Generic/template: +0\n\n### notes (35 points MAX)\n{notes}\nAward points ONLY for concrete content:\n- 3+ deliverables with specifications: +35\n- 2 deliverables with details: +25\n- 1 clear deliverable: +15\n- Vague outputs: +5\n- Generic or <400 chars: +0\n\nExample of valid deliverables:\n- \"28 train_* tables with 300 features each\"\n- \"196 XGBoost models (28 pairs \u00d7 7 windows)\"\n- \"Vertex AI endpoints with <100ms latency\"\n\nNOT valid deliverables:\n- \"Feature tables\" (which ones?)\n- \"Trained models\" (how many? what type?)\n- \"API deployment\" (what endpoints?)\n\n### source (5 points)\n{source}\n- Valid .md or .json file: +5\n- Missing/generic: +0\n\n### phase_link (5 points)\n{phase_link}\n- Valid phase connection: +5\n- Missing: +0\n\n### status (5 points)\n{status}\n- Valid status: +5\n- Invalid: +0\n\n## STAGE VALIDATION CRITERIA\nFor each stage, verify:\n1. Can you name the exact outputs?\n2. Do you know how many of each?\n3. Is the technical approach specified?\n4. Are the dependencies clear?\n\nInvalid stage content (scores 0):\n- \"Implement feature engineering\" (too vague)\n- \"Deploy models to production\" (which models? where?)\n- \"Create data pipeline\" (what data? what pipeline?)\n\nValid stage content (scores points):\n- \"Generate 28 idx_* tables with OHLC indexed to 2022-07-01 baseline\"\n- \"Train 196 XGBoost models, select best window per pair (R\u00b2 > 0.30)\"\n- \"Deploy 28 Vertex AI endpoints with Redis cache layer\"\n\n## PENALTIES SUMMARY\n- Vague content (<400 chars): -30\n- No concrete deliverables: -40\n- Generic templates: -50\n- Missing technical approach: -30\n- No dependencies listed: -20\n\n## BQX STAGE CONTEXT\nCritical stages that MUST have detailed specs:\n- S02.14: idx_* table creation (baseline indexing)\n- S02.15: bqx_* momentum tables (7 windows)\n- S02.16: reg_* regression features (quadratic, R\u00b2)\n- S02.30: Cross-currency features (2,492 \u2192 300)\n- S02.31-34: Gap remediation (1,792 features)\n- S03.07: Purged CV (2880 purge gap)\n- S03.10: Window selection (7 candidates per pair)\n\n## FINAL SCORE CALCULATION\n1. Start with base: 35\n2. Add field points (max +85 possible)\n3. Apply ALL penalties\n4. Minimum: 0, Maximum: 100\n\nMost stages should score 15-50. Only detailed specifications with clear deliverables score >60.\n\n## REMEDIATION OUTPUT\nFor scores <60, provide HARSH requirements:\n\"STAGE LACKS SPECIFICATIONS. Required:\n1. List exact deliverables (e.g., '28 train_* tables, 196 models')\n2. Specify technical approach with methods\n3. Provide task count and hour estimates\n4. Include dependencies on other stages\n5. Expand notes to >400 characters with concrete details\nReference: docs/BQX_ML_DATA_PLAN.md for stage specifications\"\n\n## Output Format\nScore: [0-100]\nIssues: [List ALL penalties with amounts]\nDeliverables Found: [Count of concrete outputs]\nCharacter Count: [Notes field length]\nRemediation: [Harsh specific requirements if <60]\n```\n"
+              "\nPhase Link: ",
+              {
+                "field": {
+                  "fieldId": "fldUIpWumkgNm9oWI"
+                }
+              },
+              "\nStatus: ",
+              {
+                "field": {
+                  "fieldId": "fldAogG22VD1j94im"
+                }
+              },
+              "\n\nOutput:"
             ]
           },
           "id": "fldOYQl853UK2WxmG",
-          "name": "record_audit"
+          "name": "record_audit",
+          "description": "Evaluates the completeness and uniqueness of content within a record, assigning a score based on quality."
         },
         {
           "type": "number",
@@ -652,7 +608,8 @@
             "precision": 1
           },
           "id": "fld0JzSnpnIlQGCNs",
-          "name": "record_score"
+          "name": "record_score",
+          "description": "Extracts the agent assigned score from the record audit text data."
         }
       ],
       "views": [
@@ -760,201 +717,6 @@
           "description": "Individual currently working on this task. Use email or employee ID for consistency Example: john.smith@company.com"
         },
         {
-          "type": "multipleRecordLinks",
-          "options": {
-            "linkedTableId": "tblxnuvF8O7yH1dB4",
-            "isReversed": false,
-            "prefersSingleRecordLink": false,
-            "inverseLinkFieldId": "fldXYz7iVXewFxyB5"
-          },
-          "id": "fldjj7mdSxxOUIVUe",
-          "name": "stage_link"
-        },
-        {
-          "type": "multipleAttachments",
-          "options": {
-            "isReversed": false
-          },
-          "id": "fldMSK50EkM2cUEt6",
-          "name": "attachments",
-          "description": "Related files and documents. Upload supporting materials here."
-        },
-        {
-          "type": "multilineText",
-          "id": "fldImhw6jX0Px5HPG",
-          "name": "source",
-          "description": "Source files from workspace that contributed content to this record"
-        },
-        {
-          "type": "aiText",
-          "options": {
-            "referencedFieldIds": [
-              "fldlLw0CKLVf3S8ji",
-              "fldsJCYCtymJQMUVY",
-              "flddzBSv7pdOUlqI0",
-              "fldzQJg9El5Xf0rTo",
-              "fld3cdmL0KoBA3kcz",
-              "fldWueNrdJ2YFiTcM",
-              "fldYyHvBHLJRWhx3z",
-              "fldDhci1wecXm9Y8D",
-              "fldEyPjMZJTBYTq9p",
-              "fldOgJxAdjQcbUm1z",
-              "fldgyFdYf5Tqrbvhw",
-              "fld54DESCo4fJSKPz",
-              "fldLgjw7l6SE0TCTG",
-              "fldjj7mdSxxOUIVUe",
-              "fldkhYZf5bw5pE7je",
-              "fldPsprzvFQHAmlhg",
-              "fldMSK50EkM2cUEt6",
-              "fld4kjuCVzl1VVPga",
-              "fldImhw6jX0Px5HPG"
-            ],
-            "prompt": [
-              "You are a strict quality assessment agent for the BQX ML project Tasks table. Apply rigorous standards and heavy penalties for insufficient content.\n\nLocate and familiarize yourself with the structure of these fields: ",
-              {
-                "field": {
-                  "fieldId": "fldlLw0CKLVf3S8ji"
-                }
-              },
-              {
-                "field": {
-                  "fieldId": "fldsJCYCtymJQMUVY"
-                }
-              },
-              {
-                "field": {
-                  "fieldId": "flddzBSv7pdOUlqI0"
-                }
-              },
-              {
-                "field": {
-                  "fieldId": "fldzQJg9El5Xf0rTo"
-                }
-              },
-              {
-                "field": {
-                  "fieldId": "fldsJCYCtymJQMUVY"
-                }
-              },
-              {
-                "field": {
-                  "fieldId": "fld3cdmL0KoBA3kcz"
-                }
-              },
-              {
-                "field": {
-                  "fieldId": "fldWueNrdJ2YFiTcM"
-                }
-              },
-              {
-                "field": {
-                  "fieldId": "fldYyHvBHLJRWhx3z"
-                }
-              },
-              {
-                "field": {
-                  "fieldId": "fldDhci1wecXm9Y8D"
-                }
-              },
-              {
-                "field": {
-                  "fieldId": "fldEyPjMZJTBYTq9p"
-                }
-              },
-              {
-                "field": {
-                  "fieldId": "fldOgJxAdjQcbUm1z"
-                }
-              },
-              {
-                "field": {
-                  "fieldId": "fldgyFdYf5Tqrbvhw"
-                }
-              },
-              {
-                "field": {
-                  "fieldId": "fld54DESCo4fJSKPz"
-                }
-              },
-              {
-                "field": {
-                  "fieldId": "fldLgjw7l6SE0TCTG"
-                }
-              },
-              {
-                "field": {
-                  "fieldId": "fldjj7mdSxxOUIVUe"
-                }
-              },
-              {
-                "field": {
-                  "fieldId": "fldkhYZf5bw5pE7je"
-                }
-              },
-              {
-                "field": {
-                  "fieldId": "fldPsprzvFQHAmlhg"
-                }
-              },
-              {
-                "field": {
-                  "fieldId": "fldMSK50EkM2cUEt6"
-                }
-              },
-              {
-                "field": {
-                  "fieldId": "fld4kjuCVzl1VVPga"
-                }
-              },
-              {
-                "field": {
-                  "fieldId": "fldImhw6jX0Px5HPG"
-                }
-              },
-              "\n\n## STARTING SCORE: 40 POINTS\nEvery record starts at 40/100. Points must be EARNED through quality content.\n\n## CRITICAL: Thin Content Detection (-60 points)\nImmediately scan for insufficient content. If notes field < 500 characters OR lacks actual code blocks, apply -60 penalty.\n\n## GENERIC TEMPLATE DETECTION (-50 points)\nCheck for these worthless patterns:\n- \"Complete implementation per specifications\"\n- \"As per requirements\" or \"Based on documentation\"\n- \"TODO\", \"TBD\", \"PLACEHOLDER\"\n- \"See documentation\" without specifics\n- Generic bullet points without implementation\n- Tech buzzwords without code (\"using XGBoost\", \"apply ensemble\")\n- Empty sections or headers without content\n\n## REQUIRED TECHNICAL ELEMENTS\nCount ONLY these as valid technical elements:\n1. **Actual executable code** in ```python or ```sql blocks (NOT inline mentions)\n2. **Specific numerical values** with units (R\u00b2=0.35, PSI=0.22, not \"R\u00b2 > threshold\")\n3. **Complete formulas** with variable definitions (bqx_360w = idx_mid[t] - AVG(idx_mid[t+1:t+360]))\n4. **Full table schemas** with column types (CREATE TABLE with all columns)\n5. **Implementation pseudocode** with logic flow (if/else, loops, calculations)\n\n### Minimum Requirements:\n- Tasks MUST have at least 2 actual code blocks\n- Code blocks must be >5 lines each\n- Notes field must be >500 characters\n- Must reference specific BQX windows: [45, 90, 180, 360, 720, 1440, 2880]\n\nIf fewer than 2 valid code blocks: -40 points\nIf notes < 500 characters: -30 points\n\n## FIELD SCORING (Maximum possible from base 40)\n\n### task_id (5 points)\n{task_id}\n- Valid T##.##.## format: +5\n- Invalid: +0\n\n### name (15 points MAX)\n{name}\n- Specific implementation with metrics: +15\n- Specific but no metrics: +8\n- Generic action verb: +3\n- Template language: +0\n\n### description (20 points MAX)\n{description}\n- Contains numbers + methods + thresholds: +20\n- Has methods but vague metrics: +10\n- Technical but no specifics: +5\n- Generic/template: +0\n\n### notes (30 points MAX)\n{notes}\nOnly award points for ACTUAL CONTENT:\n- 2+ code blocks with implementation: +30\n- 1 code block + detailed steps: +20\n- Detailed steps, no code: +10\n- Buzzwords without implementation: +0\n- Generic or <500 chars: +0\n\n### source (5 points)\n{source}\n- Valid .py or .md file path: +5\n- Generic/missing: +0\n\n### stage_link (5 points)\n{stage_link}\n- Valid link: +5\n- Missing: +0\n\n### status (5 points)\n{status}\n- Valid status: +5\n- Invalid: +0\n\n## CODE VALIDATION\nFor each code block found, verify:\n1. Proper syntax (def, class, SELECT, etc.)\n2. BQX-specific implementation (not generic examples)\n3. Actual logic, not just imports or comments\n4. Minimum 5 lines of executable code\n\nInvalid code examples that score 0:\n- Just imports: `import pandas`\n- Just comments: `# TODO: implement`\n- Pseudo-descriptions: `Load data and train model`\n- Single lines: `model.fit(X, y)`\n\nValid code that scores points:\n```python\ndef calculate_bqx_360w(df):\n\u00a0 \u00a0 \"\"\"Calculate 360-interval BQX momentum.\"\"\"\n\u00a0 \u00a0 window = 360\n\u00a0 \u00a0 df['idx_mid'] = (df['idx_open'] + df['idx_close']) / 2\n\u00a0 \u00a0 df['bqx_360w'] = df['idx_mid'] - df['idx_mid'].rolling(window).mean()\n\u00a0 \u00a0 return df[df['bqx_360w'].notna()]\n```\n\n## PENALTIES SUMMARY\n- Thin content (<500 chars): -30\n- No real code blocks: -40\n- Generic templates: -50\n- Insufficient technical elements: -40\n- Missing BQX context: -20\n\n## FINAL SCORE CALCULATION\n1. Start with base: 40\n2. Add field points (max +85 possible)\n3. Apply ALL applicable penalties\n4. Minimum: 0, Maximum: 100\n\nMost records should score 20-60. Only exceptional content with multiple code blocks scores >70.\n\n## REMEDIATION OUTPUT\nFor scores <70, provide HARSH but specific guidance:\n\"INSUFFICIENT CONTENT. Record lacks implementation code. Required:\n1. Add actual Python/SQL code from scripts/*.py files\n2. Include specific calculations with BQX windows [45,90,180,360,720,1440,2880]\n3. Provide numerical thresholds (R\u00b2=0.35, not 'good R\u00b2')\n4. Expand notes to >500 characters with real implementation\n5. Reference: grep -r 'def calculate' scripts/*.py for code examples\"\n\n## Output Format\nScore: [0-100]\nIssues: [List ALL penalties applied with amounts]\nCode Blocks Found: [Count of valid code blocks]\nCharacter Count: [Notes field length]\nRemediation: [Specific harsh requirements if <70]\n```\n"
-            ]
-          },
-          "id": "fldv2uS1zgtdrxUA4",
-          "name": "record_audit"
-        },
-        {
-          "type": "number",
-          "options": {
-            "precision": 1
-          },
-          "id": "fldgtjzI5APvNn6rw",
-          "name": "record_score"
-        },
-        {
-          "type": "singleSelect",
-          "options": {
-            "choices": [
-              {
-                "id": "selqYLNjNtiG7G9YT",
-                "name": "A",
-                "color": "blueLight2"
-              },
-              {
-                "id": "selm7ypchCc98LTlR",
-                "name": "B",
-                "color": "cyanLight2"
-              },
-              {
-                "id": "selGSsoDpRPsfNV3X",
-                "name": "C",
-                "color": "tealLight2"
-              },
-              {
-                "id": "selJuhWpAiPK7Tmye",
-                "name": "X",
-                "color": "greenLight2"
-              }
-            ]
-          },
-          "id": "fldL0auuyGWVYsk3J",
-          "name": "ABCX"
-        },
-        {
           "type": "number",
           "options": {
             "precision": 1
@@ -1011,25 +773,204 @@
           "name": "phase_link"
         },
         {
-          "type": "singleLineText",
-          "id": "fldkhYZf5bw5pE7je",
-          "name": "epic_id",
-          "description": "Epic ID for grouping (E-###)"
+          "type": "multipleRecordLinks",
+          "options": {
+            "linkedTableId": "tblxnuvF8O7yH1dB4",
+            "isReversed": false,
+            "prefersSingleRecordLink": false,
+            "inverseLinkFieldId": "fldXYz7iVXewFxyB5"
+          },
+          "id": "fldjj7mdSxxOUIVUe",
+          "name": "stage_link"
         },
         {
-          "type": "multipleSelects",
+          "type": "multipleAttachments",
           "options": {
-            "choices": []
+            "isReversed": false
           },
-          "id": "fldPsprzvFQHAmlhg",
-          "name": "tags",
-          "description": "Categorization labels for filtering and grouping. Select multiple: development, testing, ml, infrastructure, etc. Example: ml, feature-engineering, bigquery"
+          "id": "fldMSK50EkM2cUEt6",
+          "name": "attachments",
+          "description": "Related files and documents. Upload supporting materials here."
         },
         {
           "type": "multilineText",
           "id": "fld4kjuCVzl1VVPga",
           "name": "blockers",
           "description": "Current impediments preventing progress. Clearly describe what is blocking and what is needed to unblock Example: Waiting for GCP quota increase approval (ticket #12345)"
+        },
+        {
+          "type": "multilineText",
+          "id": "fldImhw6jX0Px5HPG",
+          "name": "source",
+          "description": "Source files from workspace that contributed content to this record"
+        },
+        {
+          "type": "aiText",
+          "options": {
+            "referencedFieldIds": [
+              "fldWueNrdJ2YFiTcM",
+              "fldlLw0CKLVf3S8ji",
+              "fldsJCYCtymJQMUVY",
+              "fld3cdmL0KoBA3kcz",
+              "fldImhw6jX0Px5HPG",
+              "fldjj7mdSxxOUIVUe",
+              "flddzBSv7pdOUlqI0"
+            ],
+            "prompt": [
+              "# Rationalized TASKS Prompt - Implementation Code Quality\n\n## Evaluate the quality of the implementation in this Tasks record.\n\n### Task Description\nYou are an AI tasked with assessing the implementation quality of a task record. Your role is to evaluate the task based on executable code, specific values, BQX windows, and complete formulas. Use a professional and analytical tone.\n\n### Step-by-Step Process\n1. **Calculate Base Score**: Start with 40 points.\n2. **Check Critical Requirements**: Evaluate the length of ",
+              {
+                "field": {
+                  "fieldId": "fldWueNrdJ2YFiTcM"
+                }
+              },
+              ". Apply a penalty of -60 points if less than 500 characters. Check for code blocks with 5+ lines and specific values like R\u00b2=0.35. Ensure references to BQX windows [45,90,180,360,720,1440,2880].\n3. **Detect Generic Content**: Identify phrases like \"Complete implementation\" and apply a penalty of -50 points for each occurrence.\n4. **Count Valid Code Blocks**: Ensure code blocks have proper syntax and are not just imports or comments. Check for BQX-specific implementation.\n5. **Score Each Field**: Add points based on the format and content of ",
+              {
+                "field": {
+                  "fieldId": "fldlLw0CKLVf3S8ji"
+                }
+              },
+              ", ",
+              {
+                "field": {
+                  "fieldId": "fldsJCYCtymJQMUVY"
+                }
+              },
+              ", ",
+              {
+                "field": {
+                  "fieldId": "fld3cdmL0KoBA3kcz"
+                }
+              },
+              ", ",
+              {
+                "field": {
+                  "fieldId": "fldWueNrdJ2YFiTcM"
+                }
+              },
+              ", ",
+              {
+                "field": {
+                  "fieldId": "fldImhw6jX0Px5HPG"
+                }
+              },
+              ", ",
+              {
+                "field": {
+                  "fieldId": "fldjj7mdSxxOUIVUe"
+                }
+              },
+              ", and ",
+              {
+                "field": {
+                  "fieldId": "flddzBSv7pdOUlqI0"
+                }
+              },
+              ".\n6. **Apply Major Penalties**: Deduct points for missing code blocks, specific values, or BQX context.\n7. **Calculate Final Score**: Total = Base (40) + Field Points - Penalties. Ensure the score is between 1 and 100.\n8. **Generate Output**: Provide a score, code quality assessment, count of valid code blocks, and presence of specific values and BQX windows.\n\n### Output Format\n- Output the score as \"Score: [Total]\".\n- Provide a code quality assessment as \"Code Quality: [None/Poor/Fair/Good/Excellent]\".\n- Include the count of valid code blocks as \"Code Blocks: [Count]\".\n- Indicate the presence of specific values and BQX windows as \"Specific Values: [Yes/No]\" and \"BQX Windows: [Yes/No]\".\n- If the score is below 70, output a remediation message: \"INSUFFICIENT CONTENT. Required: Add actual Python/SQL code, include specific calculations with BQX windows, provide numerical thresholds, expand notes, and reference code examples.\"\n\n### Context and Data\nTask ID: ",
+              {
+                "field": {
+                  "fieldId": "fldlLw0CKLVf3S8ji"
+                }
+              },
+              "\nName: ",
+              {
+                "field": {
+                  "fieldId": "fldsJCYCtymJQMUVY"
+                }
+              },
+              "\nDescription: ",
+              {
+                "field": {
+                  "fieldId": "fld3cdmL0KoBA3kcz"
+                }
+              },
+              "\nNotes: ",
+              {
+                "field": {
+                  "fieldId": "fldWueNrdJ2YFiTcM"
+                }
+              },
+              "\nSource: ",
+              {
+                "field": {
+                  "fieldId": "fldImhw6jX0Px5HPG"
+                }
+              },
+              "\nStage Link: ",
+              {
+                "field": {
+                  "fieldId": "fldjj7mdSxxOUIVUe"
+                }
+              },
+              "\nStatus: ",
+              {
+                "field": {
+                  "fieldId": "flddzBSv7pdOUlqI0"
+                }
+              },
+              "\n\nOutput:"
+            ]
+          },
+          "id": "fld8HiZoMyBLnjnJ5",
+          "name": "record_audit",
+          "description": "Evaluates the implementation quality of a task record based on code and specific criteria."
+        },
+        {
+          "type": "number",
+          "options": {
+            "precision": 1
+          },
+          "id": "fldJi7kjqKRxMhX2r",
+          "name": "record_score",
+          "description": "Extracts the agent assigned score from the 'record_audit' cell content."
+        },
+        {
+          "type": "singleSelect",
+          "options": {
+            "choices": [
+              {
+                "id": "selqYLNjNtiG7G9YT",
+                "name": "A",
+                "color": "blueLight2"
+              },
+              {
+                "id": "selm7ypchCc98LTlR",
+                "name": "B",
+                "color": "cyanLight2"
+              },
+              {
+                "id": "selGSsoDpRPsfNV3X",
+                "name": "C",
+                "color": "tealLight2"
+              },
+              {
+                "id": "selJuhWpAiPK7Tmye",
+                "name": "X",
+                "color": "greenLight2"
+              }
+            ]
+          },
+          "id": "fldL0auuyGWVYsk3J",
+          "name": "ABCX"
+        },
+        {
+          "type": "singleSelect",
+          "options": {
+            "choices": [
+              {
+                "id": "sel7Rwmm7geNIBfs9",
+                "name": "Yes",
+                "color": "blueLight2"
+              },
+              {
+                "id": "selRKizxONdPPjyWE",
+                "name": "No",
+                "color": "cyanLight2"
+              }
+            ]
+          },
+          "id": "fldk6PcbatTupDzM4",
+          "name": "reconciled",
+          "description": "Indicates whether the task_id, plan_link, phase_link, and stage_link are reconciled."
         }
       ],
       "views": [
