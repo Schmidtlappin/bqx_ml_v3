@@ -23,6 +23,24 @@
         "mandate": "All AirTable notes must contain genuine task-specific content",
         "forbidden": ["generic descriptions", "repetitive templates", "placeholder text"],
         "enforcement_date": "2025-11-26"
+      },
+      "REALTIME_ISSUE_RESOLUTION": {
+        "mandate": "Investigate and resolve all issues in realtime as they occur",
+        "requirement": "No deferring problems - address immediately",
+        "escalation": "Document blockers in AirTable if cannot resolve",
+        "enforcement": "IMMEDIATE"
+      },
+      "AUTHORIZATION_REQUIRED": {
+        "mandate": "Secure user authorization prior to ANY deviation from directives",
+        "applies_to": ["Skipping tasks", "Changing approach", "Modifying requirements", "Deviating from assigned tasks"],
+        "protocol": "Document request in AirTable, await user approval",
+        "forbidden": "Making unilateral decisions to skip or modify requirements"
+      },
+      "AIRTABLE_CURRENCY": {
+        "mandate": "Keep AirTable current at ALL times",
+        "frequency": "Real-time updates as work progresses",
+        "requirements": ["Record all directives", "Document all decisions", "Track all implementations", "Log all issues"],
+        "enforcement": "Agents expected to maintain complete audit trail"
       }
     },
     "project_scope": {
@@ -80,6 +98,43 @@
         "applies_to": "All currency pair indexing"
       }
     },
+    "operational_mandates": {
+      "CONTINUOUS_VALIDATION": {
+        "mandate": "Validate all implementations before marking complete",
+        "requirements": ["Test functionality", "Verify performance", "Check quality gates"],
+        "documentation": "Include validation results in AirTable notes"
+      },
+      "ERROR_TRANSPARENCY": {
+        "mandate": "Report all errors and failures immediately",
+        "forbidden": "Hiding or glossing over failures",
+        "requirement": "Document error details, attempted solutions, and outcomes"
+      },
+      "INCREMENTAL_PROGRESS": {
+        "mandate": "Show incremental progress rather than batch completions",
+        "rationale": "Provides visibility and allows early issue detection",
+        "frequency": "Update after each meaningful milestone"
+      },
+      "DEPENDENCY_AWARENESS": {
+        "mandate": "Check and respect task dependencies",
+        "requirement": "Verify prerequisites before starting dependent tasks",
+        "documentation": "Note dependency chains in AirTable"
+      },
+      "RESOURCE_MONITORING": {
+        "mandate": "Monitor GCP resource usage and costs",
+        "thresholds": ["Alert if approaching quota limits", "Track spending against budget"],
+        "reporting": "Include resource metrics in weekly summaries"
+      },
+      "KNOWLEDGE_TRANSFER": {
+        "mandate": "Document learnings and patterns for future agents",
+        "requirements": ["Update intelligence files with new knowledge", "Create reusable templates", "Document gotchas and solutions"],
+        "location": "/intelligence/ and /sandbox/knowledge/"
+      },
+      "COMMUNICATION_PROTOCOL": {
+        "mandate": "Use structured communication for all agent interactions",
+        "format": "Timestamped messages in designated communication directory",
+        "requirement": "Clear subject lines and action items"
+      }
+    },
     "organizational_structure": {
       "CHIEF_ENGINEER_ROLE": {
         "responsibilities": ["Monitor progress", "Review AirTable", "Provide guidance"],
@@ -120,9 +175,14 @@
     ]
   },
   "metadata": {
-    "last_updated": "2025-11-26",
+    "last_updated": "2025-11-26T22:17:00Z",
     "updated_by": "Chief Engineer",
-    "version": "2.0",
-    "supersedes": "Original intelligence files missing critical mandates"
+    "version": "3.0",
+    "changelog": [
+      "v3.0: Added operational mandates and communication protocols",
+      "v2.0: Added critical user mandates (BUILD_DONT_SIMULATE, etc.)",
+      "v1.0: Original intelligence files"
+    ],
+    "supersedes": "Version 2.0 - missing operational directives"
   }
 }

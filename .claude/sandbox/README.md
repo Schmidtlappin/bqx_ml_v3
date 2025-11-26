@@ -35,10 +35,18 @@ This sandbox contains all the documentation and resources you need to complete t
 
 ## 🧠 INTELLIGENCE FILES TO INGEST
 
-Before starting any work, load these files:
-- `/home/micha/bqx_ml_v3/intelligence/context.json`
-- `/home/micha/bqx_ml_v3/intelligence/semantics.json`
-- `/home/micha/bqx_ml_v3/intelligence/ontology.json`
+Before starting any work, load these files IN ORDER:
+1. **`/home/micha/bqx_ml_v3/intelligence/mandates.json`** ⚠️ **CRITICAL - READ FIRST**
+2. `/home/micha/bqx_ml_v3/intelligence/context.json`
+3. `/home/micha/bqx_ml_v3/intelligence/semantics.json`
+4. `/home/micha/bqx_ml_v3/intelligence/ontology.json`
+
+## 📬 AGENT COMMUNICATION
+
+All agent-to-agent communication now follows structured protocols:
+- **Protocol Guide**: [communications/AGENT_COMMUNICATION_PROTOCOL.md](./communications/AGENT_COMMUNICATION_PROTOCOL.md)
+- **Active Messages**: [communications/active/](./communications/active/)
+- **Chief Engineer Response**: [communications/20251126_2203_CE-to-BA_critical_questions_response.md](./communications/20251126_2203_CE-to-BA_critical_questions_response.md)
 
 ## 🚀 QUICK START
 
