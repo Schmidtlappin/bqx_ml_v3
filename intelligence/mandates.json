@@ -1,184 +1,128 @@
 {
-  "critical_mandates": {
-    "1_BQX_PARADIGM_SHIFT": {
-      "mandate": "BQX values can be BOTH features AND targets",
-      "old_rule": "BQX values were restricted to targets only (DEPRECATED 2024-11-24)",
-      "new_rule": "BQX values (bqx_ask, bqx_bid, bqx_mid) can be features (lags) AND targets (leads)",
-      "rationale": "Historical BQX values contain momentum signals that predict future BQX - autoregressive prediction",
-      "implementation": [
-        "Include bqx_ask_lag_1 through bqx_ask_lag_60 in features",
-        "Include bqx_bid_lag_1 through bqx_bid_lag_60 in features",
-        "Include bqx_mid_lag_1 through bqx_mid_lag_60 in features"
-      ],
-      "impact": "Enables autoregressive BQX prediction with historical BQX momentum",
-      "date_effective": "2024-11-24",
-      "severity": "CRITICAL"
-    },
-    "2_INTERVAL_CENTRIC": {
-      "mandate": "Use ROWS BETWEEN only, NEVER time-based windows",
-      "forbidden": [
-        "INTERVAL keyword",
-        "DATE_SUB() or DATE_ADD()",
-        "TIMESTAMP_SUB() or TIMESTAMP_ADD()",
-        "Time-based window functions",
-        "Any date/time arithmetic for windowing"
-      ],
-      "required": "ROWS BETWEEN N PRECEDING AND CURRENT ROW",
-      "rationale": "Ensures consistent sample sizes regardless of market gaps (weekends, holidays)",
-      "examples": {
-        "correct": "AVG(close) OVER (ORDER BY bar_start_time ROWS BETWEEN 20 PRECEDING AND CURRENT ROW)",
-        "incorrect": "AVG(close) OVER (ORDER BY bar_start_time RANGE BETWEEN INTERVAL 20 MINUTE PRECEDING AND CURRENT ROW)"
+  "user_mandates": {
+    "critical_directives": {
+      "BUILD_DONT_SIMULATE": {
+        "mandate": "EVERY implementation must be REAL - no simulations, mocks, or fake resources",
+        "date_issued": "2025-11-26",
+        "context": "User discovered simulation scripts and became furious",
+        "enforcement": "ABSOLUTE - violation forbidden forever"
       },
-      "severity": "CRITICAL"
+      "REAL_INFRASTRUCTURE_ONLY": {
+        "mandate": "Create actual GCP resources that can be verified in console",
+        "verification_required": true,
+        "acceptable_evidence": ["bq show commands", "gsutil ls output", "gcloud verification"],
+        "forbidden": ["placeholder resources", "mock implementations", "simulated outcomes"]
+      },
+      "INTERVAL_CENTRIC_ARCHITECTURE": {
+        "mandate": "Use ROWS BETWEEN for all window calculations",
+        "forbidden": "RANGE BETWEEN or any time-based windows",
+        "coverage": "100% of 198 instances must be corrected",
+        "rationale": "Ensures consistent interval counts regardless of data gaps"
+      },
+      "NO_BOILERPLATE_CONTENT": {
+        "mandate": "All AirTable notes must contain genuine task-specific content",
+        "forbidden": ["generic descriptions", "repetitive templates", "placeholder text"],
+        "enforcement_date": "2025-11-26"
+      }
     },
-    "3_INDEPENDENT_MODELS": {
-      "mandate": "28 completely isolated models, no cross-contamination",
-      "requirements": [
-        "Each currency pair has dedicated model",
-        "No feature sharing between pairs",
-        "No parameter sharing between pairs",
-        "Separate training datasets per pair",
-        "Isolated prediction pipelines"
-      ],
-      "forbidden": [
-        "Multi-pair models",
-        "Cross-pair features (e.g., EURUSD using GBPUSD data)",
-        "Shared model parameters",
-        "Joint training across pairs"
-      ],
-      "rationale": "Each pair has unique market dynamics requiring specialized modeling",
-      "pair_count": 28,
-      "models_per_pair": 5,
-      "total_models": 140,
-      "severity": "CRITICAL"
-    },
-    "4_AIRTABLE_TRUTH": {
-      "mandate": "AirTable P03 is the single source of truth for all work",
-      "requirements": [
-        "All stages defined in AirTable",
-        "Real-time status updates to AirTable",
-        "Progress tracking via AirTable API",
-        "Quality scores maintained in AirTable"
-      ],
-      "structure": {
-        "project": "P03",
+    "project_scope": {
+      "TOTAL_TASKS": {
+        "count": 197,
         "phases": 11,
-        "stages": 70,
-        "hierarchy": "Plan → Phases → Stages"
+        "requirement": "ALL must be completed with real implementation",
+        "current_status": "0 completed (reset after simulation attempt)"
       },
-      "compliance": [
-        "Check AirTable before starting new work",
-        "Update AirTable upon stage completion",
-        "Maintain 90+ scores for all stages",
-        "Follow stage sequence defined in plan"
-      ],
-      "severity": "HIGH"
-    }
-  },
-  "operational_mandates": {
-    "code_quality": {
-      "testing": "Minimum 80% test coverage required",
-      "linting": "PEP 8 compliance enforced",
-      "type_hints": "Required for all functions",
-      "documentation": "Docstrings mandatory for public APIs"
+      "MODEL_COUNT": {
+        "total": 196,
+        "calculation": "28 currency pairs × 7 prediction windows",
+        "windows": [45, 90, 180, 360, 720, 1440, 2880],
+        "note": "NOT 140 models as previously documented - must be 196"
+      },
+      "CURRENCY_PAIRS": {
+        "count": 28,
+        "existing_infrastructure": ["EURUSD", "GBPUSD", "USDJPY", "AUDUSD", "USDCAD"],
+        "remaining": 23,
+        "requirement": "Complete isolation per pair"
+      }
     },
-    "security": {
-      "secrets": "Never commit secrets to git",
-      "credentials": "Use GitHub Secrets or GCP Secret Manager only",
-      "authentication": "Service accounts with least privilege",
-      "encryption": "TLS 1.3 for transit, AES-256 for rest"
+    "quality_gates": {
+      "R_SQUARED": {
+        "minimum": 0.35,
+        "flexibility": "Try XGBoost, then LightGBM, document if cannot achieve"
+      },
+      "RMSE": {
+        "maximum": 0.15
+      },
+      "DIRECTIONAL_ACCURACY": {
+        "minimum": 0.55
+      },
+      "INFERENCE_LATENCY": {
+        "maximum_ms": 100
+      },
+      "THROUGHPUT": {
+        "minimum_qps": 1000
+      }
     },
-    "deployment": {
-      "testing": "All tests must pass before deployment",
-      "blue_green": "Zero-downtime deployments required",
-      "rollback": "Rollback capability < 5 minutes",
-      "monitoring": "Continuous monitoring with alerting"
+    "technical_requirements": {
+      "BQX_PARADIGM": {
+        "mandate": "BQX values serve as BOTH features AND targets",
+        "paradigm_shift_date": "2024-11-24",
+        "implementation": "Use historical BQX as features, future BQX as targets"
+      },
+      "DATA_LEAKAGE_PREVENTION": {
+        "features": "LAG operations only (backward-looking)",
+        "targets": "LEAD operations only (forward-looking)",
+        "cross_validation_gap": 100
+      },
+      "BASELINE_INDEXING": {
+        "reference_date": "2022-07-01",
+        "reference_value": 100,
+        "applies_to": "All currency pair indexing"
+      }
     },
-    "data_quality": {
-      "validation": "Schema and value range validation required",
-      "completeness": "No missing values in features or targets",
-      "consistency": "Cross-table bar_start_time alignment",
-      "auditability": "All data transformations logged"
-    }
-  },
-  "development_mandates": {
-    "git_workflow": {
-      "commits": "Conventional commits with Claude Code co-authorship",
-      "branches": "main branch protected, requires PR for changes",
-      "review": "Code review required for protected branches",
-      "signing": "Commit signing required for production"
+    "organizational_structure": {
+      "CHIEF_ENGINEER_ROLE": {
+        "responsibilities": ["Monitor progress", "Review AirTable", "Provide guidance"],
+        "authority": "Technical decisions and escalations",
+        "current": "Claude (BQX ML V3)"
+      },
+      "BUILDER_AGENT_ROLE": {
+        "responsibilities": ["Execute real implementation", "Update AirTable", "Create infrastructure"],
+        "workspace": "/home/micha/bqx_ml_v3/.claude/sandbox/",
+        "requirement": "Must read all intelligence files before starting"
+      }
     },
-    "documentation": {
-      "code": "Inline comments for complex logic",
-      "api": "OpenAPI specs for all endpoints",
-      "architecture": "Markdown docs in /docs directory",
-      "changelog": "CHANGELOG.md maintained with every release"
+    "airtable_protocols": {
+      "UPDATE_FREQUENCY": {
+        "mandate": "Update immediately after each task",
+        "workflow": ["Mark In Progress when starting", "Mark Done with verification", "Include real outcomes only"]
+      },
+      "VERIFICATION_REQUIREMENTS": {
+        "mandate": "Every Done task must include verification commands",
+        "format": "Include actual resource IDs and console links",
+        "forbidden": "Marking Done without real infrastructure"
+      }
     },
-    "dependencies": {
-      "python": ">= 3.10 required",
-      "updates": "Security patches applied within 7 days",
-      "licensing": "Only approved OSS licenses allowed",
-      "auditing": "Dependency audit monthly"
-    }
-  },
-  "performance_mandates": {
-    "latency": {
-      "api_response": "< 200ms (95th percentile)",
-      "prediction": "< 100ms per prediction",
-      "batch_processing": "> 1000 predictions/second",
-      "data_ingestion": "< 5 seconds from market close to BigQuery"
-    },
-    "reliability": {
-      "uptime": "99.9% SLA",
-      "error_rate": "< 0.1% for all endpoints",
-      "data_freshness": "< 60 seconds latency",
-      "backup_recovery": "< 4 hours RTO, < 1 hour RPO"
-    },
-    "scalability": {
-      "concurrent_users": "Support 10,000+ concurrent API users",
-      "request_rate": "Handle 100,000 requests/minute",
-      "data_volume": "Process 28 currency pairs × 1,440 bars/day",
-      "model_training": "Train 140 models in < 24 hours"
-    }
-  },
-  "validation_mandates": {
-    "pre_commit": [
-      "Unit tests passing",
-      "Linting passing",
-      "Type checking passing"
+    "forbidden_forever": [
+      "Creating simulation scripts",
+      "Marking tasks Done without real implementation",
+      "Using mock or fake resources",
+      "Generating boilerplate AirTable notes",
+      "Skipping verification steps",
+      "Using RANGE BETWEEN in SQL"
     ],
-    "pre_deploy": [
-      "All tests passing (unit + integration + validation)",
-      "No security vulnerabilities",
-      "Performance benchmarks met",
-      "Documentation updated"
-    ],
-    "post_deploy": [
-      "Smoke tests passing",
-      "Monitoring dashboards green",
-      "No error spikes",
-      "Latency within SLA"
+    "authorized_actions": [
+      "Parallel execution of independent tasks",
+      "Using existing models as templates",
+      "Proceeding past quality gates with documented exceptions",
+      "Making architectural decisions within guidelines",
+      "Creating all GCP resources without additional approval"
     ]
   },
-  "paradigm_shift_notes": {
-    "date": "2024-11-24",
-    "title": "BQX Values as Features Paradigm Shift",
-    "summary": "Historical BQX values (lags) can now be used as features in addition to being targets",
-    "advantages": [
-      "Autoregressive prediction capability",
-      "Momentum persistence capture",
-      "Enhanced prediction accuracy",
-      "Natural time series progression"
-    ],
-    "implementation_impact": [
-      "Updated lag_bqx_* table creation to include BQX features",
-      "Modified feature engineering to include BQX lags 1-60",
-      "Enhanced model training to leverage BQX momentum signals",
-      "Improved prediction accuracy through autoregression"
-    ],
-    "document_references": [
-      "/docs/PARADIGM_SHIFT_UPDATE_20241124.md",
-      "/docs/MENTOR_RESPONSE_UPDATED_V2.md"
-    ]
+  "metadata": {
+    "last_updated": "2025-11-26",
+    "updated_by": "Chief Engineer",
+    "version": "2.0",
+    "supersedes": "Original intelligence files missing critical mandates"
   }
 }

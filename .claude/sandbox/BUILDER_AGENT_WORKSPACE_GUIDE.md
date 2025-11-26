@@ -56,7 +56,16 @@ This document provides comprehensive guidance for:
 
 You MUST read and understand these files before beginning work:
 
-#### 1. Context File
+#### 1. Mandates File ⚠️ READ FIRST - CRITICAL
+```bash
+/home/micha/bqx_ml_v3/intelligence/mandates.json
+```
+- **USER MANDATES AND FORBIDDEN ACTIONS**
+- **BUILD, DON'T SIMULATE directive**
+- **Real infrastructure requirements**
+- **Quality gates and enforcement rules**
+
+#### 2. Context File
 ```bash
 /home/micha/bqx_ml_v3/intelligence/context.json
 ```
@@ -65,7 +74,7 @@ You MUST read and understand these files before beginning work:
 - AirTable structure
 - Current completion status
 
-#### 2. Semantics File
+#### 3. Semantics File
 ```bash
 /home/micha/bqx_ml_v3/intelligence/semantics.json
 ```
@@ -74,7 +83,7 @@ You MUST read and understand these files before beginning work:
 - Technical nomenclature
 - Metric definitions
 
-#### 3. Ontology File
+#### 4. Ontology File
 ```bash
 /home/micha/bqx_ml_v3/intelligence/ontology.json
 ```
@@ -89,6 +98,11 @@ You MUST read and understand these files before beginning work:
 ```python
 # Start each session by loading intelligence
 import json
+
+# CRITICAL: Load mandates FIRST
+with open('/home/micha/bqx_ml_v3/intelligence/mandates.json', 'r') as f:
+    mandates = json.load(f)
+    print(f"⚠️ CRITICAL MANDATE: {mandates['user_mandates']['critical_directives']['BUILD_DONT_SIMULATE']['mandate']}")
 
 # Load context
 with open('/home/micha/bqx_ml_v3/intelligence/context.json', 'r') as f:
