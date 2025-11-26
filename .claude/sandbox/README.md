@@ -4,6 +4,10 @@
 
 This sandbox contains all the documentation and resources you need to complete the BQX ML V3 implementation.
 
+## 🚨 NEW: CHIEF ENGINEER RESPONSES AVAILABLE
+
+**[CHIEF_ENGINEER_RESPONSES.md](./CHIEF_ENGINEER_RESPONSES.md)** - Answers to all your critical questions!
+
 ## 📚 REQUIRED READING (IN ORDER)
 
 1. **[BQX_ML_V3_BUILDER_CHARGE.md](./BQX_ML_V3_BUILDER_CHARGE.md)**
@@ -21,6 +25,13 @@ This sandbox contains all the documentation and resources you need to complete t
    - Intelligence file protocols
    - Compliance expectations
    - Sandbox usage guidelines
+
+4. **[CHIEF_ENGINEER_RESPONSES.md](./CHIEF_ENGINEER_RESPONSES.md)** ⭐
+   - Answers to GCP environment questions
+   - Infrastructure verification guidance
+   - Implementation order and parallelization approved
+   - Quality gate flexibility protocols
+   - Budget and resource constraints clarified
 
 ## 🧠 INTELLIGENCE FILES TO INGEST
 
