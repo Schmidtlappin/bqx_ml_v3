@@ -60,7 +60,8 @@
       "Bash(lscpu:*)",
       "Bash(for model in EUR_USD_45 EUR_USD_90 GBP_USD_45 GBP_USD_90)",
       "Bash(do)",
-      "Bash(docker images:*)"
+      "Bash(docker images:*)",
+      "Bash(for model in EUR_USD_90 GBP_USD_90 USD_JPY_90 EUR_GBP_90 EUR_JPY_90)"
     ]
   },
   "context": {
