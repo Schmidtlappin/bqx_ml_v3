@@ -47,7 +47,17 @@
       "Bash(pip install:*)",
       "Bash(crontab:*)",
       "Bash(xargs ls:*)",
-      "Bash(xargs:*)"
+      "Bash(xargs:*)",
+      "Bash(ls:*)",
+      "Bash(rclone lsd:*)",
+      "Bash(rclone backend:*)",
+      "Bash(rclone copy:*)",
+      "Bash(rclone ls:*)",
+      "Bash(while read script)",
+      "Bash(do echo '  ✓ $(basename $script)')",
+      "Bash(done)",
+      "Bash(top:*)",
+      "Bash(lscpu:*)"
     ]
   },
   "context": {

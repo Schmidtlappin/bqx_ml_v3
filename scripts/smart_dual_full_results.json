@@ -1,0 +1,3543 @@
+{
+  "timestamp": "2025-11-27T00:37:37.265872",
+  "total_models": 196,
+  "successful": 196,
+  "failed": 0,
+  "quality_passed": 140,
+  "quality_pass_rate": 71.42857142857143,
+  "avg_r2_score": 0.7078861288100271,
+  "min_r2_score": 0.3014962962909773,
+  "max_r2_score": 0.9973613771666463,
+  "std_r2_score": 0.2665131203968826,
+  "total_time_minutes": 25.139641733333335,
+  "models": [
+    {
+      "model_id": "EURUSD-45",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.9362380988381057,
+          "rmse": 0.8007732116806725,
+          "mae": 0.6390435149955749,
+          "directional_accuracy": 0.948943661971831
+        },
+        "test": {
+          "r2_score": 0.9284041447714863,
+          "directional_accuracy": 0.9452589105581708
+        }
+      },
+      "training_time": 0.6462230682373047,
+      "quality_passed": true
+    },
+    {
+      "model_id": "EURUSD-90",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.8340799248880988,
+          "rmse": 1.9482998365776003,
+          "mae": 1.3837064051319112,
+          "directional_accuracy": 0.9023199023199023
+        },
+        "test": {
+          "r2_score": 0.775439677738204,
+          "directional_accuracy": 0.8866729551273413
+        }
+      },
+      "training_time": 0.6272273063659668,
+      "quality_passed": true
+    },
+    {
+      "model_id": "EURUSD-180",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.9018597749990812,
+          "rmse": 1.6093383997135686,
+          "mae": 1.1046542633291931,
+          "directional_accuracy": 0.9553376906318083
+        },
+        "test": {
+          "r2_score": 0.7626744420393733,
+          "directional_accuracy": 0.9256153638084934
+        }
+      },
+      "training_time": 0.680527925491333,
+      "quality_passed": true
+    },
+    {
+      "model_id": "EURUSD-360",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.6602541239721875,
+          "rmse": 5.488617236650952,
+          "mae": 3.3642962581629883,
+          "directional_accuracy": 0.7700960219478739
+        },
+        "test": {
+          "r2_score": 0.2831260330449248,
+          "directional_accuracy": 0.6825613079019074
+        }
+      },
+      "training_time": 0.29859471321105957,
+      "quality_passed": true
+    },
+    {
+      "model_id": "EURUSD-720",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.9972545429158,
+          "rmse": 0.6960130766871859,
+          "mae": 0.5669866461365006,
+          "directional_accuracy": 0.9896964633806739
+        },
+        "test": {
+          "r2_score": 0.9971783544307268,
+          "directional_accuracy": 0.9899059734513275
+        }
+      },
+      "training_time": 0.5633316040039062,
+      "quality_passed": true
+    },
+    {
+      "model_id": "EURUSD-1440",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.3179079982454741,
+          "rmse": 0.633966508165772,
+          "mae": 0.5254803104540184,
+          "directional_accuracy": 0.7140396210163652
+        },
+        "test": {
+          "r2_score": 0.31221163330444646,
+          "directional_accuracy": 0.7277651083238312
+        }
+      },
+      "training_time": 0.5983462333679199,
+      "quality_passed": false
+    },
+    {
+      "model_id": "EURUSD-2880",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.326950626713123,
+          "rmse": 0.6343693035550477,
+          "mae": 0.5259866966313669,
+          "directional_accuracy": 0.7597183960820324
+        },
+        "test": {
+          "r2_score": 0.30510226751596736,
+          "directional_accuracy": 0.7598724179829891
+        }
+      },
+      "training_time": 0.6481459140777588,
+      "quality_passed": false
+    },
+    {
+      "model_id": "GBPUSD-45",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.9347507843089392,
+          "rmse": 0.8112775748603748,
+          "mae": 0.6490608130705645,
+          "directional_accuracy": 0.9498916576381365
+        },
+        "test": {
+          "r2_score": 0.923617962075236,
+          "directional_accuracy": 0.9471418964357767
+        }
+      },
+      "training_time": 0.6413290500640869,
+      "quality_passed": true
+    },
+    {
+      "model_id": "GBPUSD-90",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.8246844930374322,
+          "rmse": 2.0049404444190735,
+          "mae": 1.4182415176514973,
+          "directional_accuracy": 0.8964862298195632
+        },
+        "test": {
+          "r2_score": 0.7568473524374772,
+          "directional_accuracy": 0.8779140277590621
+        }
+      },
+      "training_time": 0.6258642673492432,
+      "quality_passed": true
+    },
+    {
+      "model_id": "GBPUSD-180",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.9034916046160586,
+          "rmse": 1.5940490105513148,
+          "mae": 1.1018095515132644,
+          "directional_accuracy": 0.9537037037037037
+        },
+        "test": {
+          "r2_score": 0.7614855783560093,
+          "directional_accuracy": 0.9253448742223425
+        }
+      },
+      "training_time": 0.5490367412567139,
+      "quality_passed": true
+    },
+    {
+      "model_id": "GBPUSD-360",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.6597443134758583,
+          "rmse": 5.487218827900347,
+          "mae": 3.2089281455193355,
+          "directional_accuracy": 0.7759945130315501
+        },
+        "test": {
+          "r2_score": 0.24878864239248544,
+          "directional_accuracy": 0.6802452316076294
+        }
+      },
+      "training_time": 0.2279829978942871,
+      "quality_passed": true
+    },
+    {
+      "model_id": "GBPUSD-720",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.9972976824724629,
+          "rmse": 0.6898743809095497,
+          "mae": 0.564029792864166,
+          "directional_accuracy": 0.9885825675299359
+        },
+        "test": {
+          "r2_score": 0.9970978463762878,
+          "directional_accuracy": 0.9901825221238938
+        }
+      },
+      "training_time": 0.5722415447235107,
+      "quality_passed": true
+    },
+    {
+      "model_id": "GBPUSD-1440",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.3100530042275331,
+          "rmse": 0.6310941895474454,
+          "mae": 0.5226951333341799,
+          "directional_accuracy": 0.7093023255813954
+        },
+        "test": {
+          "r2_score": 0.3250765762169199,
+          "directional_accuracy": 0.7149372862029647
+        }
+      },
+      "training_time": 0.5855958461761475,
+      "quality_passed": false
+    },
+    {
+      "model_id": "GBPUSD-2880",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.31448551435617145,
+          "rmse": 0.6379711285181288,
+          "mae": 0.5286886262238729,
+          "directional_accuracy": 0.7618610345883073
+        },
+        "test": {
+          "r2_score": 0.3085727950689775,
+          "directional_accuracy": 0.7691373025516404
+        }
+      },
+      "training_time": 0.8310158252716064,
+      "quality_passed": false
+    },
+    {
+      "model_id": "USDJPY-45",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.9352228775027671,
+          "rmse": 0.8080762608369491,
+          "mae": 0.6454208268459057,
+          "directional_accuracy": 0.9492145178764897
+        },
+        "test": {
+          "r2_score": 0.925359924630381,
+          "directional_accuracy": 0.9444519166106254
+        }
+      },
+      "training_time": 0.65425705909729,
+      "quality_passed": true
+    },
+    {
+      "model_id": "USDJPY-90",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.8262933604061574,
+          "rmse": 1.995522845815926,
+          "mae": 1.4126618401742812,
+          "directional_accuracy": 0.9025912359245692
+        },
+        "test": {
+          "r2_score": 0.7715255128791492,
+          "directional_accuracy": 0.8843821587387145
+        }
+      },
+      "training_time": 0.48372435569763184,
+      "quality_passed": true
+    },
+    {
+      "model_id": "USDJPY-180",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.9082252668496535,
+          "rmse": 1.553341638028207,
+          "mae": 1.0756210855090471,
+          "directional_accuracy": 0.9568355119825708
+        },
+        "test": {
+          "r2_score": 0.7591322819448793,
+          "directional_accuracy": 0.9203408168785502
+        }
+      },
+      "training_time": 0.5250930786132812,
+      "quality_passed": true
+    },
+    {
+      "model_id": "USDJPY-360",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.670201908460668,
+          "rmse": 5.397657470070085,
+          "mae": 3.048941530077476,
+          "directional_accuracy": 0.775445816186557
+        },
+        "test": {
+          "r2_score": 0.2423786414443153,
+          "directional_accuracy": 0.6790190735694823
+        }
+      },
+      "training_time": 0.28490424156188965,
+      "quality_passed": true
+    },
+    {
+      "model_id": "USDJPY-720",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.9972552758228016,
+          "rmse": 0.6947314432025649,
+          "mae": 0.5661084954632912,
+          "directional_accuracy": 0.9922027290448343
+        },
+        "test": {
+          "r2_score": 0.9970837669578307,
+          "directional_accuracy": 0.9890763274336283
+        }
+      },
+      "training_time": 0.7561616897583008,
+      "quality_passed": true
+    },
+    {
+      "model_id": "USDJPY-1440",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.32438790610507884,
+          "rmse": 0.6294155600306435,
+          "mae": 0.5208713103020399,
+          "directional_accuracy": 0.7180591444157336
+        },
+        "test": {
+          "r2_score": 0.3175821925604124,
+          "directional_accuracy": 0.7130843785632839
+        }
+      },
+      "training_time": 0.6673097610473633,
+      "quality_passed": false
+    },
+    {
+      "model_id": "USDJPY-2880",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.31412934430154893,
+          "rmse": 0.6364114390145201,
+          "mae": 0.5273018469670675,
+          "directional_accuracy": 0.7604836241199877
+        },
+        "test": {
+          "r2_score": 0.32092880126933254,
+          "directional_accuracy": 0.7679222357229648
+        }
+      },
+      "training_time": 0.5388913154602051,
+      "quality_passed": false
+    },
+    {
+      "model_id": "USDCHF-45",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.9357887263026953,
+          "rmse": 0.8086965931119964,
+          "mae": 0.6430356300165629,
+          "directional_accuracy": 0.9502979414951246
+        },
+        "test": {
+          "r2_score": 0.9254513857706544,
+          "directional_accuracy": 0.9463349024882314
+        }
+      },
+      "training_time": 0.5782341957092285,
+      "quality_passed": true
+    },
+    {
+      "model_id": "USDCHF-90",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.8181806525490366,
+          "rmse": 2.0499361728237218,
+          "mae": 1.4437611256758165,
+          "directional_accuracy": 0.9021842355175689
+        },
+        "test": {
+          "r2_score": 0.7588271772610641,
+          "directional_accuracy": 0.8820913623500876
+        }
+      },
+      "training_time": 0.6052989959716797,
+      "quality_passed": true
+    },
+    {
+      "model_id": "USDCHF-180",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.9064332344464395,
+          "rmse": 1.5672000764716087,
+          "mae": 1.096272520859873,
+          "directional_accuracy": 0.9512527233115469
+        },
+        "test": {
+          "r2_score": 0.7606483752283344,
+          "directional_accuracy": 0.9216932648093048
+        }
+      },
+      "training_time": 0.5663719177246094,
+      "quality_passed": true
+    },
+    {
+      "model_id": "USDCHF-360",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.6495833304660128,
+          "rmse": 5.561214988056309,
+          "mae": 3.281354203411823,
+          "directional_accuracy": 0.7728395061728395
+        },
+        "test": {
+          "r2_score": 0.2562900471199667,
+          "directional_accuracy": 0.6799727520435968
+        }
+      },
+      "training_time": 0.22169828414916992,
+      "quality_passed": true
+    },
+    {
+      "model_id": "USDCHF-720",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.9973613771666463,
+          "rmse": 0.6808800498059767,
+          "mae": 0.5551410256529633,
+          "directional_accuracy": 0.9912280701754386
+        },
+        "test": {
+          "r2_score": 0.9970685239239344,
+          "directional_accuracy": 0.9929480088495575
+        }
+      },
+      "training_time": 0.8053560256958008,
+      "quality_passed": true
+    },
+    {
+      "model_id": "USDCHF-1440",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.3232921400076745,
+          "rmse": 0.6234495967672194,
+          "mae": 0.5163422828593317,
+          "directional_accuracy": 0.7204995693367786
+        },
+        "test": {
+          "r2_score": 0.31620416444846344,
+          "directional_accuracy": 0.7112314709236032
+        }
+      },
+      "training_time": 0.5676484107971191,
+      "quality_passed": false
+    },
+    {
+      "model_id": "USDCHF-2880",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.30712390599597506,
+          "rmse": 0.6407841564905222,
+          "mae": 0.5323580444408275,
+          "directional_accuracy": 0.7594123048668503
+        },
+        "test": {
+          "r2_score": 0.30757058382835634,
+          "directional_accuracy": 0.7604799513973268
+        }
+      },
+      "training_time": 0.5008306503295898,
+      "quality_passed": false
+    },
+    {
+      "model_id": "AUDUSD-45",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.9357387765214271,
+          "rmse": 0.8067395170751327,
+          "mae": 0.6478001770988441,
+          "directional_accuracy": 0.949349945828819
+        },
+        "test": {
+          "r2_score": 0.9247803948796838,
+          "directional_accuracy": 0.9509078681909886
+        }
+      },
+      "training_time": 0.6459438800811768,
+      "quality_passed": true
+    },
+    {
+      "model_id": "AUDUSD-90",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.820703112405352,
+          "rmse": 2.0297482408387437,
+          "mae": 1.4108277243129337,
+          "directional_accuracy": 0.9000135666802334
+        },
+        "test": {
+          "r2_score": 0.7630310627097153,
+          "directional_accuracy": 0.8799353186902035
+        }
+      },
+      "training_time": 0.6224138736724854,
+      "quality_passed": true
+    },
+    {
+      "model_id": "AUDUSD-180",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.909399991699143,
+          "rmse": 1.5431704639025865,
+          "mae": 1.079625623323338,
+          "directional_accuracy": 0.9565631808278867
+        },
+        "test": {
+          "r2_score": 0.7661465328368744,
+          "directional_accuracy": 0.9225047335677576
+        }
+      },
+      "training_time": 0.6173219680786133,
+      "quality_passed": true
+    },
+    {
+      "model_id": "AUDUSD-360",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.6536769040567625,
+          "rmse": 5.534639706418495,
+          "mae": 3.306865811652198,
+          "directional_accuracy": 0.7731138545953361
+        },
+        "test": {
+          "r2_score": 0.2716041706617188,
+          "directional_accuracy": 0.685149863760218
+        }
+      },
+      "training_time": 0.22127628326416016,
+      "quality_passed": true
+    },
+    {
+      "model_id": "AUDUSD-720",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.9973126304131121,
+          "rmse": 0.6879615645454535,
+          "mae": 0.5582386446992753,
+          "directional_accuracy": 0.9898357003620162
+        },
+        "test": {
+          "r2_score": 0.9971107573950074,
+          "directional_accuracy": 0.9919800884955752
+        }
+      },
+      "training_time": 0.5906939506530762,
+      "quality_passed": true
+    },
+    {
+      "model_id": "AUDUSD-1440",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.3201458873081974,
+          "rmse": 0.6267340041935293,
+          "mae": 0.5180491302215767,
+          "directional_accuracy": 0.7194946884869365
+        },
+        "test": {
+          "r2_score": 0.32214457922526785,
+          "directional_accuracy": 0.7202109464082098
+        }
+      },
+      "training_time": 0.6105489730834961,
+      "quality_passed": false
+    },
+    {
+      "model_id": "AUDUSD-2880",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.322949113352191,
+          "rmse": 0.6341003389565489,
+          "mae": 0.5269335735808924,
+          "directional_accuracy": 0.761248852157943
+        },
+        "test": {
+          "r2_score": 0.32483770309906446,
+          "directional_accuracy": 0.7623025516403402
+        }
+      },
+      "training_time": 0.5595769882202148,
+      "quality_passed": false
+    },
+    {
+      "model_id": "USDCAD-45",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.9365855681561422,
+          "rmse": 0.8024189791721091,
+          "mae": 0.6444919775330948,
+          "directional_accuracy": 0.948537378114843
+        },
+        "test": {
+          "r2_score": 0.9258841277075777,
+          "directional_accuracy": 0.9471418964357767
+        }
+      },
+      "training_time": 0.6491982936859131,
+      "quality_passed": true
+    },
+    {
+      "model_id": "USDCAD-90",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.8328590150137779,
+          "rmse": 1.9636768321748719,
+          "mae": 1.3931915330987852,
+          "directional_accuracy": 0.8982498982498982
+        },
+        "test": {
+          "r2_score": 0.7701618141142283,
+          "directional_accuracy": 0.885729686026142
+        }
+      },
+      "training_time": 0.6208446025848389,
+      "quality_passed": true
+    },
+    {
+      "model_id": "USDCAD-180",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.9101084185313821,
+          "rmse": 1.5402680872647425,
+          "mae": 1.0779398122666193,
+          "directional_accuracy": 0.9547930283224401
+        },
+        "test": {
+          "r2_score": 0.7636232777425678,
+          "directional_accuracy": 0.923180957533135
+        }
+      },
+      "training_time": 0.5787744522094727,
+      "quality_passed": true
+    },
+    {
+      "model_id": "USDCAD-360",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.6710509145049265,
+          "rmse": 5.402156068456098,
+          "mae": 3.0348451075896747,
+          "directional_accuracy": 0.7766803840877915
+        },
+        "test": {
+          "r2_score": 0.23311589010190947,
+          "directional_accuracy": 0.678882833787466
+        }
+      },
+      "training_time": 0.26479029655456543,
+      "quality_passed": true
+    },
+    {
+      "model_id": "USDCAD-720",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.997258295218454,
+          "rmse": 0.6956459650420652,
+          "mae": 0.5680899164685204,
+          "directional_accuracy": 0.9877471456418825
+        },
+        "test": {
+          "r2_score": 0.997119256156427,
+          "directional_accuracy": 0.989629424778761
+        }
+      },
+      "training_time": 0.5669686794281006,
+      "quality_passed": true
+    },
+    {
+      "model_id": "USDCAD-1440",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.316391697021179,
+          "rmse": 0.633470565080389,
+          "mae": 0.5225900652248509,
+          "directional_accuracy": 0.7147573930519667
+        },
+        "test": {
+          "r2_score": 0.2978620177995973,
+          "directional_accuracy": 0.7080957810718358
+        }
+      },
+      "training_time": 0.6567509174346924,
+      "quality_passed": false
+    },
+    {
+      "model_id": "USDCAD-2880",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.3218821113588065,
+          "rmse": 0.6462300419051977,
+          "mae": 0.5378210243541424,
+          "directional_accuracy": 0.7623201714110805
+        },
+        "test": {
+          "r2_score": 0.32456294420404386,
+          "directional_accuracy": 0.7616950182260024
+        }
+      },
+      "training_time": 0.5371263027191162,
+      "quality_passed": false
+    },
+    {
+      "model_id": "NZDUSD-45",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.9369438270465583,
+          "rmse": 0.7965608542431537,
+          "mae": 0.6383343085434228,
+          "directional_accuracy": 0.9439328277356447
+        },
+        "test": {
+          "r2_score": 0.9260298262824056,
+          "directional_accuracy": 0.9471418964357767
+        }
+      },
+      "training_time": 0.5582075119018555,
+      "quality_passed": true
+    },
+    {
+      "model_id": "NZDUSD-90",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.8327681189942806,
+          "rmse": 1.9555903776700696,
+          "mae": 1.4013383227024037,
+          "directional_accuracy": 0.9034052367385701
+        },
+        "test": {
+          "r2_score": 0.7819978420706564,
+          "directional_accuracy": 0.8842474060099716
+        }
+      },
+      "training_time": 0.5469539165496826,
+      "quality_passed": true
+    },
+    {
+      "model_id": "NZDUSD-180",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.8982012491588274,
+          "rmse": 1.6357156644956439,
+          "mae": 1.1223926490428742,
+          "directional_accuracy": 0.9522058823529411
+        },
+        "test": {
+          "r2_score": 0.7474910403826842,
+          "directional_accuracy": 0.9208817960508521
+        }
+      },
+      "training_time": 0.5611269474029541,
+      "quality_passed": true
+    },
+    {
+      "model_id": "NZDUSD-360",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.6538394159817957,
+          "rmse": 5.532632206157268,
+          "mae": 3.166197063169758,
+          "directional_accuracy": 0.7692729766803841
+        },
+        "test": {
+          "r2_score": 0.22216739311460432,
+          "directional_accuracy": 0.6747956403269755
+        }
+      },
+      "training_time": 0.2518324851989746,
+      "quality_passed": true
+    },
+    {
+      "model_id": "NZDUSD-720",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.9973051702345689,
+          "rmse": 0.6888692568923772,
+          "mae": 0.5605717874710221,
+          "directional_accuracy": 0.9927596769702033
+        },
+        "test": {
+          "r2_score": 0.9972229147541781,
+          "directional_accuracy": 0.9893528761061947
+        }
+      },
+      "training_time": 0.5897970199584961,
+      "quality_passed": true
+    },
+    {
+      "model_id": "NZDUSD-1440",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.3290716780061579,
+          "rmse": 0.6282171445818587,
+          "mae": 0.52116887018149,
+          "directional_accuracy": 0.7236577662934252
+        },
+        "test": {
+          "r2_score": 0.3001409819842604,
+          "directional_accuracy": 0.7102337514253135
+        }
+      },
+      "training_time": 0.6721618175506592,
+      "quality_passed": false
+    },
+    {
+      "model_id": "NZDUSD-2880",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.312864033697019,
+          "rmse": 0.6356034248941337,
+          "mae": 0.5265337603780493,
+          "directional_accuracy": 0.765993265993266
+        },
+        "test": {
+          "r2_score": 0.31058244786705425,
+          "directional_accuracy": 0.7639732685297691
+        }
+      },
+      "training_time": 0.518566370010376,
+      "quality_passed": false
+    },
+    {
+      "model_id": "EURGBP-45",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.9349683788708045,
+          "rmse": 0.8085654771499952,
+          "mae": 0.6470048172068885,
+          "directional_accuracy": 0.945964247020585
+        },
+        "test": {
+          "r2_score": 0.9243917255557635,
+          "directional_accuracy": 0.9453934095494284
+        }
+      },
+      "training_time": 0.6902756690979004,
+      "quality_passed": true
+    },
+    {
+      "model_id": "EURGBP-90",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.8386807227556023,
+          "rmse": 1.9204026511528858,
+          "mae": 1.3804143525134398,
+          "directional_accuracy": 0.9069325735992403
+        },
+        "test": {
+          "r2_score": 0.7801909845209243,
+          "directional_accuracy": 0.8841126532812289
+        }
+      },
+      "training_time": 0.5915746688842773,
+      "quality_passed": true
+    },
+    {
+      "model_id": "EURGBP-180",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.9150206081548963,
+          "rmse": 1.4948131139988305,
+          "mae": 1.0491552730125329,
+          "directional_accuracy": 0.9617374727668845
+        },
+        "test": {
+          "r2_score": 0.7801252916506327,
+          "directional_accuracy": 0.9291317284284555
+        }
+      },
+      "training_time": 0.5338432788848877,
+      "quality_passed": true
+    },
+    {
+      "model_id": "EURGBP-360",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.6533696582182426,
+          "rmse": 5.535297462351376,
+          "mae": 3.3733220463286915,
+          "directional_accuracy": 0.7731138545953361
+        },
+        "test": {
+          "r2_score": 0.27884819591704113,
+          "directional_accuracy": 0.6818801089918256
+        }
+      },
+      "training_time": 0.21341991424560547,
+      "quality_passed": true
+    },
+    {
+      "model_id": "EURGBP-720",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.9972631371974507,
+          "rmse": 0.6938008618264909,
+          "mae": 0.5662205219274405,
+          "directional_accuracy": 0.9894179894179894
+        },
+        "test": {
+          "r2_score": 0.9970553659611676,
+          "directional_accuracy": 0.9892146017699115
+        }
+      },
+      "training_time": 0.7610487937927246,
+      "quality_passed": true
+    },
+    {
+      "model_id": "EURGBP-1440",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.31789224836361296,
+          "rmse": 0.6258080982151946,
+          "mae": 0.5179414265671713,
+          "directional_accuracy": 0.7150445018662073
+        },
+        "test": {
+          "r2_score": 0.310501638537551,
+          "directional_accuracy": 0.7165051311288484
+        }
+      },
+      "training_time": 0.6379384994506836,
+      "quality_passed": false
+    },
+    {
+      "model_id": "EURGBP-2880",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.3086377300949943,
+          "rmse": 0.6384019280899855,
+          "mae": 0.5300188227771091,
+          "directional_accuracy": 0.756045301499847
+        },
+        "test": {
+          "r2_score": 0.321308050330141,
+          "directional_accuracy": 0.7577460510328068
+        }
+      },
+      "training_time": 0.6102485656738281,
+      "quality_passed": false
+    },
+    {
+      "model_id": "EURJPY-45",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.9353892874784513,
+          "rmse": 0.8095247611390174,
+          "mae": 0.6498498181011583,
+          "directional_accuracy": 0.9494853737811484
+        },
+        "test": {
+          "r2_score": 0.9259068140216279,
+          "directional_accuracy": 0.9447209145931406
+        }
+      },
+      "training_time": 0.6119809150695801,
+      "quality_passed": true
+    },
+    {
+      "model_id": "EURJPY-90",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.8335041353800251,
+          "rmse": 1.9588420277548737,
+          "mae": 1.3954672047527643,
+          "directional_accuracy": 0.9012345679012346
+        },
+        "test": {
+          "r2_score": 0.7667122013760115,
+          "directional_accuracy": 0.8868077078560841
+        }
+      },
+      "training_time": 0.6461842060089111,
+      "quality_passed": true
+    },
+    {
+      "model_id": "EURJPY-180",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.9059050532659663,
+          "rmse": 1.57257422488991,
+          "mae": 1.0950795718215212,
+          "directional_accuracy": 0.9575163398692811
+        },
+        "test": {
+          "r2_score": 0.7728200840781354,
+          "directional_accuracy": 0.9233162023262105
+        }
+      },
+      "training_time": 0.5926158428192139,
+      "quality_passed": true
+    },
+    {
+      "model_id": "EURJPY-360",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.6546031670319717,
+          "rmse": 5.521524779702882,
+          "mae": 3.379348292780054,
+          "directional_accuracy": 0.7788751714677641
+        },
+        "test": {
+          "r2_score": 0.2880321231531163,
+          "directional_accuracy": 0.681607629427793
+        }
+      },
+      "training_time": 0.21011948585510254,
+      "quality_passed": true
+    },
+    {
+      "model_id": "EURJPY-720",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.9973059909535559,
+          "rmse": 0.6878874743068498,
+          "mae": 0.5609273221695749,
+          "directional_accuracy": 0.9896964633806739
+        },
+        "test": {
+          "r2_score": 0.9971345802482858,
+          "directional_accuracy": 0.9890763274336283
+        }
+      },
+      "training_time": 0.5599081516265869,
+      "quality_passed": true
+    },
+    {
+      "model_id": "EURJPY-1440",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.320935177445026,
+          "rmse": 0.6262168106627019,
+          "mae": 0.5180040220517502,
+          "directional_accuracy": 0.7200689061154177
+        },
+        "test": {
+          "r2_score": 0.3116182818615687,
+          "directional_accuracy": 0.7112314709236032
+        }
+      },
+      "training_time": 0.5803549289703369,
+      "quality_passed": false
+    },
+    {
+      "model_id": "EURJPY-2880",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.3083497118550137,
+          "rmse": 0.6365091586528695,
+          "mae": 0.5261421377861337,
+          "directional_accuracy": 0.7636975818794001
+        },
+        "test": {
+          "r2_score": 0.31655094445739285,
+          "directional_accuracy": 0.755771567436209
+        }
+      },
+      "training_time": 0.577085018157959,
+      "quality_passed": false
+    },
+    {
+      "model_id": "EURCHF-45",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.9359051642816623,
+          "rmse": 0.806892322644629,
+          "mae": 0.6456428810024707,
+          "directional_accuracy": 0.9481310942578548
+        },
+        "test": {
+          "r2_score": 0.9255478074069685,
+          "directional_accuracy": 0.9437794216543376
+        }
+      },
+      "training_time": 0.6459994316101074,
+      "quality_passed": true
+    },
+    {
+      "model_id": "EURCHF-90",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.8299818318839249,
+          "rmse": 1.9820113582723484,
+          "mae": 1.3997266203582588,
+          "directional_accuracy": 0.9032695699362366
+        },
+        "test": {
+          "r2_score": 0.7817609661570339,
+          "directional_accuracy": 0.8880204824147689
+        }
+      },
+      "training_time": 0.5360372066497803,
+      "quality_passed": true
+    },
+    {
+      "model_id": "EURCHF-180",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.9065413703869822,
+          "rmse": 1.5724342867380054,
+          "mae": 1.088648044164768,
+          "directional_accuracy": 0.954520697167756
+        },
+        "test": {
+          "r2_score": 0.7527913911046938,
+          "directional_accuracy": 0.9197998377062483
+        }
+      },
+      "training_time": 0.6187269687652588,
+      "quality_passed": true
+    },
+    {
+      "model_id": "EURCHF-360",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.6513757282959389,
+          "rmse": 5.565702576842749,
+          "mae": 3.346065951909871,
+          "directional_accuracy": 0.7757201646090535
+        },
+        "test": {
+          "r2_score": 0.26061263881690166,
+          "directional_accuracy": 0.6777929155313351
+        }
+      },
+      "training_time": 0.217634916305542,
+      "quality_passed": true
+    },
+    {
+      "model_id": "EURCHF-720",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.9972730009064047,
+          "rmse": 0.6945769075354189,
+          "mae": 0.567114053119872,
+          "directional_accuracy": 0.9908103592314118
+        },
+        "test": {
+          "r2_score": 0.9970316389030811,
+          "directional_accuracy": 0.988799778761062
+        }
+      },
+      "training_time": 0.5604007244110107,
+      "quality_passed": true
+    },
+    {
+      "model_id": "EURCHF-1440",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.30363416398614296,
+          "rmse": 0.6294980024803192,
+          "mae": 0.5223104044679852,
+          "directional_accuracy": 0.7166236003445305
+        },
+        "test": {
+          "r2_score": 0.3321236574768692,
+          "directional_accuracy": 0.7204960091220068
+        }
+      },
+      "training_time": 0.45685791969299316,
+      "quality_passed": false
+    },
+    {
+      "model_id": "EURCHF-2880",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.32165476217484146,
+          "rmse": 0.6336727623125036,
+          "mae": 0.5291787582703449,
+          "directional_accuracy": 0.7546678910315274
+        },
+        "test": {
+          "r2_score": 0.31494053648421794,
+          "directional_accuracy": 0.7580498177399757
+        }
+      },
+      "training_time": 0.5745599269866943,
+      "quality_passed": false
+    },
+    {
+      "model_id": "EURAUD-45",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.9368626787205228,
+          "rmse": 0.7989691048344574,
+          "mae": 0.6400344361794532,
+          "directional_accuracy": 0.9528710725893824
+        },
+        "test": {
+          "r2_score": 0.9258002917687184,
+          "directional_accuracy": 0.944586415601883
+        }
+      },
+      "training_time": 0.660430908203125,
+      "quality_passed": true
+    },
+    {
+      "model_id": "EURAUD-90",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.8345077796554591,
+          "rmse": 1.9494079811789404,
+          "mae": 1.3745125608547581,
+          "directional_accuracy": 0.9027269027269027
+        },
+        "test": {
+          "r2_score": 0.7682686875249293,
+          "directional_accuracy": 0.8771055113866055
+        }
+      },
+      "training_time": 0.6274588108062744,
+      "quality_passed": true
+    },
+    {
+      "model_id": "EURAUD-180",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.906253960736179,
+          "rmse": 1.5701355733590727,
+          "mae": 1.0899485628849568,
+          "directional_accuracy": 0.9539760348583878
+        },
+        "test": {
+          "r2_score": 0.764973786603798,
+          "directional_accuracy": 0.925209629429267
+        }
+      },
+      "training_time": 0.5582065582275391,
+      "quality_passed": true
+    },
+    {
+      "model_id": "EURAUD-360",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.6602580709130206,
+          "rmse": 5.480731393218451,
+          "mae": 3.16424592830557,
+          "directional_accuracy": 0.776954732510288
+        },
+        "test": {
+          "r2_score": 0.2538519377262767,
+          "directional_accuracy": 0.6807901907356948
+        }
+      },
+      "training_time": 0.2860226631164551,
+      "quality_passed": true
+    },
+    {
+      "model_id": "EURAUD-720",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.9973007847461376,
+          "rmse": 0.6890910599277297,
+          "mae": 0.5608948988818067,
+          "directional_accuracy": 0.9908103592314118
+        },
+        "test": {
+          "r2_score": 0.9970368368472674,
+          "directional_accuracy": 0.990320796460177
+        }
+      },
+      "training_time": 0.560727596282959,
+      "quality_passed": true
+    },
+    {
+      "model_id": "EURAUD-1440",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.3014962962909773,
+          "rmse": 0.6329417737221615,
+          "mae": 0.5277149085395151,
+          "directional_accuracy": 0.702411714039621
+        },
+        "test": {
+          "r2_score": 0.32373658816047657,
+          "directional_accuracy": 0.7157924743443558
+        }
+      },
+      "training_time": 0.6136255264282227,
+      "quality_passed": false
+    },
+    {
+      "model_id": "EURAUD-2880",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.32282865385573156,
+          "rmse": 0.638446117638167,
+          "mae": 0.5287015228292481,
+          "directional_accuracy": 0.7655341291704928
+        },
+        "test": {
+          "r2_score": 0.304115745192278,
+          "directional_accuracy": 0.7636695018226003
+        }
+      },
+      "training_time": 0.5853042602539062,
+      "quality_passed": false
+    },
+    {
+      "model_id": "EURCAD-45",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.9364539592447584,
+          "rmse": 0.8039515143356347,
+          "mae": 0.6439755656449506,
+          "directional_accuracy": 0.9486728060671723
+        },
+        "test": {
+          "r2_score": 0.925833622604011,
+          "directional_accuracy": 0.9478143913920646
+        }
+      },
+      "training_time": 0.6476774215698242,
+      "quality_passed": true
+    },
+    {
+      "model_id": "EURCAD-90",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.8165923620282151,
+          "rmse": 2.0577557883833153,
+          "mae": 1.4568812712896548,
+          "directional_accuracy": 0.9016415683082349
+        },
+        "test": {
+          "r2_score": 0.7671543437896877,
+          "directional_accuracy": 0.8828998787225442
+        }
+      },
+      "training_time": 0.6230242252349854,
+      "quality_passed": true
+    },
+    {
+      "model_id": "EURCAD-180",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.9060995913962121,
+          "rmse": 1.573973707733195,
+          "mae": 1.097749371405814,
+          "directional_accuracy": 0.9556100217864923
+        },
+        "test": {
+          "r2_score": 0.7641664588720867,
+          "directional_accuracy": 0.9233162023262105
+        }
+      },
+      "training_time": 0.620697021484375,
+      "quality_passed": true
+    },
+    {
+      "model_id": "EURCAD-360",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.6425307794437687,
+          "rmse": 5.627930979751722,
+          "mae": 3.302663331381801,
+          "directional_accuracy": 0.7757201646090535
+        },
+        "test": {
+          "r2_score": 0.2601037883347317,
+          "directional_accuracy": 0.6794277929155313
+        }
+      },
+      "training_time": 0.22474455833435059,
+      "quality_passed": true
+    },
+    {
+      "model_id": "EURCAD-720",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.9972798536599751,
+          "rmse": 0.6928195235456293,
+          "mae": 0.5685593053743458,
+          "directional_accuracy": 0.9896964633806739
+        },
+        "test": {
+          "r2_score": 0.9971118565550428,
+          "directional_accuracy": 0.9911504424778761
+        }
+      },
+      "training_time": 0.5548586845397949,
+      "quality_passed": true
+    },
+    {
+      "model_id": "EURCAD-1440",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.31176768169596625,
+          "rmse": 0.6318372150670756,
+          "mae": 0.5243997102697243,
+          "directional_accuracy": 0.719207579672696
+        },
+        "test": {
+          "r2_score": 0.3142822547921974,
+          "directional_accuracy": 0.7172177879133409
+        }
+      },
+      "training_time": 0.5487122535705566,
+      "quality_passed": false
+    },
+    {
+      "model_id": "EURCAD-2880",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.33001581278302927,
+          "rmse": 0.6348626629150775,
+          "mae": 0.5243554677483473,
+          "directional_accuracy": 0.7672176308539945
+        },
+        "test": {
+          "r2_score": 0.32001776763298295,
+          "directional_accuracy": 0.7619987849331713
+        }
+      },
+      "training_time": 0.5824410915374756,
+      "quality_passed": false
+    },
+    {
+      "model_id": "EURNZD-45",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.9363841375822478,
+          "rmse": 0.8055003430212997,
+          "mae": 0.6441810940738506,
+          "directional_accuracy": 0.9520585048754063
+        },
+        "test": {
+          "r2_score": 0.9247699961978286,
+          "directional_accuracy": 0.9432414256893074
+        }
+      },
+      "training_time": 0.7175509929656982,
+      "quality_passed": true
+    },
+    {
+      "model_id": "EURNZD-90",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.8209081917329464,
+          "rmse": 2.035854241795782,
+          "mae": 1.434166839578854,
+          "directional_accuracy": 0.8982498982498982
+        },
+        "test": {
+          "r2_score": 0.7775452006320858,
+          "directional_accuracy": 0.8889637515159682
+        }
+      },
+      "training_time": 0.614387035369873,
+      "quality_passed": true
+    },
+    {
+      "model_id": "EURNZD-180",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.9073392517132349,
+          "rmse": 1.5637577591833416,
+          "mae": 1.0883584209785941,
+          "directional_accuracy": 0.9586056644880174
+        },
+        "test": {
+          "r2_score": 0.7569181877104931,
+          "directional_accuracy": 0.9237219367054368
+        }
+      },
+      "training_time": 0.625385046005249,
+      "quality_passed": true
+    },
+    {
+      "model_id": "EURNZD-360",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.6653562287276626,
+          "rmse": 5.447670351389151,
+          "mae": 3.053683127969375,
+          "directional_accuracy": 0.775445816186557
+        },
+        "test": {
+          "r2_score": 0.22816414192799916,
+          "directional_accuracy": 0.6765667574931881
+        }
+      },
+      "training_time": 0.28581738471984863,
+      "quality_passed": true
+    },
+    {
+      "model_id": "EURNZD-720",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.9972782766386001,
+          "rmse": 0.6932627456361022,
+          "mae": 0.5643511359709132,
+          "directional_accuracy": 0.9913673071567808
+        },
+        "test": {
+          "r2_score": 0.9971003023428661,
+          "directional_accuracy": 0.9928097345132744
+        }
+      },
+      "training_time": 0.6048307418823242,
+      "quality_passed": true
+    },
+    {
+      "model_id": "EURNZD-1440",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.3150885317119422,
+          "rmse": 0.6332357339044298,
+          "mae": 0.5262108151116504,
+          "directional_accuracy": 0.7100200976169968
+        },
+        "test": {
+          "r2_score": 0.315601669695438,
+          "directional_accuracy": 0.7092360319270239
+        }
+      },
+      "training_time": 0.6267855167388916,
+      "quality_passed": false
+    },
+    {
+      "model_id": "EURNZD-2880",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.31544692182709344,
+          "rmse": 0.6401477976239162,
+          "mae": 0.5314677389344201,
+          "directional_accuracy": 0.7558922558922558
+        },
+        "test": {
+          "r2_score": 0.32748289023983845,
+          "directional_accuracy": 0.7613912515188336
+        }
+      },
+      "training_time": 0.6447703838348389,
+      "quality_passed": false
+    },
+    {
+      "model_id": "GBPJPY-45",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.935724791909662,
+          "rmse": 0.808848458229735,
+          "mae": 0.6524766447391068,
+          "directional_accuracy": 0.9504333694474539
+        },
+        "test": {
+          "r2_score": 0.9237053769774175,
+          "directional_accuracy": 0.9472763954270343
+        }
+      },
+      "training_time": 0.6340718269348145,
+      "quality_passed": true
+    },
+    {
+      "model_id": "GBPJPY-90",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.8279508084466577,
+          "rmse": 1.994304196163115,
+          "mae": 1.4185793346095183,
+          "directional_accuracy": 0.9002849002849003
+        },
+        "test": {
+          "r2_score": 0.7843344310310708,
+          "directional_accuracy": 0.8835736423662579
+        }
+      },
+      "training_time": 0.6221704483032227,
+      "quality_passed": true
+    },
+    {
+      "model_id": "GBPJPY-180",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.9080918539286824,
+          "rmse": 1.5572875423393935,
+          "mae": 1.0921487107019123,
+          "directional_accuracy": 0.9520697167755992
+        },
+        "test": {
+          "r2_score": 0.7698551759721383,
+          "directional_accuracy": 0.9218285096023803
+        }
+      },
+      "training_time": 0.6055536270141602,
+      "quality_passed": true
+    },
+    {
+      "model_id": "GBPJPY-360",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.6561570034658535,
+          "rmse": 5.52070278122857,
+          "mae": 3.266629953524764,
+          "directional_accuracy": 0.7765432098765432
+        },
+        "test": {
+          "r2_score": 0.27251409330858156,
+          "directional_accuracy": 0.6832425068119891
+        }
+      },
+      "training_time": 0.23355793952941895,
+      "quality_passed": true
+    },
+    {
+      "model_id": "GBPJPY-720",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.9972564390185131,
+          "rmse": 0.696054433237013,
+          "mae": 0.5688840510725292,
+          "directional_accuracy": 0.9892787524366472
+        },
+        "test": {
+          "r2_score": 0.997173631876475,
+          "directional_accuracy": 0.990320796460177
+        }
+      },
+      "training_time": 0.5639424324035645,
+      "quality_passed": true
+    },
+    {
+      "model_id": "GBPJPY-1440",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.3124701766707585,
+          "rmse": 0.6268296597599636,
+          "mae": 0.5224137070274828,
+          "directional_accuracy": 0.7070054550674706
+        },
+        "test": {
+          "r2_score": 0.30245444989665227,
+          "directional_accuracy": 0.705387685290764
+        }
+      },
+      "training_time": 0.468001127243042,
+      "quality_passed": false
+    },
+    {
+      "model_id": "GBPJPY-2880",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.3032149630781218,
+          "rmse": 0.6392806627910639,
+          "mae": 0.5311148643527458,
+          "directional_accuracy": 0.7620140801958983
+        },
+        "test": {
+          "r2_score": 0.3053557608254034,
+          "directional_accuracy": 0.7521263669501823
+        }
+      },
+      "training_time": 0.4354710578918457,
+      "quality_passed": false
+    },
+    {
+      "model_id": "GBPCHF-45",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.9366386364292643,
+          "rmse": 0.8006709094011625,
+          "mae": 0.6420392873602481,
+          "directional_accuracy": 0.9496208017334777
+        },
+        "test": {
+          "r2_score": 0.9246722302247239,
+          "directional_accuracy": 0.945796906523201
+        }
+      },
+      "training_time": 0.6557867527008057,
+      "quality_passed": true
+    },
+    {
+      "model_id": "GBPCHF-90",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.8192564294695311,
+          "rmse": 2.038367733278928,
+          "mae": 1.4341913338654717,
+          "directional_accuracy": 0.899063899063899
+        },
+        "test": {
+          "r2_score": 0.7623569940832903,
+          "directional_accuracy": 0.8793963077752325
+        }
+      },
+      "training_time": 0.624687671661377,
+      "quality_passed": true
+    },
+    {
+      "model_id": "GBPCHF-180",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.8985330626143914,
+          "rmse": 1.6338544115963831,
+          "mae": 1.1160268625925893,
+          "directional_accuracy": 0.9486655773420479
+        },
+        "test": {
+          "r2_score": 0.7516988994313234,
+          "directional_accuracy": 0.924939139843116
+        }
+      },
+      "training_time": 0.6177425384521484,
+      "quality_passed": true
+    },
+    {
+      "model_id": "GBPCHF-360",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.6517353282121003,
+          "rmse": 5.549135786544897,
+          "mae": 3.266410618521907,
+          "directional_accuracy": 0.7728395061728395
+        },
+        "test": {
+          "r2_score": 0.25142364019055263,
+          "directional_accuracy": 0.6791553133514986
+        }
+      },
+      "training_time": 0.22266578674316406,
+      "quality_passed": true
+    },
+    {
+      "model_id": "GBPCHF-720",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.9972610903241241,
+          "rmse": 0.6942218496770927,
+          "mae": 0.5672284433289771,
+          "directional_accuracy": 0.9898357003620162
+        },
+        "test": {
+          "r2_score": 0.9970607010727685,
+          "directional_accuracy": 0.988108407079646
+        }
+      },
+      "training_time": 0.5803318023681641,
+      "quality_passed": true
+    },
+    {
+      "model_id": "GBPCHF-1440",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.3297074552643132,
+          "rmse": 0.6280989572589454,
+          "mae": 0.5211383051473234,
+          "directional_accuracy": 0.7194946884869365
+        },
+        "test": {
+          "r2_score": 0.3151597251653738,
+          "directional_accuracy": 0.7126567844925884
+        }
+      },
+      "training_time": 0.6617715358734131,
+      "quality_passed": false
+    },
+    {
+      "model_id": "GBPCHF-2880",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.30595447313727464,
+          "rmse": 0.635732402099287,
+          "mae": 0.5274903352215877,
+          "directional_accuracy": 0.763391490664218
+        },
+        "test": {
+          "r2_score": 0.30396136334757395,
+          "directional_accuracy": 0.7501518833535844
+        }
+      },
+      "training_time": 0.7184216976165771,
+      "quality_passed": false
+    },
+    {
+      "model_id": "GBPAUD-45",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.9337232970116376,
+          "rmse": 0.8199396688910493,
+          "mae": 0.6607609667182035,
+          "directional_accuracy": 0.9405471289274107
+        },
+        "test": {
+          "r2_score": 0.9279708611669858,
+          "directional_accuracy": 0.9431069266980497
+        }
+      },
+      "training_time": 0.6555836200714111,
+      "quality_passed": true
+    },
+    {
+      "model_id": "GBPAUD-90",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.8351651024436704,
+          "rmse": 1.948302423249291,
+          "mae": 1.4033430963345563,
+          "directional_accuracy": 0.9015059015059015
+        },
+        "test": {
+          "r2_score": 0.7687665483480897,
+          "directional_accuracy": 0.8818218568926021
+        }
+      },
+      "training_time": 0.6065847873687744,
+      "quality_passed": true
+    },
+    {
+      "model_id": "GBPAUD-180",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.9074353997006828,
+          "rmse": 1.5642093246405564,
+          "mae": 1.0785929569306703,
+          "directional_accuracy": 0.957380174291939
+        },
+        "test": {
+          "r2_score": 0.7693528389196791,
+          "directional_accuracy": 0.9268325669461726
+        }
+      },
+      "training_time": 0.6164627075195312,
+      "quality_passed": true
+    },
+    {
+      "model_id": "GBPAUD-360",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.648315864574198,
+          "rmse": 5.588823306633955,
+          "mae": 3.391984027859625,
+          "directional_accuracy": 0.7753086419753087
+        },
+        "test": {
+          "r2_score": 0.2670326977349634,
+          "directional_accuracy": 0.6826975476839237
+        }
+      },
+      "training_time": 0.20659685134887695,
+      "quality_passed": true
+    },
+    {
+      "model_id": "GBPAUD-720",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.9973067003159242,
+          "rmse": 0.6897883631144326,
+          "mae": 0.5616144576774796,
+          "directional_accuracy": 0.9901141743247006
+        },
+        "test": {
+          "r2_score": 0.9970383187995464,
+          "directional_accuracy": 0.9911504424778761
+        }
+      },
+      "training_time": 0.5575997829437256,
+      "quality_passed": true
+    },
+    {
+      "model_id": "GBPAUD-1440",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.31984240056195934,
+          "rmse": 0.6310806229414024,
+          "mae": 0.5232363857915665,
+          "directional_accuracy": 0.7159058283089291
+        },
+        "test": {
+          "r2_score": 0.30981077097661835,
+          "directional_accuracy": 0.7187856328392246
+        }
+      },
+      "training_time": 0.5300018787384033,
+      "quality_passed": false
+    },
+    {
+      "model_id": "GBPAUD-2880",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.3099687856370651,
+          "rmse": 0.6376978905268789,
+          "mae": 0.5291116940917001,
+          "directional_accuracy": 0.758494031221304
+        },
+        "test": {
+          "r2_score": 0.3102204851158511,
+          "directional_accuracy": 0.7644289185905225
+        }
+      },
+      "training_time": 0.5386111736297607,
+      "quality_passed": false
+    },
+    {
+      "model_id": "GBPCAD-45",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.9359026268665432,
+          "rmse": 0.8022615614255566,
+          "mae": 0.6437380470737286,
+          "directional_accuracy": 0.9478602383531961
+        },
+        "test": {
+          "r2_score": 0.9259086032916939,
+          "directional_accuracy": 0.9452589105581708
+        }
+      },
+      "training_time": 0.642446756362915,
+      "quality_passed": true
+    },
+    {
+      "model_id": "GBPCAD-90",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.8230413628140807,
+          "rmse": 2.0099976332954355,
+          "mae": 1.4218533066180634,
+          "directional_accuracy": 0.899606566273233
+        },
+        "test": {
+          "r2_score": 0.7799870384022162,
+          "directional_accuracy": 0.8792615550464897
+        }
+      },
+      "training_time": 0.5899629592895508,
+      "quality_passed": true
+    },
+    {
+      "model_id": "GBPCAD-180",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.9019750925027079,
+          "rmse": 1.6040075166692134,
+          "mae": 1.0988761362143307,
+          "directional_accuracy": 0.9552015250544662
+        },
+        "test": {
+          "r2_score": 0.7598997196894146,
+          "directional_accuracy": 0.925209629429267
+        }
+      },
+      "training_time": 0.5963881015777588,
+      "quality_passed": true
+    },
+    {
+      "model_id": "GBPCAD-360",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.6497619782545356,
+          "rmse": 5.557397822826154,
+          "mae": 3.245913595917842,
+          "directional_accuracy": 0.7751714677640603
+        },
+        "test": {
+          "r2_score": 0.2609634782772968,
+          "directional_accuracy": 0.6832425068119891
+        }
+      },
+      "training_time": 0.22197532653808594,
+      "quality_passed": true
+    },
+    {
+      "model_id": "GBPCAD-720",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.9972383855339406,
+          "rmse": 0.6961762992040085,
+          "mae": 0.5677857137062756,
+          "directional_accuracy": 0.9908103592314118
+        },
+        "test": {
+          "r2_score": 0.9970389978173995,
+          "directional_accuracy": 0.9893528761061947
+        }
+      },
+      "training_time": 0.6525382995605469,
+      "quality_passed": true
+    },
+    {
+      "model_id": "GBPCAD-1440",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.3172106429225159,
+          "rmse": 0.6333768449078627,
+          "mae": 0.5241509079744496,
+          "directional_accuracy": 0.7180591444157336
+        },
+        "test": {
+          "r2_score": 0.309895637416295,
+          "directional_accuracy": 0.7149372862029647
+        }
+      },
+      "training_time": 0.5969116687774658,
+      "quality_passed": false
+    },
+    {
+      "model_id": "GBPCAD-2880",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.3305510580465817,
+          "rmse": 0.6375625123118236,
+          "mae": 0.5286556415400069,
+          "directional_accuracy": 0.7542087542087542
+        },
+        "test": {
+          "r2_score": 0.32442611008428357,
+          "directional_accuracy": 0.7651883353584447
+        }
+      },
+      "training_time": 0.6081249713897705,
+      "quality_passed": false
+    },
+    {
+      "model_id": "GBPNZD-45",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.9352291016999855,
+          "rmse": 0.8086679604802123,
+          "mae": 0.6447127332845051,
+          "directional_accuracy": 0.9479956663055255
+        },
+        "test": {
+          "r2_score": 0.9277005424321584,
+          "directional_accuracy": 0.9460659045057163
+        }
+      },
+      "training_time": 0.6359865665435791,
+      "quality_passed": true
+    },
+    {
+      "model_id": "GBPNZD-90",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.8280052985418291,
+          "rmse": 1.9874217493888624,
+          "mae": 1.41029729983335,
+          "directional_accuracy": 0.9008275674942342
+        },
+        "test": {
+          "r2_score": 0.7727254635600707,
+          "directional_accuracy": 0.8862686969411131
+        }
+      },
+      "training_time": 0.6377534866333008,
+      "quality_passed": true
+    },
+    {
+      "model_id": "GBPNZD-180",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.9088935349900961,
+          "rmse": 1.5492428126857807,
+          "mae": 1.0847518668486482,
+          "directional_accuracy": 0.9520697167755992
+        },
+        "test": {
+          "r2_score": 0.7566524053055637,
+          "directional_accuracy": 0.9192588585339464
+        }
+      },
+      "training_time": 1.310542106628418,
+      "quality_passed": true
+    },
+    {
+      "model_id": "GBPNZD-360",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.6603436781219705,
+          "rmse": 5.484328393311128,
+          "mae": 3.274850132173247,
+          "directional_accuracy": 0.7720164609053498
+        },
+        "test": {
+          "r2_score": 0.2674888141680355,
+          "directional_accuracy": 0.6809264305177112
+        }
+      },
+      "training_time": 0.22523856163024902,
+      "quality_passed": true
+    },
+    {
+      "model_id": "GBPNZD-720",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.9972957066234478,
+          "rmse": 0.6904430494360447,
+          "mae": 0.5613315752475874,
+          "directional_accuracy": 0.9870509607351713
+        },
+        "test": {
+          "r2_score": 0.9970724786032829,
+          "directional_accuracy": 0.9892146017699115
+        }
+      },
+      "training_time": 0.5617959499359131,
+      "quality_passed": true
+    },
+    {
+      "model_id": "GBPNZD-1440",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.3074127443524952,
+          "rmse": 0.6288187174371109,
+          "mae": 0.5201818847887764,
+          "directional_accuracy": 0.7032730404823428
+        },
+        "test": {
+          "r2_score": 0.31728394207228783,
+          "directional_accuracy": 0.7197833523375142
+        }
+      },
+      "training_time": 0.6363325119018555,
+      "quality_passed": false
+    },
+    {
+      "model_id": "GBPNZD-2880",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.3310930474218906,
+          "rmse": 0.6324725828850529,
+          "mae": 0.5241348704143719,
+          "directional_accuracy": 0.7664524028160392
+        },
+        "test": {
+          "r2_score": 0.3125178853161412,
+          "directional_accuracy": 0.7604799513973268
+        }
+      },
+      "training_time": 0.6123073101043701,
+      "quality_passed": false
+    },
+    {
+      "model_id": "AUDJPY-45",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.9346424065068536,
+          "rmse": 0.8124750710880865,
+          "mae": 0.6516447878149934,
+          "directional_accuracy": 0.9508396533044421
+        },
+        "test": {
+          "r2_score": 0.9273302344473816,
+          "directional_accuracy": 0.9443174176193678
+        }
+      },
+      "training_time": 0.6515011787414551,
+      "quality_passed": true
+    },
+    {
+      "model_id": "AUDJPY-90",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.8183596389550717,
+          "rmse": 2.043067243903039,
+          "mae": 1.4220159424345369,
+          "directional_accuracy": 0.9027269027269027
+        },
+        "test": {
+          "r2_score": 0.7782632607257678,
+          "directional_accuracy": 0.8822261150788303
+        }
+      },
+      "training_time": 0.6419663429260254,
+      "quality_passed": true
+    },
+    {
+      "model_id": "AUDJPY-180",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.9043001312930702,
+          "rmse": 1.5873801814720878,
+          "mae": 1.0869437298934577,
+          "directional_accuracy": 0.9550653594771242
+        },
+        "test": {
+          "r2_score": 0.7574113999969792,
+          "directional_accuracy": 0.9200703272923992
+        }
+      },
+      "training_time": 0.6134381294250488,
+      "quality_passed": true
+    },
+    {
+      "model_id": "AUDJPY-360",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.6435068068081486,
+          "rmse": 5.616922812000627,
+          "mae": 3.2874771896119293,
+          "directional_accuracy": 0.7732510288065844
+        },
+        "test": {
+          "r2_score": 0.262651004177043,
+          "directional_accuracy": 0.68283378746594
+        }
+      },
+      "training_time": 0.2283172607421875,
+      "quality_passed": true
+    },
+    {
+      "model_id": "AUDJPY-720",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.9971662257325036,
+          "rmse": 0.7068777710807866,
+          "mae": 0.5735634684466129,
+          "directional_accuracy": 0.9920634920634921
+        },
+        "test": {
+          "r2_score": 0.9971375245255759,
+          "directional_accuracy": 0.990320796460177
+        }
+      },
+      "training_time": 0.554443359375,
+      "quality_passed": true
+    },
+    {
+      "model_id": "AUDJPY-1440",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.3187555793580117,
+          "rmse": 0.6339352614695399,
+          "mae": 0.524694581813685,
+          "directional_accuracy": 0.7235142118863049
+        },
+        "test": {
+          "r2_score": 0.32053688534656566,
+          "directional_accuracy": 0.7110889395667047
+        }
+      },
+      "training_time": 1.2044034004211426,
+      "quality_passed": false
+    },
+    {
+      "model_id": "AUDJPY-2880",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.3198321795586009,
+          "rmse": 0.6363938206396732,
+          "mae": 0.5286479027031906,
+          "directional_accuracy": 0.7724211815120906
+        },
+        "test": {
+          "r2_score": 0.3223848124964429,
+          "directional_accuracy": 0.7682260024301336
+        }
+      },
+      "training_time": 0.5875594615936279,
+      "quality_passed": false
+    },
+    {
+      "model_id": "AUDCHF-45",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.9347778738806829,
+          "rmse": 0.8091073948438403,
+          "mae": 0.6471705793554968,
+          "directional_accuracy": 0.9535482123510293
+        },
+        "test": {
+          "r2_score": 0.9264736409149529,
+          "directional_accuracy": 0.9459314055144586
+        }
+      },
+      "training_time": 0.6248559951782227,
+      "quality_passed": true
+    },
+    {
+      "model_id": "AUDCHF-90",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.8321211351532332,
+          "rmse": 1.9570863102082419,
+          "mae": 1.38632106678505,
+          "directional_accuracy": 0.899335232668566
+        },
+        "test": {
+          "r2_score": 0.7807295364493834,
+          "directional_accuracy": 0.8878857296860262
+        }
+      },
+      "training_time": 0.614396333694458,
+      "quality_passed": true
+    },
+    {
+      "model_id": "AUDCHF-180",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.906185560106771,
+          "rmse": 1.569612962210295,
+          "mae": 1.075757182658289,
+          "directional_accuracy": 0.9547930283224401
+        },
+        "test": {
+          "r2_score": 0.7684072567575898,
+          "directional_accuracy": 0.9277792804977009
+        }
+      },
+      "training_time": 0.6201522350311279,
+      "quality_passed": true
+    },
+    {
+      "model_id": "AUDCHF-360",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.6420729921005679,
+          "rmse": 5.621961055361581,
+          "mae": 3.3643731177571703,
+          "directional_accuracy": 0.7728395061728395
+        },
+        "test": {
+          "r2_score": 0.2541808853434374,
+          "directional_accuracy": 0.6772479564032697
+        }
+      },
+      "training_time": 0.21077775955200195,
+      "quality_passed": true
+    },
+    {
+      "model_id": "AUDCHF-720",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.9972406167968243,
+          "rmse": 0.6962897426821035,
+          "mae": 0.5685650185245715,
+          "directional_accuracy": 0.9906711222500696
+        },
+        "test": {
+          "r2_score": 0.9970353376027891,
+          "directional_accuracy": 0.9897676991150443
+        }
+      },
+      "training_time": 0.5599703788757324,
+      "quality_passed": true
+    },
+    {
+      "model_id": "AUDCHF-1440",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.30651067570039414,
+          "rmse": 0.6381121886080975,
+          "mae": 0.5283263127491254,
+          "directional_accuracy": 0.7115991960953201
+        },
+        "test": {
+          "r2_score": 0.31463605158919783,
+          "directional_accuracy": 0.7236316989737742
+        }
+      },
+      "training_time": 0.5961122512817383,
+      "quality_passed": false
+    },
+    {
+      "model_id": "AUDCHF-2880",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.32079959433041805,
+          "rmse": 0.6435064748134455,
+          "mae": 0.5342838838190415,
+          "directional_accuracy": 0.758647076828895
+        },
+        "test": {
+          "r2_score": 0.3208944997518898,
+          "directional_accuracy": 0.7597205346294046
+        }
+      },
+      "training_time": 0.6881773471832275,
+      "quality_passed": false
+    },
+    {
+      "model_id": "AUDCAD-45",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.9351188249318519,
+          "rmse": 0.8093607973002713,
+          "mae": 0.6493663044917889,
+          "directional_accuracy": 0.948943661971831
+        },
+        "test": {
+          "r2_score": 0.9257564648557219,
+          "directional_accuracy": 0.9503698722259583
+        }
+      },
+      "training_time": 0.6189489364624023,
+      "quality_passed": true
+    },
+    {
+      "model_id": "AUDCAD-90",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.8290821180012956,
+          "rmse": 1.9810084142168773,
+          "mae": 1.409962394165353,
+          "directional_accuracy": 0.9023199023199023
+        },
+        "test": {
+          "r2_score": 0.7560478136574953,
+          "directional_accuracy": 0.8865382023985986
+        }
+      },
+      "training_time": 0.6575734615325928,
+      "quality_passed": true
+    },
+    {
+      "model_id": "AUDCAD-180",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.9083549864264148,
+          "rmse": 1.5549757277816996,
+          "mae": 1.090411313409872,
+          "directional_accuracy": 0.9541122004357299
+        },
+        "test": {
+          "r2_score": 0.757495958000191,
+          "directional_accuracy": 0.9215580200162293
+        }
+      },
+      "training_time": 0.6098780632019043,
+      "quality_passed": true
+    },
+    {
+      "model_id": "AUDCAD-360",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.6603124532900307,
+          "rmse": 5.489836859018866,
+          "mae": 3.223720151996667,
+          "directional_accuracy": 0.7775034293552812
+        },
+        "test": {
+          "r2_score": 0.25877839225098087,
+          "directional_accuracy": 0.6775204359673025
+        }
+      },
+      "training_time": 0.22839927673339844,
+      "quality_passed": true
+    },
+    {
+      "model_id": "AUDCAD-720",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.9972712401192892,
+          "rmse": 0.6939936757038465,
+          "mae": 0.5657421110254554,
+          "directional_accuracy": 0.9916457811194653
+        },
+        "test": {
+          "r2_score": 0.9971014026783946,
+          "directional_accuracy": 0.9907356194690266
+        }
+      },
+      "training_time": 0.5578954219818115,
+      "quality_passed": true
+    },
+    {
+      "model_id": "AUDCAD-1440",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.30962074876420975,
+          "rmse": 0.6301503072866566,
+          "mae": 0.5225147840842025,
+          "directional_accuracy": 0.713465403387884
+        },
+        "test": {
+          "r2_score": 0.3016128890221237,
+          "directional_accuracy": 0.7029646522234891
+        }
+      },
+      "training_time": 0.6733565330505371,
+      "quality_passed": false
+    },
+    {
+      "model_id": "AUDCAD-2880",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.31118272281997406,
+          "rmse": 0.6403282716155461,
+          "mae": 0.5309807847365695,
+          "directional_accuracy": 0.7614018977655341
+        },
+        "test": {
+          "r2_score": 0.3230651331110752,
+          "directional_accuracy": 0.7592648845686513
+        }
+      },
+      "training_time": 0.551100492477417,
+      "quality_passed": false
+    },
+    {
+      "model_id": "AUDNZD-45",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.9332732307778984,
+          "rmse": 0.8161322077002416,
+          "mae": 0.6530684164392878,
+          "directional_accuracy": 0.9469122426868906
+        },
+        "test": {
+          "r2_score": 0.9250898685200033,
+          "directional_accuracy": 0.9478143913920646
+        }
+      },
+      "training_time": 0.6400341987609863,
+      "quality_passed": true
+    },
+    {
+      "model_id": "AUDNZD-90",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.8268189317579172,
+          "rmse": 1.9823218435121388,
+          "mae": 1.4064520203393047,
+          "directional_accuracy": 0.9021842355175689
+        },
+        "test": {
+          "r2_score": 0.7755154042070924,
+          "directional_accuracy": 0.8804743296051745
+        }
+      },
+      "training_time": 0.6507277488708496,
+      "quality_passed": true
+    },
+    {
+      "model_id": "AUDNZD-180",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.9018415296378622,
+          "rmse": 1.6057261394030808,
+          "mae": 1.1148781257168157,
+          "directional_accuracy": 0.9554738562091504
+        },
+        "test": {
+          "r2_score": 0.7594524213021616,
+          "directional_accuracy": 0.9256153638084934
+        }
+      },
+      "training_time": 0.5533053874969482,
+      "quality_passed": true
+    },
+    {
+      "model_id": "AUDNZD-360",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.6431730912909093,
+          "rmse": 5.612180955090616,
+          "mae": 3.4131547744636244,
+          "directional_accuracy": 0.7692729766803841
+        },
+        "test": {
+          "r2_score": 0.27742589803309914,
+          "directional_accuracy": 0.68283378746594
+        }
+      },
+      "training_time": 0.22000956535339355,
+      "quality_passed": true
+    },
+    {
+      "model_id": "AUDNZD-720",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.9972266796567781,
+          "rmse": 0.6982006856726138,
+          "mae": 0.5689993361473766,
+          "directional_accuracy": 0.9892787524366472
+        },
+        "test": {
+          "r2_score": 0.9971369280146986,
+          "directional_accuracy": 0.9911504424778761
+        }
+      },
+      "training_time": 1.142665147781372,
+      "quality_passed": true
+    },
+    {
+      "model_id": "AUDNZD-1440",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.32281414830234234,
+          "rmse": 0.6355305080019142,
+          "mae": 0.529132284725681,
+          "directional_accuracy": 0.7196382428940569
+        },
+        "test": {
+          "r2_score": 0.3168127650472493,
+          "directional_accuracy": 0.7157924743443558
+        }
+      },
+      "training_time": 0.6645042896270752,
+      "quality_passed": false
+    },
+    {
+      "model_id": "AUDNZD-2880",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.31561629505287836,
+          "rmse": 0.6406089039851505,
+          "mae": 0.5327272499768536,
+          "directional_accuracy": 0.7623201714110805
+        },
+        "test": {
+          "r2_score": 0.3258029851825348,
+          "directional_accuracy": 0.7607837181044957
+        }
+      },
+      "training_time": 0.6280269622802734,
+      "quality_passed": false
+    },
+    {
+      "model_id": "NZDJPY-45",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.9361571192741145,
+          "rmse": 0.8023523530167558,
+          "mae": 0.6413203015596891,
+          "directional_accuracy": 0.9500270855904659
+        },
+        "test": {
+          "r2_score": 0.9277780570062636,
+          "directional_accuracy": 0.9422999327505044
+        }
+      },
+      "training_time": 0.6793415546417236,
+      "quality_passed": true
+    },
+    {
+      "model_id": "NZDJPY-90",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.8216121941807604,
+          "rmse": 2.022538027685536,
+          "mae": 1.412018787627865,
+          "directional_accuracy": 0.9070682404015737
+        },
+        "test": {
+          "r2_score": 0.7762113176834224,
+          "directional_accuracy": 0.8839779005524862
+        }
+      },
+      "training_time": 0.5631940364837646,
+      "quality_passed": true
+    },
+    {
+      "model_id": "NZDJPY-180",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.9055881694814936,
+          "rmse": 1.5756021250434675,
+          "mae": 1.0790170566254458,
+          "directional_accuracy": 0.9549291938997821
+        },
+        "test": {
+          "r2_score": 0.7541631850565762,
+          "directional_accuracy": 0.9227752231539086
+        }
+      },
+      "training_time": 0.8487393856048584,
+      "quality_passed": true
+    },
+    {
+      "model_id": "NZDJPY-360",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.6651462594781001,
+          "rmse": 5.440522201892533,
+          "mae": 3.212759212514609,
+          "directional_accuracy": 0.7761316872427984
+        },
+        "test": {
+          "r2_score": 0.26027918678046835,
+          "directional_accuracy": 0.6802452316076294
+        }
+      },
+      "training_time": 0.2327275276184082,
+      "quality_passed": true
+    },
+    {
+      "model_id": "NZDJPY-720",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.9972546719905144,
+          "rmse": 0.6950665866262239,
+          "mae": 0.5676538768539172,
+          "directional_accuracy": 0.9917850181008075
+        },
+        "test": {
+          "r2_score": 0.9970739643082744,
+          "directional_accuracy": 0.990320796460177
+        }
+      },
+      "training_time": 0.6349122524261475,
+      "quality_passed": true
+    },
+    {
+      "model_id": "NZDJPY-1440",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.3286521921513337,
+          "rmse": 0.6228914330851633,
+          "mae": 0.5156447070061796,
+          "directional_accuracy": 0.7200689061154177
+        },
+        "test": {
+          "r2_score": 0.3204488887831648,
+          "directional_accuracy": 0.7193557582668187
+        }
+      },
+      "training_time": 0.554685115814209,
+      "quality_passed": false
+    },
+    {
+      "model_id": "NZDJPY-2880",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.310092112430684,
+          "rmse": 0.6340519871109409,
+          "mae": 0.5242668280609817,
+          "directional_accuracy": 0.7649219467401286
+        },
+        "test": {
+          "r2_score": 0.3173713083342887,
+          "directional_accuracy": 0.7660996354799514
+        }
+      },
+      "training_time": 0.6673378944396973,
+      "quality_passed": false
+    },
+    {
+      "model_id": "NZDCHF-45",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.9352964355470774,
+          "rmse": 0.8106009571020635,
+          "mae": 0.6439147492774394,
+          "directional_accuracy": 0.9446099674972914
+        },
+        "test": {
+          "r2_score": 0.9264012372724151,
+          "directional_accuracy": 0.9501008742434431
+        }
+      },
+      "training_time": 0.6482007503509521,
+      "quality_passed": true
+    },
+    {
+      "model_id": "NZDCHF-90",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.8268795833185495,
+          "rmse": 1.9972836324917802,
+          "mae": 1.4163041475860534,
+          "directional_accuracy": 0.9066612399945734
+        },
+        "test": {
+          "r2_score": 0.7844265761196126,
+          "directional_accuracy": 0.8847864169249428
+        }
+      },
+      "training_time": 0.621741533279419,
+      "quality_passed": true
+    },
+    {
+      "model_id": "NZDCHF-180",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.9023733255773057,
+          "rmse": 1.601590385039168,
+          "mae": 1.0952947536179183,
+          "directional_accuracy": 0.9547930283224401
+        },
+        "test": {
+          "r2_score": 0.7615210022198071,
+          "directional_accuracy": 0.9239924262915877
+        }
+      },
+      "training_time": 0.6414268016815186,
+      "quality_passed": true
+    },
+    {
+      "model_id": "NZDCHF-360",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.6537678251221832,
+          "rmse": 5.5293306239190105,
+          "mae": 3.2441345069771423,
+          "directional_accuracy": 0.7732510288065844
+        },
+        "test": {
+          "r2_score": 0.2703394979716077,
+          "directional_accuracy": 0.6769754768392371
+        }
+      },
+      "training_time": 0.2317795753479004,
+      "quality_passed": true
+    },
+    {
+      "model_id": "NZDCHF-720",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.9972370640917582,
+          "rmse": 0.6966273768921495,
+          "mae": 0.5659880816352869,
+          "directional_accuracy": 0.9912280701754386
+        },
+        "test": {
+          "r2_score": 0.9970737133674227,
+          "directional_accuracy": 0.9893528761061947
+        }
+      },
+      "training_time": 0.5738787651062012,
+      "quality_passed": true
+    },
+    {
+      "model_id": "NZDCHF-1440",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.31504626759109344,
+          "rmse": 0.6349600893100021,
+          "mae": 0.5234167395592367,
+          "directional_accuracy": 0.7197817973011772
+        },
+        "test": {
+          "r2_score": 0.31206546787101097,
+          "directional_accuracy": 0.7059578107183581
+        }
+      },
+      "training_time": 0.5583527088165283,
+      "quality_passed": false
+    },
+    {
+      "model_id": "NZDCHF-2880",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.32600623614739943,
+          "rmse": 0.6386130162875112,
+          "mae": 0.5289755306069863,
+          "directional_accuracy": 0.7636975818794001
+        },
+        "test": {
+          "r2_score": 0.3153246431990606,
+          "directional_accuracy": 0.7534933171324423
+        }
+      },
+      "training_time": 0.5886290073394775,
+      "quality_passed": false
+    },
+    {
+      "model_id": "NZDCAD-45",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.9378994900435965,
+          "rmse": 0.7925256663142949,
+          "mae": 0.6346210705463105,
+          "directional_accuracy": 0.9519230769230769
+        },
+        "test": {
+          "r2_score": 0.9263571969768218,
+          "directional_accuracy": 0.9475453934095495
+        }
+      },
+      "training_time": 0.6693763732910156,
+      "quality_passed": true
+    },
+    {
+      "model_id": "NZDCAD-90",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.8334893867260766,
+          "rmse": 1.9577952269270682,
+          "mae": 1.393531350997969,
+          "directional_accuracy": 0.899063899063899
+        },
+        "test": {
+          "r2_score": 0.7719795605591371,
+          "directional_accuracy": 0.8810133405201456
+        }
+      },
+      "training_time": 0.6175327301025391,
+      "quality_passed": true
+    },
+    {
+      "model_id": "NZDCAD-180",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.9086862924444943,
+          "rmse": 1.5505519043668556,
+          "mae": 1.0710308161008173,
+          "directional_accuracy": 0.9562908496732027
+        },
+        "test": {
+          "r2_score": 0.7669877644314511,
+          "directional_accuracy": 0.9225047335677576
+        }
+      },
+      "training_time": 0.6174426078796387,
+      "quality_passed": true
+    },
+    {
+      "model_id": "NZDCAD-360",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.6635205781783327,
+          "rmse": 5.4578666227606085,
+          "mae": 3.232833922663659,
+          "directional_accuracy": 0.7750342935528121
+        },
+        "test": {
+          "r2_score": 0.2605037980486782,
+          "directional_accuracy": 0.6780653950953679
+        }
+      },
+      "training_time": 0.2230987548828125,
+      "quality_passed": true
+    },
+    {
+      "model_id": "NZDCAD-720",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.9972846348523838,
+          "rmse": 0.6917369426216767,
+          "mae": 0.5652097228803539,
+          "directional_accuracy": 0.9896964633806739
+        },
+        "test": {
+          "r2_score": 0.9970880933631175,
+          "directional_accuracy": 0.9911504424778761
+        }
+      },
+      "training_time": 0.7243170738220215,
+      "quality_passed": true
+    },
+    {
+      "model_id": "NZDCAD-1440",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.3184778194993253,
+          "rmse": 0.6273475741895033,
+          "mae": 0.5198717674030963,
+          "directional_accuracy": 0.7147573930519667
+        },
+        "test": {
+          "r2_score": 0.3100840045747568,
+          "directional_accuracy": 0.7149372862029647
+        }
+      },
+      "training_time": 0.6364867687225342,
+      "quality_passed": false
+    },
+    {
+      "model_id": "NZDCAD-2880",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.31830269909336917,
+          "rmse": 0.6351472962372282,
+          "mae": 0.5275997003487185,
+          "directional_accuracy": 0.7624732170186715
+        },
+        "test": {
+          "r2_score": 0.3249986184696062,
+          "directional_accuracy": 0.7671628189550426
+        }
+      },
+      "training_time": 0.6321454048156738,
+      "quality_passed": false
+    },
+    {
+      "model_id": "CADJPY-45",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.935949680561466,
+          "rmse": 0.8087743443717171,
+          "mae": 0.648312380677686,
+          "directional_accuracy": 0.9477248104008668
+        },
+        "test": {
+          "r2_score": 0.9246837127830263,
+          "directional_accuracy": 0.9479488903833221
+        }
+      },
+      "training_time": 0.6468474864959717,
+      "quality_passed": true
+    },
+    {
+      "model_id": "CADJPY-90",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.8314121066069826,
+          "rmse": 1.9759585739222707,
+          "mae": 1.4042391051899787,
+          "directional_accuracy": 0.9025912359245692
+        },
+        "test": {
+          "r2_score": 0.7794301625191633,
+          "directional_accuracy": 0.880204824147689
+        }
+      },
+      "training_time": 0.6337919235229492,
+      "quality_passed": true
+    },
+    {
+      "model_id": "CADJPY-180",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.9012534252686514,
+          "rmse": 1.6113445889986597,
+          "mae": 1.1120977670121484,
+          "directional_accuracy": 0.954248366013072
+        },
+        "test": {
+          "r2_score": 0.7539680812314593,
+          "directional_accuracy": 0.9227752231539086
+        }
+      },
+      "training_time": 0.6245970726013184,
+      "quality_passed": true
+    },
+    {
+      "model_id": "CADJPY-360",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.6355341407869362,
+          "rmse": 5.675649418843648,
+          "mae": 3.39540575642291,
+          "directional_accuracy": 0.7680384087791495
+        },
+        "test": {
+          "r2_score": 0.261483017059276,
+          "directional_accuracy": 0.6777929155313351
+        }
+      },
+      "training_time": 0.2144606113433838,
+      "quality_passed": true
+    },
+    {
+      "model_id": "CADJPY-720",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.9972305717520739,
+          "rmse": 0.6978482122310665,
+          "mae": 0.5691114128292509,
+          "directional_accuracy": 0.9903926482873852
+        },
+        "test": {
+          "r2_score": 0.9970392013853867,
+          "directional_accuracy": 0.9914269911504425
+        }
+      },
+      "training_time": 0.5768918991088867,
+      "quality_passed": true
+    },
+    {
+      "model_id": "CADJPY-1440",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.3086781378503185,
+          "rmse": 0.6309676258269807,
+          "mae": 0.5231033304664876,
+          "directional_accuracy": 0.7114556416881999
+        },
+        "test": {
+          "r2_score": 0.31761968447875355,
+          "directional_accuracy": 0.7106613454960091
+        }
+      },
+      "training_time": 0.6490859985351562,
+      "quality_passed": false
+    },
+    {
+      "model_id": "CADJPY-2880",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.32321851504211996,
+          "rmse": 0.6365869145478907,
+          "mae": 0.5316058812275558,
+          "directional_accuracy": 0.7667584940312213
+        },
+        "test": {
+          "r2_score": 0.32037650706778464,
+          "directional_accuracy": 0.7554678007290401
+        }
+      },
+      "training_time": 0.5716547966003418,
+      "quality_passed": false
+    },
+    {
+      "model_id": "CADCHF-45",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.9349958610779678,
+          "rmse": 0.8131576204271785,
+          "mae": 0.650278954681919,
+          "directional_accuracy": 0.9470476706392199
+        },
+        "test": {
+          "r2_score": 0.9275086332802137,
+          "directional_accuracy": 0.9459314055144586
+        }
+      },
+      "training_time": 0.6065897941589355,
+      "quality_passed": true
+    },
+    {
+      "model_id": "CADCHF-90",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.82799196891077,
+          "rmse": 1.9925771766715659,
+          "mae": 1.413074028346551,
+          "directional_accuracy": 0.9050332383665717
+        },
+        "test": {
+          "r2_score": 0.7746376913714698,
+          "directional_accuracy": 0.8834388896375152
+        }
+      },
+      "training_time": 0.6327471733093262,
+      "quality_passed": true
+    },
+    {
+      "model_id": "CADCHF-180",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.9025459317584827,
+          "rmse": 1.5989957059308444,
+          "mae": 1.1015697843558603,
+          "directional_accuracy": 0.9507080610021786
+        },
+        "test": {
+          "r2_score": 0.771614901952173,
+          "directional_accuracy": 0.9235866919123614
+        }
+      },
+      "training_time": 0.6596558094024658,
+      "quality_passed": true
+    },
+    {
+      "model_id": "CADCHF-360",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.6491682151833229,
+          "rmse": 5.562360685325865,
+          "mae": 3.2818052869085816,
+          "directional_accuracy": 0.7727023319615912
+        },
+        "test": {
+          "r2_score": 0.26599671373128375,
+          "directional_accuracy": 0.6825613079019074
+        }
+      },
+      "training_time": 0.22098827362060547,
+      "quality_passed": true
+    },
+    {
+      "model_id": "CADCHF-720",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.9971338295183041,
+          "rmse": 0.7091385357569582,
+          "mae": 0.578425148048092,
+          "directional_accuracy": 0.9880256196045669
+        },
+        "test": {
+          "r2_score": 0.9971224422700841,
+          "directional_accuracy": 0.9907356194690266
+        }
+      },
+      "training_time": 0.5775630474090576,
+      "quality_passed": true
+    },
+    {
+      "model_id": "CADCHF-1440",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.321411216624088,
+          "rmse": 0.641274391284297,
+          "mae": 0.52943716063285,
+          "directional_accuracy": 0.7131782945736435
+        },
+        "test": {
+          "r2_score": 0.30615963561214543,
+          "directional_accuracy": 0.7140820980615735
+        }
+      },
+      "training_time": 0.7045390605926514,
+      "quality_passed": false
+    },
+    {
+      "model_id": "CADCHF-2880",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.323150955746515,
+          "rmse": 0.6470215299523828,
+          "mae": 0.5363052691433392,
+          "directional_accuracy": 0.7618610345883073
+        },
+        "test": {
+          "r2_score": 0.3185661832480102,
+          "directional_accuracy": 0.7598724179829891
+        }
+      },
+      "training_time": 0.6147003173828125,
+      "quality_passed": false
+    },
+    {
+      "model_id": "CHFJPY-45",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.93446657214254,
+          "rmse": 0.8106934350517909,
+          "mae": 0.6480151673120053,
+          "directional_accuracy": 0.9490790899241603
+        },
+        "test": {
+          "r2_score": 0.9271541908770433,
+          "directional_accuracy": 0.9460659045057163
+        }
+      },
+      "training_time": 0.6565999984741211,
+      "quality_passed": true
+    },
+    {
+      "model_id": "CHFJPY-90",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.8367424687070347,
+          "rmse": 1.9297763948610442,
+          "mae": 1.363688990850564,
+          "directional_accuracy": 0.9025912359245692
+        },
+        "test": {
+          "r2_score": 0.7798089887599419,
+          "directional_accuracy": 0.8854601805686565
+        }
+      },
+      "training_time": 0.6134622097015381,
+      "quality_passed": true
+    },
+    {
+      "model_id": "CHFJPY-180",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.9004840810004303,
+          "rmse": 1.6181856158108652,
+          "mae": 1.1133906644363063,
+          "directional_accuracy": 0.9528867102396514
+        },
+        "test": {
+          "r2_score": 0.7541596803945131,
+          "directional_accuracy": 0.9242629158777387
+        }
+      },
+      "training_time": 0.6152181625366211,
+      "quality_passed": true
+    },
+    {
+      "model_id": "CHFJPY-360",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.6537874900968046,
+          "rmse": 5.531442174787279,
+          "mae": 3.2974506802941552,
+          "directional_accuracy": 0.774074074074074
+        },
+        "test": {
+          "r2_score": 0.25198467797292545,
+          "directional_accuracy": 0.6775204359673025
+        }
+      },
+      "training_time": 0.22063517570495605,
+      "quality_passed": true
+    },
+    {
+      "model_id": "CHFJPY-720",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.9971611961642407,
+          "rmse": 0.7066121581658713,
+          "mae": 0.5793486899912677,
+          "directional_accuracy": 0.9916457811194653
+        },
+        "test": {
+          "r2_score": 0.9970850043472629,
+          "directional_accuracy": 0.9900442477876106
+        }
+      },
+      "training_time": 0.5630519390106201,
+      "quality_passed": true
+    },
+    {
+      "model_id": "CHFJPY-1440",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.330375603859115,
+          "rmse": 0.6386533769422501,
+          "mae": 0.5301254700647295,
+          "directional_accuracy": 0.7207866781510193
+        },
+        "test": {
+          "r2_score": 0.3239656577503174,
+          "directional_accuracy": 0.7142246294184721
+        }
+      },
+      "training_time": 0.5679476261138916,
+      "quality_passed": false
+    },
+    {
+      "model_id": "CHFJPY-2880",
+      "success": true,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.3147476266546628,
+          "rmse": 0.6404733640669363,
+          "mae": 0.5311052992751646,
+          "directional_accuracy": 0.7675237220691766
+        },
+        "test": {
+          "r2_score": 0.31708149973170174,
+          "directional_accuracy": 0.7677703523693803
+        }
+      },
+      "training_time": 0.5954806804656982,
+      "quality_passed": false
+    }
+  ]
+}

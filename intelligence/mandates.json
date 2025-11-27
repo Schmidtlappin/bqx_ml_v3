@@ -59,6 +59,28 @@
         "frequency": "Real-time updates as work progresses",
         "requirements": ["Record all directives", "Document all decisions", "Track all implementations", "Log all issues"],
         "enforcement": "Agents expected to maintain complete audit trail"
+      },
+      "AIRTABLE_NOTES_STANDARDIZATION": {
+        "mandate": "All AirTable notes MUST follow standardized format with status icons",
+        "date_issued": "2025-11-27",
+        "format_required": "[STATUS_ICON] [STATUS_TEXT]: [ISO_TIMESTAMP]",
+        "status_icons": {
+          "completed": "✅ COMPLETED",
+          "in_progress": "🔄 IN PROGRESS",
+          "planned": "📋 PLANNED",
+          "blocked": "🚫 BLOCKED",
+          "cancelled": "❌ CANCELLED",
+          "restated": "🔀 RESTATED"
+        },
+        "requirements": [
+          "Use correct status icon as first character",
+          "Status text in UPPERCASE",
+          "ISO 8601 timestamp (datetime.now().isoformat())",
+          "Exactly 48 equals signs for separators",
+          "Structured content with clear sections"
+        ],
+        "enforcement": "MANDATORY - non-compliant updates will be rejected",
+        "reference": "/docs/AIRTABLE_NOTES_STANDARDIZATION_GUIDE.md"
       }
     },
     "project_scope": {

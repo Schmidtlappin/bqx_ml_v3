@@ -1,0 +1,1250 @@
+{
+  "timestamp": "2025-11-27T01:54:15.785143",
+  "analysis": {
+    "total_tasks": 228,
+    "status_distribution": {
+      "Todo": 142,
+      "Done": 80,
+      "In Progress": 6
+    },
+    "priority_distribution": {
+      "High": 175,
+      "Medium": 28,
+      "Critical": 23,
+      "Low": 2
+    },
+    "missing_fields": {},
+    "notes_compliance": {
+      "compliant": 228,
+      "non_compliant": 0,
+      "empty": 0
+    },
+    "recent_updates": [
+      {
+        "task_id": "MP03.P11.S05.T02",
+        "name": "Implement core functionality for build comprehensi",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P09.S01.T99",
+        "name": "Configure Vertex AI Batch Prediction Jobs",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P10.S01.T01",
+        "name": "Implement Train 7 window models per pair with comp",
+        "status": "Done"
+      },
+      {
+        "task_id": "MP03.P08.S05.T03",
+        "name": "Test and validate optimize inference performance",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P02.S08.T02",
+        "name": "Implement intelligence file generation scripts",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P04.S02.T03",
+        "name": "Test and validate set up vertex ai environment and",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P02.S04.T02",
+        "name": "Implement core functionality for establish baselin",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P09.S03.T02",
+        "name": "Implement core functionality for create prediction",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P02.S08.T01",
+        "name": "Design intelligence file schema and structure",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P05.S05.T12",
+        "name": "Implement Covariance Analysis and Risk Features",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P10.S02.T01",
+        "name": "Design and plan implement disaster recovery proced",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P09.S01.T01",
+        "name": "Implement T03.09.01 with comprehensive validation",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P10.S04.T01",
+        "name": "Idx_*, bqx_*, and reg_* tables for AUDJPY",
+        "status": "Done"
+      },
+      {
+        "task_id": "MP03.P10.S04.T03",
+        "name": "Test and validate write 2000+ unit and integration",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P02.S03.T03",
+        "name": "Configure Temporal Fusion Transformer",
+        "status": "Done"
+      },
+      {
+        "task_id": "MP03.P01.S01.T06",
+        "name": "Validate Smart Dual Performance",
+        "status": "Done"
+      },
+      {
+        "task_id": "MP03.P11.S03.T03",
+        "name": "Test and validate establish compliance and governa",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P02.S07.T03",
+        "name": "Create intelligence validation and testing framewo",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P01.S07.T01",
+        "name": "Evaluate baseline model on validation set",
+        "status": "Done"
+      },
+      {
+        "task_id": "MP03.P01.S03.T01",
+        "name": "Load training data from BigQuery",
+        "status": "Done"
+      },
+      {
+        "task_id": "MP03.P06.S01.T01",
+        "name": "Design and plan engineer core ohlcv features for a",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P01.S05.T02",
+        "name": "Configure monitoring and alerting systems",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P08.S07.T02",
+        "name": "Develop model evaluation and validation framework",
+        "status": "Done"
+      },
+      {
+        "task_id": "MP03.P05.S02.T01",
+        "name": "Specify three-tier feature hierarchy",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P11.S01.T01",
+        "name": "Design and plan implement security controls and en",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P03.S02.T02",
+        "name": "Implement core functionality for define feature ma",
+        "status": "Done"
+      },
+      {
+        "task_id": "MP03.P03.S01.T03",
+        "name": "Test and validate cross-validation strategy",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P01.S02.T01",
+        "name": "Initialize Random Forest model configuration",
+        "status": "Done"
+      },
+      {
+        "task_id": "MP03.P02.S07.T01",
+        "name": "Design intelligence file schema and structure",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P09.S02.T02",
+        "name": "Implement core functionality for implement real-ti",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P08.S06.T02",
+        "name": "Develop model evaluation and validation framework",
+        "status": "Done"
+      },
+      {
+        "task_id": "MP03.P05.S05.T13",
+        "name": "Generate 100 Lag Features per Currency Pair",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P01.S01.T03",
+        "name": "Test initial model configurations",
+        "status": "Done"
+      },
+      {
+        "task_id": "MP03.P05.S01.T01",
+        "name": "Define currency relationships for all 28 pairs",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P03.S01.T01",
+        "name": "Execute T03.03.01 delivering production-ready ML c",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P05.S05.T02",
+        "name": "Create data quality monitoring system",
+        "status": "Done"
+      },
+      {
+        "task_id": "MP03.P04.S06.T01",
+        "name": "Provision cloud infrastructure resources",
+        "status": "Done"
+      },
+      {
+        "task_id": "MP03.P02.S07.T01",
+        "name": "Integrate 10+ Years Historical Forex Data",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P03.S02.T03",
+        "name": "Test and validate define feature matrix and table ",
+        "status": "Done"
+      },
+      {
+        "task_id": "MP03.P01.S05.T01",
+        "name": "Train baseline Random Forest model",
+        "status": "Done"
+      },
+      {
+        "task_id": "MP03.P05.S03.T02",
+        "name": "Create data quality monitoring system",
+        "status": "Done"
+      },
+      {
+        "task_id": "MP03.P01.S06.T01",
+        "name": "Prepare training dataset with temporal splits",
+        "status": "Done"
+      },
+      {
+        "task_id": "MP03.P10.S06.T01",
+        "name": "Idx_*, bqx_*, and reg_* tables for CADJPY",
+        "status": "Done"
+      },
+      {
+        "task_id": "MP03.P01.S09.T01",
+        "name": "Create XGBoost regressor with initial",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P03.S02.T01",
+        "name": "Complete: Implement pair divergence features",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P07.S02.T02",
+        "name": "Implement core functionality for create macro and ",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P06.S05.T02",
+        "name": "Implement core functionality for implement bqx par",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P03.S01.T02",
+        "name": "Implement core functionality for cross-validation ",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P05.S04.T97",
+        "name": "Configure Vertex AI Datasets for TabularDataset Cr",
+        "status": "Done"
+      },
+      {
+        "task_id": "MP03.P09.S08.T01",
+        "name": "Implement model training pipeline",
+        "status": "Done"
+      },
+      {
+        "task_id": "MP03.P06.S01.T02",
+        "name": "Implement core functionality for engineer core ohl",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P05.S01.T03",
+        "name": "Test and validate hyperparameter optimization",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P09.S01.T02",
+        "name": "Configure monitoring and alerting systems",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P02.S01.T01",
+        "name": "Index all 28 pairs to 2022-07-01 = 100 baseline",
+        "status": "Done"
+      },
+      {
+        "task_id": "MP03.P05.S03.T01",
+        "name": "Complete: Implement trend_strength metric",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P02.S08.T03",
+        "name": "Create intelligence validation and testing framewo",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P09.S02.T01",
+        "name": "Detect 4 market regimes: trending (high R\u00b2, low RM",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P01.S01.T01",
+        "name": "Prepare training dataset",
+        "status": "Done"
+      },
+      {
+        "task_id": "MP03.P01.S04.T01",
+        "name": "Execute T03.01.04 delivering production-ready ML c",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P07.S05.T02",
+        "name": "Python validation for windows",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P00.S00.T95",
+        "name": "ACHIEVE 95% EXACT VALUE PREDICTION ACCURACY",
+        "status": "Done"
+      },
+      {
+        "task_id": "MP03.P05.S05.T14",
+        "name": "Implement Cross-Pair Granger Causality Testing",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P09.S06.T01",
+        "name": "Design and plan implement websocket streaming for ",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P09.S07.T01",
+        "name": "Provision cloud infrastructure resources",
+        "status": "Done"
+      },
+      {
+        "task_id": "MP03.P04.S01.T02",
+        "name": "Develop model evaluation and validation framework",
+        "status": "Done"
+      },
+      {
+        "task_id": "MP03.P07.S03.T07",
+        "name": "Implement Bayesian Optimization",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P08.S02.T03",
+        "name": "Test and validate perform hyperparameter optimizat",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P08.S01.T01",
+        "name": "Calculate rolling R\u00b2 values from regression window",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P04.S01.T01",
+        "name": "Implement walk-forward validation with expanding w",
+        "status": "In Progress"
+      },
+      {
+        "task_id": "MP03.P04.S02.T01",
+        "name": "Configure XGBoost hyperparameter search space",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P08.S02.T02",
+        "name": "Implement core functionality for perform hyperpara",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P07.S01.T03",
+        "name": "Test and validate engineer multi-timeframe correla",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P05.S04.T02",
+        "name": "Create data quality monitoring system",
+        "status": "Done"
+      },
+      {
+        "task_id": "MP03.P06.S02.T02",
+        "name": "Implement core functionality for implement bqx par",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P06.S08.T02",
+        "name": "Create safe feature extraction",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P08.S03.T02",
+        "name": "Develop model evaluation and validation framework",
+        "status": "Done"
+      },
+      {
+        "task_id": "MP03.P07.S03.T03",
+        "name": "Test and validate implement advanced feature selec",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P07.S02.T03",
+        "name": "Test and validate create macro and sentiment featu",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P09.S04.T02",
+        "name": "Implement core functionality for implement a/b tes",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P02.S03.T04",
+        "name": "Train TFT models",
+        "status": "Done"
+      },
+      {
+        "task_id": "MP03.P08.S04.T01",
+        "name": "Implement model training pipeline",
+        "status": "Done"
+      },
+      {
+        "task_id": "MP03.P09.S04.T01",
+        "name": "Design and plan implement a/b testing framework",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P11.S04.T01",
+        "name": "Design and plan implement end-to-end encryption an",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P08.S05.T02",
+        "name": "Implement core functionality for optimize inferenc",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P11.S05.T01",
+        "name": "Design and plan build comprehensive security contr",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P07.S03.T02",
+        "name": "Implement core functionality for implement advance",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P11.S04.T03",
+        "name": "Test and validate implement end-to-end encryption ",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P09.S08.T02",
+        "name": "Develop model evaluation and validation framework",
+        "status": "Done"
+      },
+      {
+        "task_id": "MP03.P06.S08.T03",
+        "name": "Validate no future data",
+        "status": "Done"
+      },
+      {
+        "task_id": "MP03.P05.S05.T11",
+        "name": "Build 28\u00d728 Correlation Network with Rolling Windo",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P06.S07.T01",
+        "name": "Calculate single-interval velocity",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P07.S02.T01",
+        "name": "Fit StandaCloud SQLcaler on training set features",
+        "status": "Done"
+      },
+      {
+        "task_id": "MP03.P01.S01.T07",
+        "name": "Scale Smart Dual to 196 Models",
+        "status": "In Progress"
+      },
+      {
+        "task_id": "MP03.P01.S01.T02",
+        "name": "Develop model evaluation and validation framework",
+        "status": "Done"
+      },
+      {
+        "task_id": "MP03.P06.S06.T01",
+        "name": "Implement Temporal Fusion Transformer (TFT)",
+        "status": "Done"
+      },
+      {
+        "task_id": "MP03.P01.S02.T02",
+        "name": "Implement core functionality for configure gcp aut",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P08.S01.T02",
+        "name": "Develop model evaluation and validation framework",
+        "status": "Done"
+      },
+      {
+        "task_id": "MP03.P03.S03.T02",
+        "name": "Implement core functionality for create implementa",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P08.S03.T93",
+        "name": "Implement Residual Analysis for Model Diagnostics",
+        "status": "Done"
+      },
+      {
+        "task_id": "MP03.P08.S02.T94",
+        "name": "Implement Confusion Matrix for Directional Predict",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P06.S06.T02",
+        "name": "Configure monitoring and alerting systems",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P06.S05.T03",
+        "name": "Test and validate implement bqx paradigm feature g",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P05.S05.T10",
+        "name": "Implement Triangulation Features for All Currency ",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P01.S10.T01",
+        "name": "Set up walk-forward cross-validation with",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P07.S03.T06",
+        "name": "Configure Grid Search for Model Parameters",
+        "status": "Done"
+      },
+      {
+        "task_id": "MP03.P09.S06.T02",
+        "name": "Implement core functionality for implement websock",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P07.S03.T01",
+        "name": "Implement purged cross-validation to prevent tempo",
+        "status": "Done"
+      },
+      {
+        "task_id": "MP03.P04.S01.T06",
+        "name": "Train XGBoost models for 1440-minute prediction wi",
+        "status": "In Progress"
+      },
+      {
+        "task_id": "MP03.P07.S05.T04",
+        "name": "Naming convention validation",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P11.S03.T01",
+        "name": "Design and plan establish compliance and governanc",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P02.S02.T03",
+        "name": "Test and validate document paradigm alignment and ",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P06.S03.T01",
+        "name": "Design and plan create lag and window features",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P11.S03.T02",
+        "name": "Implement core functionality for establish complia",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P03.S07.T01",
+        "name": "Retrain production models using selected optima",
+        "status": "Done"
+      },
+      {
+        "task_id": "MP03.P05.S06.T02",
+        "name": "Create data quality monitoring system",
+        "status": "Done"
+      },
+      {
+        "task_id": "MP03.P01.S04.T02",
+        "name": "Implement core functionality for configure develop",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P11.S02.T01",
+        "name": "Design and plan perform security audits and penetr",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P06.S04.T02",
+        "name": "Implement core functionality for build feature sto",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P10.S01.T02",
+        "name": "Implement core functionality for execute comprehen",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P02.S03.T02",
+        "name": "Configure monitoring and alerting systems",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P07.S05.T01",
+        "name": "SQL validation for ROWS BETWEEN",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P06.S04.T03",
+        "name": "Test and validate build feature store and serving ",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P10.S02.T02",
+        "name": "Implement core functionality for implement disaste",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P02.S05.T01",
+        "name": "Design intelligence file schema and structure",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P01.S02.T03",
+        "name": "Test and validate configure gcp authentication and",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P04.S05.T02",
+        "name": "Create data quality monitoring system",
+        "status": "Done"
+      },
+      {
+        "task_id": "MP03.P01.S04.T03",
+        "name": "Test and validate configure development environmen",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P09.S07.T02",
+        "name": "Configure monitoring and alerting systems",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P10.S04.T02",
+        "name": "Implement core functionality for write 2000+ unit ",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P05.S02.T02",
+        "name": "Create data quality monitoring system",
+        "status": "Done"
+      },
+      {
+        "task_id": "MP03.P05.S01.T02",
+        "name": "Create data quality monitoring system",
+        "status": "Done"
+      },
+      {
+        "task_id": "MP03.P02.S03.T01",
+        "name": "Train TFT on EURUSD, GBPUSD, USDJPY, AUDUSD first",
+        "status": "Done"
+      },
+      {
+        "task_id": "MP03.P06.S04.T01",
+        "name": "Design and plan build feature store and serving la",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P10.S02.T03",
+        "name": "Test and validate implement disaster recovery proc",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P07.S03.T05",
+        "name": "Implement Hyperparameter Tuning Framework",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P11.S04.T02",
+        "name": "Implement core functionality for implement end-to-",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P06.S08.T01",
+        "name": "Implement temporal isolation",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P10.S05.T01",
+        "name": "Compute directional accuracy",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P01.S05.T03",
+        "name": "Establish baseline metrics",
+        "status": "Done"
+      },
+      {
+        "task_id": "MP03.P11.S02.T02",
+        "name": "Implement core functionality for perform security ",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P04.S06.T02",
+        "name": "Configure monitoring and alerting systems",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P05.S07.T01",
+        "name": "Generate PDF report with model validation metrics,",
+        "status": "Done"
+      },
+      {
+        "task_id": "MP03.P02.S04.T03",
+        "name": "Test and validate establish baseline metrics and a",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P08.S04.T02",
+        "name": "Develop model evaluation and validation framework",
+        "status": "Done"
+      },
+      {
+        "task_id": "MP03.P07.S05.T03",
+        "name": "Gap consistency validation",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P02.S06.T02",
+        "name": "Implement intelligence file generation scripts",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P01.S04.T04",
+        "name": "Package ML components for production",
+        "status": "In Progress"
+      },
+      {
+        "task_id": "MP03.P02.S06.T01",
+        "name": "Design intelligence file schema and structure",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P11.S01.T02",
+        "name": "Implement core functionality for implement securit",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P06.S03.T03",
+        "name": "Test and validate create lag and window features",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P02.S07.T02",
+        "name": "Implement Market Microstructure Features",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P08.S08.T02",
+        "name": "Walk-Forward Optimization with 95% Target",
+        "status": "Done"
+      },
+      {
+        "task_id": "MP03.P08.S06.T01",
+        "name": "Implement model training pipeline",
+        "status": "Done"
+      },
+      {
+        "task_id": "MP03.P04.S01.T05",
+        "name": "Train XGBoost models for 720-minute prediction win",
+        "status": "Done"
+      },
+      {
+        "task_id": "MP03.P10.S05.T02",
+        "name": "Create data quality monitoring system",
+        "status": "Done"
+      },
+      {
+        "task_id": "MP03.P01.S03.T03",
+        "name": "Test and validate set up airtable api integration",
+        "status": "Done"
+      },
+      {
+        "task_id": "MP03.P05.S05.T01",
+        "name": "Implement data ingestion pipeline",
+        "status": "Done"
+      },
+      {
+        "task_id": "MP03.P06.S07.T03",
+        "name": "Compute acceleration derivatives",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P09.S05.T02",
+        "name": "Configure monitoring and alerting systems",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P06.S05.T01",
+        "name": "Design and plan implement bqx paradigm feature gen",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P09.S02.T05",
+        "name": "Implement Multi-Model Serving and Ensemble Routing",
+        "status": "Done"
+      },
+      {
+        "task_id": "MP03.P02.S04.T01",
+        "name": "Use Vertex AI Vizier for Bayesian optimization ",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P02.S01.T02",
+        "name": "Implement core functionality for train-validation-",
+        "status": "Done"
+      },
+      {
+        "task_id": "MP03.P08.S02.T01",
+        "name": "Check residuals for: autocorrelation, heterosce",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P10.S07.T01",
+        "name": "Retrain 28 models with full data at optimal win",
+        "status": "Done"
+      },
+      {
+        "task_id": "MP03.P04.S01.T07",
+        "name": "Train XGBoost models for 2880-minute prediction wi",
+        "status": "In Progress"
+      },
+      {
+        "task_id": "MP03.P01.S02.T04",
+        "name": "Compare Random Forest with XGBoost",
+        "status": "Done"
+      },
+      {
+        "task_id": "MP03.P02.S02.T02",
+        "name": "Implement core functionality for document paradigm",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P04.S05.T01",
+        "name": "Decide per-pair whether to deploy ensemble or s",
+        "status": "Done"
+      },
+      {
+        "task_id": "MP03.P04.S01.T04",
+        "name": "Train XGBoost models for 360-minute prediction win",
+        "status": "Done"
+      },
+      {
+        "task_id": "MP03.P11.S02.T98",
+        "name": "Create INTERVAL-CENTRIC Glossary and Notation Guid",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P09.S02.T06",
+        "name": "Create Model Ensemble Orchestration Layer",
+        "status": "Done"
+      },
+      {
+        "task_id": "MP03.P11.S02.T03",
+        "name": "Test and validate perform security audits and pene",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P06.S08.T04",
+        "name": "Build leakage detection tests",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P10.S03.T02",
+        "name": "Implement core functionality for validate business",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P04.S03.T02",
+        "name": "Create data quality monitoring system",
+        "status": "Done"
+      },
+      {
+        "task_id": "MP03.P08.S05.T01",
+        "name": "Design and plan optimize inference performance",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P03.S03.T01",
+        "name": "28\u00d77 matrix of R2 scores for all pair-window co",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P01.S03.T04",
+        "name": "Optimize BigQuery data loading",
+        "status": "Done"
+      },
+      {
+        "task_id": "MP03.P06.S06.T02",
+        "name": "Build Graph Neural Network for Currency Relationsh",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P11.S05.T03",
+        "name": "Test and validate build comprehensive security con",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P03.S04.T01",
+        "name": "Visualizations of cumulative returns for all 28",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P09.S01.T95",
+        "name": "Configure Scheduled Batch Prediction Jobs",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P08.S07.T01",
+        "name": "Implement model training pipeline",
+        "status": "Done"
+      },
+      {
+        "task_id": "MP03.P09.S04.T96",
+        "name": "Configure Cloud Scheduler for Periodic Model Retra",
+        "status": "Done"
+      },
+      {
+        "task_id": "MP03.P07.S01.T01",
+        "name": "Gap between train/test to prevent leakage",
+        "status": "Done"
+      },
+      {
+        "task_id": "MP03.P10.S03.T03",
+        "name": "Test and validate validate business requirements a",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P10.S03.T01",
+        "name": "Design and plan validate business requirements and",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P04.S03.T01",
+        "name": "Features from Bid/Ask spread data: current spre",
+        "status": "Done"
+      },
+      {
+        "task_id": "MP03.P02.S01.T03",
+        "name": "Test and validate train-validation-test split",
+        "status": "Done"
+      },
+      {
+        "task_id": "MP03.P04.S04.T02",
+        "name": "Create data quality monitoring system",
+        "status": "Done"
+      },
+      {
+        "task_id": "MP03.P09.S02.T03",
+        "name": "Test and validate implement real-time monitoring a",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P06.S07.T04",
+        "name": "Generate reversal signals",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P05.S04.T01",
+        "name": "Evaluate all models across 4 market regimes",
+        "status": "In Progress"
+      },
+      {
+        "task_id": "MP03.P08.S08.T01",
+        "name": "Comprehensive Feature Importance Testing (6000+ fe",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P06.S01.T03",
+        "name": "Test and validate engineer core ohlcv features for",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P01.S03.T02",
+        "name": "Implement core functionality for set up airtable a",
+        "status": "Done"
+      },
+      {
+        "task_id": "MP03.P01.S01.T05",
+        "name": "Implement Smart Dual Processing",
+        "status": "Done"
+      },
+      {
+        "task_id": "MP03.P09.S06.T03",
+        "name": "Test and validate implement websocket streaming fo",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P02.S07.T02",
+        "name": "Implement intelligence file generation scripts",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P11.S01.T03",
+        "name": "Test and validate implement security controls and ",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P02.S05.T02",
+        "name": "Implement intelligence file generation scripts",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P07.S01.T02",
+        "name": "Develop model evaluation and validation framework",
+        "status": "Done"
+      },
+      {
+        "task_id": "MP03.P04.S01.T03",
+        "name": "Train XGBoost models for 180-minute prediction win",
+        "status": "Done"
+      },
+      {
+        "task_id": "MP03.P06.S06.T03",
+        "name": "Create Ensemble Meta-Learner with 10+ Models",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P01.S05.T04",
+        "name": "Document baseline results",
+        "status": "Done"
+      },
+      {
+        "task_id": "MP03.P06.S02.T01",
+        "name": "Design and plan implement bqx paradigm transformat",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P07.S04.T01",
+        "name": "Isotonic regression to calibrate predictions",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P06.S03.T02",
+        "name": "Implement core functionality for create lag and wi",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P02.S02.T01",
+        "name": "Complete: Save models and log metrics",
+        "status": "Done"
+      },
+      {
+        "task_id": "MP03.P06.S02.T03",
+        "name": "Test and validate implement bqx paradigm transform",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P06.S07.T02",
+        "name": "Calculate multi-interval velocities",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P08.S03.T01",
+        "name": "Identify conditions causing largest errors",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P03.S06.T01",
+        "name": "Train LightGBM with cross-validation",
+        "status": "Done"
+      },
+      {
+        "task_id": "MP03.P10.S01.T03",
+        "name": "Test and validate execute comprehensive system tes",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P05.S06.T01",
+        "name": "Tune LightGBM hyperparameters with Optuna",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P04.S04.T01",
+        "name": "Train ensemble model",
+        "status": "Done"
+      },
+      {
+        "task_id": "MP03.P09.S04.T03",
+        "name": "Test and validate implement a/b testing framework",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P01.S01.T04",
+        "name": "Validate data quality and features",
+        "status": "Done"
+      },
+      {
+        "task_id": "MP03.P02.S06.T03",
+        "name": "Create intelligence validation and testing framewo",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P03.S03.T03",
+        "name": "Test and validate create implementation plan and t",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P09.S05.T01",
+        "name": "Provision cloud infrastructure resources",
+        "status": "Done"
+      },
+      {
+        "task_id": "MP03.P02.S05.T03",
+        "name": "Create intelligence validation and testing framewo",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P04.S02.T02",
+        "name": "Implement core functionality for set up vertex ai ",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P06.S06.T01",
+        "name": "Provision cloud infrastructure resources",
+        "status": "Done"
+      },
+      {
+        "task_id": "MP03.P09.S03.T03",
+        "name": "Test and validate create prediction serving apis",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P02.S01.T04",
+        "name": "Validate feature importance",
+        "status": "Done"
+      },
+      {
+        "task_id": "MP03.P09.S03.T01",
+        "name": "Design and plan create prediction serving apis",
+        "status": "Todo"
+      }
+    ],
+    "issues": []
+  },
+  "metrics": {
+    "completion_rate": 35.08771929824561,
+    "in_progress_rate": 2.631578947368421,
+    "blocked_rate": 0.0,
+    "todo_rate": 62.28070175438597,
+    "cancelled_rate": 0.0,
+    "restated_rate": 0.0,
+    "notes_compliance_rate": 100.0,
+    "field_completeness_rate": 100.0
+  },
+  "phases": {
+    "P11": {
+      "total": 16,
+      "done": 0,
+      "in_progress": 0,
+      "todo": 16
+    },
+    "P09": {
+      "total": 25,
+      "done": 7,
+      "in_progress": 0,
+      "todo": 18
+    },
+    "P10": {
+      "total": 16,
+      "done": 5,
+      "in_progress": 0,
+      "todo": 11
+    },
+    "P08": {
+      "total": 20,
+      "done": 10,
+      "in_progress": 0,
+      "todo": 10
+    },
+    "P02": {
+      "total": 28,
+      "done": 8,
+      "in_progress": 0,
+      "todo": 20
+    },
+    "P04": {
+      "total": 18,
+      "done": 11,
+      "in_progress": 3,
+      "todo": 4
+    },
+    "P05": {
+      "total": 20,
+      "done": 9,
+      "in_progress": 1,
+      "todo": 10
+    },
+    "P01": {
+      "total": 27,
+      "done": 17,
+      "in_progress": 2,
+      "todo": 8
+    },
+    "P06": {
+      "total": 28,
+      "done": 3,
+      "in_progress": 0,
+      "todo": 25
+    },
+    "P03": {
+      "total": 12,
+      "done": 4,
+      "in_progress": 0,
+      "todo": 8
+    },
+    "P07": {
+      "total": 17,
+      "done": 5,
+      "in_progress": 0,
+      "todo": 12
+    },
+    "P00": {
+      "total": 1,
+      "done": 1,
+      "in_progress": 0,
+      "todo": 0
+    }
+  }
+}

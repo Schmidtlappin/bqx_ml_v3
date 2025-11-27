@@ -1,0 +1,108 @@
+{
+  "timestamp": "2025-11-27T02:28:21.204418",
+  "authorization": "ALPHA-2B-COMPREHENSIVE",
+  "total_tested": 9,
+  "total_kept": 9,
+  "elapsed_minutes": 10.149369160334269,
+  "results": [
+    {
+      "pair": "eurusd",
+      "lag_range": "15-30",
+      "feature_type": "simple",
+      "baseline_r2": 0.7079,
+      "new_r2": 0.961560017937745,
+      "improvement": 0.25366001793774506,
+      "improvement_pct": 35.83274727189505,
+      "kept": true,
+      "num_features": 32
+    },
+    {
+      "pair": "gbpusd",
+      "lag_range": "15-30",
+      "feature_type": "simple",
+      "baseline_r2": 0.7079,
+      "new_r2": 0.9605986835092615,
+      "improvement": 0.2526986835092615,
+      "improvement_pct": 35.69694639204146,
+      "kept": true,
+      "num_features": 32
+    },
+    {
+      "pair": "usdjpy",
+      "lag_range": "15-30",
+      "feature_type": "simple",
+      "baseline_r2": 0.7079,
+      "new_r2": 0.9622977605722486,
+      "improvement": 0.2543977605722486,
+      "improvement_pct": 35.93696292869736,
+      "kept": true,
+      "num_features": 32
+    },
+    {
+      "pair": "audusd",
+      "lag_range": "15-30",
+      "feature_type": "simple",
+      "baseline_r2": 0.7079,
+      "new_r2": 0.9612204649153598,
+      "improvement": 0.25332046491535987,
+      "improvement_pct": 35.78478103056362,
+      "kept": true,
+      "num_features": 32
+    },
+    {
+      "pair": "usdcad",
+      "lag_range": "15-30",
+      "feature_type": "simple",
+      "baseline_r2": 0.7079,
+      "new_r2": 0.9610963885956371,
+      "improvement": 0.2531963885956371,
+      "improvement_pct": 35.76725365102939,
+      "kept": true,
+      "num_features": 32
+    },
+    {
+      "pair": "eurusd",
+      "lag_range": "31-60",
+      "feature_type": "interactions",
+      "baseline_r2": 0.7079,
+      "new_r2": 0.9718121545559991,
+      "improvement": 0.26391215455599915,
+      "improvement_pct": 37.28099372171199,
+      "kept": true,
+      "num_features": 30
+    },
+    {
+      "pair": "gbpusd",
+      "lag_range": "31-60",
+      "feature_type": "interactions",
+      "baseline_r2": 0.7079,
+      "new_r2": 0.9722870607899846,
+      "improvement": 0.26438706078998464,
+      "improvement_pct": 37.34808034891717,
+      "kept": true,
+      "num_features": 30
+    },
+    {
+      "pair": "usdjpy",
+      "lag_range": "31-60",
+      "feature_type": "interactions",
+      "baseline_r2": 0.7079,
+      "new_r2": 0.9724141256055288,
+      "improvement": 0.2645141256055288,
+      "improvement_pct": 37.36602989200859,
+      "kept": true,
+      "num_features": 30
+    },
+    {
+      "pair": "eurusd",
+      "lag_range": "61-100",
+      "feature_type": "all",
+      "baseline_r2": 0.7079,
+      "new_r2": 0.9692328940296028,
+      "improvement": 0.2613328940296028,
+      "improvement_pct": 36.91663992507456,
+      "kept": true,
+      "num_features": 120
+    }
+  ]
+}

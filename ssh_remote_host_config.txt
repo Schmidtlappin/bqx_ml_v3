@@ -1,0 +1,24 @@
+# SSH Configuration for BQX-ML Master Instance
+# Generated from: bqx-ml-master.us-east1-b.bqx-ml
+# Date: 2025-11-27
+
+Host bqx-ml-master
+    HostName 34.148.152.67
+    User micha
+    Port 22
+    IdentityFile ~/.ssh/google_compute_engine
+    ServerAliveInterval 60
+    ServerAliveCountMax 3
+    StrictHostKeyChecking no
+
+# Connection Details:
+# External IP: 34.148.152.67
+# Internal IP: 10.142.0.3
+# Zone: us-east1-b
+# Project: bqx-ml
+# Connection Timeout: 30 seconds
+
+# To use this configuration:
+# 1. Save this content to ~/.ssh/config
+# 2. Ensure you have the Google Compute Engine SSH key at ~/.ssh/google_compute_engine
+# 3. Connect using: ssh bqx-ml-master
