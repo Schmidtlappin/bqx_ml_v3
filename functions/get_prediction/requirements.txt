@@ -1,0 +1,7 @@
+# Requirements for BQX ML V3 Cloud Function
+# Smart Vertex AI Architecture
+
+functions-framework==3.*
+flask==2.*
+google-cloud-aiplatform==1.*
+google-cloud-bigquery==3.*

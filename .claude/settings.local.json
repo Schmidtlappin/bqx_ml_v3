@@ -61,7 +61,11 @@
       "Bash(for model in EUR_USD_45 EUR_USD_90 GBP_USD_45 GBP_USD_90)",
       "Bash(do)",
       "Bash(docker images:*)",
-      "Bash(for model in EUR_USD_90 GBP_USD_90 USD_JPY_90 EUR_GBP_90 EUR_JPY_90)"
+      "Bash(for model in EUR_USD_90 GBP_USD_90 USD_JPY_90 EUR_GBP_90 EUR_JPY_90)",
+      "Bash(if [ -n \"$AIRTABLE_API_KEY\" ])",
+      "Bash(then echo \"✅ API Key found\")",
+      "Bash(else echo \"❌ API Key not set\")",
+      "Bash(fi)"
     ]
   },
   "context": {

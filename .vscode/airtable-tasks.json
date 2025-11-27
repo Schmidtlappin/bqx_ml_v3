@@ -1,0 +1,74 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "AirTable: Sync Tasks",
+      "type": "shell",
+      "command": "python3 ${workspaceFolder}/scripts/airtable_sync_service.py --sync",
+      "problemMatcher": [],
+      "group": {
+        "kind": "build",
+        "isDefault": false
+      }
+    },
+    {
+      "label": "AirTable: Get Next Task",
+      "type": "shell",
+      "command": "python3 ${workspaceFolder}/scripts/airtable_sync_service.py --next",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      }
+    },
+    {
+      "label": "AirTable: List Pending Tasks",
+      "type": "shell",
+      "command": "python3 ${workspaceFolder}/scripts/airtable_sync_service.py --list",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      }
+    },
+    {
+      "label": "AirTable: Project Status",
+      "type": "shell",
+      "command": "python3 ${workspaceFolder}/scripts/airtable_sync_service.py --status",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      }
+    },
+    {
+      "label": "AirTable: BA Tasks",
+      "type": "shell",
+      "command": "python3 ${workspaceFolder}/.claude/shared/airtable_multi_agent.py BA",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      }
+    },
+    {
+      "label": "AirTable: CE Team Status",
+      "type": "shell",
+      "command": "python3 ${workspaceFolder}/.claude/shared/airtable_multi_agent.py CE",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      }
+    },
+    {
+      "label": "AirTable: Update Smart Vertex Tasks",
+      "type": "shell",
+      "command": "python3 -c \"from scripts.airtable_sync_service import AirTableSync; sync = AirTableSync(); sync.sync_smart_vertex_tasks()\"",
+      "problemMatcher": [],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      }
+    }
+  ]
+}
