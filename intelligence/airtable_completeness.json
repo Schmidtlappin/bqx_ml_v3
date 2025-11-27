@@ -1,25 +1,30 @@
 {
-  "timestamp": "2025-11-27T01:54:15.785143",
+  "timestamp": "2025-11-27T04:25:28.614404",
   "analysis": {
-    "total_tasks": 228,
+    "total_tasks": 248,
     "status_distribution": {
-      "Todo": 142,
+      "Todo": 159,
       "Done": 80,
-      "In Progress": 6
+      "In Progress": 9
     },
     "priority_distribution": {
-      "High": 175,
-      "Medium": 28,
+      "Medium": 38,
+      "High": 185,
       "Critical": 23,
       "Low": 2
     },
     "missing_fields": {},
     "notes_compliance": {
       "compliant": 228,
-      "non_compliant": 0,
+      "non_compliant": 20,
       "empty": 0
     },
     "recent_updates": [
+      {
+        "task_id": "MP03.P05.S03.T03",
+        "name": "Build prediction pipeline",
+        "status": "Todo"
+      },
       {
         "task_id": "MP03.P11.S05.T02",
         "name": "Implement core functionality for build comprehensi",
@@ -101,6 +106,11 @@
         "status": "Done"
       },
       {
+        "task_id": "MP03.P04.S03.T01",
+        "name": "Create Dockerfiles for testing/training/prediction",
+        "status": "Todo"
+      },
+      {
         "task_id": "MP03.P11.S03.T03",
         "name": "Test and validate establish compliance and governa",
         "status": "Todo"
@@ -178,7 +188,7 @@
       {
         "task_id": "MP03.P05.S05.T13",
         "name": "Generate 100 Lag Features per Currency Pair",
-        "status": "Todo"
+        "status": "In Progress"
       },
       {
         "task_id": "MP03.P01.S01.T03",
@@ -291,6 +301,11 @@
         "status": "Done"
       },
       {
+        "task_id": "MP03.P09.S03.T04",
+        "name": "Create operational dashboards",
+        "status": "Todo"
+      },
+      {
         "task_id": "MP03.P05.S03.T01",
         "name": "Complete: Implement trend_strength metric",
         "status": "Todo"
@@ -339,6 +354,11 @@
         "task_id": "MP03.P09.S07.T01",
         "name": "Provision cloud infrastructure resources",
         "status": "Done"
+      },
+      {
+        "task_id": "MP03.P05.S03.T04",
+        "name": "Implement pipeline orchestration",
+        "status": "Todo"
       },
       {
         "task_id": "MP03.P04.S01.T02",
@@ -468,11 +488,16 @@
       {
         "task_id": "MP03.P05.S05.T11",
         "name": "Build 28\u00d728 Correlation Network with Rolling Windo",
-        "status": "Todo"
+        "status": "In Progress"
       },
       {
         "task_id": "MP03.P06.S07.T01",
         "name": "Calculate single-interval velocity",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P05.S03.T02",
+        "name": "Create training pipeline",
         "status": "Todo"
       },
       {
@@ -489,6 +514,11 @@
         "task_id": "MP03.P01.S01.T02",
         "name": "Develop model evaluation and validation framework",
         "status": "Done"
+      },
+      {
+        "task_id": "MP03.P08.S03.T01",
+        "name": "Create Vertex AI endpoints",
+        "status": "Todo"
       },
       {
         "task_id": "MP03.P06.S06.T01",
@@ -533,7 +563,7 @@
       {
         "task_id": "MP03.P05.S05.T10",
         "name": "Implement Triangulation Features for All Currency ",
-        "status": "Todo"
+        "status": "In Progress"
       },
       {
         "task_id": "MP03.P01.S10.T01",
@@ -576,8 +606,18 @@
         "status": "Todo"
       },
       {
+        "task_id": "MP03.P03.S03.T01",
+        "name": "Enable Vertex AI APIs and services",
+        "status": "Todo"
+      },
+      {
         "task_id": "MP03.P06.S03.T01",
         "name": "Design and plan create lag and window features",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P03.S03.T03",
+        "name": "Configure Artifact Registry",
         "status": "Todo"
       },
       {
@@ -701,6 +741,11 @@
         "status": "Todo"
       },
       {
+        "task_id": "MP03.P08.S03.T03",
+        "name": "Configure auto-scaling",
+        "status": "Todo"
+      },
+      {
         "task_id": "MP03.P06.S08.T01",
         "name": "Implement temporal isolation",
         "status": "Todo"
@@ -766,6 +811,11 @@
         "status": "Todo"
       },
       {
+        "task_id": "MP03.P09.S03.T03",
+        "name": "Implement logging",
+        "status": "Todo"
+      },
+      {
         "task_id": "MP03.P06.S03.T03",
         "name": "Test and validate create lag and window features",
         "status": "Todo"
@@ -828,6 +878,11 @@
       {
         "task_id": "MP03.P02.S04.T01",
         "name": "Use Vertex AI Vizier for Bayesian optimization ",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P04.S03.T03",
+        "name": "Push images to Artifact Registry",
         "status": "Todo"
       },
       {
@@ -936,6 +991,11 @@
         "status": "Todo"
       },
       {
+        "task_id": "MP03.P09.S03.T01",
+        "name": "Configure model monitoring",
+        "status": "Todo"
+      },
+      {
         "task_id": "MP03.P08.S07.T01",
         "name": "Implement model training pipeline",
         "status": "Done"
@@ -944,6 +1004,11 @@
         "task_id": "MP03.P09.S04.T96",
         "name": "Configure Cloud Scheduler for Periodic Model Retra",
         "status": "Done"
+      },
+      {
+        "task_id": "MP03.P04.S03.T04",
+        "name": "Validate container functionality",
+        "status": "Todo"
       },
       {
         "task_id": "MP03.P07.S01.T01",
@@ -996,6 +1061,11 @@
         "status": "Todo"
       },
       {
+        "task_id": "MP03.P05.S03.T01",
+        "name": "Develop testing pipeline components",
+        "status": "Todo"
+      },
+      {
         "task_id": "MP03.P06.S01.T03",
         "name": "Test and validate engineer core ohlcv features for",
         "status": "Todo"
@@ -1013,6 +1083,11 @@
       {
         "task_id": "MP03.P09.S06.T03",
         "name": "Test and validate implement websocket streaming fo",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P03.S03.T02",
+        "name": "Create GCS buckets for data/models",
         "status": "Todo"
       },
       {
@@ -1039,6 +1114,11 @@
         "task_id": "MP03.P04.S01.T03",
         "name": "Train XGBoost models for 180-minute prediction win",
         "status": "Done"
+      },
+      {
+        "task_id": "MP03.P09.S03.T02",
+        "name": "Set up alerting policies",
+        "status": "Todo"
       },
       {
         "task_id": "MP03.P06.S06.T03",
@@ -1081,6 +1161,11 @@
         "status": "Todo"
       },
       {
+        "task_id": "MP03.P08.S03.T04",
+        "name": "Set up load balancing",
+        "status": "Todo"
+      },
+      {
         "task_id": "MP03.P08.S03.T01",
         "name": "Identify conditions causing largest errors",
         "status": "Todo"
@@ -1093,6 +1178,11 @@
       {
         "task_id": "MP03.P10.S01.T03",
         "name": "Test and validate execute comprehensive system tes",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P03.S03.T04",
+        "name": "Set up service accounts and IAM",
         "status": "Todo"
       },
       {
@@ -1123,6 +1213,11 @@
       {
         "task_id": "MP03.P03.S03.T03",
         "name": "Test and validate create implementation plan and t",
+        "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P08.S03.T02",
+        "name": "Deploy models to endpoints",
         "status": "Todo"
       },
       {
@@ -1159,21 +1254,32 @@
         "task_id": "MP03.P09.S03.T01",
         "name": "Design and plan create prediction serving apis",
         "status": "Todo"
+      },
+      {
+        "task_id": "MP03.P04.S03.T02",
+        "name": "Build container images",
+        "status": "Todo"
       }
     ],
     "issues": []
   },
   "metrics": {
-    "completion_rate": 35.08771929824561,
-    "in_progress_rate": 2.631578947368421,
+    "completion_rate": 32.25806451612903,
+    "in_progress_rate": 3.6290322580645165,
     "blocked_rate": 0.0,
-    "todo_rate": 62.28070175438597,
+    "todo_rate": 64.11290322580645,
     "cancelled_rate": 0.0,
     "restated_rate": 0.0,
-    "notes_compliance_rate": 100.0,
+    "notes_compliance_rate": 91.93548387096774,
     "field_completeness_rate": 100.0
   },
   "phases": {
+    "P05": {
+      "total": 24,
+      "done": 9,
+      "in_progress": 4,
+      "todo": 11
+    },
     "P11": {
       "total": 16,
       "done": 0,
@@ -1181,10 +1287,10 @@
       "todo": 16
     },
     "P09": {
-      "total": 25,
+      "total": 29,
       "done": 7,
       "in_progress": 0,
-      "todo": 18
+      "todo": 22
     },
     "P10": {
       "total": 16,
@@ -1193,10 +1299,10 @@
       "todo": 11
     },
     "P08": {
-      "total": 20,
+      "total": 24,
       "done": 10,
       "in_progress": 0,
-      "todo": 10
+      "todo": 14
     },
     "P02": {
       "total": 28,
@@ -1205,16 +1311,10 @@
       "todo": 20
     },
     "P04": {
-      "total": 18,
+      "total": 22,
       "done": 11,
       "in_progress": 3,
-      "todo": 4
-    },
-    "P05": {
-      "total": 20,
-      "done": 9,
-      "in_progress": 1,
-      "todo": 10
+      "todo": 8
     },
     "P01": {
       "total": 27,
@@ -1229,10 +1329,10 @@
       "todo": 25
     },
     "P03": {
-      "total": 12,
+      "total": 16,
       "done": 4,
       "in_progress": 0,
-      "todo": 8
+      "todo": 12
     },
     "P07": {
       "total": 17,

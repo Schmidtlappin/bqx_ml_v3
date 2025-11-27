@@ -57,7 +57,10 @@
       "Bash(do echo '  ✓ $(basename $script)')",
       "Bash(done)",
       "Bash(top:*)",
-      "Bash(lscpu:*)"
+      "Bash(lscpu:*)",
+      "Bash(for model in EUR_USD_45 EUR_USD_90 GBP_USD_45 GBP_USD_90)",
+      "Bash(do)",
+      "Bash(docker images:*)"
     ]
   },
   "context": {
