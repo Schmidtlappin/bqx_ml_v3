@@ -38,26 +38,76 @@ Per [mandate/BQX_ML_V3_FEATURE_INVENTORY.md](../mandate/BQX_ML_V3_FEATURE_INVENT
 **Objective**: Complete audit of existing BigQuery infrastructure
 
 #### Task 1.1: Dataset and Table Inventory
-**Owner**: TBD
+**Owner**: BA
+**Duration**: 2-4 hours
 **Deliverables**:
 - [ ] List all datasets in bqx-ml project
 - [ ] Count tables per dataset
 - [ ] Document table naming conventions
 - [ ] Identify which datasets contain feature data
 
-**Commands**:
+**Execution Stages**:
+
+**Stage 1.1.1: List All Datasets** (30 min)
 ```bash
-bq ls --project_id=bqx-ml
-bq ls --project_id=bqx-ml bqx_ml_v3_features
-bq ls --project_id=bqx-ml bqx_ml_v3_models
+# Export dataset list to JSON
+bq ls --project_id=bqx-ml --format=json > /tmp/bqx_datasets.json
+cat /tmp/bqx_datasets.json | jq -r '.[].id' > /tmp/bqx_dataset_names.txt
+
+# Count datasets
+wc -l /tmp/bqx_dataset_names.txt
 ```
 
-**Output**: JSON inventory file with complete dataset/table structure
+**Stage 1.1.2: Enumerate Tables Per Dataset** (1 hour)
+```bash
+# For each dataset, list tables
+for dataset in $(cat /tmp/bqx_dataset_names.txt); do
+  echo "Dataset: $dataset"
+  bq ls --project_id=bqx-ml $dataset --format=json > "/tmp/tables_${dataset}.json"
+  echo "Table count: $(cat /tmp/tables_${dataset}.json | jq length)"
+done
+```
+
+**Stage 1.1.3: Consolidate Inventory** (30 min)
+```bash
+# Create consolidated JSON inventory
+python3 << 'EOF'
+import json
+import glob
+
+inventory = {"datasets": {}}
+for file in glob.glob("/tmp/tables_*.json"):
+    dataset = file.split("_")[1].replace(".json", "")
+    with open(file) as f:
+        tables = json.load(f)
+    inventory["datasets"][dataset] = {
+        "table_count": len(tables),
+        "tables": [t["tableReference"]["tableId"] for t in tables]
+    }
+
+with open("/tmp/bqx_inventory_consolidated.json", "w") as f:
+    json.dump(inventory, f, indent=2)
+
+print(f"Total datasets: {len(inventory['datasets'])}")
+print(f"Total tables: {sum(d['table_count'] for d in inventory['datasets'].values())}")
+EOF
+```
+
+**Stage 1.1.4: Copy to Workspace** (15 min)
+```bash
+# Copy inventory to workspace
+cp /tmp/bqx_inventory_consolidated.json /home/micha/bqx_ml_v3/data/
+```
+
+**Output**: `/home/micha/bqx_ml_v3/data/bqx_inventory_consolidated.json`
+
+**Status Report**: Report total datasets, total tables, naming patterns observed
 
 ---
 
 #### Task 1.2: Schema Analysis Per Table
-**Owner**: TBD
+**Owner**: BA
+**Duration**: 3-5 hours
 **Deliverables**:
 - [ ] Extract schema for all existing tables
 - [ ] Document column names, types, and descriptions
@@ -65,41 +115,314 @@ bq ls --project_id=bqx-ml bqx_ml_v3_models
 - [ ] Identify BQX tables and their columns
 - [ ] Identify any feature tables (lag, regime, agg, align, etc.)
 
-**Commands**:
+**Execution Stages**:
+
+**Stage 1.2.1: Extract All Schemas** (2 hours)
 ```bash
-for dataset in $(bq ls --project_id=bqx-ml --format=json | jq -r '.[].id'); do
-  for table in $(bq ls --project_id=bqx-ml $dataset --format=json | jq -r '.[].id'); do
-    bq show --schema --format=prettyjson bqx-ml:$dataset.$table
+# Create schema export script
+cat > /tmp/export_schemas.sh << 'EOF'
+#!/bin/bash
+mkdir -p /tmp/schemas
+for dataset in $(cat /tmp/bqx_dataset_names.txt); do
+  echo "Processing dataset: $dataset"
+  mkdir -p "/tmp/schemas/$dataset"
+
+  for table in $(bq ls --project_id=bqx-ml $dataset --format=json | jq -r '.[].tableReference.tableId'); do
+    echo "  Exporting schema: $table"
+    bq show --schema --format=prettyjson "bqx-ml:$dataset.$table" > "/tmp/schemas/$dataset/${table}.json" 2>/dev/null || echo "    ERROR: Failed to export $table"
   done
 done
+EOF
+
+chmod +x /tmp/export_schemas.sh
+/tmp/export_schemas.sh
 ```
 
-**Output**: Complete schema documentation for all tables
+**Stage 1.2.2: Analyze Schemas** (1 hour)
+```python
+# Create schema analysis script
+cat > /tmp/analyze_schemas.py << 'EOF'
+import json
+import glob
+import os
+
+schema_analysis = {
+    "idx_tables": [],
+    "bqx_tables": [],
+    "feature_tables": {"lag": [], "regime": [], "agg": [], "align": [], "correlation": [], "momentum": [], "volatility": []},
+    "unknown_tables": []
+}
+
+for schema_file in glob.glob("/tmp/schemas/*/*.json"):
+    dataset = os.path.basename(os.path.dirname(schema_file))
+    table_name = os.path.basename(schema_file).replace(".json", "")
+
+    try:
+        with open(schema_file) as f:
+            schema = json.load(f)
+
+        column_count = len(schema)
+        columns = [col["name"] for col in schema]
+
+        table_info = {
+            "dataset": dataset,
+            "table": table_name,
+            "column_count": column_count,
+            "columns": columns
+        }
+
+        # Classify table
+        if "idx" in table_name.lower() and "lag" not in table_name.lower():
+            schema_analysis["idx_tables"].append(table_info)
+        elif "bqx" in table_name.lower() and "lag" not in table_name.lower():
+            schema_analysis["bqx_tables"].append(table_info)
+        elif "lag" in table_name.lower():
+            schema_analysis["feature_tables"]["lag"].append(table_info)
+        elif "regime" in table_name.lower():
+            schema_analysis["feature_tables"]["regime"].append(table_info)
+        elif "agg" in table_name.lower():
+            schema_analysis["feature_tables"]["agg"].append(table_info)
+        elif "align" in table_name.lower():
+            schema_analysis["feature_tables"]["align"].append(table_info)
+        elif "correlation" in table_name.lower() or "corr" in table_name.lower():
+            schema_analysis["feature_tables"]["correlation"].append(table_info)
+        elif "momentum" in table_name.lower():
+            schema_analysis["feature_tables"]["momentum"].append(table_info)
+        elif "volatility" in table_name.lower() or "vol" in table_name.lower():
+            schema_analysis["feature_tables"]["volatility"].append(table_info)
+        else:
+            schema_analysis["unknown_tables"].append(table_info)
+    except Exception as e:
+        print(f"Error processing {schema_file}: {e}")
+
+# Save analysis
+with open("/tmp/schema_analysis.json", "w") as f:
+    json.dump(schema_analysis, f, indent=2)
+
+# Print summary
+print(f"\n=== SCHEMA ANALYSIS SUMMARY ===")
+print(f"IDX Tables: {len(schema_analysis['idx_tables'])}")
+print(f"BQX Tables: {len(schema_analysis['bqx_tables'])}")
+print(f"Lag Feature Tables: {len(schema_analysis['feature_tables']['lag'])}")
+print(f"Regime Feature Tables: {len(schema_analysis['feature_tables']['regime'])}")
+print(f"Aggregation Feature Tables: {len(schema_analysis['feature_tables']['agg'])}")
+print(f"Alignment Feature Tables: {len(schema_analysis['feature_tables']['align'])}")
+print(f"Unknown Tables: {len(schema_analysis['unknown_tables'])}")
+EOF
+
+python3 /tmp/analyze_schemas.py
+```
+
+**Stage 1.2.3: Copy Analysis to Workspace** (15 min)
+```bash
+cp /tmp/schema_analysis.json /home/micha/bqx_ml_v3/data/
+```
+
+**Output**: `/home/micha/bqx_ml_v3/data/schema_analysis.json`
+
+**Status Report**: Report table classification counts, column counts for IDX/BQX tables, any anomalies
 
 ---
 
 #### Task 1.3: Row Count and Data Validation
-**Owner**: TBD
+**Owner**: BA
+**Duration**: 2-3 hours
 **Deliverables**:
 - [ ] Count rows in each table
 - [ ] Validate data completeness (NULL checks)
 - [ ] Check date ranges covered
 - [ ] Identify data quality issues
 
-**Queries**:
-```sql
--- For each table
+**Execution Stages**:
+
+**Stage 1.3.1: Generate Row Count Queries** (30 min)
+```python
+cat > /tmp/generate_rowcount_queries.py << 'EOF'
+import json
+
+with open("/tmp/schema_analysis.json") as f:
+    analysis = json.load(f)
+
+queries = []
+for category in ["idx_tables", "bqx_tables"]:
+    for table_info in analysis[category]:
+        dataset = table_info["dataset"]
+        table = table_info["table"]
+
+        query = f"""
+SELECT
+  '{dataset}.{table}' as table_name,
+  COUNT(*) as total_rows,
+  MIN(interval_time) as earliest_data,
+  MAX(interval_time) as latest_data,
+  COUNT(DISTINCT pair) as unique_pairs
+FROM `bqx-ml.{dataset}.{table}`
+"""
+        queries.append(query)
+
+# Save queries
+with open("/tmp/rowcount_queries.sql", "w") as f:
+    for i, query in enumerate(queries):
+        f.write(f"-- Query {i+1}\n")
+        f.write(query)
+        f.write(";\n\n")
+
+print(f"Generated {len(queries)} row count queries")
+EOF
+
+python3 /tmp/generate_rowcount_queries.py
+```
+
+**Stage 1.3.2: Execute Row Count Queries** (1 hour)
+```bash
+# Execute queries and collect results
+cat > /tmp/execute_rowcount.sh << 'EOF'
+#!/bin/bash
+mkdir -p /tmp/rowcount_results
+
+# Read schema analysis to get table list
+python3 << 'PYEOF'
+import json
+import subprocess
+
+with open("/tmp/schema_analysis.json") as f:
+    analysis = json.load(f)
+
+results = []
+for category in ["idx_tables", "bqx_tables"]:
+    for table_info in analysis[category]:
+        dataset = table_info["dataset"]
+        table = table_info["table"]
+
+        print(f"Querying: {dataset}.{table}")
+
+        query = f"""
 SELECT
   COUNT(*) as total_rows,
   MIN(interval_time) as earliest_data,
   MAX(interval_time) as latest_data,
-  COUNT(DISTINCT pair) as unique_pairs,
-  COUNTIF(close_idx IS NULL) as null_count_idx,
-  COUNTIF(bqx_45 IS NULL) as null_count_bqx
-FROM `bqx-ml.bqx_ml_v3_features.{table_name}`
+  COUNT(DISTINCT pair) as unique_pairs
+FROM `bqx-ml.{dataset}.{table}`
+"""
+
+        try:
+            result = subprocess.run(
+                ["bq", "query", "--use_legacy_sql=false", "--format=json", query],
+                capture_output=True,
+                text=True,
+                timeout=60
+            )
+
+            if result.returncode == 0:
+                data = json.loads(result.stdout)
+                if data:
+                    results.append({
+                        "dataset": dataset,
+                        "table": table,
+                        "total_rows": int(data[0]["total_rows"]),
+                        "earliest_data": data[0]["earliest_data"],
+                        "latest_data": data[0]["latest_data"],
+                        "unique_pairs": int(data[0]["unique_pairs"])
+                    })
+            else:
+                print(f"  ERROR: {result.stderr}")
+                results.append({
+                    "dataset": dataset,
+                    "table": table,
+                    "error": result.stderr
+                })
+        except Exception as e:
+            print(f"  EXCEPTION: {e}")
+            results.append({
+                "dataset": dataset,
+                "table": table,
+                "error": str(e)
+            })
+
+with open("/tmp/rowcount_results.json", "w") as f:
+    json.dump(results, f, indent=2)
+
+print(f"\nCompleted {len(results)} queries")
+PYEOF
+EOF
+
+chmod +x /tmp/execute_rowcount.sh
+/tmp/execute_rowcount.sh
 ```
 
-**Output**: Data quality report with row counts and coverage
+**Stage 1.3.3: Data Quality Analysis** (30 min)
+```python
+cat > /tmp/data_quality_analysis.py << 'EOF'
+import json
+from datetime import datetime
+
+with open("/tmp/rowcount_results.json") as f:
+    results = json.load(f)
+
+quality_report = {
+    "total_tables_analyzed": len(results),
+    "tables_with_data": 0,
+    "empty_tables": [],
+    "data_coverage": {},
+    "pair_coverage": {},
+    "errors": []
+}
+
+for result in results:
+    table_name = f"{result['dataset']}.{result['table']}"
+
+    if "error" in result:
+        quality_report["errors"].append({
+            "table": table_name,
+            "error": result["error"]
+        })
+        continue
+
+    rows = result["total_rows"]
+    if rows == 0:
+        quality_report["empty_tables"].append(table_name)
+    else:
+        quality_report["tables_with_data"] += 1
+
+        # Calculate date range
+        try:
+            earliest = datetime.fromisoformat(result["earliest_data"].replace("Z", "+00:00"))
+            latest = datetime.fromisoformat(result["latest_data"].replace("Z", "+00:00"))
+            days_coverage = (latest - earliest).days
+
+            quality_report["data_coverage"][table_name] = {
+                "rows": rows,
+                "earliest": result["earliest_data"],
+                "latest": result["latest_data"],
+                "days_coverage": days_coverage,
+                "unique_pairs": result["unique_pairs"]
+            }
+        except:
+            pass
+
+# Save report
+with open("/tmp/data_quality_report.json", "w") as f:
+    json.dump(quality_report, f, indent=2)
+
+print(f"\n=== DATA QUALITY REPORT ===")
+print(f"Total tables analyzed: {quality_report['total_tables_analyzed']}")
+print(f"Tables with data: {quality_report['tables_with_data']}")
+print(f"Empty tables: {len(quality_report['empty_tables'])}")
+print(f"Errors encountered: {len(quality_report['errors'])}")
+EOF
+
+python3 /tmp/data_quality_analysis.py
+```
+
+**Stage 1.3.4: Copy Reports to Workspace** (15 min)
+```bash
+cp /tmp/rowcount_results.json /home/micha/bqx_ml_v3/data/
+cp /tmp/data_quality_report.json /home/micha/bqx_ml_v3/data/
+```
+
+**Output**: `/home/micha/bqx_ml_v3/data/data_quality_report.json`
+
+**Status Report**: Report total rows, date coverage, empty tables, errors encountered
 
 ---
 
@@ -698,9 +1021,24 @@ Before proceeding, confirm:
 
 ---
 
-**STATUS: ⏸️ AWAITING USER APPROVAL**
+**STATUS: ✅ APPROVED - BA AUTHORIZED TO PROCEED**
 
-**Upon approval, proceed to Phase 1: Database Inventory and Assessment**
+**Authorization Date**: 2025-11-27
+**Authorized By**: CE (Chief Engineer)
+**Assigned To**: BA (Build Agent)
+
+**INSTRUCTIONS TO BA**:
+1. Implement phases in strict sequence (Phase 1 → 2 → 3 → 4 → 5 → 6)
+2. Execute all stages within each task sequentially
+3. Provide status reports at completion of each task
+4. Investigate and resolve issues in realtime
+5. If unable to resolve an issue, STOP and notify CE immediately with:
+   - Detailed description of the blocker
+   - What was attempted
+   - Error messages/logs
+   - Recommended next steps
+6. DO NOT deviate from the plan without CE approval
+7. BEGIN IMMEDIATELY with Phase 1, Task 1.1, Stage 1.1.1
 
 ---
 
