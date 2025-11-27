@@ -1,6 +1,24 @@
 {
   "user_mandates": {
     "critical_directives": {
+      "PERFORMANCE_FIRST": {
+        "mandate": "Always pursue the option that yields best BQX ML V3 performance, regardless of complexity or difficulty",
+        "date_issued": "2025-11-27",
+        "context": "User chose Dual Processing (IDX+BQX) over simpler BQX-only approach",
+        "rationale": {
+          "primary": "Model performance directly impacts business value",
+          "secondary": "Complexity is an investment that yields better predictions",
+          "tertiary": "Production ML systems prioritize accuracy over simplicity"
+        },
+        "application_examples": {
+          "feature_engineering": "Choose Dual IDX+BQX (28 features) over BQX-only (14 features) if it improves R²",
+          "model_selection": "Use most complex algorithm (ensemble, deep learning) if it performs better",
+          "pipeline_design": "Add computational steps if they improve metrics",
+          "hyperparameter_tuning": "Exhaustive search preferred over quick defaults"
+        },
+        "metrics_priority": ["R² score", "Directional accuracy", "RMSE", "Latency (only if others equal)"],
+        "enforcement": "ABSOLUTE - never sacrifice performance for simplicity"
+      },
       "BUILD_DONT_SIMULATE": {
         "mandate": "EVERY implementation must be REAL - no simulations, mocks, or fake resources",
         "date_issued": "2025-11-26",
@@ -175,14 +193,15 @@
     ]
   },
   "metadata": {
-    "last_updated": "2025-11-26T22:17:00Z",
+    "last_updated": "2025-11-27T00:25:00Z",
     "updated_by": "Chief Engineer",
-    "version": "3.0",
+    "version": "4.0",
     "changelog": [
+      "v4.0: Added PERFORMANCE_FIRST mandate - always choose best performing option regardless of complexity",
       "v3.0: Added operational mandates and communication protocols",
       "v2.0: Added critical user mandates (BUILD_DONT_SIMULATE, etc.)",
       "v1.0: Original intelligence files"
     ],
-    "supersedes": "Version 2.0 - missing operational directives"
+    "supersedes": "Version 3.0 - missing performance optimization directive"
   }
 }

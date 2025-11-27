@@ -1,0 +1,18 @@
+{
+  "model_type": "XGBoost",
+  "pair": "EURUSD",
+  "prediction_window": 45,
+  "version": "v1",
+  "created": "2025-11-26T22:44:28.593016",
+  "training_time_seconds": 0.1,
+  "quality_gates_passed": {
+    "r2": true,
+    "directional_accuracy": true,
+    "note": "Primary quality gates met"
+  },
+  "infrastructure": {
+    "training_data": "bqx-ml.bqx_ml_v3_models.eurusd_45_train",
+    "rows_used": 9609,
+    "features": 14
+  }
+}

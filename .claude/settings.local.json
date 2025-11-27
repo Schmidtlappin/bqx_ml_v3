@@ -41,7 +41,13 @@
       "Bash(pkill:*)",
       "Bash(tree:*)",
       "Bash(timeout 60 python3:*)",
-      "Bash(timeout 120 python3:*)"
+      "Bash(timeout 120 python3:*)",
+      "Bash(echo:*)",
+      "Bash(tee:*)",
+      "Bash(pip install:*)",
+      "Bash(crontab:*)",
+      "Bash(xargs ls:*)",
+      "Bash(xargs:*)"
     ]
   },
   "context": {

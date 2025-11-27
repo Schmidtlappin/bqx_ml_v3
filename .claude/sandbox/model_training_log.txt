@@ -1,0 +1,32 @@
+/home/micha/.local/lib/python3.10/site-packages/google/api_core/_python_version_support.py:266: FutureWarning: You are using a Python version (3.10.12) which Google will stop supporting in new releases of google.api_core once it reaches its end of life (2026-10-04). Please upgrade to the latest Python version, or at least Python 3.11, to continue receiving updates for google.api_core past that date.
+  warnings.warn(message, FutureWarning)
+
+============================================================
+BQX ML V3 - XGBoost Model Training
+Target: R² ≥ 0.35, RMSE ≤ 0.15, Dir. Accuracy ≥ 55%
+============================================================
+
+============================================================
+Training XGBoost Model: EURUSD - 45 intervals
+============================================================
+
+📊 Loading data from bqx-ml.bqx_ml_v3_models.eurusd_45_train...
+Traceback (most recent call last):
+  File "/home/micha/.local/lib/python3.10/site-packages/google/cloud/bigquery/_pandas_helpers.py", line 59, in <module>
+    import db_dtypes  # type: ignore
+ModuleNotFoundError: No module named 'db_dtypes'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/micha/bqx_ml_v3/scripts/train_xgboost_model.py", line 355, in <module>
+    model, metrics = train_xgboost_model(
+  File "/home/micha/bqx_ml_v3/scripts/train_xgboost_model.py", line 53, in train_xgboost_model
+    df = client.query(query).to_dataframe()
+  File "/home/micha/.local/lib/python3.10/site-packages/google/cloud/bigquery/job/query.py", line 2160, in to_dataframe
+    return query_result.to_dataframe(
+  File "/home/micha/.local/lib/python3.10/site-packages/google/cloud/bigquery/table.py", line 2597, in to_dataframe
+    _pandas_helpers.verify_pandas_imports()
+  File "/home/micha/.local/lib/python3.10/site-packages/google/cloud/bigquery/_pandas_helpers.py", line 1117, in verify_pandas_imports
+    raise ValueError(_NO_DB_TYPES_ERROR) from db_dtypes_import_exception
+ValueError: Please install the 'db-dtypes' package to use this function.

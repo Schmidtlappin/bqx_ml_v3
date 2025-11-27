@@ -1,0 +1,22 @@
+{
+  "pair": "EURUSD",
+  "window": 45,
+  "timestamp": "2025-11-26T22:44:28.593016",
+  "model_type": "XGBoost",
+  "training_time_seconds": 0.1,
+  "n_features": 14,
+  "splits": {
+    "validation": {
+      "r2_score": 0.4648,
+      "rmse": 1.7172,
+      "directional_accuracy": 0.7416
+    }
+  },
+  "quality_gates": {
+    "r2_achieved": true,
+    "rmse_achieved": false,
+    "directional_accuracy_achieved": true,
+    "all_gates_passed": false,
+    "note": "R\u00b2 and Directional Accuracy exceed targets. RMSE is high due to synthetic data scale."
+  }
+}

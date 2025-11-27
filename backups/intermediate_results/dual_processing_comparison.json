@@ -1,0 +1,47 @@
+{
+  "timestamp": "2025-11-26T23:02:57.926324",
+  "pair": "EURUSD",
+  "window": 45,
+  "bqx_only": {
+    "approach": "BQX-only",
+    "features": 14,
+    "r2_score": 0.4648,
+    "directional_accuracy": 0.7416,
+    "training_time": 0.1
+  },
+  "dual_processing": {
+    "approach": "Dual (IDX+BQX)",
+    "features": 28,
+    "r2_score": 0.2692,
+    "directional_accuracy": 0.6865,
+    "training_time": 0.15
+  },
+  "improvement": {
+    "r2_score": "-42.1%",
+    "directional_accuracy": "-7.4%"
+  },
+  "recommendation": "INVESTIGATE_FURTHER",
+  "feature_importance": {
+    "top_5_features": [
+      {
+        "feature": "bqx_lag_8",
+        "importance": 0.07972238957881927
+      },
+      {
+        "feature": "bqx_lag_1",
+        "importance": 0.060090191662311554
+      },
+      {
+        "feature": "bqx_lag_3",
+        "importance": 0.05540701374411583
+      },
+      {
+        "feature": "bqx_lag_5",
+        "importance": 0.04998813942074776
+      },
+      {
+        "feature": "bqx_lag_10",
+        "importance": 0.0472467765212059
+      }
+    ],
+    "idx_total_importance": 

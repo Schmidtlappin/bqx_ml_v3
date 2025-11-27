@@ -1,0 +1,53 @@
+{
+  "model_id": "EURUSD-45",
+  "approach": "smart_dual",
+  "n_features": 12,
+  "metrics": {
+    "validation": {
+      "r2_score": 0.9362,
+      "rmse": 0.8008,
+      "mae": 0.639,
+      "directional_accuracy": 0.9489
+    },
+    "test": {
+      "r2_score": 0.9284,
+      "directional_accuracy": 0.9453
+    }
+  },
+  "feature_importance": {
+    "idx_percentage": "39.0",
+    "bqx_percentage": "61.0",
+    "derived_percentage": "0.0",
+    "top_5": [
+      {
+        "feature": "bqx_lag_14",
+        "importance": 0.5189239382743835
+      },
+      {
+        "feature": "idx_rsi",
+        "importance": 0.18803541362285614
+      },
+      {
+        "feature": "idx_ma_ratio",
+        "importance": 0.14151643216609955
+      },
+      {
+        "feature": "bqx_lag_7",
+        "importance": 0.0458347350358963
+      },
+      {
+        "feature": "bqx_lag_3",
+        "importance": 0.02203746885061264
+      }
+    ]
+  },
+  "training_time_seconds": 2.36,
+  "success_criteria": {
+    "r2_exceeds_50": true,
+    "feature_count_12_15": true,
+    "idx_importance_40_50": "False",
+    "bqx_importance_30_40": "False",
+    "training_under_0_5s": false
+  },
+  "timestamp": "2025-11-27T00:07:15.641977"
+}

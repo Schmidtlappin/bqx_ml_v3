@@ -1,96 +1,95 @@
-# BQX ML V3 Foundation Documentation
+# BQX ML V3 BUILDER AGENT - START HERE
 
-## Critical Documents - READ IN ORDER
+**Welcome Builder Agent!**
 
-### 1. Start Here - Your Role
-**[BQXML_CHIEF_ENGINEER_MENTORING_GUIDE.md](BQXML_CHIEF_ENGINEER_MENTORING_GUIDE.md)**
-- Your complete role definition and responsibilities
-- Critical mandates and paradigm rules
-- Daily validation checklist
-- Emergency procedures
+This sandbox contains all the documentation and resources you need to complete the BQX ML V3 implementation.
 
-### 2. The Paradigm Shift
-**[BQX_TARGET_CRITICAL_MANDATE.md](BQX_TARGET_CRITICAL_MANDATE.md)**
-- NON-NEGOTIABLE: BQX values are TARGETS only
-- The complete reversal from old system
-- Validation queries to ensure compliance
+## 🚨 NEW: CHIEF ENGINEER RESPONSES AVAILABLE
 
-### 3. System Architecture
-**[BQX_ML_V3_PIPELINE.md](BQX_ML_V3_PIPELINE.md)**
-- Complete 28-model architecture
-- Phase-by-phase implementation
-- Current status: Phase MP03.2 - Data Pipeline
+**[CHIEF_ENGINEER_RESPONSES.md](./CHIEF_ENGINEER_RESPONSES.md)** - Answers to all your critical questions!
 
-### 4. Feature Engineering
-**[BQX_ML_FEATURE_MATRIX.md](BQX_ML_FEATURE_MATRIX.md)**
-- Valid features (OHLC, volume, indicators)
-- Invalid features (BQX values - NEVER!)
-- Window function requirements (ROWS BETWEEN only)
+## 📚 REQUIRED READING (IN ORDER)
 
-### 5. Migration Planning
-**[BQX_ML_MIGRATION_EXECUTION_MASTERPLAN.md](BQX_ML_MIGRATION_EXECUTION_MASTERPLAN.md)**
-- Complete migration strategy
-- Phase dependencies
-- Risk mitigation
+1. **[BQX_ML_V3_BUILDER_CHARGE.md](./BQX_ML_V3_BUILDER_CHARGE.md)**
+   - Your formal responsibility assignment
+   - Core mandate: BUILD, DON'T SIMULATE
+   - Quality gates and acceptance criteria
 
-### 6. Parallel Work Guidelines
-**[ML_PARALLEL_WORK_DURING_MIGRATION.md](ML_PARALLEL_WORK_DURING_MIGRATION.md)**
-- What can proceed in parallel
-- What must wait
-- Coordination requirements
+2. **[BQX_ML_V3_BUILDER_BRIEFING.md](./BQX_ML_V3_BUILDER_BRIEFING.md)**
+   - Current infrastructure status
+   - What exists vs what needs to be built
+   - Immediate next steps to execute
 
-### 7. GitHub Configuration
-**[GITHUB_SECRETS_MANUAL_UPDATE.md](GITHUB_SECRETS_MANUAL_UPDATE.md)**
-- Manual steps for secrets update
-- Required for CI/CD pipeline
+3. **[BUILDER_AGENT_WORKSPACE_GUIDE.md](./BUILDER_AGENT_WORKSPACE_GUIDE.md)**
+   - Workspace navigation
+   - Intelligence file protocols
+   - Compliance expectations
+   - Sandbox usage guidelines
 
-## Quick Reference
+4. **[CHIEF_ENGINEER_RESPONSES.md](./CHIEF_ENGINEER_RESPONSES.md)** ⭐
+   - Answers to GCP environment questions
+   - Infrastructure verification guidance
+   - Implementation order and parallelization approved
+   - Quality gate flexibility protocols
+   - Budget and resource constraints clarified
 
-### Current Phase: MP03.2 - Data Pipeline
-**Immediate Tasks:**
-```sql
--- Create these tables for ALL 28 pairs:
-1. lag_bqx_[pair]     -- 60 historical lags
-2. regime_bqx_[pair]  -- Market regime indicators
-3. agg_bqx_[pair]     -- Aggregated features
-4. align_bqx_[pair]   -- Final aligned dataset
-```
+## 🧠 INTELLIGENCE FILES TO INGEST
 
-### Daily Validation Query
-```sql
--- Run this EVERY DAY to ensure compliance:
-SELECT COUNT(*) as violations
-FROM INFORMATION_SCHEMA.COLUMNS
-WHERE table_name LIKE '%_features%'
-  AND column_name LIKE '%bqx%';
--- MUST return 0
-```
+Before starting any work, load these files IN ORDER:
+1. **`/home/micha/bqx_ml_v3/intelligence/mandates.json`** ⚠️ **CRITICAL - READ FIRST**
+2. `/home/micha/bqx_ml_v3/intelligence/context.json`
+3. `/home/micha/bqx_ml_v3/intelligence/semantics.json`
+4. `/home/micha/bqx_ml_v3/intelligence/ontology.json`
 
-### Critical Rules - MEMORIZE
-1. **BQX = TARGETS ONLY** (never features)
-2. **ROWS BETWEEN** (never time intervals)
-3. **28 INDEPENDENT MODELS** (no mixing)
-4. **AIRTABLE P03** (single source of truth)
+## 📬 AGENT COMMUNICATION
 
-## Environment Setup
+All agent-to-agent communication now follows structured protocols:
+- **Protocol Guide**: [communications/AGENT_COMMUNICATION_PROTOCOL.md](./communications/AGENT_COMMUNICATION_PROTOCOL.md)
+- **Active Messages**: [communications/active/](./communications/active/)
+- **Chief Engineer Response**: [communications/20251126_2203_CE-to-BA_critical_questions_response.md](./communications/20251126_2203_CE-to-BA_critical_questions_response.md)
+
+## 🚀 QUICK START
+
 ```bash
-# Required for all operations:
-export GCP_PROJECT_ID="bqx-ml"
-export GOOGLE_APPLICATION_CREDENTIALS="~/bqx_ml_v3/credentials/gcp-sa-key.json"
-export AIRTABLE_API_KEY="YOUR_AIRTABLE_API_KEY"
-export AIRTABLE_BASE_ID="appR3PPnrNkVo48mO"
+# 1. Load intelligence files
+python3 << EOF
+import json
+with open('/home/micha/bqx_ml_v3/intelligence/context.json') as f:
+    context = json.load(f)
+print(f"Project: {context['project']['name']}")
+print(f"Tasks: {context['project_management']['stages']} stages")
+EOF
+
+# 2. Check AirTable status
+python3 /home/micha/bqx_ml_v3/scripts/check_airtable_status.py
+
+# 3. Begin with first task
+# MP03.P01.S01.T01 - "Prepare training dataset"
 ```
 
-## Emergency Contact
-- **Paradigm Violations**: Document in AirTable P00 immediately
-- **Blocking Issues**: Create urgent task in AirTable
-- **Questions**: Refer to mentoring guide first
+## ⚠️ CRITICAL REMINDERS
 
-## File Permissions
-All files are read-only to prevent accidental modification.
-To edit: `chmod u+w filename.md`
+1. **EVERY implementation must be REAL** - No simulations
+2. **Use ROWS BETWEEN, never RANGE BETWEEN** - Interval-centric only
+3. **Update AirTable after each task** - With real verification
+4. **Maintain intelligence files** - Update as you create infrastructure
+5. **Work in this sandbox** - Test here before production
+
+## 📊 CURRENT STATUS
+
+- **Total Tasks**: 197
+- **Completed**: 0 (all reset to Todo)
+- **Your Goal**: Complete ALL 197 with real infrastructure
+
+## 🆘 SUPPORT
+
+If you encounter blockers:
+1. Document in AirTable task notes
+2. Keep task as "In Progress"
+3. Chief Engineer will review through AirTable
 
 ---
-*Last Updated: 2024-11-24*
-*Authority: BQX ML V3 Migration Lead*
-*Location: /home/micha/bqx_ml_v3/docs/*
+
+**BEGIN BY READING ALL THREE DOCUMENTS IN ORDER**
+
+Good luck, Builder Agent! The success of BQX ML V3 depends on your real implementation.

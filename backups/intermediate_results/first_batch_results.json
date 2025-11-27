@@ -1,0 +1,37 @@
+{
+  "summary": {
+    "models_trained": 4,
+    "quality_passed": 2,
+    "avg_r2": 0.308375,
+    "avg_dir_acc": 0.711125,
+    "duration_seconds": 92.333475
+  },
+  "models": [
+    {
+      "model_id": "EURUSD-45",
+      "pair": "EURUSD",
+      "window": 45,
+      "status": "SUCCESS",
+      "quality_passed": false,
+      "metrics": {
+        "validation": {
+          "r2_score": 0.2321,
+          "rmse": 2.0396,
+          "mae": 1.6518,
+          "directional_accuracy": 0.689
+        },
+        "test": {
+          "r2_score": 0.2196,
+          "directional_accuracy": 0.7109
+        }
+      },
+      "training_time_seconds": 8.9,
+      "timestamp": "2025-11-26T23:18:47.975774",
+      "table_id": "bqx-ml.bqx_ml_v3_models.eurusd_45_train"
+    },
+    {
+      "model_id": "EURUSD-90",
+      "pair": "EURUSD",
+      "window": 90,
+      "status": "SUCCESS",
+      "quality_passed": 
