@@ -65,7 +65,26 @@
       "Bash(if [ -n \"$AIRTABLE_API_KEY\" ])",
       "Bash(then echo \"✅ API Key found\")",
       "Bash(else echo \"❌ API Key not set\")",
-      "Bash(fi)"
+      "Bash(fi)",
+      "Bash(sort:*)",
+      "Bash(kill:*)",
+      "Bash(for dataset in bqx_bq bqx_ml_v3_analytics bqx_ml_v3_features bqx_ml_v3_models bqx_ml_v3_predictions bqx_ml_v3_staging)",
+      "Bash(do echo 'Dataset: $dataset')",
+      "Bash(for dataset in bqx_bq bqx_ml_v3_features bqx_ml_v3_models bqx_ml_v3_predictions)",
+      "Bash(do echo -n '$dataset: ')",
+      "Bash(while read bucket)",
+      "Bash(do echo $bucket:)",
+      "Bash(for bucket in bqx-ml-bqx-ml-artifacts bqx-ml-bqx-ml-results bqx-ml-data bqx-ml-scripts bqx-ml-v3-models bqx-ml-vertex-models bqx-ml_cloudbuild)",
+      "Bash(do echo -n '$bucket: ')",
+      "Bash(jq:*)",
+      "Bash(jobs:*)",
+      "Bash(mkdir:*)",
+      "Bash(/home/micha/bqx_ml_v3/PHASE_2_SUMMARY_REPORT.md )",
+      "Bash(/home/micha/bqx_ml_v3/VERTEX_AI_DEPLOYMENT_STATUS.md )",
+      "Bash(/home/micha/bqx_ml_v3/VERTEX_AI_MIGRATION_READY.md )",
+      "Bash(/home/micha/bqx_ml_v3/archive/2024-11-27_session_cleanup/status_reports/)",
+      "Bash(/home/micha/bqx_ml_v3/vertex_training_corrected.py )",
+      "Bash(/home/micha/bqx_ml_v3/archive/2024-11-27_session_cleanup/scripts/)"
     ]
   },
   "context": {
