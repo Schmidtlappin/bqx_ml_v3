@@ -1,0 +1,19 @@
+{
+  "name": "bqx-hourly-batch-predictions",
+  "description": "Trigger hourly batch predictions for all non-critical models",
+  "schedule": "0 * * * *",
+  "time_zone": "UTC",
+  "pubsub_target": {
+    "topic_name": "projects/bqx-ml/topics/trigger-batch-predictions",
+    "attributes": {
+      "action": "run_batch_predictions",
+      "model_count": "93"
+    }
+  },
+  "retry_config": {
+    "retry_count": 3,
+    "max_retry_duration": "600s",
+    "min_backoff_duration": "5s",
+    "max_backoff_duration": "60s"
+  }
+}

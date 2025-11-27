@@ -1,0 +1,2234 @@
+{
+  "EUR_USD_45": {
+    "display_name": "batch-EUR_USD_45",
+    "model_name": "EUR_USD_45",
+    "model_path": "gs://bqx-ml-vertex-models/EUR_USD_45/",
+    "input_config": {
+      "instances_format": "bigquery",
+      "bigquery_source": {
+        "input_uri": "bq://bqx-ml.bqx_ml_v3_features.eurusd_bqx"
+      }
+    },
+    "output_config": {
+      "predictions_format": "bigquery",
+      "bigquery_destination": {
+        "output_uri": "bq://bqx-ml.predictions.batch_eur_usd_45"
+      }
+    },
+    "machine_spec": {
+      "machine_type": "n1-standard-2",
+      "starting_replica_count": 1,
+      "max_replica_count": 1
+    },
+    "schedule": "0 * * * *",
+    "estimated_monthly_cost": 0.52
+  },
+  "EUR_USD_180": {
+    "display_name": "batch-EUR_USD_180",
+    "model_name": "EUR_USD_180",
+    "model_path": "gs://bqx-ml-vertex-models/EUR_USD_180/",
+    "input_config": {
+      "instances_format": "bigquery",
+      "bigquery_source": {
+        "input_uri": "bq://bqx-ml.bqx_ml_v3_features.eurusd_bqx"
+      }
+    },
+    "output_config": {
+      "predictions_format": "bigquery",
+      "bigquery_destination": {
+        "output_uri": "bq://bqx-ml.predictions.batch_eur_usd_180"
+      }
+    },
+    "machine_spec": {
+      "machine_type": "n1-standard-2",
+      "starting_replica_count": 1,
+      "max_replica_count": 1
+    },
+    "schedule": "0 * * * *",
+    "estimated_monthly_cost": 0.52
+  },
+  "EUR_USD_360": {
+    "display_name": "batch-EUR_USD_360",
+    "model_name": "EUR_USD_360",
+    "model_path": "gs://bqx-ml-vertex-models/EUR_USD_360/",
+    "input_config": {
+      "instances_format": "bigquery",
+      "bigquery_source": {
+        "input_uri": "bq://bqx-ml.bqx_ml_v3_features.eurusd_bqx"
+      }
+    },
+    "output_config": {
+      "predictions_format": "bigquery",
+      "bigquery_destination": {
+        "output_uri": "bq://bqx-ml.predictions.batch_eur_usd_360"
+      }
+    },
+    "machine_spec": {
+      "machine_type": "n1-standard-2",
+      "starting_replica_count": 1,
+      "max_replica_count": 1
+    },
+    "schedule": "0 * * * *",
+    "estimated_monthly_cost": 0.52
+  },
+  "EUR_USD_720": {
+    "display_name": "batch-EUR_USD_720",
+    "model_name": "EUR_USD_720",
+    "model_path": "gs://bqx-ml-vertex-models/EUR_USD_720/",
+    "input_config": {
+      "instances_format": "bigquery",
+      "bigquery_source": {
+        "input_uri": "bq://bqx-ml.bqx_ml_v3_features.eurusd_bqx"
+      }
+    },
+    "output_config": {
+      "predictions_format": "bigquery",
+      "bigquery_destination": {
+        "output_uri": "bq://bqx-ml.predictions.batch_eur_usd_720"
+      }
+    },
+    "machine_spec": {
+      "machine_type": "n1-standard-2",
+      "starting_replica_count": 1,
+      "max_replica_count": 1
+    },
+    "schedule": "0 * * * *",
+    "estimated_monthly_cost": 0.52
+  },
+  "EUR_USD_1440": {
+    "display_name": "batch-EUR_USD_1440",
+    "model_name": "EUR_USD_1440",
+    "model_path": "gs://bqx-ml-vertex-models/EUR_USD_1440/",
+    "input_config": {
+      "instances_format": "bigquery",
+      "bigquery_source": {
+        "input_uri": "bq://bqx-ml.bqx_ml_v3_features.eurusd_bqx"
+      }
+    },
+    "output_config": {
+      "predictions_format": "bigquery",
+      "bigquery_destination": {
+        "output_uri": "bq://bqx-ml.predictions.batch_eur_usd_1440"
+      }
+    },
+    "machine_spec": {
+      "machine_type": "n1-standard-2",
+      "starting_replica_count": 1,
+      "max_replica_count": 1
+    },
+    "schedule": "0 * * * *",
+    "estimated_monthly_cost": 0.52
+  },
+  "EUR_USD_2880": {
+    "display_name": "batch-EUR_USD_2880",
+    "model_name": "EUR_USD_2880",
+    "model_path": "gs://bqx-ml-vertex-models/EUR_USD_2880/",
+    "input_config": {
+      "instances_format": "bigquery",
+      "bigquery_source": {
+        "input_uri": "bq://bqx-ml.bqx_ml_v3_features.eurusd_bqx"
+      }
+    },
+    "output_config": {
+      "predictions_format": "bigquery",
+      "bigquery_destination": {
+        "output_uri": "bq://bqx-ml.predictions.batch_eur_usd_2880"
+      }
+    },
+    "machine_spec": {
+      "machine_type": "n1-standard-2",
+      "starting_replica_count": 1,
+      "max_replica_count": 1
+    },
+    "schedule": "0 * * * *",
+    "estimated_monthly_cost": 0.52
+  },
+  "GBP_USD_45": {
+    "display_name": "batch-GBP_USD_45",
+    "model_name": "GBP_USD_45",
+    "model_path": "gs://bqx-ml-vertex-models/GBP_USD_45/",
+    "input_config": {
+      "instances_format": "bigquery",
+      "bigquery_source": {
+        "input_uri": "bq://bqx-ml.bqx_ml_v3_features.gbpusd_bqx"
+      }
+    },
+    "output_config": {
+      "predictions_format": "bigquery",
+      "bigquery_destination": {
+        "output_uri": "bq://bqx-ml.predictions.batch_gbp_usd_45"
+      }
+    },
+    "machine_spec": {
+      "machine_type": "n1-standard-2",
+      "starting_replica_count": 1,
+      "max_replica_count": 1
+    },
+    "schedule": "0 * * * *",
+    "estimated_monthly_cost": 0.52
+  },
+  "GBP_USD_180": {
+    "display_name": "batch-GBP_USD_180",
+    "model_name": "GBP_USD_180",
+    "model_path": "gs://bqx-ml-vertex-models/GBP_USD_180/",
+    "input_config": {
+      "instances_format": "bigquery",
+      "bigquery_source": {
+        "input_uri": "bq://bqx-ml.bqx_ml_v3_features.gbpusd_bqx"
+      }
+    },
+    "output_config": {
+      "predictions_format": "bigquery",
+      "bigquery_destination": {
+        "output_uri": "bq://bqx-ml.predictions.batch_gbp_usd_180"
+      }
+    },
+    "machine_spec": {
+      "machine_type": "n1-standard-2",
+      "starting_replica_count": 1,
+      "max_replica_count": 1
+    },
+    "schedule": "0 * * * *",
+    "estimated_monthly_cost": 0.52
+  },
+  "GBP_USD_360": {
+    "display_name": "batch-GBP_USD_360",
+    "model_name": "GBP_USD_360",
+    "model_path": "gs://bqx-ml-vertex-models/GBP_USD_360/",
+    "input_config": {
+      "instances_format": "bigquery",
+      "bigquery_source": {
+        "input_uri": "bq://bqx-ml.bqx_ml_v3_features.gbpusd_bqx"
+      }
+    },
+    "output_config": {
+      "predictions_format": "bigquery",
+      "bigquery_destination": {
+        "output_uri": "bq://bqx-ml.predictions.batch_gbp_usd_360"
+      }
+    },
+    "machine_spec": {
+      "machine_type": "n1-standard-2",
+      "starting_replica_count": 1,
+      "max_replica_count": 1
+    },
+    "schedule": "0 * * * *",
+    "estimated_monthly_cost": 0.52
+  },
+  "GBP_USD_720": {
+    "display_name": "batch-GBP_USD_720",
+    "model_name": "GBP_USD_720",
+    "model_path": "gs://bqx-ml-vertex-models/GBP_USD_720/",
+    "input_config": {
+      "instances_format": "bigquery",
+      "bigquery_source": {
+        "input_uri": "bq://bqx-ml.bqx_ml_v3_features.gbpusd_bqx"
+      }
+    },
+    "output_config": {
+      "predictions_format": "bigquery",
+      "bigquery_destination": {
+        "output_uri": "bq://bqx-ml.predictions.batch_gbp_usd_720"
+      }
+    },
+    "machine_spec": {
+      "machine_type": "n1-standard-2",
+      "starting_replica_count": 1,
+      "max_replica_count": 1
+    },
+    "schedule": "0 * * * *",
+    "estimated_monthly_cost": 0.52
+  },
+  "GBP_USD_1440": {
+    "display_name": "batch-GBP_USD_1440",
+    "model_name": "GBP_USD_1440",
+    "model_path": "gs://bqx-ml-vertex-models/GBP_USD_1440/",
+    "input_config": {
+      "instances_format": "bigquery",
+      "bigquery_source": {
+        "input_uri": "bq://bqx-ml.bqx_ml_v3_features.gbpusd_bqx"
+      }
+    },
+    "output_config": {
+      "predictions_format": "bigquery",
+      "bigquery_destination": {
+        "output_uri": "bq://bqx-ml.predictions.batch_gbp_usd_1440"
+      }
+    },
+    "machine_spec": {
+      "machine_type": "n1-standard-2",
+      "starting_replica_count": 1,
+      "max_replica_count": 1
+    },
+    "schedule": "0 * * * *",
+    "estimated_monthly_cost": 0.52
+  },
+  "GBP_USD_2880": {
+    "display_name": "batch-GBP_USD_2880",
+    "model_name": "GBP_USD_2880",
+    "model_path": "gs://bqx-ml-vertex-models/GBP_USD_2880/",
+    "input_config": {
+      "instances_format": "bigquery",
+      "bigquery_source": {
+        "input_uri": "bq://bqx-ml.bqx_ml_v3_features.gbpusd_bqx"
+      }
+    },
+    "output_config": {
+      "predictions_format": "bigquery",
+      "bigquery_destination": {
+        "output_uri": "bq://bqx-ml.predictions.batch_gbp_usd_2880"
+      }
+    },
+    "machine_spec": {
+      "machine_type": "n1-standard-2",
+      "starting_replica_count": 1,
+      "max_replica_count": 1
+    },
+    "schedule": "0 * * * *",
+    "estimated_monthly_cost": 0.52
+  },
+  "USD_JPY_45": {
+    "display_name": "batch-USD_JPY_45",
+    "model_name": "USD_JPY_45",
+    "model_path": "gs://bqx-ml-vertex-models/USD_JPY_45/",
+    "input_config": {
+      "instances_format": "bigquery",
+      "bigquery_source": {
+        "input_uri": "bq://bqx-ml.bqx_ml_v3_features.usdjpy_bqx"
+      }
+    },
+    "output_config": {
+      "predictions_format": "bigquery",
+      "bigquery_destination": {
+        "output_uri": "bq://bqx-ml.predictions.batch_usd_jpy_45"
+      }
+    },
+    "machine_spec": {
+      "machine_type": "n1-standard-2",
+      "starting_replica_count": 1,
+      "max_replica_count": 1
+    },
+    "schedule": "0 * * * *",
+    "estimated_monthly_cost": 0.52
+  },
+  "USD_JPY_180": {
+    "display_name": "batch-USD_JPY_180",
+    "model_name": "USD_JPY_180",
+    "model_path": "gs://bqx-ml-vertex-models/USD_JPY_180/",
+    "input_config": {
+      "instances_format": "bigquery",
+      "bigquery_source": {
+        "input_uri": "bq://bqx-ml.bqx_ml_v3_features.usdjpy_bqx"
+      }
+    },
+    "output_config": {
+      "predictions_format": "bigquery",
+      "bigquery_destination": {
+        "output_uri": "bq://bqx-ml.predictions.batch_usd_jpy_180"
+      }
+    },
+    "machine_spec": {
+      "machine_type": "n1-standard-2",
+      "starting_replica_count": 1,
+      "max_replica_count": 1
+    },
+    "schedule": "0 * * * *",
+    "estimated_monthly_cost": 0.52
+  },
+  "USD_JPY_360": {
+    "display_name": "batch-USD_JPY_360",
+    "model_name": "USD_JPY_360",
+    "model_path": "gs://bqx-ml-vertex-models/USD_JPY_360/",
+    "input_config": {
+      "instances_format": "bigquery",
+      "bigquery_source": {
+        "input_uri": "bq://bqx-ml.bqx_ml_v3_features.usdjpy_bqx"
+      }
+    },
+    "output_config": {
+      "predictions_format": "bigquery",
+      "bigquery_destination": {
+        "output_uri": "bq://bqx-ml.predictions.batch_usd_jpy_360"
+      }
+    },
+    "machine_spec": {
+      "machine_type": "n1-standard-2",
+      "starting_replica_count": 1,
+      "max_replica_count": 1
+    },
+    "schedule": "0 * * * *",
+    "estimated_monthly_cost": 0.52
+  },
+  "USD_JPY_720": {
+    "display_name": "batch-USD_JPY_720",
+    "model_name": "USD_JPY_720",
+    "model_path": "gs://bqx-ml-vertex-models/USD_JPY_720/",
+    "input_config": {
+      "instances_format": "bigquery",
+      "bigquery_source": {
+        "input_uri": "bq://bqx-ml.bqx_ml_v3_features.usdjpy_bqx"
+      }
+    },
+    "output_config": {
+      "predictions_format": "bigquery",
+      "bigquery_destination": {
+        "output_uri": "bq://bqx-ml.predictions.batch_usd_jpy_720"
+      }
+    },
+    "machine_spec": {
+      "machine_type": "n1-standard-2",
+      "starting_replica_count": 1,
+      "max_replica_count": 1
+    },
+    "schedule": "0 * * * *",
+    "estimated_monthly_cost": 0.52
+  },
+  "USD_JPY_1440": {
+    "display_name": "batch-USD_JPY_1440",
+    "model_name": "USD_JPY_1440",
+    "model_path": "gs://bqx-ml-vertex-models/USD_JPY_1440/",
+    "input_config": {
+      "instances_format": "bigquery",
+      "bigquery_source": {
+        "input_uri": "bq://bqx-ml.bqx_ml_v3_features.usdjpy_bqx"
+      }
+    },
+    "output_config": {
+      "predictions_format": "bigquery",
+      "bigquery_destination": {
+        "output_uri": "bq://bqx-ml.predictions.batch_usd_jpy_1440"
+      }
+    },
+    "machine_spec": {
+      "machine_type": "n1-standard-2",
+      "starting_replica_count": 1,
+      "max_replica_count": 1
+    },
+    "schedule": "0 * * * *",
+    "estimated_monthly_cost": 0.52
+  },
+  "USD_JPY_2880": {
+    "display_name": "batch-USD_JPY_2880",
+    "model_name": "USD_JPY_2880",
+    "model_path": "gs://bqx-ml-vertex-models/USD_JPY_2880/",
+    "input_config": {
+      "instances_format": "bigquery",
+      "bigquery_source": {
+        "input_uri": "bq://bqx-ml.bqx_ml_v3_features.usdjpy_bqx"
+      }
+    },
+    "output_config": {
+      "predictions_format": "bigquery",
+      "bigquery_destination": {
+        "output_uri": "bq://bqx-ml.predictions.batch_usd_jpy_2880"
+      }
+    },
+    "machine_spec": {
+      "machine_type": "n1-standard-2",
+      "starting_replica_count": 1,
+      "max_replica_count": 1
+    },
+    "schedule": "0 * * * *",
+    "estimated_monthly_cost": 0.52
+  },
+  "EUR_GBP_45": {
+    "display_name": "batch-EUR_GBP_45",
+    "model_name": "EUR_GBP_45",
+    "model_path": "gs://bqx-ml-vertex-models/EUR_GBP_45/",
+    "input_config": {
+      "instances_format": "bigquery",
+      "bigquery_source": {
+        "input_uri": "bq://bqx-ml.bqx_ml_v3_features.eurgbp_bqx"
+      }
+    },
+    "output_config": {
+      "predictions_format": "bigquery",
+      "bigquery_destination": {
+        "output_uri": "bq://bqx-ml.predictions.batch_eur_gbp_45"
+      }
+    },
+    "machine_spec": {
+      "machine_type": "n1-standard-2",
+      "starting_replica_count": 1,
+      "max_replica_count": 1
+    },
+    "schedule": "0 * * * *",
+    "estimated_monthly_cost": 0.52
+  },
+  "EUR_GBP_180": {
+    "display_name": "batch-EUR_GBP_180",
+    "model_name": "EUR_GBP_180",
+    "model_path": "gs://bqx-ml-vertex-models/EUR_GBP_180/",
+    "input_config": {
+      "instances_format": "bigquery",
+      "bigquery_source": {
+        "input_uri": "bq://bqx-ml.bqx_ml_v3_features.eurgbp_bqx"
+      }
+    },
+    "output_config": {
+      "predictions_format": "bigquery",
+      "bigquery_destination": {
+        "output_uri": "bq://bqx-ml.predictions.batch_eur_gbp_180"
+      }
+    },
+    "machine_spec": {
+      "machine_type": "n1-standard-2",
+      "starting_replica_count": 1,
+      "max_replica_count": 1
+    },
+    "schedule": "0 * * * *",
+    "estimated_monthly_cost": 0.52
+  },
+  "EUR_GBP_360": {
+    "display_name": "batch-EUR_GBP_360",
+    "model_name": "EUR_GBP_360",
+    "model_path": "gs://bqx-ml-vertex-models/EUR_GBP_360/",
+    "input_config": {
+      "instances_format": "bigquery",
+      "bigquery_source": {
+        "input_uri": "bq://bqx-ml.bqx_ml_v3_features.eurgbp_bqx"
+      }
+    },
+    "output_config": {
+      "predictions_format": "bigquery",
+      "bigquery_destination": {
+        "output_uri": "bq://bqx-ml.predictions.batch_eur_gbp_360"
+      }
+    },
+    "machine_spec": {
+      "machine_type": "n1-standard-2",
+      "starting_replica_count": 1,
+      "max_replica_count": 1
+    },
+    "schedule": "0 * * * *",
+    "estimated_monthly_cost": 0.52
+  },
+  "EUR_GBP_720": {
+    "display_name": "batch-EUR_GBP_720",
+    "model_name": "EUR_GBP_720",
+    "model_path": "gs://bqx-ml-vertex-models/EUR_GBP_720/",
+    "input_config": {
+      "instances_format": "bigquery",
+      "bigquery_source": {
+        "input_uri": "bq://bqx-ml.bqx_ml_v3_features.eurgbp_bqx"
+      }
+    },
+    "output_config": {
+      "predictions_format": "bigquery",
+      "bigquery_destination": {
+        "output_uri": "bq://bqx-ml.predictions.batch_eur_gbp_720"
+      }
+    },
+    "machine_spec": {
+      "machine_type": "n1-standard-2",
+      "starting_replica_count": 1,
+      "max_replica_count": 1
+    },
+    "schedule": "0 * * * *",
+    "estimated_monthly_cost": 0.52
+  },
+  "EUR_GBP_1440": {
+    "display_name": "batch-EUR_GBP_1440",
+    "model_name": "EUR_GBP_1440",
+    "model_path": "gs://bqx-ml-vertex-models/EUR_GBP_1440/",
+    "input_config": {
+      "instances_format": "bigquery",
+      "bigquery_source": {
+        "input_uri": "bq://bqx-ml.bqx_ml_v3_features.eurgbp_bqx"
+      }
+    },
+    "output_config": {
+      "predictions_format": "bigquery",
+      "bigquery_destination": {
+        "output_uri": "bq://bqx-ml.predictions.batch_eur_gbp_1440"
+      }
+    },
+    "machine_spec": {
+      "machine_type": "n1-standard-2",
+      "starting_replica_count": 1,
+      "max_replica_count": 1
+    },
+    "schedule": "0 * * * *",
+    "estimated_monthly_cost": 0.52
+  },
+  "EUR_GBP_2880": {
+    "display_name": "batch-EUR_GBP_2880",
+    "model_name": "EUR_GBP_2880",
+    "model_path": "gs://bqx-ml-vertex-models/EUR_GBP_2880/",
+    "input_config": {
+      "instances_format": "bigquery",
+      "bigquery_source": {
+        "input_uri": "bq://bqx-ml.bqx_ml_v3_features.eurgbp_bqx"
+      }
+    },
+    "output_config": {
+      "predictions_format": "bigquery",
+      "bigquery_destination": {
+        "output_uri": "bq://bqx-ml.predictions.batch_eur_gbp_2880"
+      }
+    },
+    "machine_spec": {
+      "machine_type": "n1-standard-2",
+      "starting_replica_count": 1,
+      "max_replica_count": 1
+    },
+    "schedule": "0 * * * *",
+    "estimated_monthly_cost": 0.52
+  },
+  "EUR_JPY_45": {
+    "display_name": "batch-EUR_JPY_45",
+    "model_name": "EUR_JPY_45",
+    "model_path": "gs://bqx-ml-vertex-models/EUR_JPY_45/",
+    "input_config": {
+      "instances_format": "bigquery",
+      "bigquery_source": {
+        "input_uri": "bq://bqx-ml.bqx_ml_v3_features.eurjpy_bqx"
+      }
+    },
+    "output_config": {
+      "predictions_format": "bigquery",
+      "bigquery_destination": {
+        "output_uri": "bq://bqx-ml.predictions.batch_eur_jpy_45"
+      }
+    },
+    "machine_spec": {
+      "machine_type": "n1-standard-2",
+      "starting_replica_count": 1,
+      "max_replica_count": 1
+    },
+    "schedule": "0 * * * *",
+    "estimated_monthly_cost": 0.52
+  },
+  "EUR_JPY_180": {
+    "display_name": "batch-EUR_JPY_180",
+    "model_name": "EUR_JPY_180",
+    "model_path": "gs://bqx-ml-vertex-models/EUR_JPY_180/",
+    "input_config": {
+      "instances_format": "bigquery",
+      "bigquery_source": {
+        "input_uri": "bq://bqx-ml.bqx_ml_v3_features.eurjpy_bqx"
+      }
+    },
+    "output_config": {
+      "predictions_format": "bigquery",
+      "bigquery_destination": {
+        "output_uri": "bq://bqx-ml.predictions.batch_eur_jpy_180"
+      }
+    },
+    "machine_spec": {
+      "machine_type": "n1-standard-2",
+      "starting_replica_count": 1,
+      "max_replica_count": 1
+    },
+    "schedule": "0 * * * *",
+    "estimated_monthly_cost": 0.52
+  },
+  "EUR_JPY_360": {
+    "display_name": "batch-EUR_JPY_360",
+    "model_name": "EUR_JPY_360",
+    "model_path": "gs://bqx-ml-vertex-models/EUR_JPY_360/",
+    "input_config": {
+      "instances_format": "bigquery",
+      "bigquery_source": {
+        "input_uri": "bq://bqx-ml.bqx_ml_v3_features.eurjpy_bqx"
+      }
+    },
+    "output_config": {
+      "predictions_format": "bigquery",
+      "bigquery_destination": {
+        "output_uri": "bq://bqx-ml.predictions.batch_eur_jpy_360"
+      }
+    },
+    "machine_spec": {
+      "machine_type": "n1-standard-2",
+      "starting_replica_count": 1,
+      "max_replica_count": 1
+    },
+    "schedule": "0 * * * *",
+    "estimated_monthly_cost": 0.52
+  },
+  "EUR_JPY_720": {
+    "display_name": "batch-EUR_JPY_720",
+    "model_name": "EUR_JPY_720",
+    "model_path": "gs://bqx-ml-vertex-models/EUR_JPY_720/",
+    "input_config": {
+      "instances_format": "bigquery",
+      "bigquery_source": {
+        "input_uri": "bq://bqx-ml.bqx_ml_v3_features.eurjpy_bqx"
+      }
+    },
+    "output_config": {
+      "predictions_format": "bigquery",
+      "bigquery_destination": {
+        "output_uri": "bq://bqx-ml.predictions.batch_eur_jpy_720"
+      }
+    },
+    "machine_spec": {
+      "machine_type": "n1-standard-2",
+      "starting_replica_count": 1,
+      "max_replica_count": 1
+    },
+    "schedule": "0 * * * *",
+    "estimated_monthly_cost": 0.52
+  },
+  "EUR_JPY_1440": {
+    "display_name": "batch-EUR_JPY_1440",
+    "model_name": "EUR_JPY_1440",
+    "model_path": "gs://bqx-ml-vertex-models/EUR_JPY_1440/",
+    "input_config": {
+      "instances_format": "bigquery",
+      "bigquery_source": {
+        "input_uri": "bq://bqx-ml.bqx_ml_v3_features.eurjpy_bqx"
+      }
+    },
+    "output_config": {
+      "predictions_format": "bigquery",
+      "bigquery_destination": {
+        "output_uri": "bq://bqx-ml.predictions.batch_eur_jpy_1440"
+      }
+    },
+    "machine_spec": {
+      "machine_type": "n1-standard-2",
+      "starting_replica_count": 1,
+      "max_replica_count": 1
+    },
+    "schedule": "0 * * * *",
+    "estimated_monthly_cost": 0.52
+  },
+  "EUR_JPY_2880": {
+    "display_name": "batch-EUR_JPY_2880",
+    "model_name": "EUR_JPY_2880",
+    "model_path": "gs://bqx-ml-vertex-models/EUR_JPY_2880/",
+    "input_config": {
+      "instances_format": "bigquery",
+      "bigquery_source": {
+        "input_uri": "bq://bqx-ml.bqx_ml_v3_features.eurjpy_bqx"
+      }
+    },
+    "output_config": {
+      "predictions_format": "bigquery",
+      "bigquery_destination": {
+        "output_uri": "bq://bqx-ml.predictions.batch_eur_jpy_2880"
+      }
+    },
+    "machine_spec": {
+      "machine_type": "n1-standard-2",
+      "starting_replica_count": 1,
+      "max_replica_count": 1
+    },
+    "schedule": "0 * * * *",
+    "estimated_monthly_cost": 0.52
+  },
+  "USD_CHF_45": {
+    "display_name": "batch-USD_CHF_45",
+    "model_name": "USD_CHF_45",
+    "model_path": "gs://bqx-ml-vertex-models/USD_CHF_45/",
+    "input_config": {
+      "instances_format": "bigquery",
+      "bigquery_source": {
+        "input_uri": "bq://bqx-ml.bqx_ml_v3_features.usdchf_bqx"
+      }
+    },
+    "output_config": {
+      "predictions_format": "bigquery",
+      "bigquery_destination": {
+        "output_uri": "bq://bqx-ml.predictions.batch_usd_chf_45"
+      }
+    },
+    "machine_spec": {
+      "machine_type": "n1-standard-2",
+      "starting_replica_count": 1,
+      "max_replica_count": 1
+    },
+    "schedule": "0 * * * *",
+    "estimated_monthly_cost": 0.52
+  },
+  "USD_CHF_90": {
+    "display_name": "batch-USD_CHF_90",
+    "model_name": "USD_CHF_90",
+    "model_path": "gs://bqx-ml-vertex-models/USD_CHF_90/",
+    "input_config": {
+      "instances_format": "bigquery",
+      "bigquery_source": {
+        "input_uri": "bq://bqx-ml.bqx_ml_v3_features.usdchf_bqx"
+      }
+    },
+    "output_config": {
+      "predictions_format": "bigquery",
+      "bigquery_destination": {
+        "output_uri": "bq://bqx-ml.predictions.batch_usd_chf_90"
+      }
+    },
+    "machine_spec": {
+      "machine_type": "n1-standard-2",
+      "starting_replica_count": 1,
+      "max_replica_count": 1
+    },
+    "schedule": "0 * * * *",
+    "estimated_monthly_cost": 0.52
+  },
+  "USD_CHF_180": {
+    "display_name": "batch-USD_CHF_180",
+    "model_name": "USD_CHF_180",
+    "model_path": "gs://bqx-ml-vertex-models/USD_CHF_180/",
+    "input_config": {
+      "instances_format": "bigquery",
+      "bigquery_source": {
+        "input_uri": "bq://bqx-ml.bqx_ml_v3_features.usdchf_bqx"
+      }
+    },
+    "output_config": {
+      "predictions_format": "bigquery",
+      "bigquery_destination": {
+        "output_uri": "bq://bqx-ml.predictions.batch_usd_chf_180"
+      }
+    },
+    "machine_spec": {
+      "machine_type": "n1-standard-2",
+      "starting_replica_count": 1,
+      "max_replica_count": 1
+    },
+    "schedule": "0 * * * *",
+    "estimated_monthly_cost": 0.52
+  },
+  "USD_CHF_360": {
+    "display_name": "batch-USD_CHF_360",
+    "model_name": "USD_CHF_360",
+    "model_path": "gs://bqx-ml-vertex-models/USD_CHF_360/",
+    "input_config": {
+      "instances_format": "bigquery",
+      "bigquery_source": {
+        "input_uri": "bq://bqx-ml.bqx_ml_v3_features.usdchf_bqx"
+      }
+    },
+    "output_config": {
+      "predictions_format": "bigquery",
+      "bigquery_destination": {
+        "output_uri": "bq://bqx-ml.predictions.batch_usd_chf_360"
+      }
+    },
+    "machine_spec": {
+      "machine_type": "n1-standard-2",
+      "starting_replica_count": 1,
+      "max_replica_count": 1
+    },
+    "schedule": "0 * * * *",
+    "estimated_monthly_cost": 0.52
+  },
+  "USD_CHF_720": {
+    "display_name": "batch-USD_CHF_720",
+    "model_name": "USD_CHF_720",
+    "model_path": "gs://bqx-ml-vertex-models/USD_CHF_720/",
+    "input_config": {
+      "instances_format": "bigquery",
+      "bigquery_source": {
+        "input_uri": "bq://bqx-ml.bqx_ml_v3_features.usdchf_bqx"
+      }
+    },
+    "output_config": {
+      "predictions_format": "bigquery",
+      "bigquery_destination": {
+        "output_uri": "bq://bqx-ml.predictions.batch_usd_chf_720"
+      }
+    },
+    "machine_spec": {
+      "machine_type": "n1-standard-2",
+      "starting_replica_count": 1,
+      "max_replica_count": 1
+    },
+    "schedule": "0 * * * *",
+    "estimated_monthly_cost": 0.52
+  },
+  "USD_CHF_1440": {
+    "display_name": "batch-USD_CHF_1440",
+    "model_name": "USD_CHF_1440",
+    "model_path": "gs://bqx-ml-vertex-models/USD_CHF_1440/",
+    "input_config": {
+      "instances_format": "bigquery",
+      "bigquery_source": {
+        "input_uri": "bq://bqx-ml.bqx_ml_v3_features.usdchf_bqx"
+      }
+    },
+    "output_config": {
+      "predictions_format": "bigquery",
+      "bigquery_destination": {
+        "output_uri": "bq://bqx-ml.predictions.batch_usd_chf_1440"
+      }
+    },
+    "machine_spec": {
+      "machine_type": "n1-standard-2",
+      "starting_replica_count": 1,
+      "max_replica_count": 1
+    },
+    "schedule": "0 * * * *",
+    "estimated_monthly_cost": 0.52
+  },
+  "USD_CHF_2880": {
+    "display_name": "batch-USD_CHF_2880",
+    "model_name": "USD_CHF_2880",
+    "model_path": "gs://bqx-ml-vertex-models/USD_CHF_2880/",
+    "input_config": {
+      "instances_format": "bigquery",
+      "bigquery_source": {
+        "input_uri": "bq://bqx-ml.bqx_ml_v3_features.usdchf_bqx"
+      }
+    },
+    "output_config": {
+      "predictions_format": "bigquery",
+      "bigquery_destination": {
+        "output_uri": "bq://bqx-ml.predictions.batch_usd_chf_2880"
+      }
+    },
+    "machine_spec": {
+      "machine_type": "n1-standard-2",
+      "starting_replica_count": 1,
+      "max_replica_count": 1
+    },
+    "schedule": "0 * * * *",
+    "estimated_monthly_cost": 0.52
+  },
+  "AUD_USD_45": {
+    "display_name": "batch-AUD_USD_45",
+    "model_name": "AUD_USD_45",
+    "model_path": "gs://bqx-ml-vertex-models/AUD_USD_45/",
+    "input_config": {
+      "instances_format": "bigquery",
+      "bigquery_source": {
+        "input_uri": "bq://bqx-ml.bqx_ml_v3_features.audusd_bqx"
+      }
+    },
+    "output_config": {
+      "predictions_format": "bigquery",
+      "bigquery_destination": {
+        "output_uri": "bq://bqx-ml.predictions.batch_aud_usd_45"
+      }
+    },
+    "machine_spec": {
+      "machine_type": "n1-standard-2",
+      "starting_replica_count": 1,
+      "max_replica_count": 1
+    },
+    "schedule": "0 * * * *",
+    "estimated_monthly_cost": 0.52
+  },
+  "AUD_USD_90": {
+    "display_name": "batch-AUD_USD_90",
+    "model_name": "AUD_USD_90",
+    "model_path": "gs://bqx-ml-vertex-models/AUD_USD_90/",
+    "input_config": {
+      "instances_format": "bigquery",
+      "bigquery_source": {
+        "input_uri": "bq://bqx-ml.bqx_ml_v3_features.audusd_bqx"
+      }
+    },
+    "output_config": {
+      "predictions_format": "bigquery",
+      "bigquery_destination": {
+        "output_uri": "bq://bqx-ml.predictions.batch_aud_usd_90"
+      }
+    },
+    "machine_spec": {
+      "machine_type": "n1-standard-2",
+      "starting_replica_count": 1,
+      "max_replica_count": 1
+    },
+    "schedule": "0 * * * *",
+    "estimated_monthly_cost": 0.52
+  },
+  "AUD_USD_180": {
+    "display_name": "batch-AUD_USD_180",
+    "model_name": "AUD_USD_180",
+    "model_path": "gs://bqx-ml-vertex-models/AUD_USD_180/",
+    "input_config": {
+      "instances_format": "bigquery",
+      "bigquery_source": {
+        "input_uri": "bq://bqx-ml.bqx_ml_v3_features.audusd_bqx"
+      }
+    },
+    "output_config": {
+      "predictions_format": "bigquery",
+      "bigquery_destination": {
+        "output_uri": "bq://bqx-ml.predictions.batch_aud_usd_180"
+      }
+    },
+    "machine_spec": {
+      "machine_type": "n1-standard-2",
+      "starting_replica_count": 1,
+      "max_replica_count": 1
+    },
+    "schedule": "0 * * * *",
+    "estimated_monthly_cost": 0.52
+  },
+  "AUD_USD_360": {
+    "display_name": "batch-AUD_USD_360",
+    "model_name": "AUD_USD_360",
+    "model_path": "gs://bqx-ml-vertex-models/AUD_USD_360/",
+    "input_config": {
+      "instances_format": "bigquery",
+      "bigquery_source": {
+        "input_uri": "bq://bqx-ml.bqx_ml_v3_features.audusd_bqx"
+      }
+    },
+    "output_config": {
+      "predictions_format": "bigquery",
+      "bigquery_destination": {
+        "output_uri": "bq://bqx-ml.predictions.batch_aud_usd_360"
+      }
+    },
+    "machine_spec": {
+      "machine_type": "n1-standard-2",
+      "starting_replica_count": 1,
+      "max_replica_count": 1
+    },
+    "schedule": "0 * * * *",
+    "estimated_monthly_cost": 0.52
+  },
+  "AUD_USD_720": {
+    "display_name": "batch-AUD_USD_720",
+    "model_name": "AUD_USD_720",
+    "model_path": "gs://bqx-ml-vertex-models/AUD_USD_720/",
+    "input_config": {
+      "instances_format": "bigquery",
+      "bigquery_source": {
+        "input_uri": "bq://bqx-ml.bqx_ml_v3_features.audusd_bqx"
+      }
+    },
+    "output_config": {
+      "predictions_format": "bigquery",
+      "bigquery_destination": {
+        "output_uri": "bq://bqx-ml.predictions.batch_aud_usd_720"
+      }
+    },
+    "machine_spec": {
+      "machine_type": "n1-standard-2",
+      "starting_replica_count": 1,
+      "max_replica_count": 1
+    },
+    "schedule": "0 * * * *",
+    "estimated_monthly_cost": 0.52
+  },
+  "AUD_USD_1440": {
+    "display_name": "batch-AUD_USD_1440",
+    "model_name": "AUD_USD_1440",
+    "model_path": "gs://bqx-ml-vertex-models/AUD_USD_1440/",
+    "input_config": {
+      "instances_format": "bigquery",
+      "bigquery_source": {
+        "input_uri": "bq://bqx-ml.bqx_ml_v3_features.audusd_bqx"
+      }
+    },
+    "output_config": {
+      "predictions_format": "bigquery",
+      "bigquery_destination": {
+        "output_uri": "bq://bqx-ml.predictions.batch_aud_usd_1440"
+      }
+    },
+    "machine_spec": {
+      "machine_type": "n1-standard-2",
+      "starting_replica_count": 1,
+      "max_replica_count": 1
+    },
+    "schedule": "0 * * * *",
+    "estimated_monthly_cost": 0.52
+  },
+  "AUD_USD_2880": {
+    "display_name": "batch-AUD_USD_2880",
+    "model_name": "AUD_USD_2880",
+    "model_path": "gs://bqx-ml-vertex-models/AUD_USD_2880/",
+    "input_config": {
+      "instances_format": "bigquery",
+      "bigquery_source": {
+        "input_uri": "bq://bqx-ml.bqx_ml_v3_features.audusd_bqx"
+      }
+    },
+    "output_config": {
+      "predictions_format": "bigquery",
+      "bigquery_destination": {
+        "output_uri": "bq://bqx-ml.predictions.batch_aud_usd_2880"
+      }
+    },
+    "machine_spec": {
+      "machine_type": "n1-standard-2",
+      "starting_replica_count": 1,
+      "max_replica_count": 1
+    },
+    "schedule": "0 * * * *",
+    "estimated_monthly_cost": 0.52
+  },
+  "NZD_USD_45": {
+    "display_name": "batch-NZD_USD_45",
+    "model_name": "NZD_USD_45",
+    "model_path": "gs://bqx-ml-vertex-models/NZD_USD_45/",
+    "input_config": {
+      "instances_format": "bigquery",
+      "bigquery_source": {
+        "input_uri": "bq://bqx-ml.bqx_ml_v3_features.nzdusd_bqx"
+      }
+    },
+    "output_config": {
+      "predictions_format": "bigquery",
+      "bigquery_destination": {
+        "output_uri": "bq://bqx-ml.predictions.batch_nzd_usd_45"
+      }
+    },
+    "machine_spec": {
+      "machine_type": "n1-standard-2",
+      "starting_replica_count": 1,
+      "max_replica_count": 1
+    },
+    "schedule": "0 * * * *",
+    "estimated_monthly_cost": 0.52
+  },
+  "NZD_USD_90": {
+    "display_name": "batch-NZD_USD_90",
+    "model_name": "NZD_USD_90",
+    "model_path": "gs://bqx-ml-vertex-models/NZD_USD_90/",
+    "input_config": {
+      "instances_format": "bigquery",
+      "bigquery_source": {
+        "input_uri": "bq://bqx-ml.bqx_ml_v3_features.nzdusd_bqx"
+      }
+    },
+    "output_config": {
+      "predictions_format": "bigquery",
+      "bigquery_destination": {
+        "output_uri": "bq://bqx-ml.predictions.batch_nzd_usd_90"
+      }
+    },
+    "machine_spec": {
+      "machine_type": "n1-standard-2",
+      "starting_replica_count": 1,
+      "max_replica_count": 1
+    },
+    "schedule": "0 * * * *",
+    "estimated_monthly_cost": 0.52
+  },
+  "NZD_USD_180": {
+    "display_name": "batch-NZD_USD_180",
+    "model_name": "NZD_USD_180",
+    "model_path": "gs://bqx-ml-vertex-models/NZD_USD_180/",
+    "input_config": {
+      "instances_format": "bigquery",
+      "bigquery_source": {
+        "input_uri": "bq://bqx-ml.bqx_ml_v3_features.nzdusd_bqx"
+      }
+    },
+    "output_config": {
+      "predictions_format": "bigquery",
+      "bigquery_destination": {
+        "output_uri": "bq://bqx-ml.predictions.batch_nzd_usd_180"
+      }
+    },
+    "machine_spec": {
+      "machine_type": "n1-standard-2",
+      "starting_replica_count": 1,
+      "max_replica_count": 1
+    },
+    "schedule": "0 * * * *",
+    "estimated_monthly_cost": 0.52
+  },
+  "NZD_USD_360": {
+    "display_name": "batch-NZD_USD_360",
+    "model_name": "NZD_USD_360",
+    "model_path": "gs://bqx-ml-vertex-models/NZD_USD_360/",
+    "input_config": {
+      "instances_format": "bigquery",
+      "bigquery_source": {
+        "input_uri": "bq://bqx-ml.bqx_ml_v3_features.nzdusd_bqx"
+      }
+    },
+    "output_config": {
+      "predictions_format": "bigquery",
+      "bigquery_destination": {
+        "output_uri": "bq://bqx-ml.predictions.batch_nzd_usd_360"
+      }
+    },
+    "machine_spec": {
+      "machine_type": "n1-standard-2",
+      "starting_replica_count": 1,
+      "max_replica_count": 1
+    },
+    "schedule": "0 * * * *",
+    "estimated_monthly_cost": 0.52
+  },
+  "NZD_USD_720": {
+    "display_name": "batch-NZD_USD_720",
+    "model_name": "NZD_USD_720",
+    "model_path": "gs://bqx-ml-vertex-models/NZD_USD_720/",
+    "input_config": {
+      "instances_format": "bigquery",
+      "bigquery_source": {
+        "input_uri": "bq://bqx-ml.bqx_ml_v3_features.nzdusd_bqx"
+      }
+    },
+    "output_config": {
+      "predictions_format": "bigquery",
+      "bigquery_destination": {
+        "output_uri": "bq://bqx-ml.predictions.batch_nzd_usd_720"
+      }
+    },
+    "machine_spec": {
+      "machine_type": "n1-standard-2",
+      "starting_replica_count": 1,
+      "max_replica_count": 1
+    },
+    "schedule": "0 * * * *",
+    "estimated_monthly_cost": 0.52
+  },
+  "NZD_USD_1440": {
+    "display_name": "batch-NZD_USD_1440",
+    "model_name": "NZD_USD_1440",
+    "model_path": "gs://bqx-ml-vertex-models/NZD_USD_1440/",
+    "input_config": {
+      "instances_format": "bigquery",
+      "bigquery_source": {
+        "input_uri": "bq://bqx-ml.bqx_ml_v3_features.nzdusd_bqx"
+      }
+    },
+    "output_config": {
+      "predictions_format": "bigquery",
+      "bigquery_destination": {
+        "output_uri": "bq://bqx-ml.predictions.batch_nzd_usd_1440"
+      }
+    },
+    "machine_spec": {
+      "machine_type": "n1-standard-2",
+      "starting_replica_count": 1,
+      "max_replica_count": 1
+    },
+    "schedule": "0 * * * *",
+    "estimated_monthly_cost": 0.52
+  },
+  "NZD_USD_2880": {
+    "display_name": "batch-NZD_USD_2880",
+    "model_name": "NZD_USD_2880",
+    "model_path": "gs://bqx-ml-vertex-models/NZD_USD_2880/",
+    "input_config": {
+      "instances_format": "bigquery",
+      "bigquery_source": {
+        "input_uri": "bq://bqx-ml.bqx_ml_v3_features.nzdusd_bqx"
+      }
+    },
+    "output_config": {
+      "predictions_format": "bigquery",
+      "bigquery_destination": {
+        "output_uri": "bq://bqx-ml.predictions.batch_nzd_usd_2880"
+      }
+    },
+    "machine_spec": {
+      "machine_type": "n1-standard-2",
+      "starting_replica_count": 1,
+      "max_replica_count": 1
+    },
+    "schedule": "0 * * * *",
+    "estimated_monthly_cost": 0.52
+  },
+  "USD_CAD_45": {
+    "display_name": "batch-USD_CAD_45",
+    "model_name": "USD_CAD_45",
+    "model_path": "gs://bqx-ml-vertex-models/USD_CAD_45/",
+    "input_config": {
+      "instances_format": "bigquery",
+      "bigquery_source": {
+        "input_uri": "bq://bqx-ml.bqx_ml_v3_features.usdcad_bqx"
+      }
+    },
+    "output_config": {
+      "predictions_format": "bigquery",
+      "bigquery_destination": {
+        "output_uri": "bq://bqx-ml.predictions.batch_usd_cad_45"
+      }
+    },
+    "machine_spec": {
+      "machine_type": "n1-standard-2",
+      "starting_replica_count": 1,
+      "max_replica_count": 1
+    },
+    "schedule": "0 * * * *",
+    "estimated_monthly_cost": 0.52
+  },
+  "USD_CAD_90": {
+    "display_name": "batch-USD_CAD_90",
+    "model_name": "USD_CAD_90",
+    "model_path": "gs://bqx-ml-vertex-models/USD_CAD_90/",
+    "input_config": {
+      "instances_format": "bigquery",
+      "bigquery_source": {
+        "input_uri": "bq://bqx-ml.bqx_ml_v3_features.usdcad_bqx"
+      }
+    },
+    "output_config": {
+      "predictions_format": "bigquery",
+      "bigquery_destination": {
+        "output_uri": "bq://bqx-ml.predictions.batch_usd_cad_90"
+      }
+    },
+    "machine_spec": {
+      "machine_type": "n1-standard-2",
+      "starting_replica_count": 1,
+      "max_replica_count": 1
+    },
+    "schedule": "0 * * * *",
+    "estimated_monthly_cost": 0.52
+  },
+  "USD_CAD_180": {
+    "display_name": "batch-USD_CAD_180",
+    "model_name": "USD_CAD_180",
+    "model_path": "gs://bqx-ml-vertex-models/USD_CAD_180/",
+    "input_config": {
+      "instances_format": "bigquery",
+      "bigquery_source": {
+        "input_uri": "bq://bqx-ml.bqx_ml_v3_features.usdcad_bqx"
+      }
+    },
+    "output_config": {
+      "predictions_format": "bigquery",
+      "bigquery_destination": {
+        "output_uri": "bq://bqx-ml.predictions.batch_usd_cad_180"
+      }
+    },
+    "machine_spec": {
+      "machine_type": "n1-standard-2",
+      "starting_replica_count": 1,
+      "max_replica_count": 1
+    },
+    "schedule": "0 * * * *",
+    "estimated_monthly_cost": 0.52
+  },
+  "USD_CAD_360": {
+    "display_name": "batch-USD_CAD_360",
+    "model_name": "USD_CAD_360",
+    "model_path": "gs://bqx-ml-vertex-models/USD_CAD_360/",
+    "input_config": {
+      "instances_format": "bigquery",
+      "bigquery_source": {
+        "input_uri": "bq://bqx-ml.bqx_ml_v3_features.usdcad_bqx"
+      }
+    },
+    "output_config": {
+      "predictions_format": "bigquery",
+      "bigquery_destination": {
+        "output_uri": "bq://bqx-ml.predictions.batch_usd_cad_360"
+      }
+    },
+    "machine_spec": {
+      "machine_type": "n1-standard-2",
+      "starting_replica_count": 1,
+      "max_replica_count": 1
+    },
+    "schedule": "0 * * * *",
+    "estimated_monthly_cost": 0.52
+  },
+  "USD_CAD_720": {
+    "display_name": "batch-USD_CAD_720",
+    "model_name": "USD_CAD_720",
+    "model_path": "gs://bqx-ml-vertex-models/USD_CAD_720/",
+    "input_config": {
+      "instances_format": "bigquery",
+      "bigquery_source": {
+        "input_uri": "bq://bqx-ml.bqx_ml_v3_features.usdcad_bqx"
+      }
+    },
+    "output_config": {
+      "predictions_format": "bigquery",
+      "bigquery_destination": {
+        "output_uri": "bq://bqx-ml.predictions.batch_usd_cad_720"
+      }
+    },
+    "machine_spec": {
+      "machine_type": "n1-standard-2",
+      "starting_replica_count": 1,
+      "max_replica_count": 1
+    },
+    "schedule": "0 * * * *",
+    "estimated_monthly_cost": 0.52
+  },
+  "USD_CAD_1440": {
+    "display_name": "batch-USD_CAD_1440",
+    "model_name": "USD_CAD_1440",
+    "model_path": "gs://bqx-ml-vertex-models/USD_CAD_1440/",
+    "input_config": {
+      "instances_format": "bigquery",
+      "bigquery_source": {
+        "input_uri": "bq://bqx-ml.bqx_ml_v3_features.usdcad_bqx"
+      }
+    },
+    "output_config": {
+      "predictions_format": "bigquery",
+      "bigquery_destination": {
+        "output_uri": "bq://bqx-ml.predictions.batch_usd_cad_1440"
+      }
+    },
+    "machine_spec": {
+      "machine_type": "n1-standard-2",
+      "starting_replica_count": 1,
+      "max_replica_count": 1
+    },
+    "schedule": "0 * * * *",
+    "estimated_monthly_cost": 0.52
+  },
+  "USD_CAD_2880": {
+    "display_name": "batch-USD_CAD_2880",
+    "model_name": "USD_CAD_2880",
+    "model_path": "gs://bqx-ml-vertex-models/USD_CAD_2880/",
+    "input_config": {
+      "instances_format": "bigquery",
+      "bigquery_source": {
+        "input_uri": "bq://bqx-ml.bqx_ml_v3_features.usdcad_bqx"
+      }
+    },
+    "output_config": {
+      "predictions_format": "bigquery",
+      "bigquery_destination": {
+        "output_uri": "bq://bqx-ml.predictions.batch_usd_cad_2880"
+      }
+    },
+    "machine_spec": {
+      "machine_type": "n1-standard-2",
+      "starting_replica_count": 1,
+      "max_replica_count": 1
+    },
+    "schedule": "0 * * * *",
+    "estimated_monthly_cost": 0.52
+  },
+  "EUR_CHF_45": {
+    "display_name": "batch-EUR_CHF_45",
+    "model_name": "EUR_CHF_45",
+    "model_path": "gs://bqx-ml-vertex-models/EUR_CHF_45/",
+    "input_config": {
+      "instances_format": "bigquery",
+      "bigquery_source": {
+        "input_uri": "bq://bqx-ml.bqx_ml_v3_features.eurchf_bqx"
+      }
+    },
+    "output_config": {
+      "predictions_format": "bigquery",
+      "bigquery_destination": {
+        "output_uri": "bq://bqx-ml.predictions.batch_eur_chf_45"
+      }
+    },
+    "machine_spec": {
+      "machine_type": "n1-standard-2",
+      "starting_replica_count": 1,
+      "max_replica_count": 1
+    },
+    "schedule": "0 * * * *",
+    "estimated_monthly_cost": 0.52
+  },
+  "EUR_CHF_90": {
+    "display_name": "batch-EUR_CHF_90",
+    "model_name": "EUR_CHF_90",
+    "model_path": "gs://bqx-ml-vertex-models/EUR_CHF_90/",
+    "input_config": {
+      "instances_format": "bigquery",
+      "bigquery_source": {
+        "input_uri": "bq://bqx-ml.bqx_ml_v3_features.eurchf_bqx"
+      }
+    },
+    "output_config": {
+      "predictions_format": "bigquery",
+      "bigquery_destination": {
+        "output_uri": "bq://bqx-ml.predictions.batch_eur_chf_90"
+      }
+    },
+    "machine_spec": {
+      "machine_type": "n1-standard-2",
+      "starting_replica_count": 1,
+      "max_replica_count": 1
+    },
+    "schedule": "0 * * * *",
+    "estimated_monthly_cost": 0.52
+  },
+  "EUR_CHF_180": {
+    "display_name": "batch-EUR_CHF_180",
+    "model_name": "EUR_CHF_180",
+    "model_path": "gs://bqx-ml-vertex-models/EUR_CHF_180/",
+    "input_config": {
+      "instances_format": "bigquery",
+      "bigquery_source": {
+        "input_uri": "bq://bqx-ml.bqx_ml_v3_features.eurchf_bqx"
+      }
+    },
+    "output_config": {
+      "predictions_format": "bigquery",
+      "bigquery_destination": {
+        "output_uri": "bq://bqx-ml.predictions.batch_eur_chf_180"
+      }
+    },
+    "machine_spec": {
+      "machine_type": "n1-standard-2",
+      "starting_replica_count": 1,
+      "max_replica_count": 1
+    },
+    "schedule": "0 * * * *",
+    "estimated_monthly_cost": 0.52
+  },
+  "EUR_CHF_360": {
+    "display_name": "batch-EUR_CHF_360",
+    "model_name": "EUR_CHF_360",
+    "model_path": "gs://bqx-ml-vertex-models/EUR_CHF_360/",
+    "input_config": {
+      "instances_format": "bigquery",
+      "bigquery_source": {
+        "input_uri": "bq://bqx-ml.bqx_ml_v3_features.eurchf_bqx"
+      }
+    },
+    "output_config": {
+      "predictions_format": "bigquery",
+      "bigquery_destination": {
+        "output_uri": "bq://bqx-ml.predictions.batch_eur_chf_360"
+      }
+    },
+    "machine_spec": {
+      "machine_type": "n1-standard-2",
+      "starting_replica_count": 1,
+      "max_replica_count": 1
+    },
+    "schedule": "0 * * * *",
+    "estimated_monthly_cost": 0.52
+  },
+  "EUR_CHF_720": {
+    "display_name": "batch-EUR_CHF_720",
+    "model_name": "EUR_CHF_720",
+    "model_path": "gs://bqx-ml-vertex-models/EUR_CHF_720/",
+    "input_config": {
+      "instances_format": "bigquery",
+      "bigquery_source": {
+        "input_uri": "bq://bqx-ml.bqx_ml_v3_features.eurchf_bqx"
+      }
+    },
+    "output_config": {
+      "predictions_format": "bigquery",
+      "bigquery_destination": {
+        "output_uri": "bq://bqx-ml.predictions.batch_eur_chf_720"
+      }
+    },
+    "machine_spec": {
+      "machine_type": "n1-standard-2",
+      "starting_replica_count": 1,
+      "max_replica_count": 1
+    },
+    "schedule": "0 * * * *",
+    "estimated_monthly_cost": 0.52
+  },
+  "EUR_CHF_1440": {
+    "display_name": "batch-EUR_CHF_1440",
+    "model_name": "EUR_CHF_1440",
+    "model_path": "gs://bqx-ml-vertex-models/EUR_CHF_1440/",
+    "input_config": {
+      "instances_format": "bigquery",
+      "bigquery_source": {
+        "input_uri": "bq://bqx-ml.bqx_ml_v3_features.eurchf_bqx"
+      }
+    },
+    "output_config": {
+      "predictions_format": "bigquery",
+      "bigquery_destination": {
+        "output_uri": "bq://bqx-ml.predictions.batch_eur_chf_1440"
+      }
+    },
+    "machine_spec": {
+      "machine_type": "n1-standard-2",
+      "starting_replica_count": 1,
+      "max_replica_count": 1
+    },
+    "schedule": "0 * * * *",
+    "estimated_monthly_cost": 0.52
+  },
+  "EUR_CHF_2880": {
+    "display_name": "batch-EUR_CHF_2880",
+    "model_name": "EUR_CHF_2880",
+    "model_path": "gs://bqx-ml-vertex-models/EUR_CHF_2880/",
+    "input_config": {
+      "instances_format": "bigquery",
+      "bigquery_source": {
+        "input_uri": "bq://bqx-ml.bqx_ml_v3_features.eurchf_bqx"
+      }
+    },
+    "output_config": {
+      "predictions_format": "bigquery",
+      "bigquery_destination": {
+        "output_uri": "bq://bqx-ml.predictions.batch_eur_chf_2880"
+      }
+    },
+    "machine_spec": {
+      "machine_type": "n1-standard-2",
+      "starting_replica_count": 1,
+      "max_replica_count": 1
+    },
+    "schedule": "0 * * * *",
+    "estimated_monthly_cost": 0.52
+  },
+  "GBP_CHF_45": {
+    "display_name": "batch-GBP_CHF_45",
+    "model_name": "GBP_CHF_45",
+    "model_path": "gs://bqx-ml-vertex-models/GBP_CHF_45/",
+    "input_config": {
+      "instances_format": "bigquery",
+      "bigquery_source": {
+        "input_uri": "bq://bqx-ml.bqx_ml_v3_features.gbpchf_bqx"
+      }
+    },
+    "output_config": {
+      "predictions_format": "bigquery",
+      "bigquery_destination": {
+        "output_uri": "bq://bqx-ml.predictions.batch_gbp_chf_45"
+      }
+    },
+    "machine_spec": {
+      "machine_type": "n1-standard-2",
+      "starting_replica_count": 1,
+      "max_replica_count": 1
+    },
+    "schedule": "0 * * * *",
+    "estimated_monthly_cost": 0.52
+  },
+  "GBP_CHF_90": {
+    "display_name": "batch-GBP_CHF_90",
+    "model_name": "GBP_CHF_90",
+    "model_path": "gs://bqx-ml-vertex-models/GBP_CHF_90/",
+    "input_config": {
+      "instances_format": "bigquery",
+      "bigquery_source": {
+        "input_uri": "bq://bqx-ml.bqx_ml_v3_features.gbpchf_bqx"
+      }
+    },
+    "output_config": {
+      "predictions_format": "bigquery",
+      "bigquery_destination": {
+        "output_uri": "bq://bqx-ml.predictions.batch_gbp_chf_90"
+      }
+    },
+    "machine_spec": {
+      "machine_type": "n1-standard-2",
+      "starting_replica_count": 1,
+      "max_replica_count": 1
+    },
+    "schedule": "0 * * * *",
+    "estimated_monthly_cost": 0.52
+  },
+  "GBP_CHF_180": {
+    "display_name": "batch-GBP_CHF_180",
+    "model_name": "GBP_CHF_180",
+    "model_path": "gs://bqx-ml-vertex-models/GBP_CHF_180/",
+    "input_config": {
+      "instances_format": "bigquery",
+      "bigquery_source": {
+        "input_uri": "bq://bqx-ml.bqx_ml_v3_features.gbpchf_bqx"
+      }
+    },
+    "output_config": {
+      "predictions_format": "bigquery",
+      "bigquery_destination": {
+        "output_uri": "bq://bqx-ml.predictions.batch_gbp_chf_180"
+      }
+    },
+    "machine_spec": {
+      "machine_type": "n1-standard-2",
+      "starting_replica_count": 1,
+      "max_replica_count": 1
+    },
+    "schedule": "0 * * * *",
+    "estimated_monthly_cost": 0.52
+  },
+  "GBP_CHF_360": {
+    "display_name": "batch-GBP_CHF_360",
+    "model_name": "GBP_CHF_360",
+    "model_path": "gs://bqx-ml-vertex-models/GBP_CHF_360/",
+    "input_config": {
+      "instances_format": "bigquery",
+      "bigquery_source": {
+        "input_uri": "bq://bqx-ml.bqx_ml_v3_features.gbpchf_bqx"
+      }
+    },
+    "output_config": {
+      "predictions_format": "bigquery",
+      "bigquery_destination": {
+        "output_uri": "bq://bqx-ml.predictions.batch_gbp_chf_360"
+      }
+    },
+    "machine_spec": {
+      "machine_type": "n1-standard-2",
+      "starting_replica_count": 1,
+      "max_replica_count": 1
+    },
+    "schedule": "0 * * * *",
+    "estimated_monthly_cost": 0.52
+  },
+  "GBP_CHF_720": {
+    "display_name": "batch-GBP_CHF_720",
+    "model_name": "GBP_CHF_720",
+    "model_path": "gs://bqx-ml-vertex-models/GBP_CHF_720/",
+    "input_config": {
+      "instances_format": "bigquery",
+      "bigquery_source": {
+        "input_uri": "bq://bqx-ml.bqx_ml_v3_features.gbpchf_bqx"
+      }
+    },
+    "output_config": {
+      "predictions_format": "bigquery",
+      "bigquery_destination": {
+        "output_uri": "bq://bqx-ml.predictions.batch_gbp_chf_720"
+      }
+    },
+    "machine_spec": {
+      "machine_type": "n1-standard-2",
+      "starting_replica_count": 1,
+      "max_replica_count": 1
+    },
+    "schedule": "0 * * * *",
+    "estimated_monthly_cost": 0.52
+  },
+  "GBP_CHF_1440": {
+    "display_name": "batch-GBP_CHF_1440",
+    "model_name": "GBP_CHF_1440",
+    "model_path": "gs://bqx-ml-vertex-models/GBP_CHF_1440/",
+    "input_config": {
+      "instances_format": "bigquery",
+      "bigquery_source": {
+        "input_uri": "bq://bqx-ml.bqx_ml_v3_features.gbpchf_bqx"
+      }
+    },
+    "output_config": {
+      "predictions_format": "bigquery",
+      "bigquery_destination": {
+        "output_uri": "bq://bqx-ml.predictions.batch_gbp_chf_1440"
+      }
+    },
+    "machine_spec": {
+      "machine_type": "n1-standard-2",
+      "starting_replica_count": 1,
+      "max_replica_count": 1
+    },
+    "schedule": "0 * * * *",
+    "estimated_monthly_cost": 0.52
+  },
+  "GBP_CHF_2880": {
+    "display_name": "batch-GBP_CHF_2880",
+    "model_name": "GBP_CHF_2880",
+    "model_path": "gs://bqx-ml-vertex-models/GBP_CHF_2880/",
+    "input_config": {
+      "instances_format": "bigquery",
+      "bigquery_source": {
+        "input_uri": "bq://bqx-ml.bqx_ml_v3_features.gbpchf_bqx"
+      }
+    },
+    "output_config": {
+      "predictions_format": "bigquery",
+      "bigquery_destination": {
+        "output_uri": "bq://bqx-ml.predictions.batch_gbp_chf_2880"
+      }
+    },
+    "machine_spec": {
+      "machine_type": "n1-standard-2",
+      "starting_replica_count": 1,
+      "max_replica_count": 1
+    },
+    "schedule": "0 * * * *",
+    "estimated_monthly_cost": 0.52
+  },
+  "AUD_JPY_45": {
+    "display_name": "batch-AUD_JPY_45",
+    "model_name": "AUD_JPY_45",
+    "model_path": "gs://bqx-ml-vertex-models/AUD_JPY_45/",
+    "input_config": {
+      "instances_format": "bigquery",
+      "bigquery_source": {
+        "input_uri": "bq://bqx-ml.bqx_ml_v3_features.audjpy_bqx"
+      }
+    },
+    "output_config": {
+      "predictions_format": "bigquery",
+      "bigquery_destination": {
+        "output_uri": "bq://bqx-ml.predictions.batch_aud_jpy_45"
+      }
+    },
+    "machine_spec": {
+      "machine_type": "n1-standard-2",
+      "starting_replica_count": 1,
+      "max_replica_count": 1
+    },
+    "schedule": "0 * * * *",
+    "estimated_monthly_cost": 0.52
+  },
+  "AUD_JPY_90": {
+    "display_name": "batch-AUD_JPY_90",
+    "model_name": "AUD_JPY_90",
+    "model_path": "gs://bqx-ml-vertex-models/AUD_JPY_90/",
+    "input_config": {
+      "instances_format": "bigquery",
+      "bigquery_source": {
+        "input_uri": "bq://bqx-ml.bqx_ml_v3_features.audjpy_bqx"
+      }
+    },
+    "output_config": {
+      "predictions_format": "bigquery",
+      "bigquery_destination": {
+        "output_uri": "bq://bqx-ml.predictions.batch_aud_jpy_90"
+      }
+    },
+    "machine_spec": {
+      "machine_type": "n1-standard-2",
+      "starting_replica_count": 1,
+      "max_replica_count": 1
+    },
+    "schedule": "0 * * * *",
+    "estimated_monthly_cost": 0.52
+  },
+  "AUD_JPY_180": {
+    "display_name": "batch-AUD_JPY_180",
+    "model_name": "AUD_JPY_180",
+    "model_path": "gs://bqx-ml-vertex-models/AUD_JPY_180/",
+    "input_config": {
+      "instances_format": "bigquery",
+      "bigquery_source": {
+        "input_uri": "bq://bqx-ml.bqx_ml_v3_features.audjpy_bqx"
+      }
+    },
+    "output_config": {
+      "predictions_format": "bigquery",
+      "bigquery_destination": {
+        "output_uri": "bq://bqx-ml.predictions.batch_aud_jpy_180"
+      }
+    },
+    "machine_spec": {
+      "machine_type": "n1-standard-2",
+      "starting_replica_count": 1,
+      "max_replica_count": 1
+    },
+    "schedule": "0 * * * *",
+    "estimated_monthly_cost": 0.52
+  },
+  "AUD_JPY_360": {
+    "display_name": "batch-AUD_JPY_360",
+    "model_name": "AUD_JPY_360",
+    "model_path": "gs://bqx-ml-vertex-models/AUD_JPY_360/",
+    "input_config": {
+      "instances_format": "bigquery",
+      "bigquery_source": {
+        "input_uri": "bq://bqx-ml.bqx_ml_v3_features.audjpy_bqx"
+      }
+    },
+    "output_config": {
+      "predictions_format": "bigquery",
+      "bigquery_destination": {
+        "output_uri": "bq://bqx-ml.predictions.batch_aud_jpy_360"
+      }
+    },
+    "machine_spec": {
+      "machine_type": "n1-standard-2",
+      "starting_replica_count": 1,
+      "max_replica_count": 1
+    },
+    "schedule": "0 * * * *",
+    "estimated_monthly_cost": 0.52
+  },
+  "AUD_JPY_720": {
+    "display_name": "batch-AUD_JPY_720",
+    "model_name": "AUD_JPY_720",
+    "model_path": "gs://bqx-ml-vertex-models/AUD_JPY_720/",
+    "input_config": {
+      "instances_format": "bigquery",
+      "bigquery_source": {
+        "input_uri": "bq://bqx-ml.bqx_ml_v3_features.audjpy_bqx"
+      }
+    },
+    "output_config": {
+      "predictions_format": "bigquery",
+      "bigquery_destination": {
+        "output_uri": "bq://bqx-ml.predictions.batch_aud_jpy_720"
+      }
+    },
+    "machine_spec": {
+      "machine_type": "n1-standard-2",
+      "starting_replica_count": 1,
+      "max_replica_count": 1
+    },
+    "schedule": "0 * * * *",
+    "estimated_monthly_cost": 0.52
+  },
+  "AUD_JPY_1440": {
+    "display_name": "batch-AUD_JPY_1440",
+    "model_name": "AUD_JPY_1440",
+    "model_path": "gs://bqx-ml-vertex-models/AUD_JPY_1440/",
+    "input_config": {
+      "instances_format": "bigquery",
+      "bigquery_source": {
+        "input_uri": "bq://bqx-ml.bqx_ml_v3_features.audjpy_bqx"
+      }
+    },
+    "output_config": {
+      "predictions_format": "bigquery",
+      "bigquery_destination": {
+        "output_uri": "bq://bqx-ml.predictions.batch_aud_jpy_1440"
+      }
+    },
+    "machine_spec": {
+      "machine_type": "n1-standard-2",
+      "starting_replica_count": 1,
+      "max_replica_count": 1
+    },
+    "schedule": "0 * * * *",
+    "estimated_monthly_cost": 0.52
+  },
+  "AUD_JPY_2880": {
+    "display_name": "batch-AUD_JPY_2880",
+    "model_name": "AUD_JPY_2880",
+    "model_path": "gs://bqx-ml-vertex-models/AUD_JPY_2880/",
+    "input_config": {
+      "instances_format": "bigquery",
+      "bigquery_source": {
+        "input_uri": "bq://bqx-ml.bqx_ml_v3_features.audjpy_bqx"
+      }
+    },
+    "output_config": {
+      "predictions_format": "bigquery",
+      "bigquery_destination": {
+        "output_uri": "bq://bqx-ml.predictions.batch_aud_jpy_2880"
+      }
+    },
+    "machine_spec": {
+      "machine_type": "n1-standard-2",
+      "starting_replica_count": 1,
+      "max_replica_count": 1
+    },
+    "schedule": "0 * * * *",
+    "estimated_monthly_cost": 0.52
+  },
+  "CAD_JPY_45": {
+    "display_name": "batch-CAD_JPY_45",
+    "model_name": "CAD_JPY_45",
+    "model_path": "gs://bqx-ml-vertex-models/CAD_JPY_45/",
+    "input_config": {
+      "instances_format": "bigquery",
+      "bigquery_source": {
+        "input_uri": "bq://bqx-ml.bqx_ml_v3_features.cadjpy_bqx"
+      }
+    },
+    "output_config": {
+      "predictions_format": "bigquery",
+      "bigquery_destination": {
+        "output_uri": "bq://bqx-ml.predictions.batch_cad_jpy_45"
+      }
+    },
+    "machine_spec": {
+      "machine_type": "n1-standard-2",
+      "starting_replica_count": 1,
+      "max_replica_count": 1
+    },
+    "schedule": "0 * * * *",
+    "estimated_monthly_cost": 0.52
+  },
+  "CAD_JPY_90": {
+    "display_name": "batch-CAD_JPY_90",
+    "model_name": "CAD_JPY_90",
+    "model_path": "gs://bqx-ml-vertex-models/CAD_JPY_90/",
+    "input_config": {
+      "instances_format": "bigquery",
+      "bigquery_source": {
+        "input_uri": "bq://bqx-ml.bqx_ml_v3_features.cadjpy_bqx"
+      }
+    },
+    "output_config": {
+      "predictions_format": "bigquery",
+      "bigquery_destination": {
+        "output_uri": "bq://bqx-ml.predictions.batch_cad_jpy_90"
+      }
+    },
+    "machine_spec": {
+      "machine_type": "n1-standard-2",
+      "starting_replica_count": 1,
+      "max_replica_count": 1
+    },
+    "schedule": "0 * * * *",
+    "estimated_monthly_cost": 0.52
+  },
+  "CAD_JPY_180": {
+    "display_name": "batch-CAD_JPY_180",
+    "model_name": "CAD_JPY_180",
+    "model_path": "gs://bqx-ml-vertex-models/CAD_JPY_180/",
+    "input_config": {
+      "instances_format": "bigquery",
+      "bigquery_source": {
+        "input_uri": "bq://bqx-ml.bqx_ml_v3_features.cadjpy_bqx"
+      }
+    },
+    "output_config": {
+      "predictions_format": "bigquery",
+      "bigquery_destination": {
+        "output_uri": "bq://bqx-ml.predictions.batch_cad_jpy_180"
+      }
+    },
+    "machine_spec": {
+      "machine_type": "n1-standard-2",
+      "starting_replica_count": 1,
+      "max_replica_count": 1
+    },
+    "schedule": "0 * * * *",
+    "estimated_monthly_cost": 0.52
+  },
+  "CAD_JPY_360": {
+    "display_name": "batch-CAD_JPY_360",
+    "model_name": "CAD_JPY_360",
+    "model_path": "gs://bqx-ml-vertex-models/CAD_JPY_360/",
+    "input_config": {
+      "instances_format": "bigquery",
+      "bigquery_source": {
+        "input_uri": "bq://bqx-ml.bqx_ml_v3_features.cadjpy_bqx"
+      }
+    },
+    "output_config": {
+      "predictions_format": "bigquery",
+      "bigquery_destination": {
+        "output_uri": "bq://bqx-ml.predictions.batch_cad_jpy_360"
+      }
+    },
+    "machine_spec": {
+      "machine_type": "n1-standard-2",
+      "starting_replica_count": 1,
+      "max_replica_count": 1
+    },
+    "schedule": "0 * * * *",
+    "estimated_monthly_cost": 0.52
+  },
+  "CAD_JPY_720": {
+    "display_name": "batch-CAD_JPY_720",
+    "model_name": "CAD_JPY_720",
+    "model_path": "gs://bqx-ml-vertex-models/CAD_JPY_720/",
+    "input_config": {
+      "instances_format": "bigquery",
+      "bigquery_source": {
+        "input_uri": "bq://bqx-ml.bqx_ml_v3_features.cadjpy_bqx"
+      }
+    },
+    "output_config": {
+      "predictions_format": "bigquery",
+      "bigquery_destination": {
+        "output_uri": "bq://bqx-ml.predictions.batch_cad_jpy_720"
+      }
+    },
+    "machine_spec": {
+      "machine_type": "n1-standard-2",
+      "starting_replica_count": 1,
+      "max_replica_count": 1
+    },
+    "schedule": "0 * * * *",
+    "estimated_monthly_cost": 0.52
+  },
+  "CAD_JPY_1440": {
+    "display_name": "batch-CAD_JPY_1440",
+    "model_name": "CAD_JPY_1440",
+    "model_path": "gs://bqx-ml-vertex-models/CAD_JPY_1440/",
+    "input_config": {
+      "instances_format": "bigquery",
+      "bigquery_source": {
+        "input_uri": "bq://bqx-ml.bqx_ml_v3_features.cadjpy_bqx"
+      }
+    },
+    "output_config": {
+      "predictions_format": "bigquery",
+      "bigquery_destination": {
+        "output_uri": "bq://bqx-ml.predictions.batch_cad_jpy_1440"
+      }
+    },
+    "machine_spec": {
+      "machine_type": "n1-standard-2",
+      "starting_replica_count": 1,
+      "max_replica_count": 1
+    },
+    "schedule": "0 * * * *",
+    "estimated_monthly_cost": 0.52
+  },
+  "CAD_JPY_2880": {
+    "display_name": "batch-CAD_JPY_2880",
+    "model_name": "CAD_JPY_2880",
+    "model_path": "gs://bqx-ml-vertex-models/CAD_JPY_2880/",
+    "input_config": {
+      "instances_format": "bigquery",
+      "bigquery_source": {
+        "input_uri": "bq://bqx-ml.bqx_ml_v3_features.cadjpy_bqx"
+      }
+    },
+    "output_config": {
+      "predictions_format": "bigquery",
+      "bigquery_destination": {
+        "output_uri": "bq://bqx-ml.predictions.batch_cad_jpy_2880"
+      }
+    },
+    "machine_spec": {
+      "machine_type": "n1-standard-2",
+      "starting_replica_count": 1,
+      "max_replica_count": 1
+    },
+    "schedule": "0 * * * *",
+    "estimated_monthly_cost": 0.52
+  },
+  "CHF_JPY_45": {
+    "display_name": "batch-CHF_JPY_45",
+    "model_name": "CHF_JPY_45",
+    "model_path": "gs://bqx-ml-vertex-models/CHF_JPY_45/",
+    "input_config": {
+      "instances_format": "bigquery",
+      "bigquery_source": {
+        "input_uri": "bq://bqx-ml.bqx_ml_v3_features.chfjpy_bqx"
+      }
+    },
+    "output_config": {
+      "predictions_format": "bigquery",
+      "bigquery_destination": {
+        "output_uri": "bq://bqx-ml.predictions.batch_chf_jpy_45"
+      }
+    },
+    "machine_spec": {
+      "machine_type": "n1-standard-2",
+      "starting_replica_count": 1,
+      "max_replica_count": 1
+    },
+    "schedule": "0 * * * *",
+    "estimated_monthly_cost": 0.52
+  },
+  "CHF_JPY_90": {
+    "display_name": "batch-CHF_JPY_90",
+    "model_name": "CHF_JPY_90",
+    "model_path": "gs://bqx-ml-vertex-models/CHF_JPY_90/",
+    "input_config": {
+      "instances_format": "bigquery",
+      "bigquery_source": {
+        "input_uri": "bq://bqx-ml.bqx_ml_v3_features.chfjpy_bqx"
+      }
+    },
+    "output_config": {
+      "predictions_format": "bigquery",
+      "bigquery_destination": {
+        "output_uri": "bq://bqx-ml.predictions.batch_chf_jpy_90"
+      }
+    },
+    "machine_spec": {
+      "machine_type": "n1-standard-2",
+      "starting_replica_count": 1,
+      "max_replica_count": 1
+    },
+    "schedule": "0 * * * *",
+    "estimated_monthly_cost": 0.52
+  },
+  "CHF_JPY_180": {
+    "display_name": "batch-CHF_JPY_180",
+    "model_name": "CHF_JPY_180",
+    "model_path": "gs://bqx-ml-vertex-models/CHF_JPY_180/",
+    "input_config": {
+      "instances_format": "bigquery",
+      "bigquery_source": {
+        "input_uri": "bq://bqx-ml.bqx_ml_v3_features.chfjpy_bqx"
+      }
+    },
+    "output_config": {
+      "predictions_format": "bigquery",
+      "bigquery_destination": {
+        "output_uri": "bq://bqx-ml.predictions.batch_chf_jpy_180"
+      }
+    },
+    "machine_spec": {
+      "machine_type": "n1-standard-2",
+      "starting_replica_count": 1,
+      "max_replica_count": 1
+    },
+    "schedule": "0 * * * *",
+    "estimated_monthly_cost": 0.52
+  },
+  "CHF_JPY_360": {
+    "display_name": "batch-CHF_JPY_360",
+    "model_name": "CHF_JPY_360",
+    "model_path": "gs://bqx-ml-vertex-models/CHF_JPY_360/",
+    "input_config": {
+      "instances_format": "bigquery",
+      "bigquery_source": {
+        "input_uri": "bq://bqx-ml.bqx_ml_v3_features.chfjpy_bqx"
+      }
+    },
+    "output_config": {
+      "predictions_format": "bigquery",
+      "bigquery_destination": {
+        "output_uri": "bq://bqx-ml.predictions.batch_chf_jpy_360"
+      }
+    },
+    "machine_spec": {
+      "machine_type": "n1-standard-2",
+      "starting_replica_count": 1,
+      "max_replica_count": 1
+    },
+    "schedule": "0 * * * *",
+    "estimated_monthly_cost": 0.52
+  },
+  "CHF_JPY_720": {
+    "display_name": "batch-CHF_JPY_720",
+    "model_name": "CHF_JPY_720",
+    "model_path": "gs://bqx-ml-vertex-models/CHF_JPY_720/",
+    "input_config": {
+      "instances_format": "bigquery",
+      "bigquery_source": {
+        "input_uri": "bq://bqx-ml.bqx_ml_v3_features.chfjpy_bqx"
+      }
+    },
+    "output_config": {
+      "predictions_format": "bigquery",
+      "bigquery_destination": {
+        "output_uri": "bq://bqx-ml.predictions.batch_chf_jpy_720"
+      }
+    },
+    "machine_spec": {
+      "machine_type": "n1-standard-2",
+      "starting_replica_count": 1,
+      "max_replica_count": 1
+    },
+    "schedule": "0 * * * *",
+    "estimated_monthly_cost": 0.52
+  },
+  "CHF_JPY_1440": {
+    "display_name": "batch-CHF_JPY_1440",
+    "model_name": "CHF_JPY_1440",
+    "model_path": "gs://bqx-ml-vertex-models/CHF_JPY_1440/",
+    "input_config": {
+      "instances_format": "bigquery",
+      "bigquery_source": {
+        "input_uri": "bq://bqx-ml.bqx_ml_v3_features.chfjpy_bqx"
+      }
+    },
+    "output_config": {
+      "predictions_format": "bigquery",
+      "bigquery_destination": {
+        "output_uri": "bq://bqx-ml.predictions.batch_chf_jpy_1440"
+      }
+    },
+    "machine_spec": {
+      "machine_type": "n1-standard-2",
+      "starting_replica_count": 1,
+      "max_replica_count": 1
+    },
+    "schedule": "0 * * * *",
+    "estimated_monthly_cost": 0.52
+  },
+  "CHF_JPY_2880": {
+    "display_name": "batch-CHF_JPY_2880",
+    "model_name": "CHF_JPY_2880",
+    "model_path": "gs://bqx-ml-vertex-models/CHF_JPY_2880/",
+    "input_config": {
+      "instances_format": "bigquery",
+      "bigquery_source": {
+        "input_uri": "bq://bqx-ml.bqx_ml_v3_features.chfjpy_bqx"
+      }
+    },
+    "output_config": {
+      "predictions_format": "bigquery",
+      "bigquery_destination": {
+        "output_uri": "bq://bqx-ml.predictions.batch_chf_jpy_2880"
+      }
+    },
+    "machine_spec": {
+      "machine_type": "n1-standard-2",
+      "starting_replica_count": 1,
+      "max_replica_count": 1
+    },
+    "schedule": "0 * * * *",
+    "estimated_monthly_cost": 0.52
+  }
+}
