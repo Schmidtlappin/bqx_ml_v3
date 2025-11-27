@@ -1,0 +1,42 @@
+{
+  "phase": "critical_endpoints",
+  "timestamp": "2025-11-27T06:06:13.832565",
+  "summary": {
+    "successful": 0,
+    "failed": 5,
+    "total_cost": 0,
+    "savings": 13420
+  },
+  "deployments": [
+    {
+      "model_name": "EUR_USD_90",
+      "status": "failed",
+      "error": "403 Permission 'aiplatform.models.upload' denied on resource '//aiplatform.googleapis.com/projects/bqx-ml/locations/us-central1' (or it may not exist). [reason: \"IAM_PERMISSION_DENIED\"\ndomain: \"aiplatform.googleapis.com\"\nmetadata {\n  key: \"resource\"\n  value: \"projects/bqx-ml/locations/us-central1\"\n}\nmetadata {\n  key: \"permission\"\n  value: \"aiplatform.models.upload\"\n}\n]",
+      "timestamp": "2025-11-27T06:02:12.772894"
+    },
+    {
+      "model_name": "GBP_USD_90",
+      "status": "failed",
+      "error": "403 Permission 'aiplatform.models.upload' denied on resource '//aiplatform.googleapis.com/projects/bqx-ml/locations/us-central1' (or it may not exist). [reason: \"IAM_PERMISSION_DENIED\"\ndomain: \"aiplatform.googleapis.com\"\nmetadata {\n  key: \"resource\"\n  value: \"projects/bqx-ml/locations/us-central1\"\n}\nmetadata {\n  key: \"permission\"\n  value: \"aiplatform.models.upload\"\n}\n]",
+      "timestamp": "2025-11-27T06:03:13.047049"
+    },
+    {
+      "model_name": "USD_JPY_90",
+      "status": "failed",
+      "error": "403 Permission 'aiplatform.models.upload' denied on resource '//aiplatform.googleapis.com/projects/bqx-ml/locations/us-central1' (or it may not exist). [reason: \"IAM_PERMISSION_DENIED\"\ndomain: \"aiplatform.googleapis.com\"\nmetadata {\n  key: \"resource\"\n  value: \"projects/bqx-ml/locations/us-central1\"\n}\nmetadata {\n  key: \"permission\"\n  value: \"aiplatform.models.upload\"\n}\n]",
+      "timestamp": "2025-11-27T06:04:13.296119"
+    },
+    {
+      "model_name": "EUR_GBP_90",
+      "status": "failed",
+      "error": "403 Permission 'aiplatform.models.upload' denied on resource '//aiplatform.googleapis.com/projects/bqx-ml/locations/us-central1' (or it may not exist). [reason: \"IAM_PERMISSION_DENIED\"\ndomain: \"aiplatform.googleapis.com\"\nmetadata {\n  key: \"resource\"\n  value: \"projects/bqx-ml/locations/us-central1\"\n}\nmetadata {\n  key: \"permission\"\n  value: \"aiplatform.models.upload\"\n}\n]",
+      "timestamp": "2025-11-27T06:05:13.558080"
+    },
+    {
+      "model_name": "EUR_JPY_90",
+      "status": "failed",
+      "error": "403 Permission 'aiplatform.models.upload' denied on resource '//aiplatform.googleapis.com/projects/bqx-ml/locations/us-central1' (or it may not exist). [reason: \"IAM_PERMISSION_DENIED\"\ndomain: \"aiplatform.googleapis.com\"\nmetadata {\n  key: \"resource\"\n  value: \"projects/bqx-ml/locations/us-central1\"\n}\nmetadata {\n  key: \"permission\"\n  value: \"aiplatform.models.upload\"\n}\n]",
+      "timestamp": "2025-11-27T06:06:13.832385"
+    }
+  ]
+}
