@@ -10,7 +10,12 @@ from pyairtable import Api
 from datetime import datetime
 
 # Load environment variables
-AIRTABLE_API_KEY = os.environ.get('AIRTABLE_API_KEY', '${AIRTABLE_API_KEY}')
+AIRTABLE_API_KEY = os.environ.get('AIRTABLE_API_KEY')
+if not AIRTABLE_API_KEY:
+    print("Error: AIRTABLE_API_KEY environment variable not set")
+    print("Please set: export AIRTABLE_API_KEY='your_key_here'")
+    exit(1)
+
 BASE_ID = 'app3tpP9F3BrP1P7j'
 
 api = Api(AIRTABLE_API_KEY)
