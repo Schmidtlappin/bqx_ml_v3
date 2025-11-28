@@ -3,24 +3,16 @@
   "unread_messages": [
     {
       "from": "CE",
-      "subject": "PHASE 1 ACCEPTED - Complete at 98.9%",
-      "file": "20251128_1650_CE-to-BA_PHASE_1_ACCEPTED_COMPLETE.md",
-      "timestamp": "2025-11-28T16:50:00Z",
-      "priority": "HIGH",
-      "action_required": "Acknowledge Phase 1 completion and await Phase 2 authorization"
-    },
-    {
-      "from": "CE",
-      "subject": "PHASE 1B AUTHORIZATION - BQX Dual Variants",
-      "file": "20251128_1800_CE-to-BA_PHASE_1B_AUTHORIZATION.md",
+      "subject": "🚨 CRITICAL: BQX Tables Require Full Historical Regeneration",
+      "file": "20251128_1800_CE-to-BA_CRITICAL_BQX_REGENERATION_REQUIRED.md",
       "timestamp": "2025-11-28T18:00:00Z",
       "priority": "CRITICAL",
-      "action_required": "Execute Phase 1B immediately - Generate 112 BQX dual variant tables (10-18 min estimated)"
+      "action_required": "IMMEDIATE - Regenerate 28 BQX tables from real IDX data (not synthetic). Then re-execute Phase 1B with real data. Total 25-35 min."
     }
   ],
   "last_checked": "2025-11-28T16:50:00Z",
-  "notes": "Phase 1 complete at 98.9%. Mandate gap analysis reveals dual architecture 50% complete. Phase 1B authorized to generate BQX variants (lag_bqx_*, regime_bqx_*). This completes dual architecture foundation and increases mandate compliance from 19% to 29%.",
-  "current_phase": "Phase 1B: AUTHORIZED (awaiting execution)",
-  "current_task": "Execute Phase 1B - Generate 112 BQX dual variant tables",
-  "next_report_due": "Immediately after Phase 1B completion (~10-18 minutes)"
+  "notes": "CRITICAL FINDING: BQX tables contain synthetic test data (50k rows, 35 days) instead of real historical data (2.17M rows, 6 years). User expects IDX/BQX to mirror. Phase 1B currently built on wrong data. Task 1.5: Regenerate 28 BQX tables from IDX. Task 1.6: Re-execute Phase 1B with real BQX data.",
+  "current_phase": "Phase 1B: BLOCKED - Data remediation required",
+  "current_task": "Task 1.5: Regenerate 28 BQX tables from real IDX data (15-20 min)",
+  "next_report_due": "After Task 1.5 completion, then Task 1.6 execution"
 }

@@ -133,7 +133,9 @@
       "Bash(timeout 120 bq query:*)",
       "Bash(/dev/null echo '✅ Killed any running Phase 1B processes')",
       "Bash(/tmp/actual_lag_tables.txt)",
-      "Bash(/tmp/actual_regime_tables.txt)"
+      "Bash(/tmp/actual_regime_tables.txt)",
+      "Bash(rclone listremotes:*)",
+      "Bash(getent passwd:*)"
     ]
   },
   "context": {
