@@ -136,7 +136,8 @@
       "Bash(/tmp/actual_regime_tables.txt)",
       "Bash(rclone listremotes:*)",
       "Bash(getent passwd:*)",
-      "Bash(do echo \"Dropping $table...\" bq rm -f -t bqx-ml:bqx_ml_v3_features.$table done echo \"✅ All Phase 1B tables dropped\")"
+      "Bash(do echo \"Dropping $table...\" bq rm -f -t bqx-ml:bqx_ml_v3_features.$table done echo \"✅ All Phase 1B tables dropped\")",
+      "Bash(bq\" | grep -v grep | grep micha | wc -l)\")"
     ]
   },
   "context": {
