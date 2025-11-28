@@ -1,0 +1,291 @@
+{
+  "task": "Task 1.5 - BQX Table Regeneration from Real IDX Data",
+  "timestamp": "2025-11-28T17:45:40.066565",
+  "total_tables": 28,
+  "successful": 28,
+  "failed": 0,
+  "row_mismatches": 0,
+  "success_rate_pct": 100.0,
+  "results": [
+    {
+      "pair": "USD_JPY",
+      "table": "usdjpy_bqx",
+      "status": "success",
+      "idx_rows": 2174128,
+      "bqx_rows": 2174128,
+      "rows_match": "true",
+      "idx_time_range": "2020-01-01 22:00:00 to 2025-11-28 01:51:00",
+      "bqx_time_range": "2020-01-01 22:00:00 to 2025-11-28 01:51:00"
+    },
+    {
+      "pair": "USD_CAD",
+      "table": "usdcad_bqx",
+      "status": "success",
+      "idx_rows": 2155311,
+      "bqx_rows": 2155311,
+      "rows_match": "true",
+      "idx_time_range": "2020-01-01 22:00:00 to 2025-11-28 02:03:00",
+      "bqx_time_range": "2020-01-01 22:00:00 to 2025-11-28 02:03:00"
+    },
+    {
+      "pair": "AUD_USD",
+      "table": "audusd_bqx",
+      "status": "success",
+      "idx_rows": 2121200,
+      "bqx_rows": 2121200,
+      "rows_match": "true",
+      "idx_time_range": "2020-01-01 22:00:00 to 2025-11-20 17:50:00",
+      "bqx_time_range": "2020-01-01 22:00:00 to 2025-11-20 17:50:00"
+    },
+    {
+      "pair": "USD_CHF",
+      "table": "usdchf_bqx",
+      "status": "success",
+      "idx_rows": 2049213,
+      "bqx_rows": 2049213,
+      "rows_match": "true",
+      "idx_time_range": "2020-01-01 22:00:00 to 2025-11-28 02:09:00",
+      "bqx_time_range": "2020-01-01 22:00:00 to 2025-11-28 02:09:00"
+    },
+    {
+      "pair": "GBP_USD",
+      "table": "gbpusd_bqx",
+      "status": "success",
+      "idx_rows": 1972702,
+      "bqx_rows": 1972702,
+      "rows_match": "true",
+      "idx_time_range": "2020-01-01 22:00:00 to 2025-11-20 17:50:00",
+      "bqx_time_range": "2020-01-01 22:00:00 to 2025-11-20 17:50:00"
+    },
+    {
+      "pair": "EUR_USD",
+      "table": "eurusd_bqx",
+      "status": "success",
+      "idx_rows": 2164330,
+      "bqx_rows": 2164330,
+      "rows_match": "true",
+      "idx_time_range": "2020-01-01 22:00:00 to 2025-11-20 17:50:00",
+      "bqx_time_range": "2020-01-01 22:00:00 to 2025-11-20 17:50:00"
+    },
+    {
+      "pair": "EUR_GBP",
+      "table": "eurgbp_bqx",
+      "status": "success",
+      "idx_rows": 2132051,
+      "bqx_rows": 2132051,
+      "rows_match": "true",
+      "idx_time_range": "2020-01-01 22:00:00 to 2025-11-20 17:50:00",
+      "bqx_time_range": "2020-01-01 22:00:00 to 2025-11-20 17:50:00"
+    },
+    {
+      "pair": "EUR_JPY",
+      "table": "eurjpy_bqx",
+      "status": "success",
+      "idx_rows": 2155694,
+      "bqx_rows": 2155694,
+      "rows_match": "true",
+      "idx_time_range": "2020-01-01 22:00:00 to 2025-11-20 04:26:00",
+      "bqx_time_range": "2020-01-01 22:00:00 to 2025-11-20 04:26:00"
+    },
+    {
+      "pair": "EUR_CHF",
+      "table": "eurchf_bqx",
+      "status": "success",
+      "idx_rows": 2104085,
+      "bqx_rows": 2104085,
+      "rows_match": "true",
+      "idx_time_range": "2020-01-01 22:00:00 to 2025-11-20 17:50:00",
+      "bqx_time_range": "2020-01-01 22:00:00 to 2025-11-20 17:50:00"
+    },
+    {
+      "pair": "NZD_USD",
+      "table": "nzdusd_bqx",
+      "status": "success",
+      "idx_rows": 2126991,
+      "bqx_rows": 2126991,
+      "rows_match": "true",
+      "idx_time_range": "2020-01-01 22:00:00 to 2025-11-20 17:50:00",
+      "bqx_time_range": "2020-01-01 22:00:00 to 2025-11-20 17:50:00"
+    },
+    {
+      "pair": "EUR_CAD",
+      "table": "eurcad_bqx",
+      "status": "success",
+      "idx_rows": 2182332,
+      "bqx_rows": 2182332,
+      "rows_match": "true",
+      "idx_time_range": "2020-01-01 22:00:00 to 2025-11-20 17:50:00",
+      "bqx_time_range": "2020-01-01 22:00:00 to 2025-11-20 17:50:00"
+    },
+    {
+      "pair": "EUR_AUD",
+      "table": "euraud_bqx",
+      "status": "success",
+      "idx_rows": 2169762,
+      "bqx_rows": 2169762,
+      "rows_match": "true",
+      "idx_time_range": "2020-01-01 22:00:00 to 2025-11-20 17:50:00",
+      "bqx_time_range": "2020-01-01 22:00:00 to 2025-11-20 17:50:00"
+    },
+    {
+      "pair": "GBP_CHF",
+      "table": "gbpchf_bqx",
+      "status": "success",
+      "idx_rows": 2073450,
+      "bqx_rows": 2073450,
+      "rows_match": "true",
+      "idx_time_range": "2020-01-01 22:00:00 to 2025-11-20 17:50:00",
+      "bqx_time_range": "2020-01-01 22:00:00 to 2025-11-20 17:50:00"
+    },
+    {
+      "pair": "EUR_NZD",
+      "table": "eurnzd_bqx",
+      "status": "success",
+      "idx_rows": 2174512,
+      "bqx_rows": 2174512,
+      "rows_match": "true",
+      "idx_time_range": "2020-01-01 22:00:00 to 2025-11-20 17:50:00",
+      "bqx_time_range": "2020-01-01 22:00:00 to 2025-11-20 17:50:00"
+    },
+    {
+      "pair": "GBP_CAD",
+      "table": "gbpcad_bqx",
+      "status": "success",
+      "idx_rows": 2187293,
+      "bqx_rows": 2187293,
+      "rows_match": "true",
+      "idx_time_range": "2020-01-01 22:00:00 to 2025-11-20 17:50:00",
+      "bqx_time_range": "2020-01-01 22:00:00 to 2025-11-20 17:50:00"
+    },
+    {
+      "pair": "GBP_AUD",
+      "table": "gbpaud_bqx",
+      "status": "success",
+      "idx_rows": 2180941,
+      "bqx_rows": 2180941,
+      "rows_match": "true",
+      "idx_time_range": "2020-01-01 22:01:00 to 2025-11-20 17:50:00",
+      "bqx_time_range": "2020-01-01 22:01:00 to 2025-11-20 17:50:00"
+    },
+    {
+      "pair": "GBP_JPY",
+      "table": "gbpjpy_bqx",
+      "status": "success",
+      "idx_rows": 2179062,
+      "bqx_rows": 2179062,
+      "rows_match": "true",
+      "idx_time_range": "2020-01-01 22:00:00 to 2025-11-20 04:49:00",
+      "bqx_time_range": "2020-01-01 22:00:00 to 2025-11-20 04:49:00"
+    },
+    {
+      "pair": "GBP_NZD",
+      "table": "gbpnzd_bqx",
+      "status": "success",
+      "idx_rows": 2167456,
+      "bqx_rows": 2167456,
+      "rows_match": "true",
+      "idx_time_range": "2020-01-01 22:01:00 to 2025-11-20 17:50:00",
+      "bqx_time_range": "2020-01-01 22:01:00 to 2025-11-20 17:50:00"
+    },
+    {
+      "pair": "AUD_CHF",
+      "table": "audchf_bqx",
+      "status": "success",
+      "idx_rows": 2144380,
+      "bqx_rows": 2144380,
+      "rows_match": "true",
+      "idx_time_range": "2020-01-01 22:01:00 to 2025-11-20 17:50:00",
+      "bqx_time_range": "2020-01-01 22:01:00 to 2025-11-20 17:50:00"
+    },
+    {
+      "pair": "AUD_CAD",
+      "table": "audcad_bqx",
+      "status": "success",
+      "idx_rows": 2173438,
+      "bqx_rows": 2173438,
+      "rows_match": "true",
+      "idx_time_range": "2020-01-01 22:00:00 to 2025-11-20 17:50:00",
+      "bqx_time_range": "2020-01-01 22:00:00 to 2025-11-20 17:50:00"
+    },
+    {
+      "pair": "AUD_JPY",
+      "table": "audjpy_bqx",
+      "status": "success",
+      "idx_rows": 2188365,
+      "bqx_rows": 2188365,
+      "rows_match": "true",
+      "idx_time_range": "2020-01-01 22:00:00 to 2025-11-20 05:11:00",
+      "bqx_time_range": "2020-01-01 22:00:00 to 2025-11-20 05:11:00"
+    },
+    {
+      "pair": "AUD_NZD",
+      "table": "audnzd_bqx",
+      "status": "success",
+      "idx_rows": 2167325,
+      "bqx_rows": 2167325,
+      "rows_match": "true",
+      "idx_time_range": "2020-01-01 22:00:00 to 2025-11-20 17:50:00",
+      "bqx_time_range": "2020-01-01 22:00:00 to 2025-11-20 17:50:00"
+    },
+    {
+      "pair": "NZD_JPY",
+      "table": "nzdjpy_bqx",
+      "status": "success",
+      "idx_rows": 2178606,
+      "bqx_rows": 2178606,
+      "rows_match": "true",
+      "idx_time_range": "2020-01-01 22:00:00 to 2025-11-20 05:32:00",
+      "bqx_time_range": "2020-01-01 22:00:00 to 2025-11-20 05:32:00"
+    },
+    {
+      "pair": "NZD_CHF",
+      "table": "nzdchf_bqx",
+      "status": "success",
+      "idx_rows": 2133409,
+      "bqx_rows": 2133409,
+      "rows_match": "true",
+      "idx_time_range": "2020-01-01 22:01:00 to 2025-11-20 19:54:00",
+      "bqx_time_range": "2020-01-01 22:01:00 to 2025-11-20 19:54:00"
+    },
+    {
+      "pair": "CAD_JPY",
+      "table": "cadjpy_bqx",
+      "status": "success",
+      "idx_rows": 2182203,
+      "bqx_rows": 2182203,
+      "rows_match": "true",
+      "idx_time_range": "2020-01-01 22:00:00 to 2025-11-20 05:54:00",
+      "bqx_time_range": "2020-01-01 22:00:00 to 2025-11-20 05:54:00"
+    },
+    {
+      "pair": "NZD_CAD",
+      "table": "nzdcad_bqx",
+      "status": "success",
+      "idx_rows": 2166855,
+      "bqx_rows": 2166855,
+      "rows_match": "true",
+      "idx_time_range": "2020-01-01 22:00:00 to 2025-11-20 19:54:00",
+      "bqx_time_range": "2020-01-01 22:00:00 to 2025-11-20 19:54:00"
+    },
+    {
+      "pair": "CAD_CHF",
+      "table": "cadchf_bqx",
+      "status": "success",
+      "idx_rows": 2023467,
+      "bqx_rows": 2023467,
+      "rows_match": "true",
+      "idx_time_range": "2020-01-01 22:01:00 to 2025-11-20 19:54:00",
+      "bqx_time_range": "2020-01-01 22:01:00 to 2025-11-20 19:54:00"
+    },
+    {
+      "pair": "CHF_JPY",
+      "table": "chfjpy_bqx",
+      "status": "success",
+      "idx_rows": 1984403,
+      "bqx_rows": 1984403,
+      "rows_match": "true",
+      "idx_time_range": "2020-01-01 22:00:00 to 2025-11-20 06:17:00",
+      "bqx_time_range": "2020-01-01 22:00:00 to 2025-11-20 06:17:00"
+    }
+  ]
+}
