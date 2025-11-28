@@ -1,0 +1,367 @@
+{
+  "task": "Task 1.6: IBKR Correlation Instrument Validation",
+  "instruments_validated": 8,
+  "threshold": 800000,
+  "summary": {
+    "pass_count": 8,
+    "fail_count": 0,
+    "error_count": 0,
+    "total_rows": 8310624,
+    "avg_rows_per_instrument": 1038828,
+    "avg_years_covered": 5.0,
+    "all_have_volume": false,
+    "all_have_vwap": true,
+    "total_indicator_capacity": 2129,
+    "assessment": "GOOD - All instruments validated"
+  },
+  "instruments": [
+    {
+      "table": "corr_ewa",
+      "symbol": "EWA",
+      "instrument_name": "iShares Australia ETF",
+      "total_rows": 928724,
+      "expected_rows": 928724,
+      "row_count_match": true,
+      "date_range": {
+        "earliest": "2020-11-16 14:07:00+00:00",
+        "latest": "2025-11-20 00:59:00+00:00",
+        "days_covered": 1829,
+        "years_covered": 5.01
+      },
+      "ohlcv_null_checks": {
+        "open": 0,
+        "high": 0,
+        "low": 0,
+        "close": 0,
+        "volume": 0
+      },
+      "ibkr_specific": {
+        "vwap_null": 0,
+        "barcount_null": 0,
+        "symbol_null": 0,
+        "has_volume": true,
+        "has_vwap": true,
+        "has_barcount": true
+      },
+      "volume_statistics": {
+        "average": 3770.79,
+        "minimum": null,
+        "maximum": 4874014.0,
+        "stddev": 18631.44
+      },
+      "price_range": {
+        "minimum": 19.14,
+        "maximum": 27.58
+      },
+      "indicator_capacity": 273,
+      "full_indicator_support": true,
+      "pct_of_threshold": 116.09,
+      "status": "PASS",
+      "timestamp": "2025-11-27T18:11:32.656278"
+    },
+    {
+      "table": "corr_ewg",
+      "symbol": "EWG",
+      "instrument_name": "iShares Germany ETF",
+      "total_rows": 990966,
+      "expected_rows": 990966,
+      "row_count_match": true,
+      "date_range": {
+        "earliest": "2020-11-20 14:30:00+00:00",
+        "latest": "2025-11-20 00:59:00+00:00",
+        "days_covered": 1825,
+        "years_covered": 5.0
+      },
+      "ohlcv_null_checks": {
+        "open": 0,
+        "high": 0,
+        "low": 0,
+        "close": 0,
+        "volume": 0
+      },
+      "ibkr_specific": {
+        "vwap_null": 0,
+        "barcount_null": 0,
+        "symbol_null": 652579,
+        "has_volume": true,
+        "has_vwap": true,
+        "has_barcount": true
+      },
+      "volume_statistics": {
+        "average": 2354.27,
+        "minimum": null,
+        "maximum": 3850513.0,
+        "stddev": 15497.22
+      },
+      "price_range": {
+        "minimum": 19.05,
+        "maximum": 43.31
+      },
+      "indicator_capacity": 273,
+      "full_indicator_support": true,
+      "pct_of_threshold": 123.87,
+      "status": "PASS",
+      "timestamp": "2025-11-27T18:11:33.673061"
+    },
+    {
+      "table": "corr_ewj",
+      "symbol": "EWJ",
+      "instrument_name": "iShares Japan ETF",
+      "total_rows": 1067160,
+      "expected_rows": 1067160,
+      "row_count_match": true,
+      "date_range": {
+        "earliest": "2020-11-20 10:21:00+00:00",
+        "latest": "2025-11-20 00:59:00+00:00",
+        "days_covered": 1825,
+        "years_covered": 5.0
+      },
+      "ohlcv_null_checks": {
+        "open": 0,
+        "high": 0,
+        "low": 0,
+        "close": 0,
+        "volume": 0
+      },
+      "ibkr_specific": {
+        "vwap_null": 0,
+        "barcount_null": 0,
+        "symbol_null": 0,
+        "has_volume": true,
+        "has_vwap": true,
+        "has_barcount": true
+      },
+      "volume_statistics": {
+        "average": 6510.88,
+        "minimum": null,
+        "maximum": 7496689.0,
+        "stddev": 27123.33
+      },
+      "price_range": {
+        "minimum": 47.52,
+        "maximum": 84.91
+      },
+      "indicator_capacity": 273,
+      "full_indicator_support": true,
+      "pct_of_threshold": 133.4,
+      "status": "PASS",
+      "timestamp": "2025-11-27T18:11:35.217673"
+    },
+    {
+      "table": "corr_ewu",
+      "symbol": "EWU",
+      "instrument_name": "iShares UK ETF",
+      "total_rows": 896108,
+      "expected_rows": 896108,
+      "row_count_match": true,
+      "date_range": {
+        "earliest": "2020-11-16 09:26:00+00:00",
+        "latest": "2025-11-20 00:59:00+00:00",
+        "days_covered": 1829,
+        "years_covered": 5.01
+      },
+      "ohlcv_null_checks": {
+        "open": 0,
+        "high": 0,
+        "low": 0,
+        "close": 0,
+        "volume": 0
+      },
+      "ibkr_specific": {
+        "vwap_null": 0,
+        "barcount_null": 0,
+        "symbol_null": 580844,
+        "has_volume": true,
+        "has_vwap": true,
+        "has_barcount": true
+      },
+      "volume_statistics": {
+        "average": 2081.93,
+        "minimum": null,
+        "maximum": 3956312.0,
+        "stddev": 15493.82
+      },
+      "price_range": {
+        "minimum": 25.1,
+        "maximum": 43.73
+      },
+      "indicator_capacity": 273,
+      "full_indicator_support": true,
+      "pct_of_threshold": 112.01,
+      "status": "PASS",
+      "timestamp": "2025-11-27T18:11:36.246190"
+    },
+    {
+      "table": "corr_gld",
+      "symbol": "GLD",
+      "instrument_name": "SPDR Gold Trust",
+      "total_rows": 1190996,
+      "expected_rows": 1190996,
+      "row_count_match": true,
+      "date_range": {
+        "earliest": "2020-11-20 09:15:00+00:00",
+        "latest": "2025-11-20 00:59:00+00:00",
+        "days_covered": 1825,
+        "years_covered": 5.0
+      },
+      "ohlcv_null_checks": {
+        "open": 0,
+        "high": 0,
+        "low": 0,
+        "close": 0,
+        "volume": 0
+      },
+      "ibkr_specific": {
+        "vwap_null": 0,
+        "barcount_null": 0,
+        "symbol_null": 533804,
+        "has_volume": true,
+        "has_vwap": true,
+        "has_barcount": true
+      },
+      "volume_statistics": {
+        "average": 7112.95,
+        "minimum": null,
+        "maximum": 1972422.0,
+        "stddev": 21465.0
+      },
+      "price_range": {
+        "minimum": 150.51,
+        "maximum": 403.3
+      },
+      "indicator_capacity": 273,
+      "full_indicator_support": true,
+      "pct_of_threshold": 148.87,
+      "status": "PASS",
+      "timestamp": "2025-11-27T18:11:37.686334"
+    },
+    {
+      "table": "corr_spy",
+      "symbol": "SPY",
+      "instrument_name": "S&P 500 ETF",
+      "total_rows": 1201524,
+      "expected_rows": 1201524,
+      "row_count_match": true,
+      "date_range": {
+        "earliest": "2020-11-20 09:00:00+00:00",
+        "latest": "2025-11-20 00:59:00+00:00",
+        "days_covered": 1825,
+        "years_covered": 5.0
+      },
+      "ohlcv_null_checks": {
+        "open": 0,
+        "high": 0,
+        "low": 0,
+        "close": 0,
+        "volume": 0
+      },
+      "ibkr_specific": {
+        "vwap_null": 0,
+        "barcount_null": 0,
+        "symbol_null": 433015,
+        "has_volume": true,
+        "has_vwap": true,
+        "has_barcount": true
+      },
+      "volume_statistics": {
+        "average": 58455.69,
+        "minimum": null,
+        "maximum": 9471383.0,
+        "stddev": 138470.76
+      },
+      "price_range": {
+        "minimum": 348.11,
+        "maximum": 689.7
+      },
+      "indicator_capacity": 273,
+      "full_indicator_support": true,
+      "pct_of_threshold": 150.19,
+      "status": "PASS",
+      "timestamp": "2025-11-27T18:11:38.705742"
+    },
+    {
+      "table": "corr_uup",
+      "symbol": "UUP",
+      "instrument_name": "USD Index Bull",
+      "total_rows": 1037017,
+      "expected_rows": 1037017,
+      "row_count_match": true,
+      "date_range": {
+        "earliest": "2020-11-16 09:00:00+00:00",
+        "latest": "2025-11-20 09:15:00+00:00",
+        "days_covered": 1830,
+        "years_covered": 5.01
+      },
+      "ohlcv_null_checks": {
+        "open": 0,
+        "high": 0,
+        "low": 0,
+        "close": 0,
+        "volume": 0
+      },
+      "ibkr_specific": {
+        "vwap_null": 0,
+        "barcount_null": 0,
+        "symbol_null": 658941,
+        "has_volume": true,
+        "has_vwap": true,
+        "has_barcount": true
+      },
+      "volume_statistics": {
+        "average": 2006.94,
+        "minimum": null,
+        "maximum": 8212012.0,
+        "stddev": 18717.81
+      },
+      "price_range": {
+        "minimum": 24.05,
+        "maximum": 30.95
+      },
+      "indicator_capacity": 273,
+      "full_indicator_support": true,
+      "pct_of_threshold": 129.63,
+      "status": "PASS",
+      "timestamp": "2025-11-27T18:11:39.643272"
+    },
+    {
+      "table": "corr_vix",
+      "symbol": "VIX",
+      "instrument_name": "Volatility Index",
+      "total_rows": 998129,
+      "expected_rows": 998129,
+      "row_count_match": true,
+      "date_range": {
+        "earliest": "2020-11-20 08:15:00+00:00",
+        "latest": "2025-11-19 21:59:00+00:00",
+        "days_covered": 1825,
+        "years_covered": 5.0
+      },
+      "ohlcv_null_checks": {
+        "open": 0,
+        "high": 0,
+        "low": 0,
+        "close": 0,
+        "volume": 0
+      },
+      "ibkr_specific": {
+        "vwap_null": 0,
+        "barcount_null": 0,
+        "symbol_null": 169129,
+        "has_volume": false,
+        "has_vwap": true,
+        "has_barcount": true
+      },
+      "volume_statistics": null,
+      "price_range": {
+        "minimum": 10.62,
+        "maximum": 65.73
+      },
+      "indicator_capacity": 218,
+      "full_indicator_support": false,
+      "pct_of_threshold": 124.77,
+      "status": "PASS",
+      "timestamp": "2025-11-27T18:11:40.719769"
+    }
+  ],
+  "timestamp": "2025-11-27T18:11:40.719811"
+}

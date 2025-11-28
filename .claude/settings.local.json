@@ -84,7 +84,20 @@
       "Bash(/home/micha/bqx_ml_v3/VERTEX_AI_MIGRATION_READY.md )",
       "Bash(/home/micha/bqx_ml_v3/archive/2024-11-27_session_cleanup/status_reports/)",
       "Bash(/home/micha/bqx_ml_v3/vertex_training_corrected.py )",
-      "Bash(/home/micha/bqx_ml_v3/archive/2024-11-27_session_cleanup/scripts/)"
+      "Bash(/home/micha/bqx_ml_v3/archive/2024-11-27_session_cleanup/scripts/)",
+      "Bash(/tmp/bqx_datasets.json)",
+      "Bash(while read table)",
+      "Bash(do echo \"=== $table ===\")",
+      "Bash(for pair in eurusd gbpusd audusd eurjpy)",
+      "Bash(do echo '=== m1_$pair ===')",
+      "Bash(comm -23:*)",
+      "Bash(comm:*)",
+      "Bash(for inst in ewa ewg ewj ewu gld spy uup vix)",
+      "Bash(do echo '=== corr_$inst ===')",
+      "Bash(while read secret)",
+      "Bash(do echo \"=== $secret ===\")",
+      "Bash(/tmp/m1_schema_check.json)",
+      "Bash(/tmp/fx_debug.log)"
     ]
   },
   "context": {

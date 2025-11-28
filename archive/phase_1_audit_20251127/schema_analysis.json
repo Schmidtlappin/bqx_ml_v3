@@ -1,0 +1,2678 @@
+{
+  "idx_tables": [
+    {
+      "dataset": "bqx_ml_v3_features",
+      "table": "audjpy_idx",
+      "column_count": 3,
+      "columns": [
+        "interval_time",
+        "pair",
+        "close_idx"
+      ],
+      "has_ohlcv": true
+    },
+    {
+      "dataset": "bqx_ml_v3_features",
+      "table": "eurgbp_idx",
+      "column_count": 3,
+      "columns": [
+        "interval_time",
+        "pair",
+        "close_idx"
+      ],
+      "has_ohlcv": true
+    },
+    {
+      "dataset": "bqx_ml_v3_features",
+      "table": "eurnzd_idx",
+      "column_count": 3,
+      "columns": [
+        "interval_time",
+        "pair",
+        "close_idx"
+      ],
+      "has_ohlcv": true
+    },
+    {
+      "dataset": "bqx_ml_v3_features",
+      "table": "audnzd_idx",
+      "column_count": 3,
+      "columns": [
+        "interval_time",
+        "pair",
+        "close_idx"
+      ],
+      "has_ohlcv": true
+    },
+    {
+      "dataset": "bqx_ml_v3_features",
+      "table": "gbpnzd_idx",
+      "column_count": 3,
+      "columns": [
+        "interval_time",
+        "pair",
+        "close_idx"
+      ],
+      "has_ohlcv": true
+    },
+    {
+      "dataset": "bqx_ml_v3_features",
+      "table": "eurjpy_idx",
+      "column_count": 3,
+      "columns": [
+        "interval_time",
+        "pair",
+        "close_idx"
+      ],
+      "has_ohlcv": true
+    },
+    {
+      "dataset": "bqx_ml_v3_features",
+      "table": "audchf_idx",
+      "column_count": 3,
+      "columns": [
+        "interval_time",
+        "pair",
+        "close_idx"
+      ],
+      "has_ohlcv": true
+    },
+    {
+      "dataset": "bqx_ml_v3_features",
+      "table": "gbpjpy_idx",
+      "column_count": 3,
+      "columns": [
+        "interval_time",
+        "pair",
+        "close_idx"
+      ],
+      "has_ohlcv": true
+    },
+    {
+      "dataset": "bqx_ml_v3_features",
+      "table": "nzdusd_idx",
+      "column_count": 3,
+      "columns": [
+        "interval_time",
+        "pair",
+        "close_idx"
+      ],
+      "has_ohlcv": true
+    },
+    {
+      "dataset": "bqx_ml_v3_features",
+      "table": "eurchf_idx",
+      "column_count": 3,
+      "columns": [
+        "interval_time",
+        "pair",
+        "close_idx"
+      ],
+      "has_ohlcv": true
+    },
+    {
+      "dataset": "bqx_ml_v3_features",
+      "table": "cadchf_idx",
+      "column_count": 3,
+      "columns": [
+        "interval_time",
+        "pair",
+        "close_idx"
+      ],
+      "has_ohlcv": true
+    },
+    {
+      "dataset": "bqx_ml_v3_features",
+      "table": "nzdjpy_idx",
+      "column_count": 3,
+      "columns": [
+        "interval_time",
+        "pair",
+        "close_idx"
+      ],
+      "has_ohlcv": true
+    },
+    {
+      "dataset": "bqx_ml_v3_features",
+      "table": "euraud_idx",
+      "column_count": 3,
+      "columns": [
+        "interval_time",
+        "pair",
+        "close_idx"
+      ],
+      "has_ohlcv": true
+    },
+    {
+      "dataset": "bqx_ml_v3_features",
+      "table": "audcad_idx",
+      "column_count": 3,
+      "columns": [
+        "interval_time",
+        "pair",
+        "close_idx"
+      ],
+      "has_ohlcv": true
+    },
+    {
+      "dataset": "bqx_ml_v3_features",
+      "table": "gbpusd_idx",
+      "column_count": 7,
+      "columns": [
+        "interval_time",
+        "pair",
+        "open_idx",
+        "high_idx",
+        "low_idx",
+        "close_idx",
+        "volume_idx"
+      ],
+      "has_ohlcv": true
+    },
+    {
+      "dataset": "bqx_ml_v3_features",
+      "table": "eurusd_idx",
+      "column_count": 3,
+      "columns": [
+        "interval_time",
+        "pair",
+        "close_idx"
+      ],
+      "has_ohlcv": true
+    },
+    {
+      "dataset": "bqx_ml_v3_features",
+      "table": "eurcad_idx",
+      "column_count": 3,
+      "columns": [
+        "interval_time",
+        "pair",
+        "close_idx"
+      ],
+      "has_ohlcv": true
+    },
+    {
+      "dataset": "bqx_ml_v3_features",
+      "table": "gbpaud_idx",
+      "column_count": 3,
+      "columns": [
+        "interval_time",
+        "pair",
+        "close_idx"
+      ],
+      "has_ohlcv": true
+    },
+    {
+      "dataset": "bqx_ml_v3_features",
+      "table": "nzdcad_idx",
+      "column_count": 3,
+      "columns": [
+        "interval_time",
+        "pair",
+        "close_idx"
+      ],
+      "has_ohlcv": true
+    },
+    {
+      "dataset": "bqx_ml_v3_features",
+      "table": "audusd_idx",
+      "column_count": 7,
+      "columns": [
+        "interval_time",
+        "pair",
+        "open_idx",
+        "high_idx",
+        "low_idx",
+        "close_idx",
+        "volume_idx"
+      ],
+      "has_ohlcv": true
+    },
+    {
+      "dataset": "bqx_ml_v3_features",
+      "table": "gbpchf_idx",
+      "column_count": 3,
+      "columns": [
+        "interval_time",
+        "pair",
+        "close_idx"
+      ],
+      "has_ohlcv": true
+    },
+    {
+      "dataset": "bqx_ml_v3_features",
+      "table": "gbpcad_idx",
+      "column_count": 3,
+      "columns": [
+        "interval_time",
+        "pair",
+        "close_idx"
+      ],
+      "has_ohlcv": true
+    },
+    {
+      "dataset": "bqx_ml_v3_features",
+      "table": "nzdchf_idx",
+      "column_count": 3,
+      "columns": [
+        "interval_time",
+        "pair",
+        "close_idx"
+      ],
+      "has_ohlcv": true
+    },
+    {
+      "dataset": "bqx_ml_v3_features",
+      "table": "cadjpy_idx",
+      "column_count": 3,
+      "columns": [
+        "interval_time",
+        "pair",
+        "close_idx"
+      ],
+      "has_ohlcv": true
+    },
+    {
+      "dataset": "bqx_ml_v3_features",
+      "table": "chfjpy_idx",
+      "column_count": 3,
+      "columns": [
+        "interval_time",
+        "pair",
+        "close_idx"
+      ],
+      "has_ohlcv": true
+    }
+  ],
+  "bqx_tables": [
+    {
+      "dataset": "bqx_ml_v3_features",
+      "table": "audcad_bqx",
+      "column_count": 16,
+      "columns": [
+        "interval_time",
+        "pair",
+        "bqx_45",
+        "target_45",
+        "bqx_90",
+        "target_90",
+        "bqx_180",
+        "target_180",
+        "bqx_360",
+        "target_360",
+        "bqx_720",
+        "target_720",
+        "bqx_1440",
+        "target_1440",
+        "bqx_2880",
+        "target_2880"
+      ],
+      "has_ohlcv": false
+    },
+    {
+      "dataset": "bqx_ml_v3_features",
+      "table": "nzdchf_bqx",
+      "column_count": 16,
+      "columns": [
+        "interval_time",
+        "pair",
+        "bqx_45",
+        "target_45",
+        "bqx_90",
+        "target_90",
+        "bqx_180",
+        "target_180",
+        "bqx_360",
+        "target_360",
+        "bqx_720",
+        "target_720",
+        "bqx_1440",
+        "target_1440",
+        "bqx_2880",
+        "target_2880"
+      ],
+      "has_ohlcv": false
+    },
+    {
+      "dataset": "bqx_ml_v3_features",
+      "table": "gbpchf_bqx",
+      "column_count": 16,
+      "columns": [
+        "interval_time",
+        "pair",
+        "bqx_45",
+        "target_45",
+        "bqx_90",
+        "target_90",
+        "bqx_180",
+        "target_180",
+        "bqx_360",
+        "target_360",
+        "bqx_720",
+        "target_720",
+        "bqx_1440",
+        "target_1440",
+        "bqx_2880",
+        "target_2880"
+      ],
+      "has_ohlcv": false
+    },
+    {
+      "dataset": "bqx_ml_v3_features",
+      "table": "gbpjpy_bqx",
+      "column_count": 16,
+      "columns": [
+        "interval_time",
+        "pair",
+        "bqx_45",
+        "target_45",
+        "bqx_90",
+        "target_90",
+        "bqx_180",
+        "target_180",
+        "bqx_360",
+        "target_360",
+        "bqx_720",
+        "target_720",
+        "bqx_1440",
+        "target_1440",
+        "bqx_2880",
+        "target_2880"
+      ],
+      "has_ohlcv": false
+    },
+    {
+      "dataset": "bqx_ml_v3_features",
+      "table": "eurcad_bqx",
+      "column_count": 16,
+      "columns": [
+        "interval_time",
+        "pair",
+        "bqx_45",
+        "target_45",
+        "bqx_90",
+        "target_90",
+        "bqx_180",
+        "target_180",
+        "bqx_360",
+        "target_360",
+        "bqx_720",
+        "target_720",
+        "bqx_1440",
+        "target_1440",
+        "bqx_2880",
+        "target_2880"
+      ],
+      "has_ohlcv": false
+    },
+    {
+      "dataset": "bqx_ml_v3_features",
+      "table": "gbpusd_bqx",
+      "column_count": 16,
+      "columns": [
+        "interval_time",
+        "pair",
+        "bqx_45",
+        "target_45",
+        "bqx_90",
+        "target_90",
+        "bqx_180",
+        "target_180",
+        "bqx_360",
+        "target_360",
+        "bqx_720",
+        "target_720",
+        "bqx_1440",
+        "target_1440",
+        "bqx_2880",
+        "target_2880"
+      ],
+      "has_ohlcv": false
+    },
+    {
+      "dataset": "bqx_ml_v3_features",
+      "table": "eurchf_bqx",
+      "column_count": 16,
+      "columns": [
+        "interval_time",
+        "pair",
+        "bqx_45",
+        "target_45",
+        "bqx_90",
+        "target_90",
+        "bqx_180",
+        "target_180",
+        "bqx_360",
+        "target_360",
+        "bqx_720",
+        "target_720",
+        "bqx_1440",
+        "target_1440",
+        "bqx_2880",
+        "target_2880"
+      ],
+      "has_ohlcv": false
+    },
+    {
+      "dataset": "bqx_ml_v3_features",
+      "table": "cadjpy_bqx",
+      "column_count": 16,
+      "columns": [
+        "interval_time",
+        "pair",
+        "bqx_45",
+        "target_45",
+        "bqx_90",
+        "target_90",
+        "bqx_180",
+        "target_180",
+        "bqx_360",
+        "target_360",
+        "bqx_720",
+        "target_720",
+        "bqx_1440",
+        "target_1440",
+        "bqx_2880",
+        "target_2880"
+      ],
+      "has_ohlcv": false
+    },
+    {
+      "dataset": "bqx_ml_v3_features",
+      "table": "nzdjpy_bqx",
+      "column_count": 16,
+      "columns": [
+        "interval_time",
+        "pair",
+        "bqx_45",
+        "target_45",
+        "bqx_90",
+        "target_90",
+        "bqx_180",
+        "target_180",
+        "bqx_360",
+        "target_360",
+        "bqx_720",
+        "target_720",
+        "bqx_1440",
+        "target_1440",
+        "bqx_2880",
+        "target_2880"
+      ],
+      "has_ohlcv": false
+    },
+    {
+      "dataset": "bqx_ml_v3_features",
+      "table": "audchf_bqx",
+      "column_count": 16,
+      "columns": [
+        "interval_time",
+        "pair",
+        "bqx_45",
+        "target_45",
+        "bqx_90",
+        "target_90",
+        "bqx_180",
+        "target_180",
+        "bqx_360",
+        "target_360",
+        "bqx_720",
+        "target_720",
+        "bqx_1440",
+        "target_1440",
+        "bqx_2880",
+        "target_2880"
+      ],
+      "has_ohlcv": false
+    },
+    {
+      "dataset": "bqx_ml_v3_features",
+      "table": "chfjpy_bqx",
+      "column_count": 16,
+      "columns": [
+        "interval_time",
+        "pair",
+        "bqx_45",
+        "target_45",
+        "bqx_90",
+        "target_90",
+        "bqx_180",
+        "target_180",
+        "bqx_360",
+        "target_360",
+        "bqx_720",
+        "target_720",
+        "bqx_1440",
+        "target_1440",
+        "bqx_2880",
+        "target_2880"
+      ],
+      "has_ohlcv": false
+    },
+    {
+      "dataset": "bqx_ml_v3_features",
+      "table": "gbpcad_bqx",
+      "column_count": 16,
+      "columns": [
+        "interval_time",
+        "pair",
+        "bqx_45",
+        "target_45",
+        "bqx_90",
+        "target_90",
+        "bqx_180",
+        "target_180",
+        "bqx_360",
+        "target_360",
+        "bqx_720",
+        "target_720",
+        "bqx_1440",
+        "target_1440",
+        "bqx_2880",
+        "target_2880"
+      ],
+      "has_ohlcv": false
+    },
+    {
+      "dataset": "bqx_ml_v3_features",
+      "table": "audnzd_bqx",
+      "column_count": 16,
+      "columns": [
+        "interval_time",
+        "pair",
+        "bqx_45",
+        "target_45",
+        "bqx_90",
+        "target_90",
+        "bqx_180",
+        "target_180",
+        "bqx_360",
+        "target_360",
+        "bqx_720",
+        "target_720",
+        "bqx_1440",
+        "target_1440",
+        "bqx_2880",
+        "target_2880"
+      ],
+      "has_ohlcv": false
+    },
+    {
+      "dataset": "bqx_ml_v3_features",
+      "table": "cadchf_bqx",
+      "column_count": 16,
+      "columns": [
+        "interval_time",
+        "pair",
+        "bqx_45",
+        "target_45",
+        "bqx_90",
+        "target_90",
+        "bqx_180",
+        "target_180",
+        "bqx_360",
+        "target_360",
+        "bqx_720",
+        "target_720",
+        "bqx_1440",
+        "target_1440",
+        "bqx_2880",
+        "target_2880"
+      ],
+      "has_ohlcv": false
+    },
+    {
+      "dataset": "bqx_ml_v3_features",
+      "table": "audusd_bqx",
+      "column_count": 16,
+      "columns": [
+        "interval_time",
+        "pair",
+        "bqx_45",
+        "target_45",
+        "bqx_90",
+        "target_90",
+        "bqx_180",
+        "target_180",
+        "bqx_360",
+        "target_360",
+        "bqx_720",
+        "target_720",
+        "bqx_1440",
+        "target_1440",
+        "bqx_2880",
+        "target_2880"
+      ],
+      "has_ohlcv": false
+    },
+    {
+      "dataset": "bqx_ml_v3_features",
+      "table": "eurusd_bqx",
+      "column_count": 16,
+      "columns": [
+        "interval_time",
+        "pair",
+        "bqx_45",
+        "target_45",
+        "bqx_90",
+        "target_90",
+        "bqx_180",
+        "target_180",
+        "bqx_360",
+        "target_360",
+        "bqx_720",
+        "target_720",
+        "bqx_1440",
+        "target_1440",
+        "bqx_2880",
+        "target_2880"
+      ],
+      "has_ohlcv": false
+    },
+    {
+      "dataset": "bqx_ml_v3_features",
+      "table": "euraud_bqx",
+      "column_count": 16,
+      "columns": [
+        "interval_time",
+        "pair",
+        "bqx_45",
+        "target_45",
+        "bqx_90",
+        "target_90",
+        "bqx_180",
+        "target_180",
+        "bqx_360",
+        "target_360",
+        "bqx_720",
+        "target_720",
+        "bqx_1440",
+        "target_1440",
+        "bqx_2880",
+        "target_2880"
+      ],
+      "has_ohlcv": false
+    },
+    {
+      "dataset": "bqx_ml_v3_features",
+      "table": "nzdusd_bqx",
+      "column_count": 16,
+      "columns": [
+        "interval_time",
+        "pair",
+        "bqx_45",
+        "target_45",
+        "bqx_90",
+        "target_90",
+        "bqx_180",
+        "target_180",
+        "bqx_360",
+        "target_360",
+        "bqx_720",
+        "target_720",
+        "bqx_1440",
+        "target_1440",
+        "bqx_2880",
+        "target_2880"
+      ],
+      "has_ohlcv": false
+    },
+    {
+      "dataset": "bqx_ml_v3_features",
+      "table": "eurjpy_bqx",
+      "column_count": 16,
+      "columns": [
+        "interval_time",
+        "pair",
+        "bqx_45",
+        "target_45",
+        "bqx_90",
+        "target_90",
+        "bqx_180",
+        "target_180",
+        "bqx_360",
+        "target_360",
+        "bqx_720",
+        "target_720",
+        "bqx_1440",
+        "target_1440",
+        "bqx_2880",
+        "target_2880"
+      ],
+      "has_ohlcv": false
+    },
+    {
+      "dataset": "bqx_ml_v3_features",
+      "table": "audjpy_bqx",
+      "column_count": 16,
+      "columns": [
+        "interval_time",
+        "pair",
+        "bqx_45",
+        "target_45",
+        "bqx_90",
+        "target_90",
+        "bqx_180",
+        "target_180",
+        "bqx_360",
+        "target_360",
+        "bqx_720",
+        "target_720",
+        "bqx_1440",
+        "target_1440",
+        "bqx_2880",
+        "target_2880"
+      ],
+      "has_ohlcv": false
+    },
+    {
+      "dataset": "bqx_ml_v3_features",
+      "table": "nzdcad_bqx",
+      "column_count": 16,
+      "columns": [
+        "interval_time",
+        "pair",
+        "bqx_45",
+        "target_45",
+        "bqx_90",
+        "target_90",
+        "bqx_180",
+        "target_180",
+        "bqx_360",
+        "target_360",
+        "bqx_720",
+        "target_720",
+        "bqx_1440",
+        "target_1440",
+        "bqx_2880",
+        "target_2880"
+      ],
+      "has_ohlcv": false
+    },
+    {
+      "dataset": "bqx_ml_v3_features",
+      "table": "gbpnzd_bqx",
+      "column_count": 16,
+      "columns": [
+        "interval_time",
+        "pair",
+        "bqx_45",
+        "target_45",
+        "bqx_90",
+        "target_90",
+        "bqx_180",
+        "target_180",
+        "bqx_360",
+        "target_360",
+        "bqx_720",
+        "target_720",
+        "bqx_1440",
+        "target_1440",
+        "bqx_2880",
+        "target_2880"
+      ],
+      "has_ohlcv": false
+    },
+    {
+      "dataset": "bqx_ml_v3_features",
+      "table": "gbpaud_bqx",
+      "column_count": 16,
+      "columns": [
+        "interval_time",
+        "pair",
+        "bqx_45",
+        "target_45",
+        "bqx_90",
+        "target_90",
+        "bqx_180",
+        "target_180",
+        "bqx_360",
+        "target_360",
+        "bqx_720",
+        "target_720",
+        "bqx_1440",
+        "target_1440",
+        "bqx_2880",
+        "target_2880"
+      ],
+      "has_ohlcv": false
+    },
+    {
+      "dataset": "bqx_ml_v3_features",
+      "table": "eurgbp_bqx",
+      "column_count": 16,
+      "columns": [
+        "interval_time",
+        "pair",
+        "bqx_45",
+        "target_45",
+        "bqx_90",
+        "target_90",
+        "bqx_180",
+        "target_180",
+        "bqx_360",
+        "target_360",
+        "bqx_720",
+        "target_720",
+        "bqx_1440",
+        "target_1440",
+        "bqx_2880",
+        "target_2880"
+      ],
+      "has_ohlcv": false
+    },
+    {
+      "dataset": "bqx_ml_v3_features",
+      "table": "eurnzd_bqx",
+      "column_count": 16,
+      "columns": [
+        "interval_time",
+        "pair",
+        "bqx_45",
+        "target_45",
+        "bqx_90",
+        "target_90",
+        "bqx_180",
+        "target_180",
+        "bqx_360",
+        "target_360",
+        "bqx_720",
+        "target_720",
+        "bqx_1440",
+        "target_1440",
+        "bqx_2880",
+        "target_2880"
+      ],
+      "has_ohlcv": false
+    }
+  ],
+  "feature_tables": {
+    "lag": [],
+    "regime": [],
+    "agg": [
+      {
+        "dataset": "bqx_bq",
+        "table": "agg_nzdchf",
+        "column_count": 9,
+        "columns": [
+          "time",
+          "agg_lin_mean",
+          "agg_lin_stdev",
+          "agg_lin_max",
+          "agg_lin_min",
+          "agg_quad_mean",
+          "agg_var_mean",
+          "agg_r2_mean",
+          "agg_lin_range"
+        ],
+        "has_ohlcv": false
+      },
+      {
+        "dataset": "bqx_bq",
+        "table": "agg_eurchf",
+        "column_count": 9,
+        "columns": [
+          "time",
+          "agg_lin_mean",
+          "agg_lin_stdev",
+          "agg_lin_max",
+          "agg_lin_min",
+          "agg_quad_mean",
+          "agg_var_mean",
+          "agg_r2_mean",
+          "agg_lin_range"
+        ],
+        "has_ohlcv": false
+      },
+      {
+        "dataset": "bqx_bq",
+        "table": "agg_eurnzd",
+        "column_count": 9,
+        "columns": [
+          "time",
+          "agg_lin_mean",
+          "agg_lin_stdev",
+          "agg_lin_max",
+          "agg_lin_min",
+          "agg_quad_mean",
+          "agg_var_mean",
+          "agg_r2_mean",
+          "agg_lin_range"
+        ],
+        "has_ohlcv": false
+      },
+      {
+        "dataset": "bqx_bq",
+        "table": "agg_eurusd",
+        "column_count": 9,
+        "columns": [
+          "time",
+          "agg_lin_mean",
+          "agg_lin_stdev",
+          "agg_lin_max",
+          "agg_lin_min",
+          "agg_quad_mean",
+          "agg_var_mean",
+          "agg_r2_mean",
+          "agg_lin_range"
+        ],
+        "has_ohlcv": false
+      },
+      {
+        "dataset": "bqx_bq",
+        "table": "agg_cadjpy",
+        "column_count": 9,
+        "columns": [
+          "time",
+          "agg_lin_mean",
+          "agg_lin_stdev",
+          "agg_lin_max",
+          "agg_lin_min",
+          "agg_quad_mean",
+          "agg_var_mean",
+          "agg_r2_mean",
+          "agg_lin_range"
+        ],
+        "has_ohlcv": false
+      },
+      {
+        "dataset": "bqx_bq",
+        "table": "agg_gbpjpy",
+        "column_count": 9,
+        "columns": [
+          "time",
+          "agg_lin_mean",
+          "agg_lin_stdev",
+          "agg_lin_max",
+          "agg_lin_min",
+          "agg_quad_mean",
+          "agg_var_mean",
+          "agg_r2_mean",
+          "agg_lin_range"
+        ],
+        "has_ohlcv": false
+      },
+      {
+        "dataset": "bqx_bq",
+        "table": "agg_gbpchf",
+        "column_count": 9,
+        "columns": [
+          "time",
+          "agg_lin_mean",
+          "agg_lin_stdev",
+          "agg_lin_max",
+          "agg_lin_min",
+          "agg_quad_mean",
+          "agg_var_mean",
+          "agg_r2_mean",
+          "agg_lin_range"
+        ],
+        "has_ohlcv": false
+      },
+      {
+        "dataset": "bqx_bq",
+        "table": "agg_audcad",
+        "column_count": 9,
+        "columns": [
+          "time",
+          "agg_lin_mean",
+          "agg_lin_stdev",
+          "agg_lin_max",
+          "agg_lin_min",
+          "agg_quad_mean",
+          "agg_var_mean",
+          "agg_r2_mean",
+          "agg_lin_range"
+        ],
+        "has_ohlcv": false
+      },
+      {
+        "dataset": "bqx_bq",
+        "table": "agg_gbpnzd",
+        "column_count": 9,
+        "columns": [
+          "time",
+          "agg_lin_mean",
+          "agg_lin_stdev",
+          "agg_lin_max",
+          "agg_lin_min",
+          "agg_quad_mean",
+          "agg_var_mean",
+          "agg_r2_mean",
+          "agg_lin_range"
+        ],
+        "has_ohlcv": false
+      },
+      {
+        "dataset": "bqx_bq",
+        "table": "agg_eurcad",
+        "column_count": 9,
+        "columns": [
+          "time",
+          "agg_lin_mean",
+          "agg_lin_stdev",
+          "agg_lin_max",
+          "agg_lin_min",
+          "agg_quad_mean",
+          "agg_var_mean",
+          "agg_r2_mean",
+          "agg_lin_range"
+        ],
+        "has_ohlcv": false
+      },
+      {
+        "dataset": "bqx_bq",
+        "table": "agg_eurjpy",
+        "column_count": 9,
+        "columns": [
+          "time",
+          "agg_lin_mean",
+          "agg_lin_stdev",
+          "agg_lin_max",
+          "agg_lin_min",
+          "agg_quad_mean",
+          "agg_var_mean",
+          "agg_r2_mean",
+          "agg_lin_range"
+        ],
+        "has_ohlcv": false
+      },
+      {
+        "dataset": "bqx_bq",
+        "table": "agg_usdchf",
+        "column_count": 9,
+        "columns": [
+          "time",
+          "agg_lin_mean",
+          "agg_lin_stdev",
+          "agg_lin_max",
+          "agg_lin_min",
+          "agg_quad_mean",
+          "agg_var_mean",
+          "agg_r2_mean",
+          "agg_lin_range"
+        ],
+        "has_ohlcv": false
+      },
+      {
+        "dataset": "bqx_bq",
+        "table": "agg_usdjpy",
+        "column_count": 9,
+        "columns": [
+          "time",
+          "agg_lin_mean",
+          "agg_lin_stdev",
+          "agg_lin_max",
+          "agg_lin_min",
+          "agg_quad_mean",
+          "agg_var_mean",
+          "agg_r2_mean",
+          "agg_lin_range"
+        ],
+        "has_ohlcv": false
+      },
+      {
+        "dataset": "bqx_bq",
+        "table": "agg_gbpcad",
+        "column_count": 9,
+        "columns": [
+          "time",
+          "agg_lin_mean",
+          "agg_lin_stdev",
+          "agg_lin_max",
+          "agg_lin_min",
+          "agg_quad_mean",
+          "agg_var_mean",
+          "agg_r2_mean",
+          "agg_lin_range"
+        ],
+        "has_ohlcv": false
+      },
+      {
+        "dataset": "bqx_bq",
+        "table": "agg_nzdusd",
+        "column_count": 9,
+        "columns": [
+          "time",
+          "agg_lin_mean",
+          "agg_lin_stdev",
+          "agg_lin_max",
+          "agg_lin_min",
+          "agg_quad_mean",
+          "agg_var_mean",
+          "agg_r2_mean",
+          "agg_lin_range"
+        ],
+        "has_ohlcv": false
+      },
+      {
+        "dataset": "bqx_bq",
+        "table": "agg_chfjpy",
+        "column_count": 9,
+        "columns": [
+          "time",
+          "agg_lin_mean",
+          "agg_lin_stdev",
+          "agg_lin_max",
+          "agg_lin_min",
+          "agg_quad_mean",
+          "agg_var_mean",
+          "agg_r2_mean",
+          "agg_lin_range"
+        ],
+        "has_ohlcv": false
+      },
+      {
+        "dataset": "bqx_bq",
+        "table": "agg_nzdcad",
+        "column_count": 9,
+        "columns": [
+          "time",
+          "agg_lin_mean",
+          "agg_lin_stdev",
+          "agg_lin_max",
+          "agg_lin_min",
+          "agg_quad_mean",
+          "agg_var_mean",
+          "agg_r2_mean",
+          "agg_lin_range"
+        ],
+        "has_ohlcv": false
+      },
+      {
+        "dataset": "bqx_bq",
+        "table": "agg_gbpaud",
+        "column_count": 9,
+        "columns": [
+          "time",
+          "agg_lin_mean",
+          "agg_lin_stdev",
+          "agg_lin_max",
+          "agg_lin_min",
+          "agg_quad_mean",
+          "agg_var_mean",
+          "agg_r2_mean",
+          "agg_lin_range"
+        ],
+        "has_ohlcv": false
+      },
+      {
+        "dataset": "bqx_bq",
+        "table": "agg_eurgbp",
+        "column_count": 9,
+        "columns": [
+          "time",
+          "agg_lin_mean",
+          "agg_lin_stdev",
+          "agg_lin_max",
+          "agg_lin_min",
+          "agg_quad_mean",
+          "agg_var_mean",
+          "agg_r2_mean",
+          "agg_lin_range"
+        ],
+        "has_ohlcv": false
+      },
+      {
+        "dataset": "bqx_bq",
+        "table": "agg_usdcad",
+        "column_count": 9,
+        "columns": [
+          "time",
+          "agg_lin_mean",
+          "agg_lin_stdev",
+          "agg_lin_max",
+          "agg_lin_min",
+          "agg_quad_mean",
+          "agg_var_mean",
+          "agg_r2_mean",
+          "agg_lin_range"
+        ],
+        "has_ohlcv": false
+      },
+      {
+        "dataset": "bqx_bq",
+        "table": "agg_gbpusd",
+        "column_count": 9,
+        "columns": [
+          "time",
+          "agg_lin_mean",
+          "agg_lin_stdev",
+          "agg_lin_max",
+          "agg_lin_min",
+          "agg_quad_mean",
+          "agg_var_mean",
+          "agg_r2_mean",
+          "agg_lin_range"
+        ],
+        "has_ohlcv": false
+      },
+      {
+        "dataset": "bqx_bq",
+        "table": "agg_cadchf",
+        "column_count": 9,
+        "columns": [
+          "time",
+          "agg_lin_mean",
+          "agg_lin_stdev",
+          "agg_lin_max",
+          "agg_lin_min",
+          "agg_quad_mean",
+          "agg_var_mean",
+          "agg_r2_mean",
+          "agg_lin_range"
+        ],
+        "has_ohlcv": false
+      },
+      {
+        "dataset": "bqx_bq",
+        "table": "agg_audjpy",
+        "column_count": 9,
+        "columns": [
+          "time",
+          "agg_lin_mean",
+          "agg_lin_stdev",
+          "agg_lin_max",
+          "agg_lin_min",
+          "agg_quad_mean",
+          "agg_var_mean",
+          "agg_r2_mean",
+          "agg_lin_range"
+        ],
+        "has_ohlcv": false
+      },
+      {
+        "dataset": "bqx_bq",
+        "table": "agg_euraud",
+        "column_count": 9,
+        "columns": [
+          "time",
+          "agg_lin_mean",
+          "agg_lin_stdev",
+          "agg_lin_max",
+          "agg_lin_min",
+          "agg_quad_mean",
+          "agg_var_mean",
+          "agg_r2_mean",
+          "agg_lin_range"
+        ],
+        "has_ohlcv": false
+      },
+      {
+        "dataset": "bqx_bq",
+        "table": "agg_audnzd",
+        "column_count": 9,
+        "columns": [
+          "time",
+          "agg_lin_mean",
+          "agg_lin_stdev",
+          "agg_lin_max",
+          "agg_lin_min",
+          "agg_quad_mean",
+          "agg_var_mean",
+          "agg_r2_mean",
+          "agg_lin_range"
+        ],
+        "has_ohlcv": false
+      },
+      {
+        "dataset": "bqx_bq",
+        "table": "agg_nzdjpy",
+        "column_count": 9,
+        "columns": [
+          "time",
+          "agg_lin_mean",
+          "agg_lin_stdev",
+          "agg_lin_max",
+          "agg_lin_min",
+          "agg_quad_mean",
+          "agg_var_mean",
+          "agg_r2_mean",
+          "agg_lin_range"
+        ],
+        "has_ohlcv": false
+      },
+      {
+        "dataset": "bqx_bq",
+        "table": "agg_audusd",
+        "column_count": 9,
+        "columns": [
+          "time",
+          "agg_lin_mean",
+          "agg_lin_stdev",
+          "agg_lin_max",
+          "agg_lin_min",
+          "agg_quad_mean",
+          "agg_var_mean",
+          "agg_r2_mean",
+          "agg_lin_range"
+        ],
+        "has_ohlcv": false
+      },
+      {
+        "dataset": "bqx_bq",
+        "table": "agg_audchf",
+        "column_count": 9,
+        "columns": [
+          "time",
+          "agg_lin_mean",
+          "agg_lin_stdev",
+          "agg_lin_max",
+          "agg_lin_min",
+          "agg_quad_mean",
+          "agg_var_mean",
+          "agg_r2_mean",
+          "agg_lin_range"
+        ],
+        "has_ohlcv": false
+      }
+    ],
+    "align": [
+      {
+        "dataset": "bqx_bq",
+        "table": "align_audnzd",
+        "column_count": 4,
+        "columns": [
+          "time",
+          "slope_alignment",
+          "slope_direction",
+          "slope_strength"
+        ],
+        "has_ohlcv": false
+      },
+      {
+        "dataset": "bqx_bq",
+        "table": "align_audcad",
+        "column_count": 4,
+        "columns": [
+          "time",
+          "slope_alignment",
+          "slope_direction",
+          "slope_strength"
+        ],
+        "has_ohlcv": false
+      },
+      {
+        "dataset": "bqx_bq",
+        "table": "align_cadjpy",
+        "column_count": 4,
+        "columns": [
+          "time",
+          "slope_alignment",
+          "slope_direction",
+          "slope_strength"
+        ],
+        "has_ohlcv": false
+      },
+      {
+        "dataset": "bqx_bq",
+        "table": "align_gbpnzd",
+        "column_count": 4,
+        "columns": [
+          "time",
+          "slope_alignment",
+          "slope_direction",
+          "slope_strength"
+        ],
+        "has_ohlcv": false
+      },
+      {
+        "dataset": "bqx_bq",
+        "table": "align_eurcad",
+        "column_count": 4,
+        "columns": [
+          "time",
+          "slope_alignment",
+          "slope_direction",
+          "slope_strength"
+        ],
+        "has_ohlcv": false
+      },
+      {
+        "dataset": "bqx_bq",
+        "table": "align_gbpjpy",
+        "column_count": 4,
+        "columns": [
+          "time",
+          "slope_alignment",
+          "slope_direction",
+          "slope_strength"
+        ],
+        "has_ohlcv": false
+      },
+      {
+        "dataset": "bqx_bq",
+        "table": "align_eurchf",
+        "column_count": 4,
+        "columns": [
+          "time",
+          "slope_alignment",
+          "slope_direction",
+          "slope_strength"
+        ],
+        "has_ohlcv": false
+      },
+      {
+        "dataset": "bqx_bq",
+        "table": "align_audjpy",
+        "column_count": 4,
+        "columns": [
+          "time",
+          "slope_alignment",
+          "slope_direction",
+          "slope_strength"
+        ],
+        "has_ohlcv": false
+      },
+      {
+        "dataset": "bqx_bq",
+        "table": "align_eurusd",
+        "column_count": 4,
+        "columns": [
+          "time",
+          "slope_alignment",
+          "slope_direction",
+          "slope_strength"
+        ],
+        "has_ohlcv": false
+      },
+      {
+        "dataset": "bqx_bq",
+        "table": "align_chfjpy",
+        "column_count": 4,
+        "columns": [
+          "time",
+          "slope_alignment",
+          "slope_direction",
+          "slope_strength"
+        ],
+        "has_ohlcv": false
+      },
+      {
+        "dataset": "bqx_bq",
+        "table": "align_eurjpy",
+        "column_count": 4,
+        "columns": [
+          "time",
+          "slope_alignment",
+          "slope_direction",
+          "slope_strength"
+        ],
+        "has_ohlcv": false
+      },
+      {
+        "dataset": "bqx_bq",
+        "table": "align_gbpusd",
+        "column_count": 4,
+        "columns": [
+          "time",
+          "slope_alignment",
+          "slope_direction",
+          "slope_strength"
+        ],
+        "has_ohlcv": false
+      },
+      {
+        "dataset": "bqx_bq",
+        "table": "align_gbpchf",
+        "column_count": 4,
+        "columns": [
+          "time",
+          "slope_alignment",
+          "slope_direction",
+          "slope_strength"
+        ],
+        "has_ohlcv": false
+      },
+      {
+        "dataset": "bqx_bq",
+        "table": "align_gbpcad",
+        "column_count": 4,
+        "columns": [
+          "time",
+          "slope_alignment",
+          "slope_direction",
+          "slope_strength"
+        ],
+        "has_ohlcv": false
+      },
+      {
+        "dataset": "bqx_bq",
+        "table": "align_eurnzd",
+        "column_count": 4,
+        "columns": [
+          "time",
+          "slope_alignment",
+          "slope_direction",
+          "slope_strength"
+        ],
+        "has_ohlcv": false
+      },
+      {
+        "dataset": "bqx_bq",
+        "table": "align_gbpaud",
+        "column_count": 4,
+        "columns": [
+          "time",
+          "slope_alignment",
+          "slope_direction",
+          "slope_strength"
+        ],
+        "has_ohlcv": false
+      },
+      {
+        "dataset": "bqx_bq",
+        "table": "align_eurgbp",
+        "column_count": 4,
+        "columns": [
+          "time",
+          "slope_alignment",
+          "slope_direction",
+          "slope_strength"
+        ],
+        "has_ohlcv": false
+      },
+      {
+        "dataset": "bqx_bq",
+        "table": "align_euraud",
+        "column_count": 4,
+        "columns": [
+          "time",
+          "slope_alignment",
+          "slope_direction",
+          "slope_strength"
+        ],
+        "has_ohlcv": false
+      },
+      {
+        "dataset": "bqx_bq",
+        "table": "align_audchf",
+        "column_count": 4,
+        "columns": [
+          "time",
+          "slope_alignment",
+          "slope_direction",
+          "slope_strength"
+        ],
+        "has_ohlcv": false
+      },
+      {
+        "dataset": "bqx_bq",
+        "table": "align_nzdcad",
+        "column_count": 4,
+        "columns": [
+          "time",
+          "slope_alignment",
+          "slope_direction",
+          "slope_strength"
+        ],
+        "has_ohlcv": false
+      },
+      {
+        "dataset": "bqx_bq",
+        "table": "align_audusd",
+        "column_count": 4,
+        "columns": [
+          "time",
+          "slope_alignment",
+          "slope_direction",
+          "slope_strength"
+        ],
+        "has_ohlcv": false
+      },
+      {
+        "dataset": "bqx_bq",
+        "table": "align_cadchf",
+        "column_count": 4,
+        "columns": [
+          "time",
+          "slope_alignment",
+          "slope_direction",
+          "slope_strength"
+        ],
+        "has_ohlcv": false
+      }
+    ],
+    "correlation": [],
+    "momentum": [],
+    "volatility": []
+  },
+  "model_tables": [
+    {
+      "dataset": "bqx_ml_v3_models",
+      "table": "eurusd_360_train",
+      "column_count": 18,
+      "columns": [
+        "interval_time",
+        "pair",
+        "bqx_lag_1",
+        "bqx_lag_2",
+        "bqx_lag_3",
+        "bqx_lag_4",
+        "bqx_lag_5",
+        "bqx_lag_6",
+        "bqx_lag_7",
+        "bqx_lag_8",
+        "bqx_lag_9",
+        "bqx_lag_10",
+        "bqx_lag_11",
+        "bqx_lag_12",
+        "bqx_lag_13",
+        "bqx_lag_14",
+        "target",
+        "split"
+      ],
+      "has_ohlcv": false
+    },
+    {
+      "dataset": "bqx_ml_v3_models",
+      "table": "gbpusd_720_train",
+      "column_count": 18,
+      "columns": [
+        "interval_time",
+        "pair",
+        "bqx_lag_1",
+        "bqx_lag_2",
+        "bqx_lag_3",
+        "bqx_lag_4",
+        "bqx_lag_5",
+        "bqx_lag_6",
+        "bqx_lag_7",
+        "bqx_lag_8",
+        "bqx_lag_9",
+        "bqx_lag_10",
+        "bqx_lag_11",
+        "bqx_lag_12",
+        "bqx_lag_13",
+        "bqx_lag_14",
+        "target",
+        "split"
+      ],
+      "has_ohlcv": false
+    },
+    {
+      "dataset": "bqx_ml_v3_models",
+      "table": "gbpusd_2880_train",
+      "column_count": 18,
+      "columns": [
+        "interval_time",
+        "pair",
+        "bqx_lag_1",
+        "bqx_lag_2",
+        "bqx_lag_3",
+        "bqx_lag_4",
+        "bqx_lag_5",
+        "bqx_lag_6",
+        "bqx_lag_7",
+        "bqx_lag_8",
+        "bqx_lag_9",
+        "bqx_lag_10",
+        "bqx_lag_11",
+        "bqx_lag_12",
+        "bqx_lag_13",
+        "bqx_lag_14",
+        "target",
+        "split"
+      ],
+      "has_ohlcv": false
+    },
+    {
+      "dataset": "bqx_ml_v3_models",
+      "table": "eurusd_2880_train",
+      "column_count": 18,
+      "columns": [
+        "interval_time",
+        "pair",
+        "bqx_lag_1",
+        "bqx_lag_2",
+        "bqx_lag_3",
+        "bqx_lag_4",
+        "bqx_lag_5",
+        "bqx_lag_6",
+        "bqx_lag_7",
+        "bqx_lag_8",
+        "bqx_lag_9",
+        "bqx_lag_10",
+        "bqx_lag_11",
+        "bqx_lag_12",
+        "bqx_lag_13",
+        "bqx_lag_14",
+        "target",
+        "split"
+      ],
+      "has_ohlcv": false
+    },
+    {
+      "dataset": "bqx_ml_v3_models",
+      "table": "eurusd_90_train",
+      "column_count": 18,
+      "columns": [
+        "interval_time",
+        "pair",
+        "bqx_lag_1",
+        "bqx_lag_2",
+        "bqx_lag_3",
+        "bqx_lag_4",
+        "bqx_lag_5",
+        "bqx_lag_6",
+        "bqx_lag_7",
+        "bqx_lag_8",
+        "bqx_lag_9",
+        "bqx_lag_10",
+        "bqx_lag_11",
+        "bqx_lag_12",
+        "bqx_lag_13",
+        "bqx_lag_14",
+        "target",
+        "split"
+      ],
+      "has_ohlcv": false
+    },
+    {
+      "dataset": "bqx_ml_v3_models",
+      "table": "gbpusd_45_train",
+      "column_count": 18,
+      "columns": [
+        "interval_time",
+        "pair",
+        "bqx_lag_1",
+        "bqx_lag_2",
+        "bqx_lag_3",
+        "bqx_lag_4",
+        "bqx_lag_5",
+        "bqx_lag_6",
+        "bqx_lag_7",
+        "bqx_lag_8",
+        "bqx_lag_9",
+        "bqx_lag_10",
+        "bqx_lag_11",
+        "bqx_lag_12",
+        "bqx_lag_13",
+        "bqx_lag_14",
+        "target",
+        "split"
+      ],
+      "has_ohlcv": false
+    },
+    {
+      "dataset": "bqx_ml_v3_models",
+      "table": "gbpusd_1440_train",
+      "column_count": 18,
+      "columns": [
+        "interval_time",
+        "pair",
+        "bqx_lag_1",
+        "bqx_lag_2",
+        "bqx_lag_3",
+        "bqx_lag_4",
+        "bqx_lag_5",
+        "bqx_lag_6",
+        "bqx_lag_7",
+        "bqx_lag_8",
+        "bqx_lag_9",
+        "bqx_lag_10",
+        "bqx_lag_11",
+        "bqx_lag_12",
+        "bqx_lag_13",
+        "bqx_lag_14",
+        "target",
+        "split"
+      ],
+      "has_ohlcv": false
+    },
+    {
+      "dataset": "bqx_ml_v3_models",
+      "table": "model_performance",
+      "column_count": 7,
+      "columns": [
+        "model_id",
+        "pair",
+        "window",
+        "r2_score",
+        "rmse",
+        "directional_accuracy",
+        "created_at"
+      ],
+      "has_ohlcv": false
+    },
+    {
+      "dataset": "bqx_ml_v3_models",
+      "table": "gbpusd_360_train",
+      "column_count": 18,
+      "columns": [
+        "interval_time",
+        "pair",
+        "bqx_lag_1",
+        "bqx_lag_2",
+        "bqx_lag_3",
+        "bqx_lag_4",
+        "bqx_lag_5",
+        "bqx_lag_6",
+        "bqx_lag_7",
+        "bqx_lag_8",
+        "bqx_lag_9",
+        "bqx_lag_10",
+        "bqx_lag_11",
+        "bqx_lag_12",
+        "bqx_lag_13",
+        "bqx_lag_14",
+        "target",
+        "split"
+      ],
+      "has_ohlcv": false
+    },
+    {
+      "dataset": "bqx_ml_v3_models",
+      "table": "gbpusd_180_train",
+      "column_count": 18,
+      "columns": [
+        "interval_time",
+        "pair",
+        "bqx_lag_1",
+        "bqx_lag_2",
+        "bqx_lag_3",
+        "bqx_lag_4",
+        "bqx_lag_5",
+        "bqx_lag_6",
+        "bqx_lag_7",
+        "bqx_lag_8",
+        "bqx_lag_9",
+        "bqx_lag_10",
+        "bqx_lag_11",
+        "bqx_lag_12",
+        "bqx_lag_13",
+        "bqx_lag_14",
+        "target",
+        "split"
+      ],
+      "has_ohlcv": false
+    },
+    {
+      "dataset": "bqx_ml_v3_models",
+      "table": "eurusd_1440_train",
+      "column_count": 18,
+      "columns": [
+        "interval_time",
+        "pair",
+        "bqx_lag_1",
+        "bqx_lag_2",
+        "bqx_lag_3",
+        "bqx_lag_4",
+        "bqx_lag_5",
+        "bqx_lag_6",
+        "bqx_lag_7",
+        "bqx_lag_8",
+        "bqx_lag_9",
+        "bqx_lag_10",
+        "bqx_lag_11",
+        "bqx_lag_12",
+        "bqx_lag_13",
+        "bqx_lag_14",
+        "target",
+        "split"
+      ],
+      "has_ohlcv": false
+    },
+    {
+      "dataset": "bqx_ml_v3_models",
+      "table": "gbpusd_90_train",
+      "column_count": 18,
+      "columns": [
+        "interval_time",
+        "pair",
+        "bqx_lag_1",
+        "bqx_lag_2",
+        "bqx_lag_3",
+        "bqx_lag_4",
+        "bqx_lag_5",
+        "bqx_lag_6",
+        "bqx_lag_7",
+        "bqx_lag_8",
+        "bqx_lag_9",
+        "bqx_lag_10",
+        "bqx_lag_11",
+        "bqx_lag_12",
+        "bqx_lag_13",
+        "bqx_lag_14",
+        "target",
+        "split"
+      ],
+      "has_ohlcv": false
+    },
+    {
+      "dataset": "bqx_ml_v3_models",
+      "table": "eurusd_45_dual_train",
+      "column_count": 32,
+      "columns": [
+        "interval_time",
+        "pair",
+        "idx_lag_1",
+        "idx_lag_2",
+        "idx_lag_3",
+        "idx_lag_4",
+        "idx_lag_5",
+        "idx_lag_6",
+        "idx_lag_7",
+        "idx_lag_8",
+        "idx_lag_9",
+        "idx_lag_10",
+        "idx_lag_11",
+        "idx_lag_12",
+        "idx_lag_13",
+        "idx_lag_14",
+        "bqx_lag_1",
+        "bqx_lag_2",
+        "bqx_lag_3",
+        "bqx_lag_4",
+        "bqx_lag_5",
+        "bqx_lag_6",
+        "bqx_lag_7",
+        "bqx_lag_8",
+        "bqx_lag_9",
+        "bqx_lag_10",
+        "bqx_lag_11",
+        "bqx_lag_12",
+        "bqx_lag_13",
+        "bqx_lag_14",
+        "target",
+        "split"
+      ],
+      "has_ohlcv": false
+    },
+    {
+      "dataset": "bqx_ml_v3_models",
+      "table": "eurusd_180_train",
+      "column_count": 18,
+      "columns": [
+        "interval_time",
+        "pair",
+        "bqx_lag_1",
+        "bqx_lag_2",
+        "bqx_lag_3",
+        "bqx_lag_4",
+        "bqx_lag_5",
+        "bqx_lag_6",
+        "bqx_lag_7",
+        "bqx_lag_8",
+        "bqx_lag_9",
+        "bqx_lag_10",
+        "bqx_lag_11",
+        "bqx_lag_12",
+        "bqx_lag_13",
+        "bqx_lag_14",
+        "target",
+        "split"
+      ],
+      "has_ohlcv": false
+    },
+    {
+      "dataset": "bqx_ml_v3_models",
+      "table": "eurusd_45_train",
+      "column_count": 18,
+      "columns": [
+        "interval_time",
+        "pair",
+        "bqx_lag_1",
+        "bqx_lag_2",
+        "bqx_lag_3",
+        "bqx_lag_4",
+        "bqx_lag_5",
+        "bqx_lag_6",
+        "bqx_lag_7",
+        "bqx_lag_8",
+        "bqx_lag_9",
+        "bqx_lag_10",
+        "bqx_lag_11",
+        "bqx_lag_12",
+        "bqx_lag_13",
+        "bqx_lag_14",
+        "target",
+        "split"
+      ],
+      "has_ohlcv": false
+    },
+    {
+      "dataset": "bqx_ml_v3_models",
+      "table": "eurusd_720_train",
+      "column_count": 18,
+      "columns": [
+        "interval_time",
+        "pair",
+        "bqx_lag_1",
+        "bqx_lag_2",
+        "bqx_lag_3",
+        "bqx_lag_4",
+        "bqx_lag_5",
+        "bqx_lag_6",
+        "bqx_lag_7",
+        "bqx_lag_8",
+        "bqx_lag_9",
+        "bqx_lag_10",
+        "bqx_lag_11",
+        "bqx_lag_12",
+        "bqx_lag_13",
+        "bqx_lag_14",
+        "target",
+        "split"
+      ],
+      "has_ohlcv": false
+    }
+  ],
+  "ohlcv_tables": [
+    {
+      "dataset": "bqx_ml_v3_features",
+      "table": "audjpy_idx",
+      "column_count": 3,
+      "columns": [
+        "interval_time",
+        "pair",
+        "close_idx"
+      ],
+      "has_ohlcv": true
+    },
+    {
+      "dataset": "bqx_ml_v3_features",
+      "table": "eurgbp_idx",
+      "column_count": 3,
+      "columns": [
+        "interval_time",
+        "pair",
+        "close_idx"
+      ],
+      "has_ohlcv": true
+    },
+    {
+      "dataset": "bqx_ml_v3_features",
+      "table": "eurnzd_idx",
+      "column_count": 3,
+      "columns": [
+        "interval_time",
+        "pair",
+        "close_idx"
+      ],
+      "has_ohlcv": true
+    },
+    {
+      "dataset": "bqx_ml_v3_features",
+      "table": "audnzd_idx",
+      "column_count": 3,
+      "columns": [
+        "interval_time",
+        "pair",
+        "close_idx"
+      ],
+      "has_ohlcv": true
+    },
+    {
+      "dataset": "bqx_ml_v3_features",
+      "table": "gbpnzd_idx",
+      "column_count": 3,
+      "columns": [
+        "interval_time",
+        "pair",
+        "close_idx"
+      ],
+      "has_ohlcv": true
+    },
+    {
+      "dataset": "bqx_ml_v3_features",
+      "table": "eurjpy_idx",
+      "column_count": 3,
+      "columns": [
+        "interval_time",
+        "pair",
+        "close_idx"
+      ],
+      "has_ohlcv": true
+    },
+    {
+      "dataset": "bqx_ml_v3_features",
+      "table": "audchf_idx",
+      "column_count": 3,
+      "columns": [
+        "interval_time",
+        "pair",
+        "close_idx"
+      ],
+      "has_ohlcv": true
+    },
+    {
+      "dataset": "bqx_ml_v3_features",
+      "table": "gbpjpy_idx",
+      "column_count": 3,
+      "columns": [
+        "interval_time",
+        "pair",
+        "close_idx"
+      ],
+      "has_ohlcv": true
+    },
+    {
+      "dataset": "bqx_ml_v3_features",
+      "table": "nzdusd_idx",
+      "column_count": 3,
+      "columns": [
+        "interval_time",
+        "pair",
+        "close_idx"
+      ],
+      "has_ohlcv": true
+    },
+    {
+      "dataset": "bqx_ml_v3_features",
+      "table": "eurchf_idx",
+      "column_count": 3,
+      "columns": [
+        "interval_time",
+        "pair",
+        "close_idx"
+      ],
+      "has_ohlcv": true
+    },
+    {
+      "dataset": "bqx_ml_v3_features",
+      "table": "cadchf_idx",
+      "column_count": 3,
+      "columns": [
+        "interval_time",
+        "pair",
+        "close_idx"
+      ],
+      "has_ohlcv": true
+    },
+    {
+      "dataset": "bqx_ml_v3_features",
+      "table": "nzdjpy_idx",
+      "column_count": 3,
+      "columns": [
+        "interval_time",
+        "pair",
+        "close_idx"
+      ],
+      "has_ohlcv": true
+    },
+    {
+      "dataset": "bqx_ml_v3_features",
+      "table": "euraud_idx",
+      "column_count": 3,
+      "columns": [
+        "interval_time",
+        "pair",
+        "close_idx"
+      ],
+      "has_ohlcv": true
+    },
+    {
+      "dataset": "bqx_ml_v3_features",
+      "table": "audcad_idx",
+      "column_count": 3,
+      "columns": [
+        "interval_time",
+        "pair",
+        "close_idx"
+      ],
+      "has_ohlcv": true
+    },
+    {
+      "dataset": "bqx_ml_v3_features",
+      "table": "gbpusd_idx",
+      "column_count": 7,
+      "columns": [
+        "interval_time",
+        "pair",
+        "open_idx",
+        "high_idx",
+        "low_idx",
+        "close_idx",
+        "volume_idx"
+      ],
+      "has_ohlcv": true
+    },
+    {
+      "dataset": "bqx_ml_v3_features",
+      "table": "eurusd_idx",
+      "column_count": 3,
+      "columns": [
+        "interval_time",
+        "pair",
+        "close_idx"
+      ],
+      "has_ohlcv": true
+    },
+    {
+      "dataset": "bqx_ml_v3_features",
+      "table": "eurcad_idx",
+      "column_count": 3,
+      "columns": [
+        "interval_time",
+        "pair",
+        "close_idx"
+      ],
+      "has_ohlcv": true
+    },
+    {
+      "dataset": "bqx_ml_v3_features",
+      "table": "gbpaud_idx",
+      "column_count": 3,
+      "columns": [
+        "interval_time",
+        "pair",
+        "close_idx"
+      ],
+      "has_ohlcv": true
+    },
+    {
+      "dataset": "bqx_ml_v3_features",
+      "table": "nzdcad_idx",
+      "column_count": 3,
+      "columns": [
+        "interval_time",
+        "pair",
+        "close_idx"
+      ],
+      "has_ohlcv": true
+    },
+    {
+      "dataset": "bqx_ml_v3_features",
+      "table": "audusd_idx",
+      "column_count": 7,
+      "columns": [
+        "interval_time",
+        "pair",
+        "open_idx",
+        "high_idx",
+        "low_idx",
+        "close_idx",
+        "volume_idx"
+      ],
+      "has_ohlcv": true
+    },
+    {
+      "dataset": "bqx_ml_v3_features",
+      "table": "gbpchf_idx",
+      "column_count": 3,
+      "columns": [
+        "interval_time",
+        "pair",
+        "close_idx"
+      ],
+      "has_ohlcv": true
+    },
+    {
+      "dataset": "bqx_ml_v3_features",
+      "table": "gbpcad_idx",
+      "column_count": 3,
+      "columns": [
+        "interval_time",
+        "pair",
+        "close_idx"
+      ],
+      "has_ohlcv": true
+    },
+    {
+      "dataset": "bqx_ml_v3_features",
+      "table": "nzdchf_idx",
+      "column_count": 3,
+      "columns": [
+        "interval_time",
+        "pair",
+        "close_idx"
+      ],
+      "has_ohlcv": true
+    },
+    {
+      "dataset": "bqx_ml_v3_features",
+      "table": "cadjpy_idx",
+      "column_count": 3,
+      "columns": [
+        "interval_time",
+        "pair",
+        "close_idx"
+      ],
+      "has_ohlcv": true
+    },
+    {
+      "dataset": "bqx_ml_v3_features",
+      "table": "chfjpy_idx",
+      "column_count": 3,
+      "columns": [
+        "interval_time",
+        "pair",
+        "close_idx"
+      ],
+      "has_ohlcv": true
+    }
+  ],
+  "unknown_tables": [
+    {
+      "dataset": "bqx_ml_v3_predictions",
+      "table": "prediction_log",
+      "column_count": 6,
+      "columns": [
+        "prediction_id",
+        "pair",
+        "window",
+        "predicted_value",
+        "actual_value",
+        "prediction_time"
+      ],
+      "has_ohlcv": false
+    }
+  ],
+  "ohlcv_sources": [
+    {
+      "dataset": "bqx_ml_v3_features",
+      "table": "audjpy_idx",
+      "pair": "AUDJPY",
+      "columns": [
+        "close_idx"
+      ],
+      "full_ohlcv": false,
+      "potential_use": "close_based_indicators_only"
+    },
+    {
+      "dataset": "bqx_ml_v3_features",
+      "table": "eurgbp_idx",
+      "pair": "EURGBP",
+      "columns": [
+        "close_idx"
+      ],
+      "full_ohlcv": false,
+      "potential_use": "close_based_indicators_only"
+    },
+    {
+      "dataset": "bqx_ml_v3_features",
+      "table": "eurnzd_idx",
+      "pair": "EURNZD",
+      "columns": [
+        "close_idx"
+      ],
+      "full_ohlcv": false,
+      "potential_use": "close_based_indicators_only"
+    },
+    {
+      "dataset": "bqx_ml_v3_features",
+      "table": "audnzd_idx",
+      "pair": "AUDNZD",
+      "columns": [
+        "close_idx"
+      ],
+      "full_ohlcv": false,
+      "potential_use": "close_based_indicators_only"
+    },
+    {
+      "dataset": "bqx_ml_v3_features",
+      "table": "gbpnzd_idx",
+      "pair": "GBPNZD",
+      "columns": [
+        "close_idx"
+      ],
+      "full_ohlcv": false,
+      "potential_use": "close_based_indicators_only"
+    },
+    {
+      "dataset": "bqx_ml_v3_features",
+      "table": "eurjpy_idx",
+      "pair": "EURJPY",
+      "columns": [
+        "close_idx"
+      ],
+      "full_ohlcv": false,
+      "potential_use": "close_based_indicators_only"
+    },
+    {
+      "dataset": "bqx_ml_v3_features",
+      "table": "audchf_idx",
+      "pair": "AUDCHF",
+      "columns": [
+        "close_idx"
+      ],
+      "full_ohlcv": false,
+      "potential_use": "close_based_indicators_only"
+    },
+    {
+      "dataset": "bqx_ml_v3_features",
+      "table": "gbpjpy_idx",
+      "pair": "GBPJPY",
+      "columns": [
+        "close_idx"
+      ],
+      "full_ohlcv": false,
+      "potential_use": "close_based_indicators_only"
+    },
+    {
+      "dataset": "bqx_ml_v3_features",
+      "table": "nzdusd_idx",
+      "pair": "NZDUSD",
+      "columns": [
+        "close_idx"
+      ],
+      "full_ohlcv": false,
+      "potential_use": "close_based_indicators_only"
+    },
+    {
+      "dataset": "bqx_ml_v3_features",
+      "table": "eurchf_idx",
+      "pair": "EURCHF",
+      "columns": [
+        "close_idx"
+      ],
+      "full_ohlcv": false,
+      "potential_use": "close_based_indicators_only"
+    },
+    {
+      "dataset": "bqx_ml_v3_features",
+      "table": "cadchf_idx",
+      "pair": "CADCHF",
+      "columns": [
+        "close_idx"
+      ],
+      "full_ohlcv": false,
+      "potential_use": "close_based_indicators_only"
+    },
+    {
+      "dataset": "bqx_ml_v3_features",
+      "table": "nzdjpy_idx",
+      "pair": "NZDJPY",
+      "columns": [
+        "close_idx"
+      ],
+      "full_ohlcv": false,
+      "potential_use": "close_based_indicators_only"
+    },
+    {
+      "dataset": "bqx_ml_v3_features",
+      "table": "euraud_idx",
+      "pair": "EURAUD",
+      "columns": [
+        "close_idx"
+      ],
+      "full_ohlcv": false,
+      "potential_use": "close_based_indicators_only"
+    },
+    {
+      "dataset": "bqx_ml_v3_features",
+      "table": "audcad_idx",
+      "pair": "AUDCAD",
+      "columns": [
+        "close_idx"
+      ],
+      "full_ohlcv": false,
+      "potential_use": "close_based_indicators_only"
+    },
+    {
+      "dataset": "bqx_ml_v3_features",
+      "table": "gbpusd_idx",
+      "pair": "GBPUSD",
+      "columns": [
+        "open_idx",
+        "high_idx",
+        "low_idx",
+        "close_idx",
+        "volume_idx"
+      ],
+      "full_ohlcv": true,
+      "potential_use": "complete_technical_indicators"
+    },
+    {
+      "dataset": "bqx_ml_v3_features",
+      "table": "eurusd_idx",
+      "pair": "EURUSD",
+      "columns": [
+        "close_idx"
+      ],
+      "full_ohlcv": false,
+      "potential_use": "close_based_indicators_only"
+    },
+    {
+      "dataset": "bqx_ml_v3_features",
+      "table": "eurcad_idx",
+      "pair": "EURCAD",
+      "columns": [
+        "close_idx"
+      ],
+      "full_ohlcv": false,
+      "potential_use": "close_based_indicators_only"
+    },
+    {
+      "dataset": "bqx_ml_v3_features",
+      "table": "gbpaud_idx",
+      "pair": "GBPAUD",
+      "columns": [
+        "close_idx"
+      ],
+      "full_ohlcv": false,
+      "potential_use": "close_based_indicators_only"
+    },
+    {
+      "dataset": "bqx_ml_v3_features",
+      "table": "nzdcad_idx",
+      "pair": "NZDCAD",
+      "columns": [
+        "close_idx"
+      ],
+      "full_ohlcv": false,
+      "potential_use": "close_based_indicators_only"
+    },
+    {
+      "dataset": "bqx_ml_v3_features",
+      "table": "audusd_idx",
+      "pair": "AUDUSD",
+      "columns": [
+        "open_idx",
+        "high_idx",
+        "low_idx",
+        "close_idx",
+        "volume_idx"
+      ],
+      "full_ohlcv": true,
+      "potential_use": "complete_technical_indicators"
+    },
+    {
+      "dataset": "bqx_ml_v3_features",
+      "table": "gbpchf_idx",
+      "pair": "GBPCHF",
+      "columns": [
+        "close_idx"
+      ],
+      "full_ohlcv": false,
+      "potential_use": "close_based_indicators_only"
+    },
+    {
+      "dataset": "bqx_ml_v3_features",
+      "table": "gbpcad_idx",
+      "pair": "GBPCAD",
+      "columns": [
+        "close_idx"
+      ],
+      "full_ohlcv": false,
+      "potential_use": "close_based_indicators_only"
+    },
+    {
+      "dataset": "bqx_ml_v3_features",
+      "table": "nzdchf_idx",
+      "pair": "NZDCHF",
+      "columns": [
+        "close_idx"
+      ],
+      "full_ohlcv": false,
+      "potential_use": "close_based_indicators_only"
+    },
+    {
+      "dataset": "bqx_ml_v3_features",
+      "table": "cadjpy_idx",
+      "pair": "CADJPY",
+      "columns": [
+        "close_idx"
+      ],
+      "full_ohlcv": false,
+      "potential_use": "close_based_indicators_only"
+    },
+    {
+      "dataset": "bqx_ml_v3_features",
+      "table": "chfjpy_idx",
+      "pair": "CHFJPY",
+      "columns": [
+        "close_idx"
+      ],
+      "full_ohlcv": false,
+      "potential_use": "close_based_indicators_only"
+    }
+  ],
+  "ohlcv_summary": {
+    "total_tables_with_ohlcv": 25,
+    "full_ohlcv_pairs": 2,
+    "partial_ohlcv_pairs": 23,
+    "full_ohlcv_list": [
+      "AUDUSD",
+      "GBPUSD"
+    ],
+    "partial_ohlcv_list": [
+      "AUDCAD",
+      "AUDCHF",
+      "AUDJPY",
+      "AUDNZD",
+      "CADCHF",
+      "CADJPY",
+      "CHFJPY",
+      "EURAUD",
+      "EURCAD",
+      "EURCHF",
+      "EURGBP",
+      "EURJPY",
+      "EURNZD",
+      "EURUSD",
+      "GBPAUD",
+      "GBPCAD",
+      "GBPCHF",
+      "GBPJPY",
+      "GBPNZD",
+      "NZDCAD",
+      "NZDCHF",
+      "NZDJPY",
+      "NZDUSD"
+    ],
+    "date_range_estimate": "to_be_determined_in_task_1_3",
+    "technical_indicator_capability": {
+      "full_273_indicators": "2 pairs (GBPUSD, AUDUSD)",
+      "close_based_only": "23 pairs (RSI, SMA, EMA, etc.)",
+      "estimated_indicator_count": 2846
+    }
+  },
+  "classification_summary": {
+    "idx_tables": 25,
+    "bqx_tables": 25,
+    "feature_tables_total": 50,
+    "feature_tables_breakdown": {
+      "lag": 0,
+      "regime": 0,
+      "agg": 28,
+      "align": 22,
+      "correlation": 0,
+      "momentum": 0,
+      "volatility": 0
+    },
+    "model_tables": 16,
+    "unknown_tables": 1
+  }
+}

@@ -1,0 +1,477 @@
+[
+  {
+    "pair": "audcad",
+    "status": "SUCCESS",
+    "total_rows": 2173438,
+    "base_close": 0.91139,
+    "base_time": 1577916000000000000,
+    "columns_updated": [
+      "open_idx",
+      "high_idx",
+      "low_idx",
+      "close_idx",
+      "volume_idx"
+    ],
+    "date_range": {
+      "earliest": "2020-01-01 22:00:00+00:00",
+      "latest": "2025-11-20 17:50:00+00:00"
+    },
+    "timestamp": "2025-11-27T17:39:39.311463"
+  },
+  {
+    "pair": "audchf",
+    "status": "SUCCESS",
+    "total_rows": 2144380,
+    "base_close": 0.67856,
+    "base_time": 1577916060000000000,
+    "columns_updated": [
+      "open_idx",
+      "high_idx",
+      "low_idx",
+      "close_idx",
+      "volume_idx"
+    ],
+    "date_range": {
+      "earliest": "2020-01-01 22:01:00+00:00",
+      "latest": "2025-11-20 17:50:00+00:00"
+    },
+    "timestamp": "2025-11-27T17:40:01.507592"
+  },
+  {
+    "pair": "audjpy",
+    "status": "SUCCESS",
+    "total_rows": 2188365,
+    "base_close": 76.247,
+    "base_time": 1577916000000000000,
+    "columns_updated": [
+      "open_idx",
+      "high_idx",
+      "low_idx",
+      "close_idx",
+      "volume_idx"
+    ],
+    "date_range": {
+      "earliest": "2020-01-01 22:00:00+00:00",
+      "latest": "2025-11-20 05:11:00+00:00"
+    },
+    "timestamp": "2025-11-27T17:40:23.201603"
+  },
+  {
+    "pair": "audnzd",
+    "status": "SUCCESS",
+    "total_rows": 2167325,
+    "base_close": 1.04286,
+    "base_time": 1577916000000000000,
+    "columns_updated": [
+      "open_idx",
+      "high_idx",
+      "low_idx",
+      "close_idx",
+      "volume_idx"
+    ],
+    "date_range": {
+      "earliest": "2020-01-01 22:00:00+00:00",
+      "latest": "2025-11-20 17:50:00+00:00"
+    },
+    "timestamp": "2025-11-27T17:40:42.896156"
+  },
+  {
+    "pair": "audusd",
+    "status": "SUCCESS",
+    "total_rows": 2121200,
+    "base_close": 0.70164,
+    "base_time": 1577916000000000000,
+    "columns_updated": [
+      "open_idx",
+      "high_idx",
+      "low_idx",
+      "close_idx",
+      "volume_idx"
+    ],
+    "date_range": {
+      "earliest": "2020-01-01 22:00:00+00:00",
+      "latest": "2025-11-20 17:50:00+00:00"
+    },
+    "timestamp": "2025-11-27T17:41:02.524375"
+  },
+  {
+    "pair": "cadchf",
+    "status": "SUCCESS",
+    "total_rows": 2023467,
+    "base_close": 0.7448,
+    "base_time": 1577916060000000000,
+    "columns_updated": [
+      "open_idx",
+      "high_idx",
+      "low_idx",
+      "close_idx",
+      "volume_idx"
+    ],
+    "date_range": {
+      "earliest": "2020-01-01 22:01:00+00:00",
+      "latest": "2025-11-20 19:54:00+00:00"
+    },
+    "timestamp": "2025-11-27T17:41:24.973235"
+  },
+  {
+    "pair": "cadjpy",
+    "status": "SUCCESS",
+    "total_rows": 2182203,
+    "base_close": 83.64,
+    "base_time": 1577916000000000000,
+    "columns_updated": [
+      "open_idx",
+      "high_idx",
+      "low_idx",
+      "close_idx",
+      "volume_idx"
+    ],
+    "date_range": {
+      "earliest": "2020-01-01 22:00:00+00:00",
+      "latest": "2025-11-20 05:54:00+00:00"
+    },
+    "timestamp": "2025-11-27T17:41:45.115497"
+  },
+  {
+    "pair": "chfjpy",
+    "status": "SUCCESS",
+    "total_rows": 1984403,
+    "base_close": 112.189,
+    "base_time": 1577916000000000000,
+    "columns_updated": [
+      "open_idx",
+      "high_idx",
+      "low_idx",
+      "close_idx",
+      "volume_idx"
+    ],
+    "date_range": {
+      "earliest": "2020-01-01 22:00:00+00:00",
+      "latest": "2025-11-20 06:17:00+00:00"
+    },
+    "timestamp": "2025-11-27T17:42:07.279837"
+  },
+  {
+    "pair": "euraud",
+    "status": "SUCCESS",
+    "total_rows": 2169762,
+    "base_close": 1.59806,
+    "base_time": 1577916000000000000,
+    "columns_updated": [
+      "open_idx",
+      "high_idx",
+      "low_idx",
+      "close_idx",
+      "volume_idx"
+    ],
+    "date_range": {
+      "earliest": "2020-01-01 22:00:00+00:00",
+      "latest": "2025-11-20 17:50:00+00:00"
+    },
+    "timestamp": "2025-11-27T17:42:33.423365"
+  },
+  {
+    "pair": "eurcad",
+    "status": "SUCCESS",
+    "total_rows": 2182332,
+    "base_close": 1.45645,
+    "base_time": 1577916000000000000,
+    "columns_updated": [
+      "open_idx",
+      "high_idx",
+      "low_idx",
+      "close_idx",
+      "volume_idx"
+    ],
+    "date_range": {
+      "earliest": "2020-01-01 22:00:00+00:00",
+      "latest": "2025-11-20 17:50:00+00:00"
+    },
+    "timestamp": "2025-11-27T17:42:58.849277"
+  },
+  {
+    "pair": "eurchf",
+    "status": "SUCCESS",
+    "total_rows": 2104085,
+    "base_close": 1.08539,
+    "base_time": 1577916000000000000,
+    "columns_updated": [
+      "open_idx",
+      "high_idx",
+      "low_idx",
+      "close_idx",
+      "volume_idx"
+    ],
+    "date_range": {
+      "earliest": "2020-01-01 22:00:00+00:00",
+      "latest": "2025-11-20 17:50:00+00:00"
+    },
+    "timestamp": "2025-11-27T17:43:22.801819"
+  },
+  {
+    "pair": "eurgbp",
+    "status": "SUCCESS",
+    "total_rows": 2132051,
+    "base_close": 0.84544,
+    "base_time": 1577916000000000000,
+    "columns_updated": [
+      "open_idx",
+      "high_idx",
+      "low_idx",
+      "close_idx",
+      "volume_idx"
+    ],
+    "date_range": {
+      "earliest": "2020-01-01 22:00:00+00:00",
+      "latest": "2025-11-20 17:50:00+00:00"
+    },
+    "timestamp": "2025-11-27T17:43:48.535991"
+  },
+  {
+    "pair": "eurjpy",
+    "status": "SUCCESS",
+    "total_rows": 2155694,
+    "base_close": 121.806,
+    "base_time": 1577916000000000000,
+    "columns_updated": [
+      "open_idx",
+      "high_idx",
+      "low_idx",
+      "close_idx",
+      "volume_idx"
+    ],
+    "date_range": {
+      "earliest": "2020-01-01 22:00:00+00:00",
+      "latest": "2025-11-20 04:26:00+00:00"
+    },
+    "timestamp": "2025-11-27T17:44:13.021657"
+  },
+  {
+    "pair": "eurnzd",
+    "status": "SUCCESS",
+    "total_rows": 2174512,
+    "base_close": 1.66527,
+    "base_time": 1577916000000000000,
+    "columns_updated": [
+      "open_idx",
+      "high_idx",
+      "low_idx",
+      "close_idx",
+      "volume_idx"
+    ],
+    "date_range": {
+      "earliest": "2020-01-01 22:00:00+00:00",
+      "latest": "2025-11-20 17:50:00+00:00"
+    },
+    "timestamp": "2025-11-27T17:44:35.207649"
+  },
+  {
+    "pair": "eurusd",
+    "status": "SUCCESS",
+    "total_rows": 2164330,
+    "base_close": 1.12121,
+    "base_time": 1577916000000000000,
+    "columns_updated": [
+      "open_idx",
+      "high_idx",
+      "low_idx",
+      "close_idx",
+      "volume_idx"
+    ],
+    "date_range": {
+      "earliest": "2020-01-01 22:00:00+00:00",
+      "latest": "2025-11-20 17:50:00+00:00"
+    },
+    "timestamp": "2025-11-27T17:45:01.094396"
+  },
+  {
+    "pair": "gbpaud",
+    "status": "SUCCESS",
+    "total_rows": 2180941,
+    "base_close": 1.88946,
+    "base_time": 1577916060000000000,
+    "columns_updated": [
+      "open_idx",
+      "high_idx",
+      "low_idx",
+      "close_idx",
+      "volume_idx"
+    ],
+    "date_range": {
+      "earliest": "2020-01-01 22:01:00+00:00",
+      "latest": "2025-11-20 17:50:00+00:00"
+    },
+    "timestamp": "2025-11-27T17:45:22.726500"
+  },
+  {
+    "pair": "gbpcad",
+    "status": "SUCCESS",
+    "total_rows": 2187293,
+    "base_close": 1.72263,
+    "base_time": 1577916000000000000,
+    "columns_updated": [
+      "open_idx",
+      "high_idx",
+      "low_idx",
+      "close_idx",
+      "volume_idx"
+    ],
+    "date_range": {
+      "earliest": "2020-01-01 22:00:00+00:00",
+      "latest": "2025-11-20 17:50:00+00:00"
+    },
+    "timestamp": "2025-11-27T17:45:51.287873"
+  },
+  {
+    "pair": "gbpchf",
+    "status": "SUCCESS",
+    "total_rows": 2073450,
+    "base_close": 1.28351,
+    "base_time": 1577916000000000000,
+    "columns_updated": [
+      "open_idx",
+      "high_idx",
+      "low_idx",
+      "close_idx",
+      "volume_idx"
+    ],
+    "date_range": {
+      "earliest": "2020-01-01 22:00:00+00:00",
+      "latest": "2025-11-20 17:50:00+00:00"
+    },
+    "timestamp": "2025-11-27T17:46:17.488066"
+  },
+  {
+    "pair": "gbpjpy",
+    "status": "SUCCESS",
+    "total_rows": 2179062,
+    "base_close": 144.108,
+    "base_time": 1577916000000000000,
+    "columns_updated": [
+      "open_idx",
+      "high_idx",
+      "low_idx",
+      "close_idx",
+      "volume_idx"
+    ],
+    "date_range": {
+      "earliest": "2020-01-01 22:00:00+00:00",
+      "latest": "2025-11-20 04:49:00+00:00"
+    },
+    "timestamp": "2025-11-27T17:46:42.606679"
+  },
+  {
+    "pair": "gbpnzd",
+    "status": "SUCCESS",
+    "total_rows": 2167456,
+    "base_close": 1.97172,
+    "base_time": 1577916060000000000,
+    "columns_updated": [
+      "open_idx",
+      "high_idx",
+      "low_idx",
+      "close_idx",
+      "volume_idx"
+    ],
+    "date_range": {
+      "earliest": "2020-01-01 22:01:00+00:00",
+      "latest": "2025-11-20 17:50:00+00:00"
+    },
+    "timestamp": "2025-11-27T17:47:07.108911"
+  },
+  {
+    "pair": "gbpusd",
+    "status": "SUCCESS",
+    "total_rows": 1972702,
+    "base_close": 1.32604,
+    "base_time": 1577916000000000000,
+    "columns_updated": [
+      "open_idx",
+      "high_idx",
+      "low_idx",
+      "close_idx",
+      "volume_idx"
+    ],
+    "date_range": {
+      "earliest": "2020-01-01 22:00:00+00:00",
+      "latest": "2025-11-20 17:50:00+00:00"
+    },
+    "timestamp": "2025-11-27T17:47:30.119409"
+  },
+  {
+    "pair": "nzdcad",
+    "status": "SUCCESS",
+    "total_rows": 2166855,
+    "base_close": 0.87486,
+    "base_time": 1577916000000000000,
+    "columns_updated": [
+      "open_idx",
+      "high_idx",
+      "low_idx",
+      "close_idx",
+      "volume_idx"
+    ],
+    "date_range": {
+      "earliest": "2020-01-01 22:00:00+00:00",
+      "latest": "2025-11-20 19:54:00+00:00"
+    },
+    "timestamp": "2025-11-27T17:48:06.637015"
+  },
+  {
+    "pair": "nzdchf",
+    "status": "SUCCESS",
+    "total_rows": 2133409,
+    "base_close": 0.65031,
+    "base_time": 1577916060000000000,
+    "columns_updated": [
+      "open_idx",
+      "high_idx",
+      "low_idx",
+      "close_idx",
+      "volume_idx"
+    ],
+    "date_range": {
+      "earliest": "2020-01-01 22:01:00+00:00",
+      "latest": "2025-11-20 19:54:00+00:00"
+    },
+    "timestamp": "2025-11-27T17:48:39.386942"
+  },
+  {
+    "pair": "nzdjpy",
+    "status": "SUCCESS",
+    "total_rows": 2178606,
+    "base_close": 73.122,
+    "base_time": 1577916000000000000,
+    "columns_updated": [
+      "open_idx",
+      "high_idx",
+      "low_idx",
+      "close_idx",
+      "volume_idx"
+    ],
+    "date_range": {
+      "earliest": "2020-01-01 22:00:00+00:00",
+      "latest": "2025-11-20 05:32:00+00:00"
+    },
+    "timestamp": "2025-11-27T17:49:08.899703"
+  },
+  {
+    "pair": "nzdusd",
+    "status": "SUCCESS",
+    "total_rows": 2126991,
+    "base_close": 0.67303,
+    "base_time": 1577916000000000000,
+    "columns_updated": [
+      "open_idx",
+      "high_idx",
+      "low_idx",
+      "close_idx",
+      "volume_idx"
+    ],
+    "date_range": {
+      "earliest": "2020-01-01 22:00:00+00:00",
+      "latest": "2025-11-20 17:50:00+00:00"
+    },
+    "timestamp": "2025-11-27T17:49:32.524561"
+  }
+]

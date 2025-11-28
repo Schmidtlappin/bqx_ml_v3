@@ -1,0 +1,395 @@
+{
+  "task": "Task 1.3: Row Count and Data Validation",
+  "threshold": 2600000,
+  "train_test_ratio": 0.8,
+  "minimum_test_rows": 525000,
+  "summary": {
+    "total_pairs": 25,
+    "ok_count": 0,
+    "acceptable_count": 23,
+    "insufficient_count": 2,
+    "avg_rows": 2137372,
+    "min_rows": 1972702,
+    "max_rows": 2188365,
+    "avg_pct_of_ideal": 82.21,
+    "assessment": "INSUFFICIENT"
+  },
+  "pairs": [
+    {
+      "pair": "audcad",
+      "total_rows": 2173438,
+      "train_rows": 1738750,
+      "test_rows": 434688,
+      "meets_minimum_threshold": false,
+      "adequate_test_set": false,
+      "pct_of_ideal": 83.59,
+      "status": "ACCEPTABLE",
+      "date_range": {
+        "earliest": "2020-01-01 22:00:00+00:00",
+        "latest": "2025-11-20 17:50:00+00:00"
+      },
+      "timestamp": "2025-11-27T17:52:58.346333"
+    },
+    {
+      "pair": "audchf",
+      "total_rows": 2144380,
+      "train_rows": 1715504,
+      "test_rows": 428876,
+      "meets_minimum_threshold": false,
+      "adequate_test_set": false,
+      "pct_of_ideal": 82.48,
+      "status": "ACCEPTABLE",
+      "date_range": {
+        "earliest": "2020-01-01 22:01:00+00:00",
+        "latest": "2025-11-20 17:50:00+00:00"
+      },
+      "timestamp": "2025-11-27T17:52:58.346348"
+    },
+    {
+      "pair": "audjpy",
+      "total_rows": 2188365,
+      "train_rows": 1750692,
+      "test_rows": 437673,
+      "meets_minimum_threshold": false,
+      "adequate_test_set": false,
+      "pct_of_ideal": 84.17,
+      "status": "ACCEPTABLE",
+      "date_range": {
+        "earliest": "2020-01-01 22:00:00+00:00",
+        "latest": "2025-11-20 05:11:00+00:00"
+      },
+      "timestamp": "2025-11-27T17:52:58.346357"
+    },
+    {
+      "pair": "audnzd",
+      "total_rows": 2167325,
+      "train_rows": 1733860,
+      "test_rows": 433465,
+      "meets_minimum_threshold": false,
+      "adequate_test_set": false,
+      "pct_of_ideal": 83.36,
+      "status": "ACCEPTABLE",
+      "date_range": {
+        "earliest": "2020-01-01 22:00:00+00:00",
+        "latest": "2025-11-20 17:50:00+00:00"
+      },
+      "timestamp": "2025-11-27T17:52:58.346364"
+    },
+    {
+      "pair": "audusd",
+      "total_rows": 2121200,
+      "train_rows": 1696960,
+      "test_rows": 424240,
+      "meets_minimum_threshold": false,
+      "adequate_test_set": false,
+      "pct_of_ideal": 81.58,
+      "status": "ACCEPTABLE",
+      "date_range": {
+        "earliest": "2020-01-01 22:00:00+00:00",
+        "latest": "2025-11-20 17:50:00+00:00"
+      },
+      "timestamp": "2025-11-27T17:52:58.346371"
+    },
+    {
+      "pair": "cadchf",
+      "total_rows": 2023467,
+      "train_rows": 1618773,
+      "test_rows": 404694,
+      "meets_minimum_threshold": false,
+      "adequate_test_set": false,
+      "pct_of_ideal": 77.83,
+      "status": "ACCEPTABLE",
+      "date_range": {
+        "earliest": "2020-01-01 22:01:00+00:00",
+        "latest": "2025-11-20 19:54:00+00:00"
+      },
+      "timestamp": "2025-11-27T17:52:58.346379"
+    },
+    {
+      "pair": "cadjpy",
+      "total_rows": 2182203,
+      "train_rows": 1745762,
+      "test_rows": 436441,
+      "meets_minimum_threshold": false,
+      "adequate_test_set": false,
+      "pct_of_ideal": 83.93,
+      "status": "ACCEPTABLE",
+      "date_range": {
+        "earliest": "2020-01-01 22:00:00+00:00",
+        "latest": "2025-11-20 05:54:00+00:00"
+      },
+      "timestamp": "2025-11-27T17:52:58.346386"
+    },
+    {
+      "pair": "chfjpy",
+      "total_rows": 1984403,
+      "train_rows": 1587522,
+      "test_rows": 396881,
+      "meets_minimum_threshold": false,
+      "adequate_test_set": false,
+      "pct_of_ideal": 76.32,
+      "status": "INSUFFICIENT",
+      "date_range": {
+        "earliest": "2020-01-01 22:00:00+00:00",
+        "latest": "2025-11-20 06:17:00+00:00"
+      },
+      "timestamp": "2025-11-27T17:52:58.346393"
+    },
+    {
+      "pair": "euraud",
+      "total_rows": 2169762,
+      "train_rows": 1735809,
+      "test_rows": 433953,
+      "meets_minimum_threshold": false,
+      "adequate_test_set": false,
+      "pct_of_ideal": 83.45,
+      "status": "ACCEPTABLE",
+      "date_range": {
+        "earliest": "2020-01-01 22:00:00+00:00",
+        "latest": "2025-11-20 17:50:00+00:00"
+      },
+      "timestamp": "2025-11-27T17:52:58.346399"
+    },
+    {
+      "pair": "eurcad",
+      "total_rows": 2182332,
+      "train_rows": 1745865,
+      "test_rows": 436467,
+      "meets_minimum_threshold": false,
+      "adequate_test_set": false,
+      "pct_of_ideal": 83.94,
+      "status": "ACCEPTABLE",
+      "date_range": {
+        "earliest": "2020-01-01 22:00:00+00:00",
+        "latest": "2025-11-20 17:50:00+00:00"
+      },
+      "timestamp": "2025-11-27T17:52:58.346407"
+    },
+    {
+      "pair": "eurchf",
+      "total_rows": 2104085,
+      "train_rows": 1683268,
+      "test_rows": 420817,
+      "meets_minimum_threshold": false,
+      "adequate_test_set": false,
+      "pct_of_ideal": 80.93,
+      "status": "ACCEPTABLE",
+      "date_range": {
+        "earliest": "2020-01-01 22:00:00+00:00",
+        "latest": "2025-11-20 17:50:00+00:00"
+      },
+      "timestamp": "2025-11-27T17:52:58.346413"
+    },
+    {
+      "pair": "eurgbp",
+      "total_rows": 2132051,
+      "train_rows": 1705640,
+      "test_rows": 426411,
+      "meets_minimum_threshold": false,
+      "adequate_test_set": false,
+      "pct_of_ideal": 82.0,
+      "status": "ACCEPTABLE",
+      "date_range": {
+        "earliest": "2020-01-01 22:00:00+00:00",
+        "latest": "2025-11-20 17:50:00+00:00"
+      },
+      "timestamp": "2025-11-27T17:52:58.346420"
+    },
+    {
+      "pair": "eurjpy",
+      "total_rows": 2155694,
+      "train_rows": 1724555,
+      "test_rows": 431139,
+      "meets_minimum_threshold": false,
+      "adequate_test_set": false,
+      "pct_of_ideal": 82.91,
+      "status": "ACCEPTABLE",
+      "date_range": {
+        "earliest": "2020-01-01 22:00:00+00:00",
+        "latest": "2025-11-20 04:26:00+00:00"
+      },
+      "timestamp": "2025-11-27T17:52:58.346427"
+    },
+    {
+      "pair": "eurnzd",
+      "total_rows": 2174512,
+      "train_rows": 1739609,
+      "test_rows": 434903,
+      "meets_minimum_threshold": false,
+      "adequate_test_set": false,
+      "pct_of_ideal": 83.64,
+      "status": "ACCEPTABLE",
+      "date_range": {
+        "earliest": "2020-01-01 22:00:00+00:00",
+        "latest": "2025-11-20 17:50:00+00:00"
+      },
+      "timestamp": "2025-11-27T17:52:58.346433"
+    },
+    {
+      "pair": "eurusd",
+      "total_rows": 2164330,
+      "train_rows": 1731464,
+      "test_rows": 432866,
+      "meets_minimum_threshold": false,
+      "adequate_test_set": false,
+      "pct_of_ideal": 83.24,
+      "status": "ACCEPTABLE",
+      "date_range": {
+        "earliest": "2020-01-01 22:00:00+00:00",
+        "latest": "2025-11-20 17:50:00+00:00"
+      },
+      "timestamp": "2025-11-27T17:52:58.346440"
+    },
+    {
+      "pair": "gbpaud",
+      "total_rows": 2180941,
+      "train_rows": 1744752,
+      "test_rows": 436189,
+      "meets_minimum_threshold": false,
+      "adequate_test_set": false,
+      "pct_of_ideal": 83.88,
+      "status": "ACCEPTABLE",
+      "date_range": {
+        "earliest": "2020-01-01 22:01:00+00:00",
+        "latest": "2025-11-20 17:50:00+00:00"
+      },
+      "timestamp": "2025-11-27T17:52:58.346449"
+    },
+    {
+      "pair": "gbpcad",
+      "total_rows": 2187293,
+      "train_rows": 1749834,
+      "test_rows": 437459,
+      "meets_minimum_threshold": false,
+      "adequate_test_set": false,
+      "pct_of_ideal": 84.13,
+      "status": "ACCEPTABLE",
+      "date_range": {
+        "earliest": "2020-01-01 22:00:00+00:00",
+        "latest": "2025-11-20 17:50:00+00:00"
+      },
+      "timestamp": "2025-11-27T17:52:58.346457"
+    },
+    {
+      "pair": "gbpchf",
+      "total_rows": 2073450,
+      "train_rows": 1658760,
+      "test_rows": 414690,
+      "meets_minimum_threshold": false,
+      "adequate_test_set": false,
+      "pct_of_ideal": 79.75,
+      "status": "ACCEPTABLE",
+      "date_range": {
+        "earliest": "2020-01-01 22:00:00+00:00",
+        "latest": "2025-11-20 17:50:00+00:00"
+      },
+      "timestamp": "2025-11-27T17:52:58.346464"
+    },
+    {
+      "pair": "gbpjpy",
+      "total_rows": 2179062,
+      "train_rows": 1743249,
+      "test_rows": 435813,
+      "meets_minimum_threshold": false,
+      "adequate_test_set": false,
+      "pct_of_ideal": 83.81,
+      "status": "ACCEPTABLE",
+      "date_range": {
+        "earliest": "2020-01-01 22:00:00+00:00",
+        "latest": "2025-11-20 04:49:00+00:00"
+      },
+      "timestamp": "2025-11-27T17:52:58.346470"
+    },
+    {
+      "pair": "gbpnzd",
+      "total_rows": 2167456,
+      "train_rows": 1733964,
+      "test_rows": 433492,
+      "meets_minimum_threshold": false,
+      "adequate_test_set": false,
+      "pct_of_ideal": 83.36,
+      "status": "ACCEPTABLE",
+      "date_range": {
+        "earliest": "2020-01-01 22:01:00+00:00",
+        "latest": "2025-11-20 17:50:00+00:00"
+      },
+      "timestamp": "2025-11-27T17:52:58.346477"
+    },
+    {
+      "pair": "gbpusd",
+      "total_rows": 1972702,
+      "train_rows": 1578161,
+      "test_rows": 394541,
+      "meets_minimum_threshold": false,
+      "adequate_test_set": false,
+      "pct_of_ideal": 75.87,
+      "status": "INSUFFICIENT",
+      "date_range": {
+        "earliest": "2020-01-01 22:00:00+00:00",
+        "latest": "2025-11-20 17:50:00+00:00"
+      },
+      "timestamp": "2025-11-27T17:52:58.346483"
+    },
+    {
+      "pair": "nzdcad",
+      "total_rows": 2166855,
+      "train_rows": 1733484,
+      "test_rows": 433371,
+      "meets_minimum_threshold": false,
+      "adequate_test_set": false,
+      "pct_of_ideal": 83.34,
+      "status": "ACCEPTABLE",
+      "date_range": {
+        "earliest": "2020-01-01 22:00:00+00:00",
+        "latest": "2025-11-20 19:54:00+00:00"
+      },
+      "timestamp": "2025-11-27T17:52:58.346490"
+    },
+    {
+      "pair": "nzdchf",
+      "total_rows": 2133409,
+      "train_rows": 1706727,
+      "test_rows": 426682,
+      "meets_minimum_threshold": false,
+      "adequate_test_set": false,
+      "pct_of_ideal": 82.05,
+      "status": "ACCEPTABLE",
+      "date_range": {
+        "earliest": "2020-01-01 22:01:00+00:00",
+        "latest": "2025-11-20 19:54:00+00:00"
+      },
+      "timestamp": "2025-11-27T17:52:58.346496"
+    },
+    {
+      "pair": "nzdjpy",
+      "total_rows": 2178606,
+      "train_rows": 1742884,
+      "test_rows": 435722,
+      "meets_minimum_threshold": false,
+      "adequate_test_set": false,
+      "pct_of_ideal": 83.79,
+      "status": "ACCEPTABLE",
+      "date_range": {
+        "earliest": "2020-01-01 22:00:00+00:00",
+        "latest": "2025-11-20 05:32:00+00:00"
+      },
+      "timestamp": "2025-11-27T17:52:58.346503"
+    },
+    {
+      "pair": "nzdusd",
+      "total_rows": 2126991,
+      "train_rows": 1701592,
+      "test_rows": 425399,
+      "meets_minimum_threshold": false,
+      "adequate_test_set": false,
+      "pct_of_ideal": 81.81,
+      "status": "ACCEPTABLE",
+      "date_range": {
+        "earliest": "2020-01-01 22:00:00+00:00",
+        "latest": "2025-11-20 17:50:00+00:00"
+      },
+      "timestamp": "2025-11-27T17:52:58.346510"
+    }
+  ],
+  "timestamp": "2025-11-27T17:52:58.346547"
+}
