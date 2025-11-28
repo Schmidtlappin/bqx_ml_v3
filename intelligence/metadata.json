@@ -1,8 +1,8 @@
 {
   "intelligence_system": {
-    "version": "1.0.0",
+    "version": "1.1.0",
     "created": "2025-11-25",
-    "last_updated": "2025-11-25",
+    "last_updated": "2025-11-28",
     "author": "BQXML Chief Engineer",
     "purpose": "Comprehensive knowledge base for BQX ML V3 project",
     "files": [
@@ -69,8 +69,17 @@
       "stages_95plus": "74.3%",
       "gap_coverage": "100%"
     },
-    "current_phase": "P03.02 - Intelligence Architecture",
-    "next_milestone": "Create 7 Intelligence JSON Files (S03.02.05)"
+    "current_phase": "Phase 2.5B REDO - Target-Based Correlation Analysis",
+    "next_milestone": "Complete EURUSD pilot correlation (49 targets)",
+    "phase_status": {
+      "Phase 0": "COMPLETE - Infrastructure setup",
+      "Phase 1": "COMPLETE - Data ingestion and validation",
+      "Phase 1B": "COMPLETE - BQX feature tables",
+      "Phase 2": "COMPLETE - Feature engineering",
+      "Phase 2.5A": "COMPLETE - Gap closure (1,759 tables)",
+      "Phase 2.5B": "IN PROGRESS - Target-based correlation analysis",
+      "Phase 3": "PENDING - Model training"
+    }
   },
   "data_metadata": {
     "source": "Forex market data providers",
@@ -80,9 +89,11 @@
     "data_warehouse": "BigQuery",
     "dataset": "bqx_ml",
     "tables": {
-      "total": 1736,
+      "total": 1759,
       "per_pair": 62,
-      "types": ["regression", "lag", "regime", "agg", "align"]
+      "mandate": 1736,
+      "compliance": "101.3%",
+      "types": ["regression", "lag", "regime", "agg", "align", "correlation", "momentum", "volatility"]
     },
     "features": {
       "price_features": "~100 per pair",
@@ -93,9 +104,11 @@
     }
   },
   "model_metadata": {
-    "architecture": "Independent Model per Currency Pair",
-    "total_models": 140,
-    "breakdown": "28 pairs × 5 algorithms",
+    "architecture": "Independent Model per Currency Pair per Horizon",
+    "total_models": 196,
+    "breakdown": "28 pairs × 7 horizons",
+    "prediction_horizons": [15, 30, 45, 60, 75, 90, 105],
+    "horizon_note": "Intervals forward (row-based, NOT time-based)",
     "algorithms": [
       {
         "name": "RandomForest",
@@ -124,7 +137,8 @@
       }
     ],
     "ensemble": "Weighted average based on recent performance",
-    "target": "BQX momentum values (bqx_ask, bqx_bid, bqx_mid)",
+    "target": "Future BQX momentum values via LEAD(bqx_*, H)",
+    "bqx_components": ["bqx_45", "bqx_90", "bqx_180", "bqx_360", "bqx_720", "bqx_1440", "bqx_2880"],
     "training_frequency": "Weekly full retrain + daily fine-tuning",
     "validation": "Time-series cross-validation (5 folds)"
   },

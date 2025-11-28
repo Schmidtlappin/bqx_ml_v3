@@ -1,0 +1,15 @@
+[Unit]
+Description=BQX-ML-V3 Workspace Backup to GDrive and Box.com
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=micha
+WorkingDirectory=/home/micha/bqx_ml_v3
+ExecStart=/home/micha/bqx_ml_v3/scripts/sync-workspace.sh
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target

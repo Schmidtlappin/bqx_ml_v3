@@ -124,10 +124,13 @@
     ],
     "ensemble": "5-algorithm weighted ensemble per pair (PLANNED)",
     "total_models_planned": 196,
-    "total_models_trained": 0,
+    "total_models_trained": 15,
     "breakdown": "28 pairs × 7 horizons",
     "horizons": [15, 30, 45, 60, 75, 90, 105],
-    "status": "NOT STARTED - pending feature completion"
+    "horizon_definition": "7 prediction horizons at 15-interval increments: 15min, 30min, 45min, 60min, 75min, 90min, 105min forward",
+    "horizon_targets": "Each model predicts bqx_* values N intervals into the future",
+    "critical_distinction": "These are PREDICTION horizons (forward-looking), NOT BQX calculation windows (backward-looking)",
+    "status": "7.7% complete - EURUSD: 8, GBPUSD: 7 models trained"
   },
   "data_pipeline_stages": {
     "ingestion": {
@@ -187,14 +190,14 @@
     }
   },
   "quality_metrics": {
-    "mandate_compliance": "31%",
-    "table_completion": "540 of 1,736 (31%)",
+    "mandate_compliance": "29%",
+    "table_completion": "504 of 1,736 (29%)",
     "feature_types_complete": "3 of 8 (38%)",
     "dual_architecture": "100% for completed types",
     "data_parity": "100% (IDX and BQX tables mirror each other)",
     "row_counts": "~2.17M per table (6 years of data)",
     "execution_performance": "67-95x faster than estimates",
-    "models_trained": "0 of 196 (0%)",
+    "models_trained": "15 of 196 (7.7%)",
     "accuracy_achieved": "Not yet measured (target: 90%+ directional)"
   }
 }

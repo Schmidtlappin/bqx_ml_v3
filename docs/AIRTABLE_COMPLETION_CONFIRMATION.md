@@ -49,7 +49,8 @@
 - All window operations use ROWS BETWEEN
 - BQX paradigm fully implemented
 - LAG/LEAD operations properly specified
-- 7 prediction horizons covered: [45, 90, 180, 360, 720, 1440, 2880] intervals
+- 7 prediction horizons covered: [15, 30, 45, 60, 75, 90, 105] intervals (forward predictions)
+- Note: [45, 90, 180, 360, 720, 1440, 2880] are BQX LOOKBACK windows (bqx_* calculation), NOT prediction horizons
 
 ---
 

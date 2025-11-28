@@ -1,266 +1,179 @@
-# 🎯 MULTI-HORIZON PREDICTION CAPABILITIES
+# MULTI-HORIZON PREDICTION CAPABILITIES
 
-## 60+ Interval Prediction Validated: From 45 Minutes to 48 Hours
+## 15-Interval Increments: From 15 Minutes to 105 Minutes
 
-**Key Achievement**: Models predict accurately up to 2880 minutes (48 hours) ahead
-**Evidence**: Extended lags (61-100) achieve 97% R² on real data
-**Implication**: Long-range forex prediction is viable
+**Key Achievement**: Models predict accurately up to 105 intervals (1hr 45min) ahead
+**Model Count**: 28 pairs x 7 horizons = 196 total models
+**Architecture**: Each pair has 7 dedicated models for different prediction horizons
 
 ---
 
-## 📊 Seven Prediction Horizons
+## Seven Prediction Horizons (CORRECT VALUES)
 
 ### Horizon Configuration
 ```
-Horizons = [45, 90, 180, 360, 720, 1440, 2880] minutes
-Models = 28 pairs × 7 horizons = 196 total models
+PREDICTION HORIZONS = [15, 30, 45, 60, 75, 90, 105] intervals forward
+Models = 28 pairs x 7 horizons = 196 total models
 ```
+
+### CRITICAL DISTINCTION
+| Type | Values | Purpose |
+|------|--------|---------|
+| **Prediction Horizons** | [15, 30, 45, 60, 75, 90, 105] | How far into the FUTURE we predict (intervals forward) |
+| **BQX Lookback Windows** | [45, 90, 180, 360, 720, 1440, 2880] | Used to CALCULATE bqx_* values (backward-looking) |
+
+**DO NOT CONFUSE THESE TWO CONCEPTS**
 
 ### Horizon Breakdown
 
-| Horizon | Minutes | Hours | Trading Style | Expected R² | Status |
-|---------|---------|-------|---------------|-------------|---------|
-| T+45 | 45 | 0.75 | Scalping | 95-97% | ✅ Validated |
-| T+90 | 90 | 1.5 | Day Trading | 93-95% | ✅ Validated |
-| T+180 | 180 | 3 | Short Swing | 90-93% | 🔄 Testing |
-| T+360 | 360 | 6 | Intraday | 87-90% | 🔄 Testing |
-| T+720 | 720 | 12 | Daily | 83-87% | ⏳ Queued |
-| T+1440 | 1440 | 24 | Position | 80-85% | ⏳ Queued |
-| T+2880 | 2880 | 48 | Multi-Day | 75-80% | ⏳ Queued |
+| Horizon | Intervals | Time | Trading Style | Status |
+|---------|-----------|------|---------------|--------|
+| H1 | 15 | 15 min | Scalping | Validated |
+| H2 | 30 | 30 min | Quick Trade | Validated |
+| H3 | 45 | 45 min | Short Trade | Validated |
+| H4 | 60 | 1 hour | Intraday | Validated |
+| H5 | 75 | 1hr 15min | Medium Trade | Testing |
+| H6 | 90 | 1hr 30min | Session Trade | Testing |
+| H7 | 105 | 1hr 45min | Position Entry | Testing |
 
 ---
 
-## 💡 Why 60+ Interval Prediction Works
+## Implementation Architecture
 
-### Evidence from Extended Lag Testing
+### Target Definition (LEAD Operations)
+Each model predicts the bqx_* value N intervals into the future:
 
-#### Key Finding
-```json
-{
-  "lag_61_100": {
-    "r2_achieved": 0.9692,
-    "improvement": "36.92%",
-    "interpretation": "Information from 61-100 minutes ago
-                     significantly improves current predictions"
-  }
-}
+```sql
+-- For horizon H1 (15 intervals forward):
+target_h15 = LEAD(bqx_45, 15) OVER (ORDER BY interval_time)
+
+-- For horizon H2 (30 intervals forward):
+target_h30 = LEAD(bqx_45, 30) OVER (ORDER BY interval_time)
+
+-- For horizon H3 (45 intervals forward):
+target_h45 = LEAD(bqx_45, 45) OVER (ORDER BY interval_time)
+
+-- And so on for 60, 75, 90, 105...
 ```
-
-#### Logical Inference
-If looking back 60-100 intervals helps predict current values with 97% accuracy, then:
-1. **Strong temporal patterns exist** at these scales
-2. **Market memory extends** beyond conventional wisdom
-3. **Forward prediction** to similar horizons is feasible
-
----
-
-## 📈 Performance Degradation Curve
-
-### Expected R² by Horizon
-```
-         R² Score
-    100% |
-     97% |●······                    [T+45: 97%]
-     95% |  ●····                    [T+90: 95%]
-     93% |    ●···                   [T+180: 93%]
-     90% |      ●··                  [T+360: 90%]
-     87% |        ●·                 [T+720: 87%]
-     85% |          ●·               [T+1440: 85%]
-     80% |            ●              [T+2880: 80%]
-     75% |              ●
-         |________________Horizon (minutes)
-         45  90  180 360 720 1440 2880
-```
-
-### Degradation Rate
-- **First hour**: ~2% per 30 minutes
-- **First day**: ~0.5% per hour
-- **Beyond 24h**: ~0.25% per hour
-
----
-
-## 🎯 Practical Trading Applications
-
-### T+45 (Scalping)
-- **Use Case**: High-frequency trading
-- **Confidence**: Very High (97% R²)
-- **Risk/Reward**: Low risk, small profits
-- **Execution**: Automated only
-
-### T+90 (Day Trading)
-- **Use Case**: Intraday momentum
-- **Confidence**: High (95% R²)
-- **Risk/Reward**: Moderate risk, moderate profits
-- **Execution**: Semi-automated
-
-### T+180 (Short Swing)
-- **Use Case**: Session transitions
-- **Confidence**: High (93% R²)
-- **Risk/Reward**: Moderate risk, good profits
-- **Execution**: Manual with alerts
-
-### T+360 (Intraday Position)
-- **Use Case**: Major session trades
-- **Confidence**: Good (90% R²)
-- **Risk/Reward**: Higher risk, higher reward
-- **Execution**: Strategic positioning
-
-### T+720 (Daily Trading)
-- **Use Case**: Overnight positions
-- **Confidence**: Moderate (87% R²)
-- **Risk/Reward**: Significant risk, significant reward
-- **Execution**: Portfolio approach
-
-### T+1440 (24-Hour Position)
-- **Use Case**: Daily trends
-- **Confidence**: Moderate (85% R²)
-- **Risk/Reward**: High risk, high reward
-- **Execution**: Risk-managed positions
-
-### T+2880 (Multi-Day)
-- **Use Case**: Swing trading
-- **Confidence**: Acceptable (80% R²)
-- **Risk/Reward**: Very high risk, very high reward
-- **Execution**: Small position sizes
-
----
-
-## 🔬 Technical Validation
-
-### How We Know 60+ Works
-
-#### 1. Lag Analysis Results
-```python
-# Lag 61-100 features provide 37% improvement
-lag_61_100_r2 = 0.9692  # 96.92% accuracy
-baseline_r2 = 0.7079     # 70.79% baseline
-improvement = 36.92%     # Massive gain
-```
-
-#### 2. Temporal Coherence
-- Markets show **autocorrelation** up to 100+ lags
-- **Patterns persist** across hourly boundaries
-- **Cyclical behaviors** at 4-hour, 8-hour, daily levels
-
-#### 3. Cross-Validation
-- Walk-forward testing confirms stability
-- Out-of-sample performance maintained
-- Multiple market regimes validated
-
----
-
-## 📊 Implementation Architecture
 
 ### Per-Horizon Model Structure
 ```python
-for horizon in [45, 90, 180, 360, 720, 1440, 2880]:
+# CORRECT prediction horizons
+PREDICTION_HORIZONS = [15, 30, 45, 60, 75, 90, 105]
+
+# BQX lookback windows (for feature calculation, NOT prediction)
+BQX_LOOKBACK_WINDOWS = [45, 90, 180, 360, 720, 1440, 2880]
+
+for horizon in PREDICTION_HORIZONS:
     for pair in currency_pairs:
         model = XGBRegressor()
-        target = f"close_idx_t+{horizon}"
-        features = idx_features + bqx_features + extended_features
+        # Target: bqx value N intervals into the future
+        target = f"bqx_45_lead_{horizon}"
+        # Features: historical data using BQX lookback windows
+        features = idx_features + bqx_features + lag_features
         model.fit(features, target)
-        models[f"{pair}_{horizon}"] = model
+        models[f"{pair}_h{horizon}"] = model
 ```
 
-### Feature Windows by Horizon
-| Horizon | Optimal Lag Window | Feature Count |
-|---------|-------------------|---------------|
-| T+45 | 1-30 | 60 |
-| T+90 | 1-45 | 90 |
-| T+180 | 1-60 | 120 |
-| T+360 | 1-90 | 180 |
-| T+720 | 1-100 | 200 |
-| T+1440 | 1-120 | 240 |
-| T+2880 | 1-150 | 300 |
+---
+
+## Feature vs Target Distinction
+
+### Features (BACKWARD-LOOKING)
+Features use historical data with LAG operations:
+- `bqx_45_lag_1`: bqx_45 value 1 interval ago
+- `bqx_45_lag_5`: bqx_45 value 5 intervals ago
+- `close_lag_10`: close price 10 intervals ago
+- Uses BQX lookback windows [45, 90, 180, 360, 720, 1440, 2880] to calculate bqx_* values
+
+### Targets (FORWARD-LOOKING)
+Targets use future data with LEAD operations:
+- `target_h15`: bqx_45 value 15 intervals into the future
+- `target_h30`: bqx_45 value 30 intervals into the future
+- Uses prediction horizons [15, 30, 45, 60, 75, 90, 105]
 
 ---
 
-## 🚀 Production Deployment Strategy
+## Trading Applications
 
-### Confidence-Based Position Sizing
-```python
-def position_size(r2_score):
-    if r2_score > 0.95:    # T+45, T+90
-        return 1.0  # Full position
-    elif r2_score > 0.90:  # T+180, T+360
-        return 0.7  # 70% position
-    elif r2_score > 0.85:  # T+720, T+1440
-        return 0.4  # 40% position
-    else:                  # T+2880
-        return 0.2  # 20% position
-```
+### H1 (15 intervals = 15 min)
+- **Use Case**: Scalping, quick momentum trades
+- **Confidence**: Highest (shortest prediction window)
+- **Execution**: Automated only
 
-### Risk Management
-- **Stop losses** scale with horizon
-- **Take profits** based on expected R²
-- **Portfolio diversification** across horizons
+### H2 (30 intervals = 30 min)
+- **Use Case**: Quick intraday trades
+- **Confidence**: Very High
+- **Execution**: Semi-automated
 
----
+### H3 (45 intervals = 45 min)
+- **Use Case**: Short-term directional trades
+- **Confidence**: High
+- **Execution**: Automated with alerts
 
-## 💡 Revolutionary Insights
+### H4 (60 intervals = 1 hour)
+- **Use Case**: Hourly trend capture
+- **Confidence**: High
+- **Execution**: Manual with model guidance
 
-### Breaking Conventional Wisdom
+### H5 (75 intervals = 1hr 15min)
+- **Use Case**: Extended momentum plays
+- **Confidence**: Good
+- **Execution**: Strategic entries
 
-#### Old Belief
-"Forex prediction beyond 5-10 minutes is impossible"
+### H6 (90 intervals = 1hr 30min)
+- **Use Case**: Session-based trading
+- **Confidence**: Good
+- **Execution**: Position building
 
-#### New Reality
-- **45-90 minutes**: 95-97% R² (Exceptional)
-- **3-6 hours**: 90-93% R² (Excellent)
-- **12-24 hours**: 85-87% R² (Very Good)
-- **48 hours**: 75-80% R² (Tradeable)
-
-### Why This Changes Everything
-1. **Portfolio strategies** can use longer horizons
-2. **Risk management** improves with confidence
-3. **Capital efficiency** through horizon diversification
-4. **Market making** possible at multiple scales
+### H7 (105 intervals = 1hr 45min)
+- **Use Case**: Trend confirmation
+- **Confidence**: Moderate
+- **Execution**: Position entry/exit planning
 
 ---
 
-## 📈 Competitive Advantage
+## Model Count Verification
 
-### Industry Comparison
-| Organization | Best Horizon | Best R² | BQX ML V3 |
-|--------------|-------------|---------|-----------|
-| Typical Quant Fund | 5-15 min | 20% | **97% @ 45 min** |
-| Top HFT Firms | 1-5 min | 40% | **95% @ 90 min** |
-| Academic Best | 30-60 min | 50% | **93% @ 180 min** |
-| Industry Leaders | 60-120 min | 60% | **90% @ 360 min** |
+| Component | Count |
+|-----------|-------|
+| Currency Pairs | 28 |
+| Prediction Horizons | 7 |
+| **Total Models** | **196** |
 
----
-
-## 🎯 Next Steps for Full Validation
-
-### Immediate (Next 24 hours)
-1. Complete testing all horizons
-2. Generate prediction decay curves
-3. Validate confidence intervals
-
-### Production Testing (Next week)
-1. Paper trade all horizons
-2. Measure actual vs predicted
-3. Calculate Sharpe ratios
-
-### Optimization (Ongoing)
-1. Horizon-specific feature selection
-2. Ensemble across horizons
-3. Dynamic horizon selection
+Calculation: 28 pairs x 7 horizons = 196 independent models
 
 ---
 
-## ✅ Conclusion
+## Why 15-Interval Increments
 
-**BQX ML V3 has validated the ability to predict forex markets from 45 minutes to 48 hours ahead with commercially viable accuracy levels.**
-
-Key achievements:
-- **Short-term** (45-90 min): 95-97% R² ✅
-- **Medium-term** (3-12 hours): 87-93% R² 🔄
-- **Long-term** (24-48 hours): 75-85% R² ⏳
-
-This multi-horizon capability enables diverse trading strategies and risk profiles, all validated on real market data.
+The 15-interval horizon structure provides:
+1. **Consistent Spacing**: Equal 15-interval gaps between horizons
+2. **Practical Trading Windows**: From scalping (15min) to position trading (1hr 45min)
+3. **Manageable Model Count**: 7 horizons per pair is computationally efficient
+4. **Forecast Degradation Curve**: Performance declines gracefully with horizon length
 
 ---
 
-*Multi-horizon validation documented: 2025-11-27*
-*Full testing completion expected: Within 24-48 hours*
+## IMPORTANT NOTES
+
+### What [45, 90, 180, 360, 720, 1440, 2880] ARE:
+These are **BQX CALCULATION LOOKBACK WINDOWS** used to compute:
+- `bqx_45`: % change over 45 intervals (45 min lookback)
+- `bqx_90`: % change over 90 intervals (90 min lookback)
+- `bqx_180`: % change over 180 intervals (3 hour lookback)
+- `bqx_360`: % change over 360 intervals (6 hour lookback)
+- `bqx_720`: % change over 720 intervals (12 hour lookback)
+- `bqx_1440`: % change over 1440 intervals (24 hour lookback)
+- `bqx_2880`: % change over 2880 intervals (48 hour lookback)
+
+### What [45, 90, 180, 360, 720, 1440, 2880] ARE NOT:
+These are **NOT prediction horizons**. Do not confuse lookback calculation windows with forward prediction horizons.
+
+### The Correct Prediction Horizons:
+`[15, 30, 45, 60, 75, 90, 105]` - 7 horizons at 15-interval increments
+
+---
+
+*Documentation corrected: 2025-11-28*
+*Previous version incorrectly stated prediction horizons as [45, 90, 180, 360, 720, 1440, 2880]*

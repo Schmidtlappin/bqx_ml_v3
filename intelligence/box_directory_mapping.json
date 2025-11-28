@@ -1,0 +1,132 @@
+{
+  "description": "Box.com directory structure mirroring GCP services for disaster recovery",
+  "last_updated": "2025-11-28T20:35:00Z",
+  "rationale": {
+    "principle": "1:1 mapping between GCP resources and Box.com directories",
+    "benefit": "Predictable, navigable backup structure that mirrors source",
+    "recovery": "Can reconstruct GCP environment directly from Box.com structure"
+  },
+  "root": {
+    "name": "bqx-ml-v3",
+    "folder_id": "353414610676",
+    "path": "/"
+  },
+  "gcp": {
+    "name": "GCP",
+    "folder_id": "353418092758",
+    "path": "/GCP/",
+    "services": {
+      "bigquery": {
+        "folder_id": "353417391696",
+        "path": "/GCP/bigquery/",
+        "description": "BigQuery datasets and table exports (Parquet format)",
+        "datasets": {
+          "bqx_bq_uscen1": {
+            "folder_id": "353419110877",
+            "path": "/GCP/bigquery/bqx_bq_uscen1/",
+            "description": "Raw OHLCV data",
+            "tables": 2463,
+            "sync_frequency": "quarterly"
+          },
+          "bqx_ml_v3_features": {
+            "folder_id": "353419806934",
+            "path": "/GCP/bigquery/bqx_ml_v3_features/",
+            "description": "Engineered features",
+            "tables": "505+",
+            "sync_frequency": "weekly"
+          },
+          "bqx_ml_v3_models": {
+            "folder_id": "353417980012",
+            "path": "/GCP/bigquery/bqx_ml_v3_models/",
+            "description": "Trained ML models",
+            "tables": 16,
+            "sync_frequency": "daily"
+          },
+          "bqx_ml_v3_predictions": {
+            "folder_id": "353419935781",
+            "path": "/GCP/bigquery/bqx_ml_v3_predictions/",
+            "description": "Model predictions",
+            "tables": 0,
+            "sync_frequency": "weekly"
+          },
+          "bqx_ml_v3_analytics": {
+            "folder_id": "353419303017",
+            "path": "/GCP/bigquery/bqx_ml_v3_analytics/",
+            "description": "Analytics metrics",
+            "tables": 0,
+            "sync_frequency": "monthly"
+          },
+          "bqx_ml_v3_staging": {
+            "folder_id": "353417344230",
+            "path": "/GCP/bigquery/bqx_ml_v3_staging/",
+            "description": "Staging/temp data",
+            "tables": "variable",
+            "sync_frequency": "on-demand"
+          }
+        }
+      },
+      "storage": {
+        "folder_id": "353418205951",
+        "path": "/GCP/storage/",
+        "description": "Cloud Storage bucket contents",
+        "buckets": {
+          "bqx-ml-exports": {
+            "folder_id": "353417675931",
+            "path": "/GCP/storage/bqx-ml-exports/",
+            "description": "Temporary BQ exports (auto-cleaned after 7 days)",
+            "sync_frequency": "transient"
+          },
+          "bqx-ml-models": {
+            "folder_id": "353417637424",
+            "path": "/GCP/storage/bqx-ml-models/",
+            "description": "Trained model artifacts",
+            "sync_frequency": "after-training"
+          },
+          "bqx-ml-artifacts": {
+            "folder_id": "353417466731",
+            "path": "/GCP/storage/bqx-ml-artifacts/",
+            "description": "Pipeline artifacts",
+            "sync_frequency": "weekly"
+          },
+          "bqx-ml-results": {
+            "folder_id": "353418724346",
+            "path": "/GCP/storage/bqx-ml-results/",
+            "description": "Prediction results",
+            "sync_frequency": "daily"
+          }
+        }
+      },
+      "secretmanager": {
+        "folder_id": "353418675697",
+        "path": "/GCP/secretmanager/",
+        "description": "Secret Manager backup configs (encrypted)",
+        "note": "Contains config backups only, not actual secrets"
+      },
+      "run": {
+        "folder_id": "353417539180",
+        "path": "/GCP/run/",
+        "description": "Cloud Run service definitions and configs"
+      },
+      "scheduler": {
+        "folder_id": "353419072353",
+        "path": "/GCP/scheduler/",
+        "description": "Cloud Scheduler job configurations"
+      },
+      "compute": {
+        "folder_id": "353417623000",
+        "path": "/GCP/compute/",
+        "description": "Compute Engine instance configs (if any)"
+      },
+      "iam": {
+        "folder_id": "353418095606",
+        "path": "/GCP/iam/",
+        "description": "IAM service account configurations"
+      }
+    }
+  },
+  "legacy_folders": {
+    "note": "Previous structure folders - to be deprecated",
+    "bigquery-datasets": "353417079805",
+    "gcs-buckets": "353417567372"
+  }
+}

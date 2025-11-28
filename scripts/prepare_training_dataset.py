@@ -35,7 +35,8 @@ def prepare_training_dataset(
 
     Args:
         pair: Currency pair (e.g., "EURUSD")
-        prediction_window: One of [45, 90, 180, 360, 720, 1440, 2880]
+        prediction_window: One of [15, 30, 45, 60, 75, 90, 105] (forward prediction horizons in intervals)
+            NOTE: These are PREDICTION horizons, NOT BQX lookback windows (which are 45,90,180,360,720,1440,2880)
         project_id: GCP project ID
         baseline_date: Reference date for indexing
 

@@ -1,0 +1,13 @@
+[Unit]
+Description=Daily BQX-ML-V3 Workspace Backup Timer
+Documentation=file:///home/micha/bqx_ml_v3/intelligence/backup_mandate.json
+
+[Timer]
+# Run daily at 00:00 UTC
+OnCalendar=*-*-* 00:00:00
+# Run 5 minutes after boot if missed
+Persistent=true
+RandomizedDelaySec=300
+
+[Install]
+WantedBy=timers.target

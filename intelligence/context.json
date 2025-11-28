@@ -33,12 +33,12 @@
       "warehouse": "BigQuery",
       "location": "us-central1",
       "migration_date": "2025-11-28",
-      "tables": 540,
+      "tables": 504,
       "mandate_target": 1736,
       "datasets": {
         "bqx_bq_uscen1": "Raw m1 OHLCV data (804 tables)",
-        "bqx_ml_v3_features": "Engineered features (540 tables)",
-        "bqx_ml_v3_models": "Trained models (0 tables - pending)",
+        "bqx_ml_v3_features": "Engineered features (504 tables)",
+        "bqx_ml_v3_models": "Trained models (15 models - EURUSD:8, GBPUSD:7)",
         "bqx_ml_v3_predictions": "Model predictions (0 tables - pending)",
         "bqx_ml_v3_analytics": "Performance metrics (0 tables - pending)",
         "bqx_ml_v3_staging": "Temporary processing (0 tables)"
@@ -50,13 +50,53 @@
       "base_id": "appR3PPnrNkVo48mO",
       "phases": 11,
       "stages": 70,
-      "completion": "31%"
+      "completion": "29%"
     },
     "version_control": {
       "platform": "GitHub",
       "repository": "Schmidtlappin/bqx_ml_v3",
       "branch": "main",
       "secrets": 4
+    },
+    "backup": {
+      "purpose": "Disaster recovery and business continuity",
+      "mandate_reference": "/intelligence/backup_mandate.json",
+      "working_backup": {
+        "provider": "Google Drive",
+        "remote": "gdrive:bqx_ml_v3",
+        "tool": "rclone",
+        "script": "scripts/sync-bqx-project.sh",
+        "role": "Working backup - FILES ONLY",
+        "limitations": "Storage quota limits, part of GCP infrastructure",
+        "disaster_recovery": false,
+        "status": "ACTIVE"
+      },
+      "disaster_recovery": {
+        "provider": "Box.com",
+        "folder_id": "353414610676",
+        "folder_name": "bqx-ml-v3",
+        "auth_method": "JWT",
+        "tool": "Box SDK (box_sdk_gen)",
+        "scripts": {
+          "files": "scripts/sync-box-backup.py",
+          "bigquery": "scripts/export-bq-to-box.py"
+        },
+        "role": "TRUE disaster recovery - FILES AND BigQuery tables",
+        "advantages": "Unlimited storage, independent from GCP",
+        "disaster_recovery": true,
+        "status": "ACTIVE",
+        "configured_date": "2025-11-28"
+      },
+      "sync_protocol": {
+        "on_user_request": "Sync files to BOTH GDrive AND Box.com",
+        "daily_automated": "Critical files at 00:00 UTC (PLANNED)",
+        "bigquery_backup": "Export BQ tables to Box.com ONLY (too large for GDrive)"
+      },
+      "execution_model": {
+        "file_sync": "Fast (minutes) - non-blocking",
+        "bigquery_backup": "Background process (4-8 hours) - non-blocking"
+      },
+      "key_rationale": "GDrive is part of GCP - if GCP fails, GDrive may be inaccessible. Box.com is completely independent and can store TB-scale BQ exports."
     }
   },
   "currency_pairs": [
@@ -103,11 +143,11 @@
       "data_parity": "Achieved 2025-11-28"
     },
     "mandate_compliance": {
-      "table_completion": "31% (540 of 1,736)",
+      "table_completion": "29% (504 of 1,736)",
       "feature_types": "3 of 8 (LAG, REGIME, Correlation)",
       "centric_perspectives": "1 of 6 (Primary-Centric only)",
       "dual_architecture": "100% for completed features",
-      "models_trained": "0 of 196",
+      "models_trained": "15 of 196 (7.7%)",
       "accuracy_target": "90%+ directional (not yet measured)"
     },
     "performance": {

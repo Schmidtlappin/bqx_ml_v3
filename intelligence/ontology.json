@@ -13,11 +13,11 @@
     "Model": {
       "definition": "Machine learning model for specific currency pair",
       "types": ["RandomForest", "XGBoost", "LightGBM", "LSTM", "GRU"],
-      "count": 0,
+      "count": 15,
       "planned_count": 196,
       "breakdown": "28 pairs × 7 horizons",
       "attributes": ["model_type", "pair_id", "horizon", "training_date", "performance_metrics"],
-      "status": "NOT STARTED - pending feature completion",
+      "status": "7.7% complete (15 of 196) - EURUSD: 8, GBPUSD: 7",
       "relationships": {
         "belongs_to_pair": "Many-to-One with CurrencyPair",
         "trained_on": "Many-to-Many with Feature",
@@ -123,7 +123,7 @@
         },
         "bqx_ml_v3_features": {
           "description": "Engineered features and indices",
-          "tables": 540,
+          "tables": 504,
           "actual_breakdown": {
             "idx_tables": 28,
             "bqx_tables": 28,
@@ -131,16 +131,16 @@
             "lag_bqx_tables": 56,
             "regime_idx_tables": 56,
             "regime_bqx_tables": 56,
-            "corr_tables": 224,
-            "ibkr_corr_tables": 36
+            "corr_tables": 224
           },
           "mandate_target": 1736,
-          "completion": "31%"
+          "completion": "29%"
         },
         "bqx_ml_v3_models": {
           "description": "Trained model artifacts",
-          "tables": 0,
-          "status": "PENDING"
+          "tables": 16,
+          "breakdown": "EURUSD: 8, GBPUSD: 7, model_performance: 1",
+          "status": "7.7% complete (15 of 196 models)"
         },
         "bqx_ml_v3_predictions": {
           "description": "Model prediction outputs",
@@ -160,10 +160,10 @@
       }
     },
     "Vertex_AI": {
-      "models": 0,
+      "models": 15,
       "planned_models": 196,
       "structure": "28 pairs × 7 horizons",
-      "status": "NOT STARTED"
+      "status": "7.7% complete (EURUSD: 8, GBPUSD: 7)"
     }
   }
 }

@@ -107,8 +107,9 @@ class MultiModelServingInfrastructure:
         )
 
         # Deploy all models to the same endpoint
+        # NOTE: Prediction horizons are [15, 30, 45, 60, 75, 90, 105] intervals forward
         for pair in CURRENCY_PAIRS:
-            for horizon in [45, 90, 180, 360, 720, 1440, 2880]:
+            for horizon in [15, 30, 45, 60, 75, 90, 105]:  # Prediction horizons
                 model_id = f"{pair}_{horizon}i"
 
                 # Deploy with traffic split for A/B testing
