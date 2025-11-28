@@ -1,0 +1,4490 @@
+{
+  "task": "Task 1.3 - Correlation Feature Generation (FX-IBKR)",
+  "timestamp": "2025-11-28T15:06:50.368379",
+  "total_tables": 224,
+  "successful": 224,
+  "failed": 0,
+  "success_rate_pct": 100.0,
+  "results": [
+    {
+      "fx_pair": "EUR_USD",
+      "ibkr_instrument": "ewa",
+      "table": "corr_ibkr_eurusd_ewa",
+      "status": "success",
+      "total_rows": 864752,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 67.96,
+        "60min_valid_pct": 76.14,
+        "90min_valid_pct": 82.07
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "EUR_USD",
+      "ibkr_instrument": "ewg",
+      "table": "corr_ibkr_eurusd_ewg",
+      "status": "success",
+      "total_rows": 927097,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 68.58,
+        "60min_valid_pct": 77.35,
+        "90min_valid_pct": 83.27
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "EUR_USD",
+      "ibkr_instrument": "ewu",
+      "table": "corr_ibkr_eurusd_ewu",
+      "status": "success",
+      "total_rows": 832136,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 68.64,
+        "60min_valid_pct": 76.01,
+        "90min_valid_pct": 81.49
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "GBP_USD",
+      "ibkr_instrument": "ewg",
+      "table": "corr_ibkr_gbpusd_ewg",
+      "status": "success",
+      "total_rows": 920910,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 68.96,
+        "60min_valid_pct": 77.75,
+        "90min_valid_pct": 83.69
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "EUR_USD",
+      "ibkr_instrument": "uup",
+      "table": "corr_ibkr_eurusd_uup",
+      "status": "success",
+      "total_rows": 973045,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 73.42,
+        "60min_valid_pct": 83.47,
+        "90min_valid_pct": 89.01
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "EUR_USD",
+      "ibkr_instrument": "ewj",
+      "table": "corr_ibkr_eurusd_ewj",
+      "status": "success",
+      "total_rows": 1003286,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 71.58,
+        "60min_valid_pct": 81.41,
+        "90min_valid_pct": 87.36
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "EUR_USD",
+      "ibkr_instrument": "gld",
+      "table": "corr_ibkr_eurusd_gld",
+      "status": "success",
+      "total_rows": 1127121,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 95.53,
+        "60min_valid_pct": 98.81,
+        "90min_valid_pct": 99.63
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "GBP_USD",
+      "ibkr_instrument": "ewa",
+      "table": "corr_ibkr_gbpusd_ewa",
+      "status": "success",
+      "total_rows": 858544,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 68.35,
+        "60min_valid_pct": 76.56,
+        "90min_valid_pct": 82.51
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "EUR_USD",
+      "ibkr_instrument": "vix",
+      "table": "corr_ibkr_eurusd_vix",
+      "status": "success",
+      "total_rows": 996838,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 98.76,
+        "60min_valid_pct": 99.99,
+        "90min_valid_pct": 99.99
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "EUR_USD",
+      "ibkr_instrument": "spy",
+      "table": "corr_ibkr_eurusd_spy",
+      "status": "success",
+      "total_rows": 1137649,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 100.0,
+        "60min_valid_pct": 100.0,
+        "90min_valid_pct": 100.0
+      },
+      "corr_60min_stats": {
+        "avg": 0.1871,
+        "min": -0.9983,
+        "max": 0.996
+      }
+    },
+    {
+      "fx_pair": "GBP_USD",
+      "ibkr_instrument": "ewj",
+      "table": "corr_ibkr_gbpusd_ewj",
+      "status": "success",
+      "total_rows": 997073,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 71.92,
+        "60min_valid_pct": 81.78,
+        "90min_valid_pct": 87.76
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "GBP_USD",
+      "ibkr_instrument": "ewu",
+      "table": "corr_ibkr_gbpusd_ewu",
+      "status": "success",
+      "total_rows": 825955,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 69.06,
+        "60min_valid_pct": 76.44,
+        "90min_valid_pct": 81.95
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "GBP_USD",
+      "ibkr_instrument": "uup",
+      "table": "corr_ibkr_gbpusd_uup",
+      "status": "success",
+      "total_rows": 966835,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 73.79,
+        "60min_valid_pct": 83.84,
+        "90min_valid_pct": 89.37
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "USD_JPY",
+      "ibkr_instrument": "ewj",
+      "table": "corr_ibkr_usdjpy_ewj",
+      "status": "success",
+      "total_rows": 1004025,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 71.49,
+        "60min_valid_pct": 81.31,
+        "90min_valid_pct": 87.26
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "GBP_USD",
+      "ibkr_instrument": "gld",
+      "table": "corr_ibkr_gbpusd_gld",
+      "status": "success",
+      "total_rows": 1120879,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 95.56,
+        "60min_valid_pct": 98.81,
+        "90min_valid_pct": 99.62
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "GBP_USD",
+      "ibkr_instrument": "spy",
+      "table": "corr_ibkr_gbpusd_spy",
+      "status": "success",
+      "total_rows": 1131405,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 100.0,
+        "60min_valid_pct": 100.0,
+        "90min_valid_pct": 100.0
+      },
+      "corr_60min_stats": {
+        "avg": 0.2348,
+        "min": -0.9973,
+        "max": 0.9945
+      }
+    },
+    {
+      "fx_pair": "GBP_USD",
+      "ibkr_instrument": "vix",
+      "table": "corr_ibkr_gbpusd_vix",
+      "status": "success",
+      "total_rows": 995799,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 98.75,
+        "60min_valid_pct": 99.99,
+        "90min_valid_pct": 99.99
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "USD_JPY",
+      "ibkr_instrument": "ewg",
+      "table": "corr_ibkr_usdjpy_ewg",
+      "status": "success",
+      "total_rows": 927844,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 68.49,
+        "60min_valid_pct": 77.24,
+        "90min_valid_pct": 83.16
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "USD_JPY",
+      "ibkr_instrument": "ewa",
+      "table": "corr_ibkr_usdjpy_ewa",
+      "status": "success",
+      "total_rows": 865522,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 67.87,
+        "60min_valid_pct": 76.03,
+        "90min_valid_pct": 81.95
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "USD_JPY",
+      "ibkr_instrument": "ewu",
+      "table": "corr_ibkr_usdjpy_ewu",
+      "status": "success",
+      "total_rows": 832910,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 68.54,
+        "60min_valid_pct": 75.88,
+        "90min_valid_pct": 81.36
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "USD_JPY",
+      "ibkr_instrument": "uup",
+      "table": "corr_ibkr_usdjpy_uup",
+      "status": "success",
+      "total_rows": 973811,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 73.32,
+        "60min_valid_pct": 83.36,
+        "90min_valid_pct": 88.89
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "USD_CHF",
+      "ibkr_instrument": "ewg",
+      "table": "corr_ibkr_usdchf_ewg",
+      "status": "success",
+      "total_rows": 888557,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 70.45,
+        "60min_valid_pct": 79.37,
+        "90min_valid_pct": 85.38
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "USD_CHF",
+      "ibkr_instrument": "ewa",
+      "table": "corr_ibkr_usdchf_ewa",
+      "status": "success",
+      "total_rows": 825912,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 69.93,
+        "60min_valid_pct": 78.29,
+        "90min_valid_pct": 84.34
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "USD_CHF",
+      "ibkr_instrument": "ewu",
+      "table": "corr_ibkr_usdchf_ewu",
+      "status": "success",
+      "total_rows": 793326,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 70.76,
+        "60min_valid_pct": 78.24,
+        "90min_valid_pct": 83.82
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "USD_JPY",
+      "ibkr_instrument": "gld",
+      "table": "corr_ibkr_usdjpy_gld",
+      "status": "success",
+      "total_rows": 1127853,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 95.48,
+        "60min_valid_pct": 98.79,
+        "90min_valid_pct": 99.62
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "USD_JPY",
+      "ibkr_instrument": "spy",
+      "table": "corr_ibkr_usdjpy_spy",
+      "status": "success",
+      "total_rows": 1138381,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 100.0,
+        "60min_valid_pct": 100.0,
+        "90min_valid_pct": 100.0
+      },
+      "corr_60min_stats": {
+        "avg": 0.0046,
+        "min": -0.991,
+        "max": 0.9989
+      }
+    },
+    {
+      "fx_pair": "USD_CHF",
+      "ibkr_instrument": "gld",
+      "table": "corr_ibkr_usdchf_gld",
+      "status": "success",
+      "total_rows": 1087240,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 95.78,
+        "60min_valid_pct": 98.86,
+        "90min_valid_pct": 99.65
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "USD_JPY",
+      "ibkr_instrument": "vix",
+      "table": "corr_ibkr_usdjpy_vix",
+      "status": "success",
+      "total_rows": 996691,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 98.74,
+        "60min_valid_pct": 99.99,
+        "90min_valid_pct": 99.99
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "USD_CHF",
+      "ibkr_instrument": "ewj",
+      "table": "corr_ibkr_usdchf_ewj",
+      "status": "success",
+      "total_rows": 964418,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 73.3,
+        "60min_valid_pct": 83.24,
+        "90min_valid_pct": 89.18
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "USD_CHF",
+      "ibkr_instrument": "uup",
+      "table": "corr_ibkr_usdchf_uup",
+      "status": "success",
+      "total_rows": 933469,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 75.34,
+        "60min_valid_pct": 85.28,
+        "90min_valid_pct": 90.69
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "USD_CAD",
+      "ibkr_instrument": "ewa",
+      "table": "corr_ibkr_usdcad_ewa",
+      "status": "success",
+      "total_rows": 859564,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 68.31,
+        "60min_valid_pct": 76.53,
+        "90min_valid_pct": 82.49
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "USD_CHF",
+      "ibkr_instrument": "spy",
+      "table": "corr_ibkr_usdchf_spy",
+      "status": "success",
+      "total_rows": 1097739,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 100.0,
+        "60min_valid_pct": 100.0,
+        "90min_valid_pct": 100.0
+      },
+      "corr_60min_stats": {
+        "avg": -0.105,
+        "min": -0.9937,
+        "max": 0.998
+      }
+    },
+    {
+      "fx_pair": "USD_CAD",
+      "ibkr_instrument": "ewg",
+      "table": "corr_ibkr_usdcad_ewg",
+      "status": "success",
+      "total_rows": 921910,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 68.91,
+        "60min_valid_pct": 77.72,
+        "90min_valid_pct": 83.66
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "USD_CHF",
+      "ibkr_instrument": "vix",
+      "table": "corr_ibkr_usdchf_vix",
+      "status": "success",
+      "total_rows": 982540,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 98.85,
+        "60min_valid_pct": 99.99,
+        "90min_valid_pct": 99.99
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "USD_CAD",
+      "ibkr_instrument": "ewu",
+      "table": "corr_ibkr_usdcad_ewu",
+      "status": "success",
+      "total_rows": 826977,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 69.02,
+        "60min_valid_pct": 76.41,
+        "90min_valid_pct": 81.92
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "USD_CAD",
+      "ibkr_instrument": "ewj",
+      "table": "corr_ibkr_usdcad_ewj",
+      "status": "success",
+      "total_rows": 998012,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 71.9,
+        "60min_valid_pct": 81.76,
+        "90min_valid_pct": 87.73
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "AUD_USD",
+      "ibkr_instrument": "ewa",
+      "table": "corr_ibkr_audusd_ewa",
+      "status": "success",
+      "total_rows": 847806,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 68.85,
+        "60min_valid_pct": 77.07,
+        "90min_valid_pct": 83.1
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "AUD_USD",
+      "ibkr_instrument": "ewg",
+      "table": "corr_ibkr_audusd_ewg",
+      "status": "success",
+      "total_rows": 910193,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 69.44,
+        "60min_valid_pct": 78.24,
+        "90min_valid_pct": 84.24
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "USD_CAD",
+      "ibkr_instrument": "uup",
+      "table": "corr_ibkr_usdcad_uup",
+      "status": "success",
+      "total_rows": 967789,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 73.76,
+        "60min_valid_pct": 83.83,
+        "90min_valid_pct": 89.36
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "AUD_USD",
+      "ibkr_instrument": "ewu",
+      "table": "corr_ibkr_audusd_ewu",
+      "status": "success",
+      "total_rows": 815193,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 69.61,
+        "60min_valid_pct": 76.98,
+        "90min_valid_pct": 82.54
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "USD_CAD",
+      "ibkr_instrument": "gld",
+      "table": "corr_ibkr_usdcad_gld",
+      "status": "success",
+      "total_rows": 1121669,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 95.58,
+        "60min_valid_pct": 98.82,
+        "90min_valid_pct": 99.63
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "AUD_USD",
+      "ibkr_instrument": "ewj",
+      "table": "corr_ibkr_audusd_ewj",
+      "status": "success",
+      "total_rows": 986124,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 72.36,
+        "60min_valid_pct": 82.2,
+        "90min_valid_pct": 88.19
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "USD_CAD",
+      "ibkr_instrument": "vix",
+      "table": "corr_ibkr_usdcad_vix",
+      "status": "success",
+      "total_rows": 995922,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 98.76,
+        "60min_valid_pct": 99.99,
+        "90min_valid_pct": 99.99
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "AUD_USD",
+      "ibkr_instrument": "uup",
+      "table": "corr_ibkr_audusd_uup",
+      "status": "success",
+      "total_rows": 955772,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 74.31,
+        "60min_valid_pct": 84.29,
+        "90min_valid_pct": 89.83
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "USD_CAD",
+      "ibkr_instrument": "spy",
+      "table": "corr_ibkr_usdcad_spy",
+      "status": "success",
+      "total_rows": 1132186,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 100.0,
+        "60min_valid_pct": 100.0,
+        "90min_valid_pct": 100.0
+      },
+      "corr_60min_stats": {
+        "avg": -0.3046,
+        "min": -0.9979,
+        "max": 0.9895
+      }
+    },
+    {
+      "fx_pair": "AUD_USD",
+      "ibkr_instrument": "spy",
+      "table": "corr_ibkr_audusd_spy",
+      "status": "success",
+      "total_rows": 1119892,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 100.0,
+        "60min_valid_pct": 100.0,
+        "90min_valid_pct": 100.0
+      },
+      "corr_60min_stats": {
+        "avg": 0.339,
+        "min": -0.9923,
+        "max": 0.9959
+      }
+    },
+    {
+      "fx_pair": "AUD_USD",
+      "ibkr_instrument": "gld",
+      "table": "corr_ibkr_audusd_gld",
+      "status": "success",
+      "total_rows": 1109378,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 95.67,
+        "60min_valid_pct": 98.85,
+        "90min_valid_pct": 99.64
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "NZD_USD",
+      "ibkr_instrument": "ewg",
+      "table": "corr_ibkr_nzdusd_ewg",
+      "status": "success",
+      "total_rows": 909494,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 69.08,
+        "60min_valid_pct": 77.91,
+        "90min_valid_pct": 83.92
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "AUD_USD",
+      "ibkr_instrument": "vix",
+      "table": "corr_ibkr_audusd_vix",
+      "status": "success",
+      "total_rows": 989462,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 98.89,
+        "60min_valid_pct": 99.99,
+        "90min_valid_pct": 99.99
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "NZD_USD",
+      "ibkr_instrument": "ewj",
+      "table": "corr_ibkr_nzdusd_ewj",
+      "status": "success",
+      "total_rows": 985584,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 72.05,
+        "60min_valid_pct": 81.92,
+        "90min_valid_pct": 87.93
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "NZD_USD",
+      "ibkr_instrument": "ewa",
+      "table": "corr_ibkr_nzdusd_ewa",
+      "status": "success",
+      "total_rows": 847016,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 68.49,
+        "60min_valid_pct": 76.73,
+        "90min_valid_pct": 82.76
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "NZD_USD",
+      "ibkr_instrument": "ewu",
+      "table": "corr_ibkr_nzdusd_ewu",
+      "status": "success",
+      "total_rows": 814380,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 69.22,
+        "60min_valid_pct": 76.62,
+        "90min_valid_pct": 82.19
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "NZD_USD",
+      "ibkr_instrument": "gld",
+      "table": "corr_ibkr_nzdusd_gld",
+      "status": "success",
+      "total_rows": 1109151,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 95.6,
+        "60min_valid_pct": 98.83,
+        "90min_valid_pct": 99.63
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "NZD_USD",
+      "ibkr_instrument": "uup",
+      "table": "corr_ibkr_nzdusd_uup",
+      "status": "success",
+      "total_rows": 955143,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 74.0,
+        "60min_valid_pct": 84.02,
+        "90min_valid_pct": 89.59
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "NZD_USD",
+      "ibkr_instrument": "vix",
+      "table": "corr_ibkr_nzdusd_vix",
+      "status": "success",
+      "total_rows": 986877,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 98.88,
+        "60min_valid_pct": 99.99,
+        "90min_valid_pct": 99.99
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "EUR_GBP",
+      "ibkr_instrument": "ewa",
+      "table": "corr_ibkr_eurgbp_ewa",
+      "status": "success",
+      "total_rows": 853597,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 68.51,
+        "60min_valid_pct": 76.75,
+        "90min_valid_pct": 82.73
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "EUR_GBP",
+      "ibkr_instrument": "ewg",
+      "table": "corr_ibkr_eurgbp_ewg",
+      "status": "success",
+      "total_rows": 915973,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 69.11,
+        "60min_valid_pct": 77.93,
+        "90min_valid_pct": 83.9
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "NZD_USD",
+      "ibkr_instrument": "spy",
+      "table": "corr_ibkr_nzdusd_spy",
+      "status": "success",
+      "total_rows": 1119676,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 100.0,
+        "60min_valid_pct": 100.0,
+        "90min_valid_pct": 100.0
+      },
+      "corr_60min_stats": {
+        "avg": 0.2916,
+        "min": -0.9915,
+        "max": 0.9955
+      }
+    },
+    {
+      "fx_pair": "EUR_GBP",
+      "ibkr_instrument": "ewu",
+      "table": "corr_ibkr_eurgbp_ewu",
+      "status": "success",
+      "total_rows": 820982,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 69.24,
+        "60min_valid_pct": 76.64,
+        "90min_valid_pct": 82.18
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "EUR_GBP",
+      "ibkr_instrument": "ewj",
+      "table": "corr_ibkr_eurgbp_ewj",
+      "status": "success",
+      "total_rows": 992099,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 72.04,
+        "60min_valid_pct": 81.9,
+        "90min_valid_pct": 87.89
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "EUR_GBP",
+      "ibkr_instrument": "gld",
+      "table": "corr_ibkr_eurgbp_gld",
+      "status": "success",
+      "total_rows": 1115815,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 95.59,
+        "60min_valid_pct": 98.83,
+        "90min_valid_pct": 99.64
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "EUR_GBP",
+      "ibkr_instrument": "spy",
+      "table": "corr_ibkr_eurgbp_spy",
+      "status": "success",
+      "total_rows": 1126342,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 100.0,
+        "60min_valid_pct": 100.0,
+        "90min_valid_pct": 100.0
+      },
+      "corr_60min_stats": {
+        "avg": -0.0951,
+        "min": -0.9971,
+        "max": 0.9952
+      }
+    },
+    {
+      "fx_pair": "EUR_GBP",
+      "ibkr_instrument": "uup",
+      "table": "corr_ibkr_eurgbp_uup",
+      "status": "success",
+      "total_rows": 961800,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 73.99,
+        "60min_valid_pct": 84.03,
+        "90min_valid_pct": 89.58
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "EUR_JPY",
+      "ibkr_instrument": "ewa",
+      "table": "corr_ibkr_eurjpy_ewa",
+      "status": "success",
+      "total_rows": 861742,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 67.96,
+        "60min_valid_pct": 76.13,
+        "90min_valid_pct": 82.07
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "EUR_JPY",
+      "ibkr_instrument": "ewg",
+      "table": "corr_ibkr_eurjpy_ewg",
+      "status": "success",
+      "total_rows": 924147,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 68.59,
+        "60min_valid_pct": 77.34,
+        "90min_valid_pct": 83.28
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "EUR_JPY",
+      "ibkr_instrument": "ewu",
+      "table": "corr_ibkr_eurjpy_ewu",
+      "status": "success",
+      "total_rows": 829121,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 68.65,
+        "60min_valid_pct": 75.99,
+        "90min_valid_pct": 81.49
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "EUR_JPY",
+      "ibkr_instrument": "gld",
+      "table": "corr_ibkr_eurjpy_gld",
+      "status": "success",
+      "total_rows": 1124077,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 95.43,
+        "60min_valid_pct": 98.77,
+        "90min_valid_pct": 99.61
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "EUR_JPY",
+      "ibkr_instrument": "uup",
+      "table": "corr_ibkr_eurjpy_uup",
+      "status": "success",
+      "total_rows": 969968,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 73.47,
+        "60min_valid_pct": 83.49,
+        "90min_valid_pct": 89.03
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "EUR_GBP",
+      "ibkr_instrument": "vix",
+      "table": "corr_ibkr_eurgbp_vix",
+      "status": "success",
+      "total_rows": 992389,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 98.84,
+        "60min_valid_pct": 99.99,
+        "90min_valid_pct": 99.99
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "EUR_JPY",
+      "ibkr_instrument": "ewj",
+      "table": "corr_ibkr_eurjpy_ewj",
+      "status": "success",
+      "total_rows": 1000313,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 71.57,
+        "60min_valid_pct": 81.39,
+        "90min_valid_pct": 87.36
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "EUR_CHF",
+      "ibkr_instrument": "ewu",
+      "table": "corr_ibkr_eurchf_ewu",
+      "status": "success",
+      "total_rows": 812775,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 69.42,
+        "60min_valid_pct": 76.86,
+        "90min_valid_pct": 82.45
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "EUR_CHF",
+      "ibkr_instrument": "ewa",
+      "table": "corr_ibkr_eurchf_ewa",
+      "status": "success",
+      "total_rows": 845375,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 68.67,
+        "60min_valid_pct": 76.96,
+        "90min_valid_pct": 83.0
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "EUR_CHF",
+      "ibkr_instrument": "ewj",
+      "table": "corr_ibkr_eurchf_ewj",
+      "status": "success",
+      "total_rows": 983887,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 72.22,
+        "60min_valid_pct": 82.13,
+        "90min_valid_pct": 88.14
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "EUR_JPY",
+      "ibkr_instrument": "spy",
+      "table": "corr_ibkr_eurjpy_spy",
+      "status": "success",
+      "total_rows": 1134605,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 100.0,
+        "60min_valid_pct": 100.0,
+        "90min_valid_pct": 100.0
+      },
+      "corr_60min_stats": {
+        "avg": 0.1848,
+        "min": -0.9892,
+        "max": 0.9971
+      }
+    },
+    {
+      "fx_pair": "EUR_CHF",
+      "ibkr_instrument": "uup",
+      "table": "corr_ibkr_eurchf_uup",
+      "status": "success",
+      "total_rows": 953155,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 74.21,
+        "60min_valid_pct": 84.2,
+        "90min_valid_pct": 89.72
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "EUR_CHF",
+      "ibkr_instrument": "gld",
+      "table": "corr_ibkr_eurchf_gld",
+      "status": "success",
+      "total_rows": 1107085,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 95.65,
+        "60min_valid_pct": 98.84,
+        "90min_valid_pct": 99.63
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "EUR_JPY",
+      "ibkr_instrument": "vix",
+      "table": "corr_ibkr_eurjpy_vix",
+      "status": "success",
+      "total_rows": 994657,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 98.73,
+        "60min_valid_pct": 99.99,
+        "90min_valid_pct": 99.99
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "EUR_CHF",
+      "ibkr_instrument": "spy",
+      "table": "corr_ibkr_eurchf_spy",
+      "status": "success",
+      "total_rows": 1117606,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 100.0,
+        "60min_valid_pct": 100.0,
+        "90min_valid_pct": 100.0
+      },
+      "corr_60min_stats": {
+        "avg": 0.0953,
+        "min": -0.99,
+        "max": 0.998
+      }
+    },
+    {
+      "fx_pair": "EUR_CHF",
+      "ibkr_instrument": "ewg",
+      "table": "corr_ibkr_eurchf_ewg",
+      "status": "success",
+      "total_rows": 907925,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 69.27,
+        "60min_valid_pct": 78.12,
+        "90min_valid_pct": 84.13
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "EUR_CHF",
+      "ibkr_instrument": "vix",
+      "table": "corr_ibkr_eurchf_vix",
+      "status": "success",
+      "total_rows": 987760,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 98.77,
+        "60min_valid_pct": 99.99,
+        "90min_valid_pct": 99.99
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "EUR_AUD",
+      "ibkr_instrument": "ewj",
+      "table": "corr_ibkr_euraud_ewj",
+      "status": "success",
+      "total_rows": 1006551,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 71.29,
+        "60min_valid_pct": 81.1,
+        "90min_valid_pct": 87.06
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "EUR_AUD",
+      "ibkr_instrument": "ewu",
+      "table": "corr_ibkr_euraud_ewu",
+      "status": "success",
+      "total_rows": 835403,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 68.31,
+        "60min_valid_pct": 75.63,
+        "90min_valid_pct": 81.09
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "EUR_AUD",
+      "ibkr_instrument": "ewa",
+      "table": "corr_ibkr_euraud_ewa",
+      "status": "success",
+      "total_rows": 868028,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 67.64,
+        "60min_valid_pct": 75.78,
+        "90min_valid_pct": 81.69
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "EUR_AUD",
+      "ibkr_instrument": "ewg",
+      "table": "corr_ibkr_euraud_ewg",
+      "status": "success",
+      "total_rows": 930369,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 68.29,
+        "60min_valid_pct": 77.01,
+        "90min_valid_pct": 82.93
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "EUR_AUD",
+      "ibkr_instrument": "uup",
+      "table": "corr_ibkr_euraud_uup",
+      "status": "success",
+      "total_rows": 976294,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 73.14,
+        "60min_valid_pct": 83.18,
+        "90min_valid_pct": 88.73
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "EUR_AUD",
+      "ibkr_instrument": "gld",
+      "table": "corr_ibkr_euraud_gld",
+      "status": "success",
+      "total_rows": 1130354,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 95.37,
+        "60min_valid_pct": 98.76,
+        "90min_valid_pct": 99.61
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "EUR_CAD",
+      "ibkr_instrument": "ewg",
+      "table": "corr_ibkr_eurcad_ewg",
+      "status": "success",
+      "total_rows": 935731,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 67.97,
+        "60min_valid_pct": 76.67,
+        "90min_valid_pct": 82.55
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "EUR_CAD",
+      "ibkr_instrument": "ewj",
+      "table": "corr_ibkr_eurcad_ewj",
+      "status": "success",
+      "total_rows": 1011920,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 70.99,
+        "60min_valid_pct": 80.77,
+        "90min_valid_pct": 86.7
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "EUR_AUD",
+      "ibkr_instrument": "vix",
+      "table": "corr_ibkr_euraud_vix",
+      "status": "success",
+      "total_rows": 996400,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 98.73,
+        "60min_valid_pct": 99.99,
+        "90min_valid_pct": 99.99
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "EUR_CAD",
+      "ibkr_instrument": "ewa",
+      "table": "corr_ibkr_eurcad_ewa",
+      "status": "success",
+      "total_rows": 873468,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 67.3,
+        "60min_valid_pct": 75.42,
+        "90min_valid_pct": 81.29
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "EUR_CAD",
+      "ibkr_instrument": "ewu",
+      "table": "corr_ibkr_eurcad_ewu",
+      "status": "success",
+      "total_rows": 840853,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 67.95,
+        "60min_valid_pct": 75.25,
+        "90min_valid_pct": 80.69
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "EUR_AUD",
+      "ibkr_instrument": "spy",
+      "table": "corr_ibkr_euraud_spy",
+      "status": "success",
+      "total_rows": 1140881,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 100.0,
+        "60min_valid_pct": 100.0,
+        "90min_valid_pct": 100.0
+      },
+      "corr_60min_stats": {
+        "avg": -0.2583,
+        "min": -0.9982,
+        "max": 0.9894
+      }
+    },
+    {
+      "fx_pair": "EUR_NZD",
+      "ibkr_instrument": "ewa",
+      "table": "corr_ibkr_eurnzd_ewa",
+      "status": "success",
+      "total_rows": 865837,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 67.41,
+        "60min_valid_pct": 75.59,
+        "90min_valid_pct": 81.51
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "EUR_CAD",
+      "ibkr_instrument": "uup",
+      "table": "corr_ibkr_eurcad_uup",
+      "status": "success",
+      "total_rows": 981762,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 72.8,
+        "60min_valid_pct": 82.82,
+        "90min_valid_pct": 88.35
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "EUR_CAD",
+      "ibkr_instrument": "gld",
+      "table": "corr_ibkr_eurcad_gld",
+      "status": "success",
+      "total_rows": 1135755,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 95.26,
+        "60min_valid_pct": 98.75,
+        "90min_valid_pct": 99.61
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "EUR_CAD",
+      "ibkr_instrument": "spy",
+      "table": "corr_ibkr_eurcad_spy",
+      "status": "success",
+      "total_rows": 1146283,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 100.0,
+        "60min_valid_pct": 100.0,
+        "90min_valid_pct": 100.0
+      },
+      "corr_60min_stats": {
+        "avg": -0.1056,
+        "min": -0.9991,
+        "max": 0.9947
+      }
+    },
+    {
+      "fx_pair": "EUR_CAD",
+      "ibkr_instrument": "vix",
+      "table": "corr_ibkr_eurcad_vix",
+      "status": "success",
+      "total_rows": 997362,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 98.73,
+        "60min_valid_pct": 99.99,
+        "90min_valid_pct": 99.99
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "EUR_NZD",
+      "ibkr_instrument": "ewg",
+      "table": "corr_ibkr_eurnzd_ewg",
+      "status": "success",
+      "total_rows": 928090,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 68.05,
+        "60min_valid_pct": 76.79,
+        "90min_valid_pct": 82.7
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "EUR_NZD",
+      "ibkr_instrument": "ewu",
+      "table": "corr_ibkr_eurnzd_ewu",
+      "status": "success",
+      "total_rows": 833220,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 68.07,
+        "60min_valid_pct": 75.42,
+        "90min_valid_pct": 80.9
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "EUR_NZD",
+      "ibkr_instrument": "ewj",
+      "table": "corr_ibkr_eurnzd_ewj",
+      "status": "success",
+      "total_rows": 1004270,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 71.11,
+        "60min_valid_pct": 80.93,
+        "90min_valid_pct": 86.87
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "EUR_NZD",
+      "ibkr_instrument": "uup",
+      "table": "corr_ibkr_eurnzd_uup",
+      "status": "success",
+      "total_rows": 974127,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 72.94,
+        "60min_valid_pct": 82.98,
+        "90min_valid_pct": 88.53
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "GBP_JPY",
+      "ibkr_instrument": "ewa",
+      "table": "corr_ibkr_gbpjpy_ewa",
+      "status": "success",
+      "total_rows": 871500,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 67.44,
+        "60min_valid_pct": 75.57,
+        "90min_valid_pct": 81.45
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "GBP_JPY",
+      "ibkr_instrument": "ewg",
+      "table": "corr_ibkr_gbpjpy_ewg",
+      "status": "success",
+      "total_rows": 933790,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 68.09,
+        "60min_valid_pct": 76.81,
+        "90min_valid_pct": 82.7
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "GBP_JPY",
+      "ibkr_instrument": "ewj",
+      "table": "corr_ibkr_gbpjpy_ewj",
+      "status": "success",
+      "total_rows": 1009974,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 71.11,
+        "60min_valid_pct": 80.91,
+        "90min_valid_pct": 86.85
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "EUR_NZD",
+      "ibkr_instrument": "spy",
+      "table": "corr_ibkr_eurnzd_spy",
+      "status": "success",
+      "total_rows": 1138631,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 100.0,
+        "60min_valid_pct": 100.0,
+        "90min_valid_pct": 100.0
+      },
+      "corr_60min_stats": {
+        "avg": -0.2034,
+        "min": -0.9978,
+        "max": 0.9879
+      }
+    },
+    {
+      "fx_pair": "EUR_NZD",
+      "ibkr_instrument": "gld",
+      "table": "corr_ibkr_eurnzd_gld",
+      "status": "success",
+      "total_rows": 1128103,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 95.29,
+        "60min_valid_pct": 98.75,
+        "90min_valid_pct": 99.61
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "EUR_NZD",
+      "ibkr_instrument": "vix",
+      "table": "corr_ibkr_eurnzd_vix",
+      "status": "success",
+      "total_rows": 992386,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 98.79,
+        "60min_valid_pct": 99.99,
+        "90min_valid_pct": 99.99
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "GBP_JPY",
+      "ibkr_instrument": "ewu",
+      "table": "corr_ibkr_gbpjpy_ewu",
+      "status": "success",
+      "total_rows": 838888,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 68.09,
+        "60min_valid_pct": 75.4,
+        "90min_valid_pct": 80.85
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "GBP_JPY",
+      "ibkr_instrument": "gld",
+      "table": "corr_ibkr_gbpjpy_gld",
+      "status": "success",
+      "total_rows": 1133810,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 95.35,
+        "60min_valid_pct": 98.77,
+        "90min_valid_pct": 99.62
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "GBP_CHF",
+      "ibkr_instrument": "ewa",
+      "table": "corr_ibkr_gbpchf_ewa",
+      "status": "success",
+      "total_rows": 864132,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 68.01,
+        "60min_valid_pct": 76.2,
+        "90min_valid_pct": 82.12
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "GBP_JPY",
+      "ibkr_instrument": "uup",
+      "table": "corr_ibkr_gbpjpy_uup",
+      "status": "success",
+      "total_rows": 979780,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 72.93,
+        "60min_valid_pct": 82.95,
+        "90min_valid_pct": 88.49
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "GBP_CHF",
+      "ibkr_instrument": "ewg",
+      "table": "corr_ibkr_gbpchf_ewg",
+      "status": "success",
+      "total_rows": 926420,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 68.59,
+        "60min_valid_pct": 77.36,
+        "90min_valid_pct": 83.24
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "GBP_CHF",
+      "ibkr_instrument": "ewu",
+      "table": "corr_ibkr_gbpchf_ewu",
+      "status": "success",
+      "total_rows": 831517,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 68.69,
+        "60min_valid_pct": 76.07,
+        "90min_valid_pct": 81.55
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "GBP_CHF",
+      "ibkr_instrument": "ewj",
+      "table": "corr_ibkr_gbpchf_ewj",
+      "status": "success",
+      "total_rows": 1002607,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 71.61,
+        "60min_valid_pct": 81.43,
+        "90min_valid_pct": 87.35
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "GBP_JPY",
+      "ibkr_instrument": "spy",
+      "table": "corr_ibkr_gbpjpy_spy",
+      "status": "success",
+      "total_rows": 1144337,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 100.0,
+        "60min_valid_pct": 100.0,
+        "90min_valid_pct": 100.0
+      },
+      "corr_60min_stats": {
+        "avg": 0.2273,
+        "min": -0.9898,
+        "max": 0.9985
+      }
+    },
+    {
+      "fx_pair": "GBP_JPY",
+      "ibkr_instrument": "vix",
+      "table": "corr_ibkr_gbpjpy_vix",
+      "status": "success",
+      "total_rows": 997236,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 98.73,
+        "60min_valid_pct": 99.99,
+        "90min_valid_pct": 99.99
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "GBP_CHF",
+      "ibkr_instrument": "gld",
+      "table": "corr_ibkr_gbpchf_gld",
+      "status": "success",
+      "total_rows": 1126437,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 95.52,
+        "60min_valid_pct": 98.82,
+        "90min_valid_pct": 99.63
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "GBP_CHF",
+      "ibkr_instrument": "uup",
+      "table": "corr_ibkr_gbpchf_uup",
+      "status": "success",
+      "total_rows": 972419,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 73.43,
+        "60min_valid_pct": 83.46,
+        "90min_valid_pct": 88.96
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "GBP_AUD",
+      "ibkr_instrument": "ewa",
+      "table": "corr_ibkr_gbpaud_ewa",
+      "status": "success",
+      "total_rows": 872491,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 67.38,
+        "60min_valid_pct": 75.51,
+        "90min_valid_pct": 81.38
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "GBP_AUD",
+      "ibkr_instrument": "ewg",
+      "table": "corr_ibkr_gbpaud_ewg",
+      "status": "success",
+      "total_rows": 934769,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 68.03,
+        "60min_valid_pct": 76.74,
+        "90min_valid_pct": 82.62
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "GBP_CHF",
+      "ibkr_instrument": "vix",
+      "table": "corr_ibkr_gbpchf_vix",
+      "status": "success",
+      "total_rows": 996985,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 98.75,
+        "60min_valid_pct": 99.99,
+        "90min_valid_pct": 99.99
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "GBP_CHF",
+      "ibkr_instrument": "spy",
+      "table": "corr_ibkr_gbpchf_spy",
+      "status": "success",
+      "total_rows": 1136965,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 100.0,
+        "60min_valid_pct": 100.0,
+        "90min_valid_pct": 100.0
+      },
+      "corr_60min_stats": {
+        "avg": 0.1501,
+        "min": -0.989,
+        "max": 0.9987
+      }
+    },
+    {
+      "fx_pair": "GBP_AUD",
+      "ibkr_instrument": "ewu",
+      "table": "corr_ibkr_gbpaud_ewu",
+      "status": "success",
+      "total_rows": 839875,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 68.03,
+        "60min_valid_pct": 75.34,
+        "90min_valid_pct": 80.78
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "GBP_AUD",
+      "ibkr_instrument": "ewj",
+      "table": "corr_ibkr_gbpaud_ewj",
+      "status": "success",
+      "total_rows": 1010957,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 71.06,
+        "60min_valid_pct": 80.84,
+        "90min_valid_pct": 86.77
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "GBP_AUD",
+      "ibkr_instrument": "gld",
+      "table": "corr_ibkr_gbpaud_gld",
+      "status": "success",
+      "total_rows": 1134793,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 95.29,
+        "60min_valid_pct": 98.75,
+        "90min_valid_pct": 99.61
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "GBP_AUD",
+      "ibkr_instrument": "uup",
+      "table": "corr_ibkr_gbpaud_uup",
+      "status": "success",
+      "total_rows": 980784,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 72.87,
+        "60min_valid_pct": 82.89,
+        "90min_valid_pct": 88.43
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "GBP_CAD",
+      "ibkr_instrument": "ewa",
+      "table": "corr_ibkr_gbpcad_ewa",
+      "status": "success",
+      "total_rows": 877794,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 66.97,
+        "60min_valid_pct": 75.08,
+        "90min_valid_pct": 80.93
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "GBP_AUD",
+      "ibkr_instrument": "spy",
+      "table": "corr_ibkr_gbpaud_spy",
+      "status": "success",
+      "total_rows": 1145321,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 100.0,
+        "60min_valid_pct": 100.0,
+        "90min_valid_pct": 100.0
+      },
+      "corr_60min_stats": {
+        "avg": -0.1912,
+        "min": -0.9977,
+        "max": 0.9933
+      }
+    },
+    {
+      "fx_pair": "GBP_AUD",
+      "ibkr_instrument": "vix",
+      "table": "corr_ibkr_gbpaud_vix",
+      "status": "success",
+      "total_rows": 997362,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 98.74,
+        "60min_valid_pct": 99.99,
+        "90min_valid_pct": 99.99
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "GBP_CAD",
+      "ibkr_instrument": "ewj",
+      "table": "corr_ibkr_gbpcad_ewj",
+      "status": "success",
+      "total_rows": 1016274,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 70.7,
+        "60min_valid_pct": 80.48,
+        "90min_valid_pct": 86.41
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "GBP_CAD",
+      "ibkr_instrument": "ewu",
+      "table": "corr_ibkr_gbpcad_ewu",
+      "status": "success",
+      "total_rows": 845178,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 67.61,
+        "60min_valid_pct": 74.89,
+        "90min_valid_pct": 80.31
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "GBP_CAD",
+      "ibkr_instrument": "uup",
+      "table": "corr_ibkr_gbpcad_uup",
+      "status": "success",
+      "total_rows": 986087,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 72.51,
+        "60min_valid_pct": 82.54,
+        "90min_valid_pct": 88.09
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "GBP_NZD",
+      "ibkr_instrument": "ewa",
+      "table": "corr_ibkr_gbpnzd_ewa",
+      "status": "success",
+      "total_rows": 862494,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 67.67,
+        "60min_valid_pct": 75.87,
+        "90min_valid_pct": 81.82
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "GBP_CAD",
+      "ibkr_instrument": "ewg",
+      "table": "corr_ibkr_gbpcad_ewg",
+      "status": "success",
+      "total_rows": 940085,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 67.67,
+        "60min_valid_pct": 76.36,
+        "90min_valid_pct": 82.23
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "GBP_CAD",
+      "ibkr_instrument": "gld",
+      "table": "corr_ibkr_gbpcad_gld",
+      "status": "success",
+      "total_rows": 1140110,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 95.17,
+        "60min_valid_pct": 98.71,
+        "90min_valid_pct": 99.6
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "GBP_NZD",
+      "ibkr_instrument": "ewg",
+      "table": "corr_ibkr_gbpnzd_ewg",
+      "status": "success",
+      "total_rows": 924790,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 68.3,
+        "60min_valid_pct": 77.08,
+        "90min_valid_pct": 83.01
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "GBP_NZD",
+      "ibkr_instrument": "ewj",
+      "table": "corr_ibkr_gbpnzd_ewj",
+      "status": "success",
+      "total_rows": 1000975,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 71.33,
+        "60min_valid_pct": 81.17,
+        "90min_valid_pct": 87.11
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "GBP_CAD",
+      "ibkr_instrument": "vix",
+      "table": "corr_ibkr_gbpcad_vix",
+      "status": "success",
+      "total_rows": 998321,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 98.64,
+        "60min_valid_pct": 99.99,
+        "90min_valid_pct": 99.99
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "GBP_NZD",
+      "ibkr_instrument": "ewu",
+      "table": "corr_ibkr_gbpnzd_ewu",
+      "status": "success",
+      "total_rows": 829887,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 68.34,
+        "60min_valid_pct": 75.73,
+        "90min_valid_pct": 81.22
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "GBP_CAD",
+      "ibkr_instrument": "spy",
+      "table": "corr_ibkr_gbpcad_spy",
+      "status": "success",
+      "total_rows": 1150638,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 100.0,
+        "60min_valid_pct": 100.0,
+        "90min_valid_pct": 100.0
+      },
+      "corr_60min_stats": {
+        "avg": -0.0293,
+        "min": -0.9975,
+        "max": 0.9948
+      }
+    },
+    {
+      "fx_pair": "GBP_NZD",
+      "ibkr_instrument": "uup",
+      "table": "corr_ibkr_gbpnzd_uup",
+      "status": "success",
+      "total_rows": 970791,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 73.2,
+        "60min_valid_pct": 83.26,
+        "90min_valid_pct": 88.82
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "GBP_NZD",
+      "ibkr_instrument": "vix",
+      "table": "corr_ibkr_gbpnzd_vix",
+      "status": "success",
+      "total_rows": 992755,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 98.76,
+        "60min_valid_pct": 99.99,
+        "90min_valid_pct": 99.99
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "AUD_JPY",
+      "ibkr_instrument": "ewa",
+      "table": "corr_ibkr_audjpy_ewa",
+      "status": "success",
+      "total_rows": 876177,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 67.09,
+        "60min_valid_pct": 75.18,
+        "90min_valid_pct": 81.04
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "GBP_NZD",
+      "ibkr_instrument": "gld",
+      "table": "corr_ibkr_gbpnzd_gld",
+      "status": "success",
+      "total_rows": 1124808,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 95.39,
+        "60min_valid_pct": 98.76,
+        "90min_valid_pct": 99.61
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "AUD_JPY",
+      "ibkr_instrument": "ewu",
+      "table": "corr_ibkr_audjpy_ewu",
+      "status": "success",
+      "total_rows": 843562,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 67.73,
+        "60min_valid_pct": 75.0,
+        "90min_valid_pct": 80.43
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "AUD_JPY",
+      "ibkr_instrument": "ewg",
+      "table": "corr_ibkr_audjpy_ewg",
+      "status": "success",
+      "total_rows": 938430,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 67.77,
+        "60min_valid_pct": 76.45,
+        "90min_valid_pct": 82.32
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "AUD_JPY",
+      "ibkr_instrument": "ewj",
+      "table": "corr_ibkr_audjpy_ewj",
+      "status": "success",
+      "total_rows": 1014617,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 70.81,
+        "60min_valid_pct": 80.56,
+        "90min_valid_pct": 86.49
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "GBP_NZD",
+      "ibkr_instrument": "spy",
+      "table": "corr_ibkr_gbpnzd_spy",
+      "status": "success",
+      "total_rows": 1135335,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 100.0,
+        "60min_valid_pct": 100.0,
+        "90min_valid_pct": 100.0
+      },
+      "corr_60min_stats": {
+        "avg": -0.1343,
+        "min": -0.9945,
+        "max": 0.9879
+      }
+    },
+    {
+      "fx_pair": "AUD_CHF",
+      "ibkr_instrument": "ewg",
+      "table": "corr_ibkr_audchf_ewg",
+      "status": "success",
+      "total_rows": 917098,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 69.12,
+        "60min_valid_pct": 77.9,
+        "90min_valid_pct": 83.85
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "AUD_JPY",
+      "ibkr_instrument": "uup",
+      "table": "corr_ibkr_audjpy_uup",
+      "status": "success",
+      "total_rows": 984454,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 72.61,
+        "60min_valid_pct": 82.61,
+        "90min_valid_pct": 88.16
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "AUD_JPY",
+      "ibkr_instrument": "gld",
+      "table": "corr_ibkr_audjpy_gld",
+      "status": "success",
+      "total_rows": 1138452,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 95.18,
+        "60min_valid_pct": 98.72,
+        "90min_valid_pct": 99.61
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "AUD_CHF",
+      "ibkr_instrument": "ewa",
+      "table": "corr_ibkr_audchf_ewa",
+      "status": "success",
+      "total_rows": 854723,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 68.57,
+        "60min_valid_pct": 76.79,
+        "90min_valid_pct": 82.77
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "AUD_CHF",
+      "ibkr_instrument": "ewu",
+      "table": "corr_ibkr_audchf_ewu",
+      "status": "success",
+      "total_rows": 822105,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 69.3,
+        "60min_valid_pct": 76.69,
+        "90min_valid_pct": 82.21
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "AUD_JPY",
+      "ibkr_instrument": "spy",
+      "table": "corr_ibkr_audjpy_spy",
+      "status": "success",
+      "total_rows": 1148980,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 100.0,
+        "60min_valid_pct": 100.0,
+        "90min_valid_pct": 100.0
+      },
+      "corr_60min_stats": {
+        "avg": 0.336,
+        "min": -0.9845,
+        "max": 0.9986
+      }
+    },
+    {
+      "fx_pair": "AUD_JPY",
+      "ibkr_instrument": "vix",
+      "table": "corr_ibkr_audjpy_vix",
+      "status": "success",
+      "total_rows": 997331,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 98.73,
+        "60min_valid_pct": 99.99,
+        "90min_valid_pct": 99.99
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "AUD_CHF",
+      "ibkr_instrument": "gld",
+      "table": "corr_ibkr_audchf_gld",
+      "status": "success",
+      "total_rows": 1116972,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 95.56,
+        "60min_valid_pct": 98.81,
+        "90min_valid_pct": 99.62
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "AUD_CHF",
+      "ibkr_instrument": "ewj",
+      "table": "corr_ibkr_audchf_ewj",
+      "status": "success",
+      "total_rows": 993227,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 72.09,
+        "60min_valid_pct": 81.91,
+        "90min_valid_pct": 87.86
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "AUD_CAD",
+      "ibkr_instrument": "ewa",
+      "table": "corr_ibkr_audcad_ewa",
+      "status": "success",
+      "total_rows": 867006,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 67.7,
+        "60min_valid_pct": 75.85,
+        "90min_valid_pct": 81.76
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "AUD_CHF",
+      "ibkr_instrument": "uup",
+      "table": "corr_ibkr_audchf_uup",
+      "status": "success",
+      "total_rows": 962912,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 74.0,
+        "60min_valid_pct": 84.03,
+        "90min_valid_pct": 89.55
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "AUD_CHF",
+      "ibkr_instrument": "vix",
+      "table": "corr_ibkr_audchf_vix",
+      "status": "success",
+      "total_rows": 994006,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 98.82,
+        "60min_valid_pct": 99.99,
+        "90min_valid_pct": 99.99
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "AUD_CHF",
+      "ibkr_instrument": "spy",
+      "table": "corr_ibkr_audchf_spy",
+      "status": "success",
+      "total_rows": 1127497,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 100.0,
+        "60min_valid_pct": 100.0,
+        "90min_valid_pct": 100.0
+      },
+      "corr_60min_stats": {
+        "avg": 0.282,
+        "min": -0.9842,
+        "max": 0.9985
+      }
+    },
+    {
+      "fx_pair": "AUD_CAD",
+      "ibkr_instrument": "ewu",
+      "table": "corr_ibkr_audcad_ewu",
+      "status": "success",
+      "total_rows": 834422,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 68.36,
+        "60min_valid_pct": 75.7,
+        "90min_valid_pct": 81.17
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "AUD_CAD",
+      "ibkr_instrument": "ewg",
+      "table": "corr_ibkr_audcad_ewg",
+      "status": "success",
+      "total_rows": 929187,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 68.32,
+        "60min_valid_pct": 77.04,
+        "90min_valid_pct": 82.94
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "AUD_NZD",
+      "ibkr_instrument": "ewa",
+      "table": "corr_ibkr_audnzd_ewa",
+      "status": "success",
+      "total_rows": 863652,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 67.42,
+        "60min_valid_pct": 75.59,
+        "90min_valid_pct": 81.53
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "AUD_CAD",
+      "ibkr_instrument": "ewj",
+      "table": "corr_ibkr_audcad_ewj",
+      "status": "success",
+      "total_rows": 1005180,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 71.34,
+        "60min_valid_pct": 81.14,
+        "90min_valid_pct": 87.05
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "AUD_CAD",
+      "ibkr_instrument": "vix",
+      "table": "corr_ibkr_audcad_vix",
+      "status": "success",
+      "total_rows": 995123,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 98.8,
+        "60min_valid_pct": 99.99,
+        "90min_valid_pct": 99.99
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "AUD_CAD",
+      "ibkr_instrument": "gld",
+      "table": "corr_ibkr_audcad_gld",
+      "status": "success",
+      "total_rows": 1128922,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 95.34,
+        "60min_valid_pct": 98.77,
+        "90min_valid_pct": 99.62
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "AUD_NZD",
+      "ibkr_instrument": "ewg",
+      "table": "corr_ibkr_audnzd_ewg",
+      "status": "success",
+      "total_rows": 925897,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 68.08,
+        "60min_valid_pct": 76.84,
+        "90min_valid_pct": 82.77
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "AUD_CAD",
+      "ibkr_instrument": "uup",
+      "table": "corr_ibkr_audcad_uup",
+      "status": "success",
+      "total_rows": 975093,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 73.18,
+        "60min_valid_pct": 83.2,
+        "90min_valid_pct": 88.72
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "AUD_NZD",
+      "ibkr_instrument": "ewu",
+      "table": "corr_ibkr_audnzd_ewu",
+      "status": "success",
+      "total_rows": 831096,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 68.08,
+        "60min_valid_pct": 75.43,
+        "90min_valid_pct": 80.92
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "AUD_CAD",
+      "ibkr_instrument": "spy",
+      "table": "corr_ibkr_audcad_spy",
+      "status": "success",
+      "total_rows": 1139447,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 100.0,
+        "60min_valid_pct": 100.0,
+        "90min_valid_pct": 100.0
+      },
+      "corr_60min_stats": {
+        "avg": 0.1651,
+        "min": -0.9824,
+        "max": 0.9938
+      }
+    },
+    {
+      "fx_pair": "AUD_NZD",
+      "ibkr_instrument": "ewj",
+      "table": "corr_ibkr_audnzd_ewj",
+      "status": "success",
+      "total_rows": 1001857,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 71.13,
+        "60min_valid_pct": 80.95,
+        "90min_valid_pct": 86.91
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "NZD_JPY",
+      "ibkr_instrument": "ewa",
+      "table": "corr_ibkr_nzdjpy_ewa",
+      "status": "success",
+      "total_rows": 868565,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 67.21,
+        "60min_valid_pct": 75.36,
+        "90min_valid_pct": 81.27
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "AUD_NZD",
+      "ibkr_instrument": "uup",
+      "table": "corr_ibkr_audnzd_uup",
+      "status": "success",
+      "total_rows": 971785,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 72.98,
+        "60min_valid_pct": 83.0,
+        "90min_valid_pct": 88.57
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "AUD_NZD",
+      "ibkr_instrument": "vix",
+      "table": "corr_ibkr_audnzd_vix",
+      "status": "success",
+      "total_rows": 989876,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 98.81,
+        "60min_valid_pct": 99.99,
+        "90min_valid_pct": 99.99
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "AUD_NZD",
+      "ibkr_instrument": "gld",
+      "table": "corr_ibkr_audnzd_gld",
+      "status": "success",
+      "total_rows": 1125426,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 95.34,
+        "60min_valid_pct": 98.77,
+        "90min_valid_pct": 99.62
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "NZD_JPY",
+      "ibkr_instrument": "ewg",
+      "table": "corr_ibkr_nzdjpy_ewg",
+      "status": "success",
+      "total_rows": 930814,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 67.86,
+        "60min_valid_pct": 76.59,
+        "90min_valid_pct": 82.49
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "NZD_JPY",
+      "ibkr_instrument": "ewu",
+      "table": "corr_ibkr_nzdjpy_ewu",
+      "status": "success",
+      "total_rows": 835957,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 67.85,
+        "60min_valid_pct": 75.19,
+        "90min_valid_pct": 80.65
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "NZD_JPY",
+      "ibkr_instrument": "ewj",
+      "table": "corr_ibkr_nzdjpy_ewj",
+      "status": "success",
+      "total_rows": 1006995,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 70.92,
+        "60min_valid_pct": 80.73,
+        "90min_valid_pct": 86.67
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "AUD_NZD",
+      "ibkr_instrument": "spy",
+      "table": "corr_ibkr_audnzd_spy",
+      "status": "success",
+      "total_rows": 1135940,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 100.0,
+        "60min_valid_pct": 100.0,
+        "90min_valid_pct": 100.0
+      },
+      "corr_60min_stats": {
+        "avg": 0.0831,
+        "min": -0.9924,
+        "max": 0.993
+      }
+    },
+    {
+      "fx_pair": "NZD_JPY",
+      "ibkr_instrument": "gld",
+      "table": "corr_ibkr_nzdjpy_gld",
+      "status": "success",
+      "total_rows": 1130831,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 95.23,
+        "60min_valid_pct": 98.73,
+        "90min_valid_pct": 99.61
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "NZD_JPY",
+      "ibkr_instrument": "uup",
+      "table": "corr_ibkr_nzdjpy_uup",
+      "status": "success",
+      "total_rows": 976841,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 72.75,
+        "60min_valid_pct": 82.78,
+        "90min_valid_pct": 88.34
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "NZD_JPY",
+      "ibkr_instrument": "vix",
+      "table": "corr_ibkr_nzdjpy_vix",
+      "status": "success",
+      "total_rows": 993003,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 98.75,
+        "60min_valid_pct": 99.99,
+        "90min_valid_pct": 99.99
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "NZD_CHF",
+      "ibkr_instrument": "ewa",
+      "table": "corr_ibkr_nzdchf_ewa",
+      "status": "success",
+      "total_rows": 844383,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 68.79,
+        "60min_valid_pct": 77.04,
+        "90min_valid_pct": 83.07
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "NZD_JPY",
+      "ibkr_instrument": "spy",
+      "table": "corr_ibkr_nzdjpy_spy",
+      "status": "success",
+      "total_rows": 1141359,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 100.0,
+        "60min_valid_pct": 100.0,
+        "90min_valid_pct": 100.0
+      },
+      "corr_60min_stats": {
+        "avg": 0.3033,
+        "min": -0.981,
+        "max": 0.9984
+      }
+    },
+    {
+      "fx_pair": "NZD_CHF",
+      "ibkr_instrument": "ewu",
+      "table": "corr_ibkr_nzdchf_ewu",
+      "status": "success",
+      "total_rows": 811772,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 69.53,
+        "60min_valid_pct": 76.96,
+        "90min_valid_pct": 82.53
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "NZD_CHF",
+      "ibkr_instrument": "spy",
+      "table": "corr_ibkr_nzdchf_spy",
+      "status": "success",
+      "total_rows": 1117197,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 100.0,
+        "60min_valid_pct": 100.0,
+        "90min_valid_pct": 100.0
+      },
+      "corr_60min_stats": {
+        "avg": 0.2428,
+        "min": -0.9834,
+        "max": 0.9984
+      }
+    },
+    {
+      "fx_pair": "NZD_CHF",
+      "ibkr_instrument": "ewg",
+      "table": "corr_ibkr_nzdchf_ewg",
+      "status": "success",
+      "total_rows": 906783,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 69.31,
+        "60min_valid_pct": 78.13,
+        "90min_valid_pct": 84.12
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "NZD_CHF",
+      "ibkr_instrument": "ewj",
+      "table": "corr_ibkr_nzdchf_ewj",
+      "status": "success",
+      "total_rows": 982901,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 72.26,
+        "60min_valid_pct": 82.08,
+        "90min_valid_pct": 88.03
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "NZD_CAD",
+      "ibkr_instrument": "ewa",
+      "table": "corr_ibkr_nzdcad_ewa",
+      "status": "success",
+      "total_rows": 860500,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 67.78,
+        "60min_valid_pct": 75.98,
+        "90min_valid_pct": 81.93
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "NZD_CHF",
+      "ibkr_instrument": "gld",
+      "table": "corr_ibkr_nzdchf_gld",
+      "status": "success",
+      "total_rows": 1106670,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 95.6,
+        "60min_valid_pct": 98.82,
+        "90min_valid_pct": 99.63
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "NZD_CHF",
+      "ibkr_instrument": "uup",
+      "table": "corr_ibkr_nzdchf_uup",
+      "status": "success",
+      "total_rows": 952604,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 74.24,
+        "60min_valid_pct": 84.26,
+        "90min_valid_pct": 89.81
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "NZD_CAD",
+      "ibkr_instrument": "ewj",
+      "table": "corr_ibkr_nzdcad_ewj",
+      "status": "success",
+      "total_rows": 998814,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 71.41,
+        "60min_valid_pct": 81.23,
+        "90min_valid_pct": 87.15
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "NZD_CAD",
+      "ibkr_instrument": "ewg",
+      "table": "corr_ibkr_nzdcad_ewg",
+      "status": "success",
+      "total_rows": 922723,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 68.4,
+        "60min_valid_pct": 77.18,
+        "90min_valid_pct": 83.12
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "NZD_CHF",
+      "ibkr_instrument": "vix",
+      "table": "corr_ibkr_nzdchf_vix",
+      "status": "success",
+      "total_rows": 986965,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 98.97,
+        "60min_valid_pct": 99.99,
+        "90min_valid_pct": 99.99
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "NZD_CAD",
+      "ibkr_instrument": "ewu",
+      "table": "corr_ibkr_nzdcad_ewu",
+      "status": "success",
+      "total_rows": 827892,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 68.46,
+        "60min_valid_pct": 75.84,
+        "90min_valid_pct": 81.34
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "NZD_CAD",
+      "ibkr_instrument": "uup",
+      "table": "corr_ibkr_nzdcad_uup",
+      "status": "success",
+      "total_rows": 968736,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 73.31,
+        "60min_valid_pct": 83.35,
+        "90min_valid_pct": 88.92
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "NZD_CAD",
+      "ibkr_instrument": "gld",
+      "table": "corr_ibkr_nzdcad_gld",
+      "status": "success",
+      "total_rows": 1122623,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 95.37,
+        "60min_valid_pct": 98.77,
+        "90min_valid_pct": 99.61
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "CAD_JPY",
+      "ibkr_instrument": "ewa",
+      "table": "corr_ibkr_cadjpy_ewa",
+      "status": "success",
+      "total_rows": 873163,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 67.31,
+        "60min_valid_pct": 75.43,
+        "90min_valid_pct": 81.31
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "NZD_CAD",
+      "ibkr_instrument": "spy",
+      "table": "corr_ibkr_nzdcad_spy",
+      "status": "success",
+      "total_rows": 1133149,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 100.0,
+        "60min_valid_pct": 100.0,
+        "90min_valid_pct": 100.0
+      },
+      "corr_60min_stats": {
+        "avg": 0.1006,
+        "min": -0.9828,
+        "max": 0.9938
+      }
+    },
+    {
+      "fx_pair": "CAD_JPY",
+      "ibkr_instrument": "ewj",
+      "table": "corr_ibkr_cadjpy_ewj",
+      "status": "success",
+      "total_rows": 1011588,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 71.0,
+        "60min_valid_pct": 80.78,
+        "90min_valid_pct": 86.7
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "CAD_JPY",
+      "ibkr_instrument": "ewg",
+      "table": "corr_ibkr_cadjpy_ewg",
+      "status": "success",
+      "total_rows": 935417,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 67.96,
+        "60min_valid_pct": 76.65,
+        "90min_valid_pct": 82.53
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "NZD_CAD",
+      "ibkr_instrument": "vix",
+      "table": "corr_ibkr_nzdcad_vix",
+      "status": "success",
+      "total_rows": 991117,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 98.85,
+        "60min_valid_pct": 99.99,
+        "90min_valid_pct": 99.99
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "CAD_JPY",
+      "ibkr_instrument": "ewu",
+      "table": "corr_ibkr_cadjpy_ewu",
+      "status": "success",
+      "total_rows": 840549,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 67.96,
+        "60min_valid_pct": 75.26,
+        "90min_valid_pct": 80.7
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "CAD_CHF",
+      "ibkr_instrument": "ewa",
+      "table": "corr_ibkr_cadchf_ewa",
+      "status": "success",
+      "total_rows": 843652,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 69.33,
+        "60min_valid_pct": 77.66,
+        "90min_valid_pct": 83.68
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "CAD_JPY",
+      "ibkr_instrument": "uup",
+      "table": "corr_ibkr_cadjpy_uup",
+      "status": "success",
+      "total_rows": 981433,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 72.81,
+        "60min_valid_pct": 82.83,
+        "90min_valid_pct": 88.37
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "CAD_CHF",
+      "ibkr_instrument": "ewu",
+      "table": "corr_ibkr_cadchf_ewu",
+      "status": "success",
+      "total_rows": 811129,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 70.1,
+        "60min_valid_pct": 77.58,
+        "90min_valid_pct": 83.16
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "CAD_JPY",
+      "ibkr_instrument": "vix",
+      "table": "corr_ibkr_cadjpy_vix",
+      "status": "success",
+      "total_rows": 997104,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 98.74,
+        "60min_valid_pct": 99.99,
+        "90min_valid_pct": 99.99
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "CAD_JPY",
+      "ibkr_instrument": "gld",
+      "table": "corr_ibkr_cadjpy_gld",
+      "status": "success",
+      "total_rows": 1135418,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 95.23,
+        "60min_valid_pct": 98.73,
+        "90min_valid_pct": 99.61
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "CAD_CHF",
+      "ibkr_instrument": "ewg",
+      "table": "corr_ibkr_cadchf_ewg",
+      "status": "success",
+      "total_rows": 905771,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 69.84,
+        "60min_valid_pct": 78.7,
+        "90min_valid_pct": 84.66
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "CAD_CHF",
+      "ibkr_instrument": "ewj",
+      "table": "corr_ibkr_cadchf_ewj",
+      "status": "success",
+      "total_rows": 981525,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 72.75,
+        "60min_valid_pct": 82.6,
+        "90min_valid_pct": 88.51
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "CAD_CHF",
+      "ibkr_instrument": "gld",
+      "table": "corr_ibkr_cadchf_gld",
+      "status": "success",
+      "total_rows": 1105061,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 95.71,
+        "60min_valid_pct": 98.85,
+        "90min_valid_pct": 99.64
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "CAD_JPY",
+      "ibkr_instrument": "spy",
+      "table": "corr_ibkr_cadjpy_spy",
+      "status": "success",
+      "total_rows": 1145946,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 100.0,
+        "60min_valid_pct": 100.0,
+        "90min_valid_pct": 100.0
+      },
+      "corr_60min_stats": {
+        "avg": 0.2337,
+        "min": -0.9864,
+        "max": 0.9988
+      }
+    },
+    {
+      "fx_pair": "CAD_CHF",
+      "ibkr_instrument": "uup",
+      "table": "corr_ibkr_cadchf_uup",
+      "status": "success",
+      "total_rows": 951337,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 74.75,
+        "60min_valid_pct": 84.79,
+        "90min_valid_pct": 90.28
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "CAD_CHF",
+      "ibkr_instrument": "vix",
+      "table": "corr_ibkr_cadchf_vix",
+      "status": "success",
+      "total_rows": 990967,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 98.89,
+        "60min_valid_pct": 99.99,
+        "90min_valid_pct": 99.99
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "CAD_CHF",
+      "ibkr_instrument": "spy",
+      "table": "corr_ibkr_cadchf_spy",
+      "status": "success",
+      "total_rows": 1115578,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 100.0,
+        "60min_valid_pct": 100.0,
+        "90min_valid_pct": 100.0
+      },
+      "corr_60min_stats": {
+        "avg": 0.158,
+        "min": -0.9832,
+        "max": 0.9985
+      }
+    },
+    {
+      "fx_pair": "CHF_JPY",
+      "ibkr_instrument": "ewa",
+      "table": "corr_ibkr_chfjpy_ewa",
+      "status": "success",
+      "total_rows": 867166,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 67.79,
+        "60min_valid_pct": 75.96,
+        "90min_valid_pct": 81.86
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "CHF_JPY",
+      "ibkr_instrument": "ewg",
+      "table": "corr_ibkr_chfjpy_ewg",
+      "status": "success",
+      "total_rows": 929426,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 68.37,
+        "60min_valid_pct": 77.1,
+        "90min_valid_pct": 82.98
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "CHF_JPY",
+      "ibkr_instrument": "uup",
+      "table": "corr_ibkr_chfjpy_uup",
+      "status": "success",
+      "total_rows": 975440,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 73.23,
+        "60min_valid_pct": 83.25,
+        "90min_valid_pct": 88.74
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "CHF_JPY",
+      "ibkr_instrument": "ewu",
+      "table": "corr_ibkr_chfjpy_ewu",
+      "status": "success",
+      "total_rows": 834550,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 68.46,
+        "60min_valid_pct": 75.8,
+        "90min_valid_pct": 81.26
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "CHF_JPY",
+      "ibkr_instrument": "gld",
+      "table": "corr_ibkr_chfjpy_gld",
+      "status": "success",
+      "total_rows": 1129446,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 95.41,
+        "60min_valid_pct": 98.78,
+        "90min_valid_pct": 99.62
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "CHF_JPY",
+      "ibkr_instrument": "spy",
+      "table": "corr_ibkr_chfjpy_spy",
+      "status": "success",
+      "total_rows": 1139974,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 100.0,
+        "60min_valid_pct": 100.0,
+        "90min_valid_pct": 100.0
+      },
+      "corr_60min_stats": {
+        "avg": 0.1193,
+        "min": -0.9951,
+        "max": 0.9955
+      }
+    },
+    {
+      "fx_pair": "CHF_JPY",
+      "ibkr_instrument": "ewj",
+      "table": "corr_ibkr_chfjpy_ewj",
+      "status": "success",
+      "total_rows": 1005610,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 71.4,
+        "60min_valid_pct": 81.19,
+        "90min_valid_pct": 87.09
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    },
+    {
+      "fx_pair": "CHF_JPY",
+      "ibkr_instrument": "vix",
+      "table": "corr_ibkr_chfjpy_vix",
+      "status": "success",
+      "total_rows": 997265,
+      "corr_30_coverage_pct": 100.0,
+      "corr_60_coverage_pct": 100.0,
+      "corr_90_coverage_pct": 100.0,
+      "corr_validity": {
+        "30min_valid_pct": 98.74,
+        "60min_valid_pct": 99.99,
+        "90min_valid_pct": 99.99
+      },
+      "corr_60min_stats": {
+        "avg": NaN,
+        "min": NaN,
+        "max": NaN
+      }
+    }
+  ]
+}

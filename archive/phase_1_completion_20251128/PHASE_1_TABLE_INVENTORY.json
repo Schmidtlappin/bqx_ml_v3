@@ -1,0 +1,2155 @@
+{
+  "phase_1_table_inventory": {
+    "generated_timestamp": "2025-11-28T15:10:00Z",
+    "total_tables": 336,
+    "total_rows": 440888258,
+    "categories": {
+      "lag_features": {
+        "count": 56,
+        "total_rows": 119622148,
+        "tables": [
+          {
+            "table": "lag_eurusd_45",
+            "pair": "EUR_USD",
+            "period": 45,
+            "rows": 2164285,
+            "status": "success"
+          },
+          {
+            "table": "lag_gbpusd_90",
+            "pair": "GBP_USD",
+            "period": 90,
+            "rows": 1972612,
+            "status": "success"
+          },
+          {
+            "table": "lag_usdjpy_45",
+            "pair": "USD_JPY",
+            "period": 45,
+            "rows": 2174083,
+            "status": "success"
+          },
+          {
+            "table": "lag_gbpusd_45",
+            "pair": "GBP_USD",
+            "period": 45,
+            "rows": 1972657,
+            "status": "success"
+          },
+          {
+            "table": "lag_eurusd_90",
+            "pair": "EUR_USD",
+            "period": 90,
+            "rows": 2164240,
+            "status": "success"
+          },
+          {
+            "table": "lag_usdjpy_90",
+            "pair": "USD_JPY",
+            "period": 90,
+            "rows": 2174038,
+            "status": "success"
+          },
+          {
+            "table": "lag_usdchf_45",
+            "pair": "USD_CHF",
+            "period": 45,
+            "rows": 2049168,
+            "status": "success"
+          },
+          {
+            "table": "lag_usdchf_90",
+            "pair": "USD_CHF",
+            "period": 90,
+            "rows": 2049123,
+            "status": "success"
+          },
+          {
+            "table": "lag_usdcad_45",
+            "pair": "USD_CAD",
+            "period": 45,
+            "rows": 2155266,
+            "status": "success"
+          },
+          {
+            "table": "lag_usdcad_90",
+            "pair": "USD_CAD",
+            "period": 90,
+            "rows": 2155221,
+            "status": "success"
+          },
+          {
+            "table": "lag_audusd_45",
+            "pair": "AUD_USD",
+            "period": 45,
+            "rows": 2121155,
+            "status": "success"
+          },
+          {
+            "table": "lag_audusd_90",
+            "pair": "AUD_USD",
+            "period": 90,
+            "rows": 2121110,
+            "status": "success"
+          },
+          {
+            "table": "lag_nzdusd_45",
+            "pair": "NZD_USD",
+            "period": 45,
+            "rows": 2126946,
+            "status": "success"
+          },
+          {
+            "table": "lag_nzdusd_90",
+            "pair": "NZD_USD",
+            "period": 90,
+            "rows": 2126901,
+            "status": "success"
+          },
+          {
+            "table": "lag_eurgbp_45",
+            "pair": "EUR_GBP",
+            "period": 45,
+            "rows": 2132006,
+            "status": "success"
+          },
+          {
+            "table": "lag_eurgbp_90",
+            "pair": "EUR_GBP",
+            "period": 90,
+            "rows": 2131961,
+            "status": "success"
+          },
+          {
+            "table": "lag_eurjpy_90",
+            "pair": "EUR_JPY",
+            "period": 90,
+            "rows": 2155604,
+            "status": "success"
+          },
+          {
+            "table": "lag_eurjpy_45",
+            "pair": "EUR_JPY",
+            "period": 45,
+            "rows": 2155649,
+            "status": "success"
+          },
+          {
+            "table": "lag_eurchf_45",
+            "pair": "EUR_CHF",
+            "period": 45,
+            "rows": 2104040,
+            "status": "success"
+          },
+          {
+            "table": "lag_eurchf_90",
+            "pair": "EUR_CHF",
+            "period": 90,
+            "rows": 2103995,
+            "status": "success"
+          },
+          {
+            "table": "lag_euraud_45",
+            "pair": "EUR_AUD",
+            "period": 45,
+            "rows": 2169717,
+            "status": "success"
+          },
+          {
+            "table": "lag_eurcad_90",
+            "pair": "EUR_CAD",
+            "period": 90,
+            "rows": 2182242,
+            "status": "success"
+          },
+          {
+            "table": "lag_eurcad_45",
+            "pair": "EUR_CAD",
+            "period": 45,
+            "rows": 2182287,
+            "status": "success"
+          },
+          {
+            "table": "lag_euraud_90",
+            "pair": "EUR_AUD",
+            "period": 90,
+            "rows": 2169672,
+            "status": "success"
+          },
+          {
+            "table": "lag_eurnzd_45",
+            "pair": "EUR_NZD",
+            "period": 45,
+            "rows": 2174467,
+            "status": "success"
+          },
+          {
+            "table": "lag_eurnzd_90",
+            "pair": "EUR_NZD",
+            "period": 90,
+            "rows": 2174422,
+            "status": "success"
+          },
+          {
+            "table": "lag_gbpjpy_45",
+            "pair": "GBP_JPY",
+            "period": 45,
+            "rows": 2179017,
+            "status": "success"
+          },
+          {
+            "table": "lag_gbpjpy_90",
+            "pair": "GBP_JPY",
+            "period": 90,
+            "rows": 2178972,
+            "status": "success"
+          },
+          {
+            "table": "lag_gbpchf_45",
+            "pair": "GBP_CHF",
+            "period": 45,
+            "rows": 2073405,
+            "status": "success"
+          },
+          {
+            "table": "lag_gbpchf_90",
+            "pair": "GBP_CHF",
+            "period": 90,
+            "rows": 2073360,
+            "status": "success"
+          },
+          {
+            "table": "lag_gbpaud_45",
+            "pair": "GBP_AUD",
+            "period": 45,
+            "rows": 2180896,
+            "status": "success"
+          },
+          {
+            "table": "lag_gbpaud_90",
+            "pair": "GBP_AUD",
+            "period": 90,
+            "rows": 2180851,
+            "status": "success"
+          },
+          {
+            "table": "lag_gbpcad_45",
+            "pair": "GBP_CAD",
+            "period": 45,
+            "rows": 2187248,
+            "status": "success"
+          },
+          {
+            "table": "lag_gbpcad_90",
+            "pair": "GBP_CAD",
+            "period": 90,
+            "rows": 2187203,
+            "status": "success"
+          },
+          {
+            "table": "lag_gbpnzd_45",
+            "pair": "GBP_NZD",
+            "period": 45,
+            "rows": 2167411,
+            "status": "success"
+          },
+          {
+            "table": "lag_gbpnzd_90",
+            "pair": "GBP_NZD",
+            "period": 90,
+            "rows": 2167366,
+            "status": "success"
+          },
+          {
+            "table": "lag_audjpy_45",
+            "pair": "AUD_JPY",
+            "period": 45,
+            "rows": 2188320,
+            "status": "success"
+          },
+          {
+            "table": "lag_audchf_45",
+            "pair": "AUD_CHF",
+            "period": 45,
+            "rows": 2144335,
+            "status": "success"
+          },
+          {
+            "table": "lag_audjpy_90",
+            "pair": "AUD_JPY",
+            "period": 90,
+            "rows": 2188275,
+            "status": "success"
+          },
+          {
+            "table": "lag_audchf_90",
+            "pair": "AUD_CHF",
+            "period": 90,
+            "rows": 2144290,
+            "status": "success"
+          },
+          {
+            "table": "lag_audcad_45",
+            "pair": "AUD_CAD",
+            "period": 45,
+            "rows": 2173393,
+            "status": "success"
+          },
+          {
+            "table": "lag_audcad_90",
+            "pair": "AUD_CAD",
+            "period": 90,
+            "rows": 2173348,
+            "status": "success"
+          },
+          {
+            "table": "lag_audnzd_45",
+            "pair": "AUD_NZD",
+            "period": 45,
+            "rows": 2167280,
+            "status": "success"
+          },
+          {
+            "table": "lag_audnzd_90",
+            "pair": "AUD_NZD",
+            "period": 90,
+            "rows": 2167235,
+            "status": "success"
+          },
+          {
+            "table": "lag_nzdjpy_45",
+            "pair": "NZD_JPY",
+            "period": 45,
+            "rows": 2178561,
+            "status": "success"
+          },
+          {
+            "table": "lag_nzdchf_45",
+            "pair": "NZD_CHF",
+            "period": 45,
+            "rows": 2133364,
+            "status": "success"
+          },
+          {
+            "table": "lag_nzdjpy_90",
+            "pair": "NZD_JPY",
+            "period": 90,
+            "rows": 2178516,
+            "status": "success"
+          },
+          {
+            "table": "lag_nzdchf_90",
+            "pair": "NZD_CHF",
+            "period": 90,
+            "rows": 2133319,
+            "status": "success"
+          },
+          {
+            "table": "lag_nzdcad_45",
+            "pair": "NZD_CAD",
+            "period": 45,
+            "rows": 2166810,
+            "status": "success"
+          },
+          {
+            "table": "lag_cadjpy_45",
+            "pair": "CAD_JPY",
+            "period": 45,
+            "rows": 2182158,
+            "status": "success"
+          },
+          {
+            "table": "lag_nzdcad_90",
+            "pair": "NZD_CAD",
+            "period": 90,
+            "rows": 2166765,
+            "status": "success"
+          },
+          {
+            "table": "lag_cadchf_45",
+            "pair": "CAD_CHF",
+            "period": 45,
+            "rows": 2023422,
+            "status": "success"
+          },
+          {
+            "table": "lag_cadjpy_90",
+            "pair": "CAD_JPY",
+            "period": 90,
+            "rows": 2182113,
+            "status": "success"
+          },
+          {
+            "table": "lag_cadchf_90",
+            "pair": "CAD_CHF",
+            "period": 90,
+            "rows": 2023377,
+            "status": "success"
+          },
+          {
+            "table": "lag_chfjpy_90",
+            "pair": "CHF_JPY",
+            "period": 90,
+            "rows": 1984313,
+            "status": "success"
+          },
+          {
+            "table": "lag_chfjpy_45",
+            "pair": "CHF_JPY",
+            "period": 45,
+            "rows": 1984358,
+            "status": "success"
+          }
+        ]
+      },
+      "regime_features": {
+        "count": 56,
+        "total_rows": 119666110,
+        "tables": [
+          {
+            "table": "regime_gbpusd_45",
+            "pair": "GBP_USD",
+            "period": 45,
+            "rows": 1972657,
+            "status": "success"
+          },
+          {
+            "table": "regime_eurusd_45",
+            "pair": "EUR_USD",
+            "period": 45,
+            "rows": 2164285,
+            "status": "success"
+          },
+          {
+            "table": "regime_gbpusd_90",
+            "pair": "GBP_USD",
+            "period": 90,
+            "rows": 1972612,
+            "status": "success"
+          },
+          {
+            "table": "regime_usdjpy_90",
+            "pair": "USD_JPY",
+            "period": 90,
+            "rows": 2174038,
+            "status": "success"
+          },
+          {
+            "table": "regime_eurusd_90",
+            "pair": "EUR_USD",
+            "period": 90,
+            "rows": 2164240,
+            "status": "success"
+          },
+          {
+            "table": "regime_usdjpy_45",
+            "pair": "USD_JPY",
+            "period": 45,
+            "rows": 2174083,
+            "status": "success"
+          },
+          {
+            "table": "regime_usdchf_45",
+            "pair": "USD_CHF",
+            "period": 45,
+            "rows": 2049168,
+            "status": "success"
+          },
+          {
+            "table": "regime_usdcad_45",
+            "pair": "USD_CAD",
+            "period": 45,
+            "rows": 2155266,
+            "status": "success"
+          },
+          {
+            "table": "regime_usdcad_90",
+            "pair": "USD_CAD",
+            "period": 90,
+            "rows": 2155221,
+            "status": "success"
+          },
+          {
+            "table": "regime_usdchf_90",
+            "pair": "USD_CHF",
+            "period": 90,
+            "rows": 2049123,
+            "status": "success"
+          },
+          {
+            "table": "regime_audusd_45",
+            "pair": "AUD_USD",
+            "period": 45,
+            "rows": 2121155,
+            "status": "success"
+          },
+          {
+            "table": "regime_audusd_90",
+            "pair": "AUD_USD",
+            "period": 90,
+            "rows": 2121110,
+            "status": "success"
+          },
+          {
+            "table": "regime_nzdusd_45",
+            "pair": "NZD_USD",
+            "period": 45,
+            "rows": 2126946,
+            "status": "success"
+          },
+          {
+            "table": "regime_nzdusd_90",
+            "pair": "NZD_USD",
+            "period": 90,
+            "rows": 2126901,
+            "status": "success"
+          },
+          {
+            "table": "regime_eurgbp_45",
+            "pair": "EUR_GBP",
+            "period": 45,
+            "rows": 2132006,
+            "status": "success"
+          },
+          {
+            "table": "regime_eurchf_45",
+            "pair": "EUR_CHF",
+            "period": 45,
+            "rows": 2104040,
+            "status": "success"
+          },
+          {
+            "table": "regime_eurgbp_90",
+            "pair": "EUR_GBP",
+            "period": 90,
+            "rows": 2131961,
+            "status": "success"
+          },
+          {
+            "table": "regime_eurjpy_45",
+            "pair": "EUR_JPY",
+            "period": 45,
+            "rows": 2155649,
+            "status": "success"
+          },
+          {
+            "table": "regime_eurjpy_90",
+            "pair": "EUR_JPY",
+            "period": 90,
+            "rows": 2155604,
+            "status": "success"
+          },
+          {
+            "table": "regime_eurchf_90",
+            "pair": "EUR_CHF",
+            "period": 90,
+            "rows": 2103995,
+            "status": "success"
+          },
+          {
+            "table": "regime_euraud_45",
+            "pair": "EUR_AUD",
+            "period": 45,
+            "rows": 2169717,
+            "status": "success"
+          },
+          {
+            "table": "regime_euraud_90",
+            "pair": "EUR_AUD",
+            "period": 90,
+            "rows": 2169672,
+            "status": "success"
+          },
+          {
+            "table": "regime_eurcad_45",
+            "pair": "EUR_CAD",
+            "period": 45,
+            "rows": 2182287,
+            "status": "success"
+          },
+          {
+            "table": "regime_eurnzd_90",
+            "pair": "EUR_NZD",
+            "period": 90,
+            "rows": 2174422,
+            "status": "success"
+          },
+          {
+            "table": "regime_eurcad_90",
+            "pair": "EUR_CAD",
+            "period": 90,
+            "rows": 2182242,
+            "status": "success"
+          },
+          {
+            "table": "regime_eurnzd_45",
+            "pair": "EUR_NZD",
+            "period": 45,
+            "rows": 2174467,
+            "status": "success"
+          },
+          {
+            "table": "regime_gbpjpy_45",
+            "pair": "GBP_JPY",
+            "period": 45,
+            "rows": 2179017,
+            "status": "success"
+          },
+          {
+            "table": "regime_gbpjpy_90",
+            "pair": "GBP_JPY",
+            "period": 90,
+            "rows": 2178972,
+            "status": "success"
+          },
+          {
+            "table": "regime_gbpchf_90",
+            "pair": "GBP_CHF",
+            "period": 90,
+            "rows": 2073360,
+            "status": "success"
+          },
+          {
+            "table": "regime_gbpaud_45",
+            "pair": "GBP_AUD",
+            "period": 45,
+            "rows": 2180896,
+            "status": "success"
+          },
+          {
+            "table": "regime_gbpchf_45",
+            "pair": "GBP_CHF",
+            "period": 45,
+            "rows": 2073405,
+            "status": "success"
+          },
+          {
+            "table": "regime_gbpaud_90",
+            "pair": "GBP_AUD",
+            "period": 90,
+            "rows": 2180851,
+            "status": "success"
+          },
+          {
+            "table": "regime_gbpcad_90",
+            "pair": "GBP_CAD",
+            "period": 90,
+            "rows": 2209181,
+            "status": "success"
+          },
+          {
+            "table": "regime_gbpcad_45",
+            "pair": "GBP_CAD",
+            "period": 45,
+            "rows": 2209228,
+            "status": "success"
+          },
+          {
+            "table": "regime_gbpnzd_90",
+            "pair": "GBP_NZD",
+            "period": 90,
+            "rows": 2167366,
+            "status": "success"
+          },
+          {
+            "table": "regime_audjpy_45",
+            "pair": "AUD_JPY",
+            "period": 45,
+            "rows": 2188320,
+            "status": "success"
+          },
+          {
+            "table": "regime_audjpy_90",
+            "pair": "AUD_JPY",
+            "period": 90,
+            "rows": 2188275,
+            "status": "success"
+          },
+          {
+            "table": "regime_audchf_90",
+            "pair": "AUD_CHF",
+            "period": 90,
+            "rows": 2144290,
+            "status": "success"
+          },
+          {
+            "table": "regime_audchf_45",
+            "pair": "AUD_CHF",
+            "period": 45,
+            "rows": 2144335,
+            "status": "success"
+          },
+          {
+            "table": "regime_audcad_45",
+            "pair": "AUD_CAD",
+            "period": 45,
+            "rows": 2173395,
+            "status": "success"
+          },
+          {
+            "table": "regime_gbpnzd_45",
+            "pair": "GBP_NZD",
+            "period": 45,
+            "rows": 2167411,
+            "status": "success"
+          },
+          {
+            "table": "regime_audcad_90",
+            "pair": "AUD_CAD",
+            "period": 90,
+            "rows": 2173350,
+            "status": "success"
+          },
+          {
+            "table": "regime_audnzd_45",
+            "pair": "AUD_NZD",
+            "period": 45,
+            "rows": 2167280,
+            "status": "success"
+          },
+          {
+            "table": "regime_audnzd_90",
+            "pair": "AUD_NZD",
+            "period": 90,
+            "rows": 2167235,
+            "status": "success"
+          },
+          {
+            "table": "regime_nzdjpy_45",
+            "pair": "NZD_JPY",
+            "period": 45,
+            "rows": 2178561,
+            "status": "success"
+          },
+          {
+            "table": "regime_nzdjpy_90",
+            "pair": "NZD_JPY",
+            "period": 90,
+            "rows": 2178516,
+            "status": "success"
+          },
+          {
+            "table": "regime_nzdchf_45",
+            "pair": "NZD_CHF",
+            "period": 45,
+            "rows": 2133364,
+            "status": "success"
+          },
+          {
+            "table": "regime_nzdchf_90",
+            "pair": "NZD_CHF",
+            "period": 90,
+            "rows": 2133319,
+            "status": "success"
+          },
+          {
+            "table": "regime_nzdcad_90",
+            "pair": "NZD_CAD",
+            "period": 90,
+            "rows": 2166765,
+            "status": "success"
+          },
+          {
+            "table": "regime_cadjpy_45",
+            "pair": "CAD_JPY",
+            "period": 45,
+            "rows": 2182158,
+            "status": "success"
+          },
+          {
+            "table": "regime_nzdcad_45",
+            "pair": "NZD_CAD",
+            "period": 45,
+            "rows": 2166810,
+            "status": "success"
+          },
+          {
+            "table": "regime_cadjpy_90",
+            "pair": "CAD_JPY",
+            "period": 90,
+            "rows": 2182113,
+            "status": "success"
+          },
+          {
+            "table": "regime_cadchf_90",
+            "pair": "CAD_CHF",
+            "period": 90,
+            "rows": 2023377,
+            "status": "success"
+          },
+          {
+            "table": "regime_chfjpy_45",
+            "pair": "CHF_JPY",
+            "period": 45,
+            "rows": 1984358,
+            "status": "success"
+          },
+          {
+            "table": "regime_cadchf_45",
+            "pair": "CAD_CHF",
+            "period": 45,
+            "rows": 2023422,
+            "status": "success"
+          },
+          {
+            "table": "regime_chfjpy_90",
+            "pair": "CHF_JPY",
+            "period": 90,
+            "rows": 1984313,
+            "status": "success"
+          }
+        ]
+      },
+      "correlation_features": {
+        "count": 224,
+        "total_rows": 201600000,
+        "tables": [
+          {
+            "table": "corr_ibkr_eurusd_ewa",
+            "pair": "EURUSD",
+            "instrument": "EWA",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_eurusd_ewg",
+            "pair": "EURUSD",
+            "instrument": "EWG",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_eurusd_ewj",
+            "pair": "EURUSD",
+            "instrument": "EWJ",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_eurusd_ewu",
+            "pair": "EURUSD",
+            "instrument": "EWU",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_eurusd_gld",
+            "pair": "EURUSD",
+            "instrument": "GLD",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_eurusd_spy",
+            "pair": "EURUSD",
+            "instrument": "SPY",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_eurusd_uup",
+            "pair": "EURUSD",
+            "instrument": "UUP",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_eurusd_vix",
+            "pair": "EURUSD",
+            "instrument": "VIX",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_gbpusd_ewa",
+            "pair": "GBPUSD",
+            "instrument": "EWA",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_gbpusd_ewg",
+            "pair": "GBPUSD",
+            "instrument": "EWG",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_gbpusd_ewj",
+            "pair": "GBPUSD",
+            "instrument": "EWJ",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_gbpusd_ewu",
+            "pair": "GBPUSD",
+            "instrument": "EWU",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_gbpusd_gld",
+            "pair": "GBPUSD",
+            "instrument": "GLD",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_gbpusd_spy",
+            "pair": "GBPUSD",
+            "instrument": "SPY",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_gbpusd_uup",
+            "pair": "GBPUSD",
+            "instrument": "UUP",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_gbpusd_vix",
+            "pair": "GBPUSD",
+            "instrument": "VIX",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_usdjpy_ewa",
+            "pair": "USDJPY",
+            "instrument": "EWA",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_usdjpy_ewg",
+            "pair": "USDJPY",
+            "instrument": "EWG",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_usdjpy_ewj",
+            "pair": "USDJPY",
+            "instrument": "EWJ",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_usdjpy_ewu",
+            "pair": "USDJPY",
+            "instrument": "EWU",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_usdjpy_gld",
+            "pair": "USDJPY",
+            "instrument": "GLD",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_usdjpy_spy",
+            "pair": "USDJPY",
+            "instrument": "SPY",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_usdjpy_uup",
+            "pair": "USDJPY",
+            "instrument": "UUP",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_usdjpy_vix",
+            "pair": "USDJPY",
+            "instrument": "VIX",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_usdchf_ewa",
+            "pair": "USDCHF",
+            "instrument": "EWA",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_usdchf_ewg",
+            "pair": "USDCHF",
+            "instrument": "EWG",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_usdchf_ewj",
+            "pair": "USDCHF",
+            "instrument": "EWJ",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_usdchf_ewu",
+            "pair": "USDCHF",
+            "instrument": "EWU",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_usdchf_gld",
+            "pair": "USDCHF",
+            "instrument": "GLD",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_usdchf_spy",
+            "pair": "USDCHF",
+            "instrument": "SPY",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_usdchf_uup",
+            "pair": "USDCHF",
+            "instrument": "UUP",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_usdchf_vix",
+            "pair": "USDCHF",
+            "instrument": "VIX",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_usdcad_ewa",
+            "pair": "USDCAD",
+            "instrument": "EWA",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_usdcad_ewg",
+            "pair": "USDCAD",
+            "instrument": "EWG",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_usdcad_ewj",
+            "pair": "USDCAD",
+            "instrument": "EWJ",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_usdcad_ewu",
+            "pair": "USDCAD",
+            "instrument": "EWU",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_usdcad_gld",
+            "pair": "USDCAD",
+            "instrument": "GLD",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_usdcad_spy",
+            "pair": "USDCAD",
+            "instrument": "SPY",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_usdcad_uup",
+            "pair": "USDCAD",
+            "instrument": "UUP",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_usdcad_vix",
+            "pair": "USDCAD",
+            "instrument": "VIX",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_audusd_ewa",
+            "pair": "AUDUSD",
+            "instrument": "EWA",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_audusd_ewg",
+            "pair": "AUDUSD",
+            "instrument": "EWG",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_audusd_ewj",
+            "pair": "AUDUSD",
+            "instrument": "EWJ",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_audusd_ewu",
+            "pair": "AUDUSD",
+            "instrument": "EWU",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_audusd_gld",
+            "pair": "AUDUSD",
+            "instrument": "GLD",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_audusd_spy",
+            "pair": "AUDUSD",
+            "instrument": "SPY",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_audusd_uup",
+            "pair": "AUDUSD",
+            "instrument": "UUP",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_audusd_vix",
+            "pair": "AUDUSD",
+            "instrument": "VIX",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_nzdusd_ewa",
+            "pair": "NZDUSD",
+            "instrument": "EWA",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_nzdusd_ewg",
+            "pair": "NZDUSD",
+            "instrument": "EWG",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_nzdusd_ewj",
+            "pair": "NZDUSD",
+            "instrument": "EWJ",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_nzdusd_ewu",
+            "pair": "NZDUSD",
+            "instrument": "EWU",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_nzdusd_gld",
+            "pair": "NZDUSD",
+            "instrument": "GLD",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_nzdusd_spy",
+            "pair": "NZDUSD",
+            "instrument": "SPY",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_nzdusd_uup",
+            "pair": "NZDUSD",
+            "instrument": "UUP",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_nzdusd_vix",
+            "pair": "NZDUSD",
+            "instrument": "VIX",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_eurgbp_ewa",
+            "pair": "EURGBP",
+            "instrument": "EWA",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_eurgbp_ewg",
+            "pair": "EURGBP",
+            "instrument": "EWG",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_eurgbp_ewj",
+            "pair": "EURGBP",
+            "instrument": "EWJ",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_eurgbp_ewu",
+            "pair": "EURGBP",
+            "instrument": "EWU",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_eurgbp_gld",
+            "pair": "EURGBP",
+            "instrument": "GLD",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_eurgbp_spy",
+            "pair": "EURGBP",
+            "instrument": "SPY",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_eurgbp_uup",
+            "pair": "EURGBP",
+            "instrument": "UUP",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_eurgbp_vix",
+            "pair": "EURGBP",
+            "instrument": "VIX",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_eurjpy_ewa",
+            "pair": "EURJPY",
+            "instrument": "EWA",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_eurjpy_ewg",
+            "pair": "EURJPY",
+            "instrument": "EWG",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_eurjpy_ewj",
+            "pair": "EURJPY",
+            "instrument": "EWJ",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_eurjpy_ewu",
+            "pair": "EURJPY",
+            "instrument": "EWU",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_eurjpy_gld",
+            "pair": "EURJPY",
+            "instrument": "GLD",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_eurjpy_spy",
+            "pair": "EURJPY",
+            "instrument": "SPY",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_eurjpy_uup",
+            "pair": "EURJPY",
+            "instrument": "UUP",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_eurjpy_vix",
+            "pair": "EURJPY",
+            "instrument": "VIX",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_eurchf_ewa",
+            "pair": "EURCHF",
+            "instrument": "EWA",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_eurchf_ewg",
+            "pair": "EURCHF",
+            "instrument": "EWG",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_eurchf_ewj",
+            "pair": "EURCHF",
+            "instrument": "EWJ",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_eurchf_ewu",
+            "pair": "EURCHF",
+            "instrument": "EWU",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_eurchf_gld",
+            "pair": "EURCHF",
+            "instrument": "GLD",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_eurchf_spy",
+            "pair": "EURCHF",
+            "instrument": "SPY",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_eurchf_uup",
+            "pair": "EURCHF",
+            "instrument": "UUP",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_eurchf_vix",
+            "pair": "EURCHF",
+            "instrument": "VIX",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_euraud_ewa",
+            "pair": "EURAUD",
+            "instrument": "EWA",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_euraud_ewg",
+            "pair": "EURAUD",
+            "instrument": "EWG",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_euraud_ewj",
+            "pair": "EURAUD",
+            "instrument": "EWJ",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_euraud_ewu",
+            "pair": "EURAUD",
+            "instrument": "EWU",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_euraud_gld",
+            "pair": "EURAUD",
+            "instrument": "GLD",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_euraud_spy",
+            "pair": "EURAUD",
+            "instrument": "SPY",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_euraud_uup",
+            "pair": "EURAUD",
+            "instrument": "UUP",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_euraud_vix",
+            "pair": "EURAUD",
+            "instrument": "VIX",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_eurcad_ewa",
+            "pair": "EURCAD",
+            "instrument": "EWA",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_eurcad_ewg",
+            "pair": "EURCAD",
+            "instrument": "EWG",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_eurcad_ewj",
+            "pair": "EURCAD",
+            "instrument": "EWJ",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_eurcad_ewu",
+            "pair": "EURCAD",
+            "instrument": "EWU",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_eurcad_gld",
+            "pair": "EURCAD",
+            "instrument": "GLD",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_eurcad_spy",
+            "pair": "EURCAD",
+            "instrument": "SPY",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_eurcad_uup",
+            "pair": "EURCAD",
+            "instrument": "UUP",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_eurcad_vix",
+            "pair": "EURCAD",
+            "instrument": "VIX",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_eurnzd_ewa",
+            "pair": "EURNZD",
+            "instrument": "EWA",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_eurnzd_ewg",
+            "pair": "EURNZD",
+            "instrument": "EWG",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_eurnzd_ewj",
+            "pair": "EURNZD",
+            "instrument": "EWJ",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_eurnzd_ewu",
+            "pair": "EURNZD",
+            "instrument": "EWU",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_eurnzd_gld",
+            "pair": "EURNZD",
+            "instrument": "GLD",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_eurnzd_spy",
+            "pair": "EURNZD",
+            "instrument": "SPY",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_eurnzd_uup",
+            "pair": "EURNZD",
+            "instrument": "UUP",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_eurnzd_vix",
+            "pair": "EURNZD",
+            "instrument": "VIX",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_gbpjpy_ewa",
+            "pair": "GBPJPY",
+            "instrument": "EWA",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_gbpjpy_ewg",
+            "pair": "GBPJPY",
+            "instrument": "EWG",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_gbpjpy_ewj",
+            "pair": "GBPJPY",
+            "instrument": "EWJ",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_gbpjpy_ewu",
+            "pair": "GBPJPY",
+            "instrument": "EWU",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_gbpjpy_gld",
+            "pair": "GBPJPY",
+            "instrument": "GLD",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_gbpjpy_spy",
+            "pair": "GBPJPY",
+            "instrument": "SPY",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_gbpjpy_uup",
+            "pair": "GBPJPY",
+            "instrument": "UUP",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_gbpjpy_vix",
+            "pair": "GBPJPY",
+            "instrument": "VIX",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_gbpchf_ewa",
+            "pair": "GBPCHF",
+            "instrument": "EWA",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_gbpchf_ewg",
+            "pair": "GBPCHF",
+            "instrument": "EWG",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_gbpchf_ewj",
+            "pair": "GBPCHF",
+            "instrument": "EWJ",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_gbpchf_ewu",
+            "pair": "GBPCHF",
+            "instrument": "EWU",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_gbpchf_gld",
+            "pair": "GBPCHF",
+            "instrument": "GLD",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_gbpchf_spy",
+            "pair": "GBPCHF",
+            "instrument": "SPY",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_gbpchf_uup",
+            "pair": "GBPCHF",
+            "instrument": "UUP",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_gbpchf_vix",
+            "pair": "GBPCHF",
+            "instrument": "VIX",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_gbpaud_ewa",
+            "pair": "GBPAUD",
+            "instrument": "EWA",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_gbpaud_ewg",
+            "pair": "GBPAUD",
+            "instrument": "EWG",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_gbpaud_ewj",
+            "pair": "GBPAUD",
+            "instrument": "EWJ",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_gbpaud_ewu",
+            "pair": "GBPAUD",
+            "instrument": "EWU",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_gbpaud_gld",
+            "pair": "GBPAUD",
+            "instrument": "GLD",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_gbpaud_spy",
+            "pair": "GBPAUD",
+            "instrument": "SPY",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_gbpaud_uup",
+            "pair": "GBPAUD",
+            "instrument": "UUP",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_gbpaud_vix",
+            "pair": "GBPAUD",
+            "instrument": "VIX",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_gbpcad_ewa",
+            "pair": "GBPCAD",
+            "instrument": "EWA",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_gbpcad_ewg",
+            "pair": "GBPCAD",
+            "instrument": "EWG",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_gbpcad_ewj",
+            "pair": "GBPCAD",
+            "instrument": "EWJ",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_gbpcad_ewu",
+            "pair": "GBPCAD",
+            "instrument": "EWU",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_gbpcad_gld",
+            "pair": "GBPCAD",
+            "instrument": "GLD",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_gbpcad_spy",
+            "pair": "GBPCAD",
+            "instrument": "SPY",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_gbpcad_uup",
+            "pair": "GBPCAD",
+            "instrument": "UUP",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_gbpcad_vix",
+            "pair": "GBPCAD",
+            "instrument": "VIX",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_gbpnzd_ewa",
+            "pair": "GBPNZD",
+            "instrument": "EWA",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_gbpnzd_ewg",
+            "pair": "GBPNZD",
+            "instrument": "EWG",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_gbpnzd_ewj",
+            "pair": "GBPNZD",
+            "instrument": "EWJ",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_gbpnzd_ewu",
+            "pair": "GBPNZD",
+            "instrument": "EWU",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_gbpnzd_gld",
+            "pair": "GBPNZD",
+            "instrument": "GLD",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_gbpnzd_spy",
+            "pair": "GBPNZD",
+            "instrument": "SPY",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_gbpnzd_uup",
+            "pair": "GBPNZD",
+            "instrument": "UUP",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_gbpnzd_vix",
+            "pair": "GBPNZD",
+            "instrument": "VIX",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_audjpy_ewa",
+            "pair": "AUDJPY",
+            "instrument": "EWA",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_audjpy_ewg",
+            "pair": "AUDJPY",
+            "instrument": "EWG",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_audjpy_ewj",
+            "pair": "AUDJPY",
+            "instrument": "EWJ",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_audjpy_ewu",
+            "pair": "AUDJPY",
+            "instrument": "EWU",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_audjpy_gld",
+            "pair": "AUDJPY",
+            "instrument": "GLD",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_audjpy_spy",
+            "pair": "AUDJPY",
+            "instrument": "SPY",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_audjpy_uup",
+            "pair": "AUDJPY",
+            "instrument": "UUP",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_audjpy_vix",
+            "pair": "AUDJPY",
+            "instrument": "VIX",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_audchf_ewa",
+            "pair": "AUDCHF",
+            "instrument": "EWA",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_audchf_ewg",
+            "pair": "AUDCHF",
+            "instrument": "EWG",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_audchf_ewj",
+            "pair": "AUDCHF",
+            "instrument": "EWJ",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_audchf_ewu",
+            "pair": "AUDCHF",
+            "instrument": "EWU",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_audchf_gld",
+            "pair": "AUDCHF",
+            "instrument": "GLD",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_audchf_spy",
+            "pair": "AUDCHF",
+            "instrument": "SPY",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_audchf_uup",
+            "pair": "AUDCHF",
+            "instrument": "UUP",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_audchf_vix",
+            "pair": "AUDCHF",
+            "instrument": "VIX",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_audcad_ewa",
+            "pair": "AUDCAD",
+            "instrument": "EWA",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_audcad_ewg",
+            "pair": "AUDCAD",
+            "instrument": "EWG",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_audcad_ewj",
+            "pair": "AUDCAD",
+            "instrument": "EWJ",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_audcad_ewu",
+            "pair": "AUDCAD",
+            "instrument": "EWU",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_audcad_gld",
+            "pair": "AUDCAD",
+            "instrument": "GLD",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_audcad_spy",
+            "pair": "AUDCAD",
+            "instrument": "SPY",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_audcad_uup",
+            "pair": "AUDCAD",
+            "instrument": "UUP",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_audcad_vix",
+            "pair": "AUDCAD",
+            "instrument": "VIX",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_audnzd_ewa",
+            "pair": "AUDNZD",
+            "instrument": "EWA",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_audnzd_ewg",
+            "pair": "AUDNZD",
+            "instrument": "EWG",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_audnzd_ewj",
+            "pair": "AUDNZD",
+            "instrument": "EWJ",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_audnzd_ewu",
+            "pair": "AUDNZD",
+            "instrument": "EWU",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_audnzd_gld",
+            "pair": "AUDNZD",
+            "instrument": "GLD",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_audnzd_spy",
+            "pair": "AUDNZD",
+            "instrument": "SPY",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_audnzd_uup",
+            "pair": "AUDNZD",
+            "instrument": "UUP",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_audnzd_vix",
+            "pair": "AUDNZD",
+            "instrument": "VIX",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_nzdjpy_ewa",
+            "pair": "NZDJPY",
+            "instrument": "EWA",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_nzdjpy_ewg",
+            "pair": "NZDJPY",
+            "instrument": "EWG",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_nzdjpy_ewj",
+            "pair": "NZDJPY",
+            "instrument": "EWJ",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_nzdjpy_ewu",
+            "pair": "NZDJPY",
+            "instrument": "EWU",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_nzdjpy_gld",
+            "pair": "NZDJPY",
+            "instrument": "GLD",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_nzdjpy_spy",
+            "pair": "NZDJPY",
+            "instrument": "SPY",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_nzdjpy_uup",
+            "pair": "NZDJPY",
+            "instrument": "UUP",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_nzdjpy_vix",
+            "pair": "NZDJPY",
+            "instrument": "VIX",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_nzdchf_ewa",
+            "pair": "NZDCHF",
+            "instrument": "EWA",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_nzdchf_ewg",
+            "pair": "NZDCHF",
+            "instrument": "EWG",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_nzdchf_ewj",
+            "pair": "NZDCHF",
+            "instrument": "EWJ",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_nzdchf_ewu",
+            "pair": "NZDCHF",
+            "instrument": "EWU",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_nzdchf_gld",
+            "pair": "NZDCHF",
+            "instrument": "GLD",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_nzdchf_spy",
+            "pair": "NZDCHF",
+            "instrument": "SPY",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_nzdchf_uup",
+            "pair": "NZDCHF",
+            "instrument": "UUP",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_nzdchf_vix",
+            "pair": "NZDCHF",
+            "instrument": "VIX",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_nzdcad_ewa",
+            "pair": "NZDCAD",
+            "instrument": "EWA",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_nzdcad_ewg",
+            "pair": "NZDCAD",
+            "instrument": "EWG",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_nzdcad_ewj",
+            "pair": "NZDCAD",
+            "instrument": "EWJ",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_nzdcad_ewu",
+            "pair": "NZDCAD",
+            "instrument": "EWU",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_nzdcad_gld",
+            "pair": "NZDCAD",
+            "instrument": "GLD",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_nzdcad_spy",
+            "pair": "NZDCAD",
+            "instrument": "SPY",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_nzdcad_uup",
+            "pair": "NZDCAD",
+            "instrument": "UUP",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_nzdcad_vix",
+            "pair": "NZDCAD",
+            "instrument": "VIX",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_cadjpy_ewa",
+            "pair": "CADJPY",
+            "instrument": "EWA",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_cadjpy_ewg",
+            "pair": "CADJPY",
+            "instrument": "EWG",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_cadjpy_ewj",
+            "pair": "CADJPY",
+            "instrument": "EWJ",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_cadjpy_ewu",
+            "pair": "CADJPY",
+            "instrument": "EWU",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_cadjpy_gld",
+            "pair": "CADJPY",
+            "instrument": "GLD",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_cadjpy_spy",
+            "pair": "CADJPY",
+            "instrument": "SPY",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_cadjpy_uup",
+            "pair": "CADJPY",
+            "instrument": "UUP",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_cadjpy_vix",
+            "pair": "CADJPY",
+            "instrument": "VIX",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_cadchf_ewa",
+            "pair": "CADCHF",
+            "instrument": "EWA",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_cadchf_ewg",
+            "pair": "CADCHF",
+            "instrument": "EWG",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_cadchf_ewj",
+            "pair": "CADCHF",
+            "instrument": "EWJ",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_cadchf_ewu",
+            "pair": "CADCHF",
+            "instrument": "EWU",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_cadchf_gld",
+            "pair": "CADCHF",
+            "instrument": "GLD",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_cadchf_spy",
+            "pair": "CADCHF",
+            "instrument": "SPY",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_cadchf_uup",
+            "pair": "CADCHF",
+            "instrument": "UUP",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_cadchf_vix",
+            "pair": "CADCHF",
+            "instrument": "VIX",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_chfjpy_ewa",
+            "pair": "CHFJPY",
+            "instrument": "EWA",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_chfjpy_ewg",
+            "pair": "CHFJPY",
+            "instrument": "EWG",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_chfjpy_ewj",
+            "pair": "CHFJPY",
+            "instrument": "EWJ",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_chfjpy_ewu",
+            "pair": "CHFJPY",
+            "instrument": "EWU",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_chfjpy_gld",
+            "pair": "CHFJPY",
+            "instrument": "GLD",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_chfjpy_spy",
+            "pair": "CHFJPY",
+            "instrument": "SPY",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_chfjpy_uup",
+            "pair": "CHFJPY",
+            "instrument": "UUP",
+            "status": "success"
+          },
+          {
+            "table": "corr_ibkr_chfjpy_vix",
+            "pair": "CHFJPY",
+            "instrument": "VIX",
+            "status": "success"
+          }
+        ]
+      }
+    }
+  }
+}
