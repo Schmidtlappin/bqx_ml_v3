@@ -6,7 +6,7 @@
     "repository": "https://github.com/Schmidtlappin/bqx_ml_v3",
     "owner": "Schmidtlappin",
     "created": "2024-11-24",
-    "last_updated": "2025-11-25"
+    "last_updated": "2025-11-28"
   },
   "paradigm": {
     "name": "BQX Momentum Prediction",
@@ -31,8 +31,18 @@
     },
     "data": {
       "warehouse": "BigQuery",
-      "tables": 1736,
-      "dataset": "bqx_ml"
+      "location": "us-central1",
+      "migration_date": "2025-11-28",
+      "tables": 540,
+      "mandate_target": 1736,
+      "datasets": {
+        "bqx_bq_uscen1": "Raw m1 OHLCV data (804 tables)",
+        "bqx_ml_v3_features": "Engineered features (540 tables)",
+        "bqx_ml_v3_models": "Trained models (0 tables - pending)",
+        "bqx_ml_v3_predictions": "Model predictions (0 tables - pending)",
+        "bqx_ml_v3_analytics": "Performance metrics (0 tables - pending)",
+        "bqx_ml_v3_staging": "Temporary processing (0 tables)"
+      }
     },
     "project_management": {
       "tool": "AirTable",
@@ -40,7 +50,7 @@
       "base_id": "appR3PPnrNkVo48mO",
       "phases": 11,
       "stages": 70,
-      "completion": "100%"
+      "completion": "31%"
     },
     "version_control": {
       "platform": "GitHub",
@@ -64,9 +74,46 @@
     "primary_tools": ["Python", "BigQuery", "Vertex AI", "AirTable", "Claude Code"]
   },
   "current_phase": {
-    "phase": "P03.02",
-    "name": "Intelligence Architecture",
-    "status": "In Progress",
-    "next_milestone": "Create 7 Intelligence JSON Files"
+    "phase": "Phase 1B",
+    "name": "BQX Dual Architecture Completion",
+    "status": "Complete",
+    "completion_date": "2025-11-28",
+    "next_milestone": "Phase 2: Additional Feature Types or Model Training"
+  },
+  "recent_milestones": {
+    "2025-11-28": [
+      "Completed BigQuery migration to us-central1 (2,463 tables)",
+      "Phase 0: Migration and infrastructure optimization (40-95x performance gain)",
+      "Phase 1: Primary features (LAG, REGIME, Correlation IDX variants)",
+      "Phase 1B: BQX dual variants (lag_bqx_*, regime_bqx_*)",
+      "Discovered and remediated BQX/IDX data mismatch",
+      "Dual architecture: 100% complete",
+      "Total tables created: 540 (31% of mandate)"
+    ],
+    "2024-11-24": [
+      "BQX paradigm shift: BQX as both features AND targets",
+      "Project inception and architecture design"
+    ]
+  },
+  "critical_context": {
+    "data_quality": {
+      "idx_tables": "Real historical data (2.17M rows per pair, 6 years)",
+      "bqx_tables": "Regenerated from IDX (2.17M rows per pair, matching IDX)",
+      "dual_architecture": "100% complete - IDX and BQX tables mirror each other",
+      "data_parity": "Achieved 2025-11-28"
+    },
+    "mandate_compliance": {
+      "table_completion": "31% (540 of 1,736)",
+      "feature_types": "3 of 8 (LAG, REGIME, Correlation)",
+      "centric_perspectives": "1 of 6 (Primary-Centric only)",
+      "dual_architecture": "100% for completed features",
+      "models_trained": "0 of 196",
+      "accuracy_target": "90%+ directional (not yet measured)"
+    },
+    "performance": {
+      "migration_speedup": "40-95x faster execution in us-central1",
+      "phase_1_execution": "53 minutes (vs 28-40 hour estimate)",
+      "phase_1b_execution": "3 minutes (vs 10-18 minute estimate)"
+    }
   }
 }

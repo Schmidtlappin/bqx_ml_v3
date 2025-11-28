@@ -1,60 +1,117 @@
 {
   "core_concepts": {
     "BQX": {
-      "definition": "Proprietary momentum indicator consisting of ask, bid, and mid values",
+      "definition": "Proprietary momentum indicator measuring percentage change over lookback period",
       "purpose": "Primary target for prediction AND feature for autoregressive modeling",
-      "components": ["bqx_ask", "bqx_bid", "bqx_mid"],
-      "paradigm_shift": "BQX values can now be used as BOTH features AND targets (since 2024-11-24)"
+      "components": ["bqx_45", "bqx_90", "bqx_180", "bqx_360", "bqx_720", "bqx_1440", "bqx_2880"],
+      "paradigm_shift": "BQX values can now be used as BOTH features AND targets (since 2024-11-24)",
+      "calculation": "((current_close - lag_close) / lag_close) * 100",
+      "status": "Implemented in all 28 {pair}_bqx tables"
+    },
+    "IDX": {
+      "definition": "Indexed price data normalized to base=100",
+      "purpose": "Price-based features for model training",
+      "calculation": "(current_close / base_close) * 100",
+      "status": "Implemented in all 28 {pair}_idx tables",
+      "row_count": "~2.17M per pair (6 years)"
+    },
+    "Dual_Architecture": {
+      "definition": "All features exist in both IDX and BQX variants",
+      "implemented_types": ["LAG", "REGIME"],
+      "pending_types": ["REGRESSION", "AGGREGATION", "ALIGNMENT", "MOMENTUM", "VOLATILITY"],
+      "status": "100% complete for implemented types (as of 2025-11-28)",
+      "rationale": "Models learn from both price patterns (IDX) and momentum patterns (BQX)"
     },
     "Interval_Centric": {
       "definition": "All calculations use row-based windows (ROWS BETWEEN) instead of time-based",
       "rationale": "Ensures consistent sample sizes regardless of data gaps",
       "implementation": "ROWS BETWEEN N PRECEDING AND CURRENT ROW",
-      "forbidden": "Any time-based windows (e.g., INTERVAL, date arithmetic)"
+      "forbidden": "Any time-based windows (e.g., INTERVAL, date arithmetic)",
+      "status": "Applied to all feature calculations"
     },
     "Independent_Models": {
       "definition": "Each currency pair has its own isolated model",
-      "count": 28,
+      "count_planned": 196,
+      "count_trained": 0,
+      "breakdown": "28 pairs × 7 horizons",
       "isolation": "Complete - no feature or data sharing between pairs",
-      "rationale": "Each pair has unique dynamics requiring specialized modeling"
+      "rationale": "Each pair has unique dynamics requiring specialized modeling",
+      "status": "NOT STARTED - pending feature completion"
     },
     "Feature_Target_Separation": {
       "old_rule": "BQX values strictly prohibited as features",
       "new_rule": "BQX values can be features (lags) AND targets (forward predictions)",
       "features": "Historical (backward-looking) data including BQX lags",
-      "targets": "Future (forward-looking) BQX predictions"
+      "targets": "Future (forward-looking) BQX predictions",
+      "implementation_date": "2024-11-24 paradigm shift"
     }
   },
   "terminology": {
-    "Lag": "Historical value N bars ago (e.g., close_lag_1, bqx_mid_lag_1)",
-    "Lead": "Future value N bars ahead (e.g., bqx_mid_lead_1)",
+    "Lag": "Historical value N bars ago (e.g., close_lag_1, bqx_lag_1)",
+    "Lead": "Future value N bars ahead (used for target calculation)",
     "Regime": "Market state categorization (trending, ranging, volatile, calm)",
-    "Centric": "Calculation perspective (tick, bar, order, trade, position, portfolio)",
-    "Cell_Type": "Unique combination of feature × centric × variant (96 total)",
+    "Centric": "Calculation perspective (Primary, Variant, Covariant, Triangulation, Secondary, Tertiary)",
+    "Cell_Type": "Unique combination of feature × centric × variant",
     "Table": "BigQuery table containing specific feature set for a currency pair",
     "Stage": "Project plan stage in AirTable (70 total)",
-    "Phase": "Project plan phase in AirTable (11 total)"
+    "Phase": "Project plan phase in AirTable (11 total)",
+    "m1": "1-minute bar data (OHLCV)",
+    "idx": "Indexed price data (normalized to base=100)",
+    "bqx": "Backward momentum (percentage change over lookback)"
   },
   "feature_categories": {
     "Price_Features": {
       "base": ["open", "high", "low", "close", "volume"],
       "derived": ["returns", "log_returns", "volatility", "range"],
-      "lags": "1-60 bars historical"
+      "lags": "1-60 bars historical",
+      "status": "Available in m1_* and idx_* tables"
     },
     "BQX_Features": {
-      "base": ["bqx_ask", "bqx_bid", "bqx_mid"],
-      "derived": ["bqx_spread", "bqx_momentum", "bqx_volatility"],
-      "lags": "1-60 bars historical (NEW - paradigm shift!)"
+      "base": ["bqx_45", "bqx_90", "bqx_180", "bqx_360", "bqx_720", "bqx_1440", "bqx_2880"],
+      "derived": ["bqx_momentum", "bqx_volatility", "bqx_regime"],
+      "lags": "1-60 bars historical (NEW - paradigm shift!)",
+      "status": "Implemented in lag_bqx_* and regime_bqx_* tables (56 + 56 = 112 tables)"
     },
-    "Technical_Indicators": {
-      "momentum": ["RSI", "MACD", "Stochastic"],
-      "trend": ["SMA", "EMA", "Bollinger Bands"],
-      "volume": ["OBV", "VWAP", "Volume Profile"]
+    "LAG_Features": {
+      "idx_variant": "56 tables (lag_{pair}_45, lag_{pair}_90)",
+      "bqx_variant": "56 tables (lag_bqx_{pair}_45, lag_bqx_{pair}_90)",
+      "status": "100% complete",
+      "completion_date": "2025-11-28"
     },
-    "Regime_Features": {
-      "categories": ["trending", "ranging", "volatile", "calm"],
-      "detection": "Statistical and pattern-based classification",
-      "window": "Multiple timeframes"
+    "REGIME_Features": {
+      "idx_variant": "56 tables (regime_{pair}_45, regime_{pair}_90)",
+      "bqx_variant": "56 tables (regime_bqx_{pair}_45, regime_bqx_{pair}_90)",
+      "categories": ["HIGH_VOL", "LOW_VOL", "NORMAL", "STRONG_UP", "STRONG_DOWN", "RANGING"],
+      "status": "100% complete",
+      "completion_date": "2025-11-28"
+    },
+    "CORRELATION_Features": {
+      "fx_correlation": "168 tables (corr_{pair1}_{pair2})",
+      "ibkr_correlation": "56 tables (corr_{pair}_{instrument})",
+      "total": "224 tables",
+      "status": "100% complete",
+      "completion_date": "2025-11-28",
+      "note": "Single-variant only (no BQX variant needed for correlation)"
+    },
+    "REGRESSION_Features": {
+      "status": "NOT STARTED",
+      "planned_tables": 224
+    },
+    "AGGREGATION_Features": {
+      "status": "NOT STARTED",
+      "planned_tables": 224
+    },
+    "ALIGNMENT_Features": {
+      "status": "NOT STARTED",
+      "planned_tables": 224
+    },
+    "MOMENTUM_Features": {
+      "status": "NOT STARTED",
+      "planned_tables": 224
+    },
+    "VOLATILITY_Features": {
+      "status": "NOT STARTED",
+      "planned_tables": 224
     }
   },
   "model_types": {
@@ -65,21 +122,79 @@
       "LSTM",
       "GRU"
     ],
-    "ensemble": "5-algorithm weighted ensemble per pair",
-    "total_models": 140,
-    "breakdown": "28 pairs × 5 algorithms"
+    "ensemble": "5-algorithm weighted ensemble per pair (PLANNED)",
+    "total_models_planned": 196,
+    "total_models_trained": 0,
+    "breakdown": "28 pairs × 7 horizons",
+    "horizons": [15, 30, 45, 60, 75, 90, 105],
+    "status": "NOT STARTED - pending feature completion"
   },
   "data_pipeline_stages": {
-    "regression": "Base price/volume data extraction",
-    "lag": "Historical feature calculation",
-    "regime": "Market state classification",
-    "agg": "Cross-window aggregations",
-    "align": "Final feature matrix assembly"
+    "ingestion": {
+      "description": "Raw market data → m1_* tables",
+      "status": "COMPLETE",
+      "tables": 804
+    },
+    "indexing": {
+      "description": "Price normalization → {pair}_idx tables",
+      "status": "COMPLETE",
+      "tables": 28
+    },
+    "momentum": {
+      "description": "BQX calculation → {pair}_bqx tables",
+      "status": "COMPLETE (regenerated 2025-11-28)",
+      "tables": 28
+    },
+    "lag": {
+      "description": "Historical feature calculation → lag_* tables",
+      "status": "COMPLETE",
+      "tables": 112
+    },
+    "regime": {
+      "description": "Market state classification → regime_* tables",
+      "status": "COMPLETE",
+      "tables": 112
+    },
+    "correlation": {
+      "description": "Cross-pair relationships → corr_* tables",
+      "status": "COMPLETE",
+      "tables": 224
+    },
+    "regression": {
+      "description": "Polynomial trends and predictions",
+      "status": "NOT STARTED",
+      "planned_tables": 224
+    },
+    "aggregation": {
+      "description": "Statistical summaries across windows",
+      "status": "NOT STARTED",
+      "planned_tables": 224
+    },
+    "alignment": {
+      "description": "Cross-timeframe coherence",
+      "status": "NOT STARTED",
+      "planned_tables": 224
+    },
+    "momentum_advanced": {
+      "description": "ROC, acceleration, persistence",
+      "status": "NOT STARTED",
+      "planned_tables": 224
+    },
+    "volatility": {
+      "description": "ATR, realized vol, Bollinger metrics",
+      "status": "NOT STARTED",
+      "planned_tables": 224
+    }
   },
   "quality_metrics": {
-    "completeness": "100%",
-    "gap_coverage": "100%",
-    "stages_90plus": "100%",
-    "stages_95plus": "74.3%"
+    "mandate_compliance": "31%",
+    "table_completion": "540 of 1,736 (31%)",
+    "feature_types_complete": "3 of 8 (38%)",
+    "dual_architecture": "100% for completed types",
+    "data_parity": "100% (IDX and BQX tables mirror each other)",
+    "row_counts": "~2.17M per table (6 years of data)",
+    "execution_performance": "67-95x faster than estimates",
+    "models_trained": "0 of 196 (0%)",
+    "accuracy_achieved": "Not yet measured (target: 90%+ directional)"
   }
 }

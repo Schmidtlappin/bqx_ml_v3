@@ -5,15 +5,19 @@
       "count": 28,
       "attributes": ["base_currency", "quote_currency", "model_id", "dataset_tables"],
       "relationships": {
-        "has_model": "One-to-One with Model",
+        "has_model": "One-to-One with Model (PLANNED - not yet trained)",
         "generates_data": "One-to-Many with BarData",
-        "produces_predictions": "One-to-Many with Prediction"
+        "produces_predictions": "One-to-Many with Prediction (PENDING model training)"
       }
     },
     "Model": {
       "definition": "Machine learning model for specific currency pair",
       "types": ["RandomForest", "XGBoost", "LightGBM", "LSTM", "GRU"],
-      "attributes": ["model_type", "pair_id", "training_date", "performance_metrics"],
+      "count": 0,
+      "planned_count": 196,
+      "breakdown": "28 pairs × 7 horizons",
+      "attributes": ["model_type", "pair_id", "horizon", "training_date", "performance_metrics"],
+      "status": "NOT STARTED - pending feature completion",
       "relationships": {
         "belongs_to_pair": "Many-to-One with CurrencyPair",
         "trained_on": "Many-to-Many with Feature",
@@ -22,24 +26,30 @@
     },
     "Feature": {
       "definition": "Input variable for model training and prediction",
-      "categories": ["price", "bqx", "technical", "regime"],
+      "categories": ["lag", "regime", "correlation", "regression", "aggregation", "alignment", "momentum", "volatility"],
+      "implemented_categories": ["lag", "regime", "correlation"],
       "attributes": ["feature_name", "feature_type", "calculation_method", "lag_periods"],
+      "variants": ["IDX (price-based)", "BQX (momentum-based)"],
+      "dual_architecture_status": "100% for implemented types",
       "relationships": {
-        "used_by": "Many-to-Many with Model",
+        "used_by": "Many-to-Many with Model (PENDING)",
         "derived_from": "Many-to-One with BarData"
       }
     },
     "Target": {
       "definition": "Prediction objective (future BQX values)",
-      "types": ["bqx_ask", "bqx_bid", "bqx_mid"],
+      "types": ["bqx_45", "bqx_90", "bqx_180", "bqx_360", "bqx_720", "bqx_1440", "bqx_2880"],
       "attributes": ["target_name", "horizon", "prediction_time"],
+      "status": "Defined in BQX tables, not yet used for training",
       "relationships": {
-        "predicted_by": "Many-to-One with Model",
+        "predicted_by": "Many-to-One with Model (PENDING)",
         "validates_against": "One-to-One with ActualBQX"
       }
     },
     "BarData": {
-      "definition": "OHLCV candlestick data point",
+      "definition": "OHLCV candlestick data point (1-minute intervals)",
+      "source": "m1_* tables in bqx_bq_uscen1 dataset",
+      "row_count_per_pair": "~2.17M (6 years of data)",
       "attributes": ["timestamp", "open", "high", "low", "close", "volume", "pair_id"],
       "relationships": {
         "belongs_to": "Many-to-One with CurrencyPair",
@@ -48,9 +58,11 @@
     },
     "Prediction": {
       "definition": "Model output predicting future BQX values",
+      "count": 0,
+      "status": "NOT STARTED - pending model training",
       "attributes": ["prediction_time", "horizon", "predicted_value", "confidence", "model_id"],
       "relationships": {
-        "made_by": "Many-to-One with Model",
+        "made_by": "Many-to-One with Model (PENDING)",
         "for_pair": "Many-to-One with CurrencyPair"
       }
     },
@@ -66,6 +78,7 @@
     "Phase": {
       "definition": "Project plan phase grouping related stages",
       "count": 11,
+      "completed_phases": ["Phase 0", "Phase 1", "Phase 1B"],
       "attributes": ["phase_id", "name", "description", "score"],
       "relationships": {
         "contains": "One-to-Many with Stage",
@@ -76,38 +89,81 @@
   "relationships": {
     "hierarchical": {
       "Plan": ["Phase", "Stage"],
-      "CurrencyPair": ["Model", "BarData", "Prediction"],
-      "Model": ["Prediction"]
+      "CurrencyPair": ["Model (pending)", "BarData", "Prediction (pending)"],
+      "Model": ["Prediction (pending)"]
     },
     "computational": {
-      "BarData → Feature": "Transformation and lag calculation",
-      "Feature → Model": "Training and prediction input",
-      "Model → Prediction": "Inference and output generation",
-      "Prediction → Validation": "Performance measurement"
+      "BarData → IDX": "Price normalization to base=100",
+      "IDX → BQX": "Momentum calculation (percentage change over lookback)",
+      "IDX/BQX → Features": "Lag, regime, correlation extraction",
+      "Features → Model": "Training and prediction input (PENDING)",
+      "Model → Prediction": "Inference and output generation (PENDING)",
+      "Prediction → Validation": "Performance measurement (PENDING)"
     }
   },
   "data_flow": {
-    "ingestion": "Market Data → BarData → BigQuery",
-    "processing": "BarData → Feature Engineering → Feature Tables",
-    "training": "Features + Targets → Model Training → Trained Model",
-    "prediction": "Latest Features → Inference → BQX Predictions",
-    "validation": "Predictions vs Actuals → Performance Metrics"
+    "ingestion": "Market Data → m1_* tables → BigQuery bqx_bq_uscen1",
+    "indexing": "m1_* → {pair}_idx (price normalization)",
+    "momentum": "{pair}_idx → {pair}_bqx (BQX calculation)",
+    "feature_engineering": "IDX/BQX → Feature Tables (lag_*, regime_*, corr_*)",
+    "training": "Features + Targets → Model Training → Trained Model (PENDING)",
+    "prediction": "Latest Features → Inference → BQX Predictions (PENDING)",
+    "validation": "Predictions vs Actuals → Performance Metrics (PENDING)"
   },
   "storage_hierarchy": {
     "BigQuery": {
-      "dataset": "bqx_ml",
-      "table_types": [
-        "regression_bqx_{pair}",
-        "lag_bqx_{pair}",
-        "regime_bqx_{pair}",
-        "agg_bqx_{pair}",
-        "align_bqx_{pair}"
-      ],
-      "total_tables": 1736
+      "location": "us-central1",
+      "migration_date": "2025-11-28",
+      "datasets": {
+        "bqx_bq_uscen1": {
+          "description": "Raw 1-minute OHLCV data",
+          "tables": 804,
+          "pattern": "m1_{pair}",
+          "row_count_per_table": "~2.17M"
+        },
+        "bqx_ml_v3_features": {
+          "description": "Engineered features and indices",
+          "tables": 540,
+          "actual_breakdown": {
+            "idx_tables": 28,
+            "bqx_tables": 28,
+            "lag_idx_tables": 56,
+            "lag_bqx_tables": 56,
+            "regime_idx_tables": 56,
+            "regime_bqx_tables": 56,
+            "corr_tables": 224,
+            "ibkr_corr_tables": 36
+          },
+          "mandate_target": 1736,
+          "completion": "31%"
+        },
+        "bqx_ml_v3_models": {
+          "description": "Trained model artifacts",
+          "tables": 0,
+          "status": "PENDING"
+        },
+        "bqx_ml_v3_predictions": {
+          "description": "Model prediction outputs",
+          "tables": 0,
+          "status": "PENDING"
+        },
+        "bqx_ml_v3_analytics": {
+          "description": "Performance metrics and validation",
+          "tables": 0,
+          "status": "PENDING"
+        },
+        "bqx_ml_v3_staging": {
+          "description": "Temporary processing tables",
+          "tables": 0,
+          "status": "ACTIVE (as needed)"
+        }
+      }
     },
     "Vertex_AI": {
-      "models": 140,
-      "structure": "28 pairs × 5 algorithms"
+      "models": 0,
+      "planned_models": 196,
+      "structure": "28 pairs × 7 horizons",
+      "status": "NOT STARTED"
     }
   }
 }
