@@ -2,49 +2,72 @@
   "agent_id": "BA",
   "unread_messages": [
     {
-      "message_id": "CE-20251129-0130",
+      "message_id": "CE-20251129-1630",
       "from": "CE",
-      "timestamp": "2025-11-29T01:30:00Z",
+      "timestamp": "2025-11-29T16:30:00Z",
       "priority": "CRITICAL",
-      "subject": "APPROVED - Full-Scale Target-Based Correlation Analysis",
-      "file": "20251129_0130_CE-to-BA_PHASE25B_FULLSCALE_APPROVED.md",
-      "summary": "Pilot VALIDATED. Proceed with full-scale execution: 28 pairs × 49 targets × ALL feature tables. ~285,000+ correlations."
-    },
-    {
-      "message_id": "CE-20251129-0145",
-      "from": "CE",
-      "timestamp": "2025-11-29T01:45:00Z",
-      "priority": "HIGH",
-      "subject": "REMEDIATION - Create corr_bqx_ibkr_{pair}_{asset} Tables",
-      "file": "20251129_0145_CE-to-BA_REMEDIATION_CORR_BQX.md",
-      "summary": "Matrix gap identified: PRIMARY BQX corr_ tables missing. Create 224 corr_bqx_ibkr_{pair}_{asset} tables. Run PARALLEL with Phase 2.5B."
+      "subject": "AUTHORIZED - Full cov_* Remediation (Option A: 1,126 Tables)",
+      "file": "20251129_1630_CE-to-BA_COV_FULL_REMEDIATION_AUTHORIZED.md",
+      "summary": "OPTION A AUTHORIZED: Create all 1,126 missing cov_* tables. 168 pair combinations × 10 types = 1,680 total. ~8 hours execution.",
+      "action": "EXECUTE_IMMEDIATELY",
+      "supersedes": "CE-20251129-1610"
     }
   ],
-  "last_checked": "2025-11-29T00:15:00Z",
-  "notes": "TWO DIRECTIVES PENDING: (1) Phase 2.5B full-scale execution [P1], (2) corr_bqx_ remediation [P2]. Execute in parallel.",
-  "current_phase": "Phase 2.5B REDO + Remediation",
-  "current_task": "EXECUTE: Full-scale correlation + corr_bqx_ table creation (PARALLEL)",
-  "next_report_due": "After each batch completion",
-  "last_report_sent": "20251129_0015_BA-to-CE_PHASE25B_REDO_PILOT_COMPLETE.md",
-  "directives": {
+  "last_checked": "2025-11-29T03:30:00Z",
+  "notes": "UPDATED DIRECTIVE: Full cov_* pair-combination coverage authorized. Previous 270-table estimate corrected to 1,126 tables.",
+  "current_phase": "cov_* Full Remediation",
+  "current_task": "EXECUTE: Create 1,126 cov_* pair-combination tables (Option A)",
+  "next_report_due": "After each type completion",
+  "last_report_sent": "20251129_0330_BA-to-CE_COV_STRUCTURE_CLARIFICATION.md",
+  "completed_directives": {
     "phase_25b": {
-      "scope": "28 pairs × 49 targets × ALL feature tables",
-      "estimated_correlations": "285,000+",
-      "parallelization": "5 batches of pairs",
-      "timeline": "24-36 hours",
-      "priority": "P1"
+      "status": "COMPLETE",
+      "completed_at": "2025-11-29T03:00:00Z",
+      "results": {
+        "pairs_processed": 28,
+        "total_correlations": 109760,
+        "output_files": "/tmp/phase25b_fullscale_{pair}.json",
+        "aggregate": "/tmp/phase25b_aggregate_results.json"
+      }
     },
     "corr_bqx_remediation": {
-      "scope": "224 corr_bqx_ibkr_{pair}_{asset} tables",
-      "assets": ["EWA", "EWG", "EWJ", "EWU", "GLD", "SPY", "UUP", "VIX"],
-      "priority": "P2",
-      "run_parallel": true,
-      "timeline": "2-4 hours"
+      "status": "COMPLETE",
+      "completed_at": "2025-11-29T03:05:00Z",
+      "results": {
+        "tables_created": 224,
+        "pattern": "corr_bqx_ibkr_{pair}_{asset}",
+        "assets": ["EWA", "EWG", "EWJ", "EWU", "GLD", "SPY", "UUP", "VIX"]
+      }
     }
   },
-  "skipped_remediations": [
-    "COVARIANT corr_ - redundant (correlation of correlations)",
-    "SECONDARY corr_ - redundant (CSI feature correlations)",
-    "TRIANGULATION lag/regime/corr - by architectural design"
-  ]
+  "active_directive": {
+    "name": "cov_* Full Pair-Combination Coverage",
+    "status": "AUTHORIZED",
+    "option": "A - Full Coverage",
+    "scope": {
+      "pattern": "cov_{type}_{pair1}_{pair2}",
+      "pair_combinations": 168,
+      "type_variants": 10,
+      "total_required": 1680,
+      "current_count": 554,
+      "tables_to_create": 1126,
+      "estimated_time": "8 hours"
+    },
+    "execution_batches": [
+      {"type": "cov_agg + bqx", "tables": 234, "time": "1 hour"},
+      {"type": "cov_align + bqx", "tables": 234, "time": "1 hour"},
+      {"type": "cov_mom + bqx", "tables": 234, "time": "1 hour"},
+      {"type": "cov_reg + bqx", "tables": 234, "time": "1 hour"},
+      {"type": "cov_vol + bqx", "tables": 234, "time": "1 hour"},
+      {"type": "cov_lag + bqx", "tables": 314, "time": "1.5 hours"},
+      {"type": "cov_regime + bqx", "tables": 314, "time": "1.5 hours"}
+    ],
+    "success_criteria": {
+      "all_prefixes_complete": "14 prefixes × 168 tables = 1,680",
+      "coverage": "100%",
+      "validation": "Row counts match source data"
+    },
+    "plan_file": "outboxes/CE/20251129_1630_CE-to-BA_COV_FULL_REMEDIATION_AUTHORIZED.md",
+    "mandate_alignment": ["PERFORMANCE_FIRST", "BUILD_DONT_SIMULATE", "CONTINUOUS_VALIDATION"]
+  }
 }

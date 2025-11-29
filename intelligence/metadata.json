@@ -98,18 +98,18 @@
     "historical_period": "7+ years",
     "data_warehouse": "BigQuery",
     "datasets": {
-      "bqx_bq_uscen1": "Base data tables",
-      "bqx_ml_v3_features": "Feature tables (1,870+)",
-      "bqx_ml_v3_analytics": "Correlation analysis outputs",
-      "bqx_ml_v3_models": "Model artifacts",
-      "bqx_ml_v3_predictions": "Prediction outputs"
+      "bqx_bq_uscen1": "Base data tables (2,463)",
+      "bqx_ml_v3_features": "Feature tables (1,983)",
+      "bqx_ml_v3_analytics": "Target tables (28)",
+      "bqx_ml_v3_models": "Model artifacts (16)",
+      "bqx_ml_v3_predictions": "Prediction outputs (pending)"
     },
     "tables": {
-      "total": 1870,
-      "per_pair": 62,
-      "mandate": 1736,
-      "compliance": "107.7%",
-      "types": ["regression", "lag", "regime", "agg", "align", "correlation", "momentum", "volatility"]
+      "current": 1983,
+      "required": 3192,
+      "coverage": "47.2%",
+      "remediation_pending": 1798,
+      "types": ["primary", "correlation", "covariance"]
     },
     "feature_matrix": {
       "feature_types": 8,
@@ -256,7 +256,8 @@
       "/docs/PARADIGM_SHIFT_UPDATE_20241124.md",
       "/docs/PHASE_25B_REDO_TARGET_CORRELATION.md",
       "/docs/SESSION_STATUS_REPORT.md",
-      "/docs/CLOUD_RUN_BOX_BACKUP.md"
+      "/docs/CLOUD_RUN_BOX_BACKUP.md",
+      "/docs/FEATURE_TABLE_DIRECTORY.md"
     ],
     "scripts": [
       "/scripts/gap_remediation_stages.py",

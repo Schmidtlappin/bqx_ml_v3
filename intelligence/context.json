@@ -33,15 +33,27 @@
       "warehouse": "BigQuery",
       "location": "us-central1",
       "migration_date": "2025-11-28",
-      "tables": 504,
-      "mandate_target": 1736,
+      "tables": 1983,
+      "mandate_target": 3192,
       "datasets": {
-        "bqx_bq_uscen1": "Raw m1 OHLCV data (804 tables)",
-        "bqx_ml_v3_features": "Engineered features (504 tables)",
-        "bqx_ml_v3_models": "Trained models (15 models - EURUSD:8, GBPUSD:7)",
+        "bqx_bq_uscen1": "Raw m1 OHLCV data (2,463 tables)",
+        "bqx_ml_v3_features": "Engineered features (1,983 tables)",
+        "bqx_ml_v3_models": "Trained models (16 models)",
         "bqx_ml_v3_predictions": "Model predictions (0 tables - pending)",
-        "bqx_ml_v3_analytics": "Performance metrics (0 tables - pending)",
+        "bqx_ml_v3_analytics": "Target tables (28 tables)",
         "bqx_ml_v3_staging": "Temporary processing (0 tables)"
+      },
+      "feature_matrix": {
+        "primary": {"current": 504, "required": 392, "coverage": "128.6%", "status": "COMPLETE"},
+        "correlation": {"current": 448, "required": 448, "coverage": "100%", "status": "COMPLETE"},
+        "covariance": {"current": 554, "required": 2352, "coverage": "23.6%", "status": "REMEDIATION_AUTHORIZED"},
+        "total": {"current": 1506, "required": 3192, "coverage": "47.2%"}
+      },
+      "remediation": {
+        "tables_to_create": 1798,
+        "estimated_time": "8 hours",
+        "directive": "OPTION_A_FULL_COVERAGE",
+        "status": "AUTHORIZED"
       }
     },
     "project_management": {
@@ -144,9 +156,10 @@
     "2025-11-29": [
       "Deployed BQ-to-Box Cloud Run service for automated disaster recovery",
       "Created Cloud Scheduler jobs for BigQuery table exports",
-      "Service URL: https://bq-to-box-sync-499681702492.us-central1.run.app",
-      "Scheduled backups: models (daily), features (weekly), predictions (weekly), analytics (monthly)",
-      "Cost estimate: $0.40-3.24/month"
+      "Completed feature matrix audit: PRIMARY 100%+, CORRELATION 100%, COVARIANCE 23.6%",
+      "Authorized OPTION A: Full cov_* remediation (1,798 tables)",
+      "Created FEATURE_TABLE_DIRECTORY.md documenting all required tables",
+      "BA Directive: Complete covariance pair-combination coverage (~8 hours)"
     ],
     "2025-11-28": [
       "Completed BigQuery migration to us-central1 (2,463 tables)",
@@ -170,12 +183,13 @@
       "data_parity": "Achieved 2025-11-28"
     },
     "mandate_compliance": {
-      "table_completion": "29% (504 of 1,736)",
-      "feature_types": "3 of 8 (LAG, REGIME, Correlation)",
-      "centric_perspectives": "1 of 6 (Primary-Centric only)",
-      "dual_architecture": "100% for completed features",
-      "models_trained": "15 of 196 (7.7%)",
-      "accuracy_target": "90%+ directional (not yet measured)"
+      "table_completion": "47.2% (1,506 of 3,192)",
+      "feature_types_complete": ["PRIMARY (7 types)", "CORRELATION (1 type)"],
+      "feature_types_pending": ["COVARIANCE (7 types) - 23.6% complete, remediation authorized"],
+      "dual_architecture": "100% for all feature types (IDX + BQX variants)",
+      "models_trained": "16 of 196 (8.2%)",
+      "accuracy_target": "90%+ directional (not yet measured)",
+      "remediation_status": "1,798 cov_* tables authorized for creation (~8 hours)"
     },
     "performance": {
       "migration_speedup": "40-95x faster execution in us-central1",
