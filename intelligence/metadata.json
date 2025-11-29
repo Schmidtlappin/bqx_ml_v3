@@ -69,26 +69,31 @@
       "stages_95plus": "74.3%",
       "gap_coverage": "100%"
     },
-    "current_phase": "Phase 2.5B REDO - Target-Based Correlation Analysis",
-    "next_milestone": "Full-scale correlation analysis (28 pairs × 49 targets)",
+    "current_phase": "Feature Implementation COMPLETE - Ready for Model Training",
+    "next_milestone": "Model training with 196 models (28 pairs × 7 horizons)",
     "phase_status": {
       "Phase 0": "COMPLETE - Infrastructure setup",
       "Phase 1": "COMPLETE - Data ingestion and validation",
       "Phase 1B": "COMPLETE - BQX feature tables",
       "Phase 2": "COMPLETE - Feature engineering",
-      "Phase 2.5A": "COMPLETE - Gap closure (1,759 tables)",
-      "Phase 2.5B": "IN PROGRESS - Target-based correlation (pilot validated)",
-      "Phase 2.5B-R": "IN PROGRESS - corr_bqx_ remediation (224 tables)",
-      "Phase 3": "PENDING - Model training"
+      "Phase 2.5A": "COMPLETE - Gap closure",
+      "Phase 2.5B": "COMPLETE - Target-based correlation (109,760 correlations)",
+      "Phase 2.5B-R": "COMPLETE - corr_bqx_ remediation (224 tables)",
+      "cov_* Remediation": "COMPLETE - 2,352 covariance tables",
+      "Additional Features": "COMPLETE - 280 oscillation prediction tables",
+      "Phase 3": "READY - Model training"
     },
-    "phase_25b_redo": {
-      "status": "Full-scale execution approved",
-      "pilot_validated": true,
-      "pilot_correlations": 930,
-      "total_targets": 1372,
-      "estimated_correlations": "285,000+",
-      "remediation_tables": 224,
-      "methodology": "Features → Targets (LEAD-based)"
+    "additional_features": {
+      "status": "COMPLETE",
+      "completed_at": "2025-11-29T17:20:00Z",
+      "total_tables": 280,
+      "phases": {
+        "phase1_rev_der": {"tables": 112, "types": ["rev_", "rev_bqx_", "der_", "der_bqx_"]},
+        "phase2_ext_cyc": {"tables": 56, "types": ["ext_bqx_", "cyc_bqx_"]},
+        "phase3_div_mrt": {"tables": 84, "types": ["div_", "div_bqx_", "mrt_bqx_"]},
+        "phase4_tmp": {"tables": 28, "types": ["tmp_"]}
+      },
+      "architecture": "INTERVAL-CENTRIC (except tmp_ which is TIME-CENTRIC)"
     }
   },
   "data_metadata": {
@@ -99,24 +104,31 @@
     "data_warehouse": "BigQuery",
     "datasets": {
       "bqx_bq_uscen1": "Base data tables (2,463)",
-      "bqx_ml_v3_features": "Feature tables (1,983)",
+      "bqx_ml_v3_features": "Feature tables (4,061)",
       "bqx_ml_v3_analytics": "Target tables (28)",
       "bqx_ml_v3_models": "Model artifacts (16)",
       "bqx_ml_v3_predictions": "Prediction outputs (pending)"
     },
     "tables": {
-      "current": 1983,
-      "required": 3192,
-      "coverage": "47.2%",
-      "remediation_pending": 1798,
-      "types": ["primary", "correlation", "covariance"]
+      "current": 4061,
+      "required": 4061,
+      "coverage": "100%",
+      "remediation_pending": 0,
+      "types": ["primary", "correlation", "covariance", "oscillation"],
+      "inventory": {
+        "corr_*": 448,
+        "cov_*": 2352,
+        "additional_features": 280,
+        "primary": 224,
+        "other": 757
+      }
     },
     "feature_matrix": {
-      "feature_types": 8,
+      "feature_types": 18,
       "centrics": 6,
       "variants": 2,
       "theoretical_cells": 96,
-      "feature_types_list": ["reg_", "agg_", "lag_", "regime_", "align_", "corr_", "mom_", "vol_"],
+      "feature_types_list": ["reg_", "agg_", "lag_", "regime_", "align_", "corr_", "mom_", "vol_", "rev_", "rev_bqx_", "der_", "der_bqx_", "ext_bqx_", "cyc_bqx_", "div_", "div_bqx_", "mrt_bqx_", "tmp_"],
       "centrics_list": ["PRIMARY", "VARIANT", "COVARIANT", "TRIANGULATION", "SECONDARY", "TERTIARY"],
       "variants_list": ["IDX (price-based)", "BQX (momentum-based)"]
     },
@@ -125,7 +137,8 @@
       "bqx_features": "~180 per pair (includes lags)",
       "technical_indicators": "~50 per pair",
       "regime_features": "~20 per pair",
-      "total_per_pair": "~350 features"
+      "oscillation_features": "~70 per pair (rev, der, ext, cyc, div, mrt, tmp)",
+      "total_per_pair": "~420 features"
     }
   },
   "model_metadata": {
