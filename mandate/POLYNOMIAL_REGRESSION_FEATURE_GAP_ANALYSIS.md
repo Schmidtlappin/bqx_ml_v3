@@ -60,6 +60,72 @@ For each window N:
 Endpoint Evaluation: x = N (not midpoint)
 ```
 
+### User Logic Rationale
+
+The user's formula choices are mathematically grounded for forex momentum prediction:
+
+#### Why x = np.arange(W) = [0, 1, 2, ..., W-1] (INTERVAL-CENTRIC)
+
+The x-axis represents **intervals (rows), NOT time units**. This is fundamental to the BQX architecture:
+
+1. **Market Gap Immunity**: Forex markets close on weekends. Using row indices means the polynomial fit is unaffected by time gaps - it always sees W consecutive data points regardless of actual timestamps.
+
+2. **Consistent Geometry**: Every window W produces x-values from 0 to W-1, ensuring polynomial coefficients are directly comparable across windows and currency pairs.
+
+3. **Predictive Alignment**: Model predictions are made H intervals forward (not H minutes forward), so features must also be interval-indexed.
+
+#### Why Endpoint Evaluation (x = N, not x = N/2)
+
+The user mandates evaluating polynomial derivatives at the **endpoint** rather than the midpoint:
+
+1. **Current State Focus**: At x = N-1 (the last point), lin_term represents the **instantaneous slope at NOW** - the most actionable signal for trading decisions.
+
+2. **Forward-Looking**: The polynomial extrapolation from the endpoint projects into future intervals, directly supporting the prediction task.
+
+3. **Curvature Significance**: quad_term × N² magnifies curvature detection at longer windows, making acceleration/deceleration more detectable in longer-term trends.
+
+#### Why resid_var = MSE (Mean Squared Error) vs resid_std
+
+The user chose **variance (MSE)** over **standard deviation** for critical statistical reasons:
+
+1. **Variance Additivity**: MSE is additive across independent samples, enabling proper aggregation in covariance tables (cov_reg_*).
+
+2. **R² Formula Consistency**: R² = 1 - (SS_res / SS_tot) uses sum of squares, which is variance × N. Using MSE directly (mean of squared residuals) provides the numerator for R² calculation.
+
+3. **Noise Quantification**: resid_var directly measures unexplained variance in the polynomial fit - the "noise floor" of the model.
+
+4. **RMSE Derivation**: rmse = sqrt(resid_var) = sqrt(MSE), providing the error in original units while resid_var provides the variance.
+
+#### Why total_var = var(y) as Denominator
+
+The R² score requires the **total variance** of the response variable:
+
+1. **Explained vs Unexplained**: R² = 1 - (resid_var / total_var) = (explained variance) / (total variance).
+
+2. **Scale Independence**: Dividing by total_var normalizes R² to [0, 1] regardless of the absolute scale of prices or BQX values.
+
+3. **Cross-Pair Comparability**: An R² of 0.85 means the polynomial explains 85% of variance, comparable across EUR/USD, GBP/JPY, or any pair.
+
+#### Formula Summary
+
+```python
+# INTERVAL-CENTRIC polynomial fit
+x = np.arange(W)              # [0, 1, 2, ..., W-1] intervals
+y = values[-W:]               # Last W values (close price or BQX)
+
+# Polynomial: y = ax² + bx + c
+coeffs = np.polyfit(x, y, 2)  # → [quad_term, lin_term, const_term]
+y_hat = np.polyval(coeffs, x)
+residuals = y - y_hat
+
+# USER MANDATE VARIANCE METRICS
+resid_var = np.mean(residuals**2)     # MSE - residual noise
+total_var = np.var(y)                  # Total variance of y
+r2 = 1 - (resid_var / total_var)      # Explained variance ratio
+```
+
+---
+
 ### Currently Implemented in reg_eurusd
 
 ```sql
