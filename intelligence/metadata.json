@@ -255,7 +255,8 @@
       "/docs/BQX_ML_FEATURE_MATRIX.md",
       "/docs/PARADIGM_SHIFT_UPDATE_20241124.md",
       "/docs/PHASE_25B_REDO_TARGET_CORRELATION.md",
-      "/docs/SESSION_STATUS_REPORT.md"
+      "/docs/SESSION_STATUS_REPORT.md",
+      "/docs/CLOUD_RUN_BOX_BACKUP.md"
     ],
     "scripts": [
       "/scripts/gap_remediation_stages.py",

@@ -344,6 +344,134 @@
     ],
     "monitoring": ["batch_completion", "correlation_distribution", "validation_errors"]
   },
+  "cloud_run_backup_workflow": {
+    "name": "Automated BigQuery to Box.com Disaster Recovery",
+    "purpose": "Export BigQuery tables to Box.com for off-site disaster recovery independent of GCP",
+    "trigger": "Cloud Scheduler (automated) or manual HTTP POST",
+    "service": {
+      "name": "bq-to-box-sync",
+      "url": "https://bq-to-box-sync-499681702492.us-central1.run.app",
+      "region": "us-central1",
+      "image": "gcr.io/bqx-ml/bq-to-box-sync:latest",
+      "memory": "2Gi",
+      "timeout": "3600s",
+      "service_account": "bq-to-box-sync@bqx-ml.iam.gserviceaccount.com"
+    },
+    "endpoints": {
+      "health": "GET / -> {status: healthy}",
+      "sync": "POST /sync -> {dataset, tables} -> sync results",
+      "sync_dataset": "POST /sync/<dataset> -> sync specific dataset"
+    },
+    "steps": [
+      {
+        "step": 1,
+        "name": "Receive Trigger",
+        "action": "Cloud Scheduler sends OIDC-authenticated POST request",
+        "authentication": "OIDC token from service account"
+      },
+      {
+        "step": 2,
+        "name": "Initialize Box Client",
+        "action": "Load JWT config from Secret Manager (oxo-box-jwt-config)",
+        "auth_method": "Box JWT authentication"
+      },
+      {
+        "step": 3,
+        "name": "List Tables",
+        "action": "Query BigQuery for tables in target dataset",
+        "output": "List of table names to export"
+      },
+      {
+        "step": 4,
+        "name": "Export to GCS",
+        "action": "bq extract to gs://bqx-ml-exports/{dataset}/{table}/*.parquet",
+        "format": "Parquet with Snappy compression"
+      },
+      {
+        "step": 5,
+        "name": "Download from GCS",
+        "action": "gsutil cp to local temp directory",
+        "cleanup": "Auto-delete after upload"
+      },
+      {
+        "step": 6,
+        "name": "Upload to Box",
+        "action": "Upload Parquet files to Box.com folder",
+        "destination": "bqx-ml-v3/GCP/bigquery/{dataset}/{table}/",
+        "versioning": "Updates existing files, creates new versions"
+      },
+      {
+        "step": 7,
+        "name": "Cleanup GCS",
+        "action": "gsutil rm temp export files from GCS",
+        "purpose": "Minimize storage costs"
+      }
+    ],
+    "scheduled_jobs": [
+      {
+        "name": "bq-to-box-models",
+        "schedule": "0 2 * * *",
+        "description": "Daily at 2 AM UTC",
+        "dataset": "bqx_ml_v3_models",
+        "priority": "CRITICAL - trained models"
+      },
+      {
+        "name": "bq-to-box-features",
+        "schedule": "0 3 * * 0",
+        "description": "Weekly Sunday 3 AM UTC",
+        "dataset": "bqx_ml_v3_features",
+        "priority": "HIGH - engineered features"
+      },
+      {
+        "name": "bq-to-box-predictions",
+        "schedule": "0 4 * * 1",
+        "description": "Weekly Monday 4 AM UTC",
+        "dataset": "bqx_ml_v3_predictions",
+        "priority": "MEDIUM - model predictions"
+      },
+      {
+        "name": "bq-to-box-analytics",
+        "schedule": "0 5 1 * *",
+        "description": "Monthly 1st at 5 AM UTC",
+        "dataset": "bqx_ml_v3_analytics",
+        "priority": "LOW - analytics metrics"
+      }
+    ],
+    "box_folder_structure": {
+      "root": "bqx-ml-v3 (353414610676)",
+      "bigquery_parent": "GCP/bigquery/ (353417391696)",
+      "dataset_folders": {
+        "bqx_bq_uscen1": "353419110877",
+        "bqx_ml_v3_features": "353419806934",
+        "bqx_ml_v3_models": "353417980012",
+        "bqx_ml_v3_predictions": "353419935781",
+        "bqx_ml_v3_analytics": "353419303017",
+        "bqx_ml_v3_staging": "353417344230"
+      }
+    },
+    "cost_estimate": {
+      "cloud_run_compute": "$0-2.84/month (free tier covers most usage)",
+      "cloud_scheduler": "$0.40/month (4 jobs)",
+      "total_monthly": "$0.40-3.24"
+    },
+    "producer_consumer_model": {
+      "producer": "BA Agent creates BigQuery tables (async, continuous)",
+      "buffer": "BigQuery datasets (storage)",
+      "consumer": "Cloud Run exports to Box (scheduled, independent)",
+      "decoupling_benefits": [
+        "BA continues without waiting for exports",
+        "Exports run on schedule without blocking",
+        "Independent scaling of both operations"
+      ]
+    },
+    "documentation": "/docs/CLOUD_RUN_BOX_BACKUP.md",
+    "source_files": [
+      "containers/bq-to-box/sync_service.py",
+      "containers/bq-to-box/Dockerfile",
+      "containers/bq-to-box/requirements.txt"
+    ],
+    "monitoring": ["export_success_rate", "export_duration", "box_api_errors", "scheduler_failures"]
+  },
   "monitoring_workflow": {
     "name": "Continuous Monitoring & Alerting",
     "frequency": "Real-time",

@@ -1,0 +1,38 @@
+# Cloud Build configuration for BQ-to-Box Sync Service
+# Builds and deploys to Cloud Run
+
+steps:
+  # Build the container image
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', 'gcr.io/$PROJECT_ID/bq-to-box-sync:$COMMIT_SHA', '.']
+    dir: 'containers/bq-to-box'
+
+  # Push to Container Registry
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 'gcr.io/$PROJECT_ID/bq-to-box-sync:$COMMIT_SHA']
+
+  # Deploy to Cloud Run
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: gcloud
+    args:
+      - 'run'
+      - 'deploy'
+      - 'bq-to-box-sync'
+      - '--image'
+      - 'gcr.io/$PROJECT_ID/bq-to-box-sync:$COMMIT_SHA'
+      - '--region'
+      - 'us-central1'
+      - '--platform'
+      - 'managed'
+      - '--memory'
+      - '2Gi'
+      - '--timeout'
+      - '3600'
+      - '--no-allow-unauthenticated'
+      - '--service-account'
+      - 'bq-to-box-sync@$PROJECT_ID.iam.gserviceaccount.com'
+
+images:
+  - 'gcr.io/$PROJECT_ID/bq-to-box-sync:$COMMIT_SHA'
+
+timeout: '1800s'

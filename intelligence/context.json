@@ -6,7 +6,7 @@
     "repository": "https://github.com/Schmidtlappin/bqx_ml_v3",
     "owner": "Schmidtlappin",
     "created": "2024-11-24",
-    "last_updated": "2025-11-28"
+    "last_updated": "2025-11-29"
   },
   "paradigm": {
     "name": "BQX Momentum Prediction",
@@ -87,14 +87,34 @@
         "status": "ACTIVE",
         "configured_date": "2025-11-28"
       },
+      "cloud_run_automation": {
+        "service_name": "bq-to-box-sync",
+        "service_url": "https://bq-to-box-sync-499681702492.us-central1.run.app",
+        "container_image": "gcr.io/bqx-ml/bq-to-box-sync:latest",
+        "region": "us-central1",
+        "service_account": "bq-to-box-sync@bqx-ml.iam.gserviceaccount.com",
+        "memory": "2Gi",
+        "timeout": "3600s",
+        "status": "DEPLOYED",
+        "deployed_date": "2025-11-29",
+        "scheduled_jobs": {
+          "bq-to-box-models": "Daily 2 AM UTC (bqx_ml_v3_models)",
+          "bq-to-box-features": "Weekly Sunday 3 AM UTC (bqx_ml_v3_features)",
+          "bq-to-box-predictions": "Weekly Monday 4 AM UTC (bqx_ml_v3_predictions)",
+          "bq-to-box-analytics": "Monthly 1st 5 AM UTC (bqx_ml_v3_analytics)"
+        },
+        "cost_monthly": "$0.40-3.24",
+        "documentation": "/docs/CLOUD_RUN_BOX_BACKUP.md"
+      },
       "sync_protocol": {
         "on_user_request": "Sync files to BOTH GDrive AND Box.com",
-        "daily_automated": "Critical files at 00:00 UTC (PLANNED)",
+        "automated_bigquery": "Cloud Run exports BQ tables to Box.com on schedule (ACTIVE)",
         "bigquery_backup": "Export BQ tables to Box.com ONLY (too large for GDrive)"
       },
       "execution_model": {
         "file_sync": "Fast (minutes) - non-blocking",
-        "bigquery_backup": "Background process (4-8 hours) - non-blocking"
+        "bigquery_backup_manual": "Background process (4-8 hours) - non-blocking",
+        "bigquery_backup_automated": "Cloud Run scheduled exports - fully automated"
       },
       "key_rationale": "GDrive is part of GCP - if GCP fails, GDrive may be inaccessible. Box.com is completely independent and can store TB-scale BQ exports."
     }
@@ -121,6 +141,13 @@
     "next_milestone": "Phase 2: Additional Feature Types or Model Training"
   },
   "recent_milestones": {
+    "2025-11-29": [
+      "Deployed BQ-to-Box Cloud Run service for automated disaster recovery",
+      "Created Cloud Scheduler jobs for BigQuery table exports",
+      "Service URL: https://bq-to-box-sync-499681702492.us-central1.run.app",
+      "Scheduled backups: models (daily), features (weekly), predictions (weekly), analytics (monthly)",
+      "Cost estimate: $0.40-3.24/month"
+    ],
     "2025-11-28": [
       "Completed BigQuery migration to us-central1 (2,463 tables)",
       "Phase 0: Migration and infrastructure optimization (40-95x performance gain)",
