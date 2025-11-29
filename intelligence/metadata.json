@@ -2,7 +2,7 @@
   "intelligence_system": {
     "version": "1.1.0",
     "created": "2025-11-25",
-    "last_updated": "2025-11-28",
+    "last_updated": "2025-11-29",
     "author": "BQXML Chief Engineer",
     "purpose": "Comprehensive knowledge base for BQX ML V3 project",
     "files": [
@@ -70,15 +70,25 @@
       "gap_coverage": "100%"
     },
     "current_phase": "Phase 2.5B REDO - Target-Based Correlation Analysis",
-    "next_milestone": "Complete EURUSD pilot correlation (49 targets)",
+    "next_milestone": "Full-scale correlation analysis (28 pairs × 49 targets)",
     "phase_status": {
       "Phase 0": "COMPLETE - Infrastructure setup",
       "Phase 1": "COMPLETE - Data ingestion and validation",
       "Phase 1B": "COMPLETE - BQX feature tables",
       "Phase 2": "COMPLETE - Feature engineering",
       "Phase 2.5A": "COMPLETE - Gap closure (1,759 tables)",
-      "Phase 2.5B": "IN PROGRESS - Target-based correlation analysis",
+      "Phase 2.5B": "IN PROGRESS - Target-based correlation (pilot validated)",
+      "Phase 2.5B-R": "IN PROGRESS - corr_bqx_ remediation (224 tables)",
       "Phase 3": "PENDING - Model training"
+    },
+    "phase_25b_redo": {
+      "status": "Full-scale execution approved",
+      "pilot_validated": true,
+      "pilot_correlations": 930,
+      "total_targets": 1372,
+      "estimated_correlations": "285,000+",
+      "remediation_tables": 224,
+      "methodology": "Features → Targets (LEAD-based)"
     }
   },
   "data_metadata": {
@@ -87,17 +97,32 @@
     "currency_pairs": 28,
     "historical_period": "7+ years",
     "data_warehouse": "BigQuery",
-    "dataset": "bqx_ml",
+    "datasets": {
+      "bqx_bq_uscen1": "Base data tables",
+      "bqx_ml_v3_features": "Feature tables (1,870+)",
+      "bqx_ml_v3_analytics": "Correlation analysis outputs",
+      "bqx_ml_v3_models": "Model artifacts",
+      "bqx_ml_v3_predictions": "Prediction outputs"
+    },
     "tables": {
-      "total": 1759,
+      "total": 1870,
       "per_pair": 62,
       "mandate": 1736,
-      "compliance": "101.3%",
+      "compliance": "107.7%",
       "types": ["regression", "lag", "regime", "agg", "align", "correlation", "momentum", "volatility"]
+    },
+    "feature_matrix": {
+      "feature_types": 8,
+      "centrics": 6,
+      "variants": 2,
+      "theoretical_cells": 96,
+      "feature_types_list": ["reg_", "agg_", "lag_", "regime_", "align_", "corr_", "mom_", "vol_"],
+      "centrics_list": ["PRIMARY", "VARIANT", "COVARIANT", "TRIANGULATION", "SECONDARY", "TERTIARY"],
+      "variants_list": ["IDX (price-based)", "BQX (momentum-based)"]
     },
     "features": {
       "price_features": "~100 per pair",
-      "bqx_features": "~180 per pair (NEW - includes lags)",
+      "bqx_features": "~180 per pair (includes lags)",
       "technical_indicators": "~50 per pair",
       "regime_features": "~20 per pair",
       "total_per_pair": "~350 features"
@@ -229,13 +254,19 @@
       "/docs/BQX_ML_V3_PIPELINE.md",
       "/docs/BQX_ML_FEATURE_MATRIX.md",
       "/docs/PARADIGM_SHIFT_UPDATE_20241124.md",
+      "/docs/PHASE_25B_REDO_TARGET_CORRELATION.md",
       "/docs/SESSION_STATUS_REPORT.md"
     ],
     "scripts": [
       "/scripts/gap_remediation_stages.py",
       "/scripts/airtable_stage_loader_optimized.py",
       "/scripts/setup_github_secrets.sh",
-      "/scripts/create_intelligence_files.py"
+      "/scripts/create_intelligence_files.py",
+      "/scripts/phase25b_redo/01_generate_targets_eurusd.py"
+    ],
+    "communications": [
+      "/.claude/sandbox/communications/outboxes/CE/20251129_0130_CE-to-BA_PHASE25B_FULLSCALE_APPROVED.md",
+      "/.claude/sandbox/communications/outboxes/CE/20251129_0145_CE-to-BA_REMEDIATION_CORR_BQX.md"
     ],
     "external_resources": [
       "https://github.com/Schmidtlappin/bqx_ml_v3",

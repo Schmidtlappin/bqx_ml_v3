@@ -246,6 +246,104 @@
     "rollback_time": "< 2 minutes to previous revision",
     "monitoring": ["deployment_success_rate", "rollback_count", "downtime"]
   },
+  "phase_25b_correlation_workflow": {
+    "name": "Phase 2.5B Target-Based Feature Correlation Analysis",
+    "purpose": "Correlate features against prediction targets to inform feature selection for Phase 3 model training",
+    "methodology": "Features → Targets (LEAD-based)",
+    "trigger": "Manual execution after feature tables complete",
+    "steps": [
+      {
+        "step": 1,
+        "name": "Generate Target Tables",
+        "action": "Create targets_{pair} tables for all 28 pairs",
+        "sql_pattern": "LEAD(bqx_X, H) OVER (ORDER BY interval_time)",
+        "output": "28 target tables with 49 targets each (7 BQX × 7 horizons)",
+        "targets": {
+          "bqx_components": ["bqx_45", "bqx_90", "bqx_180", "bqx_360", "bqx_720", "bqx_1440", "bqx_2880"],
+          "prediction_horizons": [15, 30, 45, 60, 75, 90, 105],
+          "note": "Horizons are INTERVAL counts (row-based), NOT time-based"
+        }
+      },
+      {
+        "step": 2,
+        "name": "Enumerate Feature Tables",
+        "action": "Identify all feature tables across 8 types × 6 centrics × 2 variants",
+        "feature_types": ["reg_", "agg_", "lag_", "regime_", "align_", "corr_", "mom_", "vol_"],
+        "centrics": ["PRIMARY", "VARIANT", "COVARIANT", "TRIANGULATION", "SECONDARY", "TERTIARY"],
+        "variants": ["IDX (price-based)", "BQX (momentum-based)"],
+        "expected_tables": "1,870+"
+      },
+      {
+        "step": 3,
+        "name": "Calculate Feature-Target Correlations",
+        "action": "CORR(feature, target) for each feature-target pair",
+        "parallelization": "Batch by currency pair (5 batches)",
+        "batches": [
+          "Batch 1: EURUSD, GBPUSD, USDJPY, AUDUSD, USDCAD, USDCHF, NZDUSD",
+          "Batch 2: EURGBP, EURJPY, EURAUD, EURCAD, EURCHF, EURNZD",
+          "Batch 3: GBPJPY, GBPAUD, GBPCAD, GBPCHF, GBPNZD",
+          "Batch 4: AUDJPY, AUDCAD, AUDCHF, AUDNZD",
+          "Batch 5: CADJPY, CADCHF, CHFJPY, NZDJPY, NZDCAD, NZDCHF"
+        ],
+        "estimated_correlations": "285,000+"
+      },
+      {
+        "step": 4,
+        "name": "Store Correlation Results",
+        "action": "Create feature_correlations_{pair} tables",
+        "schema": ["feature_name", "feature_table", "centric", "variant", "target", "correlation", "abs_correlation", "rank"],
+        "output_dataset": "bqx_ml_v3_analytics"
+      },
+      {
+        "step": 5,
+        "name": "Generate Summary Report",
+        "action": "Create feature_correlation_summary table",
+        "aggregations": [
+          "Top 100 features by average |r| across all targets",
+          "Top 20 features per target",
+          "Distribution by centric type",
+          "Distribution by variant (IDX vs BQX)",
+          "Correlation decay by horizon"
+        ]
+      },
+      {
+        "step": 6,
+        "name": "Validation",
+        "checks": [
+          "Row counts match source tables",
+          "NULL boundary handling (last H rows NULL)",
+          "No data leakage (Features=CURRENT/PAST, Targets=FUTURE)",
+          "Correlation values in [-1, 1] range",
+          "At least one correlation > 0.9 per pair (sanity check)"
+        ]
+      }
+    ],
+    "data_leakage_prevention": {
+      "features": "Use LAG operations or current values (calculable at prediction time)",
+      "targets": "Use LEAD operations exclusively (future values)",
+      "validation": "Verify no feature column contains future data"
+    },
+    "remediation": {
+      "corr_bqx_tables": {
+        "description": "Create 224 corr_bqx_ibkr_{pair}_{asset} tables",
+        "formula": "28 pairs × 8 external assets",
+        "external_assets": ["EWA", "EWG", "EWJ", "EWU", "GLD", "SPY", "UUP", "VIX"],
+        "priority": "P2 (parallel with correlation analysis)"
+      },
+      "skipped_by_design": [
+        "COVARIANT corr_ - correlation of correlations is redundant",
+        "SECONDARY corr_ - CSI feature correlations redundant",
+        "TRIANGULATION lag/regime/corr - architectural design decision"
+      ]
+    },
+    "outputs": [
+      "targets_{pair} - 28 tables",
+      "feature_correlations_{pair} - 28 tables",
+      "feature_correlation_summary - 1 table",
+      "corr_bqx_ibkr_{pair}_{asset} - 224 tables (remediation)"
+    ],
+    "monitoring": ["batch_completion", "correlation_distribution", "validation_errors"]
+  },
   "monitoring_workflow": {
     "name": "Continuous Monitoring & Alerting",
     "frequency": "Real-time",

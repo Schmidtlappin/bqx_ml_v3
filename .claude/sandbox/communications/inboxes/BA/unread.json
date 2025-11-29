@@ -2,19 +2,49 @@
   "agent_id": "BA",
   "unread_messages": [
     {
-      "message_id": "CE-20251128-2330",
+      "message_id": "CE-20251129-0130",
       "from": "CE",
-      "timestamp": "2025-11-28T23:30:00Z",
+      "timestamp": "2025-11-29T01:30:00Z",
       "priority": "CRITICAL",
-      "subject": "Phase 2.5B REDO - Target-Based Feature Correlation",
-      "file": "20251128_2330_CE-to-BA_PHASE25B_REDO_TARGET_CORRELATION.md",
-      "summary": "Previous 2.5B correlated features with EACH OTHER (wrong). REDO: Correlate features against PREDICTION TARGETS (LEAD of bqx_*). Pilot on EURUSD (49 targets) first."
+      "subject": "APPROVED - Full-Scale Target-Based Correlation Analysis",
+      "file": "20251129_0130_CE-to-BA_PHASE25B_FULLSCALE_APPROVED.md",
+      "summary": "Pilot VALIDATED. Proceed with full-scale execution: 28 pairs × 49 targets × ALL feature tables. ~285,000+ correlations."
+    },
+    {
+      "message_id": "CE-20251129-0145",
+      "from": "CE",
+      "timestamp": "2025-11-29T01:45:00Z",
+      "priority": "HIGH",
+      "subject": "REMEDIATION - Create corr_bqx_ibkr_{pair}_{asset} Tables",
+      "file": "20251129_0145_CE-to-BA_REMEDIATION_CORR_BQX.md",
+      "summary": "Matrix gap identified: PRIMARY BQX corr_ tables missing. Create 224 corr_bqx_ibkr_{pair}_{asset} tables. Run PARALLEL with Phase 2.5B."
     }
   ],
-  "last_checked": "2025-11-28T23:30:00Z",
-  "notes": "CORRECTION: Phase 2.5B must correlate features against TARGETS, not against each other. Use LEAD(bqx_X, H) for 7 BQX components × 7 horizons = 49 targets per pair.",
-  "current_phase": "Phase 2.5B REDO - Target-Based Correlation",
-  "current_task": "EURUSD pilot: Correlate ALL features from ALL 6 centrics against 49 targets (7 BQX × 7 horizons)",
-  "next_report_due": "After EURUSD pilot correlation complete",
-  "last_report_sent": "20251128_2215_BA-to-CE_PHASE25B_STOP_FEATURE_SELECTION.md"
+  "last_checked": "2025-11-29T00:15:00Z",
+  "notes": "TWO DIRECTIVES PENDING: (1) Phase 2.5B full-scale execution [P1], (2) corr_bqx_ remediation [P2]. Execute in parallel.",
+  "current_phase": "Phase 2.5B REDO + Remediation",
+  "current_task": "EXECUTE: Full-scale correlation + corr_bqx_ table creation (PARALLEL)",
+  "next_report_due": "After each batch completion",
+  "last_report_sent": "20251129_0015_BA-to-CE_PHASE25B_REDO_PILOT_COMPLETE.md",
+  "directives": {
+    "phase_25b": {
+      "scope": "28 pairs × 49 targets × ALL feature tables",
+      "estimated_correlations": "285,000+",
+      "parallelization": "5 batches of pairs",
+      "timeline": "24-36 hours",
+      "priority": "P1"
+    },
+    "corr_bqx_remediation": {
+      "scope": "224 corr_bqx_ibkr_{pair}_{asset} tables",
+      "assets": ["EWA", "EWG", "EWJ", "EWU", "GLD", "SPY", "UUP", "VIX"],
+      "priority": "P2",
+      "run_parallel": true,
+      "timeline": "2-4 hours"
+    }
+  },
+  "skipped_remediations": [
+    "COVARIANT corr_ - redundant (correlation of correlations)",
+    "SECONDARY corr_ - redundant (CSI feature correlations)",
+    "TRIANGULATION lag/regime/corr - by architectural design"
+  ]
 }
