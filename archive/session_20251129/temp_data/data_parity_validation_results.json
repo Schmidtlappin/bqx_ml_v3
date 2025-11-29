@@ -1,0 +1,50 @@
+{
+  "audit_date": "2025-11-29T16:00:00Z",
+  "summary": {
+    "total_feature_tables": 1983,
+    "mandate_target": 1736,
+    "progress_percent": 114.2,
+    "complete_prefixes": 17,
+    "prefixes_with_gaps": 25,
+    "total_missing_tables": 561
+  },
+  "complete_prefixes": [
+    {"prefix": "agg", "count": 28},
+    {"prefix": "agg_bqx", "count": 28},
+    {"prefix": "align", "count": 28},
+    {"prefix": "align_bqx", "count": 28},
+    {"prefix": "corr_bqx_ibkr", "count": 28},
+    {"prefix": "corr_ibkr", "count": 28},
+    {"prefix": "lag", "count": 28},
+    {"prefix": "lag_bqx", "count": 28},
+    {"prefix": "mom", "count": 28},
+    {"prefix": "mom_bqx", "count": 28},
+    {"prefix": "reg", "count": 28},
+    {"prefix": "reg_bqx", "count": 28},
+    {"prefix": "regime", "count": 28},
+    {"prefix": "regime_bqx", "count": 28},
+    {"prefix": "vol", "count": 28},
+    {"prefix": "vol_bqx", "count": 28}
+  ],
+  "gaps": {
+    "cov_agg": {"existing": 10, "missing": 18, "pairs_missing": ["eurgbp", "eurcad", "eurnzd", "gbpjpy", "gbpchf", "gbpaud", "gbpcad", "gbpnzd", "audjpy", "audchf", "audcad", "audnzd", "nzdjpy", "nzdchf", "nzdcad", "cadjpy", "cadchf", "chfjpy"]},
+    "cov_agg_bqx": {"existing": 10, "missing": 18, "pairs_missing": ["eurgbp", "eurcad", "eurnzd", "gbpjpy", "gbpchf", "gbpaud", "gbpcad", "gbpnzd", "audjpy", "audchf", "audcad", "audnzd", "nzdjpy", "nzdchf", "nzdcad", "cadjpy", "cadchf", "chfjpy"]},
+    "cov_align": {"existing": 10, "missing": 18, "pairs_missing": ["eurgbp", "eurcad", "eurnzd", "gbpjpy", "gbpchf", "gbpaud", "gbpcad", "gbpnzd", "audjpy", "audchf", "audcad", "audnzd", "nzdjpy", "nzdchf", "nzdcad", "cadjpy", "cadchf", "chfjpy"]},
+    "cov_align_bqx": {"existing": 10, "missing": 18, "pairs_missing": ["eurgbp", "eurcad", "eurnzd", "gbpjpy", "gbpchf", "gbpaud", "gbpcad", "gbpnzd", "audjpy", "audchf", "audcad", "audnzd", "nzdjpy", "nzdchf", "nzdcad", "cadjpy", "cadchf", "chfjpy"]},
+    "cov_lag": {"existing": 7, "missing": 21, "pairs_missing": ["usdchf", "usdcad", "nzdusd", "euraud", "eurcad", "eurnzd", "gbpjpy", "gbpchf", "gbpaud", "gbpcad", "gbpnzd", "audjpy", "audchf", "audcad", "audnzd", "nzdjpy", "nzdchf", "nzdcad", "cadjpy", "cadchf", "chfjpy"]},
+    "cov_lag_bqx": {"existing": 7, "missing": 21, "pairs_missing": ["usdchf", "usdcad", "nzdusd", "euraud", "eurcad", "eurnzd", "gbpjpy", "gbpchf", "gbpaud", "gbpcad", "gbpnzd", "audjpy", "audchf", "audcad", "audnzd", "nzdjpy", "nzdchf", "nzdcad", "cadjpy", "cadchf", "chfjpy"]},
+    "cov_mom": {"existing": 10, "missing": 18, "pairs_missing": ["eurgbp", "eurcad", "eurnzd", "gbpjpy", "gbpchf", "gbpaud", "gbpcad", "gbpnzd", "audjpy", "audchf", "audcad", "audnzd", "nzdjpy", "nzdchf", "nzdcad", "cadjpy", "cadchf", "chfjpy"]},
+    "cov_mom_bqx": {"existing": 10, "missing": 18, "pairs_missing": ["eurgbp", "eurcad", "eurnzd", "gbpjpy", "gbpchf", "gbpaud", "gbpcad", "gbpnzd", "audjpy", "audchf", "audcad", "audnzd", "nzdjpy", "nzdchf", "nzdcad", "cadjpy", "cadchf", "chfjpy"]},
+    "cov_reg": {"existing": 10, "missing": 18, "pairs_missing": ["eurgbp", "eurcad", "eurnzd", "gbpjpy", "gbpchf", "gbpaud", "gbpcad", "gbpnzd", "audjpy", "audchf", "audcad", "audnzd", "nzdjpy", "nzdchf", "nzdcad", "cadjpy", "cadchf", "chfjpy"]},
+    "cov_reg_bqx": {"existing": 10, "missing": 18, "pairs_missing": ["eurgbp", "eurcad", "eurnzd", "gbpjpy", "gbpchf", "gbpaud", "gbpcad", "gbpnzd", "audjpy", "audchf", "audcad", "audnzd", "nzdjpy", "nzdchf", "nzdcad", "cadjpy", "cadchf", "chfjpy"]},
+    "cov_regime": {"existing": 7, "missing": 21, "pairs_missing": ["usdchf", "usdcad", "nzdusd", "euraud", "eurcad", "eurnzd", "gbpjpy", "gbpchf", "gbpaud", "gbpcad", "gbpnzd", "audjpy", "audchf", "audcad", "audnzd", "nzdjpy", "nzdchf", "nzdcad", "cadjpy", "cadchf", "chfjpy"]},
+    "cov_regime_bqx": {"existing": 7, "missing": 21, "pairs_missing": ["usdchf", "usdcad", "nzdusd", "euraud", "eurcad", "eurnzd", "gbpjpy", "gbpchf", "gbpaud", "gbpcad", "gbpnzd", "audjpy", "audchf", "audcad", "audnzd", "nzdjpy", "nzdchf", "nzdcad", "cadjpy", "cadchf", "chfjpy"]},
+    "cov_vol": {"existing": 10, "missing": 18, "pairs_missing": ["eurgbp", "eurcad", "eurnzd", "gbpjpy", "gbpchf", "gbpaud", "gbpcad", "gbpnzd", "audjpy", "audchf", "audcad", "audnzd", "nzdjpy", "nzdchf", "nzdcad", "cadjpy", "cadchf", "chfjpy"]},
+    "cov_vol_bqx": {"existing": 10, "missing": 18, "pairs_missing": ["eurgbp", "eurcad", "eurnzd", "gbpjpy", "gbpchf", "gbpaud", "gbpcad", "gbpnzd", "audjpy", "audchf", "audcad", "audnzd", "nzdjpy", "nzdchf", "nzdcad", "cadjpy", "cadchf", "chfjpy"]}
+  },
+  "remediation_required": {
+    "tables_to_create": 267,
+    "cleanup_tables": 13,
+    "details": "14 cov_* prefixes need completion to 28/28 pairs"
+  }
+}

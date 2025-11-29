@@ -303,5 +303,277 @@ nzdchf_nzdcad
 
 ---
 
+## 6. ADDITIONAL FEATURES - OSCILLATION PREDICTION (280 New Tables)
+
+New feature types optimized for oscillating BQX prediction and game theory trading.
+
+### Executive Summary - Additional Features
+
+| Category | Required Tables | Current | Gap | Coverage | Architecture |
+|----------|----------------|---------|-----|----------|--------------|
+| REVERSAL (rev_) | 56 | 0 | 56 | 0% | INTERVAL-CENTRIC |
+| DERIVATIVE (der_) | 56 | 0 | 56 | 0% | INTERVAL-CENTRIC |
+| EXTREMITY (ext_) | 28 | 0 | 28 | 0% | INTERVAL-CENTRIC |
+| CYCLE (cyc_) | 28 | 0 | 28 | 0% | INTERVAL-CENTRIC |
+| DIVERGENCE (div_) | 56 | 0 | 56 | 0% | INTERVAL-CENTRIC |
+| MEAN-REVERSION (mrt_) | 28 | 0 | 28 | 0% | INTERVAL-CENTRIC |
+| TEMPORAL (tmp_) | 28 | 0 | 28 | 0% | **TIME-CENTRIC** |
+| **TOTAL ADDITIONAL** | **280** | **0** | **280** | **0%** | |
+
+### 6.1 REVERSAL DETECTION (rev_) - 56 Tables
+
+Detect when BQX oscillation is about to change direction.
+
+#### Structure
+```
+rev_{pair}           # IDX variant (28 tables)
+rev_bqx_{pair}       # BQX variant (28 tables)
+```
+
+#### Game Theory Value
+- Predicts WHEN momentum traders will exit
+- Enables entry BEFORE reversal
+- Highest ROI for contrarian strategy
+
+#### Complete Table List - rev_
+```
+rev_eurusd, rev_gbpusd, rev_usdjpy, rev_usdchf, rev_audusd, rev_usdcad, rev_nzdusd,
+rev_eurgbp, rev_eurjpy, rev_eurchf, rev_euraud, rev_eurcad, rev_eurnzd,
+rev_gbpjpy, rev_gbpchf, rev_gbpaud, rev_gbpcad, rev_gbpnzd,
+rev_audjpy, rev_audchf, rev_audcad, rev_audnzd,
+rev_nzdjpy, rev_nzdchf, rev_nzdcad,
+rev_cadjpy, rev_cadchf, rev_chfjpy
+
+rev_bqx_eurusd, rev_bqx_gbpusd, rev_bqx_usdjpy, rev_bqx_usdchf, rev_bqx_audusd, rev_bqx_usdcad, rev_bqx_nzdusd,
+rev_bqx_eurgbp, rev_bqx_eurjpy, rev_bqx_eurchf, rev_bqx_euraud, rev_bqx_eurcad, rev_bqx_eurnzd,
+rev_bqx_gbpjpy, rev_bqx_gbpchf, rev_bqx_gbpaud, rev_bqx_gbpcad, rev_bqx_gbpnzd,
+rev_bqx_audjpy, rev_bqx_audchf, rev_bqx_audcad, rev_bqx_audnzd,
+rev_bqx_nzdjpy, rev_bqx_nzdchf, rev_bqx_nzdcad,
+rev_bqx_cadjpy, rev_bqx_cadchf, rev_bqx_chfjpy
+```
+
+---
+
+### 6.2 DERIVATIVE (der_) - 56 Tables
+
+Velocity and acceleration of BQX changes.
+
+#### Structure
+```
+der_{pair}           # IDX variant (28 tables)
+der_bqx_{pair}       # BQX variant (28 tables)
+```
+
+#### Game Theory Value
+- Velocity: HOW FAST momentum is building/fading
+- Acceleration: Is momentum gaining or losing steam
+- Jerk: Captures sudden changes before they manifest
+
+#### Complete Table List - der_
+```
+der_eurusd, der_gbpusd, der_usdjpy, der_usdchf, der_audusd, der_usdcad, der_nzdusd,
+der_eurgbp, der_eurjpy, der_eurchf, der_euraud, der_eurcad, der_eurnzd,
+der_gbpjpy, der_gbpchf, der_gbpaud, der_gbpcad, der_gbpnzd,
+der_audjpy, der_audchf, der_audcad, der_audnzd,
+der_nzdjpy, der_nzdchf, der_nzdcad,
+der_cadjpy, der_cadchf, der_chfjpy
+
+der_bqx_eurusd, der_bqx_gbpusd, der_bqx_usdjpy, der_bqx_usdchf, der_bqx_audusd, der_bqx_usdcad, der_bqx_nzdusd,
+der_bqx_eurgbp, der_bqx_eurjpy, der_bqx_eurchf, der_bqx_euraud, der_bqx_eurcad, der_bqx_eurnzd,
+der_bqx_gbpjpy, der_bqx_gbpchf, der_bqx_gbpaud, der_bqx_gbpcad, der_bqx_gbpnzd,
+der_bqx_audjpy, der_bqx_audchf, der_bqx_audcad, der_bqx_audnzd,
+der_bqx_nzdjpy, der_bqx_nzdchf, der_bqx_nzdcad,
+der_bqx_cadjpy, der_bqx_cadchf, der_bqx_chfjpy
+```
+
+---
+
+### 6.3 EXTREMITY METRICS (ext_) - 28 Tables (BQX only)
+
+Quantify how extreme current BQX is relative to history.
+
+#### Structure
+```
+ext_bqx_{pair}       # BQX variant ONLY (28 tables)
+```
+
+**Note**: No IDX variant - extremity is specifically about BQX values.
+
+#### Game Theory Value
+- Extremes are where contrarian strategy acts (|BQX| > 1σ)
+- "How extreme" directly informs position sizing
+- Features that predict extremity = features that predict opportunity
+
+#### Complete Table List - ext_
+```
+ext_bqx_eurusd, ext_bqx_gbpusd, ext_bqx_usdjpy, ext_bqx_usdchf, ext_bqx_audusd, ext_bqx_usdcad, ext_bqx_nzdusd,
+ext_bqx_eurgbp, ext_bqx_eurjpy, ext_bqx_eurchf, ext_bqx_euraud, ext_bqx_eurcad, ext_bqx_eurnzd,
+ext_bqx_gbpjpy, ext_bqx_gbpchf, ext_bqx_gbpaud, ext_bqx_gbpcad, ext_bqx_gbpnzd,
+ext_bqx_audjpy, ext_bqx_audchf, ext_bqx_audcad, ext_bqx_audnzd,
+ext_bqx_nzdjpy, ext_bqx_nzdchf, ext_bqx_nzdcad,
+ext_bqx_cadjpy, ext_bqx_cadchf, ext_bqx_chfjpy
+```
+
+---
+
+### 6.4 CYCLE POSITION (cyc_) - 28 Tables (BQX only)
+
+Position in BQX oscillation cycle.
+
+#### Structure
+```
+cyc_bqx_{pair}       # BQX variant ONLY (28 tables)
+```
+
+**Note**: No IDX variant - cycles are in BQX oscillation, not price.
+
+#### Game Theory Value
+- Oscillations have rhythm - knowing position is predictive
+- "How long can this continue?" - cycle duration informs probability
+- Mean-reversion probability increases with cycle duration
+
+#### Complete Table List - cyc_
+```
+cyc_bqx_eurusd, cyc_bqx_gbpusd, cyc_bqx_usdjpy, cyc_bqx_usdchf, cyc_bqx_audusd, cyc_bqx_usdcad, cyc_bqx_nzdusd,
+cyc_bqx_eurgbp, cyc_bqx_eurjpy, cyc_bqx_eurchf, cyc_bqx_euraud, cyc_bqx_eurcad, cyc_bqx_eurnzd,
+cyc_bqx_gbpjpy, cyc_bqx_gbpchf, cyc_bqx_gbpaud, cyc_bqx_gbpcad, cyc_bqx_gbpnzd,
+cyc_bqx_audjpy, cyc_bqx_audchf, cyc_bqx_audcad, cyc_bqx_audnzd,
+cyc_bqx_nzdjpy, cyc_bqx_nzdchf, cyc_bqx_nzdcad,
+cyc_bqx_cadjpy, cyc_bqx_cadchf, cyc_bqx_chfjpy
+```
+
+---
+
+### 6.5 CROSS-WINDOW DIVERGENCE (div_) - 56 Tables
+
+Disagreement between BQX windows - early reversal warning.
+
+#### Structure
+```
+div_{pair}           # IDX variant (28 tables)
+div_bqx_{pair}       # BQX variant (28 tables)
+```
+
+#### Game Theory Value
+- Short-term window reversing while long-term extreme = leading indicator
+- Alignment = trend strength; Divergence = transition coming
+- Cross-window divergence often precedes direction changes
+
+#### Complete Table List - div_
+```
+div_eurusd, div_gbpusd, div_usdjpy, div_usdchf, div_audusd, div_usdcad, div_nzdusd,
+div_eurgbp, div_eurjpy, div_eurchf, div_euraud, div_eurcad, div_eurnzd,
+div_gbpjpy, div_gbpchf, div_gbpaud, div_gbpcad, div_gbpnzd,
+div_audjpy, div_audchf, div_audcad, div_audnzd,
+div_nzdjpy, div_nzdchf, div_nzdcad,
+div_cadjpy, div_cadchf, div_chfjpy
+
+div_bqx_eurusd, div_bqx_gbpusd, div_bqx_usdjpy, div_bqx_usdchf, div_bqx_audusd, div_bqx_usdcad, div_bqx_nzdusd,
+div_bqx_eurgbp, div_bqx_eurjpy, div_bqx_eurchf, div_bqx_euraud, div_bqx_eurcad, div_bqx_eurnzd,
+div_bqx_gbpjpy, div_bqx_gbpchf, div_bqx_gbpaud, div_bqx_gbpcad, div_bqx_gbpnzd,
+div_bqx_audjpy, div_bqx_audchf, div_bqx_audcad, div_bqx_audnzd,
+div_bqx_nzdjpy, div_bqx_nzdchf, div_bqx_nzdcad,
+div_bqx_cadjpy, div_bqx_cadchf, div_bqx_chfjpy
+```
+
+---
+
+### 6.6 MEAN-REVERSION TENSION (mrt_) - 28 Tables (BQX only)
+
+Quantify the "spring force" pulling BQX back to zero.
+
+#### Structure
+```
+mrt_bqx_{pair}       # BQX variant ONLY (28 tables)
+```
+
+**Note**: No IDX variant - tension is about BQX mean-reversion, not price.
+
+#### Game Theory Value
+- Mean-reversion is the CORE of contrarian strategy
+- "Tension" increases as BQX gets more extreme
+- Quantifying tension = quantifying opportunity magnitude
+
+#### Complete Table List - mrt_
+```
+mrt_bqx_eurusd, mrt_bqx_gbpusd, mrt_bqx_usdjpy, mrt_bqx_usdchf, mrt_bqx_audusd, mrt_bqx_usdcad, mrt_bqx_nzdusd,
+mrt_bqx_eurgbp, mrt_bqx_eurjpy, mrt_bqx_eurchf, mrt_bqx_euraud, mrt_bqx_eurcad, mrt_bqx_eurnzd,
+mrt_bqx_gbpjpy, mrt_bqx_gbpchf, mrt_bqx_gbpaud, mrt_bqx_gbpcad, mrt_bqx_gbpnzd,
+mrt_bqx_audjpy, mrt_bqx_audchf, mrt_bqx_audcad, mrt_bqx_audnzd,
+mrt_bqx_nzdjpy, mrt_bqx_nzdchf, mrt_bqx_nzdcad,
+mrt_bqx_cadjpy, mrt_bqx_cadchf, mrt_bqx_chfjpy
+```
+
+---
+
+### 6.7 TEMPORAL PATTERNS (tmp_) - 28 Tables (TIME-CENTRIC EXCEPTION)
+
+Calendar and session effects in BQX behavior.
+
+#### Structure
+```
+tmp_{pair}           # Per-pair (28 tables) - No IDX/BQX variant
+```
+
+#### Architecture Note
+**This is the ONLY time-centric feature type.** All other features use interval-based calculations. tmp_ extracts time metadata from each row but does NOT use time-based window functions.
+
+#### Game Theory Value
+- BQX behavior varies by trading session (NY momentum > Asian)
+- Certain hours produce more extremes
+- Session transitions often trigger reversals
+
+#### Complete Table List - tmp_
+```
+tmp_eurusd, tmp_gbpusd, tmp_usdjpy, tmp_usdchf, tmp_audusd, tmp_usdcad, tmp_nzdusd,
+tmp_eurgbp, tmp_eurjpy, tmp_eurchf, tmp_euraud, tmp_eurcad, tmp_eurnzd,
+tmp_gbpjpy, tmp_gbpchf, tmp_gbpaud, tmp_gbpcad, tmp_gbpnzd,
+tmp_audjpy, tmp_audchf, tmp_audcad, tmp_audnzd,
+tmp_nzdjpy, tmp_nzdchf, tmp_nzdcad,
+tmp_cadjpy, tmp_cadchf, tmp_chfjpy
+```
+
+---
+
+## 7. UPDATED TOTAL FEATURE TABLE REQUIREMENTS
+
+### Combined Summary - All Features
+
+| Category | Required | Current | Gap | Coverage | Priority |
+|----------|----------|---------|-----|----------|----------|
+| **EXISTING** | | | | | |
+| PRIMARY | 392 | 504 | 0 | 128.6% | COMPLETE |
+| CORRELATION | 448 | 448 | 0 | 100.0% | COMPLETE |
+| COVARIANCE | 2,352 | 554 | 1,798 | 23.6% | IN_PROGRESS |
+| **ADDITIONAL (NEW)** | | | | | |
+| REVERSAL (rev_) | 56 | 0 | 56 | 0% | PHASE 1 |
+| DERIVATIVE (der_) | 56 | 0 | 56 | 0% | PHASE 1 |
+| EXTREMITY (ext_) | 28 | 0 | 28 | 0% | PHASE 2 |
+| CYCLE (cyc_) | 28 | 0 | 28 | 0% | PHASE 2 |
+| DIVERGENCE (div_) | 56 | 0 | 56 | 0% | PHASE 3 |
+| MEAN-REVERSION (mrt_) | 28 | 0 | 28 | 0% | PHASE 3 |
+| TEMPORAL (tmp_) | 28 | 0 | 28 | 0% | PHASE 4 |
+| **GRAND TOTAL** | **3,472** | **1,506** | **2,078** | **43.4%** | |
+
+### Implementation Priority
+
+| Phase | Feature Types | Tables | Est. Duration | Rationale |
+|-------|---------------|--------|---------------|-----------|
+| **CURRENT** | cov_* remediation | 1,798 | ~8 hrs | In progress |
+| **1** | rev_, der_ | 112 | ~4 hrs | Highest game theory value |
+| **2** | ext_, cyc_ | 56 | ~3 hrs | Opportunity detection |
+| **3** | div_, mrt_ | 84 | ~3 hrs | Early warning + magnitude |
+| **4** | tmp_ | 28 | ~1 hr | Optimization layer |
+| **TOTAL** | All additional | 280 | ~11 hrs | |
+
+---
+
+## 8. REFERENCE: DETAILED SPECIFICATION
+
+For complete column definitions, SQL templates, and validation requirements, see:
+- **[/mandate/ADDITIONAL_FEATURE_SPECIFICATION.md](ADDITIONAL_FEATURE_SPECIFICATION.md)**
+
+---
+
 *Document generated: 2025-11-29*
 *Dataset: bqx-ml:bqx_ml_v3_features*

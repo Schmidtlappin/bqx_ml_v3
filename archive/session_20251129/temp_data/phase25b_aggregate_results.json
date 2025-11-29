@@ -1,0 +1,1004 @@
+{
+  "total_pairs": 28,
+  "total_correlations": 109760,
+  "per_pair_summary": [
+    {
+      "pair": "AUDCAD",
+      "correlations": 3920,
+      "tables": 8,
+      "top_feature": "reg_mean_45",
+      "top_correlation": 0.9999769703355328
+    },
+    {
+      "pair": "AUDCHF",
+      "correlations": 3920,
+      "tables": 8,
+      "top_feature": "agg_mean_45",
+      "top_correlation": 0.9999955855880873
+    },
+    {
+      "pair": "AUDJPY",
+      "correlations": 3920,
+      "tables": 8,
+      "top_feature": "reg_mean_45",
+      "top_correlation": 0.999995679418613
+    },
+    {
+      "pair": "AUDNZD",
+      "correlations": 3920,
+      "tables": 8,
+      "top_feature": "agg_mean_45",
+      "top_correlation": 0.9999789990046815
+    },
+    {
+      "pair": "AUDUSD",
+      "correlations": 3920,
+      "tables": 8,
+      "top_feature": "agg_mean_45",
+      "top_correlation": 0.9999891218602388
+    },
+    {
+      "pair": "CADCHF",
+      "correlations": 3920,
+      "tables": 8,
+      "top_feature": "agg_mean_45",
+      "top_correlation": 0.9999959633609223
+    },
+    {
+      "pair": "CADJPY",
+      "correlations": 3920,
+      "tables": 8,
+      "top_feature": "agg_mean_45",
+      "top_correlation": 0.9999973534739339
+    },
+    {
+      "pair": "CHFJPY",
+      "correlations": 3920,
+      "tables": 8,
+      "top_feature": "reg_mean_45",
+      "top_correlation": 0.9999990584192469
+    },
+    {
+      "pair": "EURAUD",
+      "correlations": 3920,
+      "tables": 8,
+      "top_feature": "reg_mean_45",
+      "top_correlation": 0.9999891919433644
+    },
+    {
+      "pair": "EURCAD",
+      "correlations": 3920,
+      "tables": 8,
+      "top_feature": "reg_mean_45",
+      "top_correlation": 0.9999926702087133
+    },
+    {
+      "pair": "EURCHF",
+      "correlations": 3920,
+      "tables": 8,
+      "top_feature": "agg_mean_45",
+      "top_correlation": 0.9999965106926435
+    },
+    {
+      "pair": "EURGBP",
+      "correlations": 3920,
+      "tables": 8,
+      "top_feature": "reg_mean_45",
+      "top_correlation": 0.99997424187434
+    },
+    {
+      "pair": "EURJPY",
+      "correlations": 3920,
+      "tables": 8,
+      "top_feature": "agg_mean_45",
+      "top_correlation": 0.9999979938770268
+    },
+    {
+      "pair": "EURNZD",
+      "correlations": 3920,
+      "tables": 8,
+      "top_feature": "agg_mean_45",
+      "top_correlation": 0.9999916275837301
+    },
+    {
+      "pair": "EURUSD",
+      "correlations": 3920,
+      "tables": 8,
+      "top_feature": "agg_mean_45",
+      "top_correlation": 0.999992297283372
+    },
+    {
+      "pair": "GBPAUD",
+      "correlations": 3920,
+      "tables": 8,
+      "top_feature": "reg_mean_45",
+      "top_correlation": 0.9999906642067421
+    },
+    {
+      "pair": "GBPCAD",
+      "correlations": 3920,
+      "tables": 8,
+      "top_feature": "agg_mean_45",
+      "top_correlation": 0.9999907180843655
+    },
+    {
+      "pair": "GBPCHF",
+      "correlations": 3920,
+      "tables": 8,
+      "top_feature": "reg_mean_45",
+      "top_correlation": 0.9999927120034742
+    },
+    {
+      "pair": "GBPJPY",
+      "correlations": 3920,
+      "tables": 8,
+      "top_feature": "agg_mean_45",
+      "top_correlation": 0.9999979395756793
+    },
+    {
+      "pair": "GBPNZD",
+      "correlations": 3920,
+      "tables": 8,
+      "top_feature": "agg_mean_45",
+      "top_correlation": 0.9999927184816382
+    },
+    {
+      "pair": "GBPUSD",
+      "correlations": 3920,
+      "tables": 8,
+      "top_feature": "reg_mean_45",
+      "top_correlation": 0.999988758353275
+    },
+    {
+      "pair": "NZDCAD",
+      "correlations": 3920,
+      "tables": 8,
+      "top_feature": "reg_mean_45",
+      "top_correlation": 0.9999846340106786
+    },
+    {
+      "pair": "NZDCHF",
+      "correlations": 3920,
+      "tables": 8,
+      "top_feature": "reg_mean_45",
+      "top_correlation": 0.9999965706973519
+    },
+    {
+      "pair": "NZDJPY",
+      "correlations": 3920,
+      "tables": 8,
+      "top_feature": "reg_mean_45",
+      "top_correlation": 0.9999948917496665
+    },
+    {
+      "pair": "NZDUSD",
+      "correlations": 3920,
+      "tables": 8,
+      "top_feature": "agg_mean_45",
+      "top_correlation": 0.9999917921775769
+    },
+    {
+      "pair": "USDCAD",
+      "correlations": 3920,
+      "tables": 8,
+      "top_feature": "agg_mean_45",
+      "top_correlation": 0.9999897910145744
+    },
+    {
+      "pair": "USDCHF",
+      "correlations": 3920,
+      "tables": 8,
+      "top_feature": "agg_mean_45",
+      "top_correlation": 0.9999915950492769
+    },
+    {
+      "pair": "USDJPY",
+      "correlations": 3920,
+      "tables": 8,
+      "top_feature": "agg_mean_45",
+      "top_correlation": 0.9999983332047407
+    }
+  ],
+  "global_top_100": [
+    {
+      "pair": "CHFJPY",
+      "feature": "reg_mean_45",
+      "table": "reg_chfjpy",
+      "target": "target_bqx90_h15",
+      "correlation": 0.9999990584192469,
+      "abs_corr": 0.9999990584192469
+    },
+    {
+      "pair": "CHFJPY",
+      "feature": "agg_mean_45",
+      "table": "agg_chfjpy",
+      "target": "target_bqx90_h15",
+      "correlation": 0.9999990584192464,
+      "abs_corr": 0.9999990584192464
+    },
+    {
+      "pair": "CHFJPY",
+      "feature": "agg_mean_45",
+      "table": "agg_chfjpy",
+      "target": "target_bqx90_h30",
+      "correlation": 0.9999990583719138,
+      "abs_corr": 0.9999990583719138
+    },
+    {
+      "pair": "CHFJPY",
+      "feature": "reg_mean_45",
+      "table": "reg_chfjpy",
+      "target": "target_bqx90_h30",
+      "correlation": 0.9999990583719137,
+      "abs_corr": 0.9999990583719137
+    },
+    {
+      "pair": "CHFJPY",
+      "feature": "reg_mean_45",
+      "table": "reg_chfjpy",
+      "target": "target_bqx45_h15",
+      "correlation": 0.9999983361862087,
+      "abs_corr": 0.9999983361862087
+    },
+    {
+      "pair": "CHFJPY",
+      "feature": "agg_mean_45",
+      "table": "agg_chfjpy",
+      "target": "target_bqx45_h15",
+      "correlation": 0.9999983361862076,
+      "abs_corr": 0.9999983361862076
+    },
+    {
+      "pair": "USDJPY",
+      "feature": "agg_mean_45",
+      "table": "agg_usdjpy",
+      "target": "target_bqx90_h15",
+      "correlation": 0.9999983332047407,
+      "abs_corr": 0.9999983332047407
+    },
+    {
+      "pair": "USDJPY",
+      "feature": "reg_mean_45",
+      "table": "reg_usdjpy",
+      "target": "target_bqx90_h15",
+      "correlation": 0.9999983332047362,
+      "abs_corr": 0.9999983332047362
+    },
+    {
+      "pair": "USDJPY",
+      "feature": "agg_mean_45",
+      "table": "agg_usdjpy",
+      "target": "target_bqx90_h30",
+      "correlation": 0.9999983331640041,
+      "abs_corr": 0.9999983331640041
+    },
+    {
+      "pair": "USDJPY",
+      "feature": "reg_mean_45",
+      "table": "reg_usdjpy",
+      "target": "target_bqx90_h30",
+      "correlation": 0.9999983331639994,
+      "abs_corr": 0.9999983331639994
+    },
+    {
+      "pair": "CHFJPY",
+      "feature": "source_value",
+      "table": "agg_chfjpy",
+      "target": "target_bqx45_h15",
+      "correlation": 0.9999980911692395,
+      "abs_corr": 0.9999980911692395
+    },
+    {
+      "pair": "CHFJPY",
+      "feature": "source_value",
+      "table": "mom_chfjpy",
+      "target": "target_bqx45_h15",
+      "correlation": 0.9999980911692394,
+      "abs_corr": 0.9999980911692394
+    },
+    {
+      "pair": "CHFJPY",
+      "feature": "source_value",
+      "table": "reg_chfjpy",
+      "target": "target_bqx45_h15",
+      "correlation": 0.9999980911692393,
+      "abs_corr": 0.9999980911692393
+    },
+    {
+      "pair": "EURJPY",
+      "feature": "agg_mean_45",
+      "table": "agg_eurjpy",
+      "target": "target_bqx90_h15",
+      "correlation": 0.9999979938770268,
+      "abs_corr": 0.9999979938770268
+    },
+    {
+      "pair": "EURJPY",
+      "feature": "reg_mean_45",
+      "table": "reg_eurjpy",
+      "target": "target_bqx90_h15",
+      "correlation": 0.9999979938770254,
+      "abs_corr": 0.9999979938770254
+    },
+    {
+      "pair": "EURJPY",
+      "feature": "reg_mean_45",
+      "table": "reg_eurjpy",
+      "target": "target_bqx90_h30",
+      "correlation": 0.9999979937820414,
+      "abs_corr": 0.9999979937820414
+    },
+    {
+      "pair": "EURJPY",
+      "feature": "agg_mean_45",
+      "table": "agg_eurjpy",
+      "target": "target_bqx90_h30",
+      "correlation": 0.9999979937820411,
+      "abs_corr": 0.9999979937820411
+    },
+    {
+      "pair": "CHFJPY",
+      "feature": "source_value",
+      "table": "agg_chfjpy",
+      "target": "target_bqx45_h30",
+      "correlation": 0.9999979670968581,
+      "abs_corr": 0.9999979670968581
+    },
+    {
+      "pair": "CHFJPY",
+      "feature": "source_value",
+      "table": "reg_chfjpy",
+      "target": "target_bqx45_h30",
+      "correlation": 0.9999979670968573,
+      "abs_corr": 0.9999979670968573
+    },
+    {
+      "pair": "CHFJPY",
+      "feature": "source_value",
+      "table": "mom_chfjpy",
+      "target": "target_bqx45_h30",
+      "correlation": 0.9999979670968572,
+      "abs_corr": 0.9999979670968572
+    },
+    {
+      "pair": "GBPJPY",
+      "feature": "agg_mean_45",
+      "table": "agg_gbpjpy",
+      "target": "target_bqx90_h15",
+      "correlation": 0.9999979395756793,
+      "abs_corr": 0.9999979395756793
+    },
+    {
+      "pair": "GBPJPY",
+      "feature": "reg_mean_45",
+      "table": "reg_gbpjpy",
+      "target": "target_bqx90_h15",
+      "correlation": 0.9999979395756787,
+      "abs_corr": 0.9999979395756787
+    },
+    {
+      "pair": "GBPJPY",
+      "feature": "agg_mean_45",
+      "table": "agg_gbpjpy",
+      "target": "target_bqx90_h30",
+      "correlation": 0.9999979394954985,
+      "abs_corr": 0.9999979394954985
+    },
+    {
+      "pair": "GBPJPY",
+      "feature": "reg_mean_45",
+      "table": "reg_gbpjpy",
+      "target": "target_bqx90_h30",
+      "correlation": 0.9999979394954975,
+      "abs_corr": 0.9999979394954975
+    },
+    {
+      "pair": "CADJPY",
+      "feature": "agg_mean_45",
+      "table": "agg_cadjpy",
+      "target": "target_bqx90_h15",
+      "correlation": 0.9999973534739339,
+      "abs_corr": 0.9999973534739339
+    },
+    {
+      "pair": "CADJPY",
+      "feature": "reg_mean_45",
+      "table": "reg_cadjpy",
+      "target": "target_bqx90_h15",
+      "correlation": 0.9999973534739328,
+      "abs_corr": 0.9999973534739328
+    },
+    {
+      "pair": "CADJPY",
+      "feature": "agg_mean_45",
+      "table": "agg_cadjpy",
+      "target": "target_bqx90_h30",
+      "correlation": 0.9999973534367146,
+      "abs_corr": 0.9999973534367146
+    },
+    {
+      "pair": "CADJPY",
+      "feature": "reg_mean_45",
+      "table": "reg_cadjpy",
+      "target": "target_bqx90_h30",
+      "correlation": 0.9999973534367146,
+      "abs_corr": 0.9999973534367146
+    },
+    {
+      "pair": "CHFJPY",
+      "feature": "agg_mean_45",
+      "table": "agg_chfjpy",
+      "target": "target_bqx90_h45",
+      "correlation": 0.9999972071199767,
+      "abs_corr": 0.9999972071199767
+    },
+    {
+      "pair": "CHFJPY",
+      "feature": "reg_mean_45",
+      "table": "reg_chfjpy",
+      "target": "target_bqx90_h45",
+      "correlation": 0.9999972071199767,
+      "abs_corr": 0.9999972071199767
+    },
+    {
+      "pair": "CHFJPY",
+      "feature": "source_value",
+      "table": "mom_chfjpy",
+      "target": "target_bqx90_h45",
+      "correlation": 0.999997083768688,
+      "abs_corr": 0.999997083768688
+    },
+    {
+      "pair": "CHFJPY",
+      "feature": "source_value",
+      "table": "reg_chfjpy",
+      "target": "target_bqx90_h45",
+      "correlation": 0.9999970837686877,
+      "abs_corr": 0.9999970837686877
+    },
+    {
+      "pair": "CHFJPY",
+      "feature": "source_value",
+      "table": "agg_chfjpy",
+      "target": "target_bqx90_h45",
+      "correlation": 0.9999970837686875,
+      "abs_corr": 0.9999970837686875
+    },
+    {
+      "pair": "USDJPY",
+      "feature": "agg_mean_45",
+      "table": "agg_usdjpy",
+      "target": "target_bqx45_h15",
+      "correlation": 0.9999970233414333,
+      "abs_corr": 0.9999970233414333
+    },
+    {
+      "pair": "USDJPY",
+      "feature": "reg_mean_45",
+      "table": "reg_usdjpy",
+      "target": "target_bqx45_h15",
+      "correlation": 0.9999970233414327,
+      "abs_corr": 0.9999970233414327
+    },
+    {
+      "pair": "USDJPY",
+      "feature": "source_value",
+      "table": "mom_usdjpy",
+      "target": "target_bqx45_h15",
+      "correlation": 0.9999967885436953,
+      "abs_corr": 0.9999967885436953
+    },
+    {
+      "pair": "USDJPY",
+      "feature": "source_value",
+      "table": "agg_usdjpy",
+      "target": "target_bqx45_h15",
+      "correlation": 0.9999967885436938,
+      "abs_corr": 0.9999967885436938
+    },
+    {
+      "pair": "USDJPY",
+      "feature": "source_value",
+      "table": "reg_usdjpy",
+      "target": "target_bqx45_h15",
+      "correlation": 0.9999967885436934,
+      "abs_corr": 0.9999967885436934
+    },
+    {
+      "pair": "CHFJPY",
+      "feature": "reg_mean_45",
+      "table": "reg_chfjpy",
+      "target": "target_bqx180_h60",
+      "correlation": 0.9999967037271699,
+      "abs_corr": 0.9999967037271699
+    },
+    {
+      "pair": "CHFJPY",
+      "feature": "agg_mean_45",
+      "table": "agg_chfjpy",
+      "target": "target_bqx180_h60",
+      "correlation": 0.9999967037271688,
+      "abs_corr": 0.9999967037271688
+    },
+    {
+      "pair": "CHFJPY",
+      "feature": "reg_mean_45",
+      "table": "reg_chfjpy",
+      "target": "target_bqx180_h75",
+      "correlation": 0.9999967035546307,
+      "abs_corr": 0.9999967035546307
+    },
+    {
+      "pair": "CHFJPY",
+      "feature": "agg_mean_45",
+      "table": "agg_chfjpy",
+      "target": "target_bqx180_h75",
+      "correlation": 0.9999967035546299,
+      "abs_corr": 0.9999967035546299
+    },
+    {
+      "pair": "NZDCHF",
+      "feature": "reg_mean_45",
+      "table": "reg_nzdchf",
+      "target": "target_bqx90_h15",
+      "correlation": 0.9999965706973519,
+      "abs_corr": 0.9999965706973519
+    },
+    {
+      "pair": "NZDCHF",
+      "feature": "agg_mean_45",
+      "table": "agg_nzdchf",
+      "target": "target_bqx90_h15",
+      "correlation": 0.9999965706973509,
+      "abs_corr": 0.9999965706973509
+    },
+    {
+      "pair": "NZDCHF",
+      "feature": "reg_mean_45",
+      "table": "reg_nzdchf",
+      "target": "target_bqx90_h30",
+      "correlation": 0.9999965703758633,
+      "abs_corr": 0.9999965703758633
+    },
+    {
+      "pair": "NZDCHF",
+      "feature": "agg_mean_45",
+      "table": "agg_nzdchf",
+      "target": "target_bqx90_h30",
+      "correlation": 0.999996570375862,
+      "abs_corr": 0.999996570375862
+    },
+    {
+      "pair": "USDJPY",
+      "feature": "source_value",
+      "table": "mom_usdjpy",
+      "target": "target_bqx45_h30",
+      "correlation": 0.9999965654468729,
+      "abs_corr": 0.9999965654468729
+    },
+    {
+      "pair": "USDJPY",
+      "feature": "source_value",
+      "table": "reg_usdjpy",
+      "target": "target_bqx45_h30",
+      "correlation": 0.9999965654468725,
+      "abs_corr": 0.9999965654468725
+    },
+    {
+      "pair": "USDJPY",
+      "feature": "source_value",
+      "table": "agg_usdjpy",
+      "target": "target_bqx45_h30",
+      "correlation": 0.9999965654468719,
+      "abs_corr": 0.9999965654468719
+    },
+    {
+      "pair": "EURCHF",
+      "feature": "agg_mean_45",
+      "table": "agg_eurchf",
+      "target": "target_bqx90_h15",
+      "correlation": 0.9999965106926435,
+      "abs_corr": 0.9999965106926435
+    },
+    {
+      "pair": "EURCHF",
+      "feature": "reg_mean_45",
+      "table": "reg_eurchf",
+      "target": "target_bqx90_h15",
+      "correlation": 0.9999965106926433,
+      "abs_corr": 0.9999965106926433
+    },
+    {
+      "pair": "EURCHF",
+      "feature": "agg_mean_45",
+      "table": "agg_eurchf",
+      "target": "target_bqx90_h30",
+      "correlation": 0.9999965106303226,
+      "abs_corr": 0.9999965106303226
+    },
+    {
+      "pair": "EURCHF",
+      "feature": "reg_mean_45",
+      "table": "reg_eurchf",
+      "target": "target_bqx90_h30",
+      "correlation": 0.9999965106303218,
+      "abs_corr": 0.9999965106303218
+    },
+    {
+      "pair": "EURJPY",
+      "feature": "agg_mean_45",
+      "table": "agg_eurjpy",
+      "target": "target_bqx45_h15",
+      "correlation": 0.999996434393937,
+      "abs_corr": 0.999996434393937
+    },
+    {
+      "pair": "EURJPY",
+      "feature": "reg_mean_45",
+      "table": "reg_eurjpy",
+      "target": "target_bqx45_h15",
+      "correlation": 0.9999964343939368,
+      "abs_corr": 0.9999964343939368
+    },
+    {
+      "pair": "GBPJPY",
+      "feature": "reg_mean_45",
+      "table": "reg_gbpjpy",
+      "target": "target_bqx45_h15",
+      "correlation": 0.9999963337018004,
+      "abs_corr": 0.9999963337018004
+    },
+    {
+      "pair": "GBPJPY",
+      "feature": "agg_mean_45",
+      "table": "agg_gbpjpy",
+      "target": "target_bqx45_h15",
+      "correlation": 0.9999963337017994,
+      "abs_corr": 0.9999963337017994
+    },
+    {
+      "pair": "CHFJPY",
+      "feature": "source_value",
+      "table": "mom_chfjpy",
+      "target": "target_bqx90_h30",
+      "correlation": 0.9999962176027454,
+      "abs_corr": 0.9999962176027454
+    },
+    {
+      "pair": "CHFJPY",
+      "feature": "source_value",
+      "table": "agg_chfjpy",
+      "target": "target_bqx90_h30",
+      "correlation": 0.9999962176027452,
+      "abs_corr": 0.9999962176027452
+    },
+    {
+      "pair": "CHFJPY",
+      "feature": "source_value",
+      "table": "reg_chfjpy",
+      "target": "target_bqx90_h30",
+      "correlation": 0.9999962176027448,
+      "abs_corr": 0.9999962176027448
+    },
+    {
+      "pair": "CHFJPY",
+      "feature": "reg_first_45",
+      "table": "reg_chfjpy",
+      "target": "target_bqx90_h15",
+      "correlation": 0.9999962168328216,
+      "abs_corr": 0.9999962168328216
+    },
+    {
+      "pair": "CHFJPY",
+      "feature": "source_value",
+      "table": "reg_chfjpy",
+      "target": "target_bqx90_h60",
+      "correlation": 0.9999960938481525,
+      "abs_corr": 0.9999960938481525
+    },
+    {
+      "pair": "CHFJPY",
+      "feature": "source_value",
+      "table": "agg_chfjpy",
+      "target": "target_bqx90_h60",
+      "correlation": 0.9999960938481519,
+      "abs_corr": 0.9999960938481519
+    },
+    {
+      "pair": "CHFJPY",
+      "feature": "source_value",
+      "table": "mom_chfjpy",
+      "target": "target_bqx90_h60",
+      "correlation": 0.9999960938481519,
+      "abs_corr": 0.9999960938481519
+    },
+    {
+      "pair": "EURJPY",
+      "feature": "source_value",
+      "table": "mom_eurjpy",
+      "target": "target_bqx45_h15",
+      "correlation": 0.999996028574029,
+      "abs_corr": 0.999996028574029
+    },
+    {
+      "pair": "EURJPY",
+      "feature": "source_value",
+      "table": "agg_eurjpy",
+      "target": "target_bqx45_h15",
+      "correlation": 0.9999960285740288,
+      "abs_corr": 0.9999960285740288
+    },
+    {
+      "pair": "EURJPY",
+      "feature": "source_value",
+      "table": "reg_eurjpy",
+      "target": "target_bqx45_h15",
+      "correlation": 0.999996028574028,
+      "abs_corr": 0.999996028574028
+    },
+    {
+      "pair": "CADCHF",
+      "feature": "agg_mean_45",
+      "table": "agg_cadchf",
+      "target": "target_bqx90_h15",
+      "correlation": 0.9999959633609223,
+      "abs_corr": 0.9999959633609223
+    },
+    {
+      "pair": "CADCHF",
+      "feature": "reg_mean_45",
+      "table": "reg_cadchf",
+      "target": "target_bqx90_h15",
+      "correlation": 0.999995963360921,
+      "abs_corr": 0.999995963360921
+    },
+    {
+      "pair": "CADCHF",
+      "feature": "agg_mean_45",
+      "table": "agg_cadchf",
+      "target": "target_bqx90_h30",
+      "correlation": 0.9999959631150969,
+      "abs_corr": 0.9999959631150969
+    },
+    {
+      "pair": "CADCHF",
+      "feature": "reg_mean_45",
+      "table": "reg_cadchf",
+      "target": "target_bqx90_h30",
+      "correlation": 0.999995963115096,
+      "abs_corr": 0.999995963115096
+    },
+    {
+      "pair": "CHFJPY",
+      "feature": "reg_max_45",
+      "table": "reg_chfjpy",
+      "target": "target_bqx90_h15",
+      "correlation": 0.9999959405202143,
+      "abs_corr": 0.9999959405202143
+    },
+    {
+      "pair": "CHFJPY",
+      "feature": "agg_max_45",
+      "table": "agg_chfjpy",
+      "target": "target_bqx90_h15",
+      "correlation": 0.9999959405202128,
+      "abs_corr": 0.9999959405202128
+    },
+    {
+      "pair": "GBPJPY",
+      "feature": "source_value",
+      "table": "mom_gbpjpy",
+      "target": "target_bqx45_h15",
+      "correlation": 0.9999959174513547,
+      "abs_corr": 0.9999959174513547
+    },
+    {
+      "pair": "GBPJPY",
+      "feature": "source_value",
+      "table": "reg_gbpjpy",
+      "target": "target_bqx45_h15",
+      "correlation": 0.9999959174513542,
+      "abs_corr": 0.9999959174513542
+    },
+    {
+      "pair": "GBPJPY",
+      "feature": "source_value",
+      "table": "agg_gbpjpy",
+      "target": "target_bqx45_h15",
+      "correlation": 0.9999959174513541,
+      "abs_corr": 0.9999959174513541
+    },
+    {
+      "pair": "CHFJPY",
+      "feature": "reg_max_45",
+      "table": "reg_chfjpy",
+      "target": "target_bqx90_h30",
+      "correlation": 0.999995800073496,
+      "abs_corr": 0.999995800073496
+    },
+    {
+      "pair": "CHFJPY",
+      "feature": "agg_max_45",
+      "table": "agg_chfjpy",
+      "target": "target_bqx90_h30",
+      "correlation": 0.9999958000734946,
+      "abs_corr": 0.9999958000734946
+    },
+    {
+      "pair": "CHFJPY",
+      "feature": "agg_mean_45",
+      "table": "agg_chfjpy",
+      "target": "target_bqx180_h45",
+      "correlation": 0.9999957939254912,
+      "abs_corr": 0.9999957939254912
+    },
+    {
+      "pair": "CHFJPY",
+      "feature": "reg_mean_45",
+      "table": "reg_chfjpy",
+      "target": "target_bqx180_h45",
+      "correlation": 0.9999957939254907,
+      "abs_corr": 0.9999957939254907
+    },
+    {
+      "pair": "CHFJPY",
+      "feature": "agg_mean_45",
+      "table": "agg_chfjpy",
+      "target": "target_bqx180_h90",
+      "correlation": 0.9999957933985448,
+      "abs_corr": 0.9999957933985448
+    },
+    {
+      "pair": "CHFJPY",
+      "feature": "reg_mean_45",
+      "table": "reg_chfjpy",
+      "target": "target_bqx180_h90",
+      "correlation": 0.9999957933985445,
+      "abs_corr": 0.9999957933985445
+    },
+    {
+      "pair": "EURJPY",
+      "feature": "source_value",
+      "table": "agg_eurjpy",
+      "target": "target_bqx45_h30",
+      "correlation": 0.9999957615293759,
+      "abs_corr": 0.9999957615293759
+    },
+    {
+      "pair": "EURJPY",
+      "feature": "source_value",
+      "table": "reg_eurjpy",
+      "target": "target_bqx45_h30",
+      "correlation": 0.9999957615293759,
+      "abs_corr": 0.9999957615293759
+    },
+    {
+      "pair": "EURJPY",
+      "feature": "source_value",
+      "table": "mom_eurjpy",
+      "target": "target_bqx45_h30",
+      "correlation": 0.9999957615293745,
+      "abs_corr": 0.9999957615293745
+    },
+    {
+      "pair": "AUDJPY",
+      "feature": "reg_mean_45",
+      "table": "reg_audjpy",
+      "target": "target_bqx90_h15",
+      "correlation": 0.999995679418613,
+      "abs_corr": 0.999995679418613
+    },
+    {
+      "pair": "AUDJPY",
+      "feature": "agg_mean_45",
+      "table": "agg_audjpy",
+      "target": "target_bqx90_h15",
+      "correlation": 0.9999956794186119,
+      "abs_corr": 0.9999956794186119
+    },
+    {
+      "pair": "AUDJPY",
+      "feature": "reg_mean_45",
+      "table": "reg_audjpy",
+      "target": "target_bqx90_h30",
+      "correlation": 0.9999956792548551,
+      "abs_corr": 0.9999956792548551
+    },
+    {
+      "pair": "AUDJPY",
+      "feature": "agg_mean_45",
+      "table": "agg_audjpy",
+      "target": "target_bqx90_h30",
+      "correlation": 0.9999956792548524,
+      "abs_corr": 0.9999956792548524
+    },
+    {
+      "pair": "GBPJPY",
+      "feature": "source_value",
+      "table": "reg_gbpjpy",
+      "target": "target_bqx45_h30",
+      "correlation": 0.9999956431677813,
+      "abs_corr": 0.9999956431677813
+    },
+    {
+      "pair": "GBPJPY",
+      "feature": "source_value",
+      "table": "mom_gbpjpy",
+      "target": "target_bqx45_h30",
+      "correlation": 0.999995643167781,
+      "abs_corr": 0.999995643167781
+    },
+    {
+      "pair": "GBPJPY",
+      "feature": "source_value",
+      "table": "agg_gbpjpy",
+      "target": "target_bqx45_h30",
+      "correlation": 0.9999956431677789,
+      "abs_corr": 0.9999956431677789
+    },
+    {
+      "pair": "AUDCHF",
+      "feature": "agg_mean_45",
+      "table": "agg_audchf",
+      "target": "target_bqx90_h15",
+      "correlation": 0.9999955855880873,
+      "abs_corr": 0.9999955855880873
+    },
+    {
+      "pair": "AUDCHF",
+      "feature": "reg_mean_45",
+      "table": "reg_audchf",
+      "target": "target_bqx90_h15",
+      "correlation": 0.9999955855880854,
+      "abs_corr": 0.9999955855880854
+    },
+    {
+      "pair": "AUDCHF",
+      "feature": "reg_mean_45",
+      "table": "reg_audchf",
+      "target": "target_bqx90_h30",
+      "correlation": 0.9999955851047819,
+      "abs_corr": 0.9999955851047819
+    },
+    {
+      "pair": "AUDCHF",
+      "feature": "agg_mean_45",
+      "table": "agg_audchf",
+      "target": "target_bqx90_h30",
+      "correlation": 0.9999955851047789,
+      "abs_corr": 0.9999955851047789
+    },
+    {
+      "pair": "CHFJPY",
+      "feature": "reg_min_45",
+      "table": "reg_chfjpy",
+      "target": "target_bqx90_h30",
+      "correlation": 0.9999954508275664,
+      "abs_corr": 0.9999954508275664
+    },
+    {
+      "pair": "CHFJPY",
+      "feature": "agg_min_45",
+      "table": "agg_chfjpy",
+      "target": "target_bqx90_h30",
+      "correlation": 0.999995450827565,
+      "abs_corr": 0.999995450827565
+    },
+    {
+      "pair": "CADJPY",
+      "feature": "agg_mean_45",
+      "table": "agg_cadjpy",
+      "target": "target_bqx45_h15",
+      "correlation": 0.999995279469538,
+      "abs_corr": 0.999995279469538
+    },
+    {
+      "pair": "CADJPY",
+      "feature": "reg_mean_45",
+      "table": "reg_cadjpy",
+      "target": "target_bqx45_h15",
+      "correlation": 0.999995279469537,
+      "abs_corr": 0.999995279469537
+    }
+  ]
+}
