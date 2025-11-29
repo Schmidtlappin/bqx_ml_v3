@@ -132,6 +132,77 @@
       "centrics_list": ["PRIMARY", "VARIANT", "COVARIANT", "TRIANGULATION", "SECONDARY", "TERTIARY"],
       "variants_list": ["IDX (price-based)", "BQX (momentum-based)"]
     },
+    "polynomial_regression": {
+      "status": "SPECIFICATION_COMPLETE",
+      "formula": {
+        "equation": "y = ax² + bx + c (quadratic polynomial)",
+        "x_array": "np.arange(W) = [0, 1, 2, ..., W-1]",
+        "y_array": "values[-W:] (last W source values)",
+        "fit_method": "np.polyfit(x, y, 2) → [a, b, c]"
+      },
+      "coefficients": {
+        "quad_term": "a - curvature/acceleration coefficient",
+        "lin_term": "b - slope/velocity coefficient",
+        "const_term": "c - intercept"
+      },
+      "derived_features": {
+        "reg_quad_norm_{W}": "quad * (W-1)² / mean(y)",
+        "reg_lin_norm_{W}": "lin * (W-1) / mean(y)",
+        "reg_r2_{W}": "1 - SS_res / SS_tot",
+        "reg_rmse_{W}": "sqrt(mean(residuals²))",
+        "reg_resid_std_{W}": "std(y - y_hat)",
+        "reg_resid_last_{W}": "residuals[-1]",
+        "reg_acceleration_{W}": "2 * quad_term",
+        "reg_trend_str_{W}": "lin_term / resid_std",
+        "reg_forecast_5_{W}": "polyval(x+5) - polyval(x)"
+      },
+      "windows": [45, 90, 180, 360, 720, 1440, 2880],
+      "specification_files": {
+        "primary": "/features/POLYNOMIAL_REG_FEATURES.md",
+        "covariance": "/features/COV_REG_FEATURES.md",
+        "variance": "/features/VAR_REG_FEATURES.md",
+        "csi": "/features/CSI_REG_FEATURES.md",
+        "triangular": "/features/TRI_REG_FEATURES.md",
+        "market": "/features/MKT_REG_FEATURES.md"
+      },
+      "gap_analysis": "/mandate/POLYNOMIAL_REGRESSION_FEATURE_GAP_ANALYSIS.md"
+    },
+    "variant_architecture": {
+      "IDX": {
+        "source": "Close price (OHLCV data)",
+        "table_pattern": "reg_{pair}",
+        "interpretation": "Price-derived polynomial trends",
+        "use_case": "Detect price trend exhaustion"
+      },
+      "BQX": {
+        "source": "BQX oscillator value",
+        "table_pattern": "reg_bqx_{pair}",
+        "interpretation": "Momentum-derived polynomial trends",
+        "use_case": "Detect momentum exhaustion/reversal"
+      }
+    },
+    "correlation_evaluation": {
+      "methodology": "Extreme Oscillation Correlation Analysis",
+      "extreme_selection": "|BQX_45| > 2σ (5000 points)",
+      "window_extraction": "301 intervals per extreme",
+      "correlation_type": "Pooled Pearson correlation",
+      "targets": {
+        "count": 49,
+        "formula": "7 windows × 7 horizons",
+        "windows": [45, 90, 180, 360, 720, 1440, 2880],
+        "horizons": [15, 30, 45, 60, 75, 90, 105]
+      },
+      "current_analysis": {
+        "features": 817,
+        "top_correlation": 0.9982,
+        "top_feature": "reg_slope_2880"
+      },
+      "expanded_analysis": {
+        "features": 1069,
+        "new_polynomial_features": 252,
+        "strategy_doc": "/mandate/CORRELATION_STRATEGY_EXPANSION.md"
+      }
+    },
     "features": {
       "price_features": "~100 per pair",
       "bqx_features": "~180 per pair (includes lags)",
@@ -270,7 +341,19 @@
       "/docs/PHASE_25B_REDO_TARGET_CORRELATION.md",
       "/docs/SESSION_STATUS_REPORT.md",
       "/docs/CLOUD_RUN_BOX_BACKUP.md",
-      "/mandate/FEATURE_TABLE_DIRECTORY.md"
+      "/docs/EXTREME_CORRELATION_ANALYSIS_RESULTS.md",
+      "/mandate/FEATURE_TABLE_DIRECTORY.md",
+      "/mandate/POLYNOMIAL_REGRESSION_FEATURE_GAP_ANALYSIS.md",
+      "/mandate/CORRELATION_STRATEGY_EXPANSION.md"
+    ],
+    "feature_specifications": [
+      "/features/POLYNOMIAL_REG_FEATURES.md",
+      "/features/COV_REG_FEATURES.md",
+      "/features/VAR_REG_FEATURES.md",
+      "/features/CSI_REG_FEATURES.md",
+      "/features/TRI_REG_FEATURES.md",
+      "/features/MKT_REG_FEATURES.md",
+      "/features/README.md"
     ],
     "scripts": [
       "/scripts/gap_remediation_stages.py",

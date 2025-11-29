@@ -152,8 +152,68 @@
     "completion_date": "2025-11-28",
     "next_milestone": "Phase 2: Additional Feature Types or Model Training"
   },
+  "polynomial_regression": {
+    "status": "CRITICAL_GAP_IDENTIFIED",
+    "gap_analysis": "/mandate/POLYNOMIAL_REGRESSION_FEATURE_GAP_ANALYSIS.md",
+    "specification": "/features/POLYNOMIAL_REG_FEATURES.md",
+    "formula": {
+      "equation": "y = ax² + bx + c",
+      "x_definition": "np.arange(W) = [0, 1, 2, ..., W-1]",
+      "y_definition": "values[-W:] = last W values (close price for IDX, BQX for BQX)",
+      "coefficients": {
+        "a": "quad_term (curvature/acceleration)",
+        "b": "lin_term (slope/velocity)",
+        "c": "const_term (intercept)"
+      }
+    },
+    "windows": [45, 90, 180, 360, 720, 1440, 2880],
+    "new_columns_per_window": 18,
+    "total_new_columns": 126,
+    "tables_to_rebuild": 492,
+    "tables_breakdown": {
+      "reg_*": 28,
+      "reg_bqx_*": 28,
+      "cov_reg_*": 168,
+      "cov_reg_bqx_*": 168,
+      "var_reg_*": 28,
+      "csi_reg_*": 32,
+      "tri_reg_*": 36,
+      "mkt_reg*": 4
+    },
+    "variants": {
+      "IDX": "Price-derived (close price polynomial fit)",
+      "BQX": "Momentum-derived (BQX oscillator polynomial fit)"
+    },
+    "ba_directive": "/.claude/sandbox/communications/outboxes/CE/20251129_1930_CE-to-BA_POLYNOMIAL_REGRESSION_IMPLEMENTATION.md"
+  },
+  "correlation_analysis": {
+    "current_features": 817,
+    "expanded_features": 1069,
+    "targets": 49,
+    "target_formula": "7 windows × 7 horizons",
+    "methodology": "Pooled Pearson correlation at extreme BQX points (|BQX_45| > 2σ)",
+    "extreme_count": 5000,
+    "strategy_expansion": "/mandate/CORRELATION_STRATEGY_EXPANSION.md",
+    "top_performers": {
+      "reg_slope_720": 0.9709,
+      "mom_diff_720": 0.9702,
+      "der_v1_720": 0.9702,
+      "bqx_720": 0.9689,
+      "mom_roc_720": 0.9689
+    },
+    "expected_polynomial_performers": [
+      "reg_lin_term_720 (should match reg_slope_720)",
+      "reg_forecast_5_720 (direct prediction)",
+      "reg_acceleration_720 (reversal detection)",
+      "reg_trend_str_720 (normalized trend)"
+    ]
+  },
   "recent_milestones": {
     "2025-11-29": [
+      "CRITICAL: Identified polynomial regression feature gap (492 tables)",
+      "Created feature specifications for reg_, cov_reg_, var_reg_, csi_reg_, tri_reg_, mkt_reg_",
+      "BA Directive: Implement quadratic polynomial features (lin_term, quad_term, residual)",
+      "Documented correlation strategy expansion (817 → 1,069+ features)",
       "Deployed BQ-to-Box Cloud Run service for automated disaster recovery",
       "Created Cloud Scheduler jobs for BigQuery table exports",
       "Completed feature matrix audit: PRIMARY 100%+, CORRELATION 100%, COVARIANCE 23.6%",
