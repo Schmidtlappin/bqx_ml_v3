@@ -62,67 +62,71 @@ Endpoint Evaluation: x = N (not midpoint)
 
 ### User Logic Rationale
 
-The user's formula choices are mathematically grounded for forex momentum prediction:
+The user mandate (AirTable MP02.P16.S01 v2.1) specifies **endpoint evaluation** of polynomial terms:
 
-#### Why x = np.arange(W) = [0, 1, 2, ..., W-1] (INTERVAL-CENTRIC)
-
-The x-axis represents **intervals (rows), NOT time units**. This is fundamental to the BQX architecture:
-
-1. **Market Gap Immunity**: Forex markets close on weekends. Using row indices means the polynomial fit is unaffected by time gaps - it always sees W consecutive data points regardless of actual timestamps.
-
-2. **Consistent Geometry**: Every window W produces x-values from 0 to W-1, ensuring polynomial coefficients are directly comparable across windows and currency pairs.
-
-3. **Predictive Alignment**: Model predictions are made H intervals forward (not H minutes forward), so features must also be interval-indexed.
-
-#### Why Endpoint Evaluation (x = N, not x = N/2)
-
-The user mandates evaluating polynomial derivatives at the **endpoint** rather than the midpoint:
-
-1. **Current State Focus**: At x = N-1 (the last point), lin_term represents the **instantaneous slope at NOW** - the most actionable signal for trading decisions.
-
-2. **Forward-Looking**: The polynomial extrapolation from the endpoint projects into future intervals, directly supporting the prediction task.
-
-3. **Curvature Significance**: quad_term × N² magnifies curvature detection at longer windows, making acceleration/deceleration more detectable in longer-term trends.
-
-#### Why resid_var = MSE (Mean Squared Error) vs resid_std
-
-The user chose **variance (MSE)** over **standard deviation** for critical statistical reasons:
-
-1. **Variance Additivity**: MSE is additive across independent samples, enabling proper aggregation in covariance tables (cov_reg_*).
-
-2. **R² Formula Consistency**: R² = 1 - (SS_res / SS_tot) uses sum of squares, which is variance × N. Using MSE directly (mean of squared residuals) provides the numerator for R² calculation.
-
-3. **Noise Quantification**: resid_var directly measures unexplained variance in the polynomial fit - the "noise floor" of the model.
-
-4. **RMSE Derivation**: rmse = sqrt(resid_var) = sqrt(MSE), providing the error in original units while resid_var provides the variance.
-
-#### Why total_var = var(y) as Denominator
-
-The R² score requires the **total variance** of the response variable:
-
-1. **Explained vs Unexplained**: R² = 1 - (resid_var / total_var) = (explained variance) / (total variance).
-
-2. **Scale Independence**: Dividing by total_var normalizes R² to [0, 1] regardless of the absolute scale of prices or BQX values.
-
-3. **Cross-Pair Comparability**: An R² of 0.85 means the polynomial explains 85% of variance, comparable across EUR/USD, GBP/JPY, or any pair.
-
-#### Formula Summary
+#### Polynomial Fit (INTERVAL-CENTRIC)
 
 ```python
-# INTERVAL-CENTRIC polynomial fit
-x = np.arange(W)              # [0, 1, 2, ..., W-1] intervals
-y = values[-W:]               # Last W values (close price or BQX)
+# INTERVAL-CENTRIC: x = row indices, NOT timestamps
+x = np.arange(N)              # [0, 1, 2, ..., N-1] where N = window size
+y = values[-N:]               # Last N values (close price for IDX, BQX for BQX)
 
-# Polynomial: y = ax² + bx + c
-coeffs = np.polyfit(x, y, 2)  # → [quad_term, lin_term, const_term]
-y_hat = np.polyval(coeffs, x)
-residuals = y - y_hat
-
-# USER MANDATE VARIANCE METRICS
-resid_var = np.mean(residuals**2)     # MSE - residual noise
-total_var = np.var(y)                  # Total variance of y
-r2 = 1 - (resid_var / total_var)      # Explained variance ratio
+# Quadratic polynomial fit: y = β₂x² + β₁x + β₀
+coeffs = np.polyfit(x, y, 2)  # → [β₂, β₁, β₀]
+β₂ = coeffs[0]  # Raw quadratic coefficient
+β₁ = coeffs[1]  # Raw linear coefficient
+β₀ = coeffs[2]  # Raw constant term
 ```
+
+#### User Mandate Formulas (Endpoint Evaluation v2.1)
+
+**Endpoint evaluation at x = N** (NOT midpoint x = N/2):
+
+| Feature | User Mandate Formula | Description |
+|---------|---------------------|-------------|
+| `quad_term` | **β₂ × N²** | Quadratic contribution at endpoint |
+| `lin_term` | **β₁ × N** | Linear contribution at endpoint |
+| `const_term` | β₀ | Constant term (intercept) |
+| `residual` | **rate - (quad_term + lin_term + const_term)** | Deviation at endpoint |
+| `resid_var` | **mean(residuals²)** | MSE - residual variance |
+| `total_var` | **var(y)** | Total variance of response |
+| `r2` | 1 - (resid_var / total_var) | Explained variance ratio |
+
+**Critical: The user mandates scaling coefficients by N:**
+```python
+# USER MANDATE: Endpoint Evaluation (NOT raw coefficients)
+quad_term = β₂ × N²    # Quadratic contribution at x = N
+lin_term = β₁ × N      # Linear contribution at x = N
+const_term = β₀        # Constant (unchanged)
+
+# USER MANDATE: Residual at endpoint
+residual = rate - (quad_term + lin_term + const_term)
+         = y[-1] - (β₂×N² + β₁×N + β₀)
+```
+
+**Applies to BOTH IDX and BQX variants:**
+- **IDX**: `reg_{pair}` tables (28) - rate = close price
+- **BQX**: `reg_bqx_{pair}` tables (28) - rate = BQX oscillator
+
+#### Why Endpoint Evaluation (x = N)
+
+The user chose endpoint evaluation for actionable trading signals:
+
+1. **Current State**: At x = N, the polynomial evaluates to the current fitted value
+2. **Forward Projection**: Extrapolating from x = N projects into future intervals
+3. **Scale Significance**: Multiplying by N/N² makes contributions comparable across windows
+
+#### Why residual = rate - (quad_term + lin_term + const_term)
+
+1. **Current Deviation**: Measures how far current value is from polynomial prediction
+2. **Trading Signal**: Large residual indicates potential reversal/continuation
+3. **Endpoint Alignment**: Uses same endpoint x = N as scaled coefficients
+
+#### Why resid_var = MSE (not std)
+
+1. **Variance Additivity**: MSE aggregates correctly in covariance tables
+2. **R² Consistency**: R² = 1 - (MSE / total_var) uses variance directly
+3. **RMSE Derivation**: rmse = sqrt(MSE)
 
 ---
 
@@ -336,10 +340,11 @@ ci_upper = y_hat[-1] + 1.96 * se
 For each window W in [45, 90, 180, 360, 720, 1440, 2880]:
 
 ```sql
--- Polynomial coefficients (raw)
-reg_quad_term_{W}     FLOAT64  -- Quadratic coefficient
-reg_lin_term_{W}      FLOAT64  -- Linear coefficient
-reg_const_term_{W}    FLOAT64  -- Constant term
+-- Polynomial coefficients (USER MANDATE: Endpoint Scaled)
+reg_quad_term_{W}     FLOAT64  -- β₂ × W² (quadratic at endpoint)
+reg_lin_term_{W}      FLOAT64  -- β₁ × W (linear at endpoint)
+reg_const_term_{W}    FLOAT64  -- β₀ (constant term)
+reg_residual_{W}      FLOAT64  -- rate - (quad_term + lin_term + const_term)
 
 -- Polynomial coefficients (normalized)
 reg_quad_norm_{W}     FLOAT64  -- Normalized quadratic
@@ -382,9 +387,9 @@ reg_first_{W}         FLOAT64  -- First value
 
 ### New Column Count Per Table
 
-- **New columns**: 18 per window × 7 windows = **126 new columns**
+- **New columns**: 19 per window × 7 windows = **133 new columns**
 - **Existing columns**: 10 per window × 7 windows = 70 columns (retain)
-- **Total per table**: **196 columns**
+- **Total per table**: **203 columns**
 
 ---
 
@@ -476,6 +481,7 @@ The extreme correlation analysis covered 817 features but **excluded** polynomia
 Per window [45, 90, 180, 360, 720, 1440, 2880]:
 - reg_quad_term_{W}
 - reg_lin_term_{W}
+- reg_residual_{W}       # USER MANDATE: rate - (quad_term + lin_term + const_term)
 - reg_r2_{W}
 - reg_resid_std_{W}
 - reg_resid_last_{W}
@@ -485,8 +491,8 @@ Per window [45, 90, 180, 360, 720, 1440, 2880]:
 - reg_forecast_5_{W}
 ```
 
-**New features per variant**: 9 × 7 = 63
-**New features total (IDX + BQX)**: 126
+**New features per variant**: 10 × 7 = 70
+**New features total (IDX + BQX)**: 140
 
 ---
 

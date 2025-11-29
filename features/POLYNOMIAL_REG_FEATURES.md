@@ -9,36 +9,55 @@
 
 ## Polynomial Fit Definition
 
-For each window W, the polynomial regression is fitted as:
+For each window N, the polynomial regression is fitted as:
 
 ```
-y = ax² + bx + c
+y = β₂x² + β₁x + β₀
 
 Where:
-- x = np.arange(W) = [0, 1, 2, ..., W-1]  (W data points)
-- y = values[-W:]                          (last W source values)
-- a = quad_term (curvature coefficient)
-- b = lin_term (slope coefficient)
-- c = const_term (intercept)
+- x = np.arange(N) = [0, 1, 2, ..., N-1]  (N data points)
+- y = values[-N:]                          (last N source values)
+- β₂ = raw quadratic coefficient (from polyfit)
+- β₁ = raw linear coefficient (from polyfit)
+- β₀ = raw constant term (from polyfit)
 ```
 
-**Example for W=45**:
+**Example for N=45**:
 - x = [0, 1, 2, 3, ..., 44] (45 integers)
 - y = last 45 values of close price (IDX) or BQX oscillator (BQX)
 
 The polynomial is fitted using least squares (`np.polyfit(x, y, 2)`).
 
+### USER MANDATE: Endpoint Evaluation (v2.1)
+
+**CRITICAL: Output features use SCALED coefficients evaluated at x = N:**
+
+```python
+# Raw coefficients from polyfit
+coeffs = np.polyfit(x, y, 2)  # → [β₂, β₁, β₀]
+
+# USER MANDATE: Scale by window N for endpoint evaluation
+quad_term = β₂ × N²    # Quadratic contribution at x = N
+lin_term = β₁ × N      # Linear contribution at x = N
+const_term = β₀        # Constant term (unchanged)
+
+# Residual at endpoint
+residual = rate - (lin_term + quad_term + const_term)
+         = y[-1] - (β₂×N² + β₁×N + β₀)
+```
+
 ---
 
 ## Feature Columns
 
-### Polynomial Coefficients
+### Polynomial Coefficients (USER MANDATE: Endpoint Scaled)
 
 | Column | Type | Description | Formula |
 |--------|------|-------------|---------|
-| `reg_quad_term_{W}` | FLOAT64 | Quadratic coefficient (curvature) | `np.polyfit(x,y,2)[0]` |
-| `reg_lin_term_{W}` | FLOAT64 | Linear coefficient (slope) | `np.polyfit(x,y,2)[1]` |
-| `reg_const_term_{W}` | FLOAT64 | Constant term (intercept) | `np.polyfit(x,y,2)[2]` |
+| `reg_quad_term_{W}` | FLOAT64 | **Scaled quadratic at endpoint** | `β₂ × W²` |
+| `reg_lin_term_{W}` | FLOAT64 | **Scaled linear at endpoint** | `β₁ × W` |
+| `reg_const_term_{W}` | FLOAT64 | Constant term (intercept) | `β₀` |
+| `reg_residual_{W}` | FLOAT64 | **Residual at endpoint** | `rate - (quad_term + lin_term + const_term)` |
 
 ### Normalized Coefficients
 
@@ -157,18 +176,36 @@ import numpy as np
 from scipy import stats
 
 def calculate_poly_features(values, window):
-    """Calculate polynomial regression features for a window."""
-    x = np.arange(window)
-    y = values[-window:]
+    """
+    Calculate polynomial regression features for a window.
 
-    # Fit polynomial
-    coeffs = np.polyfit(x, y, 2)  # [a, b, c]
+    USER MANDATE v2.1: Endpoint Evaluation
+    - lin_term = β₁ × N (scaled by window)
+    - quad_term = β₂ × N² (scaled by window squared)
+    - residual = rate - (lin_term + quad_term + const_term)
+    """
+    N = window
+    x = np.arange(N)
+    y = values[-N:]
+    rate = y[-1]  # Current value (last in window)
+
+    # Fit polynomial: y = β₂x² + β₁x + β₀
+    coeffs = np.polyfit(x, y, 2)  # [β₂, β₁, β₀]
+    β₂ = coeffs[0]  # Raw quadratic coefficient
+    β₁ = coeffs[1]  # Raw linear coefficient
+    β₀ = coeffs[2]  # Raw constant term
+
+    # USER MANDATE: Endpoint evaluation at x = N
+    quad_term = β₂ * (N ** 2)  # Scaled quadratic: β₂ × N²
+    lin_term = β₁ * N          # Scaled linear: β₁ × N
+    const_term = β₀            # Constant (unchanged)
+
+    # USER MANDATE: Residual at endpoint
+    residual = rate - (quad_term + lin_term + const_term)
+
+    # Standard residuals for variance metrics (across all points)
     y_hat = np.polyval(coeffs, x)
     residuals = y - y_hat
-
-    # Metrics
-    ss_tot = np.sum((y - np.mean(y))**2)
-    ss_res = np.sum(residuals**2)
 
     # USER MANDATE v2.1: resid_var = MSE, total_var = variance of y
     resid_var = np.mean(residuals**2)  # MSE
@@ -176,27 +213,32 @@ def calculate_poly_features(values, window):
     y_mean = np.mean(y)
 
     return {
-        'quad_term': coeffs[0],
-        'lin_term': coeffs[1],
-        'const_term': coeffs[2],
+        # USER MANDATE: Scaled coefficients at endpoint
+        'quad_term': quad_term,         # β₂ × N²
+        'lin_term': lin_term,           # β₁ × N
+        'const_term': const_term,       # β₀
+        'residual': residual,           # rate - (quad_term + lin_term + const_term)
+
         # VARIANCE METRICS (USER MANDATE v2.1)
-        'resid_var': resid_var,         # MSE - residual variance
-        'total_var': total_var,         # Total variance of y
+        'resid_var': resid_var,         # MSE = mean(residuals²)
+        'total_var': total_var,         # var(y)
         'r2': 1 - (resid_var / total_var) if total_var > 0 else 0,
         'rmse': np.sqrt(resid_var),     # sqrt(MSE)
-        'resid_norm': residuals[-1] / y_mean if y_mean != 0 else 0,
-        # RESIDUAL METRICS
+        'resid_norm': residual / y_mean if y_mean != 0 else 0,
+
+        # RESIDUAL METRICS (across window)
         'resid_std': np.std(residuals),
         'resid_min': np.min(residuals),
         'resid_max': np.max(residuals),
         'resid_last': residuals[-1],
         'resid_skew': stats.skew(residuals),
         'resid_kurt': stats.kurtosis(residuals),
+
         # DERIVED FEATURES
-        'curv_sign': np.sign(coeffs[0]),
-        'acceleration': 2 * coeffs[0],
-        'trend_str': coeffs[1] / np.std(residuals) if np.std(residuals) > 0 else 0,
-        'forecast_5': np.polyval(coeffs, window+5) - np.polyval(coeffs, window)
+        'curv_sign': np.sign(β₂),
+        'acceleration': 2 * β₂,
+        'trend_str': lin_term / np.std(residuals) if np.std(residuals) > 0 else 0,
+        'forecast_5': np.polyval(coeffs, N+5) - np.polyval(coeffs, N)
     }
 ```
 
@@ -226,21 +268,35 @@ Windows are measured in **INTERVALS (rows), NOT time units**. This is fundamenta
 
 ## IDX vs BQX Interpretation
 
-### IDX (Price-Derived)
+**CRITICAL: Both IDX and BQX use IDENTICAL formulas with different source data.**
 
-- **Source**: Close price
-- **quad_term**: Price acceleration (pips/interval²)
-- **lin_term**: Price velocity (pips/interval)
-- **residual**: Deviation from polynomial price trend
+### IDX (Price-Derived) - `reg_{pair}` tables
+
+- **Source**: Close price (y = close[-N:])
+- **rate**: Current close price (y[-1])
+- **Formulas (USER MANDATE v2.1)**:
+  - `quad_term = β₂ × N²` (price curvature at endpoint)
+  - `lin_term = β₁ × N` (price velocity at endpoint)
+  - `residual = rate - (quad_term + lin_term + const_term)`
 - **Use**: Detect price trend exhaustion
 
-### BQX (Momentum-Derived)
+### BQX (Momentum-Derived) - `reg_bqx_{pair}` tables
 
-- **Source**: BQX oscillator value
-- **quad_term**: Momentum acceleration
-- **lin_term**: Momentum velocity
-- **residual**: Deviation from momentum trend
+- **Source**: BQX oscillator value (y = bqx[-N:])
+- **rate**: Current BQX value (y[-1])
+- **Formulas (USER MANDATE v2.1)**:
+  - `quad_term = β₂ × N²` (momentum curvature at endpoint)
+  - `lin_term = β₁ × N` (momentum velocity at endpoint)
+  - `residual = rate - (quad_term + lin_term + const_term)`
 - **Use**: Detect momentum exhaustion/reversal
+
+### Tables Affected
+
+| Variant | Table Pattern | Count | Source |
+|---------|--------------|-------|--------|
+| IDX | `reg_{pair}` | 28 | Close price |
+| BQX | `reg_bqx_{pair}` | 28 | BQX oscillator |
+| **Total** | | **56** | |
 
 ---
 

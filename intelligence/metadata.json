@@ -135,15 +135,25 @@
     "polynomial_regression": {
       "status": "SPECIFICATION_COMPLETE",
       "formula": {
-        "equation": "y = ax² + bx + c (quadratic polynomial)",
+        "equation": "y = β₂x² + β₁x + β₀ (quadratic polynomial)",
         "x_array": "np.arange(W) = [0, 1, 2, ..., W-1]",
         "y_array": "values[-W:] (last W source values)",
-        "fit_method": "np.polyfit(x, y, 2) → [a, b, c]"
+        "fit_method": "np.polyfit(x, y, 2) → [β₂, β₁, β₀]"
+      },
+      "endpoint_evaluation_v21": {
+        "user_mandate": "AirTable MP02.P16.S01",
+        "description": "Endpoint evaluation at x = W, NOT raw coefficients",
+        "quad_term": "β₂ × W² (quadratic contribution at endpoint)",
+        "lin_term": "β₁ × W (linear contribution at endpoint)",
+        "const_term": "β₀ (constant term - unchanged)",
+        "residual": "rate - (quad_term + lin_term + const_term)",
+        "rate": "y[-1] (current value, last in window)"
       },
       "coefficients": {
-        "quad_term": "a - curvature/acceleration coefficient",
-        "lin_term": "b - slope/velocity coefficient",
-        "const_term": "c - intercept"
+        "quad_term": "β₂ × W² - USER MANDATE: scaled quadratic at endpoint",
+        "lin_term": "β₁ × W - USER MANDATE: scaled linear at endpoint",
+        "const_term": "β₀ - constant term (intercept)",
+        "residual": "rate - (quad_term + lin_term + const_term)"
       },
       "variance_metrics_v21": {
         "reg_resid_var_{W}": "MSE = mean(residuals²) - USER MANDATE",
@@ -152,12 +162,18 @@
         "reg_rmse_{W}": "sqrt(resid_var)",
         "reg_resid_norm_{W}": "residuals[-1] / mean(y)"
       },
+      "primary_features_user_mandate": {
+        "reg_quad_term_{W}": "β₂ × W² - USER MANDATE: scaled quadratic at endpoint",
+        "reg_lin_term_{W}": "β₁ × W - USER MANDATE: scaled linear at endpoint",
+        "reg_const_term_{W}": "β₀ - constant term",
+        "reg_residual_{W}": "rate - (quad_term + lin_term + const_term) - USER MANDATE"
+      },
       "derived_features": {
-        "reg_quad_norm_{W}": "quad * (W-1)² / mean(y)",
-        "reg_lin_norm_{W}": "lin * (W-1) / mean(y)",
+        "reg_quad_norm_{W}": "quad_term * (W-1)² / mean(y)",
+        "reg_lin_norm_{W}": "lin_term * (W-1) / mean(y)",
         "reg_resid_std_{W}": "std(y - y_hat)",
         "reg_resid_last_{W}": "residuals[-1]",
-        "reg_acceleration_{W}": "2 * quad_term",
+        "reg_acceleration_{W}": "2 * β₂ (raw coefficient)",
         "reg_trend_str_{W}": "lin_term / resid_std",
         "reg_forecast_5_{W}": "polyval(x+5) - polyval(x)"
       },

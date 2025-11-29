@@ -37,12 +37,13 @@ WINDOWS = [45, 90, 180, 360, 720, 1440, 2880]
 HORIZONS = [15, 30, 45, 60, 75, 90, 105]
 
 # New polynomial regression columns to be added by BA
-# Includes USER MANDATE v2.1 variance metrics from AirTable MP02.P16.S01
+# USER MANDATE v2.1: Endpoint Evaluation with Scaled Coefficients
 POLYNOMIAL_COLUMNS = [
-    # Polynomial coefficients
-    "reg_quad_term_{W}",
-    "reg_lin_term_{W}",
-    "reg_const_term_{W}",
+    # Polynomial coefficients (USER MANDATE: Endpoint Scaled)
+    "reg_quad_term_{W}",    # β₂ × W² (quadratic at endpoint)
+    "reg_lin_term_{W}",     # β₁ × W (linear at endpoint)
+    "reg_const_term_{W}",   # β₀ (constant term)
+    "reg_residual_{W}",     # USER MANDATE: rate - (quad_term + lin_term + const_term)
     "reg_quad_norm_{W}",
     "reg_lin_norm_{W}",
     # Variance metrics (USER MANDATE v2.1 - AirTable MP02.P16.S01)

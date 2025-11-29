@@ -157,18 +157,23 @@
     "gap_analysis": "/mandate/POLYNOMIAL_REGRESSION_FEATURE_GAP_ANALYSIS.md",
     "specification": "/features/POLYNOMIAL_REG_FEATURES.md",
     "formula": {
-      "equation": "y = ax² + bx + c",
+      "equation": "y = β₂x² + β₁x + β₀",
       "x_definition": "np.arange(W) = [0, 1, 2, ..., W-1]",
       "y_definition": "values[-W:] = last W values (close price for IDX, BQX for BQX)",
-      "coefficients": {
-        "a": "quad_term (curvature/acceleration)",
-        "b": "lin_term (slope/velocity)",
-        "c": "const_term (intercept)"
-      }
+      "fit_method": "np.polyfit(x, y, 2) → [β₂, β₁, β₀]"
+    },
+    "user_mandate_v21": {
+      "source": "AirTable MP02.P16.S01",
+      "description": "Endpoint Evaluation at x = W (NOT raw coefficients)",
+      "quad_term": "β₂ × W² - scaled quadratic at endpoint",
+      "lin_term": "β₁ × W - scaled linear at endpoint",
+      "const_term": "β₀ - constant term (unchanged)",
+      "residual": "rate - (quad_term + lin_term + const_term)",
+      "rate": "y[-1] (current value, last in window)"
     },
     "windows": [45, 90, 180, 360, 720, 1440, 2880],
-    "new_columns_per_window": 18,
-    "total_new_columns": 126,
+    "new_columns_per_window": 19,
+    "total_new_columns": 133,
     "tables_to_rebuild": 492,
     "tables_breakdown": {
       "reg_*": 28,
@@ -202,7 +207,9 @@
       "mom_roc_720": 0.9689
     },
     "expected_polynomial_performers": [
-      "reg_lin_term_720 (should match reg_slope_720)",
+      "reg_lin_term_720 (β₁ × 720 - scaled linear at endpoint)",
+      "reg_quad_term_720 (β₂ × 720² - scaled quadratic at endpoint)",
+      "reg_residual_720 (rate - (quad_term + lin_term + const_term))",
       "reg_forecast_5_720 (direct prediction)",
       "reg_acceleration_720 (reversal detection)",
       "reg_trend_str_720 (normalized trend)"
