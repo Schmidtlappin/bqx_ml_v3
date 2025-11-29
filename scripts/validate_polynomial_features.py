@@ -35,19 +35,26 @@ WINDOWS = [45, 90, 180, 360, 720, 1440, 2880]
 
 # Expected new polynomial columns per window
 EXPECTED_POLYNOMIAL_COLUMNS = [
+    # Polynomial coefficients
     "reg_quad_term_{W}",
     "reg_lin_term_{W}",
     "reg_const_term_{W}",
     "reg_quad_norm_{W}",
     "reg_lin_norm_{W}",
-    "reg_r2_{W}",
-    "reg_rmse_{W}",
+    # Variance metrics (USER MANDATE v2.1 - AirTable MP02.P16.S01)
+    "reg_resid_var_{W}",    # MSE = mean(residuals²) - USER MANDATE
+    "reg_total_var_{W}",    # var(y) - USER MANDATE
+    "reg_r2_{W}",           # 1 - (resid_var / total_var)
+    "reg_rmse_{W}",         # sqrt(resid_var)
+    "reg_resid_norm_{W}",   # residuals[-1] / mean(y)
+    # Residual metrics
     "reg_resid_std_{W}",
     "reg_resid_min_{W}",
     "reg_resid_max_{W}",
     "reg_resid_last_{W}",
     "reg_resid_skew_{W}",
     "reg_resid_kurt_{W}",
+    # Derived features
     "reg_curv_sign_{W}",
     "reg_acceleration_{W}",
     "reg_trend_str_{W}",

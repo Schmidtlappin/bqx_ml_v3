@@ -145,17 +145,23 @@
         "lin_term": "b - slope/velocity coefficient",
         "const_term": "c - intercept"
       },
+      "variance_metrics_v21": {
+        "reg_resid_var_{W}": "MSE = mean(residuals²) - USER MANDATE",
+        "reg_total_var_{W}": "var(y) - USER MANDATE",
+        "reg_r2_{W}": "1 - (resid_var / total_var)",
+        "reg_rmse_{W}": "sqrt(resid_var)",
+        "reg_resid_norm_{W}": "residuals[-1] / mean(y)"
+      },
       "derived_features": {
         "reg_quad_norm_{W}": "quad * (W-1)² / mean(y)",
         "reg_lin_norm_{W}": "lin * (W-1) / mean(y)",
-        "reg_r2_{W}": "1 - SS_res / SS_tot",
-        "reg_rmse_{W}": "sqrt(mean(residuals²))",
         "reg_resid_std_{W}": "std(y - y_hat)",
         "reg_resid_last_{W}": "residuals[-1]",
         "reg_acceleration_{W}": "2 * quad_term",
         "reg_trend_str_{W}": "lin_term / resid_std",
         "reg_forecast_5_{W}": "polyval(x+5) - polyval(x)"
       },
+      "user_mandate_source": "AirTable MP02.P16.S01 - Regression Table Generation",
       "windows": [45, 90, 180, 360, 720, 1440, 2880],
       "specification_files": {
         "primary": "/features/POLYNOMIAL_REG_FEATURES.md",

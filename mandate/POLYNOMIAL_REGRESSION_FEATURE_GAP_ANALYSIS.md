@@ -15,26 +15,49 @@ A critical gap has been identified in the regression feature implementation. The
 
 ## 1. MANDATED FEATURES vs IMPLEMENTED FEATURES
 
-### Mandated (BQX_ML_V3_FEATURE_INVENTORY.md, lines 84-97)
+### Mandated (BQX_ML_V3_FEATURE_INVENTORY.md + AirTable MP02.P16.S01)
 
 ```
 Quadratic regression: y = ax² + bx + c
 
 Per Window [45, 90, 180, 360, 720, 1440, 2880]:
+
+POLYNOMIAL COEFFICIENTS:
 - Quadratic coefficient (a)     → quad_term
 - Linear coefficient (b)        → lin_term
 - Constant term (c)             → const_term
-- R² score                      → r2
+
+VARIANCE METRICS (USER MANDATE v2.1 - AirTable MP02.P16.S01):
+- Residual variance (MSE)       → resid_var = mean(residuals²)
+- Total variance of y           → total_var = var(y)
+- R² score                      → r2 = 1 - (resid_var / total_var)
+- Root mean squared error       → rmse = sqrt(resid_var)
+- Normalized residual           → resid_norm = residuals[-1] / mean(y)
+
+RESIDUAL METRICS:
 - Residual standard deviation   → residual_std
 - Residual min/max              → residual_min, residual_max
-- Prediction error              → pred_error
-- Slope direction               → slope_dir
+- Prediction error              → pred_error = residuals[-1]
+- Residual distribution metrics → resid_skew, resid_kurt
+
+DERIVED FEATURES:
 - Curvature sign                → curv_sign
-- Trend strength                → trend_strength
-- Acceleration                  → acceleration
+- Trend strength                → trend_strength = lin_term / resid_std
+- Acceleration                  → acceleration = 2 * quad_term
 - Forecast next 5 intervals     → forecast_5
 - Confidence interval bounds    → ci_lower, ci_upper
-- Residual distribution metrics → resid_skew, resid_kurt
+```
+
+**Critical User Mandate (AirTable MP02.P16.S01):**
+```
+For each window N:
+- lin_term = β₁ × N (linear slope at endpoint)
+- quad_term = β₂ × N² (curvature at endpoint)
+- resid_var = MSE (residual variance/noise)
+- total_var = variance of y
+- r2 = 1 - (MSR / total_var)
+
+Endpoint Evaluation: x = N (not midpoint)
 ```
 
 ### Currently Implemented in reg_eurusd
@@ -55,21 +78,29 @@ reg_first_{W}       -- First value in window
 
 ### Gap Analysis
 
-| Feature | Mandated | Implemented | Status |
-|---------|----------|-------------|--------|
-| quad_term | ✓ | ✗ | **MISSING** |
-| lin_term | ✓ | Partial (reg_slope) | **REBUILD** |
-| const_term | ✓ | ✗ | **MISSING** |
-| r2 | ✓ | ✗ | **MISSING** |
-| residual_std | ✓ | ✗ | **MISSING** |
-| residual_min | ✓ | ✗ | **MISSING** |
-| residual_max | ✓ | ✗ | **MISSING** |
-| pred_error | ✓ | ✗ | **MISSING** |
-| curv_sign | ✓ | ✗ | **MISSING** |
-| acceleration | ✓ | ✗ | **MISSING** |
-| forecast_5 | ✓ | ✗ | **MISSING** |
-| ci_lower/upper | ✓ | ✗ | **MISSING** |
-| resid_skew/kurt | ✓ | ✗ | **MISSING** |
+**CRITICAL: These features apply to BOTH IDX and BQX variants:**
+- **IDX**: `reg_{pair}` tables (28) - source = close price
+- **BQX**: `reg_bqx_{pair}` tables (28) - source = BQX oscillator
+
+| Feature | Mandated | Implemented | Status | Applies To |
+|---------|----------|-------------|--------|------------|
+| quad_term | ✓ | ✗ | **MISSING** | IDX + BQX |
+| lin_term | ✓ | Partial (reg_slope) | **REBUILD** | IDX + BQX |
+| const_term | ✓ | ✗ | **MISSING** | IDX + BQX |
+| **resid_var** | ✓ (MSE) | ✗ | **MISSING** | IDX + BQX |
+| **total_var** | ✓ | ✗ | **MISSING** | IDX + BQX |
+| r2 | ✓ | ✗ | **MISSING** | IDX + BQX |
+| rmse | ✓ | ✗ | **MISSING** | IDX + BQX |
+| resid_norm | ✓ | ✗ | **MISSING** | IDX + BQX |
+| residual_std | ✓ | ✗ | **MISSING** | IDX + BQX |
+| residual_min | ✓ | ✗ | **MISSING** | IDX + BQX |
+| residual_max | ✓ | ✗ | **MISSING** | IDX + BQX |
+| pred_error | ✓ | ✗ | **MISSING** | IDX + BQX |
+| curv_sign | ✓ | ✗ | **MISSING** | IDX + BQX |
+| acceleration | ✓ | ✗ | **MISSING** | IDX + BQX |
+| forecast_5 | ✓ | ✗ | **MISSING** | IDX + BQX |
+| ci_lower/upper | ✓ | ✗ | **MISSING** | IDX + BQX |
+| resid_skew/kurt | ✓ | ✗ | **MISSING** | IDX + BQX |
 
 ---
 
@@ -108,16 +139,32 @@ resid_skew = scipy.stats.skew(residuals)
 resid_kurt = scipy.stats.kurtosis(residuals)
 ```
 
-### Goodness of Fit
+### Variance Metrics (USER MANDATE v2.1 - AirTable MP02.P16.S01)
 
 ```python
-# R² score
-ss_tot = np.sum((y - np.mean(y))**2)
-ss_res = np.sum(residuals**2)
-r2 = 1 - (ss_res / ss_tot) if ss_tot > 0 else 0
+# USER MANDATE: resid_var = MSE, total_var = variance of y
+# Source: AirTable MP02.P16.S01 "Regression Table Generation"
+
+# Variance calculations (CRITICAL - IDX and BQX)
+resid_var = np.mean(residuals**2)  # MSE = Mean Squared Error
+total_var = np.var(y)              # Total variance of y
+
+# R² score (derived from variances)
+r2 = 1 - (resid_var / total_var) if total_var > 0 else 0
+
+# RMSE (derived from resid_var)
+rmse = np.sqrt(resid_var)
 
 # Prediction error (last residual)
 pred_error = residuals[-1]
+```
+
+**Formula Verification (AirTable MP02.P16.S01):**
+```
+For each window N:
+- resid_var = MSE (residual variance/noise)
+- total_var = variance of y
+- r2 = 1 - (MSR / total_var)
 ```
 
 ### Normalization (Mandated)
