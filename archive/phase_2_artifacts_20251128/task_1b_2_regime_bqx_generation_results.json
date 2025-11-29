@@ -1,0 +1,1186 @@
+{
+  "task": "Task 1B.2 - BQX REGIME Feature Generation",
+  "timestamp": "2025-11-28T18:06:41.736667",
+  "total_tables": 56,
+  "successful": 56,
+  "failed": 0,
+  "success_rate_pct": 100.0,
+  "results": [
+    {
+      "pair": "EUR_USD",
+      "period": 45,
+      "table": "regime_bqx_eurusd_45",
+      "status": "success",
+      "total_rows": 2143519,
+      "vol_regime_coverage_pct": 100.0,
+      "range_regime_coverage_pct": 100.0,
+      "return_regime_coverage_pct": 100.0,
+      "momentum_regime_coverage_pct": 100.0,
+      "vol_regime_distribution": {
+        "low": 707146,
+        "medium": 707704,
+        "high": 728669
+      },
+      "momentum_regime_distribution": {
+        "low": 700062,
+        "medium": 701390,
+        "high": 742067
+      }
+    },
+    {
+      "pair": "GBP_USD",
+      "period": 90,
+      "table": "regime_bqx_gbpusd_90",
+      "status": "success",
+      "total_rows": 1962236,
+      "vol_regime_coverage_pct": 100.0,
+      "range_regime_coverage_pct": 100.0,
+      "return_regime_coverage_pct": 100.0,
+      "momentum_regime_coverage_pct": 100.0,
+      "vol_regime_distribution": {
+        "low": 647590,
+        "medium": 647405,
+        "high": 667241
+      },
+      "momentum_regime_distribution": {
+        "low": 644370,
+        "medium": 644231,
+        "high": 673635
+      }
+    },
+    {
+      "pair": "USD_JPY",
+      "period": 90,
+      "table": "regime_bqx_usdjpy_90",
+      "status": "success",
+      "total_rows": 2162416,
+      "vol_regime_coverage_pct": 100.0,
+      "range_regime_coverage_pct": 100.0,
+      "return_regime_coverage_pct": 100.0,
+      "momentum_regime_coverage_pct": 100.0,
+      "vol_regime_distribution": {
+        "low": 713195,
+        "medium": 713714,
+        "high": 735507
+      },
+      "momentum_regime_distribution": {
+        "low": 709494,
+        "medium": 709889,
+        "high": 743033
+      }
+    },
+    {
+      "pair": "GBP_USD",
+      "period": 45,
+      "table": "regime_bqx_gbpusd_45",
+      "status": "success",
+      "total_rows": 1957171,
+      "vol_regime_coverage_pct": 100.0,
+      "range_regime_coverage_pct": 100.0,
+      "return_regime_coverage_pct": 100.0,
+      "momentum_regime_coverage_pct": 100.0,
+      "vol_regime_distribution": {
+        "low": 645756,
+        "medium": 645936,
+        "high": 665479
+      },
+      "momentum_regime_distribution": {
+        "low": 641415,
+        "medium": 640993,
+        "high": 674763
+      }
+    },
+    {
+      "pair": "EUR_USD",
+      "period": 90,
+      "table": "regime_bqx_eurusd_90",
+      "status": "success",
+      "total_rows": 2149771,
+      "vol_regime_coverage_pct": 100.0,
+      "range_regime_coverage_pct": 100.0,
+      "return_regime_coverage_pct": 100.0,
+      "momentum_regime_coverage_pct": 100.0,
+      "vol_regime_distribution": {
+        "low": 709498,
+        "medium": 709916,
+        "high": 730357
+      },
+      "momentum_regime_distribution": {
+        "low": 704864,
+        "medium": 704459,
+        "high": 740448
+      }
+    },
+    {
+      "pair": "USD_JPY",
+      "period": 45,
+      "table": "regime_bqx_usdjpy_45",
+      "status": "success",
+      "total_rows": 2157513,
+      "vol_regime_coverage_pct": 100.0,
+      "range_regime_coverage_pct": 100.0,
+      "return_regime_coverage_pct": 100.0,
+      "momentum_regime_coverage_pct": 100.0,
+      "vol_regime_distribution": {
+        "low": 712231,
+        "medium": 711107,
+        "high": 734175
+      },
+      "momentum_regime_distribution": {
+        "low": 706927,
+        "medium": 706435,
+        "high": 744151
+      }
+    },
+    {
+      "pair": "USD_CHF",
+      "period": 45,
+      "table": "regime_bqx_usdchf_45",
+      "status": "success",
+      "total_rows": 2028041,
+      "vol_regime_coverage_pct": 100.0,
+      "range_regime_coverage_pct": 100.0,
+      "return_regime_coverage_pct": 100.0,
+      "momentum_regime_coverage_pct": 100.0,
+      "vol_regime_distribution": {
+        "low": 669184,
+        "medium": 669137,
+        "high": 689720
+      },
+      "momentum_regime_distribution": {
+        "low": 662575,
+        "medium": 662661,
+        "high": 702805
+      }
+    },
+    {
+      "pair": "AUD_USD",
+      "period": 45,
+      "table": "regime_bqx_audusd_45",
+      "status": "success",
+      "total_rows": 2100408,
+      "vol_regime_coverage_pct": 100.0,
+      "range_regime_coverage_pct": 100.0,
+      "return_regime_coverage_pct": 100.0,
+      "momentum_regime_coverage_pct": 100.0,
+      "vol_regime_distribution": {
+        "low": 692837,
+        "medium": 693363,
+        "high": 714208
+      },
+      "momentum_regime_distribution": {
+        "low": 686662,
+        "medium": 686870,
+        "high": 726876
+      }
+    },
+    {
+      "pair": "USD_CHF",
+      "period": 90,
+      "table": "regime_bqx_usdchf_90",
+      "status": "success",
+      "total_rows": 2034265,
+      "vol_regime_coverage_pct": 100.0,
+      "range_regime_coverage_pct": 100.0,
+      "return_regime_coverage_pct": 100.0,
+      "momentum_regime_coverage_pct": 100.0,
+      "vol_regime_distribution": {
+        "low": 671684,
+        "medium": 671215,
+        "high": 691366
+      },
+      "momentum_regime_distribution": {
+        "low": 667046,
+        "medium": 666131,
+        "high": 701088
+      }
+    },
+    {
+      "pair": "USD_CAD",
+      "period": 45,
+      "table": "regime_bqx_usdcad_45",
+      "status": "success",
+      "total_rows": 2136774,
+      "vol_regime_coverage_pct": 100.0,
+      "range_regime_coverage_pct": 100.0,
+      "return_regime_coverage_pct": 100.0,
+      "momentum_regime_coverage_pct": 100.0,
+      "vol_regime_distribution": {
+        "low": 704611,
+        "medium": 705710,
+        "high": 726453
+      },
+      "momentum_regime_distribution": {
+        "low": 698796,
+        "medium": 699710,
+        "high": 738268
+      }
+    },
+    {
+      "pair": "USD_CAD",
+      "period": 90,
+      "table": "regime_bqx_usdcad_90",
+      "status": "success",
+      "total_rows": 2142418,
+      "vol_regime_coverage_pct": 100.0,
+      "range_regime_coverage_pct": 100.0,
+      "return_regime_coverage_pct": 100.0,
+      "momentum_regime_coverage_pct": 100.0,
+      "vol_regime_distribution": {
+        "low": 706592,
+        "medium": 707049,
+        "high": 728777
+      },
+      "momentum_regime_distribution": {
+        "low": 702537,
+        "medium": 703181,
+        "high": 736700
+      }
+    },
+    {
+      "pair": "AUD_USD",
+      "period": 90,
+      "table": "regime_bqx_audusd_90",
+      "status": "success",
+      "total_rows": 2106532,
+      "vol_regime_coverage_pct": 100.0,
+      "range_regime_coverage_pct": 100.0,
+      "return_regime_coverage_pct": 100.0,
+      "momentum_regime_coverage_pct": 100.0,
+      "vol_regime_distribution": {
+        "low": 694680,
+        "medium": 695412,
+        "high": 716440
+      },
+      "momentum_regime_distribution": {
+        "low": 690742,
+        "medium": 690257,
+        "high": 725533
+      }
+    },
+    {
+      "pair": "NZD_USD",
+      "period": 45,
+      "table": "regime_bqx_nzdusd_45",
+      "status": "success",
+      "total_rows": 2105975,
+      "vol_regime_coverage_pct": 100.0,
+      "range_regime_coverage_pct": 100.0,
+      "return_regime_coverage_pct": 100.0,
+      "momentum_regime_coverage_pct": 100.0,
+      "vol_regime_distribution": {
+        "low": 694892,
+        "medium": 694637,
+        "high": 716446
+      },
+      "momentum_regime_distribution": {
+        "low": 687921,
+        "medium": 688929,
+        "high": 729125
+      }
+    },
+    {
+      "pair": "NZD_USD",
+      "period": 90,
+      "table": "regime_bqx_nzdusd_90",
+      "status": "success",
+      "total_rows": 2112133,
+      "vol_regime_coverage_pct": 100.0,
+      "range_regime_coverage_pct": 100.0,
+      "return_regime_coverage_pct": 100.0,
+      "momentum_regime_coverage_pct": 100.0,
+      "vol_regime_distribution": {
+        "low": 697476,
+        "medium": 696395,
+        "high": 718262
+      },
+      "momentum_regime_distribution": {
+        "low": 691876,
+        "medium": 692607,
+        "high": 727650
+      }
+    },
+    {
+      "pair": "EUR_GBP",
+      "period": 45,
+      "table": "regime_bqx_eurgbp_45",
+      "status": "success",
+      "total_rows": 2099412,
+      "vol_regime_coverage_pct": 100.0,
+      "range_regime_coverage_pct": 100.0,
+      "return_regime_coverage_pct": 100.0,
+      "momentum_regime_coverage_pct": 100.0,
+      "vol_regime_distribution": {
+        "low": 692337,
+        "medium": 693501,
+        "high": 713574
+      },
+      "momentum_regime_distribution": {
+        "low": 683006,
+        "medium": 682882,
+        "high": 733524
+      }
+    },
+    {
+      "pair": "EUR_GBP",
+      "period": 90,
+      "table": "regime_bqx_eurgbp_90",
+      "status": "success",
+      "total_rows": 2108250,
+      "vol_regime_coverage_pct": 100.0,
+      "range_regime_coverage_pct": 100.0,
+      "return_regime_coverage_pct": 100.0,
+      "momentum_regime_coverage_pct": 100.0,
+      "vol_regime_distribution": {
+        "low": 695509,
+        "medium": 695836,
+        "high": 716905
+      },
+      "momentum_regime_distribution": {
+        "low": 688321,
+        "medium": 688917,
+        "high": 731012
+      }
+    },
+    {
+      "pair": "EUR_JPY",
+      "period": 45,
+      "table": "regime_bqx_eurjpy_45",
+      "status": "success",
+      "total_rows": 2142628,
+      "vol_regime_coverage_pct": 100.0,
+      "range_regime_coverage_pct": 100.0,
+      "return_regime_coverage_pct": 100.0,
+      "momentum_regime_coverage_pct": 100.0,
+      "vol_regime_distribution": {
+        "low": 706360,
+        "medium": 707062,
+        "high": 729206
+      },
+      "momentum_regime_distribution": {
+        "low": 702842,
+        "medium": 702796,
+        "high": 736990
+      }
+    },
+    {
+      "pair": "EUR_JPY",
+      "period": 90,
+      "table": "regime_bqx_eurjpy_90",
+      "status": "success",
+      "total_rows": 2146330,
+      "vol_regime_coverage_pct": 100.0,
+      "range_regime_coverage_pct": 100.0,
+      "return_regime_coverage_pct": 100.0,
+      "momentum_regime_coverage_pct": 100.0,
+      "vol_regime_distribution": {
+        "low": 708030,
+        "medium": 708718,
+        "high": 729582
+      },
+      "momentum_regime_distribution": {
+        "low": 704604,
+        "medium": 705467,
+        "high": 736259
+      }
+    },
+    {
+      "pair": "EUR_CHF",
+      "period": 45,
+      "table": "regime_bqx_eurchf_45",
+      "status": "success",
+      "total_rows": 2074660,
+      "vol_regime_coverage_pct": 100.0,
+      "range_regime_coverage_pct": 100.0,
+      "return_regime_coverage_pct": 100.0,
+      "momentum_regime_coverage_pct": 100.0,
+      "vol_regime_distribution": {
+        "low": 684806,
+        "medium": 684379,
+        "high": 705475
+      },
+      "momentum_regime_distribution": {
+        "low": 675292,
+        "medium": 676306,
+        "high": 723062
+      }
+    },
+    {
+      "pair": "EUR_CHF",
+      "period": 90,
+      "table": "regime_bqx_eurchf_90",
+      "status": "success",
+      "total_rows": 2082925,
+      "vol_regime_coverage_pct": 100.0,
+      "range_regime_coverage_pct": 100.0,
+      "return_regime_coverage_pct": 100.0,
+      "momentum_regime_coverage_pct": 100.0,
+      "vol_regime_distribution": {
+        "low": 687085,
+        "medium": 687831,
+        "high": 708009
+      },
+      "momentum_regime_distribution": {
+        "low": 680898,
+        "medium": 680899,
+        "high": 721128
+      }
+    },
+    {
+      "pair": "EUR_AUD",
+      "period": 45,
+      "table": "regime_bqx_euraud_45",
+      "status": "success",
+      "total_rows": 2158809,
+      "vol_regime_coverage_pct": 100.0,
+      "range_regime_coverage_pct": 100.0,
+      "return_regime_coverage_pct": 100.0,
+      "momentum_regime_coverage_pct": 100.0,
+      "vol_regime_distribution": {
+        "low": 711765,
+        "medium": 713151,
+        "high": 733893
+      },
+      "momentum_regime_distribution": {
+        "low": 708861,
+        "medium": 709147,
+        "high": 740801
+      }
+    },
+    {
+      "pair": "EUR_AUD",
+      "period": 90,
+      "table": "regime_bqx_euraud_90",
+      "status": "success",
+      "total_rows": 2161818,
+      "vol_regime_coverage_pct": 100.0,
+      "range_regime_coverage_pct": 100.0,
+      "return_regime_coverage_pct": 100.0,
+      "momentum_regime_coverage_pct": 100.0,
+      "vol_regime_distribution": {
+        "low": 713458,
+        "medium": 712878,
+        "high": 735482
+      },
+      "momentum_regime_distribution": {
+        "low": 709946,
+        "medium": 712412,
+        "high": 739460
+      }
+    },
+    {
+      "pair": "EUR_CAD",
+      "period": 90,
+      "table": "regime_bqx_eurcad_90",
+      "status": "success",
+      "total_rows": 2170309,
+      "vol_regime_coverage_pct": 100.0,
+      "range_regime_coverage_pct": 100.0,
+      "return_regime_coverage_pct": 100.0,
+      "momentum_regime_coverage_pct": 100.0,
+      "vol_regime_distribution": {
+        "low": 715762,
+        "medium": 716588,
+        "high": 737959
+      },
+      "momentum_regime_distribution": {
+        "low": 712426,
+        "medium": 712254,
+        "high": 745629
+      }
+    },
+    {
+      "pair": "EUR_CAD",
+      "period": 45,
+      "table": "regime_bqx_eurcad_45",
+      "status": "success",
+      "total_rows": 2165877,
+      "vol_regime_coverage_pct": 100.0,
+      "range_regime_coverage_pct": 100.0,
+      "return_regime_coverage_pct": 100.0,
+      "momentum_regime_coverage_pct": 100.0,
+      "vol_regime_distribution": {
+        "low": 715134,
+        "medium": 714120,
+        "high": 736623
+      },
+      "momentum_regime_distribution": {
+        "low": 709350,
+        "medium": 709821,
+        "high": 746706
+      }
+    },
+    {
+      "pair": "EUR_NZD",
+      "period": 90,
+      "table": "regime_bqx_eurnzd_90",
+      "status": "success",
+      "total_rows": 2167035,
+      "vol_regime_coverage_pct": 100.0,
+      "range_regime_coverage_pct": 100.0,
+      "return_regime_coverage_pct": 100.0,
+      "momentum_regime_coverage_pct": 100.0,
+      "vol_regime_distribution": {
+        "low": 715003,
+        "medium": 715018,
+        "high": 737014
+      },
+      "momentum_regime_distribution": {
+        "low": 711711,
+        "medium": 713289,
+        "high": 742035
+      }
+    },
+    {
+      "pair": "EUR_NZD",
+      "period": 45,
+      "table": "regime_bqx_eurnzd_45",
+      "status": "success",
+      "total_rows": 2163908,
+      "vol_regime_coverage_pct": 100.0,
+      "range_regime_coverage_pct": 100.0,
+      "return_regime_coverage_pct": 100.0,
+      "momentum_regime_coverage_pct": 100.0,
+      "vol_regime_distribution": {
+        "low": 714007,
+        "medium": 713695,
+        "high": 736206
+      },
+      "momentum_regime_distribution": {
+        "low": 710318,
+        "medium": 710452,
+        "high": 743138
+      }
+    },
+    {
+      "pair": "GBP_JPY",
+      "period": 45,
+      "table": "regime_bqx_gbpjpy_45",
+      "status": "success",
+      "total_rows": 2168869,
+      "vol_regime_coverage_pct": 100.0,
+      "range_regime_coverage_pct": 100.0,
+      "return_regime_coverage_pct": 100.0,
+      "momentum_regime_coverage_pct": 100.0,
+      "vol_regime_distribution": {
+        "low": 715092,
+        "medium": 715806,
+        "high": 737971
+      },
+      "momentum_regime_distribution": {
+        "low": 711606,
+        "medium": 712719,
+        "high": 744544
+      }
+    },
+    {
+      "pair": "GBP_JPY",
+      "period": 90,
+      "table": "regime_bqx_gbpjpy_90",
+      "status": "success",
+      "total_rows": 2171702,
+      "vol_regime_coverage_pct": 100.0,
+      "range_regime_coverage_pct": 100.0,
+      "return_regime_coverage_pct": 100.0,
+      "momentum_regime_coverage_pct": 100.0,
+      "vol_regime_distribution": {
+        "low": 715734,
+        "medium": 717229,
+        "high": 738739
+      },
+      "momentum_regime_distribution": {
+        "low": 713925,
+        "medium": 714137,
+        "high": 743640
+      }
+    },
+    {
+      "pair": "GBP_CHF",
+      "period": 90,
+      "table": "regime_bqx_gbpchf_90",
+      "status": "success",
+      "total_rows": 2059919,
+      "vol_regime_coverage_pct": 100.0,
+      "range_regime_coverage_pct": 100.0,
+      "return_regime_coverage_pct": 100.0,
+      "momentum_regime_coverage_pct": 100.0,
+      "vol_regime_distribution": {
+        "low": 679619,
+        "medium": 679705,
+        "high": 700595
+      },
+      "momentum_regime_distribution": {
+        "low": 675524,
+        "medium": 675239,
+        "high": 709156
+      }
+    },
+    {
+      "pair": "GBP_CHF",
+      "period": 45,
+      "table": "regime_bqx_gbpchf_45",
+      "status": "success",
+      "total_rows": 2054496,
+      "vol_regime_coverage_pct": 100.0,
+      "range_regime_coverage_pct": 100.0,
+      "return_regime_coverage_pct": 100.0,
+      "momentum_regime_coverage_pct": 100.0,
+      "vol_regime_distribution": {
+        "low": 677779,
+        "medium": 678403,
+        "high": 698314
+      },
+      "momentum_regime_distribution": {
+        "low": 671762,
+        "medium": 672236,
+        "high": 710498
+      }
+    },
+    {
+      "pair": "GBP_AUD",
+      "period": 45,
+      "table": "regime_bqx_gbpaud_45",
+      "status": "success",
+      "total_rows": 2171265,
+      "vol_regime_coverage_pct": 100.0,
+      "range_regime_coverage_pct": 100.0,
+      "return_regime_coverage_pct": 100.0,
+      "momentum_regime_coverage_pct": 100.0,
+      "vol_regime_distribution": {
+        "low": 716530,
+        "medium": 716943,
+        "high": 737792
+      },
+      "momentum_regime_distribution": {
+        "low": 713173,
+        "medium": 713087,
+        "high": 745005
+      }
+    },
+    {
+      "pair": "GBP_AUD",
+      "period": 90,
+      "table": "regime_bqx_gbpaud_90",
+      "status": "success",
+      "total_rows": 2173762,
+      "vol_regime_coverage_pct": 100.0,
+      "range_regime_coverage_pct": 100.0,
+      "return_regime_coverage_pct": 100.0,
+      "momentum_regime_coverage_pct": 100.0,
+      "vol_regime_distribution": {
+        "low": 716740,
+        "medium": 718003,
+        "high": 739019
+      },
+      "momentum_regime_distribution": {
+        "low": 715146,
+        "medium": 714736,
+        "high": 743880
+      }
+    },
+    {
+      "pair": "GBP_CAD",
+      "period": 45,
+      "table": "regime_bqx_gbpcad_45",
+      "status": "success",
+      "total_rows": 2173187,
+      "vol_regime_coverage_pct": 100.0,
+      "range_regime_coverage_pct": 100.0,
+      "return_regime_coverage_pct": 100.0,
+      "momentum_regime_coverage_pct": 100.0,
+      "vol_regime_distribution": {
+        "low": 717137,
+        "medium": 717502,
+        "high": 738548
+      },
+      "momentum_regime_distribution": {
+        "low": 711963,
+        "medium": 713164,
+        "high": 748060
+      }
+    },
+    {
+      "pair": "GBP_CAD",
+      "period": 90,
+      "table": "regime_bqx_gbpcad_90",
+      "status": "success",
+      "total_rows": 2177189,
+      "vol_regime_coverage_pct": 100.0,
+      "range_regime_coverage_pct": 100.0,
+      "return_regime_coverage_pct": 100.0,
+      "momentum_regime_coverage_pct": 100.0,
+      "vol_regime_distribution": {
+        "low": 718250,
+        "medium": 718842,
+        "high": 740097
+      },
+      "momentum_regime_distribution": {
+        "low": 715448,
+        "medium": 715069,
+        "high": 746672
+      }
+    },
+    {
+      "pair": "GBP_NZD",
+      "period": 45,
+      "table": "regime_bqx_gbpnzd_45",
+      "status": "success",
+      "total_rows": 2158268,
+      "vol_regime_coverage_pct": 100.0,
+      "range_regime_coverage_pct": 100.0,
+      "return_regime_coverage_pct": 100.0,
+      "momentum_regime_coverage_pct": 100.0,
+      "vol_regime_distribution": {
+        "low": 712120,
+        "medium": 711909,
+        "high": 734239
+      },
+      "momentum_regime_distribution": {
+        "low": 708923,
+        "medium": 709838,
+        "high": 739507
+      }
+    },
+    {
+      "pair": "GBP_NZD",
+      "period": 90,
+      "table": "regime_bqx_gbpnzd_90",
+      "status": "success",
+      "total_rows": 2160684,
+      "vol_regime_coverage_pct": 100.0,
+      "range_regime_coverage_pct": 100.0,
+      "return_regime_coverage_pct": 100.0,
+      "momentum_regime_coverage_pct": 100.0,
+      "vol_regime_distribution": {
+        "low": 712617,
+        "medium": 713496,
+        "high": 734571
+      },
+      "momentum_regime_distribution": {
+        "low": 710534,
+        "medium": 710909,
+        "high": 739241
+      }
+    },
+    {
+      "pair": "AUD_JPY",
+      "period": 45,
+      "table": "regime_bqx_audjpy_45",
+      "status": "success",
+      "total_rows": 2172956,
+      "vol_regime_coverage_pct": 100.0,
+      "range_regime_coverage_pct": 100.0,
+      "return_regime_coverage_pct": 100.0,
+      "momentum_regime_coverage_pct": 100.0,
+      "vol_regime_distribution": {
+        "low": 717090,
+        "medium": 716924,
+        "high": 738942
+      },
+      "momentum_regime_distribution": {
+        "low": 712167,
+        "medium": 712430,
+        "high": 748359
+      }
+    },
+    {
+      "pair": "AUD_JPY",
+      "period": 90,
+      "table": "regime_bqx_audjpy_90",
+      "status": "success",
+      "total_rows": 2177367,
+      "vol_regime_coverage_pct": 100.0,
+      "range_regime_coverage_pct": 100.0,
+      "return_regime_coverage_pct": 100.0,
+      "momentum_regime_coverage_pct": 100.0,
+      "vol_regime_distribution": {
+        "low": 718606,
+        "medium": 717663,
+        "high": 741098
+      },
+      "momentum_regime_distribution": {
+        "low": 715141,
+        "medium": 714550,
+        "high": 747676
+      }
+    },
+    {
+      "pair": "AUD_CHF",
+      "period": 45,
+      "table": "regime_bqx_audchf_45",
+      "status": "success",
+      "total_rows": 2120002,
+      "vol_regime_coverage_pct": 100.0,
+      "range_regime_coverage_pct": 100.0,
+      "return_regime_coverage_pct": 100.0,
+      "momentum_regime_coverage_pct": 100.0,
+      "vol_regime_distribution": {
+        "low": 699487,
+        "medium": 699730,
+        "high": 720785
+      },
+      "momentum_regime_distribution": {
+        "low": 691401,
+        "medium": 692421,
+        "high": 736180
+      }
+    },
+    {
+      "pair": "AUD_CHF",
+      "period": 90,
+      "table": "regime_bqx_audchf_90",
+      "status": "success",
+      "total_rows": 2126566,
+      "vol_regime_coverage_pct": 100.0,
+      "range_regime_coverage_pct": 100.0,
+      "return_regime_coverage_pct": 100.0,
+      "momentum_regime_coverage_pct": 100.0,
+      "vol_regime_distribution": {
+        "low": 702068,
+        "medium": 701104,
+        "high": 723394
+      },
+      "momentum_regime_distribution": {
+        "low": 695944,
+        "medium": 695809,
+        "high": 734813
+      }
+    },
+    {
+      "pair": "AUD_CAD",
+      "period": 45,
+      "table": "regime_bqx_audcad_45",
+      "status": "success",
+      "total_rows": 2152000,
+      "vol_regime_coverage_pct": 100.0,
+      "range_regime_coverage_pct": 100.0,
+      "return_regime_coverage_pct": 100.0,
+      "momentum_regime_coverage_pct": 100.0,
+      "vol_regime_distribution": {
+        "low": 709960,
+        "medium": 709808,
+        "high": 732232
+      },
+      "momentum_regime_distribution": {
+        "low": 702893,
+        "medium": 704143,
+        "high": 744964
+      }
+    },
+    {
+      "pair": "AUD_CAD",
+      "period": 90,
+      "table": "regime_bqx_audcad_90",
+      "status": "success",
+      "total_rows": 2158152,
+      "vol_regime_coverage_pct": 100.0,
+      "range_regime_coverage_pct": 100.0,
+      "return_regime_coverage_pct": 100.0,
+      "momentum_regime_coverage_pct": 100.0,
+      "vol_regime_distribution": {
+        "low": 711962,
+        "medium": 712574,
+        "high": 733616
+      },
+      "momentum_regime_distribution": {
+        "low": 707057,
+        "medium": 707280,
+        "high": 743815
+      }
+    },
+    {
+      "pair": "AUD_NZD",
+      "period": 45,
+      "table": "regime_bqx_audnzd_45",
+      "status": "success",
+      "total_rows": 2143011,
+      "vol_regime_coverage_pct": 100.0,
+      "range_regime_coverage_pct": 100.0,
+      "return_regime_coverage_pct": 100.0,
+      "momentum_regime_coverage_pct": 100.0,
+      "vol_regime_distribution": {
+        "low": 707346,
+        "medium": 706442,
+        "high": 729223
+      },
+      "momentum_regime_distribution": {
+        "low": 699509,
+        "medium": 699523,
+        "high": 743979
+      }
+    },
+    {
+      "pair": "AUD_NZD",
+      "period": 90,
+      "table": "regime_bqx_audnzd_90",
+      "status": "success",
+      "total_rows": 2149696,
+      "vol_regime_coverage_pct": 100.0,
+      "range_regime_coverage_pct": 100.0,
+      "return_regime_coverage_pct": 100.0,
+      "momentum_regime_coverage_pct": 100.0,
+      "vol_regime_distribution": {
+        "low": 709710,
+        "medium": 709228,
+        "high": 730758
+      },
+      "momentum_regime_distribution": {
+        "low": 703687,
+        "medium": 704554,
+        "high": 741455
+      }
+    },
+    {
+      "pair": "NZD_JPY",
+      "period": 45,
+      "table": "regime_bqx_nzdjpy_45",
+      "status": "success",
+      "total_rows": 2162359,
+      "vol_regime_coverage_pct": 100.0,
+      "range_regime_coverage_pct": 100.0,
+      "return_regime_coverage_pct": 100.0,
+      "momentum_regime_coverage_pct": 100.0,
+      "vol_regime_distribution": {
+        "low": 713697,
+        "medium": 713253,
+        "high": 735409
+      },
+      "momentum_regime_distribution": {
+        "low": 708284,
+        "medium": 708283,
+        "high": 745792
+      }
+    },
+    {
+      "pair": "NZD_JPY",
+      "period": 90,
+      "table": "regime_bqx_nzdjpy_90",
+      "status": "success",
+      "total_rows": 2167053,
+      "vol_regime_coverage_pct": 100.0,
+      "range_regime_coverage_pct": 100.0,
+      "return_regime_coverage_pct": 100.0,
+      "momentum_regime_coverage_pct": 100.0,
+      "vol_regime_distribution": {
+        "low": 714413,
+        "medium": 715346,
+        "high": 737294
+      },
+      "momentum_regime_distribution": {
+        "low": 711290,
+        "medium": 711256,
+        "high": 744507
+      }
+    },
+    {
+      "pair": "NZD_CHF",
+      "period": 45,
+      "table": "regime_bqx_nzdchf_45",
+      "status": "success",
+      "total_rows": 2108563,
+      "vol_regime_coverage_pct": 100.0,
+      "range_regime_coverage_pct": 100.0,
+      "return_regime_coverage_pct": 100.0,
+      "momentum_regime_coverage_pct": 100.0,
+      "vol_regime_distribution": {
+        "low": 695162,
+        "medium": 696496,
+        "high": 716905
+      },
+      "momentum_regime_distribution": {
+        "low": 688002,
+        "medium": 687927,
+        "high": 732634
+      }
+    },
+    {
+      "pair": "NZD_CHF",
+      "period": 90,
+      "table": "regime_bqx_nzdchf_90",
+      "status": "success",
+      "total_rows": 2115360,
+      "vol_regime_coverage_pct": 100.0,
+      "range_regime_coverage_pct": 100.0,
+      "return_regime_coverage_pct": 100.0,
+      "momentum_regime_coverage_pct": 100.0,
+      "vol_regime_distribution": {
+        "low": 697956,
+        "medium": 697945,
+        "high": 719459
+      },
+      "momentum_regime_distribution": {
+        "low": 692024,
+        "medium": 692376,
+        "high": 730960
+      }
+    },
+    {
+      "pair": "NZD_CAD",
+      "period": 45,
+      "table": "regime_bqx_nzdcad_45",
+      "status": "success",
+      "total_rows": 2146782,
+      "vol_regime_coverage_pct": 100.0,
+      "range_regime_coverage_pct": 100.0,
+      "return_regime_coverage_pct": 100.0,
+      "momentum_regime_coverage_pct": 100.0,
+      "vol_regime_distribution": {
+        "low": 708233,
+        "medium": 708742,
+        "high": 729807
+      },
+      "momentum_regime_distribution": {
+        "low": 701250,
+        "medium": 702702,
+        "high": 742830
+      }
+    },
+    {
+      "pair": "CAD_CHF",
+      "period": 45,
+      "table": "regime_bqx_cadchf_45",
+      "status": "success",
+      "total_rows": 1995423,
+      "vol_regime_coverage_pct": 100.0,
+      "range_regime_coverage_pct": 100.0,
+      "return_regime_coverage_pct": 100.0,
+      "momentum_regime_coverage_pct": 100.0,
+      "vol_regime_distribution": {
+        "low": 658403,
+        "medium": 658461,
+        "high": 678559
+      },
+      "momentum_regime_distribution": {
+        "low": 650344,
+        "medium": 649353,
+        "high": 695726
+      }
+    },
+    {
+      "pair": "NZD_CAD",
+      "period": 90,
+      "table": "regime_bqx_nzdcad_90",
+      "status": "success",
+      "total_rows": 2152488,
+      "vol_regime_coverage_pct": 100.0,
+      "range_regime_coverage_pct": 100.0,
+      "return_regime_coverage_pct": 100.0,
+      "momentum_regime_coverage_pct": 100.0,
+      "vol_regime_distribution": {
+        "low": 710227,
+        "medium": 710383,
+        "high": 731878
+      },
+      "momentum_regime_distribution": {
+        "low": 705317,
+        "medium": 706608,
+        "high": 740563
+      }
+    },
+    {
+      "pair": "CAD_JPY",
+      "period": 45,
+      "table": "regime_bqx_cadjpy_45",
+      "status": "success",
+      "total_rows": 2165595,
+      "vol_regime_coverage_pct": 100.0,
+      "range_regime_coverage_pct": 100.0,
+      "return_regime_coverage_pct": 100.0,
+      "momentum_regime_coverage_pct": 100.0,
+      "vol_regime_distribution": {
+        "low": 714264,
+        "medium": 715015,
+        "high": 736316
+      },
+      "momentum_regime_distribution": {
+        "low": 709457,
+        "medium": 709432,
+        "high": 746706
+      }
+    },
+    {
+      "pair": "CAD_JPY",
+      "period": 90,
+      "table": "regime_bqx_cadjpy_90",
+      "status": "success",
+      "total_rows": 2170275,
+      "vol_regime_coverage_pct": 100.0,
+      "range_regime_coverage_pct": 100.0,
+      "return_regime_coverage_pct": 100.0,
+      "momentum_regime_coverage_pct": 100.0,
+      "vol_regime_distribution": {
+        "low": 715529,
+        "medium": 717022,
+        "high": 737724
+      },
+      "momentum_regime_distribution": {
+        "low": 711643,
+        "medium": 713467,
+        "high": 745165
+      }
+    },
+    {
+      "pair": "CAD_CHF",
+      "period": 90,
+      "table": "regime_bqx_cadchf_90",
+      "status": "success",
+      "total_rows": 2003355,
+      "vol_regime_coverage_pct": 100.0,
+      "range_regime_coverage_pct": 100.0,
+      "return_regime_coverage_pct": 100.0,
+      "momentum_regime_coverage_pct": 100.0,
+      "vol_regime_distribution": {
+        "low": 661164,
+        "medium": 660933,
+        "high": 681258
+      },
+      "momentum_regime_distribution": {
+        "low": 654716,
+        "medium": 655370,
+        "high": 693269
+      }
+    },
+    {
+      "pair": "CHF_JPY",
+      "period": 45,
+      "table": "regime_bqx_chfjpy_45",
+      "status": "success",
+      "total_rows": 1971701,
+      "vol_regime_coverage_pct": 100.0,
+      "range_regime_coverage_pct": 100.0,
+      "return_regime_coverage_pct": 100.0,
+      "momentum_regime_coverage_pct": 100.0,
+      "vol_regime_distribution": {
+        "low": 650369,
+        "medium": 650545,
+        "high": 670787
+      },
+      "momentum_regime_distribution": {
+        "low": 646920,
+        "medium": 646188,
+        "high": 678593
+      }
+    },
+    {
+      "pair": "CHF_JPY",
+      "period": 90,
+      "table": "regime_bqx_chfjpy_90",
+      "status": "success",
+      "total_rows": 1975282,
+      "vol_regime_coverage_pct": 100.0,
+      "range_regime_coverage_pct": 100.0,
+      "return_regime_coverage_pct": 100.0,
+      "momentum_regime_coverage_pct": 100.0,
+      "vol_regime_distribution": {
+        "low": 651518,
+        "medium": 652313,
+        "high": 671451
+      },
+      "momentum_regime_distribution": {
+        "low": 648718,
+        "medium": 649156,
+        "high": 677408
+      }
+    }
+  ]
+}

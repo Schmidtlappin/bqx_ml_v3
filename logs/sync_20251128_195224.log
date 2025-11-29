@@ -1,0 +1,68 @@
+[2025-11-28 19:52:24] ==============================================
+[2025-11-28 19:52:24] BQX-ML-V3 Workspace Sync
+[2025-11-28 19:52:24] Timestamp: 20251128_195224
+[2025-11-28 19:52:24] ==============================================
+[2025-11-28 19:52:24] === Google Drive Sync Starting ===
+[2025-11-28 19:52:24] Syncing to gdrive:bqx_ml_v3...
+Transferred:   	          0 B / 0 B, -, 0 B/s, ETA -
+Checks:                 0 / 0, -, Listed 51
+Elapsed time:         0.5sTransferred:   	          0 B / 0 B, -, 0 B/s, ETA -
+Checks:                 3 / 3, 100%, Listed 51
+Elapsed time:         1.0sTransferred:   	          0 B / 0 B, -, 0 B/s, ETA -
+Checks:                 4 / 4, 100%, Listed 51
+Elapsed time:         1.5sTransferred:   	   10.614 KiB / 27.878 KiB, 38%, 5.307 KiB/s, ETA 3s
+Checks:               210 / 211, 100%, Listed 743
+Transferred:            0 / 6, 0%
+Elapsed time:         2.0s
+Checking:
+ *       docs/SESSION_ACCOMPLISHMENTS_SUMMARY.md: checking
+Transferring:
+ *                   .claude/settings.local.json:100% /3.750Ki, 0/s, -
+ *                    configs/bqx-backup.service:100% /339, 0/s, -
+ *                      configs/bqx-backup.timer:100% /304, 0/s, -
+ *              intelligence/backup_mandate.json:100% /6.236Ki, 0/s, -Transferred:   	   10.614 KiB / 32.326 KiB, 33%, 5.307 KiB/s, ETA 4s
+Checks:               563 / 565, 100%, Listed 1425
+Transferred:            0 / 8, 0%
+Elapsed time:         2.5s
+Checking:
+ * archive/phase_1_comple…eneration_results.json: checking
+ * archive/phase_1_comple…eneration_results.json: checking
+Transferring:
+ *                   .claude/settings.local.json:100% /3.750Ki, 0/s, -
+ *                    configs/bqx-backup.service:100% /339, 0/s, -
+ *                      configs/bqx-backup.timer:100% /304, 0/s, -
+ *              intelligence/backup_mandate.json:100% /6.236Ki, 0/s, -Transferred:   	   29.104 KiB / 32.326 KiB, 90%, 5.307 KiB/s, ETA 0s
+Checks:               691 / 691, 100%, Listed 1646
+Transferred:            4 / 8, 50%
+Elapsed time:         3.0s
+Transferring:
+ *                     intelligence/context.json:100% /5.490Ki, 0/s, -
+ *                    intelligence/mandates.json:100% /11.773Ki, 0/s, -
+ *                 scripts/setup-backup-timer.sh:100% /1.226Ki, 0/s, -
+ *                     scripts/sync-workspace.sh:  0% /3.223Ki, 0/s, -Transferred:   	   32.326 KiB / 32.326 KiB, 100%, 9.700 KiB/s, ETA 0s
+Checks:               724 / 724, 100%, Listed 1689
+Transferred:            5 / 8, 63%
+Elapsed time:         3.5s
+Transferring:
+ *                    intelligence/mandates.json:100% /11.773Ki, 0/s, -
+ *                 scripts/setup-backup-timer.sh:100% /1.226Ki, 0/s, -
+ *                     scripts/sync-workspace.sh:100% /3.223Ki, 0/s, -Transferred:   	   32.326 KiB / 32.326 KiB, 100%, 9.700 KiB/s, ETA 0s
+Checks:               725 / 725, 100%, Listed 1690
+Transferred:            8 / 8, 100%
+Elapsed time:         4.0sTransferred:   	   32.326 KiB / 32.326 KiB, 100%, 9.700 KiB/s, ETA 0s
+Checks:               725 / 725, 100%, Listed 1690
+Transferred:            8 / 8, 100%
+Elapsed time:         4.5sTransferred:   	   32.326 KiB / 32.326 KiB, 100%, 9.700 KiB/s, ETA 0s
+Checks:               725 / 725, 100%, Listed 1690
+Transferred:            8 / 8, 100%
+Elapsed time:         5.0sTransferred:   	   32.326 KiB / 32.326 KiB, 100%, 9.700 KiB/s, ETA 0s
+Checks:               725 / 725, 100%, Listed 1690
+Transferred:            8 / 8, 100%
+Elapsed time:         5.2s
+[2025-11-28 19:52:30] Google Drive sync completed
+[2025-11-28 19:52:30] ==============================================
+[2025-11-28 19:52:30] Sync Summary:
+[2025-11-28 19:52:30]   Google Drive: SUCCESS
+[2025-11-28 19:52:30]   Box.com:      SKIPPED
+[2025-11-28 19:52:30]   Log file:     /home/micha/bqx_ml_v3/logs/sync_20251128_195224.log
+[2025-11-28 19:52:30] ==============================================

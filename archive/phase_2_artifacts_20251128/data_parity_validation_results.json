@@ -1,0 +1,1240 @@
+{
+  "validation_timestamp": "2025-11-28T18:10:58.461545",
+  "total_pairs": 28,
+  "perfect_parity_count": 28,
+  "success_rate_pct": 100.0,
+  "results": [
+    {
+      "pair": "EUR_USD",
+      "idx_table": {
+        "row_count": 2164330,
+        "min_time": "2020-01-01 22:00:00+00:00",
+        "max_time": "2025-11-20 17:50:00+00:00",
+        "exists": true
+      },
+      "bqx_table": {
+        "row_count": 2164330,
+        "min_time": "2020-01-01 22:00:00+00:00",
+        "max_time": "2025-11-20 17:50:00+00:00",
+        "exists": true
+      },
+      "lag_tables": {
+        "45": {
+          "row_count": 2143519,
+          "min_time": "2020-01-02 00:16:00+00:00",
+          "max_time": "2025-11-20 17:50:00+00:00",
+          "exists": true
+        },
+        "90": {
+          "row_count": 2149771,
+          "min_time": "2020-01-02 01:50:00+00:00",
+          "max_time": "2025-11-20 17:50:00+00:00",
+          "exists": true
+        }
+      },
+      "regime_tables": {
+        "45": {
+          "row_count": 2143519,
+          "min_time": "2020-01-02 00:16:00+00:00",
+          "max_time": "2025-11-20 17:50:00+00:00",
+          "exists": true
+        },
+        "90": {
+          "row_count": 2149771,
+          "min_time": "2020-01-02 01:50:00+00:00",
+          "max_time": "2025-11-20 17:50:00+00:00",
+          "exists": true
+        }
+      },
+      "parity_status": "PERFECT_PARITY"
+    },
+    {
+      "pair": "GBP_USD",
+      "idx_table": {
+        "row_count": 1972702,
+        "min_time": "2020-01-01 22:00:00+00:00",
+        "max_time": "2025-11-20 17:50:00+00:00",
+        "exists": true
+      },
+      "bqx_table": {
+        "row_count": 1972702,
+        "min_time": "2020-01-01 22:00:00+00:00",
+        "max_time": "2025-11-20 17:50:00+00:00",
+        "exists": true
+      },
+      "lag_tables": {
+        "45": {
+          "row_count": 1957171,
+          "min_time": "2020-01-02 00:05:00+00:00",
+          "max_time": "2025-11-20 17:50:00+00:00",
+          "exists": true
+        },
+        "90": {
+          "row_count": 1962236,
+          "min_time": "2020-01-02 01:36:00+00:00",
+          "max_time": "2025-11-20 17:50:00+00:00",
+          "exists": true
+        }
+      },
+      "regime_tables": {
+        "45": {
+          "row_count": 1957171,
+          "min_time": "2020-01-02 00:05:00+00:00",
+          "max_time": "2025-11-20 17:50:00+00:00",
+          "exists": true
+        },
+        "90": {
+          "row_count": 1962236,
+          "min_time": "2020-01-02 01:36:00+00:00",
+          "max_time": "2025-11-20 17:50:00+00:00",
+          "exists": true
+        }
+      },
+      "parity_status": "PERFECT_PARITY"
+    },
+    {
+      "pair": "USD_JPY",
+      "idx_table": {
+        "row_count": 2174128,
+        "min_time": "2020-01-01 22:00:00+00:00",
+        "max_time": "2025-11-28 01:51:00+00:00",
+        "exists": true
+      },
+      "bqx_table": {
+        "row_count": 2174128,
+        "min_time": "2020-01-01 22:00:00+00:00",
+        "max_time": "2025-11-28 01:51:00+00:00",
+        "exists": true
+      },
+      "lag_tables": {
+        "45": {
+          "row_count": 2157513,
+          "min_time": "2020-01-02 00:02:00+00:00",
+          "max_time": "2025-11-28 01:51:00+00:00",
+          "exists": true
+        },
+        "90": {
+          "row_count": 2162416,
+          "min_time": "2020-01-02 01:35:00+00:00",
+          "max_time": "2025-11-28 01:51:00+00:00",
+          "exists": true
+        }
+      },
+      "regime_tables": {
+        "45": {
+          "row_count": 2157513,
+          "min_time": "2020-01-02 00:02:00+00:00",
+          "max_time": "2025-11-28 01:51:00+00:00",
+          "exists": true
+        },
+        "90": {
+          "row_count": 2162416,
+          "min_time": "2020-01-02 01:35:00+00:00",
+          "max_time": "2025-11-28 01:51:00+00:00",
+          "exists": true
+        }
+      },
+      "parity_status": "PERFECT_PARITY"
+    },
+    {
+      "pair": "USD_CHF",
+      "idx_table": {
+        "row_count": 2049213,
+        "min_time": "2020-01-01 22:00:00+00:00",
+        "max_time": "2025-11-28 02:09:00+00:00",
+        "exists": true
+      },
+      "bqx_table": {
+        "row_count": 2049213,
+        "min_time": "2020-01-01 22:00:00+00:00",
+        "max_time": "2025-11-28 02:09:00+00:00",
+        "exists": true
+      },
+      "lag_tables": {
+        "45": {
+          "row_count": 2028041,
+          "min_time": "2020-01-02 00:56:00+00:00",
+          "max_time": "2025-11-28 02:09:00+00:00",
+          "exists": true
+        },
+        "90": {
+          "row_count": 2034265,
+          "min_time": "2020-01-02 03:33:00+00:00",
+          "max_time": "2025-11-28 02:09:00+00:00",
+          "exists": true
+        }
+      },
+      "regime_tables": {
+        "45": {
+          "row_count": 2028041,
+          "min_time": "2020-01-02 00:56:00+00:00",
+          "max_time": "2025-11-28 02:09:00+00:00",
+          "exists": true
+        },
+        "90": {
+          "row_count": 2034265,
+          "min_time": "2020-01-02 03:33:00+00:00",
+          "max_time": "2025-11-28 02:09:00+00:00",
+          "exists": true
+        }
+      },
+      "parity_status": "PERFECT_PARITY"
+    },
+    {
+      "pair": "USD_CAD",
+      "idx_table": {
+        "row_count": 2155311,
+        "min_time": "2020-01-01 22:00:00+00:00",
+        "max_time": "2025-11-28 02:03:00+00:00",
+        "exists": true
+      },
+      "bqx_table": {
+        "row_count": 2155311,
+        "min_time": "2020-01-01 22:00:00+00:00",
+        "max_time": "2025-11-28 02:03:00+00:00",
+        "exists": true
+      },
+      "lag_tables": {
+        "45": {
+          "row_count": 2136774,
+          "min_time": "2020-01-02 00:45:00+00:00",
+          "max_time": "2025-11-28 02:03:00+00:00",
+          "exists": true
+        },
+        "90": {
+          "row_count": 2142418,
+          "min_time": "2020-01-02 02:27:00+00:00",
+          "max_time": "2025-11-28 02:03:00+00:00",
+          "exists": true
+        }
+      },
+      "regime_tables": {
+        "45": {
+          "row_count": 2136774,
+          "min_time": "2020-01-02 00:45:00+00:00",
+          "max_time": "2025-11-28 02:03:00+00:00",
+          "exists": true
+        },
+        "90": {
+          "row_count": 2142418,
+          "min_time": "2020-01-02 02:27:00+00:00",
+          "max_time": "2025-11-28 02:03:00+00:00",
+          "exists": true
+        }
+      },
+      "parity_status": "PERFECT_PARITY"
+    },
+    {
+      "pair": "AUD_USD",
+      "idx_table": {
+        "row_count": 2121200,
+        "min_time": "2020-01-01 22:00:00+00:00",
+        "max_time": "2025-11-20 17:50:00+00:00",
+        "exists": true
+      },
+      "bqx_table": {
+        "row_count": 2121200,
+        "min_time": "2020-01-01 22:00:00+00:00",
+        "max_time": "2025-11-20 17:50:00+00:00",
+        "exists": true
+      },
+      "lag_tables": {
+        "45": {
+          "row_count": 2100408,
+          "min_time": "2020-01-02 00:08:00+00:00",
+          "max_time": "2025-11-20 17:50:00+00:00",
+          "exists": true
+        },
+        "90": {
+          "row_count": 2106532,
+          "min_time": "2020-01-02 01:51:00+00:00",
+          "max_time": "2025-11-20 17:50:00+00:00",
+          "exists": true
+        }
+      },
+      "regime_tables": {
+        "45": {
+          "row_count": 2100408,
+          "min_time": "2020-01-02 00:08:00+00:00",
+          "max_time": "2025-11-20 17:50:00+00:00",
+          "exists": true
+        },
+        "90": {
+          "row_count": 2106532,
+          "min_time": "2020-01-02 01:51:00+00:00",
+          "max_time": "2025-11-20 17:50:00+00:00",
+          "exists": true
+        }
+      },
+      "parity_status": "PERFECT_PARITY"
+    },
+    {
+      "pair": "NZD_USD",
+      "idx_table": {
+        "row_count": 2126991,
+        "min_time": "2020-01-01 22:00:00+00:00",
+        "max_time": "2025-11-20 17:50:00+00:00",
+        "exists": true
+      },
+      "bqx_table": {
+        "row_count": 2126991,
+        "min_time": "2020-01-01 22:00:00+00:00",
+        "max_time": "2025-11-20 17:50:00+00:00",
+        "exists": true
+      },
+      "lag_tables": {
+        "45": {
+          "row_count": 2105975,
+          "min_time": "2020-01-02 00:24:00+00:00",
+          "max_time": "2025-11-20 17:50:00+00:00",
+          "exists": true
+        },
+        "90": {
+          "row_count": 2112133,
+          "min_time": "2020-01-02 01:58:00+00:00",
+          "max_time": "2025-11-20 17:50:00+00:00",
+          "exists": true
+        }
+      },
+      "regime_tables": {
+        "45": {
+          "row_count": 2105975,
+          "min_time": "2020-01-02 00:24:00+00:00",
+          "max_time": "2025-11-20 17:50:00+00:00",
+          "exists": true
+        },
+        "90": {
+          "row_count": 2112133,
+          "min_time": "2020-01-02 01:58:00+00:00",
+          "max_time": "2025-11-20 17:50:00+00:00",
+          "exists": true
+        }
+      },
+      "parity_status": "PERFECT_PARITY"
+    },
+    {
+      "pair": "EUR_GBP",
+      "idx_table": {
+        "row_count": 2132051,
+        "min_time": "2020-01-01 22:00:00+00:00",
+        "max_time": "2025-11-20 17:50:00+00:00",
+        "exists": true
+      },
+      "bqx_table": {
+        "row_count": 2132051,
+        "min_time": "2020-01-01 22:00:00+00:00",
+        "max_time": "2025-11-20 17:50:00+00:00",
+        "exists": true
+      },
+      "lag_tables": {
+        "45": {
+          "row_count": 2099412,
+          "min_time": "2020-01-01 23:58:00+00:00",
+          "max_time": "2025-11-20 17:50:00+00:00",
+          "exists": true
+        },
+        "90": {
+          "row_count": 2108250,
+          "min_time": "2020-01-02 01:32:00+00:00",
+          "max_time": "2025-11-20 17:50:00+00:00",
+          "exists": true
+        }
+      },
+      "regime_tables": {
+        "45": {
+          "row_count": 2099412,
+          "min_time": "2020-01-01 23:58:00+00:00",
+          "max_time": "2025-11-20 17:50:00+00:00",
+          "exists": true
+        },
+        "90": {
+          "row_count": 2108250,
+          "min_time": "2020-01-02 01:32:00+00:00",
+          "max_time": "2025-11-20 17:50:00+00:00",
+          "exists": true
+        }
+      },
+      "parity_status": "PERFECT_PARITY"
+    },
+    {
+      "pair": "EUR_JPY",
+      "idx_table": {
+        "row_count": 2155694,
+        "min_time": "2020-01-01 22:00:00+00:00",
+        "max_time": "2025-11-20 04:26:00+00:00",
+        "exists": true
+      },
+      "bqx_table": {
+        "row_count": 2155694,
+        "min_time": "2020-01-01 22:00:00+00:00",
+        "max_time": "2025-11-20 04:26:00+00:00",
+        "exists": true
+      },
+      "lag_tables": {
+        "45": {
+          "row_count": 2142628,
+          "min_time": "2020-01-01 23:57:00+00:00",
+          "max_time": "2025-11-20 04:26:00+00:00",
+          "exists": true
+        },
+        "90": {
+          "row_count": 2146330,
+          "min_time": "2020-01-02 01:31:00+00:00",
+          "max_time": "2025-11-20 04:26:00+00:00",
+          "exists": true
+        }
+      },
+      "regime_tables": {
+        "45": {
+          "row_count": 2142628,
+          "min_time": "2020-01-01 23:57:00+00:00",
+          "max_time": "2025-11-20 04:26:00+00:00",
+          "exists": true
+        },
+        "90": {
+          "row_count": 2146330,
+          "min_time": "2020-01-02 01:31:00+00:00",
+          "max_time": "2025-11-20 04:26:00+00:00",
+          "exists": true
+        }
+      },
+      "parity_status": "PERFECT_PARITY"
+    },
+    {
+      "pair": "EUR_CHF",
+      "idx_table": {
+        "row_count": 2104085,
+        "min_time": "2020-01-01 22:00:00+00:00",
+        "max_time": "2025-11-20 17:50:00+00:00",
+        "exists": true
+      },
+      "bqx_table": {
+        "row_count": 2104085,
+        "min_time": "2020-01-01 22:00:00+00:00",
+        "max_time": "2025-11-20 17:50:00+00:00",
+        "exists": true
+      },
+      "lag_tables": {
+        "45": {
+          "row_count": 2074660,
+          "min_time": "2020-01-02 00:10:00+00:00",
+          "max_time": "2025-11-20 17:50:00+00:00",
+          "exists": true
+        },
+        "90": {
+          "row_count": 2082925,
+          "min_time": "2020-01-02 01:57:00+00:00",
+          "max_time": "2025-11-20 17:50:00+00:00",
+          "exists": true
+        }
+      },
+      "regime_tables": {
+        "45": {
+          "row_count": 2074660,
+          "min_time": "2020-01-02 00:10:00+00:00",
+          "max_time": "2025-11-20 17:50:00+00:00",
+          "exists": true
+        },
+        "90": {
+          "row_count": 2082925,
+          "min_time": "2020-01-02 01:57:00+00:00",
+          "max_time": "2025-11-20 17:50:00+00:00",
+          "exists": true
+        }
+      },
+      "parity_status": "PERFECT_PARITY"
+    },
+    {
+      "pair": "EUR_AUD",
+      "idx_table": {
+        "row_count": 2169762,
+        "min_time": "2020-01-01 22:00:00+00:00",
+        "max_time": "2025-11-20 17:50:00+00:00",
+        "exists": true
+      },
+      "bqx_table": {
+        "row_count": 2169762,
+        "min_time": "2020-01-01 22:00:00+00:00",
+        "max_time": "2025-11-20 17:50:00+00:00",
+        "exists": true
+      },
+      "lag_tables": {
+        "45": {
+          "row_count": 2158809,
+          "min_time": "2020-01-01 23:58:00+00:00",
+          "max_time": "2025-11-20 17:50:00+00:00",
+          "exists": true
+        },
+        "90": {
+          "row_count": 2161818,
+          "min_time": "2020-01-02 01:29:00+00:00",
+          "max_time": "2025-11-20 17:50:00+00:00",
+          "exists": true
+        }
+      },
+      "regime_tables": {
+        "45": {
+          "row_count": 2158809,
+          "min_time": "2020-01-01 23:58:00+00:00",
+          "max_time": "2025-11-20 17:50:00+00:00",
+          "exists": true
+        },
+        "90": {
+          "row_count": 2161818,
+          "min_time": "2020-01-02 01:29:00+00:00",
+          "max_time": "2025-11-20 17:50:00+00:00",
+          "exists": true
+        }
+      },
+      "parity_status": "PERFECT_PARITY"
+    },
+    {
+      "pair": "EUR_CAD",
+      "idx_table": {
+        "row_count": 2182332,
+        "min_time": "2020-01-01 22:00:00+00:00",
+        "max_time": "2025-11-20 17:50:00+00:00",
+        "exists": true
+      },
+      "bqx_table": {
+        "row_count": 2182332,
+        "min_time": "2020-01-01 22:00:00+00:00",
+        "max_time": "2025-11-20 17:50:00+00:00",
+        "exists": true
+      },
+      "lag_tables": {
+        "45": {
+          "row_count": 2165877,
+          "min_time": "2020-01-01 23:40:00+00:00",
+          "max_time": "2025-11-20 17:50:00+00:00",
+          "exists": true
+        },
+        "90": {
+          "row_count": 2170309,
+          "min_time": "2020-01-02 01:10:00+00:00",
+          "max_time": "2025-11-20 17:50:00+00:00",
+          "exists": true
+        }
+      },
+      "regime_tables": {
+        "45": {
+          "row_count": 2165877,
+          "min_time": "2020-01-01 23:40:00+00:00",
+          "max_time": "2025-11-20 17:50:00+00:00",
+          "exists": true
+        },
+        "90": {
+          "row_count": 2170309,
+          "min_time": "2020-01-02 01:10:00+00:00",
+          "max_time": "2025-11-20 17:50:00+00:00",
+          "exists": true
+        }
+      },
+      "parity_status": "PERFECT_PARITY"
+    },
+    {
+      "pair": "EUR_NZD",
+      "idx_table": {
+        "row_count": 2174512,
+        "min_time": "2020-01-01 22:00:00+00:00",
+        "max_time": "2025-11-20 17:50:00+00:00",
+        "exists": true
+      },
+      "bqx_table": {
+        "row_count": 2174512,
+        "min_time": "2020-01-01 22:00:00+00:00",
+        "max_time": "2025-11-20 17:50:00+00:00",
+        "exists": true
+      },
+      "lag_tables": {
+        "45": {
+          "row_count": 2163908,
+          "min_time": "2020-01-01 23:40:00+00:00",
+          "max_time": "2025-11-20 17:50:00+00:00",
+          "exists": true
+        },
+        "90": {
+          "row_count": 2167035,
+          "min_time": "2020-01-02 01:10:00+00:00",
+          "max_time": "2025-11-20 17:50:00+00:00",
+          "exists": true
+        }
+      },
+      "regime_tables": {
+        "45": {
+          "row_count": 2163908,
+          "min_time": "2020-01-01 23:40:00+00:00",
+          "max_time": "2025-11-20 17:50:00+00:00",
+          "exists": true
+        },
+        "90": {
+          "row_count": 2167035,
+          "min_time": "2020-01-02 01:10:00+00:00",
+          "max_time": "2025-11-20 17:50:00+00:00",
+          "exists": true
+        }
+      },
+      "parity_status": "PERFECT_PARITY"
+    },
+    {
+      "pair": "GBP_JPY",
+      "idx_table": {
+        "row_count": 2179062,
+        "min_time": "2020-01-01 22:00:00+00:00",
+        "max_time": "2025-11-20 04:49:00+00:00",
+        "exists": true
+      },
+      "bqx_table": {
+        "row_count": 2179062,
+        "min_time": "2020-01-01 22:00:00+00:00",
+        "max_time": "2025-11-20 04:49:00+00:00",
+        "exists": true
+      },
+      "lag_tables": {
+        "45": {
+          "row_count": 2168869,
+          "min_time": "2020-01-01 23:35:00+00:00",
+          "max_time": "2025-11-20 04:49:00+00:00",
+          "exists": true
+        },
+        "90": {
+          "row_count": 2171702,
+          "min_time": "2020-01-02 01:06:00+00:00",
+          "max_time": "2025-11-20 04:49:00+00:00",
+          "exists": true
+        }
+      },
+      "regime_tables": {
+        "45": {
+          "row_count": 2168869,
+          "min_time": "2020-01-01 23:35:00+00:00",
+          "max_time": "2025-11-20 04:49:00+00:00",
+          "exists": true
+        },
+        "90": {
+          "row_count": 2171702,
+          "min_time": "2020-01-02 01:06:00+00:00",
+          "max_time": "2025-11-20 04:49:00+00:00",
+          "exists": true
+        }
+      },
+      "parity_status": "PERFECT_PARITY"
+    },
+    {
+      "pair": "GBP_CHF",
+      "idx_table": {
+        "row_count": 2073450,
+        "min_time": "2020-01-01 22:00:00+00:00",
+        "max_time": "2025-11-20 17:50:00+00:00",
+        "exists": true
+      },
+      "bqx_table": {
+        "row_count": 2073450,
+        "min_time": "2020-01-01 22:00:00+00:00",
+        "max_time": "2025-11-20 17:50:00+00:00",
+        "exists": true
+      },
+      "lag_tables": {
+        "45": {
+          "row_count": 2054496,
+          "min_time": "2020-01-01 23:47:00+00:00",
+          "max_time": "2025-11-20 17:50:00+00:00",
+          "exists": true
+        },
+        "90": {
+          "row_count": 2059919,
+          "min_time": "2020-01-02 01:17:00+00:00",
+          "max_time": "2025-11-20 17:50:00+00:00",
+          "exists": true
+        }
+      },
+      "regime_tables": {
+        "45": {
+          "row_count": 2054496,
+          "min_time": "2020-01-01 23:47:00+00:00",
+          "max_time": "2025-11-20 17:50:00+00:00",
+          "exists": true
+        },
+        "90": {
+          "row_count": 2059919,
+          "min_time": "2020-01-02 01:17:00+00:00",
+          "max_time": "2025-11-20 17:50:00+00:00",
+          "exists": true
+        }
+      },
+      "parity_status": "PERFECT_PARITY"
+    },
+    {
+      "pair": "GBP_AUD",
+      "idx_table": {
+        "row_count": 2180941,
+        "min_time": "2020-01-01 22:01:00+00:00",
+        "max_time": "2025-11-20 17:50:00+00:00",
+        "exists": true
+      },
+      "bqx_table": {
+        "row_count": 2180941,
+        "min_time": "2020-01-01 22:01:00+00:00",
+        "max_time": "2025-11-20 17:50:00+00:00",
+        "exists": true
+      },
+      "lag_tables": {
+        "45": {
+          "row_count": 2171265,
+          "min_time": "2020-01-01 23:40:00+00:00",
+          "max_time": "2025-11-20 17:50:00+00:00",
+          "exists": true
+        },
+        "90": {
+          "row_count": 2173762,
+          "min_time": "2020-01-02 01:10:00+00:00",
+          "max_time": "2025-11-20 17:50:00+00:00",
+          "exists": true
+        }
+      },
+      "regime_tables": {
+        "45": {
+          "row_count": 2171265,
+          "min_time": "2020-01-01 23:40:00+00:00",
+          "max_time": "2025-11-20 17:50:00+00:00",
+          "exists": true
+        },
+        "90": {
+          "row_count": 2173762,
+          "min_time": "2020-01-02 01:10:00+00:00",
+          "max_time": "2025-11-20 17:50:00+00:00",
+          "exists": true
+        }
+      },
+      "parity_status": "PERFECT_PARITY"
+    },
+    {
+      "pair": "GBP_CAD",
+      "idx_table": {
+        "row_count": 2187293,
+        "min_time": "2020-01-01 22:00:00+00:00",
+        "max_time": "2025-11-20 17:50:00+00:00",
+        "exists": true
+      },
+      "bqx_table": {
+        "row_count": 2187293,
+        "min_time": "2020-01-01 22:00:00+00:00",
+        "max_time": "2025-11-20 17:50:00+00:00",
+        "exists": true
+      },
+      "lag_tables": {
+        "45": {
+          "row_count": 2173187,
+          "min_time": "2020-01-01 23:40:00+00:00",
+          "max_time": "2025-11-20 17:50:00+00:00",
+          "exists": true
+        },
+        "90": {
+          "row_count": 2177189,
+          "min_time": "2020-01-02 01:10:00+00:00",
+          "max_time": "2025-11-20 17:50:00+00:00",
+          "exists": true
+        }
+      },
+      "regime_tables": {
+        "45": {
+          "row_count": 2173187,
+          "min_time": "2020-01-01 23:40:00+00:00",
+          "max_time": "2025-11-20 17:50:00+00:00",
+          "exists": true
+        },
+        "90": {
+          "row_count": 2177189,
+          "min_time": "2020-01-02 01:10:00+00:00",
+          "max_time": "2025-11-20 17:50:00+00:00",
+          "exists": true
+        }
+      },
+      "parity_status": "PERFECT_PARITY"
+    },
+    {
+      "pair": "GBP_NZD",
+      "idx_table": {
+        "row_count": 2167456,
+        "min_time": "2020-01-01 22:01:00+00:00",
+        "max_time": "2025-11-20 17:50:00+00:00",
+        "exists": true
+      },
+      "bqx_table": {
+        "row_count": 2167456,
+        "min_time": "2020-01-01 22:01:00+00:00",
+        "max_time": "2025-11-20 17:50:00+00:00",
+        "exists": true
+      },
+      "lag_tables": {
+        "45": {
+          "row_count": 2158268,
+          "min_time": "2020-01-01 23:50:00+00:00",
+          "max_time": "2025-11-20 17:50:00+00:00",
+          "exists": true
+        },
+        "90": {
+          "row_count": 2160684,
+          "min_time": "2020-01-02 01:20:00+00:00",
+          "max_time": "2025-11-20 17:50:00+00:00",
+          "exists": true
+        }
+      },
+      "regime_tables": {
+        "45": {
+          "row_count": 2158268,
+          "min_time": "2020-01-01 23:50:00+00:00",
+          "max_time": "2025-11-20 17:50:00+00:00",
+          "exists": true
+        },
+        "90": {
+          "row_count": 2160684,
+          "min_time": "2020-01-02 01:20:00+00:00",
+          "max_time": "2025-11-20 17:50:00+00:00",
+          "exists": true
+        }
+      },
+      "parity_status": "PERFECT_PARITY"
+    },
+    {
+      "pair": "AUD_JPY",
+      "idx_table": {
+        "row_count": 2188365,
+        "min_time": "2020-01-01 22:00:00+00:00",
+        "max_time": "2025-11-20 05:11:00+00:00",
+        "exists": true
+      },
+      "bqx_table": {
+        "row_count": 2188365,
+        "min_time": "2020-01-01 22:00:00+00:00",
+        "max_time": "2025-11-20 05:11:00+00:00",
+        "exists": true
+      },
+      "lag_tables": {
+        "45": {
+          "row_count": 2172956,
+          "min_time": "2020-01-01 23:31:00+00:00",
+          "max_time": "2025-11-20 05:11:00+00:00",
+          "exists": true
+        },
+        "90": {
+          "row_count": 2177367,
+          "min_time": "2020-01-02 01:01:00+00:00",
+          "max_time": "2025-11-20 05:11:00+00:00",
+          "exists": true
+        }
+      },
+      "regime_tables": {
+        "45": {
+          "row_count": 2172956,
+          "min_time": "2020-01-01 23:31:00+00:00",
+          "max_time": "2025-11-20 05:11:00+00:00",
+          "exists": true
+        },
+        "90": {
+          "row_count": 2177367,
+          "min_time": "2020-01-02 01:01:00+00:00",
+          "max_time": "2025-11-20 05:11:00+00:00",
+          "exists": true
+        }
+      },
+      "parity_status": "PERFECT_PARITY"
+    },
+    {
+      "pair": "AUD_CHF",
+      "idx_table": {
+        "row_count": 2144380,
+        "min_time": "2020-01-01 22:01:00+00:00",
+        "max_time": "2025-11-20 17:50:00+00:00",
+        "exists": true
+      },
+      "bqx_table": {
+        "row_count": 2144380,
+        "min_time": "2020-01-01 22:01:00+00:00",
+        "max_time": "2025-11-20 17:50:00+00:00",
+        "exists": true
+      },
+      "lag_tables": {
+        "45": {
+          "row_count": 2120002,
+          "min_time": "2020-01-01 23:52:00+00:00",
+          "max_time": "2025-11-20 17:50:00+00:00",
+          "exists": true
+        },
+        "90": {
+          "row_count": 2126566,
+          "min_time": "2020-01-02 01:27:00+00:00",
+          "max_time": "2025-11-20 17:50:00+00:00",
+          "exists": true
+        }
+      },
+      "regime_tables": {
+        "45": {
+          "row_count": 2120002,
+          "min_time": "2020-01-01 23:52:00+00:00",
+          "max_time": "2025-11-20 17:50:00+00:00",
+          "exists": true
+        },
+        "90": {
+          "row_count": 2126566,
+          "min_time": "2020-01-02 01:27:00+00:00",
+          "max_time": "2025-11-20 17:50:00+00:00",
+          "exists": true
+        }
+      },
+      "parity_status": "PERFECT_PARITY"
+    },
+    {
+      "pair": "AUD_CAD",
+      "idx_table": {
+        "row_count": 2173438,
+        "min_time": "2020-01-01 22:00:00+00:00",
+        "max_time": "2025-11-20 17:50:00+00:00",
+        "exists": true
+      },
+      "bqx_table": {
+        "row_count": 2173438,
+        "min_time": "2020-01-01 22:00:00+00:00",
+        "max_time": "2025-11-20 17:50:00+00:00",
+        "exists": true
+      },
+      "lag_tables": {
+        "45": {
+          "row_count": 2152000,
+          "min_time": "2020-01-01 23:34:00+00:00",
+          "max_time": "2025-11-20 17:50:00+00:00",
+          "exists": true
+        },
+        "90": {
+          "row_count": 2158152,
+          "min_time": "2020-01-02 01:04:00+00:00",
+          "max_time": "2025-11-20 17:50:00+00:00",
+          "exists": true
+        }
+      },
+      "regime_tables": {
+        "45": {
+          "row_count": 2152000,
+          "min_time": "2020-01-01 23:34:00+00:00",
+          "max_time": "2025-11-20 17:50:00+00:00",
+          "exists": true
+        },
+        "90": {
+          "row_count": 2158152,
+          "min_time": "2020-01-02 01:04:00+00:00",
+          "max_time": "2025-11-20 17:50:00+00:00",
+          "exists": true
+        }
+      },
+      "parity_status": "PERFECT_PARITY"
+    },
+    {
+      "pair": "AUD_NZD",
+      "idx_table": {
+        "row_count": 2167325,
+        "min_time": "2020-01-01 22:00:00+00:00",
+        "max_time": "2025-11-20 17:50:00+00:00",
+        "exists": true
+      },
+      "bqx_table": {
+        "row_count": 2167325,
+        "min_time": "2020-01-01 22:00:00+00:00",
+        "max_time": "2025-11-20 17:50:00+00:00",
+        "exists": true
+      },
+      "lag_tables": {
+        "45": {
+          "row_count": 2143011,
+          "min_time": "2020-01-01 23:44:00+00:00",
+          "max_time": "2025-11-20 17:50:00+00:00",
+          "exists": true
+        },
+        "90": {
+          "row_count": 2149696,
+          "min_time": "2020-01-02 01:14:00+00:00",
+          "max_time": "2025-11-20 17:50:00+00:00",
+          "exists": true
+        }
+      },
+      "regime_tables": {
+        "45": {
+          "row_count": 2143011,
+          "min_time": "2020-01-01 23:44:00+00:00",
+          "max_time": "2025-11-20 17:50:00+00:00",
+          "exists": true
+        },
+        "90": {
+          "row_count": 2149696,
+          "min_time": "2020-01-02 01:14:00+00:00",
+          "max_time": "2025-11-20 17:50:00+00:00",
+          "exists": true
+        }
+      },
+      "parity_status": "PERFECT_PARITY"
+    },
+    {
+      "pair": "NZD_JPY",
+      "idx_table": {
+        "row_count": 2178606,
+        "min_time": "2020-01-01 22:00:00+00:00",
+        "max_time": "2025-11-20 05:32:00+00:00",
+        "exists": true
+      },
+      "bqx_table": {
+        "row_count": 2178606,
+        "min_time": "2020-01-01 22:00:00+00:00",
+        "max_time": "2025-11-20 05:32:00+00:00",
+        "exists": true
+      },
+      "lag_tables": {
+        "45": {
+          "row_count": 2162359,
+          "min_time": "2020-01-01 23:32:00+00:00",
+          "max_time": "2025-11-20 05:32:00+00:00",
+          "exists": true
+        },
+        "90": {
+          "row_count": 2167053,
+          "min_time": "2020-01-02 01:02:00+00:00",
+          "max_time": "2025-11-20 05:32:00+00:00",
+          "exists": true
+        }
+      },
+      "regime_tables": {
+        "45": {
+          "row_count": 2162359,
+          "min_time": "2020-01-01 23:32:00+00:00",
+          "max_time": "2025-11-20 05:32:00+00:00",
+          "exists": true
+        },
+        "90": {
+          "row_count": 2167053,
+          "min_time": "2020-01-02 01:02:00+00:00",
+          "max_time": "2025-11-20 05:32:00+00:00",
+          "exists": true
+        }
+      },
+      "parity_status": "PERFECT_PARITY"
+    },
+    {
+      "pair": "NZD_CHF",
+      "idx_table": {
+        "row_count": 2133409,
+        "min_time": "2020-01-01 22:01:00+00:00",
+        "max_time": "2025-11-20 19:54:00+00:00",
+        "exists": true
+      },
+      "bqx_table": {
+        "row_count": 2133409,
+        "min_time": "2020-01-01 22:01:00+00:00",
+        "max_time": "2025-11-20 19:54:00+00:00",
+        "exists": true
+      },
+      "lag_tables": {
+        "45": {
+          "row_count": 2108563,
+          "min_time": "2020-01-02 00:03:00+00:00",
+          "max_time": "2025-11-20 19:54:00+00:00",
+          "exists": true
+        },
+        "90": {
+          "row_count": 2115360,
+          "min_time": "2020-01-02 01:37:00+00:00",
+          "max_time": "2025-11-20 19:54:00+00:00",
+          "exists": true
+        }
+      },
+      "regime_tables": {
+        "45": {
+          "row_count": 2108563,
+          "min_time": "2020-01-02 00:03:00+00:00",
+          "max_time": "2025-11-20 19:54:00+00:00",
+          "exists": true
+        },
+        "90": {
+          "row_count": 2115360,
+          "min_time": "2020-01-02 01:37:00+00:00",
+          "max_time": "2025-11-20 19:54:00+00:00",
+          "exists": true
+        }
+      },
+      "parity_status": "PERFECT_PARITY"
+    },
+    {
+      "pair": "NZD_CAD",
+      "idx_table": {
+        "row_count": 2166855,
+        "min_time": "2020-01-01 22:00:00+00:00",
+        "max_time": "2025-11-20 19:54:00+00:00",
+        "exists": true
+      },
+      "bqx_table": {
+        "row_count": 2166855,
+        "min_time": "2020-01-01 22:00:00+00:00",
+        "max_time": "2025-11-20 19:54:00+00:00",
+        "exists": true
+      },
+      "lag_tables": {
+        "45": {
+          "row_count": 2146782,
+          "min_time": "2020-01-01 23:40:00+00:00",
+          "max_time": "2025-11-20 19:54:00+00:00",
+          "exists": true
+        },
+        "90": {
+          "row_count": 2152488,
+          "min_time": "2020-01-02 01:10:00+00:00",
+          "max_time": "2025-11-20 19:54:00+00:00",
+          "exists": true
+        }
+      },
+      "regime_tables": {
+        "45": {
+          "row_count": 2146782,
+          "min_time": "2020-01-01 23:40:00+00:00",
+          "max_time": "2025-11-20 19:54:00+00:00",
+          "exists": true
+        },
+        "90": {
+          "row_count": 2152488,
+          "min_time": "2020-01-02 01:10:00+00:00",
+          "max_time": "2025-11-20 19:54:00+00:00",
+          "exists": true
+        }
+      },
+      "parity_status": "PERFECT_PARITY"
+    },
+    {
+      "pair": "CAD_JPY",
+      "idx_table": {
+        "row_count": 2182203,
+        "min_time": "2020-01-01 22:00:00+00:00",
+        "max_time": "2025-11-20 05:54:00+00:00",
+        "exists": true
+      },
+      "bqx_table": {
+        "row_count": 2182203,
+        "min_time": "2020-01-01 22:00:00+00:00",
+        "max_time": "2025-11-20 05:54:00+00:00",
+        "exists": true
+      },
+      "lag_tables": {
+        "45": {
+          "row_count": 2165595,
+          "min_time": "2020-01-01 23:35:00+00:00",
+          "max_time": "2025-11-20 05:54:00+00:00",
+          "exists": true
+        },
+        "90": {
+          "row_count": 2170275,
+          "min_time": "2020-01-02 01:05:00+00:00",
+          "max_time": "2025-11-20 05:54:00+00:00",
+          "exists": true
+        }
+      },
+      "regime_tables": {
+        "45": {
+          "row_count": 2165595,
+          "min_time": "2020-01-01 23:35:00+00:00",
+          "max_time": "2025-11-20 05:54:00+00:00",
+          "exists": true
+        },
+        "90": {
+          "row_count": 2170275,
+          "min_time": "2020-01-02 01:05:00+00:00",
+          "max_time": "2025-11-20 05:54:00+00:00",
+          "exists": true
+        }
+      },
+      "parity_status": "PERFECT_PARITY"
+    },
+    {
+      "pair": "CAD_CHF",
+      "idx_table": {
+        "row_count": 2023467,
+        "min_time": "2020-01-01 22:01:00+00:00",
+        "max_time": "2025-11-20 19:54:00+00:00",
+        "exists": true
+      },
+      "bqx_table": {
+        "row_count": 2023467,
+        "min_time": "2020-01-01 22:01:00+00:00",
+        "max_time": "2025-11-20 19:54:00+00:00",
+        "exists": true
+      },
+      "lag_tables": {
+        "45": {
+          "row_count": 1995423,
+          "min_time": "2020-01-02 00:27:00+00:00",
+          "max_time": "2025-11-20 19:54:00+00:00",
+          "exists": true
+        },
+        "90": {
+          "row_count": 2003355,
+          "min_time": "2020-01-02 02:13:00+00:00",
+          "max_time": "2025-11-20 19:54:00+00:00",
+          "exists": true
+        }
+      },
+      "regime_tables": {
+        "45": {
+          "row_count": 1995423,
+          "min_time": "2020-01-02 00:27:00+00:00",
+          "max_time": "2025-11-20 19:54:00+00:00",
+          "exists": true
+        },
+        "90": {
+          "row_count": 2003355,
+          "min_time": "2020-01-02 02:13:00+00:00",
+          "max_time": "2025-11-20 19:54:00+00:00",
+          "exists": true
+        }
+      },
+      "parity_status": "PERFECT_PARITY"
+    },
+    {
+      "pair": "CHF_JPY",
+      "idx_table": {
+        "row_count": 1984403,
+        "min_time": "2020-01-01 22:00:00+00:00",
+        "max_time": "2025-11-20 06:17:00+00:00",
+        "exists": true
+      },
+      "bqx_table": {
+        "row_count": 1984403,
+        "min_time": "2020-01-01 22:00:00+00:00",
+        "max_time": "2025-11-20 06:17:00+00:00",
+        "exists": true
+      },
+      "lag_tables": {
+        "45": {
+          "row_count": 1971701,
+          "min_time": "2020-01-01 23:51:00+00:00",
+          "max_time": "2025-11-20 06:17:00+00:00",
+          "exists": true
+        },
+        "90": {
+          "row_count": 1975282,
+          "min_time": "2020-01-02 01:21:00+00:00",
+          "max_time": "2025-11-20 06:17:00+00:00",
+          "exists": true
+        }
+      },
+      "regime_tables": {
+        "45": {
+          "row_count": 1971701,
+          "min_time": "2020-01-01 23:51:00+00:00",
+          "max_time": "2025-11-20 06:17:00+00:00",
+          "exists": true
+        },
+        "90": {
+          "row_count": 1975282,
+          "min_time": "2020-01-02 01:21:00+00:00",
+          "max_time": "2025-11-20 06:17:00+00:00",
+          "exists": true
+        }
+      },
+      "parity_status": "PERFECT_PARITY"
+    }
+  ]
+}

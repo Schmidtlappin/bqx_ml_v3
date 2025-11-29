@@ -257,7 +257,7 @@
       "/docs/PHASE_25B_REDO_TARGET_CORRELATION.md",
       "/docs/SESSION_STATUS_REPORT.md",
       "/docs/CLOUD_RUN_BOX_BACKUP.md",
-      "/docs/FEATURE_TABLE_DIRECTORY.md"
+      "/mandate/FEATURE_TABLE_DIRECTORY.md"
     ],
     "scripts": [
       "/scripts/gap_remediation_stages.py",

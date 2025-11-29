@@ -1,0 +1,402 @@
+{
+  "task": "Phase 2A - REGRESSION Feature Generation",
+  "timestamp": "2025-11-28T19:26:56.822620",
+  "total_tables": 56,
+  "successful": 56,
+  "failed": 0,
+  "success_rate_pct": 100.0,
+  "results": [
+    {
+      "pair": "EUR_USD",
+      "variant": "bqx",
+      "table": "reg_bqx_eurusd",
+      "status": "SUCCESS",
+      "rows": 2164285
+    },
+    {
+      "pair": "EUR_USD",
+      "variant": "idx",
+      "table": "reg_eurusd",
+      "status": "SUCCESS",
+      "rows": 2164330
+    },
+    {
+      "pair": "USD_JPY",
+      "variant": "bqx",
+      "table": "reg_bqx_usdjpy",
+      "status": "SUCCESS",
+      "rows": 2174083
+    },
+    {
+      "pair": "USD_JPY",
+      "variant": "idx",
+      "table": "reg_usdjpy",
+      "status": "SUCCESS",
+      "rows": 2174128
+    },
+    {
+      "pair": "GBP_USD",
+      "variant": "idx",
+      "table": "reg_gbpusd",
+      "status": "SUCCESS",
+      "rows": 1972702
+    },
+    {
+      "pair": "GBP_USD",
+      "variant": "bqx",
+      "table": "reg_bqx_gbpusd",
+      "status": "SUCCESS",
+      "rows": 1972657
+    },
+    {
+      "pair": "USD_CHF",
+      "variant": "bqx",
+      "table": "reg_bqx_usdchf",
+      "status": "SUCCESS",
+      "rows": 2049168
+    },
+    {
+      "pair": "USD_CHF",
+      "variant": "idx",
+      "table": "reg_usdchf",
+      "status": "SUCCESS",
+      "rows": 2049213
+    },
+    {
+      "pair": "USD_CAD",
+      "variant": "idx",
+      "table": "reg_usdcad",
+      "status": "SUCCESS",
+      "rows": 2155311
+    },
+    {
+      "pair": "AUD_USD",
+      "variant": "idx",
+      "table": "reg_audusd",
+      "status": "SUCCESS",
+      "rows": 2121200
+    },
+    {
+      "pair": "USD_CAD",
+      "variant": "bqx",
+      "table": "reg_bqx_usdcad",
+      "status": "SUCCESS",
+      "rows": 2155266
+    },
+    {
+      "pair": "AUD_USD",
+      "variant": "bqx",
+      "table": "reg_bqx_audusd",
+      "status": "SUCCESS",
+      "rows": 2121155
+    },
+    {
+      "pair": "NZD_USD",
+      "variant": "idx",
+      "table": "reg_nzdusd",
+      "status": "SUCCESS",
+      "rows": 2126991
+    },
+    {
+      "pair": "NZD_USD",
+      "variant": "bqx",
+      "table": "reg_bqx_nzdusd",
+      "status": "SUCCESS",
+      "rows": 2126946
+    },
+    {
+      "pair": "EUR_JPY",
+      "variant": "idx",
+      "table": "reg_eurjpy",
+      "status": "SUCCESS",
+      "rows": 2155694
+    },
+    {
+      "pair": "EUR_GBP",
+      "variant": "idx",
+      "table": "reg_eurgbp",
+      "status": "SUCCESS",
+      "rows": 2132051
+    },
+    {
+      "pair": "EUR_GBP",
+      "variant": "bqx",
+      "table": "reg_bqx_eurgbp",
+      "status": "SUCCESS",
+      "rows": 2132006
+    },
+    {
+      "pair": "EUR_CHF",
+      "variant": "idx",
+      "table": "reg_eurchf",
+      "status": "SUCCESS",
+      "rows": 2104085
+    },
+    {
+      "pair": "EUR_CHF",
+      "variant": "bqx",
+      "table": "reg_bqx_eurchf",
+      "status": "SUCCESS",
+      "rows": 2104040
+    },
+    {
+      "pair": "EUR_AUD",
+      "variant": "idx",
+      "table": "reg_euraud",
+      "status": "SUCCESS",
+      "rows": 2169762
+    },
+    {
+      "pair": "EUR_JPY",
+      "variant": "bqx",
+      "table": "reg_bqx_eurjpy",
+      "status": "SUCCESS",
+      "rows": 2155649
+    },
+    {
+      "pair": "EUR_CAD",
+      "variant": "idx",
+      "table": "reg_eurcad",
+      "status": "SUCCESS",
+      "rows": 2182332
+    },
+    {
+      "pair": "EUR_AUD",
+      "variant": "bqx",
+      "table": "reg_bqx_euraud",
+      "status": "SUCCESS",
+      "rows": 2169717
+    },
+    {
+      "pair": "EUR_CAD",
+      "variant": "bqx",
+      "table": "reg_bqx_eurcad",
+      "status": "SUCCESS",
+      "rows": 2182287
+    },
+    {
+      "pair": "GBP_JPY",
+      "variant": "bqx",
+      "table": "reg_bqx_gbpjpy",
+      "status": "SUCCESS",
+      "rows": 2179017
+    },
+    {
+      "pair": "EUR_NZD",
+      "variant": "bqx",
+      "table": "reg_bqx_eurnzd",
+      "status": "SUCCESS",
+      "rows": 2174467
+    },
+    {
+      "pair": "EUR_NZD",
+      "variant": "idx",
+      "table": "reg_eurnzd",
+      "status": "SUCCESS",
+      "rows": 2174512
+    },
+    {
+      "pair": "GBP_CHF",
+      "variant": "idx",
+      "table": "reg_gbpchf",
+      "status": "SUCCESS",
+      "rows": 2073450
+    },
+    {
+      "pair": "GBP_JPY",
+      "variant": "idx",
+      "table": "reg_gbpjpy",
+      "status": "SUCCESS",
+      "rows": 2179062
+    },
+    {
+      "pair": "GBP_AUD",
+      "variant": "idx",
+      "table": "reg_gbpaud",
+      "status": "SUCCESS",
+      "rows": 2180941
+    },
+    {
+      "pair": "GBP_CHF",
+      "variant": "bqx",
+      "table": "reg_bqx_gbpchf",
+      "status": "SUCCESS",
+      "rows": 2073405
+    },
+    {
+      "pair": "GBP_CAD",
+      "variant": "idx",
+      "table": "reg_gbpcad",
+      "status": "SUCCESS",
+      "rows": 2187293
+    },
+    {
+      "pair": "GBP_AUD",
+      "variant": "bqx",
+      "table": "reg_bqx_gbpaud",
+      "status": "SUCCESS",
+      "rows": 2180896
+    },
+    {
+      "pair": "GBP_NZD",
+      "variant": "idx",
+      "table": "reg_gbpnzd",
+      "status": "SUCCESS",
+      "rows": 2167456
+    },
+    {
+      "pair": "GBP_NZD",
+      "variant": "bqx",
+      "table": "reg_bqx_gbpnzd",
+      "status": "SUCCESS",
+      "rows": 2167411
+    },
+    {
+      "pair": "GBP_CAD",
+      "variant": "bqx",
+      "table": "reg_bqx_gbpcad",
+      "status": "SUCCESS",
+      "rows": 2187248
+    },
+    {
+      "pair": "AUD_JPY",
+      "variant": "idx",
+      "table": "reg_audjpy",
+      "status": "SUCCESS",
+      "rows": 2188365
+    },
+    {
+      "pair": "AUD_CHF",
+      "variant": "bqx",
+      "table": "reg_bqx_audchf",
+      "status": "SUCCESS",
+      "rows": 2144335
+    },
+    {
+      "pair": "AUD_JPY",
+      "variant": "bqx",
+      "table": "reg_bqx_audjpy",
+      "status": "SUCCESS",
+      "rows": 2188320
+    },
+    {
+      "pair": "AUD_CAD",
+      "variant": "bqx",
+      "table": "reg_bqx_audcad",
+      "status": "SUCCESS",
+      "rows": 2173393
+    },
+    {
+      "pair": "AUD_CHF",
+      "variant": "idx",
+      "table": "reg_audchf",
+      "status": "SUCCESS",
+      "rows": 2144380
+    },
+    {
+      "pair": "AUD_NZD",
+      "variant": "idx",
+      "table": "reg_audnzd",
+      "status": "SUCCESS",
+      "rows": 2167325
+    },
+    {
+      "pair": "AUD_NZD",
+      "variant": "bqx",
+      "table": "reg_bqx_audnzd",
+      "status": "SUCCESS",
+      "rows": 2167280
+    },
+    {
+      "pair": "AUD_CAD",
+      "variant": "idx",
+      "table": "reg_audcad",
+      "status": "SUCCESS",
+      "rows": 2173438
+    },
+    {
+      "pair": "NZD_JPY",
+      "variant": "idx",
+      "table": "reg_nzdjpy",
+      "status": "SUCCESS",
+      "rows": 2178606
+    },
+    {
+      "pair": "NZD_CHF",
+      "variant": "idx",
+      "table": "reg_nzdchf",
+      "status": "SUCCESS",
+      "rows": 2133409
+    },
+    {
+      "pair": "NZD_JPY",
+      "variant": "bqx",
+      "table": "reg_bqx_nzdjpy",
+      "status": "SUCCESS",
+      "rows": 2178561
+    },
+    {
+      "pair": "NZD_CHF",
+      "variant": "bqx",
+      "table": "reg_bqx_nzdchf",
+      "status": "SUCCESS",
+      "rows": 2133364
+    },
+    {
+      "pair": "NZD_CAD",
+      "variant": "bqx",
+      "table": "reg_bqx_nzdcad",
+      "status": "SUCCESS",
+      "rows": 2166810
+    },
+    {
+      "pair": "NZD_CAD",
+      "variant": "idx",
+      "table": "reg_nzdcad",
+      "status": "SUCCESS",
+      "rows": 2166855
+    },
+    {
+      "pair": "CAD_JPY",
+      "variant": "bqx",
+      "table": "reg_bqx_cadjpy",
+      "status": "SUCCESS",
+      "rows": 2182158
+    },
+    {
+      "pair": "CAD_CHF",
+      "variant": "idx",
+      "table": "reg_cadchf",
+      "status": "SUCCESS",
+      "rows": 2023467
+    },
+    {
+      "pair": "CHF_JPY",
+      "variant": "bqx",
+      "table": "reg_bqx_chfjpy",
+      "status": "SUCCESS",
+      "rows": 1984358
+    },
+    {
+      "pair": "CAD_CHF",
+      "variant": "bqx",
+      "table": "reg_bqx_cadchf",
+      "status": "SUCCESS",
+      "rows": 2023422
+    },
+    {
+      "pair": "CHF_JPY",
+      "variant": "idx",
+      "table": "reg_chfjpy",
+      "status": "SUCCESS",
+      "rows": 1984403
+    },
+    {
+      "pair": "CAD_JPY",
+      "variant": "idx",
+      "table": "reg_cadjpy",
+      "status": "SUCCESS",
+      "rows": 2182203
+    }
+  ]
+}
