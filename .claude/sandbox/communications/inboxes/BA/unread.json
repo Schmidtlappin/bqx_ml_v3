@@ -1,12 +1,21 @@
 {
   "agent_id": "BA",
-  "unread_messages": [],
-  "last_checked": "2025-11-29T17:20:00Z",
-  "notes": "Phase 3+4 COMPLETE. All 112 tables created. Awaiting CE instructions.",
-  "current_phase": "AWAITING_INSTRUCTIONS",
-  "current_task": "Deduplication and cleanup pending CE confirmation",
-  "next_report_due": "On request",
-  "last_report_sent": "20251129_1720_BA-to-CE_PHASE3_4_COMPLETE.md",
+  "unread_messages": [
+    {
+      "id": "20251129_2100_CE-to-BA_POLYNOMIAL_REMEDIATION_CONFIRMED",
+      "from": "CE",
+      "subject": "POLYNOMIAL REGRESSION REMEDIATION CONFIRMED",
+      "priority": "CRITICAL",
+      "received_at": "2025-11-29T21:00:00Z",
+      "file": "20251129_2100_CE-to-BA_POLYNOMIAL_REMEDIATION_CONFIRMED.md"
+    }
+  ],
+  "last_checked": "2025-11-29T21:00:00Z",
+  "notes": "NEW DIRECTIVE: Polynomial regression feature implementation with USER MANDATE v2.1 formulas",
+  "current_phase": "POLYNOMIAL_REGRESSION_REMEDIATION",
+  "current_task": "Implement polynomial features with endpoint evaluation (492 tables)",
+  "next_report_due": "On completion of Phase 1 (56 primary tables)",
+  "last_report_sent": "20251129_1820_BA-to-CE_PHASE34_REMEDIATED_COMPLETE.md",
   "completed_directives": {
     "phase_25b": {
       "status": "COMPLETE",
@@ -45,21 +54,44 @@
       }
     },
     "phase34_div_mrt_tmp": {
-      "status": "COMPLETE",
-      "completed_at": "2025-11-29T17:20:00Z",
+      "status": "REMEDIATED_COMPLETE",
+      "completed_at": "2025-11-29T18:20:00Z",
       "results": {
-        "total_tables": 112,
-        "types": 4,
+        "total_tables": 168,
+        "types": 6,
         "tables_per_type": 28,
         "validation_passed": true,
-        "table_types": ["div_", "div_bqx_", "mrt_bqx_", "tmp_"]
+        "table_types": ["div_", "div_bqx_", "mrt_", "mrt_bqx_", "tmp_", "tmp_bqx_"],
+        "remediation_note": "Gap identified and corrected: missing mrt_ (IDX) and tmp_bqx_ variants added"
       }
     }
   },
-  "active_directive": null,
+  "active_directive": {
+    "id": "polynomial_regression_remediation",
+    "title": "POLYNOMIAL REGRESSION FEATURE IMPLEMENTATION",
+    "priority": "CRITICAL",
+    "received_at": "2025-11-29T21:00:00Z",
+    "user_mandate": "v2.1 - AirTable MP02.P16.S01",
+    "scope": {
+      "primary_tables": 56,
+      "downstream_tables": 436,
+      "total_tables": 492,
+      "new_columns_per_window": 19,
+      "total_new_columns": 133
+    },
+    "key_formulas": {
+      "quad_term": "β₂ × W²",
+      "lin_term": "β₁ × W",
+      "const_term": "β₀",
+      "residual": "rate - (quad_term + lin_term + const_term)"
+    },
+    "applies_to": ["IDX (reg_{pair})", "BQX (reg_bqx_{pair})"]
+  },
   "pending_tasks": [
-    "Table deduplication",
-    "Process and artifact cleanup",
-    "Hold for CE instructions"
+    "Phase 1: Rebuild 56 primary reg_ tables with 203 columns",
+    "Phase 2: Rebuild 336 covariance tables",
+    "Phase 3: Rebuild 28 variance tables",
+    "Phase 4: Rebuild 68 CSI/triangular tables",
+    "Phase 5: Rebuild 4 market tables"
   ]
 }
