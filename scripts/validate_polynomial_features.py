@@ -152,7 +152,9 @@ def validate_all_tables(verbose: bool = False) -> dict:
         else:
             results["idx_incomplete"] += 1
             if verbose:
-                print(f"  ✗ {table_idx}: {result.get('error', f'Missing {result.get(\"missing_count\", \"?\")} columns')}")
+                missing = result.get("missing_count", "?")
+                err_msg = result.get('error', f'Missing {missing} columns')
+                print(f"  ✗ {table_idx}: {err_msg}")
 
         # BQX variant
         table_bqx = f"reg_bqx_{pair}"
@@ -166,7 +168,9 @@ def validate_all_tables(verbose: bool = False) -> dict:
         else:
             results["bqx_incomplete"] += 1
             if verbose:
-                print(f"  ✗ {table_bqx}: {result.get('error', f'Missing {result.get(\"missing_count\", \"?\")} columns')}")
+                missing = result.get("missing_count", "?")
+                err_msg = result.get('error', f'Missing {missing} columns')
+                print(f"  ✗ {table_bqx}: {err_msg}")
 
     total = len(PAIRS) * 2
     complete = results["idx_complete"] + results["bqx_complete"]
