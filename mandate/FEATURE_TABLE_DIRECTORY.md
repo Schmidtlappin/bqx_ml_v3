@@ -1,18 +1,27 @@
 # BQX ML V3 Feature Table Directory
 
-**Last Updated:** 2025-11-29
+**Last Updated:** 2025-12-07
 **Purpose:** Complete directory of all tables required for 100% feature matrix coverage
+**Status:** RECONCILED WITH CATALOG
 
 ---
 
 ## Executive Summary
 
-| Category | Required Tables | Current | Gap | Coverage |
-|----------|----------------|---------|-----|----------|
-| PRIMARY | 392 | 504 | 0 | 128.6% |
-| CORRELATION | 448 | 448 | 0 | 100.0% |
-| COVARIANCE | 2,352 | 554 | 1,798 | 23.6% |
-| **TOTAL** | **3,192** | **1,506** | **1,798** | **47.2%** |
+| Category | Required Tables | Actual | Status | Notes |
+|----------|----------------|--------|--------|-------|
+| PRIMARY (reg, agg, align, vol, mom) | 280 | 280 | ✓ MATCH | |
+| PRIMARY (reg_bqx polynomial variants) | 56 | 168 | ✓ EXCEEDS | +112 extra reg_bqx_ tables |
+| LAG (with window suffixes) | 112 | 112 | ✓ MATCH | Format: lag_{pair}_{window} |
+| REGIME | 56 | 112 | ✓ EXCEEDS | +56 IDX variants created |
+| CORRELATION (ETF) | 448 | 448 | ✓ MATCH | |
+| COVARIANCE | 2,352 | 2,352 | ✓ MATCH | Full matrix complete |
+| OSCILLATION (der, div, rev) | 168 | 168 | ✓ MATCH | |
+| OSCILLATION (cyc, ext) | 56 | 56 | ✓ MATCH | BQX-only by design |
+| OSCILLATION (mrt) | 28 | 56 | ✓ EXCEEDS | +28 IDX variants created |
+| CROSS-MARKET (csi, tri, var, mkt) | 438 | 438 | ✓ MATCH | |
+| TEMPORAL (tmp) | 28 | 0 | ❌ MISSING | Need to create |
+| **TOTAL** | **4,022** | **4,190** | **104%** | +168 excess, -28 missing |
 
 ---
 
@@ -537,23 +546,49 @@ tmp_cadjpy, tmp_cadchf, tmp_chfjpy
 
 ## 7. UPDATED TOTAL FEATURE TABLE REQUIREMENTS
 
-### Combined Summary - All Features
+### Combined Summary - All Features (Reconciled 2025-12-07)
 
-| Category | Required | Current | Gap | Coverage | Priority |
-|----------|----------|---------|-----|----------|----------|
-| **EXISTING** | | | | | |
-| PRIMARY | 392 | 504 | 0 | 128.6% | COMPLETE |
-| CORRELATION | 448 | 448 | 0 | 100.0% | COMPLETE |
-| COVARIANCE | 2,352 | 554 | 1,798 | 23.6% | IN_PROGRESS |
-| **ADDITIONAL (NEW)** | | | | | |
-| REVERSAL (rev_) | 56 | 0 | 56 | 0% | PHASE 1 |
-| DERIVATIVE (der_) | 56 | 0 | 56 | 0% | PHASE 1 |
-| EXTREMITY (ext_) | 28 | 0 | 28 | 0% | PHASE 2 |
-| CYCLE (cyc_) | 28 | 0 | 28 | 0% | PHASE 2 |
-| DIVERGENCE (div_) | 56 | 0 | 56 | 0% | PHASE 3 |
-| MEAN-REVERSION (mrt_) | 28 | 0 | 28 | 0% | PHASE 3 |
-| TEMPORAL (tmp_) | 28 | 0 | 28 | 0% | PHASE 4 |
-| **GRAND TOTAL** | **3,472** | **1,506** | **2,078** | **43.4%** | |
+| Category | Required | Actual | Status | Notes |
+|----------|----------|--------|--------|-------|
+| **PRIMARY FEATURES** | | | | |
+| reg_ (IDX) | 56 | 56 | ✓ MATCH | |
+| reg_ (BQX + polynomial) | 56 | 168 | ✓ EXCEEDS | +112 polynomial variants |
+| agg_, align_, vol_, mom_ | 224 | 224 | ✓ MATCH | 56 each |
+| lag_ | 112 | 112 | ✓ MATCH | Format: lag_{pair}_{window} |
+| regime_ | 56 | 112 | ✓ EXCEEDS | +56 IDX variants |
+| **CORRELATION** | | | | |
+| corr_etf (was corr_ibkr) | 448 | 448 | ✓ MATCH | Renamed to corr_etf in v2 |
+| **COVARIANCE** | | | | |
+| cov_* | 2,352 | 2,352 | ✓ MATCH | Full matrix |
+| **OSCILLATION PREDICTION** | | | | |
+| der_ (derivative) | 56 | 56 | ✓ MATCH | |
+| div_ (divergence) | 56 | 56 | ✓ MATCH | |
+| rev_ (reversal) | 56 | 56 | ✓ MATCH | |
+| cyc_ (cycle) | 28 | 28 | ✓ MATCH | BQX-only by design |
+| ext_ (extremity) | 28 | 28 | ✓ MATCH | BQX-only by design |
+| mrt_ (mean-reversion) | 28 | 56 | ✓ EXCEEDS | +28 IDX variants |
+| tmp_ (temporal) | 28 | 0 | ❌ MISSING | **REMEDIATION REQUIRED** |
+| **CROSS-MARKET** | | | | |
+| csi_ (currency strength) | 112 | 112 | ✓ MATCH | |
+| tri_ (triangular arb) | 194 | 194 | ✓ MATCH | |
+| var_ (variance) | 114 | 114 | ✓ MATCH | |
+| mkt_ (market-wide) | 18 | 18 | ✓ MATCH | |
+| **GRAND TOTAL** | **4,022** | **4,190** | **104%** | +168 excess, -28 missing |
+
+### Excess Tables Summary
+
+| Feature Type | Expected | Actual | Excess | Notes |
+|--------------|----------|--------|--------|-------|
+| reg_bqx_ | 56 | 168 | +112 | Additional polynomial degree variants |
+| regime_ | 56 | 112 | +56 | IDX variants exist (beyond BQX-only spec) |
+| mrt_ | 28 | 56 | +28 | IDX variants exist (beyond BQX-only spec) |
+| **TOTAL EXCESS** | - | - | **+196** | Exceeds mandate requirements |
+
+### Missing Tables - Remediation Required
+
+| Feature Type | Required | Actual | Missing | Status |
+|--------------|----------|--------|---------|--------|
+| tmp_ | 28 | 0 | 28 | **CREATE DURING MIGRATION** |
 
 ### Implementation Priority
 
