@@ -1,6 +1,7 @@
 # BQX ML V3 - Recommendation Rationale
 
 **Generated:** 2025-12-07
+**Updated:** 2025-12-07 (Added h15/h105 artifact investigation)
 **Context:** Analysis of horizon correlation findings and timing prediction results
 
 ---
@@ -34,9 +35,13 @@ Absolute correlations remain low (0.03-0.08 even in extremes). However, combinin
 
 ---
 
-## Recommendation 2: Horizon Strategy (h15 vs h105)
+## ~~Recommendation 2: Horizon Strategy (h15 vs h105)~~ INVALIDATED
 
-### Supporting Data
+### Status: INVALIDATED
+
+This recommendation has been **invalidated** based on deep-dive investigation conducted 2025-12-07.
+
+### Original Supporting Data
 
 | Horizon | Full Dataset Features | Extreme Features |
 |---------|----------------------|------------------|
@@ -44,27 +49,54 @@ Absolute correlations remain low (0.03-0.08 even in extremes). However, combinin
 | **h105** | 40,260 (44.2%) | 44,905 (48.4%) |
 | h30-h90 | 12,097 (13.3%) | 14,023 (15.1%) |
 
-### Original Rationale
+### Original Rationale (Now Disproven)
 
 - 87% of features perform best at EITHER h15 OR h105
 - Middle horizons (h30, h45, h60, h75, h90) only capture 13-15% of best features
 
-### Critical Update from Timing Analysis
+### Investigation Finding: Statistical Artifact
 
-**Finding:** h15↔h105 correlation = 1.0 (features predict identically across all horizons)
+The 87% h15/h105 clustering is NOT a real signal. It is a statistical artifact.
 
-This reveals a paradox:
-- Features cluster at extremes (h15, h105) but predict them identically
-- Features predict **MAGNITUDE** of movement, not **WHEN** it occurs
-- A move that peaks at h15 vs h105 looks the same to the features
+#### Evidence
+
+| Spread Category (h15 vs h105) | Features | Percentage |
+|-------------------------------|----------|------------|
+| **Trivial (<0.1%)** | 68,361 | **77.4%** |
+| Small (0.1-0.5%) | 18,828 | 21.3% |
+| Moderate (0.5-1%) | 1,176 | 1.3% |
+| Meaningful (>1%) | 5 | **0.0%** |
+
+**Key metric:** Average h15↔h105 spread = **0.0007 (0.07%)** - statistically meaningless.
+
+#### Root Cause
+
+1. **74.6% of features have MONOTONIC correlation patterns** - correlations either always increase or always decrease from h15→h105
+2. For monotonic patterns, the maximum is **mathematically forced** to an endpoint (h15 or h105)
+3. The "choice" between h15 and h105 is essentially a **coin flip on noise**
+
+#### Example
+
+```
+Feature: bqx_360 (CHFJPY) - classified as "best = h15"
+h15:  0.999936  ← "Best" (by 0.000006)
+h30:  0.999935
+h45:  0.999935
+h60:  0.999934
+h75:  0.999933
+h90:  0.999931
+h105: 0.999930
+
+Actual spread: 0.000006 (6 millionths) - meaningless difference
+```
 
 ### Revised Recommendation
 
-Training 7 separate horizon models is **redundant** (they learn the same signal).
+**Do NOT train separate models for h15 and h105.** All 7 horizons are redundant.
 
 Better strategy:
-1. Train ONE magnitude prediction model
-2. Separate attempt at timing classification (though timing showed weak correlation ~0.05)
+1. Train ONE magnitude prediction model (features predict magnitude, not timing)
+2. Accept that timing prediction has weak signal (~0.05 correlation)
 
 ---
 
@@ -131,12 +163,12 @@ Better strategy:
 
 ## Summary Matrix
 
-| Recommendation | Rationale | Confidence | Caveat |
-|----------------|-----------|------------|--------|
-| 1. Extreme-sensitive features | +200% lift proves regime-specific signal | HIGH | Low absolute correlation |
-| 2. h15/h105 focus | 87% of features cluster here | MEDIUM | h15↔h105 redundant (corr=1.0) |
-| 3. agg_* features | Perfect correlation in extremes | LOW | Possible data leakage/tautology |
-| 4. cov_* features | Large set with solid 0.27-0.33 corr | HIGH | Lower lift than volatile features |
+| Recommendation | Rationale | Status | Caveat |
+|----------------|-----------|--------|--------|
+| 1. Extreme-sensitive features | +200% lift proves regime-specific signal | **VALID** | Low absolute correlation |
+| 2. h15/h105 focus | ~~87% of features cluster here~~ | **INVALIDATED** | Artifact: spread <0.1% for 77% of features |
+| 3. agg_* features | Perfect correlation in extremes | **CAUTION** | Possible data leakage/tautology |
+| 4. cov_* features | Large set with solid 0.27-0.33 corr | **VALID** | Lower lift than volatile features |
 
 ---
 
@@ -166,12 +198,52 @@ Better strategy:
 
 ## Actionable Next Steps
 
-1. **Consolidate horizon models** - Reduce from 7 to 1-2 (h15 and h105 are equivalent)
+1. **Consolidate to ONE model** - All 7 horizon models are redundant (features predict magnitude, not timing)
 2. **Implement regime detection** - Use volatility classifier to detect extreme periods
 3. **Dynamic feature weighting** - Increase der/div/mrt/align/mom weights during extremes
 4. **Verify agg_* features** - Check for data leakage before relying on perfect correlation
-5. **Add range prediction** - Strong signal exists for predicting BQX oscillation magnitude
+5. **Add range prediction** - Strong signal exists for predicting BQX oscillation magnitude (0.81 correlation)
+
+---
+
+## Appendix: Investigation Methodology
+
+### How the Artifact Was Discovered
+
+1. **Initial suspicion:** 87% clustering at h15/h105 seemed too extreme
+2. **Spread analysis:** Calculated actual difference between h15 and h105 correlations
+3. **Finding:** 77.4% of features had spread <0.1% - statistically meaningless
+4. **Monotonicity check:** 74.6% of features showed monotonic patterns (always increasing or decreasing)
+5. **Conclusion:** Endpoint selection is forced by monotonicity + noise determines which endpoint "wins"
+
+### Queries Used
+
+```sql
+-- Spread categorization
+SELECT
+  CASE
+    WHEN ABS(corr_h15 - corr_h105) < 0.001 THEN 'trivial (<0.1%)'
+    WHEN ABS(corr_h15 - corr_h105) < 0.005 THEN 'small (0.1-0.5%)'
+    WHEN ABS(corr_h15 - corr_h105) < 0.01 THEN 'moderate (0.5-1%)'
+    ELSE 'meaningful (>1%)'
+  END as spread_category,
+  COUNT(*) as count
+FROM feature_correlations_by_horizon
+GROUP BY 1
+
+-- Monotonicity check
+SELECT
+  CASE
+    WHEN corr_h15 >= corr_h30 >= ... >= corr_h105 THEN 'monotonic_decreasing'
+    WHEN corr_h15 <= corr_h30 <= ... <= corr_h105 THEN 'monotonic_increasing'
+    ELSE 'non_monotonic'
+  END as pattern,
+  COUNT(*) as count
+FROM feature_correlations_by_horizon
+GROUP BY 1
+```
 
 ---
 
 *Document generated from BQX ML V3 Horizon Correlation and Timing Prediction Analysis*
+*Updated 2025-12-07 with h15/h105 artifact investigation*
