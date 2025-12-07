@@ -100,32 +100,52 @@ Better strategy:
 
 ---
 
-## Recommendation 3: Aggregation Features (`agg_*`)
+## ~~Recommendation 3: Aggregation Features (`agg_*`)~~ INVALIDATED - DATA BUG
 
-### Supporting Data
+### Status: INVALIDATED (2025-12-07)
+
+Investigation revealed the "perfect correlation" was caused by a **data bug**, not a real signal.
+
+### Original Supporting Data (NOW KNOWN TO BE INVALID)
 
 | Dataset | Top Features | Correlation |
 |---------|--------------|-------------|
 | Full | reg_ci_lower_1440, reg_mean_360 | 0.9999 |
 | **Extreme** | **agg_mean_720, agg_min_720, agg_max_720** | **1.0000** |
 
-### Rationale
+### Investigation Finding: Data Bug in targets_* Tables
 
-- `agg_*` features show **perfect correlation** (1.0) in extreme periods
-- These are aggregation statistics: mean, min, max, std over windows
-- In extreme periods, these simple statistics perfectly predict BQX values
+The `targets_*` tables were incorrectly populated:
 
-### Why This Makes Sense
+| Table | Column | Expected Value | Actual Value |
+|-------|--------|----------------|--------------|
+| targets_eurusd | bqx_720 | ~0.1 (BQX oscillation) | ~99.5 (price mean) |
 
-- During extreme volatility, price aggregates (averages, ranges) directly reflect the BQX oscillation
-- `agg_mean_720` = average price over 720 minutes, highly correlated with BQX (which measures price oscillation)
-- This relationship is almost **tautological**: BQX measures how much price moves, aggregates measure how much price moved
+**Evidence:**
+```
+targets_eurusd.bqx_720 = agg_eurusd.agg_mean_720  (correlation = 1.0)
+targets_eurusd.bqx_720 ≠ eurusd_bqx.bqx_720      (completely different values)
+```
 
-### Critical Caveat
+### Root Cause
 
-- Perfect correlation may indicate **data leakage** or near-identity relationship
-- These features may not be useful for **prediction** (they measure the same thing being predicted)
-- Verification needed: are `agg_*` features computed BEFORE the BQX target period?
+The targets tables were built using `agg_mean_*` values instead of actual BQX values from `{pair}_bqx` tables.
+
+### Impact
+
+- All correlation analyses using `targets_*` tables are **invalid**
+- The "perfect correlation" was `agg_mean_720` correlating with **itself**
+- No actual predictive signal exists
+
+### Remediation
+
+See [REMEDIATION_PLAN.md](REMEDIATION_PLAN.md) for phased fix approach.
+
+### Correct Expected Correlation
+
+When targets are fixed with actual BQX values:
+- `agg_mean_720` vs BQX horizons: ~0.02 (weak, not 0.999)
+- This matches the direct test against `eurusd_bqx.bqx_720`
 
 ---
 
@@ -167,7 +187,7 @@ Better strategy:
 |----------------|-----------|--------|--------|
 | 1. Extreme-sensitive features | +200% lift proves regime-specific signal | **VALID** | Low absolute correlation |
 | 2. h15/h105 focus | ~~87% of features cluster here~~ | **INVALIDATED** | Artifact: spread <0.1% for 77% of features |
-| 3. agg_* features | Perfect correlation in extremes | **CAUTION** | Possible data leakage/tautology |
+| 3. agg_* features | ~~Perfect correlation in extremes~~ | **INVALIDATED** | DATA BUG: targets table had wrong values |
 | 4. cov_* features | Large set with solid 0.27-0.33 corr | **VALID** | Lower lift than volatile features |
 
 ---
