@@ -11,3 +11,4 @@ credentials/*key*
 .env
 .env.*
 !.env.example
+archive/
