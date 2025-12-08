@@ -87,60 +87,71 @@
     "monitoring": ["pipeline_duration", "table_sizes", "validation_errors"]
   },
   "model_training_workflow": {
-    "name": "Weekly Model Retraining",
-    "trigger": "Every Sunday 00:00 UTC",
+    "name": "Multi-Horizon Ensemble Training",
+    "trigger": "After V2 migration completion",
+    "architecture": {
+      "total_models": 784,
+      "breakdown": "28 pairs × 7 horizons × 4 ensemble members",
+      "horizons": ["h15", "h30", "h45", "h60", "h75", "h90", "h105"],
+      "ensemble_members": ["LightGBM", "XGBoost", "CatBoost", "Meta-learner"],
+      "accuracy_target": "95%+ directional accuracy",
+      "deployment_strategy": "Deploy farthest horizon achieving ≥95% per pair"
+    },
     "steps": [
       {
         "step": 1,
-        "name": "Extract Training Data",
-        "action": "Query last 90 days from align_bqx_{pair} tables",
-        "output": "Training dataset per pair"
+        "name": "Feature Selection",
+        "action": "Train single LightGBM on 10% sample, extract SHAP values",
+        "output": "Top 500-1,000 features per pair",
+        "rationale": "90%+ compute reduction"
       },
       {
         "step": 2,
-        "name": "Data Split",
-        "action": "Split into train/val/test (80/10/10)",
-        "output": "3 datasets per pair"
+        "name": "Walk-Forward Data Split",
+        "action": "Split with time-based windows (MANDATORY for time series)",
+        "train_window": "T-365 to T-30 days",
+        "validation_window": "T-30 to T-7 days",
+        "test_window": "T-7 to T days"
       },
       {
         "step": 3,
-        "name": "Hyperparameter Tuning",
-        "action": "Bayesian optimization for each algorithm",
-        "iterations": 50,
-        "duration": "~1 hour per pair per algorithm"
+        "name": "Base Model Training",
+        "action": "Train 3 base learners per pair-horizon (588 models)",
+        "algorithms": ["LightGBM", "XGBoost", "CatBoost"],
+        "platform": "BigQuery ML (cost-optimized)",
+        "duration": "~15-30 min per model"
       },
       {
         "step": 4,
-        "name": "Model Training",
-        "action": "Train 5 algorithms per pair (140 models total)",
-        "algorithms": ["RandomForest", "XGBoost", "LightGBM", "LSTM", "GRU"],
-        "duration": "~30 minutes per model"
+        "name": "Meta-Learner Training",
+        "action": "Train stacking meta-learner (196 models)",
+        "algorithm": "LSTM or Logistic Regression",
+        "input": "Base learner predictions"
       },
       {
         "step": 5,
-        "name": "Model Evaluation",
-        "action": "Test set evaluation with multiple metrics",
-        "metrics": ["MAE", "RMSE", "R²", "Sharpe Ratio"],
-        "output": "Performance report per model"
+        "name": "Horizon Evaluation",
+        "action": "Walk-forward evaluation for all 7 horizons",
+        "metrics": ["Directional accuracy", "MAE", "RMSE", "R²"],
+        "output": "Accuracy per horizon per pair"
       },
       {
         "step": 6,
-        "name": "Model Registration",
-        "action": "Upload to Vertex AI Model Registry",
-        "metadata": ["version", "metrics", "training_date"],
-        "output": "Model URI"
+        "name": "Horizon Selection",
+        "action": "Select farthest horizon achieving ≥95% accuracy",
+        "fallback": "If no horizon reaches 95%, use highest-accuracy"
       },
       {
         "step": 7,
-        "name": "A/B Testing",
-        "action": "Deploy new model to 10% traffic for 24 hours",
-        "comparison": "New model vs current production",
-        "decision": "Promote if 5% better performance"
+        "name": "Model Registration",
+        "action": "Upload to BigQuery ML or Vertex AI",
+        "metadata": ["version", "horizon", "accuracy", "training_date"]
       }
     ],
-    "total_duration": "~24 hours for full training cycle",
-    "parallelization": "4 pairs trained simultaneously",
-    "monitoring": ["training_progress", "model_performance", "resource_usage"]
+    "total_duration": "~24-48 hours for full training cycle",
+    "parallelization": "4-6 pairs trained simultaneously",
+    "cost_estimate": "~$150/month (BigQuery ML + Spot VMs)",
+    "monitoring": ["training_progress", "horizon_accuracy", "resource_usage"]
   },
   "prediction_workflow": {
     "name": "Real-Time Prediction Generation",
@@ -261,7 +272,7 @@
         "targets": {
           "bqx_components": ["bqx_45", "bqx_90", "bqx_180", "bqx_360", "bqx_720", "bqx_1440", "bqx_2880"],
           "prediction_horizons": [15, 30, 45, 60, 75, 90, 105],
-          "note": "Horizons are INTERVAL counts (row-based), NOT time-based"
+          "note": "7 horizons (h15-h105), deploy farthest achieving ≥95% accuracy"
         }
       },
       {

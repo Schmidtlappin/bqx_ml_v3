@@ -30,13 +30,17 @@
       "status": "Applied to all feature calculations"
     },
     "Independent_Models": {
-      "definition": "Each currency pair has its own isolated model",
-      "count_planned": 196,
+      "definition": "Each currency pair-horizon has its own isolated model ensemble",
+      "count_planned": 784,
       "count_trained": 0,
-      "breakdown": "28 pairs × 7 horizons",
+      "breakdown": "28 pairs × 7 horizons × 4 ensemble members",
+      "horizons": ["h15", "h30", "h45", "h60", "h75", "h90", "h105"],
+      "ensemble_members": ["LightGBM", "XGBoost", "CatBoost", "Meta-learner"],
       "isolation": "Complete - no feature or data sharing between pairs",
       "rationale": "Each pair has unique dynamics requiring specialized modeling",
-      "status": "NOT STARTED - pending feature completion"
+      "accuracy_target": "95%+ directional accuracy",
+      "deployment_strategy": "Deploy farthest horizon achieving ≥95% per pair",
+      "status": "PENDING - V2 migration in progress (~62% complete)"
     },
     "Feature_Target_Separation": {
       "old_rule": "BQX values strictly prohibited as features",
@@ -115,22 +119,25 @@
     }
   },
   "model_types": {
-    "algorithms": [
-      "RandomForest",
-      "XGBoost",
+    "base_algorithms": [
       "LightGBM",
-      "LSTM",
-      "GRU"
+      "XGBoost",
+      "CatBoost"
     ],
-    "ensemble": "5-algorithm weighted ensemble per pair (PLANNED)",
-    "total_models_planned": 196,
-    "total_models_trained": 15,
-    "breakdown": "28 pairs × 7 horizons",
+    "meta_learner": "LSTM or Logistic Regression",
+    "ensemble_strategy": "Stacking: 3 base learners → Meta-learner",
+    "total_models_planned": 784,
+    "total_models_trained": 0,
+    "breakdown": "28 pairs × 7 horizons × 4 ensemble members",
     "horizons": [15, 30, 45, 60, 75, 90, 105],
-    "horizon_definition": "7 prediction horizons at 15-interval increments: 15min, 30min, 45min, 60min, 75min, 90min, 105min forward",
+    "horizon_definition": "7 prediction horizons at 15-interval increments (h15 through h105)",
     "horizon_targets": "Each model predicts bqx_* values N intervals into the future",
+    "deployment_strategy": "Deploy FARTHEST horizon achieving ≥95% accuracy per pair",
+    "accuracy_target": "95%+ directional accuracy",
     "critical_distinction": "These are PREDICTION horizons (forward-looking), NOT BQX calculation windows (backward-looking)",
-    "status": "7.7% complete - EURUSD: 8, GBPUSD: 7 models trained"
+    "validation": "Walk-forward validation (MANDATORY for time series)",
+    "feature_selection": "SHAP values for top 500-1,000 features",
+    "status": "PENDING - V2 migration must complete first"
   },
   "data_pipeline_stages": {
     "ingestion": {
@@ -190,14 +197,16 @@
     }
   },
   "quality_metrics": {
-    "mandate_compliance": "29%",
-    "table_completion": "504 of 1,736 (29%)",
-    "feature_types_complete": "3 of 8 (38%)",
+    "v2_migration_progress": "62% (~2,609 / 4,218 tables)",
+    "source_v2_complete": "100% (2,209 tables)",
+    "covariance_progress": "55% (1,299 / 2,352 tables)",
+    "regime_complete": "100% (354 tables)",
     "dual_architecture": "100% for completed types",
     "data_parity": "100% (IDX and BQX tables mirror each other)",
     "row_counts": "~2.17M per table (6 years of data)",
-    "execution_performance": "67-95x faster than estimates",
-    "models_trained": "15 of 196 (7.7%)",
-    "accuracy_achieved": "Not yet measured (target: 90%+ directional)"
+    "partitioning": "DATE(interval_time)",
+    "clustering": "pair (or pair1 for covariance)",
+    "models_trained": "0 of 784 (0%)",
+    "accuracy_target": "95%+ directional accuracy"
   }
 }

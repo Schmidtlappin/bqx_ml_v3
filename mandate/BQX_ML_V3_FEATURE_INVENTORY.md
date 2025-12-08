@@ -1,20 +1,22 @@
 # BQX ML V3 COMPREHENSIVE FEATURE INVENTORY
-**Date**: 2025-11-27
-**Status**: Complete Audit
-**Source**: Documentation, Intelligence Files, Scripts Analysis
+**Date**: 2025-12-08 (Updated)
+**Status**: V2 Migration In Progress
+**Source**: Documentation, Intelligence Files, Migration Scripts
 
 ---
 
 ## 📊 EXECUTIVE SUMMARY
 
-### System Overview
-- **Total Models**: 140 (28 pairs × 5 algorithms)
+### System Overview (UPDATED 2025-12-08)
+- **Total Models**: 672 (28 pairs × 6 horizons × 4 ensemble members)
 - **Currency Pairs**: 28 independent models
-- **Algorithms**: RandomForest, XGBoost, LightGBM, LSTM, GRU
-- **Total Planned Tables**: 1,736 BigQuery tables
-- **Total Features**: 9,000+ per model
-- **Target Accuracy**: 90%+ directional accuracy
+- **Horizons**: h15, h30, h45, h60, h75, h90 (deploy farthest achieving ≥95%)
+- **Algorithms**: LightGBM, XGBoost, CatBoost → Meta-learner (LSTM/LogReg)
+- **Total Tables**: 4,218+ (v2 datasets, partitioned)
+- **Total Features**: 8,214+ per model → 500-1,000 selected via SHAP
+- **Target Accuracy**: 95%+ directional accuracy
 - **Platform**: 100% Google Cloud Platform
+- **Monthly Cost**: ~$277 (optimized)
 
 ### Critical Paradigms
 1. **BQX Paradigm Shift** (2024-11-24): BQX values as BOTH features AND targets
@@ -426,28 +428,36 @@ Per the **Feature Selection Requirements Analysis**, to achieve 90%+ directional
 
 ## 🔧 IMPLEMENTATION STATUS
 
-### Current State (as of 2025-12-07)
-- **BigQuery Tables Created**: 4,190 of 4,022 (104% - exceeds mandate)
-- **Migration Status**: IN PROGRESS to bqx_ml_v3_features_v2
-- **Partitioning**: ALL migrated tables partitioned by DATE(interval_time)
-- **Clustering**: ALL migrated tables clustered by pair
-- **Gap Identified**: tmp_ tables (28) - PENDING CREATION
+### Current State (as of 2025-12-08)
+- **V2 Migration**: IN PROGRESS (~62% complete)
+- **Features v2**: ~2,609 / 4,218 tables (62%)
+- **Source v2**: 2,209 / 2,200 tables (100% complete)
+- **Covariance**: 1,299 / 2,352 tables (55%)
+- **Regime**: 354 tables (100%+ complete)
+- **Partitioning**: ALL v2 tables partitioned by DATE(interval_time)
+- **Clustering**: ALL v2 tables clustered by pair
 
-### Excess Tables (Beyond Mandate)
-| Type | Expected | Actual | Excess |
-|------|----------|--------|--------|
-| reg_bqx_ | 56 | 168 | +112 (polynomial variants) |
-| regime_ | 56 | 112 | +56 (IDX variants) |
-| mrt_ | 28 | 56 | +28 (IDX variants) |
-| **Total** | - | - | **+196 tables** |
+### V2 Dataset Names
+| V1 (Deprecated) | V2 (Current) | Status |
+|-----------------|--------------|--------|
+| bqx_ml_v3_features | bqx_ml_v3_features_v2 | 62% migrated |
+| bqx_bq_uscen1 | bqx_bq_uscen1_v2 | 100% migrated |
 
-### Required State (90%+ Accuracy Mandate)
-- **BigQuery Tables**: 4,022 tables (4,190 actual - exceeds)
+### Multi-Horizon Architecture (NEW)
+| Component | Count | Details |
+|-----------|-------|---------|
+| Pairs | 28 | All forex pairs |
+| Horizons | 6 | h15, h30, h45, h60, h75, h90 |
+| Ensemble | 4 | LightGBM, XGBoost, CatBoost, Meta-learner |
+| **Total Models** | **672** | 28 × 6 × 4 |
+
+### Required State (95%+ Accuracy Mandate)
+- **BigQuery Tables**: 4,218+ tables in v2 datasets
 - **Features Generated**: All 8,214+ per pair
-- **Features Tested**: 100% (ALL features)
-- **Features Selected**: Top 50-100 per model
-- **Models Trained**: 140 (28 pairs × 5 algorithms)
-- **Directional Accuracy**: 90%+ minimum
+- **Features Selected**: Top 500-1,000 per model (via SHAP)
+- **Models Trained**: 672 (28 pairs × 6 horizons × 4 ensemble)
+- **Directional Accuracy**: 95%+ (deploy farthest horizon achieving this)
+- **Cost**: ~$277/month (optimized)
 
 ---
 

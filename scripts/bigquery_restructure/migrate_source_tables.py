@@ -27,40 +27,54 @@ NEW_DATASET = 'bqx_bq_uscen1_v2'
 CATEGORY = sys.argv[1] if len(sys.argv) > 1 else 'all'
 
 
-def get_table_schema(client, dataset, table_name):
-    """Get table schema to determine partitioning columns."""
+def get_table_schema_with_types(client, dataset, table_name):
+    """Get table schema with column types to determine partitioning columns."""
     try:
         table = client.get_table(f"{PROJECT}.{dataset}.{table_name}")
-        columns = {field.name for field in table.schema}
-        return columns
+        # Return dict of column_name -> field_type
+        return {field.name: field.field_type for field in table.schema}
     except Exception:
-        return set()
+        return {}
 
 
-def get_timestamp_column(columns):
-    """Determine the best timestamp column for partitioning."""
+def get_timestamp_column_info(schema):
+    """Determine the best timestamp column and its type for partitioning."""
     # Priority order
     for col in ['interval_time', 'time', 'timestamp', 'datetime', 'date']:
-        if col in columns:
-            return col
-    return None
+        if col in schema:
+            return col, schema[col]
+    return None, None
 
 
-def migrate_table(client, old_table, new_table, ts_col=None, cluster_col=None):
+def migrate_table(client, old_table, new_table, ts_col=None, ts_type=None, cluster_col=None):
     """Migrate a single table with partitioning."""
 
-    if ts_col and cluster_col:
-        sql = f"""
-        CREATE TABLE `{PROJECT}.{NEW_DATASET}.{new_table}`
-        PARTITION BY DATE({ts_col})
-        CLUSTER BY {cluster_col}
-        AS SELECT * FROM `{PROJECT}.{OLD_DATASET}.{old_table}`
-        """
+    # Handle INT64 timestamp columns (Unix timestamps in nanoseconds)
+    if ts_col and ts_type == 'INTEGER':
+        # INT64 timestamps are in nanoseconds - divide by 1e9 to get seconds
+        # Create a derived column for partitioning
+        select_clause = f"* EXCEPT({ts_col}), TIMESTAMP_SECONDS(CAST({ts_col}/1000000000 AS INT64)) AS interval_time"
+        partition_expr = "DATE(interval_time)"
     elif ts_col:
+        # TIMESTAMP or DATETIME can use DATE() directly
+        partition_expr = f"DATE({ts_col})"
+        select_clause = "*"
+    else:
+        partition_expr = None
+        select_clause = "*"
+
+    if partition_expr and cluster_col:
         sql = f"""
         CREATE TABLE `{PROJECT}.{NEW_DATASET}.{new_table}`
-        PARTITION BY DATE({ts_col})
-        AS SELECT * FROM `{PROJECT}.{OLD_DATASET}.{old_table}`
+        PARTITION BY {partition_expr}
+        CLUSTER BY {cluster_col}
+        AS SELECT {select_clause} FROM `{PROJECT}.{OLD_DATASET}.{old_table}`
+        """
+    elif partition_expr:
+        sql = f"""
+        CREATE TABLE `{PROJECT}.{NEW_DATASET}.{new_table}`
+        PARTITION BY {partition_expr}
+        AS SELECT {select_clause} FROM `{PROJECT}.{OLD_DATASET}.{old_table}`
         """
     else:
         sql = f"""
@@ -132,13 +146,13 @@ def main():
             pass
 
         # Get schema for partitioning decision
-        columns = get_table_schema(client, OLD_DATASET, old_name)
-        ts_col = get_timestamp_column(columns)
-        cluster_col = 'pair' if 'pair' in columns else None
+        schema = get_table_schema_with_types(client, OLD_DATASET, old_name)
+        ts_col, ts_type = get_timestamp_column_info(schema)
+        cluster_col = 'pair' if 'pair' in schema else None
 
         print(f"[{i}/{len(tables)}] Migrating {old_name}...", end=" ", flush=True)
 
-        ok, result = migrate_table(client, old_name, new_name, ts_col, cluster_col)
+        ok, result = migrate_table(client, old_name, new_name, ts_col, ts_type, cluster_col)
 
         if ok:
             print(f"OK ({result:,} rows)")

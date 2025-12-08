@@ -11,13 +11,16 @@
       }
     },
     "Model": {
-      "definition": "Machine learning model for specific currency pair",
-      "types": ["RandomForest", "XGBoost", "LightGBM", "LSTM", "GRU"],
-      "count": 15,
-      "planned_count": 196,
-      "breakdown": "28 pairs × 7 horizons",
-      "attributes": ["model_type", "pair_id", "horizon", "training_date", "performance_metrics"],
-      "status": "7.7% complete (15 of 196) - EURUSD: 8, GBPUSD: 7",
+      "definition": "Machine learning model ensemble for specific currency pair and horizon",
+      "ensemble_members": ["LightGBM", "XGBoost", "CatBoost", "Meta-learner"],
+      "count": 0,
+      "planned_count": 784,
+      "breakdown": "28 pairs × 7 horizons × 4 ensemble members",
+      "horizons": ["h15", "h30", "h45", "h60", "h75", "h90", "h105"],
+      "attributes": ["model_type", "pair_id", "horizon", "ensemble_role", "training_date", "performance_metrics"],
+      "accuracy_target": "95%+ directional accuracy",
+      "deployment_strategy": "Deploy farthest horizon achieving ≥95% per pair",
+      "status": "PENDING - V2 migration in progress (~62% complete)",
       "relationships": {
         "belongs_to_pair": "Many-to-One with CurrencyPair",
         "trained_on": "Many-to-Many with Feature",
@@ -113,57 +116,62 @@
   "storage_hierarchy": {
     "BigQuery": {
       "location": "us-central1",
-      "migration_date": "2025-11-28",
-      "datasets": {
-        "bqx_bq_uscen1": {
-          "description": "Raw 1-minute OHLCV data",
-          "tables": 804,
-          "pattern": "m1_{pair}",
-          "row_count_per_table": "~2.17M"
+      "migration_date": "2025-12-08",
+      "migration_status": "V2 IN PROGRESS (~72% complete)",
+      "full_catalog": "/intelligence/bigquery_v2_catalog.json",
+      "partitioning": "DATE(interval_time)",
+      "clustering": "pair (or pair1 for covariance tables)",
+      "datasets_v2": {
+        "bqx_bq_uscen1_v2": {
+          "description": "Source data - partitioned, clustered",
+          "tables": 2210,
+          "size_gb": 131.04,
+          "status": "100% COMPLETE",
+          "pattern": "{pair}_m1, {pair}_idx, {pair}_bqx"
         },
-        "bqx_ml_v3_features": {
-          "description": "Engineered features and indices",
-          "tables": 504,
-          "actual_breakdown": {
-            "idx_tables": 28,
-            "bqx_tables": 28,
-            "lag_idx_tables": 56,
-            "lag_bqx_tables": 56,
-            "regime_idx_tables": 56,
-            "regime_bqx_tables": 56,
-            "corr_tables": 224
-          },
-          "mandate_target": 1736,
-          "completion": "29%"
+        "bqx_ml_v3_features_v2": {
+          "description": "Engineered features - partitioned, clustered",
+          "tables": 3031,
+          "size_gb": 923.79,
+          "target": 4218,
+          "status": "72% complete",
+          "feature_types": ["covariance", "correlation", "regime", "lag", "regression", "aggregation", "alignment", "momentum", "volatility"]
+        },
+        "bqx_ml_v3_analytics_v2": {
+          "description": "Target tables for training",
+          "tables": 54,
+          "size_gb": 68.34,
+          "status": "ACTIVE"
         },
         "bqx_ml_v3_models": {
           "description": "Trained model artifacts",
           "tables": 16,
-          "breakdown": "EURUSD: 8, GBPUSD: 7, model_performance: 1",
-          "status": "7.7% complete (15 of 196 models)"
+          "status": "PENDING v2 migration completion"
         },
         "bqx_ml_v3_predictions": {
           "description": "Model prediction outputs",
-          "tables": 0,
+          "tables": 1,
           "status": "PENDING"
-        },
-        "bqx_ml_v3_analytics": {
-          "description": "Performance metrics and validation",
-          "tables": 0,
-          "status": "PENDING"
-        },
-        "bqx_ml_v3_staging": {
-          "description": "Temporary processing tables",
-          "tables": 0,
-          "status": "ACTIVE (as needed)"
         }
+      },
+      "datasets_v1_deprecated": {
+        "bqx_bq_uscen1": "DEPRECATED - 1,220 GB - delete after v2 validation",
+        "bqx_ml_v3_features": "DEPRECATED - 1,279 GB - delete after v2 validation"
+      },
+      "storage_totals": {
+        "v2_active_gb": 1123,
+        "v1_deprecated_gb": 2499,
+        "monthly_cost_v2": "$22.46",
+        "potential_savings": "$49.98/month"
       }
     },
-    "Vertex_AI": {
-      "models": 15,
-      "planned_models": 196,
-      "structure": "28 pairs × 7 horizons",
-      "status": "7.7% complete (EURUSD: 8, GBPUSD: 7)"
+    "Training_Platform": {
+      "primary": "BigQuery ML (cost-optimized)",
+      "alternative": "Vertex AI (for complex ensembles)",
+      "models_planned": 784,
+      "models_trained": 0,
+      "structure": "28 pairs × 7 horizons × 4 ensemble members",
+      "status": "PENDING v2 migration completion"
     }
   }
 }

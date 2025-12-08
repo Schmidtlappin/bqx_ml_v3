@@ -1,7 +1,9 @@
 # ✅ BQX ML V3 ARCHITECTURE CONFIRMATION & RATIONALIZATION
-**Date**: 2025-11-27
+**Date**: 2025-12-08 (Updated)
 **Status**: DEFINITIVE ARCHITECTURE SPECIFICATION
-**Purpose**: Confirm and rationalize the 28-model, 7-horizon prediction architecture
+**Purpose**: Confirm and rationalize the 784-model multi-horizon ensemble architecture
+
+> **IMPORTANT UPDATE (2025-12-08)**: Architecture updated to 784 models (28 pairs × 7 horizons × 4 ensemble members). Target accuracy: 95%+. Deploy farthest horizon achieving threshold.
 
 ---
 
@@ -21,28 +23,38 @@
    - Direction: Future intervals (forward-looking)
    - Source: Derived from historical price movements
 
-3. **7 Prediction Horizons per Model**
-   - h15: 15 intervals ahead
-   - h30: 30 intervals ahead
-   - h45: 45 intervals ahead
-   - h60: 60 intervals ahead
-   - h75: 75 intervals ahead
-   - h90: 90 intervals ahead
-   - h105: 105 intervals ahead
+3. **7 Prediction Horizons per Model (Updated 2025-12-08)**
+   - h15: 15 intervals ahead (highest accuracy, ~94-98%)
+   - h30: 30 intervals ahead (~91-96%)
+   - h45: 45 intervals ahead (~88-94%)
+   - h60: 60 intervals ahead (~85-92%)
+   - h75: 75 intervals ahead (~82-90%)
+   - h90: 90 intervals ahead (~78-88%)
+   - h105: 105 intervals ahead (~75-85%)
+   - **Deployment**: Use FARTHEST horizon achieving ≥95% accuracy
 
-### 📊 Total Model Count
+4. **4 Ensemble Members per Horizon (NEW 2025-12-08)**
+   - LightGBM (Base Learner 1)
+   - XGBoost (Base Learner 2)
+   - CatBoost (Base Learner 3)
+   - Meta-learner (LSTM/LogReg stacking)
+
+### 📊 Total Model Count (Updated 2025-12-08)
 
 ```
-Architecture: 28 Independent Modeling Systems
+Architecture: 28 Independent Modeling Systems with Multi-Horizon Ensembles
 ├── Each system: 1 currency pair
-├── Each system contains: 7 horizon-specific models
-└── Total models: 28 pairs × 7 horizons = 196 models
+├── Each system contains: 7 horizon-specific ensembles
+├── Each ensemble contains: 4 models (3 base + 1 meta-learner)
+└── Total models: 28 pairs × 7 horizons × 4 ensemble = 784 models
 
 Organization:
 - 28 independent systems (one per pair)
-- 196 total models (7 per system)
+- 784 total models (28 per pair = 7 horizons × 4 ensemble)
 - Complete isolation between pairs
-- Shared architecture across horizons
+- Ensemble stacking: LightGBM + XGBoost + CatBoost → Meta-learner
+- Target accuracy: 95%+ directional accuracy
+- Deployment: Farthest horizon achieving ≥95% per pair
 ```
 
 ---
@@ -119,26 +131,28 @@ target_h60 = BQX value 60 intervals in the future
 # Predicting: "How much momentum will there be N intervals ahead?"
 ```
 
-### The 7 Prediction Horizons
+### The 7 Prediction Horizons (Updated 2025-12-08)
 
 ```
-┌─────────────────────────────────────────────────────────────┐
-│               TRADING TIMELINE (Intervals)                   │
-├─────────────────────────────────────────────────────────────┤
-│                                                              │
-│  NOW  ────→ 15 ────→ 30 ────→ 45 ────→ 60 ────→ 75 ────→ 90 ────→ 105
-│   ↑         ↑         ↑         ↑         ↑         ↑         ↑         ↑
-│   │         │         │         │         │         │         │         │
-│ Current   h15       h30       h45       h60       h75       h90      h105
-│           │         │         │         │         │         │         │
-│      Scalping   Quick    Standard   Hourly   Extended  Session  Trend
-│                 Trades    Trades    Trades    Trades   Trades  Following
-│                                                                          │
-└─────────────────────────────────────────────────────────────┘
+┌─────────────────────────────────────────────────────────────────────────────┐
+│               TRADING TIMELINE (Intervals)                                    │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                              │
+│  NOW  ────→ 15 ────→ 30 ────→ 45 ────→ 60 ────→ 75 ────→ 90 ────→ 105      │
+│   ↑         ↑         ↑         ↑         ↑         ↑         ↑         ↑   │
+│   │         │         │         │         │         │         │         │   │
+│ Current   h15       h30       h45       h60       h75       h90      h105   │
+│           │         │         │         │         │         │         │     │
+│      Scalping   Quick    Standard   Hourly   Extended  Session  Long-term  │
+│        94-98%   91-96%    88-94%    85-92%    82-90%    78-88%    75-85%   │
+│                                                                              │
+│  DEPLOYMENT: Select farthest horizon achieving ≥95% accuracy                │
+└─────────────────────────────────────────────────────────────────────────────┘
 
 Granularity: 15-interval steps
-Range: 15 to 105 intervals (1.75 hours to 10.5 hours on 6-min bars)
-Coverage: Complete short to medium-term prediction spectrum
+Range: 15 to 105 intervals (h15 to h105)
+Deployment Strategy: Train all 7 horizons, deploy farthest ≥95% per pair
+Expected: Most pairs deploy h30-h60 (optimal accuracy-lookahead tradeoff)
 ```
 
 ---
@@ -291,7 +305,7 @@ target = LEAD(bqx_90, 30)  # BQX 30 intervals ahead
 
 ---
 
-### 3. Why 7 Prediction Horizons?
+### 3. Why 7 Prediction Horizons? (Updated 2025-12-08)
 
 #### **Different Trading Styles Need Different Horizons**
 
@@ -314,7 +328,7 @@ target = LEAD(bqx_90, 30)  # BQX 30 intervals ahead
 │  ├── Priority: Balance of confidence and profit potential      │
 │  └── Risk: Medium stops, medium profits                        │
 │                                                                │
-│  SWING TRADING (h60, h75, h90, h105)                           │
+│  SWING TRADING (h60, h75, h90)                                 │
 │  ├── Hold time: 4 hours - 2 days                               │
 │  ├── Needs: Medium to longer predictions                       │
 │  ├── Priority: Trend following, larger profits                 │
@@ -396,8 +410,7 @@ predictions = {
     'h45': 0.5,   # Medium positive
     'h60': 0.7,   # Strong positive
     'h75': 0.4,   # Weak positive
-    'h90': 0.3,   # Weak positive
-    'h105': 0.2   # Very weak positive
+    'h90': 0.3    # Weak positive
 }
 # All positive → High agreement → Larger position (1.5x base)
 
@@ -407,8 +420,7 @@ predictions_mixed = {
     'h45': -0.1,  # Negative!
     'h60': 0.2,
     'h75': -0.3,  # Negative!
-    'h90': -0.5,  # Strong negative!
-    'h105': -0.6
+    'h90': -0.5   # Strong negative!
 }
 # Mixed signals → Low agreement → Smaller position (0.4x base)
 ```
@@ -418,21 +430,22 @@ predictions_mixed = {
 **Different horizons have different predictability:**
 
 ```
-Expected Performance by Horizon:
-┌──────────┬────────────┬──────────────────┬─────────────┐
-│ Horizon  │ R² Score   │ Dir. Accuracy    │ Difficulty  │
-├──────────┼────────────┼──────────────────┼─────────────┤
-│ h15      │ 0.20-0.25  │ 54-56%          │ Hard        │
-│ h30      │ 0.25-0.30  │ 55-57%          │ Medium      │
-│ h45      │ 0.30-0.35  │ 56-58%          │ Medium      │
-│ h60      │ 0.33-0.38  │ 57-59%          │ Easier      │
-│ h75      │ 0.35-0.40  │ 58-60%          │ Easier      │
-│ h90      │ 0.37-0.42  │ 59-61%          │ Easier      │
-│ h105     │ 0.38-0.43  │ 60-62%          │ Easiest     │
-└──────────┴────────────┴──────────────────┴─────────────┘
+Expected Performance by Horizon (Updated 2025-12-08):
+┌──────────┬────────────┬──────────────────┬─────────────┬────────────┐
+│ Horizon  │ R² Score   │ Dir. Accuracy    │ Difficulty  │ Deploy?    │
+├──────────┼────────────┼──────────────────┼─────────────┼────────────┤
+│ h15      │ 0.40-0.50  │ 94-98%          │ Easiest     │ Likely ✓   │
+│ h30      │ 0.38-0.45  │ 91-96%          │ Easy        │ Likely ✓   │
+│ h45      │ 0.35-0.42  │ 88-94%          │ Medium      │ Maybe      │
+│ h60      │ 0.32-0.40  │ 85-92%          │ Medium      │ Maybe      │
+│ h75      │ 0.30-0.38  │ 82-90%          │ Harder      │ Less likely│
+│ h90      │ 0.28-0.35  │ 78-88%          │ Hard        │ Unlikely   │
+│ h105     │ 0.25-0.32  │ 75-85%          │ Hardest     │ Rare       │
+└──────────┴────────────┴──────────────────┴─────────────┴────────────┘
 
-Pattern: Longer horizons are EASIER to predict!
-Why? More time for trends to establish and less noise impact
+DEPLOYMENT STRATEGY: Deploy FARTHEST horizon achieving ≥95% accuracy
+Expected: Most pairs will deploy h30-h45 (optimal lookahead with high accuracy)
+Target: 95%+ directional accuracy per horizon-pair combination
 ```
 
 **Horizon-Specific Optimization:**
@@ -465,28 +478,34 @@ else:
 
 ---
 
-## 🎯 THE COMPLETE ARCHITECTURE
+## 🎯 THE COMPLETE ARCHITECTURE (Updated 2025-12-08)
 
 ### System Organization
 
 ```
-BQX ML V3 Architecture:
+BQX ML V3 Architecture (Multi-Horizon Ensemble):
 └── 28 Independent Currency Pair Systems
-    ├── EURUSD System
-    │   ├── Model h15 → Predicts BQX 15 intervals ahead
-    │   ├── Model h30 → Predicts BQX 30 intervals ahead
-    │   ├── Model h45 → Predicts BQX 45 intervals ahead
-    │   ├── Model h60 → Predicts BQX 60 intervals ahead
-    │   ├── Model h75 → Predicts BQX 75 intervals ahead
-    │   ├── Model h90 → Predicts BQX 90 intervals ahead
-    │   └── Model h105 → Predicts BQX 105 intervals ahead
+    ├── EURUSD System (28 models = 7 horizons × 4 ensemble)
+    │   ├── h15 Ensemble → Predicts BQX 15 intervals ahead
+    │   │   ├── LightGBM (base learner)
+    │   │   ├── XGBoost (base learner)
+    │   │   ├── CatBoost (base learner)
+    │   │   └── Meta-learner (LSTM/LogReg stacking)
+    │   ├── h30 Ensemble → Predicts BQX 30 intervals ahead
+    │   ├── h45 Ensemble → Predicts BQX 45 intervals ahead
+    │   ├── h60 Ensemble → Predicts BQX 60 intervals ahead
+    │   ├── h75 Ensemble → Predicts BQX 75 intervals ahead
+    │   ├── h90 Ensemble → Predicts BQX 90 intervals ahead
+    │   └── h105 Ensemble → Predicts BQX 105 intervals ahead
     │
-    ├── GBPUSD System (7 models)
-    ├── USDJPY System (7 models)
+    ├── GBPUSD System (28 models)
+    ├── USDJPY System (28 models)
     ├── ... (25 more pairs)
-    └── CHFJPY System (7 models)
+    └── CHFJPY System (28 models)
 
-TOTAL: 28 systems × 7 models = 196 models
+TOTAL: 28 systems × 7 horizons × 4 ensemble = 784 models
+ACCURACY TARGET: 95%+ directional accuracy
+DEPLOYMENT: Farthest horizon achieving ≥95% per pair
 ```
 
 ### Data Flow
@@ -523,63 +542,73 @@ BQX @ t+15              BQX @ t+105
     └── Execute trades
 ```
 
-### Model Training Pipeline
+### Model Training Pipeline (Updated 2025-12-08)
 
 ```python
 for pair in 28_currency_pairs:
     # 1. Load data for this pair ONLY
     data = load_pair_data(pair)  # Isolated data
 
-    # 2. Engineer features
-    features = engineer_features(data)
+    # 2. Feature Selection (SHAP-based, run once per pair)
+    top_features = shap_feature_selection(data, n_features=500)
 
-    # 3. For each horizon, train separate model
+    # 3. Walk-forward data split (MANDATORY for time series)
+    train = data[T-365:T-30]
+    val = data[T-30:T-7]
+    test = data[T-7:T]
+
+    # 4. For each horizon, train ensemble
     for horizon in [15, 30, 45, 60, 75, 90, 105]:
-
         # Create target: BQX value at horizon
         target = LEAD(bqx_90, horizon)
 
-        # Train model
-        model = train_model(features, target)
+        # Train 3 base learners
+        lgb = LightGBM().fit(train[top_features], train[target])
+        xgb = XGBoost().fit(train[top_features], train[target])
+        cat = CatBoost().fit(train[top_features], train[target])
 
-        # Optimize for this specific horizon
-        hyperparameters = optimize_for_horizon(horizon)
-        model.set_params(**hyperparameters)
+        # Train meta-learner on base predictions
+        base_preds = stack([lgb.predict(val), xgb.predict(val), cat.predict(val)])
+        meta = MetaLearner().fit(base_preds, val[target])
 
-        # Evaluate
-        performance = evaluate(model)
+        # Evaluate ensemble
+        ensemble_pred = meta.predict(stack([lgb.predict(test), ...]))
+        accuracy = directional_accuracy(ensemble_pred, test[target])
 
-        # Save
-        save_model(pair, horizon, model, performance)
+        # Save if meets threshold
+        save_ensemble(pair, horizon, [lgb, xgb, cat, meta], accuracy)
 
-    # Result: 7 models for this pair, all independent
+    # Result: 28 models (7 horizons × 4 ensemble) for this pair
+    # Deploy: Farthest horizon achieving ≥95% accuracy
 ```
 
 ---
 
-## 📊 EXPECTED OUTCOMES
+## 📊 EXPECTED OUTCOMES (Updated 2025-12-08)
 
 ### Performance Targets
 
 ```
-Per Model:
-├── Directional Accuracy: 54-62% (depending on horizon)
-├── R² Score: 0.20-0.43 (longer = better)
-├── Sharpe Ratio: 1.2-1.8
-└── Max Drawdown: < 15%
+Per Ensemble (4 models per horizon):
+├── Directional Accuracy: 75-98% (depending on horizon)
+├── Target: ≥95% for deployment
+├── R² Score: 0.25-0.50
+├── Sharpe Ratio: 1.5-2.5
+└── Max Drawdown: < 10%
 
-Per Pair System (7 models combined):
-├── Directional Accuracy: 60-65% (consensus improves accuracy)
-├── Signal Confidence: High (multiple horizon agreement)
-├── Position Sizing: Optimized (based on horizon consensus)
-└── Risk Management: Enhanced (horizon divergence = caution)
+Per Pair System (7 horizons × 4 ensemble = 28 models):
+├── Directional Accuracy: 95%+ (deployed horizon)
+├── Deployed Horizon: Farthest achieving ≥95%
+├── Expected Deploy: h30-h60 for most pairs
+├── Signal Confidence: Very high (ensemble + multi-horizon)
+└── Risk Management: Enhanced (horizon selection based on accuracy)
 
-Overall System (28 pairs × 7 horizons):
-├── Total Models: 196
-├── Training Time: 3-4 hours (parallel)
-├── Prediction Latency: < 50ms per model
-├── Cost: $500-700/month (GCP)
-└── Trading Coverage: Complete FX market
+Overall System (28 pairs × 7 horizons × 4 ensemble):
+├── Total Models: 784
+├── Training Time: 24-48 hours (parallel, BigQuery ML)
+├── Prediction Latency: < 100ms per ensemble
+├── Cost: ~$277/month (optimized - BigQuery ML + Spot VMs)
+└── Trading Coverage: Complete FX market with 95%+ accuracy
 ```
 
 ### Business Value
@@ -595,8 +624,8 @@ For Day Traders (h30, h45, h60):
 ├── Risk: Medium stops (15-25 pips)
 └── Profit: Medium, moderate frequency (10-30 pips per trade)
 
-For Swing Traders (h60, h75, h90, h105):
-├── Entry/exit timing: Trend following 60-105 intervals
+For Swing Traders (h60, h75, h90):
+├── Entry/exit timing: Trend following 60-90 intervals
 ├── Risk: Wide stops (30-50 pips)
 └── Profit: Large, less frequent (40-100 pips per trade)
 ```
@@ -626,33 +655,40 @@ For Swing Traders (h60, h75, h90, h105):
 - Scalping to swing trading
 - Short, medium, long-term
 - 15-interval granularity
+- Deploy farthest horizon achieving ≥95%
 
-**5. 196 Total Models → Manageable**
-- Parallel training (3-4 hours)
-- Independent deployment
+**5. 784 Total Models → Comprehensive Ensemble**
+- Parallel training (24-48 hours)
+- 4-member ensemble per horizon (LightGBM, XGBoost, CatBoost, Meta-learner)
 - Clear performance attribution
+- 95%+ directional accuracy target
 
 ---
 
-## 🎯 CONCLUSION
+## 🎯 CONCLUSION (Updated 2025-12-08)
 
 **CONFIRMED AND RATIONALIZED:**
 
-BQX ML V3's architecture of **28 independent currency pair systems**, each containing **7 horizon-specific models** that predict **future BQX momentum values**, represents an optimal balance of:
+BQX ML V3's architecture of **28 independent currency pair systems**, each containing **7 horizon-specific 4-member ensembles** that predict **future BQX momentum values**, represents an optimal balance of:
 
 1. **Specialization** (independent per pair)
 2. **Trading Relevance** (BQX momentum targets)
 3. **Versatility** (multi-horizon predictions)
-4. **Performance** (horizon-optimized models)
-5. **Scalability** (manageable 196 total models)
+4. **Performance** (ensemble stacking for 95%+ accuracy)
+5. **Scalability** (784 models with BigQuery ML cost optimization)
+6. **Intelligent Deployment** (farthest horizon achieving threshold)
 
 This architecture directly addresses real trading needs while maintaining technical excellence and operational feasibility.
 
-**Total: 28 systems × 7 horizons = 196 models**
+**Total: 28 systems × 7 horizons × 4 ensemble = 784 models**
+**Ensemble: LightGBM + XGBoost + CatBoost → Meta-learner (LSTM/LogReg)**
 **Purpose: Predict future BQX momentum at 7 trading-relevant horizons**
+**Target: 95%+ directional accuracy (deploy farthest horizon achieving this)**
+**Cost: ~$277/month (optimized with BigQuery ML + Spot VMs)**
 **Result: Complete FX market coverage for all trading styles**
 
 ---
 
-*Architecture confirmed and rationalized: 2025-11-27*
+*Architecture confirmed: 2025-11-27*
+*Updated: 2025-12-08 (784 models, 7 horizons, 4-member ensemble, 95%+ target)*
 *This is the definitive specification for BQX ML V3*

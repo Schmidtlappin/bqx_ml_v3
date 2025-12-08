@@ -1,0 +1,210 @@
+{
+  "catalog_version": "2.0",
+  "last_updated": "2025-12-08",
+  "project": "bqx-ml",
+  "location": "us-central1",
+  "migration_status": "IN_PROGRESS",
+  "migration_completion": "62%",
+
+  "datasets": {
+    "bqx_bq_uscen1_v2": {
+      "description": "Source data - partitioned, clustered market data",
+      "status": "ACTIVE",
+      "partitioning": "DATE(interval_time)",
+      "clustering": "pair",
+      "table_count": 2210,
+      "total_gb": 131.04,
+      "total_rows": 502629967,
+      "table_types": {
+        "m1_source": {
+          "count": 2017,
+          "size_gb": 11.48,
+          "pattern": "m1_{pair}",
+          "description": "1-minute OHLCV candlestick data"
+        },
+        "idx_indexed": {
+          "count": 28,
+          "pattern": "{pair}_idx",
+          "description": "Indexed price data normalized to base=100"
+        },
+        "bqx_momentum": {
+          "count": 28,
+          "pattern": "{pair}_bqx",
+          "description": "BQX momentum calculations per pair"
+        },
+        "other": {
+          "count": 137,
+          "size_gb": 119.56,
+          "description": "Auxiliary and staging tables"
+        }
+      }
+    },
+
+    "bqx_ml_v3_features_v2": {
+      "description": "Engineered features - partitioned, clustered",
+      "status": "ACTIVE",
+      "partitioning": "DATE(interval_time)",
+      "clustering": "pair (or pair1 for covariance)",
+      "table_count": 3031,
+      "total_gb": 923.79,
+      "total_rows": 6117801910,
+      "migration_target": 4218,
+      "migration_progress": "72%",
+      "feature_types": {
+        "covariance": {
+          "count": 1650,
+          "size_gb": 361.28,
+          "pattern": "cov_{pair1}_{pair2}_{window}",
+          "description": "Cross-pair covariance matrices",
+          "target_count": 2352,
+          "status": "70% complete"
+        },
+        "correlation": {
+          "count": 448,
+          "size_gb": 42.82,
+          "pattern": "corr_{pair1}_{pair2}",
+          "description": "FX and IBKR cross-correlation",
+          "status": "100% complete"
+        },
+        "regime": {
+          "count": 112,
+          "size_gb": 30.86,
+          "pattern": "regime_{pair}_{window}, regime_bqx_{pair}_{window}",
+          "description": "Market state classification (IDX and BQX variants)",
+          "status": "100% complete"
+        },
+        "lag": {
+          "count": 112,
+          "size_gb": 22.31,
+          "pattern": "lag_{pair}_{window}, lag_bqx_{pair}_{window}",
+          "description": "Historical lag features (IDX and BQX variants)",
+          "status": "100% complete"
+        },
+        "regression": {
+          "count": 56,
+          "size_gb": 208.6,
+          "pattern": "reg_{pair}_{window}",
+          "description": "Polynomial regression features",
+          "status": "IN_PROGRESS"
+        },
+        "aggregation": {
+          "count": 56,
+          "size_gb": 58.94,
+          "pattern": "agg_{pair}_{window}",
+          "description": "Statistical aggregation features",
+          "status": "IN_PROGRESS"
+        },
+        "alignment": {
+          "count": 56,
+          "size_gb": 39.33,
+          "pattern": "align_{pair}_{window}",
+          "description": "Cross-timeframe alignment features",
+          "status": "IN_PROGRESS"
+        },
+        "momentum": {
+          "count": 56,
+          "size_gb": 40.19,
+          "pattern": "mom_{pair}_{window}",
+          "description": "Advanced momentum features (ROC, acceleration)",
+          "status": "IN_PROGRESS"
+        },
+        "volatility": {
+          "count": 56,
+          "size_gb": 29.52,
+          "pattern": "vol_{pair}_{window}",
+          "description": "Volatility features (ATR, realized vol)",
+          "status": "IN_PROGRESS"
+        },
+        "other": {
+          "count": 429,
+          "size_gb": 89.94,
+          "description": "Auxiliary and staging tables"
+        }
+      }
+    },
+
+    "bqx_ml_v3_analytics_v2": {
+      "description": "Training targets and analytics",
+      "status": "ACTIVE",
+      "partitioning": "DATE(interval_time)",
+      "clustering": "pair",
+      "table_count": 54,
+      "total_gb": 68.34,
+      "total_rows": 192772295,
+      "table_types": {
+        "targets": {
+          "pattern": "targets_{pair}",
+          "description": "Forward-looking BQX target values for training",
+          "horizons": ["h15", "h30", "h45", "h60", "h75", "h90", "h105"]
+        }
+      }
+    },
+
+    "bqx_ml_v3_models": {
+      "description": "Trained model artifacts",
+      "status": "PENDING",
+      "table_count": 16,
+      "total_gb": 0.01,
+      "planned_models": 784,
+      "note": "Will contain 784 trained models (28 pairs x 7 horizons x 4 ensemble)"
+    },
+
+    "bqx_ml_v3_predictions": {
+      "description": "Model prediction outputs",
+      "status": "PENDING",
+      "table_count": 1,
+      "note": "Will contain live predictions from deployed models"
+    }
+  },
+
+  "deprecated_datasets": {
+    "bqx_bq_uscen1": {
+      "status": "DEPRECATED",
+      "action": "DELETE after v2 validation",
+      "table_count": 2463,
+      "total_gb": 1219.97,
+      "monthly_cost_savings": "$24.40"
+    },
+    "bqx_ml_v3_features": {
+      "status": "DEPRECATED",
+      "action": "DELETE after v2 validation",
+      "table_count": 5146,
+      "total_gb": 1279.2,
+      "monthly_cost_savings": "$25.58"
+    },
+    "bqx_ml_v3_analytics": {
+      "status": "CONSOLIDATE",
+      "action": "Merge into bqx_ml_v3_analytics_v2",
+      "table_count": 70,
+      "total_gb": 68.34
+    }
+  },
+
+  "currency_pairs": [
+    "audjpy", "audnzd", "audusd", "cadchf", "cadjpy",
+    "chfjpy", "euraud", "eurcad", "eurchf", "eurgbp",
+    "eurjpy", "eurnzd", "eurusd", "gbpaud", "gbpcad",
+    "gbpchf", "gbpjpy", "gbpnzd", "gbpusd", "nzdcad",
+    "nzdchf", "nzdjpy", "nzdusd", "usdcad", "usdchf",
+    "usdjpy", "xagusd", "xauusd"
+  ],
+
+  "model_architecture": {
+    "total_models": 784,
+    "pairs": 28,
+    "horizons": ["h15", "h30", "h45", "h60", "h75", "h90", "h105"],
+    "ensemble_members": ["LightGBM", "XGBoost", "CatBoost", "Meta-learner"],
+    "per_pair": 28,
+    "per_horizon": 112,
+    "base_models": 588,
+    "meta_learners": 196
+  },
+
+  "storage_summary": {
+    "v2_active_total_gb": 1123.17,
+    "v1_deprecated_total_gb": 2499.17,
+    "v2_monthly_cost": "$22.46",
+    "v1_monthly_cost": "$49.98",
+    "potential_savings": "$49.98/month"
+  }
+}

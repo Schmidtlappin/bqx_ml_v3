@@ -3,7 +3,8 @@
 **Purpose**: This directory contains the authoritative architectural mandate documents for BQX ML V3.
 
 **Status**: DEFINITIVE SPECIFICATIONS
-**Date**: 2025-11-27
+**Date**: 2025-12-08 (Updated)
+**Migration Status**: IN PROGRESS → bqx_ml_v3_features_v2 / bqx_bq_uscen1_v2
 
 ---
 
@@ -15,7 +16,7 @@
 **What it confirms:**
 - ✅ 28 independent currency pair models
 - ✅ 7 prediction horizons per model (15, 30, 45, 60, 75, 90, 105 intervals)
-- ✅ Total: 196 models (28 pairs × 7 horizons)
+- ✅ Total: 784 models (28 pairs × 7 horizons × 4 ensemble members)
 - ✅ Predicting future BQX momentum values (not raw prices)
 
 **What it rationalizes:**
@@ -105,21 +106,33 @@ These documents represent **NON-NEGOTIABLE architectural decisions** that:
 
 ---
 
-## 📊 QUICK REFERENCE
+## 📊 QUICK REFERENCE (UPDATED 2025-12-08)
 
 ```
 BQX ML V3 Architecture:
 ├── Models: 28 independent currency pair systems
-├── Horizons: 7 per system (15, 30, 45, 60, 75, 90, 105 intervals)
-├── Total Models: 196 (28 × 7)
+├── Horizons: 7 per system (h15, h30, h45, h60, h75, h90, h105)
+├── Total Models: 784 (28 pairs × 7 horizons × 4 ensemble members)
 ├── Data Sources: IDX (price) + BQX (momentum) ONLY
+├── Datasets: bqx_ml_v3_features_v2, bqx_bq_uscen1_v2 (partitioned)
 ├── Feature Types: 8 (regression, lag, regime, agg, align, corr, mom, vol)
 ├── Feature Perspectives: 6 (primary, variant, covariant, tri, secondary, tertiary)
-├── Total Tables: 1,736 in BigQuery
-├── Features per Model: 8,214+ generated → 50-100 selected
-├── Target Accuracy: 90%+ directional accuracy
-└── Implementation: 11 phases, 75 days
+├── Total Tables: 4,218+ in BigQuery v2 (migration ~62% complete)
+├── Features per Model: 8,214+ generated → 500-1,000 selected via SHAP
+├── Target Accuracy: 95%+ directional accuracy (deploy farthest horizon achieving this)
+├── Algorithms: LightGBM, XGBoost, CatBoost → Stacking Ensemble + LSTM meta
+├── Cost Estimate: ~$277/month (optimized with BigQuery ML + Spot VMs)
+└── Post-Migration Plan: /home/micha/.claude/plans/gentle-skipping-wirth.md
 ```
+
+### Migration Progress (as of 2025-12-08)
+| Dataset | Status | Tables | Size |
+|---------|--------|--------|------|
+| Features v2 | 72% | 3,031 / 4,218 | 924 GB |
+| Source v2 | 100% | 2,210 | 131 GB |
+| Analytics v2 | 100% | 54 | 68 GB |
+
+**V2 Catalog**: See `/intelligence/bigquery_v2_catalog.json` for full details
 
 ---
 
@@ -163,6 +176,12 @@ BQX ML V3 Architecture:
 
 ## 📅 DOCUMENT HISTORY
 
+- **2025-12-08**: Major architecture update
+  - Migration to v2 datasets (partitioned by DATE(interval_time), clustered by pair)
+  - Updated to 7 horizons (h15-h105), 784 total models
+  - 95%+ accuracy target with multi-horizon prediction strategy
+  - Cost optimization: ~$277/month (BigQuery ML + Spot VMs)
+  - Post-migration plan: gentle-skipping-wirth.md
 - **2025-11-27**: All three documents created and moved to mandate directory
   - Architecture confirmation (22KB)
   - Dual feature deep dive (16KB)
@@ -175,5 +194,6 @@ BQX ML V3 Architecture:
 ---
 
 *Mandate documentation established: 2025-11-27*
+*Last updated: 2025-12-08*
 *Total size: 55KB across 1,800+ lines*
 *Status: DEFINITIVE AND AUTHORITATIVE*

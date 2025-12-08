@@ -1,8 +1,8 @@
 {
   "intelligence_system": {
-    "version": "1.1.0",
+    "version": "2.0.0",
     "created": "2025-11-25",
-    "last_updated": "2025-11-29",
+    "last_updated": "2025-12-08",
     "author": "BQXML Chief Engineer",
     "purpose": "Comprehensive knowledge base for BQX ML V3 project",
     "files": [
@@ -18,8 +18,8 @@
   },
   "project_metadata": {
     "name": "BQX ML V3",
-    "full_name": "BQX Machine Learning System Version 3.0",
-    "description": "28 independent machine learning models for forex momentum prediction",
+    "full_name": "BQX Machine Learning System Version 3.1",
+    "description": "784 ML models (28 pairs × 7 horizons × 4 ensemble) for forex momentum prediction using BQX paradigm",
     "type": "Machine Learning / Financial Technology",
     "domain": "Forex Trading / Quantitative Finance",
     "methodology": "Supervised Learning / Time Series Prediction",
@@ -69,8 +69,8 @@
       "stages_95plus": "74.3%",
       "gap_coverage": "100%"
     },
-    "current_phase": "Feature Implementation COMPLETE - Ready for Model Training",
-    "next_milestone": "Model training with 196 models (28 pairs × 7 horizons)",
+    "current_phase": "BigQuery V2 Migration - 62% Complete",
+    "next_milestone": "Complete v2 migration, then train 784 models (28 pairs × 7 horizons × 4 ensemble)",
     "phase_status": {
       "Phase 0": "COMPLETE - Infrastructure setup",
       "Phase 1": "COMPLETE - Data ingestion and validation",
@@ -102,13 +102,21 @@
     "currency_pairs": 28,
     "historical_period": "7+ years",
     "data_warehouse": "BigQuery",
-    "datasets": {
-      "bqx_bq_uscen1": "Base data tables (2,463)",
-      "bqx_ml_v3_features": "Feature tables (4,061)",
-      "bqx_ml_v3_analytics": "Target tables (28)",
-      "bqx_ml_v3_models": "Model artifacts (16)",
-      "bqx_ml_v3_predictions": "Prediction outputs (pending)"
+    "location": "us-central1",
+    "migration_status": "V2 IN PROGRESS (~62% complete)",
+    "datasets_v2": {
+      "bqx_bq_uscen1_v2": "Source data (2,209 tables - partitioned, 100% complete)",
+      "bqx_ml_v3_features_v2": "Engineered features (~2,609 tables - partitioned, 62% complete)",
+      "bqx_ml_v3_models": "Trained models (pending v2 completion)",
+      "bqx_ml_v3_predictions": "Prediction outputs (pending)",
+      "bqx_ml_v3_analytics": "Target tables (54 tables)"
     },
+    "datasets_v1_deprecated": {
+      "bqx_bq_uscen1": "DEPRECATED - delete after v2 validation",
+      "bqx_ml_v3_features": "DEPRECATED - delete after v2 validation"
+    },
+    "partitioning": "DATE(interval_time)",
+    "clustering": "pair (or pair1 for covariance tables)",
     "tables": {
       "current": 4061,
       "required": 4061,
@@ -212,7 +220,8 @@
         "count": 49,
         "formula": "7 windows × 7 horizons",
         "windows": [45, 90, 180, 360, 720, 1440, 2880],
-        "horizons": [15, 30, 45, 60, 75, 90, 105]
+        "horizons": [15, 30, 45, 60, 75, 90, 105],
+        "note": "7 horizons (h15-h105), deploy farthest achieving 95%+ accuracy"
       },
       "current_analysis": {
         "features": 817,
@@ -235,43 +244,46 @@
     }
   },
   "model_metadata": {
-    "architecture": "Independent Model per Currency Pair per Horizon",
-    "total_models": 196,
-    "breakdown": "28 pairs × 7 horizons",
+    "architecture": "Multi-Horizon Ensemble Architecture",
+    "total_models": 784,
+    "breakdown": "28 pairs × 7 horizons × 4 ensemble members",
     "prediction_horizons": [15, 30, 45, 60, 75, 90, 105],
-    "horizon_note": "Intervals forward (row-based, NOT time-based)",
-    "algorithms": [
+    "horizon_note": "Intervals forward (row-based, NOT time-based). Deploy FARTHEST horizon achieving ≥95% accuracy.",
+    "ensemble_members": [
       {
-        "name": "RandomForest",
-        "type": "Ensemble",
-        "count": 28
+        "name": "LightGBM",
+        "type": "Gradient Boosting",
+        "role": "Base Learner 1",
+        "count": 196
       },
       {
         "name": "XGBoost",
         "type": "Gradient Boosting",
-        "count": 28
+        "role": "Base Learner 2",
+        "count": 196
       },
       {
-        "name": "LightGBM",
+        "name": "CatBoost",
         "type": "Gradient Boosting",
-        "count": 28
+        "role": "Base Learner 3",
+        "count": 196
       },
       {
-        "name": "LSTM",
-        "type": "Deep Learning",
-        "count": 28
-      },
-      {
-        "name": "GRU",
-        "type": "Deep Learning",
-        "count": 28
+        "name": "Meta-learner",
+        "type": "LSTM or Logistic Regression",
+        "role": "Stacking Meta-learner",
+        "count": 196
       }
     ],
-    "ensemble": "Weighted average based on recent performance",
+    "ensemble_strategy": "Stacking: LightGBM + XGBoost + CatBoost → Meta-learner (LSTM/LogReg)",
     "target": "Future BQX momentum values via LEAD(bqx_*, H)",
+    "accuracy_target": "95%+ directional accuracy (per horizon)",
+    "deployment_strategy": "Deploy farthest horizon achieving ≥95% accuracy per pair",
     "bqx_components": ["bqx_45", "bqx_90", "bqx_180", "bqx_360", "bqx_720", "bqx_1440", "bqx_2880"],
     "training_frequency": "Weekly full retrain + daily fine-tuning",
-    "validation": "Time-series cross-validation (5 folds)"
+    "validation": "Walk-forward validation (MANDATORY for time series)",
+    "feature_selection": "SHAP values for top 500-1,000 features",
+    "cost_estimate": "~$277/month (BigQuery ML + Spot VMs)"
   },
   "api_metadata": {
     "rest_api": {

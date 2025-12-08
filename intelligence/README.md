@@ -109,11 +109,19 @@ These intelligence files are:
 
 ## Version
 
-- **Version**: 1.0.0
+- **Version**: 2.0.0
 - **Created**: 2025-11-25
-- **Last Updated**: 2025-11-25
-- **Total Files**: 8
-- **Total Size**: ~46 KB
+- **Last Updated**: 2025-12-08
+- **Total Files**: 14
+- **Total Size**: ~75 KB
+
+## Current Status (2025-12-08)
+
+- **V2 Migration**: IN PROGRESS (~62% complete)
+- **Total Models**: 672 (28 pairs × 6 horizons × 4 ensemble)
+- **Target Accuracy**: 95%+ (deploy farthest horizon achieving this)
+- **Monthly Cost**: ~$277 (optimized)
+- **Active Plan**: `/home/micha/.claude/plans/gentle-skipping-wirth.md`
 
 ## Links
 

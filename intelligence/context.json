@@ -1,12 +1,12 @@
 {
   "project": {
     "name": "BQX ML V3",
-    "version": "3.0.0",
-    "description": "28 independent machine learning models for forex momentum prediction using BQX paradigm",
+    "version": "3.1.0",
+    "description": "784 ML models (28 pairs × 7 horizons × 4 ensemble) for forex momentum prediction using BQX paradigm",
     "repository": "https://github.com/Schmidtlappin/bqx_ml_v3",
     "owner": "Schmidtlappin",
     "created": "2024-11-24",
-    "last_updated": "2025-11-29"
+    "last_updated": "2025-12-08"
   },
   "paradigm": {
     "name": "BQX Momentum Prediction",
@@ -15,11 +15,15 @@
     "core_principle": "Historical BQX values contain momentum signals that predict future BQX"
   },
   "architecture": {
-    "type": "Independent Model Architecture",
-    "model_count": 28,
-    "model_scope": "One model per currency pair",
+    "type": "Multi-Horizon Ensemble Architecture",
+    "total_models": 784,
+    "calculation": "28 pairs × 7 horizons × 4 ensemble members",
+    "horizons": ["h15", "h30", "h45", "h60", "h75", "h90", "h105"],
+    "ensemble_members": ["LightGBM", "XGBoost", "CatBoost", "Meta-learner (LSTM/LogReg)"],
+    "model_scope": "One ensemble per pair-horizon combination",
     "isolation": "Complete - no cross-pair contamination",
-    "computation": "Interval-centric using ROWS BETWEEN only"
+    "computation": "Interval-centric using ROWS BETWEEN only",
+    "deployment_strategy": "Deploy farthest horizon achieving ≥95% accuracy per pair"
   },
   "infrastructure": {
     "cloud": {
@@ -32,28 +36,29 @@
     "data": {
       "warehouse": "BigQuery",
       "location": "us-central1",
-      "migration_date": "2025-11-28",
-      "tables": 1983,
-      "mandate_target": 3192,
-      "datasets": {
-        "bqx_bq_uscen1": "Raw m1 OHLCV data (2,463 tables)",
-        "bqx_ml_v3_features": "Engineered features (1,983 tables)",
-        "bqx_ml_v3_models": "Trained models (16 models)",
-        "bqx_ml_v3_predictions": "Model predictions (0 tables - pending)",
-        "bqx_ml_v3_analytics": "Target tables (28 tables)",
-        "bqx_ml_v3_staging": "Temporary processing (0 tables)"
+      "migration_date": "2025-12-08",
+      "v2_migration_status": "IN PROGRESS (~72% complete)",
+      "v2_catalog": "/intelligence/bigquery_v2_catalog.json",
+      "datasets_v2": {
+        "bqx_bq_uscen1_v2": "Source data (2,210 tables, 131 GB - 100% complete)",
+        "bqx_ml_v3_features_v2": "Engineered features (3,031 tables, 924 GB - 72% complete)",
+        "bqx_ml_v3_analytics_v2": "Target tables (54 tables, 68 GB)",
+        "bqx_ml_v3_models": "Trained models (pending v2 migration completion)",
+        "bqx_ml_v3_predictions": "Model predictions (pending)"
       },
-      "feature_matrix": {
-        "primary": {"current": 504, "required": 392, "coverage": "128.6%", "status": "COMPLETE"},
-        "correlation": {"current": 448, "required": 448, "coverage": "100%", "status": "COMPLETE"},
-        "covariance": {"current": 554, "required": 2352, "coverage": "23.6%", "status": "REMEDIATION_AUTHORIZED"},
-        "total": {"current": 1506, "required": 3192, "coverage": "47.2%"}
+      "datasets_v1_deprecated": {
+        "bqx_bq_uscen1": "DEPRECATED - delete after v2 validation (1,220 GB)",
+        "bqx_ml_v3_features": "DEPRECATED - delete after v2 validation (1,279 GB)"
       },
-      "remediation": {
-        "tables_to_create": 1798,
-        "estimated_time": "8 hours",
-        "directive": "OPTION_A_FULL_COVERAGE",
-        "status": "AUTHORIZED"
+      "v2_partitioning": {
+        "partition_by": "DATE(interval_time)",
+        "cluster_by": "pair (or pair1 for covariance tables)"
+      },
+      "storage_summary": {
+        "v2_total_gb": 1123,
+        "v1_total_gb": 2499,
+        "monthly_cost_v2": "$22.46",
+        "monthly_savings_after_v1_delete": "$49.98"
       }
     },
     "project_management": {
@@ -146,11 +151,18 @@
     "primary_tools": ["Python", "BigQuery", "Vertex AI", "AirTable", "Claude Code"]
   },
   "current_phase": {
-    "phase": "Phase 1B",
-    "name": "BQX Dual Architecture Completion",
-    "status": "Complete",
-    "completion_date": "2025-11-28",
-    "next_milestone": "Phase 2: Additional Feature Types or Model Training"
+    "phase": "BigQuery V2 Migration",
+    "name": "Partitioned Dataset Migration",
+    "status": "IN PROGRESS (~62% complete)",
+    "start_date": "2025-12-07",
+    "estimated_completion": "2025-12-09",
+    "next_milestones": [
+      "Validate migration (row count parity)",
+      "Backup v2 to GCS Coldline",
+      "Delete v1 datasets (~$50/month savings)",
+      "Begin multi-horizon model training"
+    ],
+    "active_plan": "/home/micha/.claude/plans/gentle-skipping-wirth.md"
   },
   "polynomial_regression": {
     "status": "CRITICAL_GAP_IDENTIFIED",
@@ -216,26 +228,33 @@
     ]
   },
   "recent_milestones": {
+    "2025-12-08": [
+      "BigQuery V2 migration in progress (partitioned by DATE(interval_time), clustered by pair)",
+      "Source v2 migration COMPLETE (2,209 tables - 100%)",
+      "Regime migration COMPLETE (354 tables - 100%)",
+      "Covariance migration IN PROGRESS (1,299/2,352 - 55%)",
+      "Features v2 migration IN PROGRESS (~2,609/4,218 - 62%)",
+      "Multi-horizon architecture finalized: 784 models (28 × 7 × 4)",
+      "Prediction strategy: h15-h105, deploy farthest achieving 95%+",
+      "Algorithm ensemble: LightGBM + XGBoost + CatBoost → Meta-learner",
+      "Cost optimization: ~$277/month (BigQuery ML, Spot VMs, Coldline)",
+      "Walk-forward validation mandatory for time series",
+      "Post-migration plan: gentle-skipping-wirth.md",
+      "Archived 6 outdated plan files"
+    ],
+    "2025-12-07": [
+      "Started BigQuery restructure migration to v2 datasets",
+      "Created migration scripts for all table types",
+      "Created real-time migration monitor (monitor_all.sh)"
+    ],
     "2025-11-29": [
       "CRITICAL: Identified polynomial regression feature gap (492 tables)",
       "Created feature specifications for reg_, cov_reg_, var_reg_, csi_reg_, tri_reg_, mkt_reg_",
-      "BA Directive: Implement quadratic polynomial features (lin_term, quad_term, residual)",
-      "Documented correlation strategy expansion (817 → 1,069+ features)",
-      "Deployed BQ-to-Box Cloud Run service for automated disaster recovery",
-      "Created Cloud Scheduler jobs for BigQuery table exports",
-      "Completed feature matrix audit: PRIMARY 100%+, CORRELATION 100%, COVARIANCE 23.6%",
-      "Authorized OPTION A: Full cov_* remediation (1,798 tables)",
-      "Created FEATURE_TABLE_DIRECTORY.md documenting all required tables",
-      "BA Directive: Complete covariance pair-combination coverage (~8 hours)"
+      "Deployed BQ-to-Box Cloud Run service for automated disaster recovery"
     ],
     "2025-11-28": [
       "Completed BigQuery migration to us-central1 (2,463 tables)",
-      "Phase 0: Migration and infrastructure optimization (40-95x performance gain)",
-      "Phase 1: Primary features (LAG, REGIME, Correlation IDX variants)",
-      "Phase 1B: BQX dual variants (lag_bqx_*, regime_bqx_*)",
-      "Discovered and remediated BQX/IDX data mismatch",
-      "Dual architecture: 100% complete",
-      "Total tables created: 540 (31% of mandate)"
+      "40-95x performance speedup from us-central1 migration"
     ],
     "2024-11-24": [
       "BQX paradigm shift: BQX as both features AND targets",
@@ -243,25 +262,45 @@
     ]
   },
   "critical_context": {
-    "data_quality": {
-      "idx_tables": "Real historical data (2.17M rows per pair, 6 years)",
-      "bqx_tables": "Regenerated from IDX (2.17M rows per pair, matching IDX)",
-      "dual_architecture": "100% complete - IDX and BQX tables mirror each other",
-      "data_parity": "Achieved 2025-11-28"
+    "v2_migration": {
+      "status": "IN PROGRESS",
+      "features_v2": "bqx_ml_v3_features_v2 (~2,609/4,218 - 62%)",
+      "source_v2": "bqx_bq_uscen1_v2 (2,209/2,200 - 100%)",
+      "partitioning": "DATE(interval_time)",
+      "clustering": "pair (or pair1 for covariance)",
+      "active_processes": 6,
+      "estimated_completion": "4-6 hours remaining"
     },
-    "mandate_compliance": {
-      "table_completion": "47.2% (1,506 of 3,192)",
-      "feature_types_complete": ["PRIMARY (7 types)", "CORRELATION (1 type)"],
-      "feature_types_pending": ["COVARIANCE (7 types) - 23.6% complete, remediation authorized"],
-      "dual_architecture": "100% for all feature types (IDX + BQX variants)",
-      "models_trained": "16 of 196 (8.2%)",
-      "accuracy_target": "90%+ directional (not yet measured)",
-      "remediation_status": "1,798 cov_* tables authorized for creation (~8 hours)"
+    "model_architecture": {
+      "total_models": 784,
+      "calculation": "28 pairs × 7 horizons × 4 ensemble members",
+      "horizons": ["h15", "h30", "h45", "h60", "h75", "h90", "h105"],
+      "ensemble": ["LightGBM", "XGBoost", "CatBoost", "Meta-learner"],
+      "deployment_criterion": "Farthest horizon achieving ≥95% accuracy",
+      "feature_selection": "SHAP values for top 500-1,000 features"
     },
-    "performance": {
-      "migration_speedup": "40-95x faster execution in us-central1",
-      "phase_1_execution": "53 minutes (vs 28-40 hour estimate)",
-      "phase_1b_execution": "3 minutes (vs 10-18 minute estimate)"
+    "accuracy_target": {
+      "primary": "95%+ directional accuracy (updated from 90%)",
+      "per_horizon_expectation": {
+        "h15": "94-98%",
+        "h30": "91-96%",
+        "h45": "88-94%",
+        "h60": "85-92%",
+        "h75": "82-90%",
+        "h90": "78-88%",
+        "h105": "75-85%"
+      }
+    },
+    "cost_optimization": {
+      "monthly_estimate": "$277 (optimized)",
+      "savings": "63% vs original ($755)",
+      "strategies": ["BigQuery ML (vs Vertex AI)", "Spot VMs", "Feature selection FIRST", "Coldline backup"]
+    },
+    "validation_requirements": {
+      "walk_forward": "MANDATORY - no standard cross-validation for time series",
+      "train_window": "T-365 to T-30 days",
+      "validation_window": "T-30 to T-7 days",
+      "test_window": "T-7 to T days"
     }
   }
 }
