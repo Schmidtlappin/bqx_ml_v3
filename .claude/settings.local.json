@@ -140,7 +140,12 @@
       "Bash(git -C /home/micha/bqx_ml_v3 status)",
       "Bash(git -C /home/micha/bqx_ml_v3 log -3 --oneline)",
       "Bash(git -C /home/micha/bqx_ml_v3 diff --stat mandate/ intelligence/)",
-      "Bash(git -C /home/micha/bqx_ml_v3 add -A)"
+      "Bash(git -C /home/micha/bqx_ml_v3 add -A)",
+      "Bash(git -C /home/micha/bqx_ml_v3 commit -m \"$(cat <<''EOF''\nfeat: Update to 784 models (7 horizons), add v2 catalog, archive old files\n\nArchitecture Updates:\n- Updated from 6 to 7 horizons (h15-h105), totaling 784 models (28×7×4)\n- Added h105 horizon back to all intelligence and mandate files\n- Updated model counts: 588 base models + 196 meta-learners\n\nNew Files:\n- intelligence/bigquery_v2_catalog.json: Full v2 BigQuery dataset catalog\n- docs/GCP_COST_ESTIMATE_784_MODELS.md: Detailed cost breakdown (~$277/month)\n- scripts/bigquery_restructure/: New migration monitoring scripts\n\nCleanup:\n- Archived 75+ iteration/status files to archive/ directory\n- Moved 36 remediation scripts to archive/\n- Moved 12 prompt iteration files to archive/\n- Consolidated large CSV/JSON analysis files to archive/data_analysis/\n\nDocumentation:\n- Updated all intelligence files with v2 catalog references\n- Updated migration progress to 72% (3,031/4,218 tables)\n- Added storage sizes and cost estimates throughout\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n)\")",
+      "Bash(git -C /home/micha/bqx_ml_v3 push origin main)",
+      "Bash(comm:*)",
+      "Bash(git -C /home/micha/bqx_ml_v3 log --oneline -5)",
+      "Bash(git -C /home/micha/bqx_ml_v3 diff --stat intelligence/ scripts/)"
     ],
     "deny": [],
     "ask": []

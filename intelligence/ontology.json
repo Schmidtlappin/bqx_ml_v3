@@ -20,7 +20,7 @@
       "attributes": ["model_type", "pair_id", "horizon", "ensemble_role", "training_date", "performance_metrics"],
       "accuracy_target": "95%+ directional accuracy",
       "deployment_strategy": "Deploy farthest horizon achieving ≥95% per pair",
-      "status": "PENDING - V2 migration in progress (~62% complete)",
+      "status": "READY - V2 migration complete, awaiting training",
       "relationships": {
         "belongs_to_pair": "Many-to-One with CurrencyPair",
         "trained_on": "Many-to-Many with Feature",
@@ -117,7 +117,7 @@
     "BigQuery": {
       "location": "us-central1",
       "migration_date": "2025-12-08",
-      "migration_status": "V2 IN PROGRESS (~72% complete)",
+      "migration_status": "V2 COMPLETE (100%)",
       "full_catalog": "/intelligence/bigquery_v2_catalog.json",
       "partitioning": "DATE(interval_time)",
       "clustering": "pair (or pair1 for covariance tables)",
@@ -131,10 +131,9 @@
         },
         "bqx_ml_v3_features_v2": {
           "description": "Engineered features - partitioned, clustered",
-          "tables": 3031,
-          "size_gb": 923.79,
-          "target": 4218,
-          "status": "72% complete",
+          "tables": 4882,
+          "size_gb": 1478.69,
+          "status": "100% COMPLETE",
           "feature_types": ["covariance", "correlation", "regime", "lag", "regression", "aggregation", "alignment", "momentum", "volatility"]
         },
         "bqx_ml_v3_analytics_v2": {
@@ -146,7 +145,7 @@
         "bqx_ml_v3_models": {
           "description": "Trained model artifacts",
           "tables": 16,
-          "status": "PENDING v2 migration completion"
+          "status": "READY - V2 migration complete"
         },
         "bqx_ml_v3_predictions": {
           "description": "Model prediction outputs",
@@ -154,15 +153,14 @@
           "status": "PENDING"
         }
       },
-      "datasets_v1_deprecated": {
-        "bqx_bq_uscen1": "DEPRECATED - 1,220 GB - delete after v2 validation",
-        "bqx_ml_v3_features": "DEPRECATED - 1,279 GB - delete after v2 validation"
+      "datasets_v1_deleted": {
+        "bqx_bq_uscen1": "DELETED 2025-12-09 (was 1,220 GB)",
+        "bqx_ml_v3_features": "DELETED 2025-12-09 (was 1,279 GB)"
       },
       "storage_totals": {
-        "v2_active_gb": 1123,
-        "v1_deprecated_gb": 2499,
-        "monthly_cost_v2": "$22.46",
-        "potential_savings": "$49.98/month"
+        "v2_total_gb": 1678,
+        "monthly_cost": "$33.56",
+        "savings_realized": "$49.98/month"
       }
     },
     "Training_Platform": {
@@ -171,7 +169,7 @@
       "models_planned": 784,
       "models_trained": 0,
       "structure": "28 pairs × 7 horizons × 4 ensemble members",
-      "status": "PENDING v2 migration completion"
+      "status": "READY - V2 migration complete"
     }
   }
 }

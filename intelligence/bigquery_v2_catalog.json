@@ -1,10 +1,10 @@
 {
-  "catalog_version": "2.0",
-  "last_updated": "2025-12-08",
+  "catalog_version": "2.1",
+  "last_updated": "2025-12-09",
   "project": "bqx-ml",
   "location": "us-central1",
-  "migration_status": "IN_PROGRESS",
-  "migration_completion": "62%",
+  "migration_status": "COMPLETE",
+  "migration_completion": "100%",
 
   "datasets": {
     "bqx_bq_uscen1_v2": {
@@ -14,7 +14,6 @@
       "clustering": "pair",
       "table_count": 2210,
       "total_gb": 131.04,
-      "total_rows": 502629967,
       "table_types": {
         "m1_source": {
           "count": 2017,
@@ -45,79 +44,101 @@
       "status": "ACTIVE",
       "partitioning": "DATE(interval_time)",
       "clustering": "pair (or pair1 for covariance)",
-      "table_count": 3031,
-      "total_gb": 923.79,
-      "total_rows": 6117801910,
-      "migration_target": 4218,
-      "migration_progress": "72%",
+      "table_count": 4888,
+      "total_gb": 1479.13,
       "feature_types": {
         "covariance": {
-          "count": 1650,
-          "size_gb": 361.28,
+          "count": 2507,
           "pattern": "cov_{pair1}_{pair2}_{window}",
           "description": "Cross-pair covariance matrices",
-          "target_count": 2352,
-          "status": "70% complete"
+          "status": "100% complete"
         },
         "correlation": {
-          "count": 448,
-          "size_gb": 42.82,
-          "pattern": "corr_{pair1}_{pair2}",
+          "count": 896,
+          "pattern": "corr_{pair1}_{pair2}, corr_bqx_ibkr_{pair}_{ticker}",
           "description": "FX and IBKR cross-correlation",
           "status": "100% complete"
         },
-        "regime": {
-          "count": 112,
-          "size_gb": 30.86,
-          "pattern": "regime_{pair}_{window}, regime_bqx_{pair}_{window}",
-          "description": "Market state classification (IDX and BQX variants)",
-          "status": "100% complete"
-        },
         "lag": {
-          "count": 112,
-          "size_gb": 22.31,
+          "count": 224,
           "pattern": "lag_{pair}_{window}, lag_bqx_{pair}_{window}",
           "description": "Historical lag features (IDX and BQX variants)",
           "status": "100% complete"
         },
-        "regression": {
-          "count": 56,
-          "size_gb": 208.6,
-          "pattern": "reg_{pair}_{window}",
-          "description": "Polynomial regression features",
-          "status": "IN_PROGRESS"
+        "triangulation": {
+          "count": 194,
+          "pattern": "tri_{pair}_{variant}",
+          "description": "Triangulation-based features",
+          "status": "100% complete"
         },
-        "aggregation": {
-          "count": 56,
-          "size_gb": 58.94,
-          "pattern": "agg_{pair}_{window}",
-          "description": "Statistical aggregation features",
-          "status": "IN_PROGRESS"
-        },
-        "alignment": {
-          "count": 56,
-          "size_gb": 39.33,
-          "pattern": "align_{pair}_{window}",
-          "description": "Cross-timeframe alignment features",
-          "status": "IN_PROGRESS"
-        },
-        "momentum": {
-          "count": 56,
-          "size_gb": 40.19,
-          "pattern": "mom_{pair}_{window}",
-          "description": "Advanced momentum features (ROC, acceleration)",
-          "status": "IN_PROGRESS"
+        "regime": {
+          "count": 112,
+          "pattern": "regime_{pair}_{window}, regime_bqx_{pair}_{window}",
+          "description": "Market state classification (IDX and BQX variants)",
+          "status": "100% complete"
         },
         "volatility": {
-          "count": 56,
-          "size_gb": 29.52,
+          "count": 84,
           "pattern": "vol_{pair}_{window}",
           "description": "Volatility features (ATR, realized vol)",
-          "status": "IN_PROGRESS"
+          "status": "100% complete"
+        },
+        "reversal": {
+          "count": 84,
+          "pattern": "rev_{pair}_{window}",
+          "description": "Reversal indicator features",
+          "status": "100% complete"
+        },
+        "regression": {
+          "count": 84,
+          "pattern": "reg_{pair}_{window}",
+          "description": "Polynomial regression features",
+          "status": "100% complete"
+        },
+        "market": {
+          "count": 84,
+          "pattern": "mrt_{pair}_{window}",
+          "description": "Market microstructure features",
+          "status": "100% complete"
+        },
+        "momentum": {
+          "count": 84,
+          "pattern": "mom_{pair}_{window}",
+          "description": "Advanced momentum features (ROC, acceleration)",
+          "status": "100% complete"
+        },
+        "divergence": {
+          "count": 84,
+          "pattern": "div_{pair}_{window}",
+          "description": "Divergence indicator features",
+          "status": "100% complete"
+        },
+        "derivative": {
+          "count": 84,
+          "pattern": "der_{pair}_{window}",
+          "description": "Derivative-based features",
+          "status": "100% complete"
+        },
+        "alignment": {
+          "count": 84,
+          "pattern": "align_{pair}_{window}",
+          "description": "Cross-timeframe alignment features",
+          "status": "100% complete"
+        },
+        "aggregation": {
+          "count": 84,
+          "pattern": "agg_{pair}_{window}",
+          "description": "Statistical aggregation features",
+          "status": "100% complete"
+        },
+        "base": {
+          "count": 56,
+          "pattern": "base_{pair}_{variant}",
+          "description": "Base feature tables",
+          "status": "100% complete"
         },
         "other": {
-          "count": 429,
-          "size_gb": 89.94,
+          "count": 163,
           "description": "Auxiliary and staging tables"
         }
       }
@@ -130,7 +151,6 @@
       "clustering": "pair",
       "table_count": 54,
       "total_gb": 68.34,
-      "total_rows": 192772295,
       "table_types": {
         "targets": {
           "pattern": "targets_{pair}",
@@ -142,7 +162,7 @@
 
     "bqx_ml_v3_models": {
       "description": "Trained model artifacts",
-      "status": "PENDING",
+      "status": "READY",
       "table_count": 16,
       "total_gb": 0.01,
       "planned_models": 784,
@@ -151,32 +171,24 @@
 
     "bqx_ml_v3_predictions": {
       "description": "Model prediction outputs",
-      "status": "PENDING",
+      "status": "READY",
       "table_count": 1,
       "note": "Will contain live predictions from deployed models"
     }
   },
 
-  "deprecated_datasets": {
+  "deleted_datasets": {
     "bqx_bq_uscen1": {
-      "status": "DEPRECATED",
-      "action": "DELETE after v2 validation",
-      "table_count": 2463,
-      "total_gb": 1219.97,
-      "monthly_cost_savings": "$24.40"
+      "deleted_date": "2025-12-09",
+      "was_tables": 2463,
+      "was_gb": 1219.97,
+      "monthly_savings": "$24.40"
     },
     "bqx_ml_v3_features": {
-      "status": "DEPRECATED",
-      "action": "DELETE after v2 validation",
-      "table_count": 5146,
-      "total_gb": 1279.2,
-      "monthly_cost_savings": "$25.58"
-    },
-    "bqx_ml_v3_analytics": {
-      "status": "CONSOLIDATE",
-      "action": "Merge into bqx_ml_v3_analytics_v2",
-      "table_count": 70,
-      "total_gb": 68.34
+      "deleted_date": "2025-12-09",
+      "was_tables": 5146,
+      "was_gb": 1279.2,
+      "monthly_savings": "$25.58"
     }
   },
 
@@ -197,14 +209,15 @@
     "per_pair": 28,
     "per_horizon": 112,
     "base_models": 588,
-    "meta_learners": 196
+    "meta_learners": 196,
+    "accuracy_target": "95%+ directional accuracy",
+    "deployment_strategy": "Deploy farthest horizon achieving ≥95% per pair"
   },
 
   "storage_summary": {
-    "v2_active_total_gb": 1123.17,
-    "v1_deprecated_total_gb": 2499.17,
-    "v2_monthly_cost": "$22.46",
-    "v1_monthly_cost": "$49.98",
-    "potential_savings": "$49.98/month"
+    "v2_total_gb": 1678.52,
+    "v2_monthly_cost": "$33.57",
+    "v1_deleted_gb": 2499.17,
+    "monthly_savings_realized": "$49.98"
   }
 }

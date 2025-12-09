@@ -37,28 +37,28 @@
       "warehouse": "BigQuery",
       "location": "us-central1",
       "migration_date": "2025-12-08",
-      "v2_migration_status": "IN PROGRESS (~72% complete)",
+      "v2_migration_status": "COMPLETE (100%)",
       "v2_catalog": "/intelligence/bigquery_v2_catalog.json",
       "datasets_v2": {
-        "bqx_bq_uscen1_v2": "Source data (2,210 tables, 131 GB - 100% complete)",
-        "bqx_ml_v3_features_v2": "Engineered features (3,031 tables, 924 GB - 72% complete)",
+        "bqx_bq_uscen1_v2": "Source data (2,210 tables, 131 GB)",
+        "bqx_ml_v3_features_v2": "Engineered features (4,888 tables, 1,479 GB)",
         "bqx_ml_v3_analytics_v2": "Target tables (54 tables, 68 GB)",
-        "bqx_ml_v3_models": "Trained models (pending v2 migration completion)",
-        "bqx_ml_v3_predictions": "Model predictions (pending)"
+        "bqx_ml_v3_models": "Trained models (READY for training)",
+        "bqx_ml_v3_predictions": "Model predictions (READY)"
       },
-      "datasets_v1_deprecated": {
-        "bqx_bq_uscen1": "DEPRECATED - delete after v2 validation (1,220 GB)",
-        "bqx_ml_v3_features": "DEPRECATED - delete after v2 validation (1,279 GB)"
+      "datasets_v1_deleted": {
+        "bqx_bq_uscen1": "DELETED 2025-12-09 (was 1,220 GB)",
+        "bqx_ml_v3_features": "DELETED 2025-12-09 (was 1,279 GB)"
       },
       "v2_partitioning": {
         "partition_by": "DATE(interval_time)",
         "cluster_by": "pair (or pair1 for covariance tables)"
       },
       "storage_summary": {
-        "v2_total_gb": 1123,
-        "v1_total_gb": 2499,
-        "monthly_cost_v2": "$22.46",
-        "monthly_savings_after_v1_delete": "$49.98"
+        "v2_total_gb": 1678,
+        "monthly_cost": "$33.57",
+        "v1_deleted_gb": 2499,
+        "monthly_savings_realized": "$49.98"
       }
     },
     "project_management": {
@@ -151,16 +151,21 @@
     "primary_tools": ["Python", "BigQuery", "Vertex AI", "AirTable", "Claude Code"]
   },
   "current_phase": {
-    "phase": "BigQuery V2 Migration",
-    "name": "Partitioned Dataset Migration",
-    "status": "IN PROGRESS (~62% complete)",
-    "start_date": "2025-12-07",
-    "estimated_completion": "2025-12-09",
+    "phase": "Training Pipeline Development",
+    "name": "Multi-Horizon Model Training",
+    "status": "READY - V2 migration complete",
+    "start_date": "2025-12-09",
+    "completed_milestones": [
+      "V2 migration complete (4,888 feature tables)",
+      "Row count parity validated",
+      "V1 datasets deleted ($50/month savings realized)",
+      "All tables partitioned and clustered"
+    ],
     "next_milestones": [
-      "Validate migration (row count parity)",
-      "Backup v2 to GCS Coldline",
-      "Delete v1 datasets (~$50/month savings)",
-      "Begin multi-horizon model training"
+      "Feature selection with SHAP values",
+      "Walk-forward data splits",
+      "Base model training (588 models)",
+      "Meta-learner training (196 models)"
     ],
     "active_plan": "/home/micha/.claude/plans/gentle-skipping-wirth.md"
   },
@@ -263,13 +268,14 @@
   },
   "critical_context": {
     "v2_migration": {
-      "status": "IN PROGRESS",
-      "features_v2": "bqx_ml_v3_features_v2 (~2,609/4,218 - 62%)",
-      "source_v2": "bqx_bq_uscen1_v2 (2,209/2,200 - 100%)",
+      "status": "COMPLETE",
+      "features_v2": "bqx_ml_v3_features_v2 (4,888 tables, 1,479 GB)",
+      "source_v2": "bqx_bq_uscen1_v2 (2,210 tables, 131 GB)",
+      "analytics_v2": "bqx_ml_v3_analytics_v2 (54 tables, 68 GB)",
       "partitioning": "DATE(interval_time)",
       "clustering": "pair (or pair1 for covariance)",
-      "active_processes": 6,
-      "estimated_completion": "4-6 hours remaining"
+      "v1_deleted": "2025-12-09 (2,499 GB freed, $50/month saved)",
+      "completion_date": "2025-12-09"
     },
     "model_architecture": {
       "total_models": 784,
