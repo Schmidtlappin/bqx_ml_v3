@@ -149,11 +149,22 @@ def get_csi_table_name(feature_type: str, currency: str, is_bqx: bool) -> str:
 
 def check_table_exists(dataset: str, table: str) -> bool:
     """Check if a BigQuery table exists."""
+    # Use bq query on INFORMATION_SCHEMA for more reliable check
     result = subprocess.run(
-        ['bq', 'show', '--format=json', f'{dataset}.{table}'],
+        ['bq', 'query', '--use_legacy_sql=false', '--format=csv',
+         f"SELECT COUNT(*) FROM `{dataset}.INFORMATION_SCHEMA.TABLES` WHERE table_name = '{table}'"],
         capture_output=True, text=True
     )
-    return result.returncode == 0
+    if result.returncode != 0:
+        return False
+    lines = result.stdout.strip().split('\n')
+    if len(lines) >= 2:
+        try:
+            count = int(lines[1])
+            return count > 0
+        except:
+            return False
+    return False
 
 def get_table_columns(dataset: str, table: str) -> List[str]:
     """Get column names from a BigQuery table."""

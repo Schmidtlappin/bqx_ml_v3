@@ -1,9 +1,9 @@
 {
-  "roadmap_version": "2.1.0",
+  "roadmap_version": "2.2.0",
   "created": "2025-12-09",
   "updated": "2025-12-09",
   "status": "ACTIVE",
-  "supersedes": "v2.0 (added v2.1 governance recommendations)",
+  "supersedes": "v2.1.0 (added gap remediation phases, user mandates, risk register)",
   "summary": {
     "objective": "Train 784 ML models achieving 85-95%+ directional accuracy with persistence",
     "architecture": "Calibrated Probability Stacking with Regime-Aware Meta-Learner",
@@ -26,6 +26,32 @@
         {"item": "Row Parity Validation", "status": "COMPLETE", "details": "All tables validated"},
         {"item": "Performance Benchmark", "status": "COMPLETE", "details": "40-95x speedup achieved"}
       ]
+    },
+    "phase_1_5": {
+      "name": "Feature Table Gap Remediation",
+      "status": "IN_PROGRESS",
+      "dependencies": ["phase_1"],
+      "milestones": [
+        {"item": "CSI Tables (Currency Strength)", "status": "PENDING", "count": 192, "priority": "CRITICAL", "details": "8 currencies × 12 feature types × 2 variants"},
+        {"item": "VAR Tables (Variance)", "status": "PENDING", "count": 59, "priority": "HIGH", "details": "Missing variance features"},
+        {"item": "MKT Tables (Market-wide)", "status": "PENDING", "count": 14, "priority": "MEDIUM", "details": "Missing market-wide features"}
+      ],
+      "total_gap_tables": 265,
+      "execution_strategy": {
+        "csi": "Proof of concept (USD first), then parallel 7 currencies",
+        "var": "Parallel after CSI complete",
+        "mkt": "Parallel after VAR complete"
+      },
+      "gate": {
+        "name": "GATE_1",
+        "criteria": "All 265 gap tables created and validated",
+        "validation": ["Row count matches expected", "No NULL in required columns", "Partitioning applied"]
+      },
+      "contingency": {
+        "failure_criteria": "Any table creation fails after 3 retries",
+        "rollback_procedure": "Log failure, continue with others, report at checkpoint",
+        "escalation_path": "Report to CE if >10% of tables fail"
+      }
     },
     "phase_2": {
       "name": "Robust Feature Selection",
@@ -52,6 +78,27 @@
           "features_recovered": 208
         },
         "output_file": "/intelligence/robust_feature_selection_eurusd_h15.json"
+      }
+    },
+    "phase_2_5": {
+      "name": "Feature Ledger Generation",
+      "status": "PENDING",
+      "dependencies": ["phase_1_5", "phase_2"],
+      "milestones": [
+        {"item": "Create generate_feature_ledger.py", "status": "PENDING", "details": "Script to enumerate all features per model"},
+        {"item": "Generate initial ledger", "status": "PENDING", "details": "6,477 features × 28 pairs × 7 horizons = 1,269,492 rows"},
+        {"item": "Validate 100% coverage", "status": "PENDING", "details": "Every feature has final_status"},
+        {"item": "Run feature selection (50% threshold)", "status": "PENDING", "details": "Full universe testing with approved threshold"}
+      ],
+      "deliverables": {
+        "primary": "feature_ledger.parquet",
+        "documentation": "feature_ledger.md",
+        "validation_report": "ledger_validation_report.md"
+      },
+      "gate": {
+        "name": "GATE_2",
+        "criteria": "Ledger has 100% coverage with valid final_status for all features",
+        "validation": ["Row count = 1,269,492", "No NULL final_status", "SHAP values for all RETAINED features"]
       }
     },
     "phase_3": {
@@ -194,7 +241,7 @@
       {"stage": 1, "name": "Safe Pruning", "description": "Remove constant, duplicate, >99% missing"},
       {"stage": 2, "name": "Correlation Clustering", "description": "Group features with |r| > 0.95"},
       {"stage": 3, "name": "Group-First Screening", "description": "Quick model per group, rank by AUC"},
-      {"stage": 4, "name": "Stability Selection", "description": "5 folds × 3 seeds, >60% frequency"},
+      {"stage": 4, "name": "Stability Selection", "description": "5 folds × 3 seeds, >50% frequency (USER APPROVED 2025-12-09)"},
       {"stage": 5, "name": "Ablation Testing", "description": "Remove groups, measure ΔAUC"},
       {"stage": 6, "name": "SHAP Interpretation", "description": "Late-stage explainability only"}
     ],
@@ -315,5 +362,103 @@
       "monitoring_and_alerts.md",
       "model_registry.jsonl"
     ]
+  },
+  "user_mandates": {
+    "description": "Binding user decisions that supersede all other recommendations",
+    "mandates": {
+      "shap_sample_size": {
+        "value": 100000,
+        "unit": "samples minimum",
+        "approval_date": "2025-12-09",
+        "binding": true,
+        "rationale": "Statistical robustness for SHAP importance calculation"
+      },
+      "stability_threshold": {
+        "value": 0.5,
+        "unit": "frequency (50%)",
+        "approval_date": "2025-12-09",
+        "binding": true,
+        "previous_value": 0.6,
+        "features_recovered": 208,
+        "rationale": "Include high-importance regime-specific features"
+      },
+      "ledger_coverage": {
+        "value": "100%",
+        "unit": "all 6,477 features per model",
+        "approval_date": "2025-12-09",
+        "binding": true,
+        "rationale": "Complete audit trail for feature selection decisions"
+      }
+    }
+  },
+  "risk_register": {
+    "description": "Identified risks and mitigation strategies",
+    "risks": [
+      {
+        "id": "RISK-001",
+        "description": "ElasticNet shows AUC < 0.5 (0.4578)",
+        "impact": "LOW",
+        "probability": "CONFIRMED",
+        "mitigation": "Investigate configuration; may exclude from ensemble or use for diversity only",
+        "owner": "BA",
+        "status": "OPEN"
+      },
+      {
+        "id": "RISK-002",
+        "description": "Gap tables (265) block feature selection",
+        "impact": "HIGH",
+        "probability": "HIGH",
+        "mitigation": "Prioritize CSI implementation, parallel processing authorized",
+        "owner": "BA",
+        "status": "IN_PROGRESS"
+      },
+      {
+        "id": "RISK-003",
+        "description": "SHAP compute time with 100K samples",
+        "impact": "MEDIUM",
+        "probability": "MEDIUM",
+        "mitigation": "28-worker parallelization approved, batch processing for memory",
+        "owner": "BA",
+        "status": "MITIGATED"
+      },
+      {
+        "id": "RISK-004",
+        "description": "Feature universe not fully tested (only 15.6% tested)",
+        "impact": "HIGH",
+        "probability": "CONFIRMED",
+        "mitigation": "Run selection on full 6,477 features after gap remediation",
+        "owner": "BA",
+        "status": "PLANNED"
+      },
+      {
+        "id": "RISK-005",
+        "description": "Model accuracy below 85% target",
+        "impact": "HIGH",
+        "probability": "MEDIUM",
+        "mitigation": "Confidence gating to achieve 85-95% called accuracy; adjust coverage threshold",
+        "owner": "CE",
+        "status": "PLANNED"
+      }
+    ]
+  },
+  "model_versioning": {
+    "scheme": "v{major}.{minor}.{patch}_{pair}_{horizon}_{timestamp}",
+    "example": "v1.0.0_eurusd_h15_20251209",
+    "storage": {
+      "models": "gs://bqx-ml-v3-models/{pair}/{horizon}/",
+      "artifacts": "gs://bqx-ml-v3-artifacts/{pair}/{horizon}/",
+      "ledgers": "gs://bqx-ml-v3-ledgers/"
+    },
+    "retention": "Keep last 3 versions per pair-horizon",
+    "registry": "model_registry.jsonl"
+  },
+  "backtesting_protocol": {
+    "method": "Walk-forward with expanding window",
+    "train_window_minimum": "6 months",
+    "test_window": "1 month",
+    "embargo_intervals": 30,
+    "refit_frequency": "Monthly",
+    "minimum_windows": 12,
+    "validation_metrics": ["accuracy", "auc", "called_accuracy", "coverage", "persistence"]
   }
 }
