@@ -8,9 +8,9 @@
 ## 📊 EXECUTIVE SUMMARY
 
 ### System Overview (UPDATED 2025-12-08)
-- **Total Models**: 672 (28 pairs × 6 horizons × 4 ensemble members)
+- **Total Models**: 784 (28 pairs × 7 horizons × 4 ensemble members)
 - **Currency Pairs**: 28 independent models
-- **Horizons**: h15, h30, h45, h60, h75, h90 (deploy farthest achieving ≥95%)
+- **Horizons**: h15, h30, h45, h60, h75, h90, h105 (deploy farthest achieving ≥95%)
 - **Algorithms**: LightGBM, XGBoost, CatBoost → Meta-learner (LSTM/LogReg)
 - **Total Tables**: 4,218+ (v2 datasets, partitioned)
 - **Total Features**: 6,477 per pair (verified 2025-12-09) → 399-608 selected via stability selection
