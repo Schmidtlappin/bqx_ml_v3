@@ -147,24 +147,34 @@ def get_csi_table_name(feature_type: str, currency: str, is_bqx: bool) -> str:
     else:
         return f"csi_{feature_type}_{currency.lower()}"
 
-def check_table_exists(dataset: str, table: str) -> bool:
-    """Check if a BigQuery table exists."""
-    # Use bq query on INFORMATION_SCHEMA for more reliable check
+# Global cache for table names
+_table_cache = None
+
+def _load_table_cache(dataset: str) -> set:
+    """Load all table names from dataset into cache."""
+    global _table_cache
+    if _table_cache is not None:
+        return _table_cache
+
+    print("Loading table cache from BigQuery...")
     result = subprocess.run(
-        ['bq', 'query', '--use_legacy_sql=false', '--format=csv',
-         f"SELECT COUNT(*) FROM `{dataset}.INFORMATION_SCHEMA.TABLES` WHERE table_name = '{table}'"],
+        ['bq', 'query', '--use_legacy_sql=false', '--format=csv', '--max_rows=10000',
+         f"SELECT table_name FROM `{dataset}.INFORMATION_SCHEMA.TABLES`"],
         capture_output=True, text=True
     )
     if result.returncode != 0:
-        return False
+        print(f"Warning: Could not load table cache: {result.stderr}")
+        return set()
+
     lines = result.stdout.strip().split('\n')
-    if len(lines) >= 2:
-        try:
-            count = int(lines[1])
-            return count > 0
-        except:
-            return False
-    return False
+    _table_cache = set(lines[1:]) if len(lines) > 1 else set()  # Skip header
+    print(f"Loaded {len(_table_cache)} tables into cache")
+    return _table_cache
+
+def check_table_exists(dataset: str, table: str) -> bool:
+    """Check if a BigQuery table exists using cached lookup."""
+    cache = _load_table_cache(dataset)
+    return table in cache
 
 def get_table_columns(dataset: str, table: str) -> List[str]:
     """Get column names from a BigQuery table."""
