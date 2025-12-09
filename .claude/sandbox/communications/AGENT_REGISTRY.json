@@ -60,6 +60,38 @@
         "LOW": 24
       }
     },
+    "QA": {
+      "full_name": "Quality Assurance Agent",
+      "agent_id": "QA",
+      "role": "Audit, reconciliation, gap detection, data quality, cost monitoring, budget adherence, remediation planning",
+      "active": true,
+      "reports_to": "CE",
+      "inbox_filter": ["*-to-QA_*", "*-to-ALL_*"],
+      "primary_contact": "Quality Assurance Agent Instance",
+      "monitoring_pattern": "QA|ALL",
+      "response_sla_hours": {
+        "URGENT": 1,
+        "HIGH": 4,
+        "NORMAL": 12,
+        "LOW": 24
+      }
+    },
+    "EA": {
+      "full_name": "Enhancement Assistant",
+      "agent_id": "EA",
+      "role": "Performance optimization, cost reduction, workflow streamlining, workspace organization, agent coordination",
+      "active": true,
+      "reports_to": "CE",
+      "inbox_filter": ["*-to-EA_*", "*-to-ALL_*"],
+      "primary_contact": "Enhancement Assistant Instance",
+      "monitoring_pattern": "EA|ALL",
+      "response_sla_hours": {
+        "URGENT": 2,
+        "HIGH": 6,
+        "NORMAL": 24,
+        "LOW": 48
+      }
+    },
     "USER": {
       "full_name": "Human User",
       "agent_id": "USER",
@@ -77,9 +109,21 @@
     }
   },
   "registry_metadata": {
-    "version": "1.0",
-    "last_updated": "2025-11-26T22:25:00Z",
+    "version": "2.0",
+    "last_updated": "2025-12-09T16:00:00Z",
     "maintained_by": "Chief Engineer",
-    "update_protocol": "Update when new agents added or status changes"
+    "update_protocol": "Update when new agents added or status changes",
+    "change_log": [
+      {
+        "version": "2.0",
+        "date": "2025-12-09",
+        "changes": ["Added QA (Quality Assurance Agent)", "Added EA (Enhancement Assistant)"]
+      },
+      {
+        "version": "1.0",
+        "date": "2025-11-26",
+        "changes": ["Initial registry with CE, BA, TA, MA, USER"]
+      }
+    ]
   }
 }

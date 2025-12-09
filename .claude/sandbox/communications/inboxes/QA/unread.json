@@ -1,0 +1,34 @@
+{
+  "agent_id": "QA",
+  "agent_name": "Quality Assurance Agent",
+  "status": "ACTIVE",
+  "activated": "2025-12-09T16:00:00Z",
+  "unread_messages": [],
+  "current_phase": "INITIALIZATION",
+  "current_task": "Awaiting initial directive from CE",
+  "reports_to": "CE",
+  "responsibilities": {
+    "primary": [
+      "Periodic audits of intelligence files",
+      "Mandate compliance verification",
+      "Gap detection (tables, features, docs)",
+      "Inconsistency detection across files",
+      "Data quality validation",
+      "Cost monitoring and budget adherence",
+      "Remediation planning"
+    ],
+    "secondary": [
+      "Pre-flight checks before phase transitions",
+      "Document version tracking",
+      "Risk early warning",
+      "BA progress monitoring"
+    ]
+  },
+  "completed_directives": {},
+  "pending_reviews": [],
+  "cost_monitoring": {
+    "last_review": null,
+    "alerts": [],
+    "budget_status": "PENDING_REVIEW"
+  }
+}

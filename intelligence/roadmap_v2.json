@@ -1,9 +1,9 @@
 {
-  "roadmap_version": "2.2.0",
+  "roadmap_version": "2.3.0",
   "created": "2025-12-09",
   "updated": "2025-12-09",
   "status": "ACTIVE",
-  "supersedes": "v2.1.0 (added gap remediation phases, user mandates, risk register)",
+  "supersedes": "v2.2.0 (added agent hierarchy with QA and EA agents)",
   "summary": {
     "objective": "Train 784 ML models achieving 85-95%+ directional accuracy with persistence",
     "architecture": "Calibrated Probability Stacking with Regime-Aware Meta-Learner",
@@ -460,5 +460,76 @@
     "refit_frequency": "Monthly",
     "minimum_windows": 12,
     "validation_metrics": ["accuracy", "auc", "called_accuracy", "coverage", "persistence"]
+  },
+  "agent_hierarchy": {
+    "description": "Multi-agent coordination structure for BQX ML V3",
+    "version": "2.0",
+    "updated": "2025-12-09",
+    "agents": {
+      "CE": {
+        "full_name": "Chief Engineer",
+        "role": "Project oversight and technical decisions",
+        "status": "ACTIVE",
+        "direct_reports": ["BA", "QA", "EA"]
+      },
+      "BA": {
+        "full_name": "Builder Agent",
+        "role": "Execute real implementation of all tasks",
+        "status": "ACTIVE",
+        "reports_to": "CE",
+        "current_phase": "Phase 1.5 - Gap Remediation"
+      },
+      "QA": {
+        "full_name": "Quality Assurance Agent",
+        "role": "Audit, reconciliation, gap detection, data quality, cost monitoring, budget adherence",
+        "status": "ACTIVE",
+        "reports_to": "CE",
+        "responsibilities": [
+          "Periodic audits",
+          "Pre-phase gate checks",
+          "Data quality validation",
+          "Inconsistency detection",
+          "Cost monitoring",
+          "Budget adherence",
+          "Documentation currency"
+        ]
+      },
+      "EA": {
+        "full_name": "Enhancement Assistant",
+        "role": "Performance optimization, cost reduction, workflow streamlining, agent coordination",
+        "status": "ACTIVE",
+        "reports_to": "CE",
+        "responsibilities": [
+          "Model performance analysis",
+          "Cost optimization",
+          "Workflow streamlining",
+          "Workspace organization",
+          "Agent coordination enhancement"
+        ]
+      },
+      "TA": {
+        "full_name": "Test Agent",
+        "role": "Validate implementations and quality gates",
+        "status": "RESERVED",
+        "note": "Reserved for future activation"
+      },
+      "MA": {
+        "full_name": "Monitoring Agent",
+        "role": "Monitor system health and performance",
+        "status": "RESERVED",
+        "note": "Reserved for future activation"
+      }
+    },
+    "communication_matrix": {
+      "CE_to": ["BA", "QA", "EA", "USER"],
+      "BA_to": ["CE", "QA", "EA"],
+      "QA_to": ["CE", "BA", "EA"],
+      "EA_to": ["CE", "BA", "QA"]
+    },
+    "charge_documents": {
+      "BA": "/.claude/sandbox/communications/active/BA_CHARGE_V2_ROADMAP_20251209.md",
+      "QA": "/.claude/sandbox/communications/active/QA_CHARGE_20251209.md",
+      "EA": "/.claude/sandbox/communications/active/EA_CHARGE_20251209.md"
+    }
   }
 }
