@@ -12,15 +12,32 @@
     },
     "Model": {
       "definition": "Machine learning model ensemble for specific currency pair and horizon",
-      "ensemble_members": ["LightGBM", "XGBoost", "CatBoost", "Meta-learner"],
+      "architecture_version": "2.0 - Enhanced Stacking",
+      "ensemble_members": ["LightGBM", "XGBoost", "CatBoost", "ElasticNet"],
+      "meta_learner": "Logistic Regression + Regime Features",
       "count": 0,
       "planned_count": 784,
       "breakdown": "28 pairs × 7 horizons × 4 ensemble members",
       "horizons": ["h15", "h30", "h45", "h60", "h75", "h90", "h105"],
-      "attributes": ["model_type", "pair_id", "horizon", "ensemble_role", "training_date", "performance_metrics"],
-      "accuracy_target": "95%+ directional accuracy",
-      "deployment_strategy": "Deploy farthest horizon achieving ≥95% per pair",
-      "status": "READY - V2 migration complete, awaiting training",
+      "attributes": ["model_type", "pair_id", "horizon", "ensemble_role", "training_date", "performance_metrics", "calibration_method"],
+      "accuracy_target": {
+        "overall": "85-90%",
+        "called_signals": "90-95%",
+        "coverage": "30-50%"
+      },
+      "deployment_strategy": "Deploy farthest horizon achieving ≥95% called accuracy",
+      "stacking_architecture": {
+        "stage_a": "Sign Probability Stack (calibrated P(+))",
+        "stage_b": "Conditional Magnitude (after sign decided)"
+      },
+      "critical_fixes_v2": [
+        "Walk-forward OOF predictions (prevents leakage)",
+        "Probability calibration (Platt scaling)",
+        "Regime-aware meta-learner",
+        "Feature-view diversity",
+        "Confidence gating"
+      ],
+      "status": "IN PROGRESS - Feature selection complete, awaiting training",
       "relationships": {
         "belongs_to_pair": "Many-to-One with CurrencyPair",
         "trained_on": "Many-to-Many with Feature",

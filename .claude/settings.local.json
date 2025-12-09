@@ -145,7 +145,16 @@
       "Bash(git -C /home/micha/bqx_ml_v3 push origin main)",
       "Bash(comm:*)",
       "Bash(git -C /home/micha/bqx_ml_v3 log --oneline -5)",
-      "Bash(git -C /home/micha/bqx_ml_v3 diff --stat intelligence/ scripts/)"
+      "Bash(git -C /home/micha/bqx_ml_v3 diff --stat intelligence/ scripts/)",
+      "Bash(git -C /home/micha/bqx_ml_v3 commit -m \"$(cat <<''EOF''\nfeat: Complete V2 migration - 4,888 tables, delete V1 ($50/mo saved)\n\nMigration Completed:\n- bqx_ml_v3_features_v2: 4,888 tables (1,479 GB)\n- bqx_bq_uscen1_v2: 2,210 tables (131 GB)\n- All tables partitioned by DATE(interval_time), clustered by pair\n- Row count parity validated\n\nV1 Datasets Deleted (2025-12-09):\n- bqx_ml_v3_features: 5,146 tables (1,279 GB) - DELETED\n- bqx_bq_uscen1: 2,463 tables (1,220 GB) - DELETED\n- Monthly savings: $49.98\n\nNew Scripts:\n- scripts/bigquery_restructure/complete_migration.py (parallel 8-worker migration)\n- scripts/bigquery_restructure/monitor_v2_migration.sh (real-time monitor)\n- scripts/validate_v2_migration.py (validation suite)\n\nIntelligence Updates:\n- bigquery_v2_catalog.json: Full v2 catalog with 4,888 tables\n- context.json: Migration status COMPLETE\n- ontology.json: Updated storage totals and status\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n)\")",
+      "Bash(gcloud config:*)",
+      "Bash(gcloud config get-value:*)",
+      "Bash(gcloud services list:*)",
+      "Bash(/home/micha/bqx_ml_v3/scripts/rebuild_all_targets.sh:*)",
+      "Bash(timeout 1200 python3:*)",
+      "Bash(timeout 120 bq query:*)",
+      "Bash(timeout 180 bq query:*)",
+      "Bash(timeout 300 bq query:*)"
     ],
     "deny": [],
     "ask": []

@@ -1,0 +1,83 @@
+{
+  "pair": "eurusd",
+  "split_id": 0,
+  "split": {
+    "split_id": 0,
+    "train": {
+      "start": "2024-10-22",
+      "end": "2025-10-21",
+      "days": 365
+    },
+    "validation": {
+      "start": "2025-10-22",
+      "end": "2025-11-13",
+      "days": 23
+    },
+    "test": {
+      "start": "2025-11-14",
+      "end": "2025-11-20",
+      "days": 7
+    }
+  },
+  "results": [
+    {
+      "horizon": "h15",
+      "train_rows": 360658,
+      "val_rows": 23348,
+      "rmse": 0.039641902633325954,
+      "directional_accuracy": 0.7486722631488778,
+      "best_iteration": 476
+    },
+    {
+      "horizon": "h30",
+      "train_rows": 360658,
+      "val_rows": 23348,
+      "rmse": 0.05086917440001892,
+      "directional_accuracy": 0.6302467020729827,
+      "best_iteration": 212
+    },
+    {
+      "horizon": "h45",
+      "train_rows": 360658,
+      "val_rows": 23348,
+      "rmse": 0.05697804017092668,
+      "directional_accuracy": 0.5131917080692137,
+      "best_iteration": 52
+    },
+    {
+      "horizon": "h60",
+      "train_rows": 360658,
+      "val_rows": 23348,
+      "rmse": 0.056951288880202115,
+      "directional_accuracy": 0.5041117012163783,
+      "best_iteration": 72
+    },
+    {
+      "horizon": "h75",
+      "train_rows": 360658,
+      "val_rows": 23348,
+      "rmse": 0.05697771733511992,
+      "directional_accuracy": 0.5019273599451773,
+      "best_iteration": 4
+    },
+    {
+      "horizon": "h90",
+      "train_rows": 360658,
+      "val_rows": 23348,
+      "rmse": 0.05693245628127953,
+      "directional_accuracy": 0.5012849066301183,
+      "best_iteration": 2
+    },
+    {
+      "horizon": "h105",
+      "train_rows": 360658,
+      "val_rows": 23348,
+      "rmse": 0.056858762855306576,
+      "directional_accuracy": 0.4977728285077951,
+      "best_iteration": 4
+    }
+  ],
+  "best_horizon": "h15",
+  "best_accuracy": 0.7486722631488778,
+  "timestamp": "2025-12-09T05:07:36.650237"
+}

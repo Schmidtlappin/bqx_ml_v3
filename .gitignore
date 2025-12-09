@@ -12,3 +12,4 @@ credentials/*key*
 .env.*
 !.env.example
 archive/
+catboost_info/

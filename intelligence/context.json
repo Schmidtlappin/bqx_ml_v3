@@ -151,23 +151,32 @@
     "primary_tools": ["Python", "BigQuery", "Vertex AI", "AirTable", "Claude Code"]
   },
   "current_phase": {
-    "phase": "Training Pipeline Development",
-    "name": "Multi-Horizon Model Training",
-    "status": "READY - V2 migration complete",
+    "phase": "Enhanced Stacking Architecture (V2)",
+    "name": "Calibrated Probability Stacking with Regime-Aware Meta-Learner",
+    "status": "IN PROGRESS - Feature selection complete",
     "start_date": "2025-12-09",
+    "roadmap_version": "2.0",
+    "roadmap_file": "/intelligence/roadmap_v2.json",
     "completed_milestones": [
       "V2 migration complete (4,888 feature tables)",
       "Row count parity validated",
       "V1 datasets deleted ($50/month savings realized)",
-      "All tables partitioned and clustered"
+      "All tables partitioned and clustered",
+      "Robust feature selection complete (399 stable features)",
+      "Enhanced stacking architecture defined (6 critical fixes)"
     ],
     "next_milestones": [
-      "Feature selection with SHAP values",
-      "Walk-forward data splits",
-      "Base model training (588 models)",
-      "Meta-learner training (196 models)"
+      "Walk-forward OOF predictions (prevents leakage)",
+      "Probability calibration (Platt scaling)",
+      "Regime-aware meta-learner training",
+      "Confidence gating optimization"
     ],
-    "active_plan": "/home/micha/.claude/plans/gentle-skipping-wirth.md"
+    "active_plan": "/home/micha/.claude/plans/gentle-skipping-wirth.md",
+    "target_accuracy": {
+      "overall": "85-90%",
+      "called_signals": "90-95%",
+      "coverage": "30-50%"
+    }
   },
   "polynomial_regression": {
     "status": "CRITICAL_GAP_IDENTIFIED",
@@ -233,6 +242,14 @@
     ]
   },
   "recent_milestones": {
+    "2025-12-09": [
+      "Roadmap V2 complete - Enhanced Stacking Architecture",
+      "Robust feature selection complete (399 stable features)",
+      "6 critical stacking fixes defined (OOF, calibration, regime, diversity, gating)",
+      "Feature selection replaces naive SHAP with Group-First Stability Selection",
+      "V1 datasets deleted ($50/month savings realized)",
+      "Created pipelines: stack_calibrated.py, feature_selection_robust.py"
+    ],
     "2025-12-08": [
       "BigQuery V2 migration in progress (partitioned by DATE(interval_time), clustered by pair)",
       "Source v2 migration COMPLETE (2,209 tables - 100%)",
@@ -278,12 +295,25 @@
       "completion_date": "2025-12-09"
     },
     "model_architecture": {
+      "version": "2.0 - Enhanced Stacking",
       "total_models": 784,
       "calculation": "28 pairs × 7 horizons × 4 ensemble members",
       "horizons": ["h15", "h30", "h45", "h60", "h75", "h90", "h105"],
-      "ensemble": ["LightGBM", "XGBoost", "CatBoost", "Meta-learner"],
-      "deployment_criterion": "Farthest horizon achieving ≥95% accuracy",
-      "feature_selection": "SHAP values for top 500-1,000 features"
+      "ensemble": ["LightGBM", "XGBoost", "CatBoost", "ElasticNet"],
+      "meta_learner": "Logistic Regression + Regime Features",
+      "deployment_criterion": "Farthest horizon achieving ≥95% called accuracy",
+      "feature_selection": "Robust Group-First Stability Selection (399 features)",
+      "stacking_architecture": {
+        "stage_a": "Sign Probability Stack (calibrated P(+))",
+        "stage_b": "Conditional Magnitude (after sign decided)"
+      },
+      "critical_fixes": [
+        "Walk-forward OOF predictions (no leakage)",
+        "Probability calibration (Platt scaling)",
+        "Regime-aware meta-learner",
+        "Feature-view diversity",
+        "Confidence gating (called accuracy)"
+      ]
     },
     "accuracy_target": {
       "primary": "95%+ directional accuracy (updated from 90%)",

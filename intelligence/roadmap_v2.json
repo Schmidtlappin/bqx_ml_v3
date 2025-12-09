@@ -1,0 +1,214 @@
+{
+  "roadmap_version": "2.0.0",
+  "created": "2025-12-09",
+  "status": "ACTIVE",
+  "supersedes": "v1.0 (Post-Migration Implementation Plan)",
+  "summary": {
+    "objective": "Train 784 ML models achieving 85-95%+ directional accuracy with persistence",
+    "architecture": "Calibrated Probability Stacking with Regime-Aware Meta-Learner",
+    "target_accuracy": {
+      "overall": "85-90%",
+      "called_signals": "90-95%",
+      "coverage": "30-50%"
+    },
+    "model_count": 784,
+    "breakdown": "28 pairs x 7 horizons x 4 ensemble members"
+  },
+  "phases": {
+    "phase_1": {
+      "name": "Infrastructure (COMPLETE)",
+      "status": "COMPLETE",
+      "completion_date": "2025-12-09",
+      "milestones": [
+        {"item": "V2 Migration", "status": "COMPLETE", "details": "4,888 tables migrated, partitioned by DATE(interval_time)"},
+        {"item": "V1 Deletion", "status": "COMPLETE", "details": "2,499 GB freed, $49.98/month savings"},
+        {"item": "Row Parity Validation", "status": "COMPLETE", "details": "All tables validated"},
+        {"item": "Performance Benchmark", "status": "COMPLETE", "details": "40-95x speedup achieved"}
+      ]
+    },
+    "phase_2": {
+      "name": "Robust Feature Selection",
+      "status": "COMPLETE",
+      "completion_date": "2025-12-09",
+      "methodology": "Group-First Stability Selection (replaces naive SHAP)",
+      "milestones": [
+        {"item": "Feature Discovery", "status": "COMPLETE", "details": "28 groups, 256 tables, 3,800+ columns"},
+        {"item": "Safe Pruning", "status": "COMPLETE", "details": "Removed constant/duplicate features"},
+        {"item": "Correlation Clustering", "status": "COMPLETE", "details": "Grouped features with |r| > 0.95"},
+        {"item": "Stability Selection", "status": "COMPLETE", "details": "5 folds x 3 seeds, >60% frequency threshold"},
+        {"item": "Ablation Testing", "status": "COMPLETE", "details": "Validated group importance by ΔAUC"}
+      ],
+      "results": {
+        "stable_features": 399,
+        "idx_features": 168,
+        "bqx_features": 270,
+        "covariance_features": 35,
+        "output_file": "/intelligence/robust_feature_selection_eurusd_h15.json"
+      }
+    },
+    "phase_3": {
+      "name": "Enhanced Stacking Architecture",
+      "status": "IN_PROGRESS",
+      "objective": "Implement calibrated probability stacking for persistence",
+      "milestones": [
+        {"item": "Walk-Forward OOF Predictions", "status": "READY", "priority": "CRITICAL", "details": "Prevents meta-learner leakage"},
+        {"item": "Probability Calibration", "status": "READY", "priority": "HIGH", "details": "Platt scaling before stacking"},
+        {"item": "Regime-Aware Meta-Learner", "status": "READY", "priority": "HIGH", "details": "Add vol/trend/session features"},
+        {"item": "Feature-View Diversity", "status": "READY", "priority": "MEDIUM", "details": "Different features per base model"},
+        {"item": "ElasticNet Base Model", "status": "READY", "priority": "LOW", "details": "Adds linear diversity"},
+        {"item": "Confidence Gating", "status": "READY", "priority": "HIGH", "details": "Thresholds for called accuracy"}
+      ],
+      "implementation_files": {
+        "stack_calibrated.py": "pipelines/training/stack_calibrated.py",
+        "feature_selection_robust.py": "pipelines/training/feature_selection_robust.py",
+        "train_multi_pair.py": "pipelines/training/train_multi_pair.py"
+      }
+    },
+    "phase_4": {
+      "name": "EURUSD Training Pipeline",
+      "status": "READY",
+      "strategy": "Test full pipeline on EURUSD before scaling",
+      "milestones": [
+        {"item": "Base Model Training", "status": "PENDING", "details": "LightGBM + XGBoost + CatBoost + ElasticNet"},
+        {"item": "Meta-Learner Training", "status": "PENDING", "details": "Logistic regression on calibrated OOF"},
+        {"item": "Horizon Evaluation", "status": "PENDING", "details": "Walk-forward for h15-h105"},
+        {"item": "Confidence Threshold Optimization", "status": "PENDING", "details": "Find optimal τ+/τ- for coverage"}
+      ],
+      "models_per_horizon": 4,
+      "total_eurusd_models": 28
+    },
+    "phase_5": {
+      "name": "Scale to 28 Pairs",
+      "status": "PENDING",
+      "milestones": [
+        {"item": "Major Pairs (5)", "status": "PENDING", "details": "EURUSD, GBPUSD, USDJPY, AUDUSD, USDCAD"},
+        {"item": "Cross Pairs (15)", "status": "PENDING", "details": "EUR crosses, GBP crosses"},
+        {"item": "Minor Pairs (8)", "status": "PENDING", "details": "Remaining pairs"}
+      ],
+      "total_models": 784
+    },
+    "phase_6": {
+      "name": "Production Deployment",
+      "status": "PENDING",
+      "milestones": [
+        {"item": "Model Serialization", "status": "PENDING", "details": "Save to GCS/BigQuery"},
+        {"item": "Inference Pipeline", "status": "PENDING", "details": "Real-time prediction service"},
+        {"item": "Monitoring Dashboard", "status": "PENDING", "details": "Accuracy tracking, drift detection"}
+      ]
+    }
+  },
+  "enhanced_stacking_architecture": {
+    "version": "2.0",
+    "baseline_accuracy": "75-79%",
+    "target_accuracy": "85-95% (called signals)",
+    "critical_fixes": {
+      "fix_1_walk_forward_oof": {
+        "problem": "Meta-learner trained on in-sample predictions causes leakage",
+        "solution": "Generate OOF predictions from walk-forward splits with embargo gap",
+        "embargo_intervals": 30,
+        "priority": "CRITICAL"
+      },
+      "fix_2_calibration": {
+        "problem": "Base model probabilities not comparable",
+        "solution": "Platt scaling or isotonic regression on OOF data",
+        "methods": ["platt", "isotonic"],
+        "priority": "HIGH"
+      },
+      "fix_3_feature_view_diversity": {
+        "problem": "GBMs on same features produce correlated outputs",
+        "solution": "Different feature views per base model",
+        "views": {
+          "lightgbm": "Target-history (lags/rolling stats of BQX)",
+          "xgboost": "Returns/volatility (multi-horizon, ATR, range)",
+          "catboost": "Cross-pair/microstructure (spreads, correlations)",
+          "elasticnet": "All features (linear baseline)"
+        },
+        "priority": "MEDIUM"
+      },
+      "fix_4_probability_stacking": {
+        "problem": "Stacking hard labels loses information",
+        "solution": "Stack calibrated probabilities, not predictions",
+        "architecture": {
+          "stage_a": "Sign Probability Stack (LGB+XGB+CB → calibrated P(+))",
+          "stage_b": "Conditional Magnitude (only after sign decided)"
+        },
+        "priority": "HIGH"
+      },
+      "fix_5_regime_aware": {
+        "problem": "Single model doesn't adapt to market regimes",
+        "solution": "Add regime features to meta-learner OR use MoE specialists",
+        "regime_features": ["volatility_regime", "trend_strength", "session_indicator", "range_expansion"],
+        "priority": "HIGH"
+      },
+      "fix_6_confidence_gating": {
+        "problem": "Low-confidence predictions hurt accuracy",
+        "solution": "Gate predictions with thresholds, track called accuracy",
+        "thresholds": {"tau_plus": 0.65, "tau_minus": 0.35},
+        "target_metrics": {"called_accuracy": "85-90%", "coverage": "30-50%"},
+        "priority": "HIGH"
+      }
+    },
+    "expected_progression": [
+      {"enhancement": "Baseline", "gain": "-", "cumulative": "75-79%"},
+      {"enhancement": "+Walk-Forward OOF", "gain": "+2-3%", "cumulative": "77-82%"},
+      {"enhancement": "+Calibration", "gain": "+1-2%", "cumulative": "78-84%"},
+      {"enhancement": "+Regime features", "gain": "+2-4%", "cumulative": "80-88%"},
+      {"enhancement": "+Feature diversity", "gain": "+1-2%", "cumulative": "81-90%"},
+      {"enhancement": "+Confidence gating", "gain": "+3-5%", "cumulative": "85-95% (called)"}
+    ]
+  },
+  "feature_selection_system": {
+    "version": "2.0",
+    "name": "Robust Group-First Stability Selection",
+    "replaces": "Naive SHAP (v1)",
+    "stages": [
+      {"stage": 0, "name": "Define Feature Universe", "description": "Time cutoffs, join rules, no leakage"},
+      {"stage": 1, "name": "Safe Pruning", "description": "Remove constant, duplicate, >99% missing"},
+      {"stage": 2, "name": "Correlation Clustering", "description": "Group features with |r| > 0.95"},
+      {"stage": 3, "name": "Group-First Screening", "description": "Quick model per group, rank by AUC"},
+      {"stage": 4, "name": "Stability Selection", "description": "5 folds × 3 seeds, >60% frequency"},
+      {"stage": 5, "name": "Ablation Testing", "description": "Remove groups, measure ΔAUC"},
+      {"stage": 6, "name": "SHAP Interpretation", "description": "Late-stage explainability only"}
+    ],
+    "advantages_over_v1": [
+      "Prevents correlation dilution between IDX/BQX twins",
+      "Selection stability across seeds/folds",
+      "Never loses entire feature domains",
+      "Validates importance by performance impact, not just scores"
+    ]
+  },
+  "model_architecture": {
+    "total_models": 784,
+    "calculation": "28 pairs × 7 horizons × 4 ensemble members",
+    "horizons": ["h15", "h30", "h45", "h60", "h75", "h90", "h105"],
+    "ensemble_members": {
+      "base_models": ["LightGBM", "XGBoost", "CatBoost", "ElasticNet"],
+      "meta_learner": "Logistic Regression + Regime Features"
+    },
+    "deployment_strategy": "Deploy farthest horizon achieving ≥95% called accuracy"
+  },
+  "cost_optimization": {
+    "monthly_estimate": "$277",
+    "savings_vs_original": "63%",
+    "strategies": [
+      {"strategy": "BigQuery ML (vs Vertex AI)", "savings": "70%"},
+      {"strategy": "Spot VMs for training", "savings": "60-90%"},
+      {"strategy": "Feature selection FIRST", "savings": "90% compute"},
+      {"strategy": "Coldline backup", "savings": "60%"},
+      {"strategy": "V1 deletion", "savings": "$50/month realized"}
+    ]
+  },
+  "files_created": [
+    "pipelines/training/feature_selection_robust.py",
+    "pipelines/training/stack_calibrated.py",
+    "pipelines/training/train_multi_pair.py",
+    "pipelines/training/train_meta_learner.py",
+    "pipelines/training/create_materialized_features.py",
+    "scripts/generate_column_catalog.py",
+    "intelligence/robust_feature_selection_eurusd_h15.json"
+  ],
+  "deprecated_files": [
+    "docs/ROADMAP_*.md (v1 roadmap files)",
+    "scripts/shap_feature_selection.py (replaced by robust selection)"
+  ]
+}
