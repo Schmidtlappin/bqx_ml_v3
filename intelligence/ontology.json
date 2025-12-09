@@ -40,10 +40,29 @@
       }
     },
     "Target": {
-      "definition": "Prediction objective (future BQX values)",
-      "types": ["bqx_45", "bqx_90", "bqx_180", "bqx_360", "bqx_720", "bqx_1440", "bqx_2880"],
-      "attributes": ["target_name", "horizon", "prediction_time"],
-      "status": "Defined in BQX tables, not yet used for training",
+      "definition": "Prediction objective (future BQX values at prediction horizons)",
+      "mandate": "/mandate/BQX_TARGET_FORMULA_MANDATE.md",
+      "mandate_date": "2025-12-09",
+      "bqx_windows": ["bqx_45", "bqx_90", "bqx_180", "bqx_360", "bqx_720", "bqx_1440", "bqx_2880"],
+      "prediction_horizons": ["h15", "h30", "h45", "h60", "h75", "h90", "h105"],
+      "target_columns_per_pair": 49,
+      "naming_convention": "target_bqx{window}_h{horizon}",
+      "formula": {
+        "canonical": "LEAD(bqx_{window}, horizon)",
+        "meaning": "The BQX value N intervals into the future",
+        "example": "target_bqx45_h15 = LEAD(bqx_45, 15)"
+      },
+      "critical_requirements": {
+        "bqx_must_oscillate_around_zero": true,
+        "target_must_equal_lead_bqx": true,
+        "windows_and_horizons_are_independent": true
+      },
+      "verification": {
+        "targets_eurusd": "100% match (2,164,270 rows)",
+        "verification_date": "2025-12-09"
+      },
+      "attributes": ["target_name", "horizon", "bqx_window", "prediction_time"],
+      "status": "VERIFIED - targets_eurusd ready for training",
       "relationships": {
         "predicted_by": "Many-to-One with Model (PENDING)",
         "validates_against": "One-to-One with ActualBQX"

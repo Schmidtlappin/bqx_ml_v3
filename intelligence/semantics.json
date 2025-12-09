@@ -48,6 +48,43 @@
       "features": "Historical (backward-looking) data including BQX lags",
       "targets": "Future (forward-looking) BQX predictions",
       "implementation_date": "2024-11-24 paradigm shift"
+    },
+    "BQX_Target_Formula": {
+      "mandate_document": "/mandate/BQX_TARGET_FORMULA_MANDATE.md",
+      "mandate_date": "2025-12-09",
+      "mandate_status": "USER MANDATED - AUTHORITATIVE",
+      "bqx_feature_formula": {
+        "canonical": "bqx_{window} = ((close[T] - close[T-window]) / close[T-window]) * 100",
+        "sql": "((close_idx - LAG(close_idx, window) OVER (ORDER BY interval_time)) / NULLIF(LAG(close_idx, window) OVER (ORDER BY interval_time), 0)) * 100",
+        "purpose": "Backward-looking momentum (percentage change over lookback period)",
+        "windows": [45, 90, 180, 360, 720, 1440, 2880],
+        "data_characteristics": {
+          "avg": "~0.0001 (oscillates around zero)",
+          "min": "-1.63",
+          "max": "+2.04",
+          "stddev": "0.087"
+        }
+      },
+      "target_formula": {
+        "canonical": "target_bqx{window}_h{horizon} = LEAD(bqx_{window}, horizon)",
+        "sql": "LEAD(bqx_{window}, horizon) OVER (ORDER BY interval_time)",
+        "purpose": "Future BQX value at prediction horizon",
+        "horizons": [15, 30, 45, 60, 75, 90, 105],
+        "total_targets_per_pair": 49,
+        "calculation": "7 BQX windows × 7 prediction horizons"
+      },
+      "critical_distinction": {
+        "bqx_windows": "Lookback periods for calculating momentum (45, 90, 180, 360, 720, 1440, 2880)",
+        "prediction_horizons": "How far ahead we're predicting (h15, h30, h45, h60, h75, h90, h105)",
+        "warning": "These are SEPARATE concepts - do NOT conflate them"
+      },
+      "verification": {
+        "date": "2025-12-09",
+        "table": "targets_eurusd",
+        "total_rows": 2164270,
+        "matching_rows": 2164270,
+        "match_rate": "100%"
+      }
     }
   },
   "terminology": {
