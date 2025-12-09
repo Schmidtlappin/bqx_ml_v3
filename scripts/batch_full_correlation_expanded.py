@@ -27,7 +27,7 @@ import time
 import argparse
 
 PROJECT = "bqx-ml"
-FEATURES_DATASET = "bqx_ml_v3_features"
+FEATURES_DATASET = "bqx_ml_v3_features_v2"
 ANALYTICS_DATASET = "bqx_ml_v3_analytics"
 TARGET_TABLE = "extreme_targets"
 OUTPUT_TABLE = "full_correlation_matrix"

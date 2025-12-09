@@ -49,7 +49,7 @@ def create_features(pair, window):
     SELECT
         interval_time,
         close_idx
-    FROM `bqx-ml.bqx_ml_v3_features.{pair}_idx`
+    FROM `bqx-ml.bqx_ml_v3_features_v2.{pair}_idx`
     ORDER BY interval_time
     """
 
@@ -57,7 +57,7 @@ def create_features(pair, window):
     SELECT
         interval_time,
         {pair}_bqx_{window} as target
-    FROM `bqx-ml.bqx_ml_v3_features.{pair}_bqx`
+    FROM `bqx-ml.bqx_ml_v3_features_v2.{pair}_bqx`
     ORDER BY interval_time
     """
 

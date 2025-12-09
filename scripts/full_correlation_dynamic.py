@@ -9,7 +9,7 @@ import sys
 import time
 
 PROJECT = "bqx-ml"
-DATASET = "bqx_ml_v3_features"
+DATASET = "bqx_ml_v3_features_v2"
 
 # All BQX windows and horizons
 WINDOWS = [45, 90, 180, 360, 720, 1440, 2880]

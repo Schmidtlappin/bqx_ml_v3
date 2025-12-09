@@ -55,8 +55,8 @@ def prepare_training_dataset(
     output_table = f"{project_id}.bqx_ml_v3_models.{pair.lower()}_{prediction_window}_train"
 
     # Step 1: Check if source tables exist
-    idx_table = f"{project_id}.bqx_ml_v3_features.{pair.lower()}_idx"
-    bqx_table = f"{project_id}.bqx_ml_v3_features.{pair.lower()}_bqx"
+    idx_table = f"{project_id}.bqx_ml_v3_features_v2.{pair.lower()}_idx"
+    bqx_table = f"{project_id}.bqx_ml_v3_features_v2.{pair.lower()}_bqx"
 
     print(f"\n📊 Checking source tables:")
     print(f"  - IDX table: {idx_table}")
@@ -194,8 +194,8 @@ def populate_bqx_table(client: bigquery.Client, pair: str, project_id: str):
     print(f"\n🔄 Calculating BQX values for {pair}...")
 
     # First, check if we have indexed data
-    idx_table = f"{project_id}.bqx_ml_v3_features.{pair.lower()}_idx"
-    bqx_table = f"{project_id}.bqx_ml_v3_features.{pair.lower()}_bqx"
+    idx_table = f"{project_id}.bqx_ml_v3_features_v2.{pair.lower()}_idx"
+    bqx_table = f"{project_id}.bqx_ml_v3_features_v2.{pair.lower()}_bqx"
 
     populate_query = f"""
     INSERT INTO `{bqx_table}` (interval_time, pair, bqx_45, target_45, bqx_90, target_90,
@@ -296,7 +296,7 @@ def create_and_populate_tables(client: bigquery.Client, pair: str,
     print(f"\n🏗️ Creating tables for {pair}...")
 
     # Create dataset if it doesn't exist
-    dataset_id = f"{project_id}.bqx_ml_v3_features"
+    dataset_id = f"{project_id}.bqx_ml_v3_features_v2"
 
     # Create IDX table
     idx_table = f"{dataset_id}.{pair.lower()}_idx"

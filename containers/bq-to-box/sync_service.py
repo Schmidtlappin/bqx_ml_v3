@@ -39,12 +39,14 @@ BOX_BQ_FOLDER_ID = '353417391696'    # bqx-ml-v3/GCP/bigquery/
 BOX_STORAGE_FOLDER_ID = '353418205951'  # bqx-ml-v3/GCP/storage/
 
 # Box.com folder IDs for each BigQuery dataset (under GCP/bigquery/)
+# NOTE: V1 datasets (bqx_bq_uscen1, bqx_ml_v3_features) were DELETED 2025-12-09
+# Use V2 datasets going forward
 DATASET_FOLDERS = {
-    'bqx_bq_uscen1': '353419110877',
-    'bqx_ml_v3_features': '353419806934',
+    'bqx_bq_uscen1_v2': '353419110877',      # V2 source data
+    'bqx_ml_v3_features_v2': '353419806934',  # V2 engineered features
+    'bqx_ml_v3_analytics_v2': '353419303017', # V2 analytics
     'bqx_ml_v3_models': '353417980012',
     'bqx_ml_v3_predictions': '353419935781',
-    'bqx_ml_v3_analytics': '353419303017',
     'bqx_ml_v3_staging': '353417344230',
 }
 

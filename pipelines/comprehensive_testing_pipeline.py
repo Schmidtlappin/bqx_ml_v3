@@ -96,8 +96,8 @@ def train_model_with_features(
     # For now, use the base Smart Dual Processing approach
     query = f"""
     SELECT *
-    FROM `{PROJECT_ID}.bqx_ml_v3_features.{pair}_idx` idx
-    JOIN `{PROJECT_ID}.bqx_ml_v3_features.{pair}_bqx` bqx
+    FROM `{PROJECT_ID}.bqx_ml_v3_features_v2.{pair}_idx` idx
+    JOIN `{PROJECT_ID}.bqx_ml_v3_features_v2.{pair}_bqx` bqx
     ON idx.interval_time = bqx.interval_time
     ORDER BY idx.interval_time
     LIMIT 50000
