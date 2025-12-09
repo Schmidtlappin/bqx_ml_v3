@@ -46,11 +46,60 @@
     },
     "Feature": {
       "definition": "Input variable for model training and prediction",
-      "categories": ["lag", "regime", "correlation", "regression", "aggregation", "alignment", "momentum", "volatility"],
-      "implemented_categories": ["lag", "regime", "correlation"],
+      "total_types": 20,
+      "feature_type_prefixes": {
+        "pair_level": {
+          "agg": "Aggregation - statistical summaries (mean, std, min, max)",
+          "mom": "Momentum - rate of change, acceleration, persistence",
+          "vol": "Volatility - ATR, realized vol, Bollinger metrics",
+          "reg": "Regression - polynomial trends and predictions",
+          "regime": "Regime - market state classification",
+          "lag": "Lag - historical values (1-60 bars)",
+          "align": "Alignment - cross-timeframe coherence",
+          "der": "Derivative - velocity and acceleration",
+          "rev": "Reversal - reversal detection patterns",
+          "div": "Divergence - cross-window divergence",
+          "mrt": "Mean Reversion - tension and z-scores",
+          "cyc": "Cycle - cycle position and phase (BQX only)",
+          "ext": "Extremity - outlier detection (BQX only)",
+          "tmp": "Temporal - time-of-day and session",
+          "base": "Base - OHLCV fundamentals",
+          "var": "Variance - volatility regime features"
+        },
+        "cross_pair": {
+          "cov": "Covariance - cross-pair co-movement",
+          "corr": "Correlation - cross-pair relationships",
+          "tri": "Triangulation - triangular arbitrage"
+        },
+        "market_wide": {
+          "mkt": "Market - global FX aggregations"
+        },
+        "currency_level": {
+          "csi": "Currency Strength Index - per-currency aggregations (MISSING)"
+        }
+      },
+      "implemented_types": ["cov", "corr", "lag", "tri", "regime", "agg", "align", "mom", "der", "rev", "vol", "mrt", "div", "reg", "base", "cyc", "ext", "tmp"],
+      "partial_types": ["var", "mkt"],
+      "missing_types": ["csi"],
+      "total_tables": 4888,
+      "features_per_pair": 6477,
+      "features_breakdown": {
+        "pair_specific": 3813,
+        "cross_pair_tri": 2088,
+        "market_wide_mkt": 576,
+        "note": "Corrected 2025-12-09: 3,813 was pair-specific only"
+      },
       "attributes": ["feature_name", "feature_type", "calculation_method", "lag_periods"],
       "variants": ["IDX (price-based)", "BQX (momentum-based)"],
       "dual_architecture_status": "100% for implemented types",
+      "catalogue": "/intelligence/feature_catalogue.json",
+      "ledger": {
+        "mandate": "/mandate/FEATURE_LEDGER_100_PERCENT_MANDATE.md",
+        "mandate_date": "2025-12-09",
+        "coverage_requirement": "100% per model",
+        "expected_rows": 1269492,
+        "calculation": "28 pairs × 7 horizons × 6,477 features"
+      },
       "relationships": {
         "used_by": "Many-to-Many with Model (PENDING)",
         "derived_from": "Many-to-One with BarData"
@@ -167,10 +216,20 @@
         },
         "bqx_ml_v3_features_v2": {
           "description": "Engineered features - partitioned, clustered",
-          "tables": 4882,
+          "tables": 4888,
           "size_gb": 1478.69,
-          "status": "100% COMPLETE",
-          "feature_types": ["covariance", "correlation", "regime", "lag", "regression", "aggregation", "alignment", "momentum", "volatility"]
+          "status": "98% COMPLETE (gaps: csi, var, mkt)",
+          "feature_types_count": 20,
+          "feature_types": {
+            "complete": ["cov", "corr", "lag", "tri", "regime", "agg", "align", "mom", "der", "rev", "vol", "mrt", "div", "reg", "base", "cyc", "ext", "tmp"],
+            "partial": ["var", "mkt"],
+            "missing": ["csi"]
+          },
+          "gaps": {
+            "csi": "0/208 tables (MISSING)",
+            "var": "55/114 tables (PARTIAL)",
+            "mkt": "4/18 tables (PARTIAL)"
+          }
         },
         "bqx_ml_v3_analytics_v2": {
           "description": "Target tables for training",

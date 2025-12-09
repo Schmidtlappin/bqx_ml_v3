@@ -1,8 +1,9 @@
 {
-  "roadmap_version": "2.0.0",
+  "roadmap_version": "2.1.0",
   "created": "2025-12-09",
+  "updated": "2025-12-09",
   "status": "ACTIVE",
-  "supersedes": "v1.0 (Post-Migration Implementation Plan)",
+  "supersedes": "v2.0 (added v2.1 governance recommendations)",
   "summary": {
     "objective": "Train 784 ML models achieving 85-95%+ directional accuracy with persistence",
     "architecture": "Calibrated Probability Stacking with Regime-Aware Meta-Learner",
@@ -48,16 +49,36 @@
     },
     "phase_3": {
       "name": "Enhanced Stacking Architecture",
-      "status": "IN_PROGRESS",
+      "status": "COMPLETE",
+      "completion_date": "2025-12-09",
       "objective": "Implement calibrated probability stacking for persistence",
       "milestones": [
-        {"item": "Walk-Forward OOF Predictions", "status": "READY", "priority": "CRITICAL", "details": "Prevents meta-learner leakage"},
-        {"item": "Probability Calibration", "status": "READY", "priority": "HIGH", "details": "Platt scaling before stacking"},
-        {"item": "Regime-Aware Meta-Learner", "status": "READY", "priority": "HIGH", "details": "Add vol/trend/session features"},
-        {"item": "Feature-View Diversity", "status": "READY", "priority": "MEDIUM", "details": "Different features per base model"},
-        {"item": "ElasticNet Base Model", "status": "READY", "priority": "LOW", "details": "Adds linear diversity"},
-        {"item": "Confidence Gating", "status": "READY", "priority": "HIGH", "details": "Thresholds for called accuracy"}
+        {"item": "Walk-Forward OOF Predictions", "status": "COMPLETE", "priority": "CRITICAL", "details": "5 folds with 30 interval embargo"},
+        {"item": "Probability Calibration", "status": "COMPLETE", "priority": "HIGH", "details": "Platt scaling implemented"},
+        {"item": "Regime-Aware Meta-Learner", "status": "COMPLETE", "priority": "HIGH", "details": "Added 6 regime features"},
+        {"item": "Feature-View Diversity", "status": "PARTIAL", "priority": "MEDIUM", "details": "Base models trained, views to optimize"},
+        {"item": "ElasticNet Base Model", "status": "COMPLETE", "priority": "LOW", "details": "Added for linear diversity"},
+        {"item": "Confidence Gating", "status": "COMPLETE", "priority": "HIGH", "details": "Thresholds optimized: tau_70 recommended"}
       ],
+      "results_eurusd_h15": {
+        "overall_accuracy": 0.7690,
+        "overall_auc": 0.8505,
+        "oof_samples": 66515,
+        "base_model_aucs": {
+          "lightgbm": 0.8418,
+          "xgboost": 0.8432,
+          "catboost": 0.8510,
+          "elasticnet": 0.4578
+        },
+        "gating_results": {
+          "tau_55": {"accuracy": 0.7816, "coverage": 0.9530},
+          "tau_60": {"accuracy": 0.7948, "coverage": 0.9036},
+          "tau_65": {"accuracy": 0.8087, "coverage": 0.8499},
+          "tau_70": {"accuracy": 0.8252, "coverage": 0.7884}
+        },
+        "recommended_threshold": "tau_70",
+        "results_file": "/intelligence/calibrated_stack_eurusd_h15.json"
+      },
       "implementation_files": {
         "stack_calibrated.py": "pipelines/training/stack_calibrated.py",
         "feature_selection_robust.py": "pipelines/training/feature_selection_robust.py",
@@ -205,10 +226,82 @@
     "pipelines/training/train_meta_learner.py",
     "pipelines/training/create_materialized_features.py",
     "scripts/generate_column_catalog.py",
-    "intelligence/robust_feature_selection_eurusd_h15.json"
+    "intelligence/robust_feature_selection_eurusd_h15.json",
+    "mandate/FEATURE_LEDGER_100_PERCENT_MANDATE.md"
   ],
   "deprecated_files": [
     "docs/ROADMAP_*.md (v1 roadmap files)",
     "scripts/shap_feature_selection.py (replaced by robust selection)"
-  ]
+  ],
+  "v2_1_governance_enhancements": {
+    "source": "docs/roadmap_update_recommendations.md",
+    "status": "RECOMMENDATIONS",
+    "required_contracts": {
+      "metric_contract": {
+        "primary": "Balanced Sign Accuracy (positive vs negative)",
+        "secondary": ["Called-signal accuracy + coverage", "Calibration (logloss/Brier + ECE)", "Magnitude (conditional on correct sign)"],
+        "deliverable": "metrics_contract.md"
+      },
+      "persistence_contract": {
+        "definition": "Meet targets in >= X of Y walk-forward windows spanning >= Z months",
+        "tolerance": "Worst-window performance must not collapse > D points",
+        "deliverable": "persistence_contract.md"
+      }
+    },
+    "required_artifacts": {
+      "feature_lineage_ledger": {
+        "purpose": "Account for every feature and record what happened to it",
+        "mandate": "/mandate/FEATURE_LEDGER_100_PERCENT_MANDATE.md",
+        "mandate_date": "2025-12-09",
+        "coverage_requirement": "100% - ALL 6,477 features per model must be in ledger",
+        "columns": ["feature_name", "source_table", "feature_type", "feature_scope", "variant", "pair", "horizon", "model_type", "cluster_id", "group_id", "pruned_stage", "prune_reason", "screen_score", "stability_freq", "importance_mean", "importance_std", "ablation_delta", "final_status"],
+        "expected_rows": 1269492,
+        "calculation": "28 pairs × 7 horizons × 6,477 features",
+        "deliverable": "feature_ledger.parquet"
+      },
+      "leakage_guardrails": {
+        "dynamic_embargo": "embargo = max_feature_lookback_intervals + horizon_buffer",
+        "automated_tests": ["no t+1 data used in t row", "no centered windows / future-inclusive rolls", "scalers fit on train only", "join-time aggregation uses only past data", "label generation uses only available info"],
+        "deliverable": "tests/leakage/"
+      }
+    },
+    "phase_4_5_governance_gate": {
+      "description": "Validation checkpoint before scaling to 784 models",
+      "requirements": [
+        "Leakage audit tests pass",
+        "Metric + persistence contracts locked",
+        "Thresholds selected via nested evaluation",
+        "Model registry + artifact storage working",
+        "Monitoring spec implemented in staging",
+        "Pilot results stable across multiple regimes"
+      ],
+      "deliverable": "phase_4_5_gate_checklist.md"
+    },
+    "recommended_improvements": {
+      "correlation_clustering": "Add Spearman + MI beyond Pearson r",
+      "cross_group_interaction": "Pairwise group test for top N groups OR global model permutation",
+      "stability_selection": "5 folds x 5-10 seeds at final stage, track variance not just mean",
+      "ablation_method": "Use balanced sign accuracy + regime slices, not generic ΔAUC",
+      "seed_bagging": "Train each base model with multiple seeds, average before stacking",
+      "two_stage_architecture": "Stage A: Sign model, Stage B: Magnitude conditional on sign"
+    },
+    "artifact_deliverables": [
+      "metrics_contract.md",
+      "persistence_contract.md",
+      "feature_ledger.parquet",
+      "feature_ledger.md",
+      "leakage_guardrails.md",
+      "clusters.json",
+      "clustering_report.md",
+      "stability_selection_report.md",
+      "ablation_by_regime.md",
+      "stack_spec.md",
+      "calibration_report.md",
+      "gating_policy.md",
+      "coverage_curves.md",
+      "phase_4_5_gate_checklist.md",
+      "monitoring_and_alerts.md",
+      "model_registry.jsonl"
+    ]
+  }
 }

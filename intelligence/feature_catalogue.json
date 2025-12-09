@@ -1,0 +1,482 @@
+{
+  "catalogue_version": "2.1.0",
+  "generated": "2025-12-09T10:45:00Z",
+  "updated": "2025-12-09T11:30:00Z",
+  "purpose": "Complete feature inventory for BQX ML V3",
+  "supersedes": "8,214+ estimate in BQX_ML_V3_FEATURE_INVENTORY.md",
+  "last_audit": "2025-12-09",
+  "ledger_mandate": {
+    "mandate": "/mandate/FEATURE_LEDGER_100_PERCENT_MANDATE.md",
+    "coverage_requirement": "100% - ALL features per model must be in ledger",
+    "expected_ledger_rows": 1269492,
+    "validation": "Every feature in this catalogue must appear in feature_ledger.parquet"
+  },
+  "summary": {
+    "total_tables": 4888,
+    "total_columns": 97322,
+    "total_feature_columns": 86190,
+    "features_per_pair_eurusd": 6477,
+    "features_breakdown_eurusd": {
+      "pair_specific": 3813,
+      "cross_pair_tri": 2088,
+      "market_wide_mkt": 576,
+      "gaps_var_csi": 0,
+      "correction_note": "2025-12-09: Original 3,813 missed tri+mkt features"
+    },
+    "feature_types_count": 20,
+    "feature_selection_tested": 608,
+    "feature_selection_coverage": "9.4%"
+  },
+  "feature_type_taxonomy": {
+    "description": "Complete taxonomy of all 20 feature type prefixes in BQ",
+    "total_types": 20,
+    "categories": {
+      "pair_level": {
+        "description": "Features computed per currency pair",
+        "types": ["agg", "mom", "vol", "reg", "regime", "lag", "align", "der", "rev", "div", "mrt", "cyc", "ext", "tmp", "base", "var"],
+        "count": 16
+      },
+      "cross_pair": {
+        "description": "Features computed across multiple pairs",
+        "types": ["cov", "corr", "tri"],
+        "count": 3
+      },
+      "market_wide": {
+        "description": "Features aggregated across all pairs",
+        "types": ["mkt"],
+        "count": 1
+      },
+      "currency_level": {
+        "description": "Features aggregated per currency (MISSING)",
+        "types": ["csi"],
+        "count": 1,
+        "status": "NOT IMPLEMENTED"
+      }
+    }
+  },
+  "feature_types": {
+    "cov": {
+      "name": "Covariance",
+      "prefix": "cov",
+      "count": 2507,
+      "bqx": 1176,
+      "idx": 155,
+      "other": 1176,
+      "status": "COMPLETE",
+      "description": "Cross-pair covariance features measuring co-movement",
+      "category": "cross_pair",
+      "csi_applicable": false
+    },
+    "corr": {
+      "name": "Correlation",
+      "prefix": "corr",
+      "count": 896,
+      "bqx": 448,
+      "idx": 224,
+      "other": 224,
+      "status": "COMPLETE",
+      "description": "Cross-pair correlation features",
+      "category": "cross_pair",
+      "csi_applicable": false
+    },
+    "lag": {
+      "name": "Lag",
+      "prefix": "lag",
+      "count": 224,
+      "bqx": 112,
+      "idx": 56,
+      "other": 56,
+      "status": "COMPLETE",
+      "description": "Historical lag features (1-60 bars)",
+      "category": "pair_level",
+      "csi_applicable": true
+    },
+    "tri": {
+      "name": "Triangulation",
+      "prefix": "tri",
+      "count": 194,
+      "bqx": 97,
+      "idx": 97,
+      "other": 0,
+      "status": "COMPLETE",
+      "description": "Triangular arbitrage relationships",
+      "category": "cross_pair",
+      "csi_applicable": false
+    },
+    "regime": {
+      "name": "Regime",
+      "prefix": "regime",
+      "count": 112,
+      "bqx": 56,
+      "idx": 0,
+      "other": 56,
+      "status": "COMPLETE",
+      "description": "Market regime classification (HIGH_VOL, LOW_VOL, TRENDING, etc.)",
+      "category": "pair_level",
+      "csi_applicable": true
+    },
+    "agg": {
+      "name": "Aggregation",
+      "prefix": "agg",
+      "count": 84,
+      "bqx": 28,
+      "idx": 28,
+      "other": 28,
+      "status": "COMPLETE",
+      "description": "Statistical aggregations across windows (mean, std, min, max)",
+      "category": "pair_level",
+      "csi_applicable": true
+    },
+    "align": {
+      "name": "Alignment",
+      "prefix": "align",
+      "count": 84,
+      "bqx": 28,
+      "idx": 28,
+      "other": 28,
+      "status": "COMPLETE",
+      "description": "Cross-timeframe alignment features",
+      "category": "pair_level",
+      "csi_applicable": true
+    },
+    "mom": {
+      "name": "Momentum",
+      "prefix": "mom",
+      "count": 84,
+      "bqx": 28,
+      "idx": 28,
+      "other": 28,
+      "status": "COMPLETE",
+      "description": "Rate of change, acceleration, persistence features",
+      "category": "pair_level",
+      "csi_applicable": true
+    },
+    "der": {
+      "name": "Derivative",
+      "prefix": "der",
+      "count": 84,
+      "bqx": 28,
+      "idx": 28,
+      "other": 28,
+      "status": "COMPLETE",
+      "description": "Velocity and acceleration features",
+      "category": "pair_level",
+      "csi_applicable": true
+    },
+    "rev": {
+      "name": "Reversal",
+      "prefix": "rev",
+      "count": 84,
+      "bqx": 28,
+      "idx": 28,
+      "other": 28,
+      "status": "COMPLETE",
+      "description": "Reversal detection and pattern features",
+      "category": "pair_level",
+      "csi_applicable": true
+    },
+    "vol": {
+      "name": "Volatility",
+      "prefix": "vol",
+      "count": 84,
+      "bqx": 28,
+      "idx": 28,
+      "other": 28,
+      "status": "COMPLETE",
+      "description": "ATR, realized volatility, Bollinger metrics",
+      "category": "pair_level",
+      "csi_applicable": true
+    },
+    "mrt": {
+      "name": "Mean Reversion",
+      "prefix": "mrt",
+      "count": 84,
+      "bqx": 28,
+      "idx": 28,
+      "other": 28,
+      "status": "COMPLETE",
+      "description": "Mean-reversion tension and z-score features",
+      "category": "pair_level",
+      "csi_applicable": true
+    },
+    "div": {
+      "name": "Divergence",
+      "prefix": "div",
+      "count": 84,
+      "bqx": 28,
+      "idx": 28,
+      "other": 28,
+      "status": "COMPLETE",
+      "description": "Cross-window and cross-indicator divergence",
+      "category": "pair_level",
+      "csi_applicable": true
+    },
+    "reg": {
+      "name": "Regression",
+      "prefix": "reg",
+      "count": 84,
+      "bqx": 28,
+      "idx": 28,
+      "other": 28,
+      "status": "COMPLETE",
+      "description": "Polynomial regression trends and predictions",
+      "category": "pair_level",
+      "csi_applicable": true
+    },
+    "base": {
+      "name": "Base",
+      "prefix": "base",
+      "count": 56,
+      "bqx": 28,
+      "idx": 28,
+      "other": 0,
+      "status": "COMPLETE",
+      "description": "Base OHLCV and fundamental features",
+      "category": "pair_level",
+      "csi_applicable": false
+    },
+    "var": {
+      "name": "Variance",
+      "prefix": "var",
+      "count": 55,
+      "bqx": 26,
+      "idx": 22,
+      "other": 7,
+      "status": "PARTIAL",
+      "expected": 114,
+      "gap": 59,
+      "description": "Variance and volatility regime features",
+      "category": "pair_level",
+      "csi_applicable": false
+    },
+    "cyc": {
+      "name": "Cycle",
+      "prefix": "cyc",
+      "count": 28,
+      "bqx": 28,
+      "idx": 0,
+      "other": 0,
+      "status": "COMPLETE",
+      "description": "Cycle position and phase features (BQX only)",
+      "category": "pair_level",
+      "csi_applicable": true
+    },
+    "ext": {
+      "name": "Extremity",
+      "prefix": "ext",
+      "count": 28,
+      "bqx": 28,
+      "idx": 0,
+      "other": 0,
+      "status": "COMPLETE",
+      "description": "Extremity and outlier detection (BQX only)",
+      "category": "pair_level",
+      "csi_applicable": true
+    },
+    "tmp": {
+      "name": "Temporal",
+      "prefix": "tmp",
+      "count": 28,
+      "bqx": 0,
+      "idx": 0,
+      "other": 28,
+      "status": "COMPLETE",
+      "description": "Time-of-day and session features",
+      "category": "pair_level",
+      "csi_applicable": false
+    },
+    "mkt": {
+      "name": "Market",
+      "prefix": "mkt",
+      "count": 4,
+      "bqx": 2,
+      "idx": 0,
+      "other": 2,
+      "status": "PARTIAL",
+      "expected": 18,
+      "gap": 14,
+      "description": "Market-wide aggregated features",
+      "category": "market_wide",
+      "csi_applicable": false
+    },
+    "csi": {
+      "name": "Currency Strength Index",
+      "prefix": "csi",
+      "count": 0,
+      "status": "MISSING",
+      "expected": 208,
+      "gap": 208,
+      "description": "Per-currency aggregated strength features",
+      "category": "currency_level",
+      "csi_applicable": false,
+      "note": "8 currencies x 13 feature types x 2 variants = 208 tables"
+    }
+  },
+  "csi_specification": {
+    "description": "Currency Strength Index - aggregates pair features per currency",
+    "currencies": ["USD", "EUR", "GBP", "JPY", "CHF", "CAD", "AUD", "NZD"],
+    "currency_count": 8,
+    "applicable_feature_types": [
+      {"prefix": "agg", "name": "Aggregation"},
+      {"prefix": "mom", "name": "Momentum"},
+      {"prefix": "vol", "name": "Volatility"},
+      {"prefix": "reg", "name": "Regression"},
+      {"prefix": "regime", "name": "Regime"},
+      {"prefix": "lag", "name": "Lag"},
+      {"prefix": "align", "name": "Alignment"},
+      {"prefix": "der", "name": "Derivative"},
+      {"prefix": "rev", "name": "Reversal"},
+      {"prefix": "div", "name": "Divergence"},
+      {"prefix": "mrt", "name": "Mean Reversion"},
+      {"prefix": "cyc", "name": "Cycle"},
+      {"prefix": "ext", "name": "Extremity"}
+    ],
+    "feature_type_count": 13,
+    "variants": ["IDX", "BQX"],
+    "variant_count": 2,
+    "total_tables": 208,
+    "calculation": "8 currencies x 13 feature types x 2 variants = 208",
+    "naming_convention": {
+      "idx": "csi_{feature}_{currency}",
+      "bqx": "csi_{feature}_bqx_{currency}",
+      "examples": ["csi_agg_usd", "csi_agg_bqx_usd", "csi_mom_eur", "csi_der_gbp"]
+    }
+  },
+  "table_totals": {
+    "complete": {
+      "cov": 2507,
+      "corr": 896,
+      "lag": 224,
+      "tri": 194,
+      "regime": 112,
+      "agg": 84,
+      "align": 84,
+      "mom": 84,
+      "der": 84,
+      "rev": 84,
+      "vol": 84,
+      "mrt": 84,
+      "div": 84,
+      "reg": 84,
+      "base": 56,
+      "cyc": 28,
+      "ext": 28,
+      "tmp": 28,
+      "subtotal": 4829
+    },
+    "partial": {
+      "var": {"current": 55, "expected": 114, "gap": 59},
+      "mkt": {"current": 4, "expected": 18, "gap": 14}
+    },
+    "missing": {
+      "csi": {"current": 0, "expected": 208, "gap": 208}
+    },
+    "grand_total_current": 4888,
+    "grand_total_expected": 5169,
+    "total_gap": 281
+  },
+  "feature_breakdown_eurusd": {
+    "_note": "Complete breakdown by feature type prefix (BQ verified 2025-12-09)",
+    "by_prefix": {
+      "tri": {"tables": 60, "features": 2088, "category": "cross_pair"},
+      "cov": {"tables": 180, "features": 2004, "category": "cross_pair"},
+      "reg": {"tables": 3, "features": 696, "category": "pair"},
+      "mkt": {"tables": 4, "features": 576, "category": "market_wide"},
+      "corr": {"tables": 32, "features": 240, "category": "cross_pair"},
+      "agg": {"tables": 3, "features": 192, "category": "pair"},
+      "mom": {"tables": 3, "features": 129, "category": "pair"},
+      "align": {"tables": 3, "features": 126, "category": "pair"},
+      "vol": {"tables": 3, "features": 93, "category": "pair"},
+      "lag": {"tables": 8, "features": 84, "category": "pair"},
+      "regime": {"tables": 4, "features": 64, "category": "pair"},
+      "der": {"tables": 3, "features": 45, "category": "pair"},
+      "mrt": {"tables": 3, "features": 30, "category": "pair"},
+      "rev": {"tables": 3, "features": 30, "category": "pair"},
+      "tmp": {"tables": 1, "features": 23, "category": "pair"},
+      "base": {"tables": 2, "features": 19, "category": "pair"},
+      "div": {"tables": 3, "features": 18, "category": "pair"},
+      "ext": {"tables": 1, "features": 16, "category": "pair"},
+      "cyc": {"tables": 1, "features": 4, "category": "pair"},
+      "var": {"tables": 0, "features": 0, "category": "pair", "status": "GAP"},
+      "csi": {"tables": 0, "features": 0, "category": "currency_level", "status": "GAP"}
+    },
+    "by_scope": {
+      "pair_specific": {
+        "features": 1569,
+        "percentage": "24%",
+        "types": ["reg", "agg", "mom", "align", "vol", "lag", "regime", "der", "mrt", "rev", "tmp", "base", "div", "ext", "cyc"]
+      },
+      "cross_pair": {
+        "features": 4332,
+        "percentage": "67%",
+        "breakdown": {"cov": 2004, "corr": 240, "tri": 2088},
+        "types": ["cov", "corr", "tri"]
+      },
+      "market_wide": {
+        "features": 576,
+        "percentage": "9%",
+        "types": ["mkt"]
+      },
+      "currency_level": {
+        "features": 0,
+        "percentage": "0%",
+        "types": ["csi"],
+        "status": "GAP"
+      }
+    },
+    "non_pair_specific_total": 4908,
+    "TOTAL_CURRENT": 6477,
+    "TOTAL_AFTER_GAPS": "~6567",
+    "correction_applied": "2025-12-09: Corrected scope categorization - 76% are non-pair-specific"
+  },
+  "gaps_identified": {
+    "missing_tables": {
+      "csi_*": {
+        "expected": 208,
+        "actual": 0,
+        "gap": 208,
+        "priority": "CRITICAL",
+        "description": "Currency Strength Index tables not created",
+        "mandate_reference": "/mandate/BQX_ML_V3_FEATURE_INVENTORY.md Section 5",
+        "remediation": "Create csi_{feature}_{currency} tables for 8 currencies x 13 feature types x 2 variants",
+        "directive": "/communications/active/BA_DIRECTIVE_GAP_REMEDIATION_20251209_v2.md"
+      }
+    },
+    "under_provisioned": {
+      "var_*": {
+        "expected": 114,
+        "actual": 55,
+        "gap": 59,
+        "priority": "HIGH",
+        "description": "Variance tables incomplete"
+      },
+      "mkt_*": {
+        "expected": 18,
+        "actual": 4,
+        "gap": 14,
+        "priority": "MEDIUM",
+        "description": "Market-wide tables incomplete"
+      }
+    },
+    "total_gap": {
+      "tables": 281,
+      "breakdown": "208 csi + 59 var + 14 mkt"
+    },
+    "feature_selection_gap": {
+      "total_available": 3813,
+      "tested": 608,
+      "untested": 3205,
+      "coverage": "16%",
+      "recommendation": "Document untested features in feature_ledger.parquet per v2.1 governance"
+    }
+  },
+  "documentation_status": {
+    "updated": [
+      "semantics.json - CSI expected corrected to 208",
+      "BQX_ML_V3_FEATURE_INVENTORY.md - Feature count corrected to 3,813"
+    ],
+    "pending": [
+      "ontology.json - Add complete feature type taxonomy"
+    ]
+  }
+}
