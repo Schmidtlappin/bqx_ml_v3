@@ -257,6 +257,11 @@
         "columns": ["feature_name", "source_table", "feature_type", "feature_scope", "variant", "pair", "horizon", "model_type", "cluster_id", "group_id", "pruned_stage", "prune_reason", "screen_score", "stability_freq", "importance_mean", "importance_std", "ablation_delta", "final_status"],
         "expected_rows": 1269492,
         "calculation": "28 pairs × 7 horizons × 6,477 features",
+        "shap_config": {
+          "sample_size_minimum": 100000,
+          "user_mandate": "100,000+ samples (BINDING)",
+          "cost_impact": "$0 additional cloud cost"
+        },
         "deliverable": "feature_ledger.parquet"
       },
       "leakage_guardrails": {

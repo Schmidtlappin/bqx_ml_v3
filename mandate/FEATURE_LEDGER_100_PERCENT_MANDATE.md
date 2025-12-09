@@ -231,14 +231,41 @@ def validate_shap_coverage(ledger_df):
             f"MANDATE VIOLATION: {len(missing_shap)} retained features "
             f"missing SHAP values"
         )
+
+    # Validate sample size
+    shap_samples = ledger_df.attrs.get('shap_sample_size', 0)
+    if shap_samples < 100_000:
+        raise ValueError(
+            f"MANDATE VIOLATION: SHAP samples {shap_samples} < 100,000 minimum"
+        )
 ```
+
+### SHAP Sample Size: 100,000+ (USER MANDATE)
+
+**Minimum sample size: 100,000** - This is a USER MANDATE and is binding.
+
+Rationale:
+- With ~400 retained features, 100K samples provides ~250 samples per feature on average
+- SHAP values stabilize better with larger sample sizes
+- Full dataset has 2.17M rows; 100K is ~5% coverage (statistical robustness)
 
 ### Expected SHAP Calculation Volume
 
 For EURUSD h15 with ~400 stable features retained:
 - Base models: 4
-- SHAP samples: ~10,000 (subset of validation data)
-- SHAP calculations: 4 × 400 × 10,000 = 16M
+- SHAP samples: **100,000+** (USER MANDATE)
+- SHAP calculations: 4 × 400 × 100,000 = 160M
+- Estimated time: 50-100 minutes per pair-horizon
+
+### Cost Impact
+
+| Resource | Cost |
+|----------|------|
+| BigQuery | $0 - Data already loaded |
+| Compute | Local CPU - No cloud charges |
+| Storage | Negligible (~KB per model) |
+
+**Net additional cost: $0** (time cost only)
 
 ---
 
