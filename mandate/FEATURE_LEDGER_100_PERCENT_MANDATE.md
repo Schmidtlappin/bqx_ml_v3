@@ -245,17 +245,28 @@ def validate_shap_coverage(ledger_df):
 **Minimum sample size: 100,000** - This is a USER MANDATE and is binding.
 
 Rationale:
-- With ~400 retained features, 100K samples provides ~250 samples per feature on average
+- With ~607 retained features (50% threshold), 100K samples provides ~165 samples per feature on average
 - SHAP values stabilize better with larger sample sizes
 - Full dataset has 2.17M rows; 100K is ~5% coverage (statistical robustness)
 
+### Stability Threshold: 50% (USER MANDATE)
+
+**Threshold: 50%** - USER APPROVED 2025-12-09
+
+This lowers the threshold from 60% to 50%, recovering 208 high-importance features.
+
+| Threshold | Features Retained | Impact |
+|-----------|-------------------|--------|
+| 60% (old) | 399 | Lost regime-specific signals |
+| **50% (approved)** | **607** | **+208 high-importance features** |
+
 ### Expected SHAP Calculation Volume
 
-For EURUSD h15 with ~400 stable features retained:
+For EURUSD h15 with ~607 stable features retained (50% threshold):
 - Base models: 4
 - SHAP samples: **100,000+** (USER MANDATE)
-- SHAP calculations: 4 × 400 × 100,000 = 160M
-- Estimated time: 50-100 minutes per pair-horizon
+- SHAP calculations: 4 × 607 × 100,000 = **243M**
+- Estimated time: 75-150 minutes per pair-horizon
 
 ### Cost Impact
 

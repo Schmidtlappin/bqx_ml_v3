@@ -36,14 +36,21 @@
         {"item": "Feature Discovery", "status": "COMPLETE", "details": "28 groups, 256 tables, 3,800+ columns"},
         {"item": "Safe Pruning", "status": "COMPLETE", "details": "Removed constant/duplicate features"},
         {"item": "Correlation Clustering", "status": "COMPLETE", "details": "Grouped features with |r| > 0.95"},
-        {"item": "Stability Selection", "status": "COMPLETE", "details": "5 folds x 3 seeds, >60% frequency threshold"},
+        {"item": "Stability Selection", "status": "COMPLETE", "details": "5 folds x 3 seeds, 50% frequency threshold (USER APPROVED 2025-12-09)"},
         {"item": "Ablation Testing", "status": "COMPLETE", "details": "Validated group importance by ΔAUC"}
       ],
       "results": {
-        "stable_features": 399,
+        "stable_features": 607,
+        "stable_features_note": "Updated from 399 after USER APPROVED 50% threshold (2025-12-09)",
         "idx_features": 168,
         "bqx_features": 270,
         "covariance_features": 35,
+        "threshold_history": {
+          "original": "60%",
+          "approved": "50%",
+          "approval_date": "2025-12-09",
+          "features_recovered": 208
+        },
         "output_file": "/intelligence/robust_feature_selection_eurusd_h15.json"
       }
     },
