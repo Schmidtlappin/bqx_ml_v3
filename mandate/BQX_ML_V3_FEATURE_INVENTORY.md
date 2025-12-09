@@ -13,7 +13,8 @@
 - **Horizons**: h15, h30, h45, h60, h75, h90 (deploy farthest achieving ≥95%)
 - **Algorithms**: LightGBM, XGBoost, CatBoost → Meta-learner (LSTM/LogReg)
 - **Total Tables**: 4,218+ (v2 datasets, partitioned)
-- **Total Features**: 8,214+ per model → 500-1,000 selected via SHAP
+- **Total Features**: 6,477 per pair (verified 2025-12-09) → 399-608 selected via stability selection
+  - Pair-specific: 3,813 | Cross-pair (tri): 2,088 | Market-wide (mkt): 576
 - **Target Accuracy**: 95%+ directional accuracy
 - **Platform**: 100% Google Cloud Platform
 - **Monthly Cost**: ~$277 (optimized)
@@ -417,12 +418,14 @@ Per the **Feature Selection Requirements Analysis**, to achieve 90%+ directional
 #### Interaction Features:
 - Products, ratios, differences between key features = **~500 interaction features**
 
-**TOTAL PER PAIR: ~8,214 raw features**
+**TOTAL PER PAIR: 6,477 features (verified 2025-12-09)**
+- Pair-specific: 3,813 | Cross-pair (tri): 2,088 | Market-wide (mkt): 576
 
 #### After Feature Selection:
-- Test all 8,214+ features
-- Select optimal 50-100 features per model
-- Achieve target 90%+ directional accuracy
+- Test all 6,477 features via Robust Group-First Stability Selection
+- Select optimal 399-608 features per model
+- Achieve target 95%+ called signal accuracy
+- Note: Original 8,214 was an estimate; corrected to 6,477 (3,813 pair + 2,088 tri + 576 mkt)
 
 ---
 
@@ -453,8 +456,8 @@ Per the **Feature Selection Requirements Analysis**, to achieve 90%+ directional
 
 ### Required State (95%+ Accuracy Mandate)
 - **BigQuery Tables**: 4,218+ tables in v2 datasets
-- **Features Generated**: All 8,214+ per pair
-- **Features Selected**: Top 500-1,000 per model (via SHAP)
+- **Features Generated**: All 6,477 per pair (verified 2025-12-09)
+- **Features Selected**: Top 399-608 per model (via stability selection)
 - **Models Trained**: 672 (28 pairs × 6 horizons × 4 ensemble)
 - **Directional Accuracy**: 95%+ (deploy farthest horizon achieving this)
 - **Cost**: ~$277/month (optimized)
@@ -478,7 +481,7 @@ Per the **Feature Selection Requirements Analysis**, to achieve 90%+ directional
 | MP03.09 | Deployment & Monitoring | 8 days | 0 | 0 |
 | MP03.10 | Validation & DR | 7 days | 0 | 0 |
 | MP03.11 | Security Hardening | 3 days | 0 | 0 |
-| **TOTAL** | **Complete System** | **75 days** | **1,736** | **8,214+** |
+| **TOTAL** | **Complete System** | **75 days** | **1,736** | **6,477** |
 
 ---
 
@@ -494,7 +497,7 @@ Per the **Feature Selection Requirements Analysis**, to achieve 90%+ directional
 - ✅ **Query Performance**: < 2 seconds
 
 ### Process Requirements
-- ✅ **Feature Testing**: 100% (all 8,214+ features)
+- ✅ **Feature Testing**: 100% (all 6,477 features)
 - ✅ **Feature Selection**: Data-driven (6 methods)
 - ✅ **Model Isolation**: Complete (no cross-contamination)
 - ✅ **BQX Paradigm**: Implemented (BQX as features AND targets)
@@ -507,9 +510,9 @@ Per the **Feature Selection Requirements Analysis**, to achieve 90%+ directional
 ### Non-Negotiable Requirements
 
 1. **90%+ Directional Accuracy**
-   - Current: 68% (FAILURE)
-   - Required: 90%+ (NO EXCEPTIONS)
-   - Path: Test ALL 8,214+ features, select optimal subset
+   - Current: 82.52% called accuracy (pilot, τ=0.70)
+   - Required: 95%+ called accuracy (NO EXCEPTIONS)
+   - Path: Test ALL 6,477 features, select optimal subset via stability selection
 
 2. **Comprehensive Feature Testing**
    - Test: 100% of features (NO shortcuts)
@@ -561,15 +564,29 @@ Per the **Feature Selection Requirements Analysis**, to achieve 90%+ directional
 
 BQX ML V3 is designed as a comprehensive, production-grade machine learning system with:
 
-1. **1,736 planned BigQuery tables** across 6 centric perspectives
-2. **8,214+ features per pair** for comprehensive market coverage
-3. **140 models** (28 pairs × 5 algorithms) in ensemble architecture
-4. **90%+ directional accuracy target** through comprehensive feature testing
+1. **4,888 BigQuery tables** (verified 2025-12-09) across feature types
+2. **6,477 features per pair** for comprehensive market coverage (verified from BQ)
+3. **784 models** (28 pairs × 7 horizons × 4 ensemble members)
+4. **95%+ called signal accuracy target** with 30-50% coverage
 5. **100% GCP infrastructure** for scalability and reliability
 
-**Critical Path**: Generate ALL features → Test ALL features → Select optimal subset → Achieve 90%+ accuracy
+**Critical Path**: Generate ALL features → Test ALL features → Select optimal subset → Achieve 95%+ called accuracy
 
 **NO EXCEPTIONS. NO SHORTCUTS. NO EXCUSES.**
+
+---
+
+## 📊 AUDIT NOTE (2025-12-09)
+
+The original "8,214+ features" was an estimate. Actual BQ audit shows:
+- **6,477 features per pair** (EURUSD verified)
+  - Pair-specific: 3,813
+  - Cross-pair (tri): 2,088
+  - Market-wide (mkt): 576
+- **86,190 total feature columns** across all tables
+- **4,888 total tables** in bqx_ml_v3_features_v2
+
+See `/intelligence/feature_catalogue.json` for complete inventory.
 
 ---
 

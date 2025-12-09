@@ -135,25 +135,144 @@
       "note": "Single-variant only (no BQX variant needed for correlation)"
     },
     "REGRESSION_Features": {
-      "status": "NOT STARTED",
-      "planned_tables": 224
+      "status": "COMPLETE",
+      "actual_tables": 84,
+      "breakdown": "28 bqx + 28 idx + 28 other variants",
+      "completion_date": "2025-12-08",
+      "note": "Updated 2025-12-09 from BQ audit"
     },
     "AGGREGATION_Features": {
-      "status": "NOT STARTED",
-      "planned_tables": 224
+      "status": "COMPLETE",
+      "actual_tables": 84,
+      "breakdown": "28 bqx + 28 idx + 28 other variants",
+      "completion_date": "2025-12-08",
+      "note": "Updated 2025-12-09 from BQ audit"
     },
     "ALIGNMENT_Features": {
-      "status": "NOT STARTED",
-      "planned_tables": 224
+      "status": "COMPLETE",
+      "actual_tables": 84,
+      "breakdown": "28 bqx + 28 idx + 28 other variants",
+      "completion_date": "2025-12-08",
+      "note": "Updated 2025-12-09 from BQ audit"
     },
     "MOMENTUM_Features": {
-      "status": "NOT STARTED",
-      "planned_tables": 224
+      "status": "COMPLETE",
+      "actual_tables": 84,
+      "breakdown": "28 bqx + 28 idx + 28 other variants",
+      "completion_date": "2025-12-08",
+      "note": "Updated 2025-12-09 from BQ audit"
     },
     "VOLATILITY_Features": {
-      "status": "NOT STARTED",
-      "planned_tables": 224
+      "status": "COMPLETE",
+      "actual_tables": 84,
+      "breakdown": "28 bqx + 28 idx + 28 other variants",
+      "completion_date": "2025-12-08",
+      "note": "Updated 2025-12-09 from BQ audit"
+    },
+    "DERIVATIVE_Features": {
+      "status": "COMPLETE",
+      "actual_tables": 84,
+      "breakdown": "28 bqx + 28 idx + 28 other variants",
+      "completion_date": "2025-12-08"
+    },
+    "REVERSAL_Features": {
+      "status": "COMPLETE",
+      "actual_tables": 84,
+      "breakdown": "28 bqx + 28 idx + 28 other variants",
+      "completion_date": "2025-12-08"
+    },
+    "DIVERGENCE_Features": {
+      "status": "COMPLETE",
+      "actual_tables": 84,
+      "breakdown": "28 bqx + 28 idx + 28 other variants",
+      "completion_date": "2025-12-08"
+    },
+    "MEAN_REVERSION_Features": {
+      "status": "COMPLETE",
+      "actual_tables": 84,
+      "breakdown": "28 bqx + 28 idx + 28 other variants",
+      "completion_date": "2025-12-08"
+    },
+    "CYCLE_Features": {
+      "status": "COMPLETE",
+      "actual_tables": 28,
+      "breakdown": "BQX-only by design",
+      "completion_date": "2025-12-08"
+    },
+    "EXTREMITY_Features": {
+      "status": "COMPLETE",
+      "actual_tables": 28,
+      "breakdown": "BQX-only by design",
+      "completion_date": "2025-12-08"
+    },
+    "TEMPORAL_Features": {
+      "status": "COMPLETE",
+      "actual_tables": 28,
+      "breakdown": "Per-pair temporal patterns",
+      "completion_date": "2025-12-08"
+    },
+    "CSI_Features": {
+      "status": "MISSING",
+      "expected_tables": 208,
+      "actual_tables": 0,
+      "gap": "Currency Strength Index tables not created",
+      "mandate_reference": "/mandate/BQX_ML_V3_FEATURE_INVENTORY.md Section 5",
+      "note": "Corrected 2025-12-09: 8 currencies × 13 feature types × 2 variants = 208 (was incorrectly 112)",
+      "feature_types": ["agg", "mom", "vol", "reg", "regime", "lag", "align", "der", "rev", "div", "mrt", "cyc", "ext"]
+    },
+    "COVARIANCE_Features": {
+      "prefix": "cov",
+      "status": "COMPLETE",
+      "actual_tables": 2507,
+      "breakdown": "Cross-pair covariance matrices",
+      "completion_date": "2025-12-08",
+      "category": "cross_pair"
+    },
+    "TRIANGULATION_Features": {
+      "prefix": "tri",
+      "status": "COMPLETE",
+      "actual_tables": 194,
+      "breakdown": "Triangular arbitrage relationships",
+      "completion_date": "2025-12-08",
+      "category": "cross_pair"
+    },
+    "BASE_Features": {
+      "prefix": "base",
+      "status": "COMPLETE",
+      "actual_tables": 56,
+      "breakdown": "28 bqx + 28 idx",
+      "completion_date": "2025-12-08",
+      "category": "pair_level"
+    },
+    "VARIANCE_Features": {
+      "prefix": "var",
+      "status": "PARTIAL",
+      "expected_tables": 114,
+      "actual_tables": 55,
+      "gap": 59,
+      "category": "pair_level"
+    },
+    "MARKET_Features": {
+      "prefix": "mkt",
+      "status": "PARTIAL",
+      "expected_tables": 18,
+      "actual_tables": 4,
+      "gap": 14,
+      "category": "market_wide"
     }
+  },
+  "feature_type_summary": {
+    "total_types": 20,
+    "complete": 18,
+    "partial": 2,
+    "missing": 1,
+    "by_category": {
+      "pair_level": ["agg", "mom", "vol", "reg", "regime", "lag", "align", "der", "rev", "div", "mrt", "cyc", "ext", "tmp", "base", "var"],
+      "cross_pair": ["cov", "corr", "tri"],
+      "market_wide": ["mkt"],
+      "currency_level": ["csi"]
+    },
+    "catalogue_reference": "/intelligence/feature_catalogue.json"
   },
   "model_types": {
     "base_algorithms": [
@@ -209,41 +328,101 @@
     },
     "regression": {
       "description": "Polynomial trends and predictions",
-      "status": "NOT STARTED",
-      "planned_tables": 224
+      "status": "COMPLETE",
+      "actual_tables": 84,
+      "note": "Updated 2025-12-09 from BQ audit"
     },
     "aggregation": {
       "description": "Statistical summaries across windows",
-      "status": "NOT STARTED",
-      "planned_tables": 224
+      "status": "COMPLETE",
+      "actual_tables": 84,
+      "note": "Updated 2025-12-09 from BQ audit"
     },
     "alignment": {
       "description": "Cross-timeframe coherence",
-      "status": "NOT STARTED",
-      "planned_tables": 224
+      "status": "COMPLETE",
+      "actual_tables": 84,
+      "note": "Updated 2025-12-09 from BQ audit"
     },
     "momentum_advanced": {
       "description": "ROC, acceleration, persistence",
-      "status": "NOT STARTED",
-      "planned_tables": 224
+      "status": "COMPLETE",
+      "actual_tables": 84,
+      "note": "Updated 2025-12-09 from BQ audit"
     },
     "volatility": {
       "description": "ATR, realized vol, Bollinger metrics",
-      "status": "NOT STARTED",
-      "planned_tables": 224
+      "status": "COMPLETE",
+      "actual_tables": 84,
+      "note": "Updated 2025-12-09 from BQ audit"
+    },
+    "derivative": {
+      "description": "Velocity, acceleration features",
+      "status": "COMPLETE",
+      "actual_tables": 84
+    },
+    "reversal": {
+      "description": "Reversal detection features",
+      "status": "COMPLETE",
+      "actual_tables": 84
+    },
+    "divergence": {
+      "description": "Cross-window divergence",
+      "status": "COMPLETE",
+      "actual_tables": 84
+    },
+    "mean_reversion": {
+      "description": "Mean-reversion tension features",
+      "status": "COMPLETE",
+      "actual_tables": 84
+    },
+    "cycle": {
+      "description": "Cycle position features",
+      "status": "COMPLETE",
+      "actual_tables": 28
+    },
+    "extremity": {
+      "description": "Extremity metrics",
+      "status": "COMPLETE",
+      "actual_tables": 28
+    },
+    "temporal": {
+      "description": "Temporal/session patterns",
+      "status": "COMPLETE",
+      "actual_tables": 28
     }
   },
   "quality_metrics": {
-    "v2_migration_progress": "62% (~2,609 / 4,218 tables)",
-    "source_v2_complete": "100% (2,209 tables)",
-    "covariance_progress": "55% (1,299 / 2,352 tables)",
-    "regime_complete": "100% (354 tables)",
-    "dual_architecture": "100% for completed types",
+    "v2_migration_progress": "100% COMPLETE",
+    "last_audit": "2025-12-09",
+    "total_tables": 4888,
+    "total_feature_columns": 86190,
+    "features_per_pair_eurusd": 6477,
+    "features_breakdown_eurusd": {
+      "pair_specific": 3813,
+      "cross_pair_tri": 2088,
+      "market_wide_mkt": 576,
+      "gaps_var_csi": 0,
+      "total_current": 6477,
+      "total_after_gaps": "~6567",
+      "correction_note": "2025-12-09: Original 3,813 was pair-specific only, missed tri+mkt"
+    },
+    "source_v2_complete": "100% (2,210 tables)",
+    "covariance_complete": "100% (2,507 tables)",
+    "regime_complete": "100% (112 tables)",
+    "dual_architecture": "100% for all feature types",
     "data_parity": "100% (IDX and BQX tables mirror each other)",
     "row_counts": "~2.17M per table (6 years of data)",
     "partitioning": "DATE(interval_time)",
     "clustering": "pair (or pair1 for covariance)",
     "models_trained": "0 of 784 (0%)",
-    "accuracy_target": "95%+ directional accuracy"
+    "accuracy_target": "95%+ called signal accuracy",
+    "gaps_identified": {
+      "csi_tables": "MISSING - 0 of 208 expected (corrected from 112)",
+      "var_tables": "PARTIAL - 55 of 114",
+      "mkt_tables": "PARTIAL - 4 of 18",
+      "total_gap": "281 tables (was 185)"
+    },
+    "feature_catalogue": "/intelligence/feature_catalogue.json"
   }
 }

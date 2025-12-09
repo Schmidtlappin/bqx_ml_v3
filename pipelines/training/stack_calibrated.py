@@ -434,23 +434,23 @@ def main():
     print("\nLoading training data...")
     client = bigquery.Client(project=PROJECT)
 
-    # Use a simpler query that's more likely to work
+    # Use V2 schema with correct column names
     query = f"""
     SELECT
         reg_idx.interval_time,
-        -- Polynomial IDX (priority)
+        -- Polynomial IDX (priority) - using V2 column names
         reg_idx.reg_quad_term_45, reg_idx.reg_lin_term_45, reg_idx.reg_total_var_45,
-        reg_idx.reg_slope_45, reg_idx.reg_trend_45, reg_idx.reg_dev_45, reg_idx.reg_zscore_45,
+        reg_idx.reg_slope_45, reg_idx.reg_trend_str_45, reg_idx.reg_deviation_45, reg_idx.reg_zscore_45,
         reg_idx.reg_quad_term_90, reg_idx.reg_lin_term_90, reg_idx.reg_total_var_90,
-        reg_idx.reg_slope_90, reg_idx.reg_trend_90, reg_idx.reg_dev_90, reg_idx.reg_zscore_90,
+        reg_idx.reg_slope_90, reg_idx.reg_trend_str_90, reg_idx.reg_deviation_90, reg_idx.reg_zscore_90,
         reg_idx.reg_quad_term_180, reg_idx.reg_lin_term_180, reg_idx.reg_total_var_180,
-        reg_idx.reg_slope_180, reg_idx.reg_trend_180, reg_idx.reg_dev_180, reg_idx.reg_zscore_180,
+        reg_idx.reg_slope_180, reg_idx.reg_trend_str_180, reg_idx.reg_deviation_180, reg_idx.reg_zscore_180,
         reg_idx.reg_quad_term_360, reg_idx.reg_lin_term_360, reg_idx.reg_total_var_360,
-        reg_idx.reg_slope_360, reg_idx.reg_trend_360,
+        reg_idx.reg_slope_360, reg_idx.reg_trend_str_360,
         reg_idx.reg_quad_term_720, reg_idx.reg_lin_term_720, reg_idx.reg_total_var_720,
-        reg_idx.reg_slope_720, reg_idx.reg_trend_720,
+        reg_idx.reg_slope_720, reg_idx.reg_trend_str_720,
         reg_idx.reg_quad_term_1440, reg_idx.reg_lin_term_1440, reg_idx.reg_total_var_1440,
-        reg_idx.reg_slope_1440, reg_idx.reg_trend_1440,
+        reg_idx.reg_slope_1440, reg_idx.reg_trend_str_1440,
 
         -- Polynomial BQX
         reg_bqx.reg_quad_term_45 as bqx_quad_45, reg_bqx.reg_lin_term_45 as bqx_lin_45,
@@ -463,11 +463,13 @@ def main():
         -- Base BQX
         base_bqx.bqx_45, base_bqx.bqx_90, base_bqx.bqx_180, base_bqx.bqx_360,
 
-        -- Volatility (regime indicator)
-        vol_bqx.vol_atr_45 as regime_vol_45, vol_bqx.vol_atr_90 as regime_vol_90,
+        -- Regime indicators from agg_bqx (std as volatility proxy)
+        agg_bqx.agg_std_45 as regime_vol_45, agg_bqx.agg_std_90 as regime_vol_90,
+        agg_bqx.agg_cv_45 as regime_cv_45, agg_bqx.agg_cv_90 as regime_cv_90,
 
-        -- Momentum (regime indicator)
-        mom_bqx.mom_rsi_45 as regime_rsi_45, mom_bqx.mom_rsi_90 as regime_rsi_90,
+        -- Derivative features (momentum indicators)
+        der_bqx.der_v1_45 as regime_der1_45, der_bqx.der_v1_90 as regime_der1_90,
+        der_bqx.der_v2_45 as regime_der2_45, der_bqx.der_v2_90 as regime_der2_90,
 
         -- Targets
         targets.target_bqx45_h15, targets.target_bqx45_h30, targets.target_bqx45_h45,
@@ -479,10 +481,10 @@ def main():
         ON reg_idx.interval_time = reg_bqx.interval_time
     JOIN `{PROJECT}.{FEATURES_DATASET}.base_bqx_{pair}` base_bqx
         ON reg_idx.interval_time = base_bqx.interval_time
-    LEFT JOIN `{PROJECT}.{FEATURES_DATASET}.vol_bqx_{pair}` vol_bqx
-        ON reg_idx.interval_time = vol_bqx.interval_time
-    LEFT JOIN `{PROJECT}.{FEATURES_DATASET}.mom_bqx_{pair}` mom_bqx
-        ON reg_idx.interval_time = mom_bqx.interval_time
+    LEFT JOIN `{PROJECT}.{FEATURES_DATASET}.agg_bqx_{pair}` agg_bqx
+        ON reg_idx.interval_time = agg_bqx.interval_time
+    LEFT JOIN `{PROJECT}.{FEATURES_DATASET}.der_bqx_{pair}` der_bqx
+        ON reg_idx.interval_time = der_bqx.interval_time
     JOIN `{PROJECT}.{ANALYTICS_DATASET}.targets_{pair}` targets
         ON reg_idx.interval_time = targets.interval_time
     WHERE DATE(reg_idx.interval_time) BETWEEN '{split['train']['start']}' AND '{split['validation']['end']}'
