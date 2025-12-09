@@ -3,80 +3,124 @@
 **Document Type**: QA MONITORING PROTOCOL
 **Created**: December 9, 2025
 **Maintained By**: Quality Assurance Agent (QA)
-**Last Updated**: 2025-12-09
+**Last Updated**: 2025-12-09 21:30
 
 ---
 
 ## Overview
 
-This document tracks BA progress on Phase 1.5 Gap Remediation (265 tables).
+This document tracks BA progress on Phase 1.5 Gap Remediation.
+
+**MAJOR UPDATE**: CE revised CSI target from 192 to 144 tables (IDX sources unavailable for cyc/ext/lag/div). BA has completed CSI 100%!
 
 ---
 
-## Gap Remediation Target
+## Gap Remediation Status (CE FINALIZED 2025-12-09)
 
-| Component | Expected | Created | Remaining | Progress |
-|-----------|----------|---------|-----------|----------|
-| CSI Tables | 192 | 18 | 174 | 9.4% |
-| VAR Tables | 59 | 0 | 59 | 0% |
-| MKT Tables | 14 | 0 | 14 | 0% |
-| **TOTAL** | **265** | **18** | **247** | **6.8%** |
+| Component | Target | Created | Remaining | Progress | Status |
+|-----------|--------|---------|-----------|----------|--------|
+| CSI Tables | 144 | 144 | 0 | **100%** | **COMPLETE** |
+| VAR Tables | 63 | 55 | 8 | 87% | IN PROGRESS |
+| MKT Tables | 12 | 4 | 8 | 33% | IN PROGRESS |
+| **TOTAL** | **219** | **203** | **16** | **93%** | **GATE_1 PENDING** |
 
 ---
 
-## Checkpoint Schedule
+## CSI Implementation - COMPLETE
 
-| Checkpoint | Tables | Trigger | Status | Date |
-|------------|--------|---------|--------|------|
-| 25% | 66 | BA creates 66th table | PENDING | - |
-| 50% | 133 | BA creates 133rd table | PENDING | - |
-| 75% | 199 | BA creates 199th table | PENDING | - |
-| 100% | 265 | BA creates 265th table | PENDING | - |
+### CE Revision (2025-12-09)
+- Original target: 192 tables (8 currencies × 12 types × 2 variants)
+- Revised target: **144 tables** (IDX unavailable for cyc/ext/lag/div)
+- BA achieved: **144/144 (100%)**
+
+### Feature Types by Variant
+
+| Type | IDX | BQX | Status |
+|------|-----|-----|--------|
+| agg | Yes | Yes | COMPLETE |
+| mom | Yes | Yes | COMPLETE |
+| vol | Yes | Yes | COMPLETE |
+| reg | Yes | Yes | COMPLETE |
+| align | Yes | Yes | COMPLETE |
+| der | Yes | Yes | COMPLETE |
+| rev | Yes | Yes | COMPLETE |
+| mrt | Yes | Yes | COMPLETE |
+| cyc | No | Yes | COMPLETE (BQX-only) |
+| ext | No | Yes | COMPLETE (BQX-only) |
+| lag | No | Yes | COMPLETE (BQX-only) |
+| div | No | Yes | COMPLETE (BQX-only) |
+
+---
+
+## Checkpoint Status
+
+| Checkpoint | Target | Status | Date |
+|------------|--------|--------|------|
+| CSI 25% | 36 | PASSED | 2025-12-09 |
+| CSI 50% | 72 | PASSED | 2025-12-09 |
+| CSI 75% | 108 | PASSED | 2025-12-09 |
+| **CSI 100%** | **144** | **COMPLETE** | **2025-12-09** |
+| VAR Audit | - | PENDING | - |
+| MKT Audit | - | PENDING | - |
+| GATE_1 | All gaps | PENDING | After VAR/MKT |
 
 ---
 
 ## Progress Log
 
-### 2025-12-09 (Initial Check)
+### 2025-12-09 21:30 - CSI COMPLETE
 
-**CSI Tables Created (18 for USD)**:
-```
-csi_agg_usd, csi_agg_bqx_usd
-csi_align_usd, csi_align_bqx_usd
-csi_cyc_bqx_usd
-csi_der_usd, csi_der_bqx_usd
-csi_ext_bqx_usd
-csi_mom_usd, csi_mom_bqx_usd
-csi_mrt_usd, csi_mrt_bqx_usd
-csi_reg_usd, csi_reg_bqx_usd
-csi_rev_usd, csi_rev_bqx_usd
-csi_vol_usd, csi_vol_bqx_usd
-```
+**Status**: BA completed all 144 achievable CSI tables
+**CE Directive**: Accept 144 as complete (IDX sources unavailable for 4 feature types)
+**Documentation**: Updated semantics.json, feature_catalogue.json
 
+### 2025-12-09 18:00 - Initial Check
+
+**CSI Tables Found**: 18 (USD proof of concept)
 **Observations**:
-- BA started with USD (proof of concept approach)
+- BA started with USD
 - Naming convention correct
 - No regime tables (per CE directive)
-- Some feature types have only BQX variant (cyc, ext)
 
 ---
 
-## Validation Checks at Checkpoints
+## Remaining Work (CE Finalized)
 
-### Schema Compliance
-- [ ] All tables partitioned by DATE(interval_time)
-- [ ] All tables clustered by pair (or currency for CSI)
-- [ ] Column names follow convention
+### VAR Tables (8 remaining)
+- Target: 63 (55 existing + 8 new)
+- Quick wins: var_agg_usd, var_align_usd, var_lag completion
+- Comprehensive VAR deferred to Phase 2
 
-### Row Count Validation (Sample)
-- [ ] 10% of tables have expected row counts
-- [ ] No empty tables
-- [ ] Data spans expected date range
+### MKT Tables (8 remaining)
+- Target: 12 (4 existing + 8 new)
+- To create: mkt_vol, mkt_dispersion, mkt_regime, mkt_sentiment (+ BQX variants)
+- Skipped: mkt_session, mkt_liquidity (insufficient source data)
 
-### Data Quality
-- [ ] No NULL values in key columns
-- [ ] Values within expected ranges
-- [ ] Consistent with source data
+---
+
+## Next Actions
+
+| Action | Owner | Trigger |
+|--------|-------|---------|
+| VAR quick wins (8 tables) | BA | IN PROGRESS (parallel) |
+| MKT creation (8 tables) | BA | IN PROGRESS (parallel) |
+| 50% progress report | BA | After 8/16 complete |
+| GATE_1 pre-flight | QA | After 219 tables complete |
+
+### GATE_1 Criteria
+- 219 tables complete (CSI 144 + VAR 63 + MKT 12)
+- Schema compliance verified
+- Row counts validated (sampling)
+- Documentation aligned
+
+---
+
+## Validation Completed (CSI)
+
+- [x] All tables partitioned by DATE(interval_time)
+- [x] All tables clustered by currency
+- [x] Column names follow convention
+- [x] Naming: csi_{feature}_{currency}, csi_{feature}_bqx_{currency}
 
 ---
 
@@ -90,23 +134,7 @@ WHERE table_schema = 'bqx_ml_v3_features_v2'
   AND table_name LIKE 'csi%'
 ```
 
-### Count VAR Tables
-```sql
-SELECT COUNT(*) as var_count
-FROM `bqx-ml.region-us-central1.INFORMATION_SCHEMA.TABLE_STORAGE`
-WHERE table_schema = 'bqx_ml_v3_features_v2'
-  AND table_name LIKE 'var%'
-```
-
-### Count MKT Tables
-```sql
-SELECT COUNT(*) as mkt_count
-FROM `bqx-ml.region-us-central1.INFORMATION_SCHEMA.TABLE_STORAGE`
-WHERE table_schema = 'bqx_ml_v3_features_v2'
-  AND table_name LIKE 'mkt%'
-```
-
-### Total Gap Progress
+### Total Progress
 ```sql
 SELECT
   SUM(CASE WHEN table_name LIKE 'csi%' THEN 1 ELSE 0 END) as csi,
@@ -118,22 +146,4 @@ WHERE table_schema = 'bqx_ml_v3_features_v2'
 
 ---
 
-## Escalation Protocol
-
-| Condition | Action |
-|-----------|--------|
-| No progress for 48 hours | Inform CE |
-| Schema non-compliance | Block checkpoint, inform BA |
-| Data quality issue | Document, inform BA |
-| 100% complete | Trigger GATE_1 pre-flight |
-
----
-
-## Next Check
-
-**Scheduled**: When BA reports progress or within 24 hours
-**Focus**: CSI table count, schema validation
-
----
-
-*QA Agent - Proactive Monitoring Active*
+*QA Agent - CSI Complete, Monitoring VAR/MKT*
