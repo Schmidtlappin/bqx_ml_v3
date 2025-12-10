@@ -1,0 +1,505 @@
+{
+  "pair": "eurusd",
+  "horizon": 15,
+  "timestamp": "2025-12-09T23:21:05.948664",
+  "shap_sample_size": 100000,
+  "mandate_compliant": true,
+  "feature_count": 59,
+  "top_20_features": [
+    {
+      "feature": "reg_slope_45",
+      "ensemble_shap": 0.5900638464707114
+    },
+    {
+      "feature": "reg_zscore_45",
+      "ensemble_shap": 0.42877650347960033
+    },
+    {
+      "feature": "reg_deviation_45",
+      "ensemble_shap": 0.4047073968710893
+    },
+    {
+      "feature": "reg_quad_term_45",
+      "ensemble_shap": 0.15158593171102738
+    },
+    {
+      "feature": "reg_zscore_90",
+      "ensemble_shap": 0.11588774368722211
+    },
+    {
+      "feature": "bqx_slope_45",
+      "ensemble_shap": 0.09851477731765475
+    },
+    {
+      "feature": "reg_trend_str_45",
+      "ensemble_shap": 0.08115303099546277
+    },
+    {
+      "feature": "reg_lin_term_45",
+      "ensemble_shap": 0.04513100123101765
+    },
+    {
+      "feature": "reg_slope_1440",
+      "ensemble_shap": 0.042373957926839984
+    },
+    {
+      "feature": "bqx_quad_45",
+      "ensemble_shap": 0.039346249822424094
+    },
+    {
+      "feature": "bqx_tvar_180",
+      "ensemble_shap": 0.028992332365556164
+    },
+    {
+      "feature": "reg_zscore_180",
+      "ensemble_shap": 0.028937836028275404
+    },
+    {
+      "feature": "reg_lin_term_1440",
+      "ensemble_shap": 0.02877246469194834
+    },
+    {
+      "feature": "reg_total_var_720",
+      "ensemble_shap": 0.028534218994445113
+    },
+    {
+      "feature": "reg_total_var_1440",
+      "ensemble_shap": 0.024696802612597085
+    },
+    {
+      "feature": "reg_slope_720",
+      "ensemble_shap": 0.02441017116216987
+    },
+    {
+      "feature": "reg_trend_str_180",
+      "ensemble_shap": 0.023912221498380945
+    },
+    {
+      "feature": "reg_total_var_90",
+      "ensemble_shap": 0.02194902594514873
+    },
+    {
+      "feature": "bqx_45",
+      "ensemble_shap": 0.021841320008465625
+    },
+    {
+      "feature": "regime_der1_90",
+      "ensemble_shap": 0.02125011804203021
+    }
+  ],
+  "all_features": [
+    {
+      "feature": "reg_slope_45",
+      "ensemble_shap": 0.5900638464707114,
+      "lgb_shap": 0.5895830746484835,
+      "xgb_shap": 0.5345063805580139,
+      "cb_shap": 0.6461020842056369
+    },
+    {
+      "feature": "reg_zscore_45",
+      "ensemble_shap": 0.42877650347960033,
+      "lgb_shap": 0.4617165101092674,
+      "xgb_shap": 0.41440466046333313,
+      "cb_shap": 0.4102083398662005
+    },
+    {
+      "feature": "reg_deviation_45",
+      "ensemble_shap": 0.4047073968710893,
+      "lgb_shap": 0.4516790761638731,
+      "xgb_shap": 0.46204444766044617,
+      "cb_shap": 0.3003986667889486
+    },
+    {
+      "feature": "reg_quad_term_45",
+      "ensemble_shap": 0.15158593171102738,
+      "lgb_shap": 0.12614416406835616,
+      "xgb_shap": 0.12982137501239777,
+      "cb_shap": 0.19879225605232825
+    },
+    {
+      "feature": "reg_zscore_90",
+      "ensemble_shap": 0.11588774368722211,
+      "lgb_shap": 0.09549103547132463,
+      "xgb_shap": 0.14312683045864105,
+      "cb_shap": 0.10904536513170067
+    },
+    {
+      "feature": "bqx_slope_45",
+      "ensemble_shap": 0.09851477731765475,
+      "lgb_shap": 0.0846574249736721,
+      "xgb_shap": 0.08101309835910797,
+      "cb_shap": 0.12987380862018422
+    },
+    {
+      "feature": "reg_trend_str_45",
+      "ensemble_shap": 0.08115303099546277,
+      "lgb_shap": 0.08496128553812494,
+      "xgb_shap": 0.08388019353151321,
+      "cb_shap": 0.07461761391675016
+    },
+    {
+      "feature": "reg_lin_term_45",
+      "ensemble_shap": 0.04513100123101765,
+      "lgb_shap": 0.05289199973228587,
+      "xgb_shap": 0.05411233380436897,
+      "cb_shap": 0.02838867015639813
+    },
+    {
+      "feature": "reg_slope_1440",
+      "ensemble_shap": 0.042373957926839984,
+      "lgb_shap": 0.056213240153212156,
+      "xgb_shap": 0.04814751818776131,
+      "cb_shap": 0.022761115439546474
+    },
+    {
+      "feature": "bqx_quad_45",
+      "ensemble_shap": 0.039346249822424094,
+      "lgb_shap": 0.03483323401876671,
+      "xgb_shap": 0.037007857114076614,
+      "cb_shap": 0.04619765833442895
+    },
+    {
+      "feature": "bqx_tvar_180",
+      "ensemble_shap": 0.028992332365556164,
+      "lgb_shap": 0.03825126129376053,
+      "xgb_shap": 0.032465074211359024,
+      "cb_shap": 0.016260661591548948
+    },
+    {
+      "feature": "reg_zscore_180",
+      "ensemble_shap": 0.028937836028275404,
+      "lgb_shap": 0.030692950786797884,
+      "xgb_shap": 0.017471006140112877,
+      "cb_shap": 0.038649551157915456
+    },
+    {
+      "feature": "reg_lin_term_1440",
+      "ensemble_shap": 0.02877246469194834,
+      "lgb_shap": 0.03463345453389554,
+      "xgb_shap": 0.030791891738772392,
+      "cb_shap": 0.020892047803177084
+    },
+    {
+      "feature": "reg_total_var_720",
+      "ensemble_shap": 0.028534218994445113,
+      "lgb_shap": 0.03407922213575226,
+      "xgb_shap": 0.032740864902734756,
+      "cb_shap": 0.018782569944848327
+    },
+    {
+      "feature": "reg_total_var_1440",
+      "ensemble_shap": 0.024696802612597085,
+      "lgb_shap": 0.03743517113102192,
+      "xgb_shap": 0.024590574204921722,
+      "cb_shap": 0.012064662501847612
+    },
+    {
+      "feature": "reg_slope_720",
+      "ensemble_shap": 0.02441017116216987,
+      "lgb_shap": 0.03499372675983281,
+      "xgb_shap": 0.022717632353305817,
+      "cb_shap": 0.015519154373370975
+    },
+    {
+      "feature": "reg_trend_str_180",
+      "ensemble_shap": 0.023912221498380945,
+      "lgb_shap": 0.02138577658952486,
+      "xgb_shap": 0.021471645683050156,
+      "cb_shap": 0.02887924222256782
+    },
+    {
+      "feature": "reg_total_var_90",
+      "ensemble_shap": 0.02194902594514873,
+      "lgb_shap": 0.03139430400161599,
+      "xgb_shap": 0.022112788632512093,
+      "cb_shap": 0.01233998520131811
+    },
+    {
+      "feature": "bqx_45",
+      "ensemble_shap": 0.021841320008465625,
+      "lgb_shap": 0.028607594152875858,
+      "xgb_shap": 0.030085192993283272,
+      "cb_shap": 0.006831172879237737
+    },
+    {
+      "feature": "regime_der1_90",
+      "ensemble_shap": 0.02125011804203021,
+      "lgb_shap": 0.014983526998413479,
+      "xgb_shap": 0.021370695903897285,
+      "cb_shap": 0.027396131223779863
+    },
+    {
+      "feature": "reg_total_var_180",
+      "ensemble_shap": 0.020539014072953273,
+      "lgb_shap": 0.035147937830398254,
+      "xgb_shap": 0.016758952289819717,
+      "cb_shap": 0.009710152098641841
+    },
+    {
+      "feature": "reg_total_var_360",
+      "ensemble_shap": 0.02040071365817599,
+      "lgb_shap": 0.028591167800985095,
+      "xgb_shap": 0.019009055569767952,
+      "cb_shap": 0.013601917603774927
+    },
+    {
+      "feature": "reg_total_var_45",
+      "ensemble_shap": 0.019911991723453266,
+      "lgb_shap": 0.027450230273894604,
+      "xgb_shap": 0.02062457986176014,
+      "cb_shap": 0.01166116503470505
+    },
+    {
+      "feature": "reg_quad_term_1440",
+      "ensemble_shap": 0.019415943559747077,
+      "lgb_shap": 0.02389090526150831,
+      "xgb_shap": 0.021502109244465828,
+      "cb_shap": 0.0128548161732671
+    },
+    {
+      "feature": "reg_trend_str_1440",
+      "ensemble_shap": 0.017631326148373188,
+      "lgb_shap": 0.022777034731278564,
+      "xgb_shap": 0.018302617594599724,
+      "cb_shap": 0.011814326119241268
+    },
+    {
+      "feature": "bqx_slope_90",
+      "ensemble_shap": 0.015618510680404126,
+      "lgb_shap": 0.021913707107679564,
+      "xgb_shap": 0.01665237732231617,
+      "cb_shap": 0.008289447611216643
+    },
+    {
+      "feature": "reg_lin_term_720",
+      "ensemble_shap": 0.01543654450054032,
+      "lgb_shap": 0.016114419246733472,
+      "xgb_shap": 0.016294121742248535,
+      "cb_shap": 0.013901092512638949
+    },
+    {
+      "feature": "reg_slope_360",
+      "ensemble_shap": 0.015399406716287688,
+      "lgb_shap": 0.02553787837152273,
+      "xgb_shap": 0.013350599445402622,
+      "cb_shap": 0.007309742331937714
+    },
+    {
+      "feature": "reg_slope_180",
+      "ensemble_shap": 0.015158807801966706,
+      "lgb_shap": 0.022114116169415485,
+      "xgb_shap": 0.017364462837576866,
+      "cb_shap": 0.005997844398907767
+    },
+    {
+      "feature": "regime_cv_45",
+      "ensemble_shap": 0.014623632286426047,
+      "lgb_shap": 0.01892119055449475,
+      "xgb_shap": 0.018607180565595627,
+      "cb_shap": 0.00634252573918777
+    },
+    {
+      "feature": "reg_deviation_90",
+      "ensemble_shap": 0.012763346514261503,
+      "lgb_shap": 0.022263476125072457,
+      "xgb_shap": 0.010996540077030659,
+      "cb_shap": 0.005030023340681396
+    },
+    {
+      "feature": "reg_trend_str_360",
+      "ensemble_shap": 0.0127049892977393,
+      "lgb_shap": 0.016213031622030995,
+      "xgb_shap": 0.015891527757048607,
+      "cb_shap": 0.006010408514138294
+    },
+    {
+      "feature": "reg_quad_term_90",
+      "ensemble_shap": 0.012602966795881021,
+      "lgb_shap": 0.01342733349670842,
+      "xgb_shap": 0.008968926034867764,
+      "cb_shap": 0.015412640856066877
+    },
+    {
+      "feature": "reg_lin_term_360",
+      "ensemble_shap": 0.012247633740241529,
+      "lgb_shap": 0.0165980424885355,
+      "xgb_shap": 0.013607344590127468,
+      "cb_shap": 0.006537514142061617
+    },
+    {
+      "feature": "bqx_tvar_90",
+      "ensemble_shap": 0.011798233417653221,
+      "lgb_shap": 0.01956186921974555,
+      "xgb_shap": 0.009720626287162304,
+      "cb_shap": 0.006112204746051808
+    },
+    {
+      "feature": "reg_deviation_180",
+      "ensemble_shap": 0.010417619613319154,
+      "lgb_shap": 0.008029650363489568,
+      "xgb_shap": 0.010628639720380306,
+      "cb_shap": 0.012594568756087587
+    },
+    {
+      "feature": "bqx_lin_45",
+      "ensemble_shap": 0.010408935753347294,
+      "lgb_shap": 0.012745779764524295,
+      "xgb_shap": 0.013602137565612793,
+      "cb_shap": 0.004878889929904794
+    },
+    {
+      "feature": "regime_der1_45",
+      "ensemble_shap": 0.010240463629451168,
+      "lgb_shap": 0.015800441266596226,
+      "xgb_shap": 0.011302161030471325,
+      "cb_shap": 0.0036187885912859555
+    },
+    {
+      "feature": "bqx_180",
+      "ensemble_shap": 0.00978729311938567,
+      "lgb_shap": 0.015524512256445687,
+      "xgb_shap": 0.007073925342410803,
+      "cb_shap": 0.006763441759300522
+    },
+    {
+      "feature": "reg_lin_term_180",
+      "ensemble_shap": 0.009748470403779172,
+      "lgb_shap": 0.009448010427668442,
+      "xgb_shap": 0.011771060526371002,
+      "cb_shap": 0.008026340257298073
+    },
+    {
+      "feature": "reg_slope_90",
+      "ensemble_shap": 0.00963651032697826,
+      "lgb_shap": 0.013137327540281176,
+      "xgb_shap": 0.011559738777577877,
+      "cb_shap": 0.004212464663075721
+    },
+    {
+      "feature": "reg_quad_term_360",
+      "ensemble_shap": 0.009388645440429368,
+      "lgb_shap": 0.010976067579519178,
+      "xgb_shap": 0.008111869916319847,
+      "cb_shap": 0.009077998825449076
+    },
+    {
+      "feature": "regime_cv_90",
+      "ensemble_shap": 0.009221444411244995,
+      "lgb_shap": 0.015155720305105374,
+      "xgb_shap": 0.009409992024302483,
+      "cb_shap": 0.0030986209043271282
+    },
+    {
+      "feature": "bqx_360",
+      "ensemble_shap": 0.009122557803210352,
+      "lgb_shap": 0.015092345956637004,
+      "xgb_shap": 0.0067350794561207294,
+      "cb_shap": 0.0055402479968733225
+    },
+    {
+      "feature": "reg_quad_term_180",
+      "ensemble_shap": 0.008871175537039002,
+      "lgb_shap": 0.009490038000844558,
+      "xgb_shap": 0.006045402958989143,
+      "cb_shap": 0.011078085651283305
+    },
+    {
+      "feature": "reg_trend_str_720",
+      "ensemble_shap": 0.007949181959632321,
+      "lgb_shap": 0.013579051050500284,
+      "xgb_shap": 0.006939556449651718,
+      "cb_shap": 0.003328938378744959
+    },
+    {
+      "feature": "reg_quad_term_720",
+      "ensemble_shap": 0.007358782490763061,
+      "lgb_shap": 0.012439238894120255,
+      "xgb_shap": 0.004822899587452412,
+      "cb_shap": 0.004814208990716517
+    },
+    {
+      "feature": "regime_vol_90",
+      "ensemble_shap": 0.006832886848243107,
+      "lgb_shap": 0.007867442108786309,
+      "xgb_shap": 0.004907673690468073,
+      "cb_shap": 0.007723544745474938
+    },
+    {
+      "feature": "bqx_90",
+      "ensemble_shap": 0.006406497914848368,
+      "lgb_shap": 0.00641728262508555,
+      "xgb_shap": 0.0048247575759887695,
+      "cb_shap": 0.007977453543470785
+    },
+    {
+      "feature": "bqx_tvar_45",
+      "ensemble_shap": 0.006080490610359448,
+      "lgb_shap": 0.011316238633008645,
+      "xgb_shap": 0.003699389984831214,
+      "cb_shap": 0.003225843213238485
+    },
+    {
+      "feature": "reg_trend_str_90",
+      "ensemble_shap": 0.0058348359894174395,
+      "lgb_shap": 0.007088951343723042,
+      "xgb_shap": 0.008055276237428188,
+      "cb_shap": 0.002360280387101088
+    },
+    {
+      "feature": "bqx_lin_180",
+      "ensemble_shap": 0.005745396511140075,
+      "lgb_shap": 0.009687342888501654,
+      "xgb_shap": 0.00547745730727911,
+      "cb_shap": 0.0020713893376394636
+    },
+    {
+      "feature": "bqx_quad_180",
+      "ensemble_shap": 0.004360382710942488,
+      "lgb_shap": 0.007546936726746514,
+      "xgb_shap": 0.0035497418139129877,
+      "cb_shap": 0.0019844695921679635
+    },
+    {
+      "feature": "regime_vol_45",
+      "ensemble_shap": 0.004112582795252781,
+      "lgb_shap": 0.005754486719614238,
+      "xgb_shap": 0.0038120909593999386,
+      "cb_shap": 0.002771170706744166
+    },
+    {
+      "feature": "bqx_lin_90",
+      "ensemble_shap": 0.003897283227667506,
+      "lgb_shap": 0.006564275540997127,
+      "xgb_shap": 0.0039562927559018135,
+      "cb_shap": 0.0011712813861035779
+    },
+    {
+      "feature": "bqx_quad_90",
+      "ensemble_shap": 0.003516364839812537,
+      "lgb_shap": 0.005023803756921089,
+      "xgb_shap": 0.003930796403437853,
+      "cb_shap": 0.0015944943590786703
+    },
+    {
+      "feature": "reg_lin_term_90",
+      "ensemble_shap": 0.003467317532446683,
+      "lgb_shap": 0.005104280735282155,
+      "xgb_shap": 0.0038328261580318213,
+      "cb_shap": 0.0014648457040260735
+    },
+    {
+      "feature": "regime_der2_90",
+      "ensemble_shap": 0.0009971772286364016,
+      "lgb_shap": 0.001476285456662946,
+      "xgb_shap": 0.0015152462292462587,
+      "cb_shap": 0.0
+    },
+    {
+      "feature": "regime_der2_45",
+      "ensemble_shap": 0.00024111703538326075,
+      "lgb_shap": 0.0003462545211517111,
+      "xgb_shap": 0.0003770965849980712,
+      "cb_shap": 0.0
+    }
+  ]
+}

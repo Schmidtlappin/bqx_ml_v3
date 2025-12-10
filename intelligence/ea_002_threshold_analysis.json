@@ -1,0 +1,105 @@
+{
+  "analysis_type": "EA-002_threshold_extension",
+  "pair": "eurusd",
+  "horizon": 15,
+  "baseline": {
+    "overall_accuracy": 0.7689994738029016,
+    "overall_auc": 0.8505357032923305,
+    "oof_samples": 66515,
+    "recommended_threshold": "tau_70"
+  },
+  "extended_estimates": {
+    "tau_55": {
+      "threshold": 0.55,
+      "accuracy": 0.7815709350202716,
+      "coverage": 0.9530030820115764,
+      "n_signals": 63389,
+      "source": "ACTUAL"
+    },
+    "tau_60": {
+      "threshold": 0.6000000000000001,
+      "accuracy": 0.794516021269069,
+      "coverage": 0.9043760001018522,
+      "n_signals": 60154,
+      "source": "ESTIMATED"
+    },
+    "tau_65": {
+      "threshold": 0.6500000000000001,
+      "accuracy": 0.8090072679376923,
+      "coverage": 0.8491548920486564,
+      "n_signals": 56481,
+      "source": "ESTIMATED"
+    },
+    "tau_70": {
+      "threshold": 0.7000000000000002,
+      "accuracy": 0.8251400866454448,
+      "coverage": 0.7886490941060882,
+      "n_signals": 52456,
+      "source": "ESTIMATED"
+    },
+    "tau_75": {
+      "threshold": 0.7500000000000002,
+      "accuracy": 0.8429144773923267,
+      "coverage": 0.7245021978025886,
+      "n_signals": 48190,
+      "source": "ESTIMATED"
+    },
+    "tau_80": {
+      "threshold": 0.8000000000000003,
+      "accuracy": 0.8623304401783378,
+      "coverage": 0.6583466217108324,
+      "n_signals": 43789,
+      "source": "ESTIMATED"
+    },
+    "tau_85": {
+      "threshold": 0.8500000000000003,
+      "accuracy": 0.8833879750034782,
+      "coverage": 0.591736721276779,
+      "n_signals": 39359,
+      "source": "ESTIMATED"
+    }
+  },
+  "optimal_threshold": {
+    "found": true,
+    "optimal_accuracy": {
+      "threshold": 0.8500000000000003,
+      "accuracy": 0.8833879750034782,
+      "coverage": 0.591736721276779,
+      "n_signals": 39359,
+      "source": "ESTIMATED",
+      "score": 0.5227331039438914
+    },
+    "optimal_balance": {
+      "threshold": 0.8000000000000003,
+      "accuracy": 0.8623304401783378,
+      "coverage": 0.6583466217108324,
+      "n_signals": 43789,
+      "source": "ESTIMATED",
+      "score": 0.5677123320898237
+    },
+    "all_candidates": [
+      {
+        "threshold": 0.8500000000000003,
+        "accuracy": 0.8833879750034782,
+        "coverage": 0.591736721276779,
+        "n_signals": 39359,
+        "source": "ESTIMATED",
+        "score": 0.5227331039438914
+      },
+      {
+        "threshold": 0.8000000000000003,
+        "accuracy": 0.8623304401783378,
+        "coverage": 0.6583466217108324,
+        "n_signals": 43789,
+        "source": "ESTIMATED",
+        "score": 0.5677123320898237
+      }
+    ]
+  },
+  "recommendations": {
+    "primary_threshold": 0.8500000000000003,
+    "expected_accuracy": 0.8833879750034782,
+    "expected_coverage": 0.591736721276779,
+    "validation_required": true
+  }
+}

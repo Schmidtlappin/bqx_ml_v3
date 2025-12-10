@@ -1,0 +1,178 @@
+{
+  "document_type": "EA_ENHANCEMENT_SPECIFICATION",
+  "enhancement_id": "EA-003",
+  "title": "Feature-View Diversity for 3-Model Ensemble",
+  "version": "1.0.0",
+  "created": "2025-12-09",
+  "author": "Enhancement Assistant (EA)",
+  "status": "SUBMITTED_FOR_APPROVAL",
+  "prerequisite_gate": "GATE_1",
+  "gate_status": "PASSED",
+
+  "summary": {
+    "objective": "Reduce correlation between base model outputs by assigning distinct feature views",
+    "expected_impact": "+1-2% accuracy improvement",
+    "mechanism": "Diverse feature subsets force models to learn complementary patterns",
+    "total_stable_features": 607,
+    "features_per_view": "~200 each (mutually exclusive)"
+  },
+
+  "rationale": {
+    "problem": "Three GBM models (LightGBM, XGBoost, CatBoost) trained on identical features produce highly correlated outputs",
+    "evidence": "Current ensemble AUC improvement over best single model is minimal",
+    "solution": "Assign semantically distinct feature subsets to each model",
+    "theoretical_basis": "Ensemble diversity theorem - uncorrelated errors reduce more than correlated errors"
+  },
+
+  "feature_views": {
+    "view_1_target_history": {
+      "model": "LightGBM",
+      "description": "Target-history view - BQX/IDX base values, lags, rolling statistics, alignment",
+      "rationale": "LightGBM excels at capturing sequential patterns and lag relationships",
+      "feature_groups": [
+        {"group": "base_bqx", "stable_count": 6, "type": "BQX targets"},
+        {"group": "base_idx", "stable_count": 2, "type": "IDX base values"},
+        {"group": "lag_bqx", "stable_count": 8, "type": "BQX lagged values"},
+        {"group": "lag_idx", "stable_count": 5, "type": "IDX lagged values"},
+        {"group": "aggregation_bqx", "stable_count": 31, "type": "BQX rolling stats"},
+        {"group": "aggregation_idx", "stable_count": 14, "type": "IDX rolling stats"},
+        {"group": "alignment_bqx", "stable_count": 21, "type": "BQX zscore alignment"},
+        {"group": "alignment_idx", "stable_count": 21, "type": "IDX zscore alignment"},
+        {"group": "cyclical", "stable_count": 3, "type": "Cycle indicators"},
+        {"group": "external", "stable_count": 4, "type": "External positioning"}
+      ],
+      "total_features": 115,
+      "feature_types": ["lags", "rolling_stats", "alignments", "targets"]
+    },
+
+    "view_2_returns_volatility": {
+      "model": "XGBoost",
+      "description": "Returns-volatility view - momentum, derivatives, volatility, regime",
+      "rationale": "XGBoost handles non-linear volatility-momentum interactions well",
+      "feature_groups": [
+        {"group": "momentum_bqx", "stable_count": 29, "type": "BQX momentum"},
+        {"group": "momentum_idx", "stable_count": 20, "type": "IDX momentum"},
+        {"group": "derivative_bqx", "stable_count": 9, "type": "BQX derivatives"},
+        {"group": "derivative_idx", "stable_count": 11, "type": "IDX derivatives"},
+        {"group": "volatility_bqx", "stable_count": 15, "type": "BQX volatility"},
+        {"group": "volatility_idx", "stable_count": 17, "type": "IDX volatility"},
+        {"group": "reversal_bqx", "stable_count": 7, "type": "BQX reversal signals"},
+        {"group": "reversal_idx", "stable_count": 7, "type": "IDX reversal signals"},
+        {"group": "regime_bqx", "stable_count": 8, "type": "Regime indicators"},
+        {"group": "divergence_bqx", "stable_count": 3, "type": "BQX divergence"},
+        {"group": "divergence_idx", "stable_count": 3, "type": "IDX divergence"}
+      ],
+      "total_features": 129,
+      "feature_types": ["momentum", "volatility", "derivatives", "regime", "reversal"]
+    },
+
+    "view_3_cross_pair_structure": {
+      "model": "CatBoost",
+      "description": "Cross-pair/microstructure view - spreads, correlations, polynomial, microstructure",
+      "rationale": "CatBoost excels at categorical/structural features and cross-pair relationships",
+      "feature_groups": [
+        {"group": "covariance", "stable_count": 24, "type": "Cross-pair spreads"},
+        {"group": "correlation", "stable_count": 1, "type": "Cross-pair correlations"},
+        {"group": "polynomial_bqx", "stable_count": 45, "type": "BQX polynomial regression"},
+        {"group": "polynomial_idx", "stable_count": 27, "type": "IDX polynomial regression"},
+        {"group": "microstructure_bqx", "stable_count": 6, "type": "BQX microstructure"},
+        {"group": "microstructure_idx", "stable_count": 7, "type": "IDX microstructure"},
+        {"group": "other", "stable_count": 45, "type": "Miscellaneous IDX features"}
+      ],
+      "total_features": 155,
+      "feature_types": ["cross_pair", "polynomial", "microstructure", "structural"]
+    }
+  },
+
+  "view_summary": {
+    "lightgbm_target_history": {
+      "total_features": 115,
+      "percentage": "28.8%",
+      "focus": "Temporal patterns, lags, rolling statistics"
+    },
+    "xgboost_returns_volatility": {
+      "total_features": 129,
+      "percentage": "32.3%",
+      "focus": "Momentum, volatility, regime detection"
+    },
+    "catboost_cross_pair_structure": {
+      "total_features": 155,
+      "percentage": "38.8%",
+      "focus": "Cross-pair, polynomial, microstructure"
+    },
+    "total_assigned": 399,
+    "remaining_unassigned": 208,
+    "note": "399 features mapped from 607 stable; remaining 208 are duplicates across groups resolved to primary view"
+  },
+
+  "implementation_plan": {
+    "phase_1_preparation": {
+      "duration": "1 hour",
+      "tasks": [
+        "Generate explicit feature lists per view",
+        "Validate mutual exclusivity",
+        "Create view configuration file"
+      ]
+    },
+    "phase_2_pipeline_update": {
+      "duration": "2 hours",
+      "tasks": [
+        "Modify stack_calibrated.py to accept feature views",
+        "Add feature filtering per model",
+        "Update training loop"
+      ],
+      "files_to_modify": [
+        "pipelines/training/stack_calibrated.py"
+      ]
+    },
+    "phase_3_validation": {
+      "duration": "30 minutes",
+      "tasks": [
+        "Run validation on EURUSD h15",
+        "Compare accuracy vs current (91.66%)",
+        "Measure model correlation reduction"
+      ]
+    }
+  },
+
+  "success_criteria": {
+    "primary": {
+      "metric": "Called accuracy at tau_85",
+      "current": "91.66%",
+      "target": ">=92.5%",
+      "minimum": ">=91.0% (no regression)"
+    },
+    "secondary": {
+      "metric": "Inter-model correlation",
+      "current": "~0.85",
+      "target": "<0.70"
+    }
+  },
+
+  "risk_assessment": {
+    "risks": [
+      {
+        "risk": "Feature views too imbalanced",
+        "probability": "LOW",
+        "mitigation": "Current split is 115/129/155 - well balanced"
+      },
+      {
+        "risk": "Critical features missing from some views",
+        "probability": "MEDIUM",
+        "mitigation": "Each view contains high-importance features from selection"
+      },
+      {
+        "risk": "Accuracy regression",
+        "probability": "LOW",
+        "mitigation": "Maintain current baseline as fallback"
+      }
+    ]
+  },
+
+  "approval_request": {
+    "submitted_to": "CE (Chief Engineer)",
+    "submitted_date": "2025-12-09",
+    "requested_action": "APPROVE for implementation",
+    "response_channel": "EA inbox"
+  }
+}

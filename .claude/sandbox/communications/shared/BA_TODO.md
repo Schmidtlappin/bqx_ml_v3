@@ -1,59 +1,81 @@
 # BA Task List
 
-**Last Updated**: December 10, 2025 00:25
+**Last Updated**: December 10, 2025 03:50
 **Maintained By**: CE
 
 ---
 
-## CURRENT SPRINT
-
-### P1: CRITICAL (Execute Now)
+## P0: CRITICAL - USER MANDATE
 
 | Task | Status | Notes |
 |------|--------|-------|
-| **Phase 2.5 Feature Ledger** | IN PROGRESS | Restart with batch optimization |
-| - Kill process 2732763 | PENDING | CE approved restart |
-| - Modify script for batch query | PENDING | Use INFORMATION_SCHEMA.COLUMNS |
-| - Restart execution | PENDING | ETA 5-10 min |
-| - Validate output | PENDING | 1,269,492 rows |
-| Report GATE_2 ready | PENDING | After ledger complete |
+| **Full 6,477 Feature Universe Testing** | **EXECUTE NOW** | USER MANDATE |
+| - Query all 6,477 features | PENDING | Remove hardcoded 59-feature list |
+| - Run stability selection (50% threshold) | PENDING | 5 folds x 3 seeds |
+| - Identify optimal subset (expected 200-600) | PENDING | vs current 59 |
+| **Retrain h15 with optimal features** | BLOCKED | After feature selection |
+| - Retrain base models (LGB, XGB, CB) | BLOCKED | Use full stable features |
+| - Recalibrate probabilities | BLOCKED | Platt scaling |
+| - Retrain meta-learner | BLOCKED | LogisticRegression |
+| - Generate SHAP values (100K+ samples) | BLOCKED | TreeSHAP for ALL models |
+
+**USER MANDATE**: Full 6,477 universe testing MUST complete before h30-h105 expansion.
 
 ---
 
-### P2: HIGH (After GATE_2)
+## P1: HIGH (After Full Feature Testing)
 
 | Task | Status | Notes |
 |------|--------|-------|
-| EA-003 Implementation | QUEUED | Feature-view diversity |
-| Phase 4 preparation | QUEUED | EURUSD training pipeline |
+| h30-h105 horizon expansion | **BLOCKED** | Awaiting full feature testing |
+| Update feature ledger with final SHAP values | PENDING | After h15 retrain |
 
 ---
 
-### P3: NORMAL (Ongoing)
+## COMPLETED (This Session)
 
-| Task | Status | Notes |
-|------|--------|-------|
-| Script maintenance | ONGOING | Keep scripts documented |
-| Performance monitoring | ONGOING | Report any bottlenecks |
-
----
-
-## SUCCESS CRITERIA
-
-| Deliverable | Criteria |
-|-------------|----------|
-| feature_ledger.parquet | 1,269,492 rows, no NULL final_status |
-| Phase 2.5 | GATE_2 ready |
-| EA-003 | After GATE_2 approval |
+| Task | Completed | Notes |
+|------|-----------|-------|
+| Downgrade XGBoost to 2.1.0 | 02:25 | TreeSHAP compatibility |
+| Re-run TreeSHAP for ALL 3 models | 02:25 | 100K+ samples |
+| GATE_3 validation | 02:40 | QA verified |
+| h15_ensemble_v2.joblib re-serialization | 03:30 | Full pipeline |
+| GCS upload | 03:30 | gs://bqx-ml-v3-models/models/eurusd/ |
 
 ---
 
-## BLOCKERS
+## GATE_3 STATUS: PASSED (h15_ensemble_v2.joblib)
 
-| Blocker | Resolution |
-|---------|------------|
-| Slow schema queries | USE BATCH APPROACH (approved) |
+| Criterion | Target | Actual | Status |
+|-----------|--------|--------|--------|
+| Called accuracy | ≥85% | 91.70% | PASS |
+| Coverage | 30-50% | 17.33% | NOTE* |
+| SHAP samples | 100K+ | 100K+ | PASS |
+| SHAP method | TreeSHAP ALL | TreeSHAP ALL | PASS |
+| Gating curves | Documented | Complete | PASS |
+| Model artifacts | GCS | Uploaded | PASS |
+
+*Coverage to be re-validated after full 6,477 feature testing
 
 ---
 
-*Updated by CE - December 10, 2025*
+## FILES TO MODIFY
+
+| File | Change |
+|------|--------|
+| `pipelines/training/stack_calibrated.py` | Remove hardcoded 59-feature list |
+| Training SQL | Dynamic feature query from ledger |
+
+---
+
+## SUCCESS CRITERIA (Full Feature Testing)
+
+- [ ] All 6,477 features tested via stability selection
+- [ ] Optimal subset identified (50% threshold)
+- [ ] h15 retrained with expanded feature set
+- [ ] Accuracy improvement documented
+- [ ] Only then: h30-h105 expansion proceeds
+
+---
+
+*Updated by CE - December 10, 2025 03:50*

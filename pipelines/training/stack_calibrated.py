@@ -167,14 +167,10 @@ def train_base_models_oof(X_train, y_train, X_val, feature_names, seed=42):
     cb_prob = cb_model.predict_proba(X_val)[:, 1]
     results['catboost'] = {'model': cb_model, 'prob': cb_prob}
 
-    # ElasticNet (for diversity)
-    en_model = LogisticRegression(
-        penalty='elasticnet', solver='saga', l1_ratio=0.5,
-        random_state=seed, max_iter=1000
-    )
-    en_model.fit(X_train, y_train)
-    en_prob = en_model.predict_proba(X_val)[:, 1]
-    results['elasticnet'] = {'model': en_model, 'prob': en_prob}
+    # ElasticNet REMOVED per EA-001 analysis (2025-12-09)
+    # Root cause: Linear model inappropriate for non-linear forex features
+    # AUC was 0.4578 < 0.5 (worse than random, inverse correlation)
+    # Removal projected to improve accuracy by +1.5%
 
     return results
 
@@ -203,11 +199,10 @@ def train_calibrated_stack(df, feature_cols, target_col, n_folds=5, verbose=True
     if verbose:
         print(f"  Created {len(splits)} walk-forward folds with {EMBARGO_INTERVALS} interval embargo")
 
-    # Collect OOF predictions
+    # Collect OOF predictions (3-model ensemble after EA-001 ElasticNet removal)
     oof_lgb = np.zeros(len(df))
     oof_xgb = np.zeros(len(df))
     oof_cb = np.zeros(len(df))
-    oof_en = np.zeros(len(df))
     oof_y = np.zeros(len(df))
     oof_mask = np.zeros(len(df), dtype=bool)
 
@@ -236,13 +231,12 @@ def train_calibrated_stack(df, feature_cols, target_col, n_folds=5, verbose=True
             X_train_clean, y_train_clean, X_val_clean, feature_cols
         )
 
-        # Store OOF predictions
+        # Store OOF predictions (3 models after EA-001)
         val_idx_clean = [val_idx[i] for i, m in enumerate(val_mask) if m]
         for i, idx in enumerate(val_idx_clean):
             oof_lgb[idx] = base_results['lightgbm']['prob'][i]
             oof_xgb[idx] = base_results['xgboost']['prob'][i]
             oof_cb[idx] = base_results['catboost']['prob'][i]
-            oof_en[idx] = base_results['elasticnet']['prob'][i]
             oof_y[idx] = y[idx]
             oof_mask[idx] = True
 
@@ -260,24 +254,22 @@ def train_calibrated_stack(df, feature_cols, target_col, n_folds=5, verbose=True
         print("  ERROR: Insufficient OOF samples")
         return None
 
-    # Extract OOF data
+    # Extract OOF data (3 models after EA-001 ElasticNet removal)
     lgb_oof = oof_lgb[oof_indices]
     xgb_oof = oof_xgb[oof_indices]
     cb_oof = oof_cb[oof_indices]
-    en_oof = oof_en[oof_indices]
     y_oof = oof_y[oof_indices].astype(int)
 
     # Calibrate each base model's probabilities
     if verbose:
-        print("  Calibrating base model probabilities...")
+        print("  Calibrating base model probabilities (3-model ensemble)...")
 
     lgb_cal, lgb_calibrator = calibrate_probabilities(y_oof, lgb_oof, method='platt')
     xgb_cal, xgb_calibrator = calibrate_probabilities(y_oof, xgb_oof, method='platt')
     cb_cal, cb_calibrator = calibrate_probabilities(y_oof, cb_oof, method='platt')
-    en_cal, en_calibrator = calibrate_probabilities(y_oof, en_oof, method='platt')
 
-    # Stack calibrated probabilities
-    meta_X = np.column_stack([lgb_cal, xgb_cal, cb_cal, en_cal])
+    # Stack calibrated probabilities (3 models)
+    meta_X = np.column_stack([lgb_cal, xgb_cal, cb_cal])
 
     # Add regime features if available
     if regime_df is not None and len(regime_features_oof) > 0:
@@ -301,8 +293,8 @@ def train_calibrated_stack(df, feature_cols, target_col, n_folds=5, verbose=True
     overall_acc = accuracy_score(y_oof, (final_prob > 0.5).astype(int))
     overall_auc = roc_auc_score(y_oof, final_prob)
 
-    # Confidence gating metrics
-    thresholds = [0.55, 0.60, 0.65, 0.70]
+    # Confidence gating metrics (extended per EA-002 analysis)
+    thresholds = [0.55, 0.60, 0.65, 0.70, 0.75, 0.80, 0.85]
     gating_results = {}
 
     for tau in thresholds:
@@ -324,16 +316,17 @@ def train_calibrated_stack(df, feature_cols, target_col, n_folds=5, verbose=True
         'base_model_aucs': {
             'lightgbm': float(roc_auc_score(y_oof, lgb_cal)),
             'xgboost': float(roc_auc_score(y_oof, xgb_cal)),
-            'catboost': float(roc_auc_score(y_oof, cb_cal)),
-            'elasticnet': float(roc_auc_score(y_oof, en_cal))
+            'catboost': float(roc_auc_score(y_oof, cb_cal))
+            # ElasticNet removed per EA-001 (AUC was 0.4578 < 0.5)
         },
         'calibrators': {
             'lightgbm': lgb_calibrator,
             'xgboost': xgb_calibrator,
-            'catboost': cb_calibrator,
-            'elasticnet': en_calibrator
+            'catboost': cb_calibrator
+            # ElasticNet removed per EA-001
         },
-        'meta_model': meta_model
+        'meta_model': meta_model,
+        'ensemble_version': '3-model (EA-001 applied)'
     }
 
     if verbose:

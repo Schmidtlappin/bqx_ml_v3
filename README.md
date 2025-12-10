@@ -1,20 +1,21 @@
-# BQX ML V3: 28 Independent Models for Forex Momentum Prediction
+# BQX ML V3: 784 Models for Forex Momentum Prediction
 
 [![Status](https://img.shields.io/badge/status-active-success.svg)]()
 [![Python](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 [![License](https://img.shields.io/badge/license-Proprietary-red.svg)]()
+[![Migration](https://img.shields.io/badge/V2_Migration-COMPLETE-brightgreen.svg)]()
 
 ## 🎯 Overview
 
-BQX ML V3 is a sophisticated machine learning system featuring **28 independent models** that predict BQX momentum values for forex currency pairs using a revolutionary **interval-centric architecture** and the **BQX paradigm shift**.
+BQX ML V3 is a sophisticated machine learning system featuring **784 models** (28 pairs × 7 horizons × 4 ensemble) that predict BQX momentum values for forex currency pairs using **Calibrated Probability Stacking** with a **Regime-Aware Meta-Learner**.
 
 ### Key Features
-- 🎯 **28 Independent Models**: One specialized model per currency pair
+- 🎯 **784 Models**: 28 currency pairs × 7 prediction horizons × 4 ensemble members
 - 🔄 **BQX Paradigm Shift**: BQX values as BOTH features AND targets (autoregressive prediction)
 - 📊 **Interval-Centric**: All calculations use `ROWS BETWEEN`, not time-based windows
-- 🏗️ **5-Algorithm Ensemble**: RandomForest, XGBoost, LightGBM, LSTM, GRU per pair (140 total models)
+- 🏗️ **4-Algorithm Ensemble**: LightGBM, XGBoost, CatBoost, ElasticNet → Logistic Regression Meta-Learner
 - ☁️ **Cloud-Native**: Built on Google Cloud Platform (BigQuery, Vertex AI, Cloud Run)
-- 📈 **100% Project Coverage**: 70 stages across 11 phases, all scoring 90+
+- 📈 **V2 Migration Complete**: 4,888+ tables partitioned and clustered (Dec 2025)
 
 ### Critical Mandates
 
@@ -114,19 +115,25 @@ Comprehensive knowledge base in `/intelligence`:
 | `mandates.json` | Critical user mandates and requirements |
 | `metadata.json` | System metadata and references |
 
-## 📊 Project Status
+## 📊 Project Status (Updated 2025-12-09)
 
-### Planning (AirTable P03)
-- **Phases**: 11 (100% defined)
-- **Stages**: 70 (100% scoring 90+, 74.3% scoring 95+)
-- **Gap Coverage**: 100% (19 remediation stages added)
-- **Current Phase**: P03.02 - Intelligence Architecture
+### Current State
+- **Roadmap Version**: v2.3.0 (Enhanced Stacking Architecture)
+- **Current Phase**: Phase 1.5 - Gap Remediation (265 tables remaining)
+- **V2 Migration**: COMPLETE (4,888 tables migrated, $50/month savings)
+- **Feature Selection**: COMPLETE (607 stable features at 50% threshold)
 
-### Implementation
-- **BigQuery Tables**: 0 of 1,736 (planned)
-- **ML Models**: 0 of 140 (planned)
-- **REST APIs**: 0 of 28 (planned)
-- **Tests**: 0 of 2,000+ (planned)
+### Implementation Progress
+- **BigQuery Tables**: 4,888 of 5,153 (95% complete, 265 gap tables pending)
+- **ML Models**: 0 of 784 (pending gap remediation)
+- **Storage Cost**: $33.88/month (well under $277 budget)
+- **Features per Model**: 6,477
+
+### Multi-Agent Coordination
+- **CE** (Chief Engineer): Project oversight and technical decisions
+- **BA** (Builder Agent): Execute implementation tasks
+- **QA** (Quality Assurance): Audit, cost monitoring, data quality
+- **EA** (Enhancement Assistant): Performance optimization
 
 ## 🔧 Development
 
@@ -226,6 +233,7 @@ This is a private repository. For authorized contributors:
 
 ---
 
-*Last Updated: 2025-11-25*
-*Version: 3.0.0*
-*Status: Development Phase*
+*Last Updated: 2025-12-09 (QA Audit)*
+*Version: 3.1.0*
+*Roadmap: v2.3.0*
+*Status: Phase 1.5 - Gap Remediation*

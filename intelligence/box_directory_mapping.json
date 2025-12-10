@@ -49,11 +49,11 @@
             "tables": 0,
             "sync_frequency": "weekly"
           },
-          "bqx_ml_v3_analytics": {
+          "bqx_ml_v3_analytics_v2": {
             "folder_id": "353419303017",
-            "path": "/GCP/bigquery/bqx_ml_v3_analytics/",
-            "description": "Analytics metrics",
-            "tables": 0,
+            "path": "/GCP/bigquery/bqx_ml_v3_analytics_v2/",
+            "description": "Target tables with correct BQX values",
+            "tables": 29,
             "sync_frequency": "monthly"
           },
           "bqx_ml_v3_staging": {

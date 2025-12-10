@@ -66,10 +66,10 @@ DATASETS = {
         'priority': 'MEDIUM',
         'estimated_size': '100GB'
     },
-    'bqx_ml_v3_analytics': {
-        'description': 'Analytics metrics',
+    'bqx_ml_v3_analytics_v2': {
+        'description': 'Target tables with correct BQX values',
         'priority': 'LOW',
-        'estimated_size': '10GB'
+        'estimated_size': '5GB'
     }
 }
 

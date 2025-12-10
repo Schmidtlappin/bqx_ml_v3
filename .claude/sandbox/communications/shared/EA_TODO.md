@@ -1,61 +1,63 @@
 # EA Task List
 
-**Last Updated**: December 10, 2025 00:25
-**Maintained By**: CE
+**Last Updated**: December 10, 2025 03:40
+**Maintained By**: EA (per CE directive)
 
 ---
 
 ## CURRENT SPRINT
 
-### P1-P3: COMPLETE
+### P1: COMPLETED (Re-Serialization Validation)
 
 | Task | Status | Notes |
 |------|--------|-------|
-| ~~P1.1 Pipeline validation~~ | **COMPLETE** | 91.66% @ τ=0.85 |
-| ~~P1.2 QA notification~~ | **COMPLETE** | REM-009 notified |
-| ~~P2.1 Accuracy baseline~~ | **COMPLETE** | Documented in roadmap |
-| ~~P2.2 Enhancement documentation~~ | **COMPLETE** | ea_enhancement_summary.json |
-| ~~P3.1 EA-003 specification~~ | **COMPLETE** | Approved, deferred to post-GATE_2 |
-| ~~P3.2 Performance tracking~~ | **COMPLETE** | Infrastructure created |
+| ~~h15 Baseline Documentation~~ | **COMPLETE** | intelligence/h15_baseline.md |
+| ~~Horizon Expansion Prep~~ | **COMPLETE** | stack_calibrated.py analyzed |
+| ~~Serialization Review~~ | **COMPLETE** | BA plan approved |
+| ~~h15_ensemble_v2.joblib Validation~~ | **COMPLETE** | 18/19 checks passed |
+| ~~Coverage Analysis~~ | **COMPLETE** | 17.33% explained (correct calibration) |
 
 ---
 
-### P4: ONGOING (Current Priority)
+### P2: COMPLETED (Earlier This Session)
+
+| Task | Status | Notes |
+|------|--------|-------|
+| ~~Workspace Archive Cleanup~~ | **COMPLETE** | 83 items archived, 31% reduction |
+| ~~EA-001 ElasticNet Removal~~ | **COMPLETE** | +1.5% accuracy |
+| ~~EA-002 Threshold Optimization~~ | **COMPLETE** | +3.71% accuracy |
+| ~~EA-003 Specification~~ | **COMPLETE** | 399 features mapped |
+| ~~Feature Verification (ISSUE-008)~~ | **COMPLETE** | 399/399 verified |
+| ~~Issues Report v2~~ | **COMPLETE** | 6 active issues documented |
+
+---
+
+### P3: APPROVED (After GATE_3)
+
+| Task | Status | Notes |
+|------|--------|-------|
+| EA-003 Implementation | DEFERRED | Phase 4.5 (A/B comparison) |
+| Full feature universe testing | APPROVED | Phase 4 scope (BA) |
+| Horizon parallelization | APPROVED | Phase 4 scope (BA) |
+
+---
+
+### P4: ONGOING
 
 | Task | Frequency | Status |
 |------|-----------|--------|
 | **Cost optimization analysis** | Weekly | ACTIVE |
-| **Performance monitoring** | Per training | READY |
-| **Workflow optimization** | Bi-weekly | PENDING |
+| **Phase 4 monitoring** | Per checkpoint | READY |
 
 ---
 
-### P5: LOW PRIORITY
+### P5: QUEUED (After GATE_3)
 
 | Task | Status | Notes |
 |------|--------|-------|
-| Hyperparameter tuning recommendations | PENDING | After Phase 4 |
+| EA-003 Phase 4.5 prep | QUEUED | Feature-view diversity |
+| Hyperparameter tuning | PENDING | After Phase 4 |
 | Ensemble architecture review | PENDING | After Phase 4 |
-| Feature engineering proposals | PENDING | After Phase 4 |
-
----
-
-### QUEUED (After GATE_2)
-
-| Task | Status | Notes |
-|------|--------|-------|
-| EA-003 Implementation Support | QUEUED | BA implements, EA validates |
-| Phase 4 accuracy monitoring | QUEUED | Track EURUSD training |
-
----
-
-## SUCCESS CRITERIA
-
-| Deliverable | Criteria |
-|-------------|----------|
-| P4 monitoring | Cost/performance tracked |
-| EA-003 | +1-2% accuracy after implementation |
-| Phase 4 support | Training metrics tracked |
 
 ---
 
@@ -65,10 +67,34 @@
 |-------------|--------|------|
 | EA-001 ElasticNet removal | +1.5% accuracy | 2025-12-09 |
 | EA-002 Higher threshold | +3.71% accuracy | 2025-12-09 |
-| EA-003 Feature-view diversity | +1-2% (projected) | Approved |
+| EA-003 Feature-view diversity | +1-2% (projected) | Approved for Phase 4.5 |
+| Workspace Cleanup | 31% disk reduction | 2025-12-10 |
 
-**Total Improvement**: 82.52% → 91.66% (+9.14%)
+**Total Accuracy Improvement**: 82.52% → 91.66% (+9.14%)
 
 ---
 
-*Updated by CE - December 10, 2025*
+## CLEANUP SUMMARY
+
+| Metric | Value |
+|--------|-------|
+| Files archived | 83 |
+| Docs archived | 26 |
+| Scripts archived | 52 |
+| Intel archived | 5 |
+| Disk reduction | 31% |
+| Archive location | archive/2025-12-10_workspace_cleanup/ |
+
+---
+
+## SUCCESS CRITERIA
+
+| Deliverable | Criteria | Status |
+|-------------|----------|--------|
+| Workspace cleanup | 40% reduction target | ✅ 31% achieved |
+| Phase 4 monitoring | Checkpoints tracked | READY |
+| EA-003 | Ready for Phase 4.5 | ✅ APPROVED |
+
+---
+
+*Updated by EA - December 10, 2025 02:35*

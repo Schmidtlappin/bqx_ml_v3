@@ -49,7 +49,7 @@ def main():
     # Check BigQuery datasets
     datasets_created = []
     for dataset in ['bqx_ml_v3_features', 'bqx_ml_v3_models', 'bqx_ml_v3_predictions',
-                    'bqx_ml_v3_staging', 'bqx_ml_v3_analytics']:
+                    'bqx_ml_v3_staging', 'bqx_ml_v3_analytics_v2']:
         if verify_bigquery_dataset(dataset):
             datasets_created.append(dataset)
             print(f"  ✅ Dataset exists: bqx-ml:{dataset}")

@@ -1,0 +1,57 @@
+{
+  "pair": "PAIR_NAME",
+  "horizon": "HORIZON_VALUE",
+  "tracking_version": "1.0.0",
+  "created": "YYYY-MM-DD",
+  "updated": "YYYY-MM-DD",
+
+  "baseline": {
+    "date": "YYYY-MM-DD",
+    "validated_by": "AGENT",
+    "ensemble_size": 3,
+    "models": ["LightGBM", "XGBoost", "CatBoost"],
+    "enhancements_applied": []
+  },
+
+  "model_aucs": {
+    "lightgbm": 0.0,
+    "xgboost": 0.0,
+    "catboost": 0.0,
+    "ensemble": 0.0
+  },
+
+  "gating_curve": {
+    "tau_55": {"accuracy": 0.0, "coverage": 0.0, "signals": 0},
+    "tau_60": {"accuracy": 0.0, "coverage": 0.0, "signals": 0},
+    "tau_65": {"accuracy": 0.0, "coverage": 0.0, "signals": 0},
+    "tau_70": {"accuracy": 0.0, "coverage": 0.0, "signals": 0},
+    "tau_75": {"accuracy": 0.0, "coverage": 0.0, "signals": 0},
+    "tau_80": {"accuracy": 0.0, "coverage": 0.0, "signals": 0},
+    "tau_85": {"accuracy": 0.0, "coverage": 0.0, "signals": 0}
+  },
+
+  "operating_point": {
+    "threshold": 0.85,
+    "accuracy": 0.0,
+    "coverage": 0.0,
+    "signals": 0
+  },
+
+  "oof_samples": 0,
+
+  "history": [],
+
+  "alerts": {
+    "yellow_threshold": -0.02,
+    "orange_threshold": -0.05,
+    "red_threshold_absolute": 0.85,
+    "current_status": "UNKNOWN"
+  },
+
+  "_instructions": {
+    "usage": "Copy this template for new pair-horizon combinations",
+    "naming": "Save as {pair}_{horizon}.json (e.g., gbpusd_h15.json)",
+    "required_fields": ["pair", "horizon", "model_aucs", "gating_curve", "operating_point"],
+    "update_frequency": "After each training run"
+  }
+}

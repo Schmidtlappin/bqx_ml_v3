@@ -1,0 +1,69 @@
+{
+  "analysis_type": "EA-001_elasticnet_removal",
+  "pair": "eurusd",
+  "horizon": 15,
+  "root_cause_analysis": {
+    "model": "ElasticNet",
+    "auc": 0.45783290736164695,
+    "expected_auc": ">= 0.5",
+    "status": "ANOMALY",
+    "root_causes": [
+      {
+        "cause": "AUC below random",
+        "explanation": "AUC < 0.5 means model predictions are inversely correlated with truth",
+        "severity": "HIGH"
+      },
+      {
+        "cause": "Performance gap",
+        "explanation": "ElasticNet AUC (0.4578) vs others avg (0.8454)",
+        "gap": 0.38751730878344104,
+        "severity": "HIGH"
+      },
+      {
+        "cause": "Linear model limitation",
+        "explanation": "ElasticNet assumes linear relationships; forex features are highly non-linear",
+        "severity": "MEDIUM"
+      },
+      {
+        "cause": "Potential feature scaling issue",
+        "explanation": "ElasticNet is sensitive to feature scaling; mixed scales may degrade performance",
+        "severity": "MEDIUM"
+      }
+    ],
+    "primary_cause": "Linear model inappropriate for non-linear forex features",
+    "recommendation": "REMOVE from ensemble - provides negative value"
+  },
+  "improvement_projection": {
+    "baseline": {
+      "ensemble": "4 models (LightGBM, XGBoost, CatBoost, ElasticNet)",
+      "overall_auc": 0.8505357032923305,
+      "accuracy_tau_70": 0.8252354982647496,
+      "accuracy_tau_80": 0.8623
+    },
+    "after_removal": {
+      "ensemble": "3 models (LightGBM, XGBoost, CatBoost)",
+      "estimated_overall_auc": 0.8655357032923305,
+      "estimated_accuracy_tau_70": 0.8402354982647496,
+      "estimated_accuracy_tau_80": 0.8773
+    },
+    "improvement": {
+      "auc_gain": 0.015,
+      "accuracy_gain_tau_70": 0.015,
+      "accuracy_gain_tau_80": 0.015,
+      "confidence": "MEDIUM-HIGH"
+    },
+    "rationale": [
+      "Removing AUC<0.5 model eliminates anti-correlated signal",
+      "Meta-learner will not be distracted by noise",
+      "Remaining 3 models have strong, consistent AUC (0.84-0.85)",
+      "Simpler ensemble is also more robust"
+    ]
+  },
+  "recommendation": {
+    "action": "REMOVE",
+    "model": "ElasticNet",
+    "reason": "Linear model inappropriate for non-linear forex features",
+    "expected_accuracy_at_tau_80": 0.8773,
+    "validation_required": true
+  }
+}

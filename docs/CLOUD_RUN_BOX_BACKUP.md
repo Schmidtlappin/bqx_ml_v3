@@ -87,7 +87,7 @@ bqx-ml-v3/ (353414610676)
 │   │   ├── bqx_ml_v3_features/ (353419806934)
 │   │   ├── bqx_ml_v3_models/ (353417980012)
 │   │   ├── bqx_ml_v3_predictions/ (353419935781)
-│   │   ├── bqx_ml_v3_analytics/ (353419303017)
+│   │   ├── bqx_ml_v3_analytics_v2/ (353419303017)
 │   │   └── bqx_ml_v3_staging/ (353417344230)
 │   └── storage/ (353418205951)
 │       ├── bqx-ml-exports/ (353417675931)
@@ -104,7 +104,7 @@ bqx-ml-v3/ (353414610676)
 | `bq-to-box-models` | Daily 2:00 UTC | `bqx_ml_v3_models` | Every day |
 | `bq-to-box-features` | Sunday 3:00 UTC | `bqx_ml_v3_features` | Weekly |
 | `bq-to-box-predictions` | Monday 4:00 UTC | `bqx_ml_v3_predictions` | Weekly |
-| `bq-to-box-analytics` | 1st of month 5:00 UTC | `bqx_ml_v3_analytics` | Monthly |
+| `bq-to-box-analytics` | 1st of month 5:00 UTC | `bqx_ml_v3_analytics_v2` | Monthly |
 
 ### Cron Expressions
 ```bash

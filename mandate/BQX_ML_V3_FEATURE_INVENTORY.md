@@ -446,19 +446,19 @@ Per the **Feature Selection Requirements Analysis**, to achieve 90%+ directional
 | bqx_ml_v3_features | bqx_ml_v3_features_v2 | 62% migrated |
 | bqx_bq_uscen1 | bqx_bq_uscen1_v2 | 100% migrated |
 
-### Multi-Horizon Architecture (NEW)
+### Multi-Horizon Architecture (UPDATED QA 2025-12-09)
 | Component | Count | Details |
 |-----------|-------|---------|
 | Pairs | 28 | All forex pairs |
-| Horizons | 6 | h15, h30, h45, h60, h75, h90 |
+| Horizons | 7 | h15, h30, h45, h60, h75, h90, h105 |
 | Ensemble | 4 | LightGBM, XGBoost, CatBoost, Meta-learner |
-| **Total Models** | **672** | 28 × 6 × 4 |
+| **Total Models** | **784** | 28 × 7 × 4 |
 
 ### Required State (95%+ Accuracy Mandate)
-- **BigQuery Tables**: 4,218+ tables in v2 datasets
+- **BigQuery Tables**: 4,888+ tables in v2 datasets
 - **Features Generated**: All 6,477 per pair (verified 2025-12-09)
 - **Features Selected**: Top 399-608 per model (via stability selection)
-- **Models Trained**: 672 (28 pairs × 6 horizons × 4 ensemble)
+- **Models Trained**: 784 (28 pairs × 7 horizons × 4 ensemble)
 - **Directional Accuracy**: 95%+ (deploy farthest horizon achieving this)
 - **Cost**: ~$277/month (optimized)
 

@@ -118,7 +118,7 @@
           "bq-to-box-models": "Daily 2 AM UTC (bqx_ml_v3_models)",
           "bq-to-box-features": "Weekly Sunday 3 AM UTC (bqx_ml_v3_features)",
           "bq-to-box-predictions": "Weekly Monday 4 AM UTC (bqx_ml_v3_predictions)",
-          "bq-to-box-analytics": "Monthly 1st 5 AM UTC (bqx_ml_v3_analytics)"
+          "bq-to-box-analytics": "Monthly 1st 5 AM UTC (bqx_ml_v3_analytics_v2)"
         },
         "cost_monthly": "$0.40-3.24",
         "documentation": "/docs/CLOUD_RUN_BOX_BACKUP.md"

@@ -153,7 +153,7 @@ AS SELECT * FROM bqx_ml_v3_features.cov_reg_eurusd_gbpusd;
 ### Phase 4: Update Catalog
 ```sql
 -- Update feature_catalog with new names and partitioning status
-UPDATE bqx_ml_v3_analytics.feature_catalog
+UPDATE bqx_ml_v3_analytics_v2.feature_catalog
 SET
   migrated = TRUE,
   new_name = suggested_name,

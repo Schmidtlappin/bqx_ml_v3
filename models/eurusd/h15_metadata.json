@@ -1,0 +1,14 @@
+{
+  "pair": "eurusd",
+  "horizon": 15,
+  "timestamp": "2025-12-09T23:27:02.653441",
+  "local_path": "/home/micha/bqx_ml_v3/models/eurusd/h15_ensemble.joblib",
+  "gcs_uri": "gs://bqx-ml-v3-models/models/eurusd/h15_ensemble.joblib",
+  "feature_count": 59,
+  "training_samples": 80000,
+  "models": [
+    "lightgbm",
+    "xgboost",
+    "catboost"
+  ]
+}

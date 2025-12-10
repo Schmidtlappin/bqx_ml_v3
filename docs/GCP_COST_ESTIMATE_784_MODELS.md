@@ -14,8 +14,8 @@
 | bqx_bq_uscen1 (v1) | 2,463 | 1,220 GB | **DELETE** |
 | bqx_ml_v3_features_v2 | 3,000 | 917 GB | Active |
 | bqx_bq_uscen1_v2 | 2,210 | 131 GB | Active |
-| bqx_ml_v3_analytics_v2 | 54 | 68 GB | Active |
-| bqx_ml_v3_analytics | 70 | 68 GB | Consolidate |
+| bqx_ml_v3_analytics_v2 | 29 | 5 GB | Active |
+| bqx_ml_v3_analytics | ~~70~~ | ~~68 GB~~ | **DELETED** (wrong values) |
 | bqx_ml_v3_models | 16 | 0.01 GB | Active |
 | bqx_ml_v3_predictions | 1 | 0.0 GB | Active |
 | **TOTAL** | **12,960** | **3,683 GB** | |

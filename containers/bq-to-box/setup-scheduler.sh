@@ -106,7 +106,7 @@ gcloud scheduler jobs create http sync-bq-predictions \
 gcloud scheduler jobs create http sync-bq-analytics \
     --location=${REGION} \
     --schedule="0 5 1 * *" \
-    --uri="${SERVICE_URL}/sync/bqx_ml_v3_analytics" \
+    --uri="${SERVICE_URL}/sync/bqx_ml_v3_analytics_v2" \
     --http-method=POST \
     --oidc-service-account-email=${SA_NAME} \
     --project=${PROJECT_ID} \
@@ -115,7 +115,7 @@ gcloud scheduler jobs create http sync-bq-analytics \
     2>/dev/null || gcloud scheduler jobs update http sync-bq-analytics \
     --location=${REGION} \
     --schedule="0 5 1 * *" \
-    --uri="${SERVICE_URL}/sync/bqx_ml_v3_analytics" \
+    --uri="${SERVICE_URL}/sync/bqx_ml_v3_analytics_v2" \
     --http-method=POST \
     --oidc-service-account-email=${SA_NAME} \
     --project=${PROJECT_ID}

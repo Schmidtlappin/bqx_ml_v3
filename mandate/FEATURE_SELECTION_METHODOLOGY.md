@@ -666,7 +666,7 @@ RANGING REGIME:
 ### A.1 Direction Discrimination Query
 
 ```sql
-CREATE OR REPLACE TABLE `bqx_ml_v3_analytics.feature_direction_scores` AS
+CREATE OR REPLACE TABLE `bqx_ml_v3_analytics_v2.feature_direction_scores` AS
 WITH extreme_features AS (
     SELECT
         f.*,
@@ -674,7 +674,7 @@ WITH extreme_features AS (
         SIGN(t.target_value) AS actual_direction,
         SIGN(f.feature_value) AS feature_direction
     FROM `bqx_ml_v3_features.all_features` f
-    JOIN `bqx_ml_v3_analytics.targets` t USING (timestamp)
+    JOIN `bqx_ml_v3_analytics_v2.targets` t USING (timestamp)
     WHERE ABS(f.feature_value) > 2 * f.feature_stddev
 )
 SELECT
@@ -690,7 +690,7 @@ HAVING COUNT(*) >= 500;
 ### A.2 Extreme Correlation Query
 
 ```sql
-CREATE OR REPLACE TABLE `bqx_ml_v3_analytics.feature_extreme_correlations` AS
+CREATE OR REPLACE TABLE `bqx_ml_v3_analytics_v2.feature_extreme_correlations` AS
 WITH extreme_bqx AS (
     SELECT *
     FROM `bqx_ml_v3_features.feature_target_joined`
@@ -708,7 +708,7 @@ HAVING COUNT(*) >= 500;
 ### A.3 Composite Score Query
 
 ```sql
-CREATE OR REPLACE TABLE `bqx_ml_v3_analytics.feature_composite_scores` AS
+CREATE OR REPLACE TABLE `bqx_ml_v3_analytics_v2.feature_composite_scores` AS
 SELECT
     d.feature_name,
     d.direction_accuracy * 100 AS direction_score,

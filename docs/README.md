@@ -1,95 +1,111 @@
-# BQX ML V3 BUILDER AGENT - START HERE
+# BQX ML V3 Documentation Hub
 
-**Welcome Builder Agent!**
-
-This sandbox contains all the documentation and resources you need to complete the BQX ML V3 implementation.
-
-## 🚨 NEW: CHIEF ENGINEER RESPONSES AVAILABLE
-
-**[CHIEF_ENGINEER_RESPONSES.md](./CHIEF_ENGINEER_RESPONSES.md)** - Answers to all your critical questions!
-
-## 📚 REQUIRED READING (IN ORDER)
-
-1. **[BQX_ML_V3_BUILDER_CHARGE.md](./BQX_ML_V3_BUILDER_CHARGE.md)**
-   - Your formal responsibility assignment
-   - Core mandate: BUILD, DON'T SIMULATE
-   - Quality gates and acceptance criteria
-
-2. **[BQX_ML_V3_BUILDER_BRIEFING.md](./BQX_ML_V3_BUILDER_BRIEFING.md)**
-   - Current infrastructure status
-   - What exists vs what needs to be built
-   - Immediate next steps to execute
-
-3. **[BUILDER_AGENT_WORKSPACE_GUIDE.md](./BUILDER_AGENT_WORKSPACE_GUIDE.md)**
-   - Workspace navigation
-   - Intelligence file protocols
-   - Compliance expectations
-   - Sandbox usage guidelines
-
-4. **[CHIEF_ENGINEER_RESPONSES.md](./CHIEF_ENGINEER_RESPONSES.md)** ⭐
-   - Answers to GCP environment questions
-   - Infrastructure verification guidance
-   - Implementation order and parallelization approved
-   - Quality gate flexibility protocols
-   - Budget and resource constraints clarified
-
-## 🧠 INTELLIGENCE FILES TO INGEST
-
-Before starting any work, load these files IN ORDER:
-1. **`/home/micha/bqx_ml_v3/intelligence/mandates.json`** ⚠️ **CRITICAL - READ FIRST**
-2. `/home/micha/bqx_ml_v3/intelligence/context.json`
-3. `/home/micha/bqx_ml_v3/intelligence/semantics.json`
-4. `/home/micha/bqx_ml_v3/intelligence/ontology.json`
-
-## 📬 AGENT COMMUNICATION
-
-All agent-to-agent communication now follows structured protocols:
-- **Protocol Guide**: [communications/AGENT_COMMUNICATION_PROTOCOL.md](./communications/AGENT_COMMUNICATION_PROTOCOL.md)
-- **Active Messages**: [communications/active/](./communications/active/)
-- **Chief Engineer Response**: [communications/20251126_2203_CE-to-BA_critical_questions_response.md](./communications/20251126_2203_CE-to-BA_critical_questions_response.md)
-
-## 🚀 QUICK START
-
-```bash
-# 1. Load intelligence files
-python3 << EOF
-import json
-with open('/home/micha/bqx_ml_v3/intelligence/context.json') as f:
-    context = json.load(f)
-print(f"Project: {context['project']['name']}")
-print(f"Tasks: {context['project_management']['stages']} stages")
-EOF
-
-# 2. Check AirTable status
-python3 /home/micha/bqx_ml_v3/scripts/check_airtable_status.py
-
-# 3. Begin with first task
-# MP03.P01.S01.T01 - "Prepare training dataset"
-```
-
-## ⚠️ CRITICAL REMINDERS
-
-1. **EVERY implementation must be REAL** - No simulations
-2. **Use ROWS BETWEEN, never RANGE BETWEEN** - Interval-centric only
-3. **Update AirTable after each task** - With real verification
-4. **Maintain intelligence files** - Update as you create infrastructure
-5. **Work in this sandbox** - Test here before production
-
-## 📊 CURRENT STATUS
-
-- **Total Tasks**: 197
-- **Completed**: 0 (all reset to Todo)
-- **Your Goal**: Complete ALL 197 with real infrastructure
-
-## 🆘 SUPPORT
-
-If you encounter blockers:
-1. Document in AirTable task notes
-2. Keep task as "In Progress"
-3. Chief Engineer will review through AirTable
+**Last Updated**: 2025-12-09 (QA Audit)
+**Roadmap Version**: v2.3.0
+**Current Phase**: Phase 1.5 - Gap Remediation
 
 ---
 
-**BEGIN BY READING ALL THREE DOCUMENTS IN ORDER**
+## 📊 Project Status
 
-Good luck, Builder Agent! The success of BQX ML V3 depends on your real implementation.
+| Metric | Value | Status |
+|--------|-------|--------|
+| V2 Migration | COMPLETE | 4,888 tables |
+| Gap Tables | 265 remaining | 192 CSI + 59 VAR + 14 MKT |
+| Models | 784 planned | 28 pairs × 7 horizons × 4 ensemble |
+| Features | 6,477 per model | 607 stable (50% threshold) |
+| Storage Cost | $33.88/month | GREEN (budget: $277) |
+
+---
+
+## 🤖 Multi-Agent Coordination
+
+BQX ML V3 uses a multi-agent architecture:
+
+| Agent | Role | Status |
+|-------|------|--------|
+| **CE** | Chief Engineer - Project oversight | ACTIVE |
+| **BA** | Builder Agent - Implementation | ACTIVE |
+| **QA** | Quality Assurance - Audit & cost | ACTIVE |
+| **EA** | Enhancement Assistant - Optimization | ACTIVE |
+
+### Communication Structure
+```
+/.claude/sandbox/communications/
+├── inboxes/     # Agent inboxes (CE, BA, QA, EA)
+├── outboxes/    # Agent outboxes
+├── active/      # Charge documents
+└── shared/      # Protocols and onboarding
+```
+
+---
+
+## 🧠 Intelligence Files
+
+Located in `/intelligence/`:
+
+| File | Purpose | Version |
+|------|---------|---------|
+| `roadmap_v2.json` | Master roadmap | v2.3.0 |
+| `context.json` | Project context | v3.1.0 |
+| `semantics.json` | Terminology | Updated 2025-12-09 |
+| `ontology.json` | Entity relationships | Updated 2025-12-09 |
+| `feature_catalogue.json` | Feature inventory | v2.1.0 |
+
+---
+
+## 📋 Mandate Files
+
+Located in `/mandate/`:
+
+| File | Purpose |
+|------|---------|
+| `FEATURE_LEDGER_100_PERCENT_MANDATE.md` | 100% feature coverage requirement |
+| `BQX_TARGET_FORMULA_MANDATE.md` | Target calculation specification |
+| `BQX_ML_V3_FEATURE_INVENTORY.md` | Feature specifications |
+
+---
+
+## 📚 Key Documentation
+
+### Architecture
+- `roadmap_v2.json` - Enhanced Stacking Architecture
+- `GCP_COST_ESTIMATE_784_MODELS.md` - Cost breakdown
+
+### Implementation
+- `pipelines/training/stack_calibrated.py` - Training pipeline
+- `pipelines/training/feature_selection_robust.py` - Feature selection
+
+---
+
+## 🚀 Quick Start for Agents
+
+### For BA (Builder Agent)
+1. Read charge: `/.claude/sandbox/communications/active/BA_CHARGE_*.md`
+2. Check inbox: `/.claude/sandbox/communications/inboxes/BA/`
+3. Ingest: `/intelligence/roadmap_v2.json`
+
+### For QA (Quality Assurance)
+1. Read charge: `/.claude/sandbox/communications/active/QA_CHARGE_*.md`
+2. Check inbox: `/.claude/sandbox/communications/inboxes/QA/`
+3. Monitor: Cost, data quality, documentation
+
+### For EA (Enhancement Assistant)
+1. Read charge: `/.claude/sandbox/communications/active/EA_CHARGE_*.md`
+2. Check inbox: `/.claude/sandbox/communications/inboxes/EA/`
+3. Optimize: Performance, cost, workflows
+
+---
+
+## ⚠️ Critical Mandates
+
+1. **784 Models**: 28 pairs × 7 horizons × 4 ensemble (USER MANDATE)
+2. **SHAP Samples**: 100,000+ minimum (USER MANDATE)
+3. **Stability Threshold**: 50% (USER APPROVED 2025-12-09)
+4. **CSI Tables**: 192 (regime excluded - CE AUTHORIZED 2025-12-09)
+5. **Interval-Centric**: ROWS BETWEEN only, never time-based
+
+---
+
+*Maintained by: QA Agent*
+*Last Audit: 2025-12-09*

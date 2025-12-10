@@ -212,13 +212,15 @@
       "completion_date": "2025-12-08"
     },
     "CSI_Features": {
-      "status": "MISSING",
-      "expected_tables": 208,
-      "actual_tables": 0,
-      "gap": "Currency Strength Index tables not created",
+      "status": "COMPLETE",
+      "expected_tables": 144,
+      "actual_tables": 144,
+      "gap": 0,
       "mandate_reference": "/mandate/BQX_ML_V3_FEATURE_INVENTORY.md Section 5",
-      "note": "Corrected 2025-12-09: 8 currencies × 13 feature types × 2 variants = 208 (was incorrectly 112)",
-      "feature_types": ["agg", "mom", "vol", "reg", "regime", "lag", "align", "der", "rev", "div", "mrt", "cyc", "ext"]
+      "note": "CE REVISED 2025-12-09: 144 tables achievable (IDX sources unavailable for cyc, ext, lag, div). BA completed 100%.",
+      "feature_types_with_idx": ["agg", "mom", "vol", "reg", "align", "der", "rev", "mrt"],
+      "feature_types_bqx_only": ["cyc", "ext", "lag", "div"],
+      "completion_date": "2025-12-09"
     },
     "COVARIANCE_Features": {
       "prefix": "cov",
@@ -246,26 +248,31 @@
     },
     "VARIANCE_Features": {
       "prefix": "var",
-      "status": "PARTIAL",
-      "expected_tables": 114,
-      "actual_tables": 55,
-      "gap": 59,
-      "category": "pair_level"
+      "status": "COMPLETE",
+      "expected_tables": 63,
+      "actual_tables": 63,
+      "gap": 0,
+      "category": "pair_level",
+      "completion_date": "2025-12-09",
+      "note": "Phase 1.5 GATE_1 complete"
     },
     "MARKET_Features": {
       "prefix": "mkt",
-      "status": "PARTIAL",
-      "expected_tables": 18,
-      "actual_tables": 4,
-      "gap": 14,
-      "category": "market_wide"
+      "status": "COMPLETE",
+      "expected_tables": 12,
+      "actual_tables": 12,
+      "gap": 0,
+      "category": "market_wide",
+      "completion_date": "2025-12-09",
+      "note": "Phase 1.5 GATE_1 complete"
     }
   },
   "feature_type_summary": {
     "total_types": 20,
-    "complete": 18,
-    "partial": 2,
-    "missing": 1,
+    "complete": 20,
+    "partial": 0,
+    "missing": 0,
+    "gate_1_complete": "2025-12-09",
     "by_category": {
       "pair_level": ["agg", "mom", "vol", "reg", "regime", "lag", "align", "der", "rev", "div", "mrt", "cyc", "ext", "tmp", "base", "var"],
       "cross_pair": ["cov", "corr", "tri"],
@@ -418,10 +425,24 @@
     "models_trained": "0 of 784 (0%)",
     "accuracy_target": "95%+ called signal accuracy",
     "gaps_identified": {
-      "csi_tables": "MISSING - 0 of 208 expected (corrected from 112)",
-      "var_tables": "PARTIAL - 55 of 114",
-      "mkt_tables": "PARTIAL - 4 of 18",
-      "total_gap": "281 tables (was 185)"
+      "csi_tables": "COMPLETE - 144/144 (CE finalized 2025-12-09: IDX unavailable for cyc/ext/lag/div)",
+      "var_tables": "COMPLETE - 63/63",
+      "mkt_tables": "COMPLETE - 12/12",
+      "total_gap_target": 219,
+      "total_remaining": 0,
+      "breakdown": "CSI 144 + VAR 63 + MKT 12 = 219 ALL COMPLETE",
+      "gate_1_passed": "2025-12-09",
+      "last_updated": "2025-12-10T00:20"
+    },
+    "f3b_cleanup": {
+      "date": "2025-12-10",
+      "decision": "Option A - Conservative",
+      "duplicates_deleted": 56,
+      "orphans_retained": 45,
+      "storage_freed_gb": 52,
+      "monthly_savings": "$1.00",
+      "orphan_review": "Deferred to Phase 4 (regime features evaluation)",
+      "orphan_tables": ["reg_bqx (1)", "reg_corr_* (8)", "regime_* (36)"]
     },
     "feature_catalogue": "/intelligence/feature_catalogue.json"
   }

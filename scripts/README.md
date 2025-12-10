@@ -1,72 +1,86 @@
-# Scripts Directory Organization
+# Scripts Directory
+
+**Last Updated**: 2025-12-09 (QA Audit)
 
 ## Directory Structure
 
-### `/remediation/`
-Contains all scripts related to AirTable record remediation and scoring improvements.
+### `/bigquery_restructure/`
+V2 migration and table restructuring scripts.
 
 **Key Scripts:**
-- `comprehensive_remediation_final.py` - Main remediation script for all records
-- `fix_missing_descriptions.py` - Fixes empty description fields
-- `fix_no_score_records.py` - Adds content to records with no scores
-- `reconcile_all_links.py` - Reconciles all link fields across tables
-- `remediate_all_low_tasks.py` - Remediates tasks scoring <90
-- `create_missing_stages.py` - Creates stages referenced by orphaned tasks
+- `complete_migration.py` - Parallel 8-worker migration
+- `monitor_v2_migration.sh` - Real-time migration monitor
+- `validate_v2_migration.py` - Validation suite
 
-**Status:** ✅ All remediation complete - 267/267 records scoring ≥90
+**Status:** V2 Migration COMPLETE (4,888 tables)
+
+### `/pipelines/training/`
+Model training and feature selection scripts.
+
+**Key Scripts:**
+- `stack_calibrated.py` - Calibrated probability stacking
+- `feature_selection_robust.py` - Group-first stability selection
+- `train_multi_pair.py` - Scale training to 28 pairs
+- `train_meta_learner.py` - Meta-learner training
+
+### `/remediation/` (ARCHIVED)
+AirTable remediation scripts (historical).
+
+**Note:** Remediation complete - 267/267 records scoring ≥90
 
 ### `/utilities/`
-Contains utility scripts for analysis and validation.
+Utility scripts for analysis and validation.
 
 **Key Scripts:**
-- `check_current_scores.py` - Checks current QA scores across all tables
-- `analyze_airtable_fields.py` - Analyzes field structure in AirTable
-- `validate_*.py` - Various validation scripts
+- `check_current_scores.py` - AirTable QA scores
+- `generate_column_catalog.py` - Column catalog generator
 
-### `/archived/`
-Contains deprecated or superseded scripts from earlier remediation attempts.
+## Root Level Scripts
 
-**Note:** These scripts are kept for historical reference but should not be used.
+### Gap Remediation (Phase 1.5)
+- `generate_csi_tables.py` - CSI table generation (192 tables)
 
-## Main Scripts (Root Level)
+### Backup & Sync
+- `sync-workspace.sh` - Workspace synchronization
+- `sync-box-backup.py` - Box.com disaster recovery
 
-Active implementation and processing scripts that remain in the main directory:
-- Core BQX ML implementation scripts
-- BigQuery processing scripts
-- Data pipeline scripts
-- Setup and configuration scripts
+## Current Focus: Phase 1.5
+
+Gap remediation scripts for 265 tables:
+- **CSI**: 192 tables (8 currencies × 12 feature types × 2 variants)
+- **VAR**: 59 tables
+- **MKT**: 14 tables
 
 ## Usage
 
-### Check Current Status
+### Check BigQuery Status
 ```bash
-python3 scripts/utilities/check_current_scores.py
+bq query --use_legacy_sql=false "
+SELECT table_schema, COUNT(*) as cnt
+FROM \`bqx-ml.region-us-central1.INFORMATION_SCHEMA.TABLE_STORAGE\`
+GROUP BY table_schema
+ORDER BY cnt DESC
+"
 ```
 
-### Run Full Remediation (if needed)
+### Run Feature Selection
 ```bash
-python3 scripts/remediation/comprehensive_remediation_final.py
+python3 pipelines/training/feature_selection_robust.py --pair=EURUSD --horizon=h15
 ```
 
-### Reconcile Link Fields
+### Run Calibrated Stack Training
 ```bash
-python3 scripts/remediation/reconcile_all_links.py
+python3 pipelines/training/stack_calibrated.py --pair=EURUSD --horizon=h15
 ```
 
-## Success Metrics Achieved
+## Project Metrics
 
-- **Phases**: 11/11 scoring ≥90 (avg: 93.1)
-- **Stages**: 83/83 scoring ≥90 (avg: 92.3)
-- **Tasks**: 173/173 scoring ≥90 (avg: 93.0)
-- **Total**: 267/267 records (100%) scoring ≥90
+- **V2 Tables**: 4,888 (COMPLETE)
+- **Gap Tables**: 265 (IN PROGRESS)
+- **Models Planned**: 784
+- **Features per Model**: 6,477
 
-## Known Issues
+---
 
-✅ All known issues have been resolved:
-- No emptyDependency errors
-- No records with scores <90
-- All link fields properly connected
-- All required fields populated
-
-## Last Updated
-November 25, 2024 - Full remediation complete
+*Maintained by: QA Agent*
+*Last Audit: 2025-12-09*

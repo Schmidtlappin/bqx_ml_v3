@@ -275,7 +275,6 @@ SELECT
     {agg_cols_str}
 FROM source_data
 GROUP BY interval_time
-ORDER BY interval_time
 """
 
     return sql
@@ -306,7 +305,8 @@ def create_csi_table(feature_type: str, currency: str, is_bqx: bool, dry_run: bo
         )
 
         if result.returncode != 0:
-            return False, result.stderr
+            error_msg = result.stderr.strip() or result.stdout.strip()
+            return False, error_msg
 
         return True, "SUCCESS"
 

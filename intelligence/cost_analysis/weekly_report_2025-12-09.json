@@ -1,0 +1,89 @@
+{
+  "report_type": "WEEKLY_COST_ANALYSIS",
+  "report_date": "2025-12-09",
+  "period": "Week of December 9, 2025",
+  "author": "Enhancement Assistant (EA)",
+
+  "executive_summary": {
+    "status": "GREEN",
+    "current_spend": "$35.59",
+    "budget": "$276.00",
+    "utilization": "12.9%",
+    "recommendation": "No immediate action required"
+  },
+
+  "storage_costs": {
+    "dataset": "bqx_ml_v3_features_v2",
+    "table_count": 5048,
+    "total_storage_gb": 1575.84,
+    "storage_rate_per_gb": 0.02,
+    "monthly_storage_cost": 31.52,
+    "notes": "V2 migration complete, V1 deleted (2,499 GB freed)"
+  },
+
+  "recent_changes": {
+    "gap_remediation": {
+      "tables_added": 219,
+      "csi_tables": 144,
+      "var_tables": 63,
+      "mkt_tables": 12,
+      "estimated_size_gb": 50,
+      "estimated_additional_cost": 1.00
+    },
+    "v1_deletion": {
+      "tables_deleted": 7609,
+      "storage_freed_gb": 2499,
+      "monthly_savings": 49.98,
+      "date": "2025-12-09"
+    }
+  },
+
+  "budget_tracking": {
+    "monthly_budget": 276.00,
+    "current_month_spend": 35.59,
+    "remaining_budget": 240.41,
+    "projected_month_end": 45.00,
+    "variance": "UNDER_BUDGET"
+  },
+
+  "cost_breakdown_estimate": {
+    "storage_active": 31.52,
+    "query_costs": 3.00,
+    "other": 1.07,
+    "total": 35.59
+  },
+
+  "optimization_opportunities": [
+    {
+      "id": "OPT-001",
+      "title": "Partition pruning optimization",
+      "status": "IMPLEMENTED",
+      "savings": "40-95x query cost reduction",
+      "notes": "V2 migration enabled partition pruning"
+    },
+    {
+      "id": "OPT-002",
+      "title": "Archive cold data to Coldline",
+      "status": "POTENTIAL",
+      "savings": "~$15/month",
+      "notes": "Move historical data >90 days to Coldline storage"
+    },
+    {
+      "id": "OPT-003",
+      "title": "Query caching",
+      "status": "ACTIVE",
+      "savings": "Variable",
+      "notes": "BigQuery caches identical queries for 24 hours"
+    }
+  ],
+
+  "alerts": [],
+
+  "recommendations": [
+    "Continue monitoring query costs during Phase 2.5 execution",
+    "Consider Coldline for archival data after model training",
+    "Review query patterns monthly for optimization opportunities"
+  ],
+
+  "next_review": "2025-12-16"
+}

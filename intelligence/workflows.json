@@ -303,7 +303,7 @@
         "name": "Store Correlation Results",
         "action": "Create feature_correlations_{pair} tables",
         "schema": ["feature_name", "feature_table", "centric", "variant", "target", "correlation", "abs_correlation", "rank"],
-        "output_dataset": "bqx_ml_v3_analytics"
+        "output_dataset": "bqx_ml_v3_analytics_v2"
       },
       {
         "step": 5,
@@ -444,7 +444,7 @@
         "name": "bq-to-box-analytics",
         "schedule": "0 5 1 * *",
         "description": "Monthly 1st at 5 AM UTC",
-        "dataset": "bqx_ml_v3_analytics",
+        "dataset": "bqx_ml_v3_analytics_v2",
         "priority": "LOW - analytics metrics"
       }
     ],
@@ -456,7 +456,7 @@
         "bqx_ml_v3_features": "353419806934",
         "bqx_ml_v3_models": "353417980012",
         "bqx_ml_v3_predictions": "353419935781",
-        "bqx_ml_v3_analytics": "353419303017",
+        "bqx_ml_v3_analytics_v2": "353419303017",
         "bqx_ml_v3_staging": "353417344230"
       }
     },

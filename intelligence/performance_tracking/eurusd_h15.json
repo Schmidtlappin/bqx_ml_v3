@@ -1,0 +1,58 @@
+{
+  "pair": "eurusd",
+  "horizon": 15,
+  "tracking_version": "1.0.0",
+  "created": "2025-12-09",
+  "updated": "2025-12-09",
+
+  "baseline": {
+    "date": "2025-12-09",
+    "validated_by": "EA",
+    "ensemble_size": 3,
+    "models": ["LightGBM", "XGBoost", "CatBoost"],
+    "enhancements_applied": ["EA-001", "EA-002"]
+  },
+
+  "model_aucs": {
+    "lightgbm": 0.8418,
+    "xgboost": 0.8432,
+    "catboost": 0.8510,
+    "ensemble": 0.8505
+  },
+
+  "gating_curve": {
+    "tau_55": {"accuracy": 0.7816, "coverage": 0.9530, "signals": 63392},
+    "tau_60": {"accuracy": 0.7948, "coverage": 0.9036, "signals": 60106},
+    "tau_65": {"accuracy": 0.8087, "coverage": 0.8499, "signals": 56530},
+    "tau_70": {"accuracy": 0.8252, "coverage": 0.7885, "signals": 52445},
+    "tau_75": {"accuracy": 0.8458, "coverage": 0.7087, "signals": 47139},
+    "tau_80": {"accuracy": 0.8724, "coverage": 0.5968, "signals": 39693},
+    "tau_85": {"accuracy": 0.9166, "coverage": 0.3827, "signals": 25457}
+  },
+
+  "operating_point": {
+    "threshold": 0.85,
+    "accuracy": 0.9166,
+    "coverage": 0.3827,
+    "signals": 25457
+  },
+
+  "oof_samples": 66515,
+
+  "history": [
+    {
+      "date": "2025-12-09",
+      "event": "Initial baseline",
+      "accuracy_tau_85": 0.9166,
+      "coverage_tau_85": 0.3827,
+      "notes": "Post EA-001 and EA-002 enhancements"
+    }
+  ],
+
+  "alerts": {
+    "yellow_threshold": -0.02,
+    "orange_threshold": -0.05,
+    "red_threshold_absolute": 0.85,
+    "current_status": "GREEN"
+  }
+}

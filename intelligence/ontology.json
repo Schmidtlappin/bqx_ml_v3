@@ -253,9 +253,16 @@
         "bqx_ml_v3_features": "DELETED 2025-12-09 (was 1,279 GB)"
       },
       "storage_totals": {
-        "v2_total_gb": 1678,
-        "monthly_cost": "$33.56",
-        "savings_realized": "$49.98/month"
+        "v2_total_gb": 1694,
+        "breakdown": {
+          "bqx_ml_v3_features_v2": "1,575.84 GB (5,048 tables)",
+          "bqx_ml_v3_analytics_v2": "75.13 GB (56 tables)",
+          "bqx_bq_uscen1_v2": "43.01 GB (2,313 tables)"
+        },
+        "monthly_cost": "$33.88",
+        "savings_realized": "$49.98/month",
+        "f3b_cleanup": "56 duplicates deleted, 45 orphans retained",
+        "updated": "2025-12-10"
       }
     },
     "Training_Platform": {

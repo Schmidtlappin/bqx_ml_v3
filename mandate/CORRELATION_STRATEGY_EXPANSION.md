@@ -195,11 +195,11 @@ Expected output:
 ```bash
 # Export updated CSV files
 bq extract --destination_format=CSV \
-  'bqx-ml:bqx_ml_v3_analytics.full_correlation_matrix' \
+  'bqx-ml:bqx_ml_v3_analytics_v2.full_correlation_matrix' \
   gs://bqx-ml-exports/correlation_matrix_expanded.csv
 
 bq extract --destination_format=CSV \
-  'bqx-ml:bqx_ml_v3_analytics.top100_per_target' \
+  'bqx-ml:bqx_ml_v3_analytics_v2.top100_per_target' \
   gs://bqx-ml-exports/top100_expanded.csv
 ```
 

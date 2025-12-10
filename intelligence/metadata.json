@@ -109,7 +109,7 @@
       "bqx_ml_v3_features_v2": "Engineered features (~2,609 tables - partitioned, 62% complete)",
       "bqx_ml_v3_models": "Trained models (pending v2 completion)",
       "bqx_ml_v3_predictions": "Prediction outputs (pending)",
-      "bqx_ml_v3_analytics": "Target tables (54 tables)"
+      "bqx_ml_v3_analytics_v2": "Target tables with correct BQX values (29 tables)"
     },
     "datasets_v1_deprecated": {
       "bqx_bq_uscen1": "DEPRECATED - delete after v2 validation",

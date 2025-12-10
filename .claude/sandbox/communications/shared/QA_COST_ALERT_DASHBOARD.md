@@ -3,7 +3,7 @@
 **Document Type**: QA MONITORING DASHBOARD
 **Created**: December 9, 2025
 **Maintained By**: Quality Assurance Agent (QA)
-**Last Updated**: 2025-12-09 22:15
+**Last Updated**: 2025-12-09 23:05
 
 ---
 
@@ -12,8 +12,8 @@
 | Metric | Value |
 |--------|-------|
 | Monthly Budget | **$277.00** |
-| Current Spend | **$35.46** |
-| Budget Used | **12.8%** |
+| Current Spend | **$35.59** |
+| Budget Used | **12.9%** |
 | Status | **GREEN** |
 
 ---
@@ -29,14 +29,14 @@
 
 ---
 
-## Current Cost Breakdown (2025-12-09)
+## Current Cost Breakdown (2025-12-09 23:05)
 
 | Dataset | Tables | Size (GB) | Monthly Cost | % of Budget |
 |---------|--------|-----------|--------------|-------------|
-| bqx_ml_v3_features_v2 | 5,032 | 1,567.22 | $31.34 | 11.3% |
-| bqx_bq_uscen1_v2 | 2,300 | 131.04 | $2.62 | 0.9% |
+| bqx_ml_v3_features_v2 | 5,042 | 1,573.68 | $31.47 | 11.4% |
+| bqx_bq_uscen1_v2 | 2,308 | 131.04 | $2.62 | 0.9% |
 | bqx_ml_v3_analytics_v2 | 56 | 75.13 | $1.50 | 0.5% |
-| **TOTAL** | **7,388** | **1,773.39** | **$35.46** | **12.8%** |
+| **TOTAL** | **7,406** | **1,779.85** | **$35.59** | **12.9%** |
 
 ---
 
@@ -44,7 +44,8 @@
 
 | Date | Total Cost | Change | Status |
 |------|------------|--------|--------|
-| 2025-12-09 | $35.46 | - | GREEN |
+| 2025-12-09 22:15 | $35.46 | - | GREEN |
+| 2025-12-09 23:05 | $35.59 | +$0.13 | GREEN |
 
 *Trend tracking started 2025-12-09*
 
