@@ -13,8 +13,10 @@
 - **Horizons**: h15, h30, h45, h60, h75, h90, h105 (deploy farthest achieving ≥95%)
 - **Algorithms**: LightGBM, XGBoost, CatBoost → Meta-learner (LSTM/LogReg)
 - **Total Tables**: 4,218+ (v2 datasets, partitioned)
-- **Total Features**: 6,477 per pair (verified 2025-12-09) → 399-608 selected via stability selection
-  - Pair-specific: 3,813 | Cross-pair (tri): 2,088 | Market-wide (mkt): 576
+- **Total Columns**: 11,337 per pair across 462 tables (verified 2025-12-10)
+  - Pair-specific: 4,173 | Cross-pair (tri): 6,460 | Market-wide (mkt): 704
+- **Unique Features**: 1,064 per pair (after merge/deduplication)
+  - Pair-specific: 586 | Cross-pair (tri): 132 | Market-wide (mkt): 346
 - **Target Accuracy**: 95%+ directional accuracy
 - **Platform**: 100% Google Cloud Platform
 - **Monthly Cost**: ~$277 (optimized)
@@ -418,8 +420,10 @@ Per the **Feature Selection Requirements Analysis**, to achieve 90%+ directional
 #### Interaction Features:
 - Products, ratios, differences between key features = **~500 interaction features**
 
-**TOTAL PER PAIR: 6,477 features (verified 2025-12-09)**
-- Pair-specific: 3,813 | Cross-pair (tri): 2,088 | Market-wide (mkt): 576
+**TOTAL PER PAIR: 11,337 columns / 1,064 unique features (verified 2025-12-10)**
+- Total columns: 11,337 across 462 tables (for cost estimation)
+- Unique features: 1,064 after merge/dedup (for ML training)
+- Breakdown: pair_specific (4,173/586) | tri (6,460/132) | mkt (704/346)
 
 #### After Feature Selection:
 - Test all 6,477 features via Robust Group-First Stability Selection
@@ -576,15 +580,24 @@ BQX ML V3 is designed as a comprehensive, production-grade machine learning syst
 
 ---
 
-## 📊 AUDIT NOTE (2025-12-09)
+## 📊 AUDIT NOTE (2025-12-10)
 
-The original "8,214+ features" was an estimate. Actual BQ audit shows:
-- **6,477 features per pair** (EURUSD verified)
-  - Pair-specific: 3,813
-  - Cross-pair (tri): 2,088
-  - Market-wide (mkt): 576
-- **86,190 total feature columns** across all tables
-- **4,888 total tables** in bqx_ml_v3_features_v2
+**CORRECTED FEATURE COUNTS** - The original "6,477 features" was also incorrect. Full audit shows:
+
+| Metric | Value | Use Case |
+|--------|-------|----------|
+| **Total columns** | 11,337 | BigQuery cost estimation |
+| **Unique features** | 1,064 | ML training (after merge) |
+| **Tables per pair** | 462 | Data organization |
+
+**Breakdown by category:**
+
+| Category | Tables | Total Cols | Unique Cols |
+|----------|--------|------------|-------------|
+| `%eurusd%` | 256 | 4,173 | 586 |
+| `tri_*` | 194 | 6,460 | 132 |
+| `mkt_*` | 12 | 704 | 346 |
+| **TOTAL** | **462** | **11,337** | **1,064** |
 
 See `/intelligence/feature_catalogue.json` for complete inventory.
 

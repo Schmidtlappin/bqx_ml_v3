@@ -37,18 +37,54 @@ EMBARGO_INTERVALS = 30
 
 
 def load_selected_features(pair: str, horizon: int) -> list:
-    """Load stable features from robust selection."""
+    """Load stable features from robust selection or stability selection output."""
+    # Try multiple sources in priority order
+    sources = [
+        f"/home/micha/bqx_ml_v3/intelligence/stable_features_{pair}_h{horizon}.json",
+        f"/home/micha/bqx_ml_v3/intelligence/robust_feature_selection_{pair}_h{horizon}.json",
+        f"/tmp/robust_feature_selection_{pair}_h{horizon}.json"
+    ]
+
+    for source_path in sources:
+        try:
+            with open(source_path) as f:
+                selection = json.load(f)
+
+            # Handle different JSON formats
+            if 'selected_features' in selection:
+                # New format: direct list
+                return selection['selected_features']
+            elif 'groups' in selection:
+                # Old format: grouped features
+                all_features = []
+                for group_name, group_data in selection.get('groups', {}).items():
+                    for feat, score in group_data.get('top_features', []):
+                        all_features.append((feat, score, group_name))
+                all_features.sort(key=lambda x: -x[1])
+                return [f[0] for f in all_features[:400]]
+        except (FileNotFoundError, json.JSONDecodeError):
+            continue
+
+    return None
+
+
+def load_from_merged_parquet(pair: str, selected_features: list = None) -> pd.DataFrame:
+    """Load training data from Step 6 merged parquet (no BQ cost)."""
+    parquet_path = f"/home/micha/bqx_ml_v3/data/features/{pair}_merged_features.parquet"
     try:
-        with open(f"/home/micha/bqx_ml_v3/intelligence/robust_feature_selection_{pair}_h{horizon}.json") as f:
-            selection = json.load(f)
-        # Get top features from each group
-        all_features = []
-        for group_name, group_data in selection.get('groups', {}).items():
-            for feat, score in group_data.get('top_features', []):
-                all_features.append((feat, score, group_name))
-        # Sort by score and take top 400
-        all_features.sort(key=lambda x: -x[1])
-        return [f[0] for f in all_features[:400]]
+        df = pd.read_parquet(parquet_path)
+        print(f"Loaded from parquet: {parquet_path}")
+        print(f"  Rows: {len(df):,}, Columns: {len(df.columns)}")
+
+        if selected_features:
+            # Filter to selected features + targets + interval_time
+            keep_cols = ['interval_time'] + selected_features
+            keep_cols += [c for c in df.columns if c.startswith('target_')]
+            available = [c for c in keep_cols if c in df.columns]
+            df = df[available]
+            print(f"  Filtered to {len(available)} columns ({len(selected_features)} selected features)")
+
+        return df
     except FileNotFoundError:
         return None
 
@@ -423,75 +459,76 @@ def main():
     split = splits_config['splits'][0]
     print(f"Split: {split['train']['start']} to {split['test']['end']}")
 
-    # Load data
+    # Load data - Priority: 1) Merged parquet 2) Legacy BQ query
     print("\nLoading training data...")
-    client = bigquery.Client(project=PROJECT)
 
-    # Use V2 schema with correct column names
-    query = f"""
-    SELECT
-        reg_idx.interval_time,
-        -- Polynomial IDX (priority) - using V2 column names
-        reg_idx.reg_quad_term_45, reg_idx.reg_lin_term_45, reg_idx.reg_total_var_45,
-        reg_idx.reg_slope_45, reg_idx.reg_trend_str_45, reg_idx.reg_deviation_45, reg_idx.reg_zscore_45,
-        reg_idx.reg_quad_term_90, reg_idx.reg_lin_term_90, reg_idx.reg_total_var_90,
-        reg_idx.reg_slope_90, reg_idx.reg_trend_str_90, reg_idx.reg_deviation_90, reg_idx.reg_zscore_90,
-        reg_idx.reg_quad_term_180, reg_idx.reg_lin_term_180, reg_idx.reg_total_var_180,
-        reg_idx.reg_slope_180, reg_idx.reg_trend_str_180, reg_idx.reg_deviation_180, reg_idx.reg_zscore_180,
-        reg_idx.reg_quad_term_360, reg_idx.reg_lin_term_360, reg_idx.reg_total_var_360,
-        reg_idx.reg_slope_360, reg_idx.reg_trend_str_360,
-        reg_idx.reg_quad_term_720, reg_idx.reg_lin_term_720, reg_idx.reg_total_var_720,
-        reg_idx.reg_slope_720, reg_idx.reg_trend_str_720,
-        reg_idx.reg_quad_term_1440, reg_idx.reg_lin_term_1440, reg_idx.reg_total_var_1440,
-        reg_idx.reg_slope_1440, reg_idx.reg_trend_str_1440,
+    # Try loading from Step 6 merged parquet first (no BQ cost)
+    df = load_from_merged_parquet(pair, features)
 
-        -- Polynomial BQX
-        reg_bqx.reg_quad_term_45 as bqx_quad_45, reg_bqx.reg_lin_term_45 as bqx_lin_45,
-        reg_bqx.reg_total_var_45 as bqx_tvar_45, reg_bqx.reg_slope_45 as bqx_slope_45,
-        reg_bqx.reg_quad_term_90 as bqx_quad_90, reg_bqx.reg_lin_term_90 as bqx_lin_90,
-        reg_bqx.reg_total_var_90 as bqx_tvar_90, reg_bqx.reg_slope_90 as bqx_slope_90,
-        reg_bqx.reg_quad_term_180 as bqx_quad_180, reg_bqx.reg_lin_term_180 as bqx_lin_180,
-        reg_bqx.reg_total_var_180 as bqx_tvar_180,
+    if df is None:
+        print("Parquet not found, falling back to BigQuery query...")
+        client = bigquery.Client(project=PROJECT)
 
-        -- Base BQX
-        base_bqx.bqx_45, base_bqx.bqx_90, base_bqx.bqx_180, base_bqx.bqx_360,
-
-        -- Regime indicators from agg_bqx (std as volatility proxy)
-        agg_bqx.agg_std_45 as regime_vol_45, agg_bqx.agg_std_90 as regime_vol_90,
-        agg_bqx.agg_cv_45 as regime_cv_45, agg_bqx.agg_cv_90 as regime_cv_90,
-
-        -- Derivative features (momentum indicators)
-        der_bqx.der_v1_45 as regime_der1_45, der_bqx.der_v1_90 as regime_der1_90,
-        der_bqx.der_v2_45 as regime_der2_45, der_bqx.der_v2_90 as regime_der2_90,
-
-        -- Targets
-        targets.target_bqx45_h15, targets.target_bqx45_h30, targets.target_bqx45_h45,
-        targets.target_bqx45_h60, targets.target_bqx45_h75, targets.target_bqx45_h90,
-        targets.target_bqx45_h105
-
-    FROM `{PROJECT}.{FEATURES_DATASET}.reg_idx_{pair}` reg_idx
-    JOIN `{PROJECT}.{FEATURES_DATASET}.reg_bqx_{pair}` reg_bqx
-        ON reg_idx.interval_time = reg_bqx.interval_time
-    JOIN `{PROJECT}.{FEATURES_DATASET}.base_bqx_{pair}` base_bqx
-        ON reg_idx.interval_time = base_bqx.interval_time
-    LEFT JOIN `{PROJECT}.{FEATURES_DATASET}.agg_bqx_{pair}` agg_bqx
-        ON reg_idx.interval_time = agg_bqx.interval_time
-    LEFT JOIN `{PROJECT}.{FEATURES_DATASET}.der_bqx_{pair}` der_bqx
-        ON reg_idx.interval_time = der_bqx.interval_time
-    JOIN `{PROJECT}.{ANALYTICS_DATASET}.targets_{pair}` targets
-        ON reg_idx.interval_time = targets.interval_time
-    WHERE DATE(reg_idx.interval_time) BETWEEN '{split['train']['start']}' AND '{split['validation']['end']}'
-    AND targets.target_bqx45_h{horizon} IS NOT NULL
-    ORDER BY reg_idx.interval_time
-    LIMIT 80000
-    """
-
-    df = client.query(query).to_dataframe()
-    print(f"Loaded {len(df):,} rows with {len(df.columns)} columns")
+        # LEGACY QUERY - 59 hardcoded features (used when no parquet/selection available)
+        # TODO: Replace with dynamic query builder when stability selection outputs are ready
+        query = f"""
+        SELECT
+            reg_idx.interval_time,
+            reg_idx.reg_quad_term_45, reg_idx.reg_lin_term_45, reg_idx.reg_total_var_45,
+            reg_idx.reg_slope_45, reg_idx.reg_trend_str_45, reg_idx.reg_deviation_45, reg_idx.reg_zscore_45,
+            reg_idx.reg_quad_term_90, reg_idx.reg_lin_term_90, reg_idx.reg_total_var_90,
+            reg_idx.reg_slope_90, reg_idx.reg_trend_str_90, reg_idx.reg_deviation_90, reg_idx.reg_zscore_90,
+            reg_idx.reg_quad_term_180, reg_idx.reg_lin_term_180, reg_idx.reg_total_var_180,
+            reg_idx.reg_slope_180, reg_idx.reg_trend_str_180, reg_idx.reg_deviation_180, reg_idx.reg_zscore_180,
+            reg_idx.reg_quad_term_360, reg_idx.reg_lin_term_360, reg_idx.reg_total_var_360,
+            reg_idx.reg_slope_360, reg_idx.reg_trend_str_360,
+            reg_idx.reg_quad_term_720, reg_idx.reg_lin_term_720, reg_idx.reg_total_var_720,
+            reg_idx.reg_slope_720, reg_idx.reg_trend_str_720,
+            reg_idx.reg_quad_term_1440, reg_idx.reg_lin_term_1440, reg_idx.reg_total_var_1440,
+            reg_idx.reg_slope_1440, reg_idx.reg_trend_str_1440,
+            reg_bqx.reg_quad_term_45 as bqx_quad_45, reg_bqx.reg_lin_term_45 as bqx_lin_45,
+            reg_bqx.reg_total_var_45 as bqx_tvar_45, reg_bqx.reg_slope_45 as bqx_slope_45,
+            reg_bqx.reg_quad_term_90 as bqx_quad_90, reg_bqx.reg_lin_term_90 as bqx_lin_90,
+            reg_bqx.reg_total_var_90 as bqx_tvar_90, reg_bqx.reg_slope_90 as bqx_slope_90,
+            reg_bqx.reg_quad_term_180 as bqx_quad_180, reg_bqx.reg_lin_term_180 as bqx_lin_180,
+            reg_bqx.reg_total_var_180 as bqx_tvar_180,
+            base_bqx.bqx_45, base_bqx.bqx_90, base_bqx.bqx_180, base_bqx.bqx_360,
+            agg_bqx.agg_std_45 as regime_vol_45, agg_bqx.agg_std_90 as regime_vol_90,
+            agg_bqx.agg_cv_45 as regime_cv_45, agg_bqx.agg_cv_90 as regime_cv_90,
+            der_bqx.der_v1_45 as regime_der1_45, der_bqx.der_v1_90 as regime_der1_90,
+            der_bqx.der_v2_45 as regime_der2_45, der_bqx.der_v2_90 as regime_der2_90,
+            targets.target_bqx45_h15, targets.target_bqx45_h30, targets.target_bqx45_h45,
+            targets.target_bqx45_h60, targets.target_bqx45_h75, targets.target_bqx45_h90,
+            targets.target_bqx45_h105
+        FROM `{PROJECT}.{FEATURES_DATASET}.reg_idx_{pair}` reg_idx
+        JOIN `{PROJECT}.{FEATURES_DATASET}.reg_bqx_{pair}` reg_bqx
+            ON reg_idx.interval_time = reg_bqx.interval_time
+        JOIN `{PROJECT}.{FEATURES_DATASET}.base_bqx_{pair}` base_bqx
+            ON reg_idx.interval_time = base_bqx.interval_time
+        LEFT JOIN `{PROJECT}.{FEATURES_DATASET}.agg_bqx_{pair}` agg_bqx
+            ON reg_idx.interval_time = agg_bqx.interval_time
+        LEFT JOIN `{PROJECT}.{FEATURES_DATASET}.der_bqx_{pair}` der_bqx
+            ON reg_idx.interval_time = der_bqx.interval_time
+        JOIN `{PROJECT}.{ANALYTICS_DATASET}.targets_{pair}` targets
+            ON reg_idx.interval_time = targets.interval_time
+        WHERE DATE(reg_idx.interval_time) BETWEEN '{split['train']['start']}' AND '{split['validation']['end']}'
+        AND targets.target_bqx45_h{horizon} IS NOT NULL
+        ORDER BY reg_idx.interval_time
+        LIMIT 80000
+        """
+        df = client.query(query).to_dataframe()
+        print(f"Loaded {len(df):,} rows with {len(df.columns)} columns (LEGACY 59 features)")
 
     # Identify feature and target columns
     target_cols = [c for c in df.columns if c.startswith('target_')]
     feature_cols = [c for c in df.columns if c not in target_cols and c not in ['interval_time', 'pair']]
+
+    # If selected features provided, filter to only those
+    if features:
+        available_features = [f for f in features if f in feature_cols]
+        if available_features:
+            feature_cols = available_features
+            print(f"Using {len(feature_cols)} stability-selected features")
 
     target_col = f'target_bqx45_h{horizon}'
 

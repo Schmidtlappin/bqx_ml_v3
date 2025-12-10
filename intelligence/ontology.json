@@ -13,11 +13,12 @@
     "Model": {
       "definition": "Machine learning model ensemble for specific currency pair and horizon",
       "architecture_version": "2.0 - Enhanced Stacking",
-      "ensemble_members": ["LightGBM", "XGBoost", "CatBoost", "ElasticNet"],
+      "ensemble_members": ["LightGBM", "XGBoost", "CatBoost"],
+      "ensemble_note": "ElasticNet removed per EA-001 (2025-12-09)",
       "meta_learner": "Logistic Regression + Regime Features",
       "count": 0,
-      "planned_count": 784,
-      "breakdown": "28 pairs × 7 horizons × 4 ensemble members",
+      "planned_count": 588,
+      "breakdown": "28 pairs × 7 horizons × 3 ensemble members",
       "horizons": ["h15", "h30", "h45", "h60", "h75", "h90", "h105"],
       "attributes": ["model_type", "pair_id", "horizon", "ensemble_role", "training_date", "performance_metrics", "calibration_method"],
       "accuracy_target": {
@@ -37,7 +38,11 @@
         "Feature-view diversity",
         "Confidence gating"
       ],
-      "status": "IN PROGRESS - Feature selection complete, awaiting training",
+      "status": "IN PROGRESS - Step 6 feature extraction, 59-feature model OBSOLETE",
+      "current_h15_model": {
+        "features": 59,
+        "status": "OBSOLETE - will be replaced after full universe testing"
+      },
       "relationships": {
         "belongs_to_pair": "Many-to-One with CurrencyPair",
         "trained_on": "Many-to-Many with Feature",
@@ -82,12 +87,14 @@
       "partial_types": ["var", "mkt"],
       "missing_types": ["csi"],
       "total_tables": 4888,
-      "features_per_pair": 6477,
+      "tables_per_pair": 462,
+      "columns_per_pair": 11337,
+      "unique_features_per_pair": 1064,
       "features_breakdown": {
-        "pair_specific": 3813,
-        "cross_pair_tri": 2088,
-        "market_wide_mkt": 576,
-        "note": "Corrected 2025-12-09: 3,813 was pair-specific only"
+        "pair_specific": "~1,569 columns (24%)",
+        "cross_pair_cov_corr": "~4,332 columns (67%)",
+        "market_wide_mkt": "~576 columns (9%)",
+        "note": "Corrected 2025-12-10: 11,337 total columns, 1,064 unique features"
       },
       "attributes": ["feature_name", "feature_type", "calculation_method", "lag_periods"],
       "variants": ["IDX (price-based)", "BQX (momentum-based)"],
@@ -97,8 +104,8 @@
         "mandate": "/mandate/FEATURE_LEDGER_100_PERCENT_MANDATE.md",
         "mandate_date": "2025-12-09",
         "coverage_requirement": "100% per model",
-        "expected_rows": 1269492,
-        "calculation": "28 pairs × 7 horizons × 6,477 features"
+        "expected_rows": "TBD after stability selection",
+        "calculation": "28 pairs × 7 horizons × (200-600 selected features)"
       },
       "relationships": {
         "used_by": "Many-to-Many with Model (PENDING)",

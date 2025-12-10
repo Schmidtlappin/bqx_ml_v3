@@ -190,7 +190,11 @@
       "Bash(else)",
       "Bash(fi)",
       "Bash(__NEW_LINE__ echo \"1. GATE_1 Validation Accuracy:\")",
-      "Bash(__NEW_LINE__ echo \"1. GATE_1 Approval Justification:\")"
+      "Bash(__NEW_LINE__ echo \"1. GATE_1 Approval Justification:\")",
+      "Bash(while ps:*)",
+      "Bash(dmesg:*)",
+      "Bash(timeout 5400 python3:*)",
+      "Bash(timeout 3 ./scripts/monitor_step6.sh:*)"
     ],
     "deny": [],
     "ask": []

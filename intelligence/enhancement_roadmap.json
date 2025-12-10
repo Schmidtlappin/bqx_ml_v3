@@ -1,0 +1,205 @@
+{
+  "version": "1.0.0",
+  "created": "2025-12-10",
+  "updated": "2025-12-10T21:55:00Z",
+  "author": "Enhancement Agent (EA)",
+  "source": "Comprehensive Pipeline Audit 2025-12-10",
+
+  "enhancements": [
+    {
+      "id": "ENH-001",
+      "name": "Unified Pipeline Orchestrator",
+      "priority": "P2",
+      "status": "PROPOSED",
+      "current_state": "3 separate scripts (parallel_feature_testing, feature_selection_robust, stack_calibrated)",
+      "target_state": "Single orchestrator with configurable stages",
+      "impact": "Maintainability, reduced errors, easier debugging",
+      "effort": "MEDIUM",
+      "estimated_hours": 16,
+      "dependencies": [],
+      "blocked_by": "Current pipeline rebuild completion",
+      "benefits": [
+        "Single entry point for all pipeline operations",
+        "Consistent error handling across stages",
+        "Unified logging and monitoring",
+        "Easier configuration management"
+      ]
+    },
+    {
+      "id": "ENH-002",
+      "name": "Feature Store Migration",
+      "priority": "P3",
+      "status": "PROPOSED",
+      "current_state": "Ad-hoc parquet files in data/features/",
+      "target_state": "BigQuery materialized views or Vertex AI Feature Store",
+      "impact": "Cost reduction, query efficiency",
+      "effort": "HIGH",
+      "estimated_hours": 40,
+      "dependencies": ["ENH-001"],
+      "blocked_by": "Pipeline stabilization",
+      "benefits": [
+        "Automatic refresh of feature views",
+        "Point-in-time lookups for backtesting",
+        "Reduced storage duplication",
+        "Better versioning and lineage"
+      ]
+    },
+    {
+      "id": "ENH-003",
+      "name": "Caching Layer",
+      "priority": "P3",
+      "status": "PROPOSED",
+      "current_state": "No caching, repeated BigQuery queries",
+      "target_state": "Redis/Memcached for feature embeddings",
+      "impact": "Speed, cost reduction",
+      "effort": "MEDIUM",
+      "estimated_hours": 24,
+      "dependencies": ["ENH-001"],
+      "blocked_by": "Pipeline stabilization",
+      "benefits": [
+        "Faster inference for real-time predictions",
+        "Reduced BigQuery costs",
+        "Lower latency for serving layer"
+      ]
+    },
+    {
+      "id": "ENH-004",
+      "name": "ML Observability Platform",
+      "priority": "P2",
+      "status": "PROPOSED",
+      "current_state": "Manual logging to JSON files",
+      "target_state": "MLflow or Weights & Biases integration",
+      "impact": "Observability, reproducibility, experiment tracking",
+      "effort": "MEDIUM",
+      "estimated_hours": 20,
+      "dependencies": [],
+      "blocked_by": null,
+      "benefits": [
+        "Experiment tracking with hyperparameters",
+        "Model versioning and registry",
+        "Metric visualization and comparison",
+        "Artifact management"
+      ]
+    },
+    {
+      "id": "ENH-005",
+      "name": "Kubernetes Parallelization",
+      "priority": "P3",
+      "status": "PROPOSED",
+      "current_state": "Sequential pair processing (disk-safe)",
+      "target_state": "Kubernetes Jobs for parallel pair processing",
+      "impact": "Speed (28x potential improvement)",
+      "effort": "HIGH",
+      "estimated_hours": 48,
+      "dependencies": ["ENH-001", "ENH-002"],
+      "blocked_by": "Feature store migration",
+      "benefits": [
+        "Parallel processing of all 28 pairs",
+        "Horizontal scaling",
+        "Resource isolation per pair",
+        "Automatic retries and fault tolerance"
+      ]
+    },
+    {
+      "id": "ENH-006",
+      "name": "Step 7 Parquet Integration",
+      "priority": "P1",
+      "status": "PROPOSED",
+      "current_state": "Stability selection queries BigQuery directly",
+      "target_state": "Load from Step 6 parquet output",
+      "impact": "Cost reduction (~$30/run), data consistency",
+      "effort": "LOW",
+      "estimated_hours": 4,
+      "dependencies": [],
+      "blocked_by": null,
+      "benefits": [
+        "Eliminate duplicate BigQuery queries",
+        "Ensure data consistency with Step 6",
+        "Faster stability selection execution"
+      ],
+      "gap_reference": "GAP-001 from EA Comprehensive Audit"
+    },
+    {
+      "id": "ENH-007",
+      "name": "Legacy Script Archive",
+      "priority": "P3",
+      "status": "PROPOSED",
+      "current_state": "17 legacy training scripts in pipelines/training/",
+      "target_state": "Archived to archive/legacy_scripts/",
+      "impact": "Maintainability, reduced confusion",
+      "effort": "LOW",
+      "estimated_hours": 2,
+      "dependencies": [],
+      "blocked_by": "Confirmation none are in use",
+      "scripts_to_archive": [
+        "train_poly_mat.py",
+        "train_classification.py",
+        "train_meta_learner.py",
+        "train_poly_simple.py",
+        "train_stacking_meta.py",
+        "train_lightgbm_baseline.py",
+        "train_from_v2_tables.py",
+        "train_expanded_features.py",
+        "train_poly_features.py",
+        "train_ensemble.py",
+        "train_full_poly.py",
+        "train_full_poly_fast.py",
+        "eurusd_training_pipeline.py",
+        "shap_aggressive_full.py",
+        "train_multi_pair.py",
+        "feature_selection_full.py",
+        "feature_selection_shap.py"
+      ]
+    }
+  ],
+
+  "known_risks": [
+    {
+      "id": "RISK-001",
+      "description": "Step 6 data loss",
+      "severity": "HIGH",
+      "status": "MITIGATED",
+      "mitigation": "Persistence added - saves merged parquet before cleanup"
+    },
+    {
+      "id": "RISK-002",
+      "description": "Feature mismatch train/inference",
+      "severity": "HIGH",
+      "status": "MITIGATED",
+      "mitigation": "Single source - load_from_merged_parquet() uses Step 6 output"
+    },
+    {
+      "id": "RISK-003",
+      "description": "BigQuery cost overrun",
+      "severity": "MEDIUM",
+      "status": "MITIGATED",
+      "mitigation": "Dry run validation before full execution"
+    },
+    {
+      "id": "RISK-004",
+      "description": "Memory OOM during processing",
+      "severity": "MEDIUM",
+      "status": "MITIGATED",
+      "mitigation": "Batch processing with DuckDB merge"
+    },
+    {
+      "id": "RISK-005",
+      "description": "Stability selection inconsistency",
+      "severity": "MEDIUM",
+      "status": "MITIGATED",
+      "mitigation": "Seed control (N_FOLDS=5, N_SEEDS=3)"
+    }
+  ],
+
+  "priority_definitions": {
+    "P1": "Critical - Required for pipeline operation",
+    "P2": "High - Significant impact on maintainability/observability",
+    "P3": "Medium - Nice to have, future optimization"
+  },
+
+  "effort_definitions": {
+    "LOW": "< 8 hours",
+    "MEDIUM": "8-24 hours",
+    "HIGH": "> 24 hours"
+  }
+}

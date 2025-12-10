@@ -78,15 +78,17 @@
       "completion_date": "2025-12-09",
       "methodology": "Group-First Stability Selection (replaces naive SHAP)",
       "milestones": [
-        {"item": "Feature Discovery", "status": "COMPLETE", "details": "28 groups, 256 tables, 3,800+ columns"},
+        {"item": "Feature Discovery", "status": "COMPLETE", "details": "28 pairs, 462 tables/pair, 11,337 columns, 1,064 unique features"},
         {"item": "Safe Pruning", "status": "COMPLETE", "details": "Removed constant/duplicate features"},
         {"item": "Correlation Clustering", "status": "COMPLETE", "details": "Grouped features with |r| > 0.95"},
         {"item": "Stability Selection", "status": "COMPLETE", "details": "5 folds x 3 seeds, 50% frequency threshold (USER APPROVED 2025-12-09)"},
         {"item": "Ablation Testing", "status": "COMPLETE", "details": "Validated group importance by ΔAUC"}
       ],
       "results": {
+        "total_columns": 11337,
+        "unique_features": 1064,
         "stable_features": 607,
-        "stable_features_note": "Updated from 399 after USER APPROVED 50% threshold (2025-12-09)",
+        "stable_features_note": "Will be re-run on full 1,064 unique features after Step 6 completes",
         "idx_features": 168,
         "bqx_features": 270,
         "covariance_features": 35,
@@ -197,6 +199,7 @@
     },
     "phase_4": {
       "name": "EURUSD Training Pipeline",
+      "current_status_note": "59-feature model OBSOLETE - Step 6 (full universe extraction) IN PROGRESS",
       "status": "IN_PROGRESS",
       "start_date": "2025-12-10",
       "strategy": "Test full pipeline on EURUSD before scaling",
@@ -228,8 +231,16 @@
           "shap_samples": 100000,
           "models_with_shap": 3,
           "gating_thresholds": 7,
-          "gcs_artifact": "gs://bqx-ml-v3-models/models/eurusd/h15_ensemble.joblib"
+          "gcs_artifact": "gs://bqx-ml-v3-models/models/eurusd/h15_ensemble.joblib",
+          "model_features": 59,
+          "model_status": "OBSOLETE - will be replaced after full universe (11,337 columns) processing"
         }
+      },
+      "pipeline_status": {
+        "step_6_feature_extraction": "IN PROGRESS (28 pairs × 11,337 columns)",
+        "stability_selection": "PENDING (pipeline fix required)",
+        "training": "PENDING (dynamic feature loading required)",
+        "shap": "PENDING"
       }
     },
     "phase_5": {
@@ -407,10 +418,12 @@
         "purpose": "Account for every feature and record what happened to it",
         "mandate": "/mandate/FEATURE_LEDGER_100_PERCENT_MANDATE.md",
         "mandate_date": "2025-12-09",
-        "coverage_requirement": "100% - ALL 6,477 features per model must be in ledger",
+        "coverage_requirement": "100% - ALL 11,337 columns (1,064 unique features) per model must be in ledger",
         "columns": ["feature_name", "source_table", "feature_type", "feature_scope", "variant", "pair", "horizon", "model_type", "cluster_id", "group_id", "pruned_stage", "prune_reason", "screen_score", "stability_freq", "importance_mean", "importance_std", "ablation_delta", "final_status"],
-        "expected_rows": 1269492,
-        "calculation": "28 pairs × 7 horizons × 6,477 features",
+        "expected_rows": 208572,
+        "calculation": "28 pairs × 7 horizons × 1,064 unique features",
+        "total_columns_scanned": 11337,
+        "unique_features_after_dedup": 1064,
         "shap_config": {
           "sample_size_minimum": 100000,
           "user_mandate": "100,000+ samples (BINDING)",
@@ -484,7 +497,7 @@
       },
       "ledger_coverage": {
         "value": "100%",
-        "unit": "all 6,477 features per model",
+        "unit": "all 11,337 columns (1,064 unique features) per model",
         "approval_date": "2025-12-09",
         "binding": true,
         "rationale": "Complete audit trail for feature selection decisions"
@@ -525,10 +538,10 @@
       },
       {
         "id": "RISK-004",
-        "description": "Feature universe not fully tested (only 15.6% tested)",
+        "description": "Feature universe not fully tested",
         "impact": "HIGH",
         "probability": "CONFIRMED",
-        "mitigation": "Run selection on full 6,477 features after gap remediation",
+        "mitigation": "Run selection on full 11,337 columns (1,064 unique features) after gap remediation",
         "owner": "BA",
         "status": "PLANNED"
       },

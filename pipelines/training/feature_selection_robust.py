@@ -67,6 +67,19 @@ FEATURE_GROUPS = {
 }
 
 
+def load_from_parquet(pair: str) -> pd.DataFrame:
+    """Load feature data from Step 6 merged parquet (no BigQuery cost)."""
+    parquet_path = f"/home/micha/bqx_ml_v3/data/features/{pair}_merged_features.parquet"
+    try:
+        df = pd.read_parquet(parquet_path)
+        print(f"Loaded from parquet: {parquet_path}")
+        print(f"  Rows: {len(df):,}, Columns: {len(df.columns)}")
+        return df
+    except FileNotFoundError:
+        print(f"Parquet not found: {parquet_path}")
+        return None
+
+
 def discover_feature_tables(client, pair: str) -> dict:
     """Discover all feature tables for a pair, grouped by type."""
     query = f"""
@@ -604,12 +617,99 @@ def run_robust_selection(pair: str, sample_pct: float = 5.0, horizon: int = 15):
     return results
 
 
+def run_robust_selection_from_df(pair: str, df: pd.DataFrame, horizon: int = 15):
+    """Run robust selection directly from a DataFrame (parquet mode)."""
+    print("=" * 80)
+    print("ROBUST FEATURE SELECTION FROM PARQUET")
+    print(f"Pair: {pair.upper()}, Horizon: h{horizon}")
+    print(f"Data: {len(df):,} rows, {len(df.columns)} columns")
+    print("=" * 80)
+
+    target_col = f'target_bqx45_h{horizon}'
+
+    # Identify features and targets
+    target_cols = [c for c in df.columns if c.startswith('target_')]
+    feature_cols = [c for c in df.columns if c not in target_cols and c not in ['interval_time', 'pair']]
+
+    print(f"\nFeatures: {len(feature_cols)}")
+    print(f"Targets: {len(target_cols)}")
+
+    if target_col not in df.columns:
+        print(f"ERROR: Target column {target_col} not found")
+        return None
+
+    # Group features by prefix
+    feature_groups = defaultdict(list)
+    for col in feature_cols:
+        for prefix, group_name in FEATURE_GROUPS.items():
+            if col.startswith(prefix) or f'_{prefix}' in col:
+                feature_groups[group_name].append(col)
+                break
+        else:
+            feature_groups['other'].append(col)
+
+    print("\n=== FEATURE GROUPS ===")
+    for group, cols in sorted(feature_groups.items()):
+        print(f"  {group}: {len(cols)} features")
+
+    # Prepare data
+    X = df[feature_cols].copy()
+    y = (df[target_col] > 0).astype(int)
+
+    # Remove columns with too many nulls
+    null_pct = X.isnull().mean()
+    good_cols = null_pct[null_pct < 0.3].index.tolist()
+    X = X[good_cols]
+    print(f"\nAfter null filter: {len(good_cols)} features")
+
+    # Fill remaining nulls
+    X = X.fillna(0)
+
+    # Run stability selection
+    print("\n=== STABILITY SELECTION ===")
+    results = stability_selection(X, y, n_folds=5, n_seeds=3, threshold=0.5)
+
+    # Save results
+    output_file = f"/home/micha/bqx_ml_v3/intelligence/stable_features_{pair}_h{horizon}.json"
+    output = {
+        'pair': pair,
+        'horizon': horizon,
+        'source': 'parquet',
+        'timestamp': datetime.now().isoformat(),
+        'total_features': len(feature_cols),
+        'selected_features': results['stable_features'],
+        'feature_count': len(results['stable_features']),
+        'stability_scores': {f: float(s) for f, s in results['scores'].items()
+                           if s >= 0.5}
+    }
+
+    with open(output_file, 'w') as f:
+        json.dump(output, f, indent=2)
+
+    print(f"\n=== RESULTS ===")
+    print(f"Selected: {len(results['stable_features'])} features")
+    print(f"Saved to: {output_file}")
+
+    return output
+
+
 def main():
     pair = sys.argv[1] if len(sys.argv) > 1 else "eurusd"
     sample_pct = float(sys.argv[2]) if len(sys.argv) > 2 else 5.0
     horizon = int(sys.argv[3]) if len(sys.argv) > 3 else 15
+    use_parquet = "--parquet" in sys.argv
 
-    run_robust_selection(pair, sample_pct, horizon)
+    if use_parquet:
+        print("Using parquet mode (Step 6 output)")
+        df = load_from_parquet(pair)
+        if df is not None:
+            # Run selection on parquet data
+            run_robust_selection_from_df(pair, df, horizon)
+        else:
+            print("ERROR: Parquet not found, falling back to BigQuery")
+            run_robust_selection(pair, sample_pct, horizon)
+    else:
+        run_robust_selection(pair, sample_pct, horizon)
 
 
 if __name__ == "__main__":

@@ -31,16 +31,26 @@
     },
     "Independent_Models": {
       "definition": "Each currency pair-horizon has its own isolated model ensemble",
-      "count_planned": 784,
+      "count_planned": 588,
       "count_trained": 0,
-      "breakdown": "28 pairs × 7 horizons × 4 ensemble members",
+      "breakdown": "28 pairs × 7 horizons × 3 ensemble members (ElasticNet removed per EA-001)",
       "horizons": ["h15", "h30", "h45", "h60", "h75", "h90", "h105"],
-      "ensemble_members": ["LightGBM", "XGBoost", "CatBoost", "Meta-learner"],
+      "ensemble_members": ["LightGBM", "XGBoost", "CatBoost"],
+      "meta_learner": "LogisticRegression (regime-aware)",
       "isolation": "Complete - no feature or data sharing between pairs",
       "rationale": "Each pair has unique dynamics requiring specialized modeling",
-      "accuracy_target": "95%+ directional accuracy",
+      "accuracy_target": "85-95% called accuracy",
       "deployment_strategy": "Deploy farthest horizon achieving ≥95% per pair",
-      "status": "PENDING - V2 migration in progress (~62% complete)"
+      "feature_universe": {
+        "total_columns_per_pair": 11337,
+        "unique_features_per_pair": 1064,
+        "tables_per_pair": 462
+      },
+      "current_h15_model": {
+        "features": 59,
+        "status": "OBSOLETE - will be replaced after full universe testing"
+      },
+      "status": "IN PROGRESS - Step 6 feature extraction running"
     },
     "Feature_Target_Separation": {
       "old_rule": "BQX values strictly prohibited as features",

@@ -2,11 +2,11 @@
   "project": {
     "name": "BQX ML V3",
     "version": "3.1.0",
-    "description": "784 ML models (28 pairs × 7 horizons × 4 ensemble) for forex momentum prediction using BQX paradigm",
+    "description": "588 ML models (28 pairs × 7 horizons × 3 ensemble) for forex momentum prediction using BQX paradigm",
     "repository": "https://github.com/Schmidtlappin/bqx_ml_v3",
     "owner": "Schmidtlappin",
     "created": "2024-11-24",
-    "last_updated": "2025-12-08"
+    "last_updated": "2025-12-10"
   },
   "paradigm": {
     "name": "BQX Momentum Prediction",
@@ -16,10 +16,11 @@
   },
   "architecture": {
     "type": "Multi-Horizon Ensemble Architecture",
-    "total_models": 784,
-    "calculation": "28 pairs × 7 horizons × 4 ensemble members",
+    "total_models": 588,
+    "calculation": "28 pairs × 7 horizons × 3 ensemble members (ElasticNet removed per EA-001)",
     "horizons": ["h15", "h30", "h45", "h60", "h75", "h90", "h105"],
-    "ensemble_members": ["LightGBM", "XGBoost", "CatBoost", "Meta-learner (LSTM/LogReg)"],
+    "ensemble_members": ["LightGBM", "XGBoost", "CatBoost"],
+    "meta_learner": "LogisticRegression (regime-aware)",
     "model_scope": "One ensemble per pair-horizon combination",
     "isolation": "Complete - no cross-pair contamination",
     "computation": "Interval-centric using ROWS BETWEEN only",
@@ -153,7 +154,7 @@
   "current_phase": {
     "phase": "Enhanced Stacking Architecture (V2)",
     "name": "Calibrated Probability Stacking with Regime-Aware Meta-Learner",
-    "status": "IN PROGRESS - Feature selection complete",
+    "status": "IN PROGRESS - Step 6 feature extraction (28 pairs)",
     "start_date": "2025-12-09",
     "roadmap_version": "2.0",
     "roadmap_file": "/intelligence/roadmap_v2.json",
@@ -162,15 +163,29 @@
       "Row count parity validated",
       "V1 datasets deleted ($50/month savings realized)",
       "All tables partitioned and clustered",
-      "Robust feature selection complete (399 stable features)",
-      "Enhanced stacking architecture defined (6 critical fixes)"
+      "GATE_1, GATE_2, GATE_3 passed",
+      "h15 baseline trained (59 features - OBSOLETE)",
+      "ElasticNet removal (EA-001) - 784 → 588 models"
     ],
     "next_milestones": [
-      "Walk-forward OOF predictions (prevents leakage)",
-      "Probability calibration (Platt scaling)",
-      "Regime-aware meta-learner training",
-      "Confidence gating optimization"
+      "Step 6 feature extraction (28 pairs × 11,337 columns)",
+      "Stability selection (select ~200-600 from 1,064 unique features)",
+      "Retrain h15 with expanded feature universe",
+      "SHAP analysis (100K+ samples - USER MANDATE)"
     ],
+    "pipeline_status": {
+      "step_6_feature_extraction": "IN PROGRESS",
+      "stability_selection": "PENDING (pipeline fix required)",
+      "training": "PENDING (dynamic feature loading required)",
+      "shap": "PENDING"
+    },
+    "feature_universe": {
+      "total_columns_per_pair": 11337,
+      "unique_features_per_pair": 1064,
+      "tables_per_pair": 462,
+      "current_h15_features": 59,
+      "h15_model_status": "OBSOLETE - will be replaced after Step 6"
+    },
     "active_plan": "/home/micha/.claude/plans/gentle-skipping-wirth.md",
     "target_accuracy": {
       "overall": "85-90%",
@@ -218,8 +233,8 @@
     "ba_directive": "/.claude/sandbox/communications/outboxes/CE/20251129_1930_CE-to-BA_POLYNOMIAL_REGRESSION_IMPLEMENTATION.md"
   },
   "correlation_analysis": {
-    "current_features": 817,
-    "expanded_features": 1069,
+    "current_features": 1064,
+    "total_columns": 11337,
     "targets": 49,
     "target_formula": "7 windows × 7 horizons",
     "methodology": "Pooled Pearson correlation at extreme BQX points (|BQX_45| > 2σ)",
@@ -296,13 +311,18 @@
     },
     "model_architecture": {
       "version": "2.0 - Enhanced Stacking",
-      "total_models": 784,
-      "calculation": "28 pairs × 7 horizons × 4 ensemble members",
+      "total_models": 588,
+      "calculation": "28 pairs × 7 horizons × 3 ensemble members (ElasticNet removed)",
       "horizons": ["h15", "h30", "h45", "h60", "h75", "h90", "h105"],
-      "ensemble": ["LightGBM", "XGBoost", "CatBoost", "ElasticNet"],
+      "ensemble": ["LightGBM", "XGBoost", "CatBoost"],
       "meta_learner": "Logistic Regression + Regime Features",
       "deployment_criterion": "Farthest horizon achieving ≥95% called accuracy",
-      "feature_selection": "Robust Group-First Stability Selection (399 features)",
+      "feature_universe": {
+        "total_columns": 11337,
+        "unique_features": 1064,
+        "current_h15_model": "59 features (OBSOLETE)"
+      },
+      "feature_selection": "Stability Selection (select ~200-600 from 1,064 unique features)",
       "stacking_architecture": {
         "stage_a": "Sign Probability Stack (calibrated P(+))",
         "stage_b": "Conditional Magnitude (after sign decided)"

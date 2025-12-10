@@ -1,21 +1,25 @@
 {
   "catalogue_version": "2.1.0",
   "generated": "2025-12-09T10:45:00Z",
-  "updated": "2025-12-09T11:30:00Z",
+  "updated": "2025-12-10T20:55:00Z",
   "purpose": "Complete feature inventory for BQX ML V3",
   "supersedes": "8,214+ estimate in BQX_ML_V3_FEATURE_INVENTORY.md",
-  "last_audit": "2025-12-09",
+  "last_audit": "2025-12-10",
+  "audit_note": "QA verified: 11,337 columns, 1,064 unique features per pair",
   "ledger_mandate": {
     "mandate": "/mandate/FEATURE_LEDGER_100_PERCENT_MANDATE.md",
     "coverage_requirement": "100% - ALL features per model must be in ledger",
-    "expected_ledger_rows": 1269492,
+    "expected_ledger_rows": 208572,
+    "calculation": "28 pairs × 7 horizons × 1,064 unique features",
     "validation": "Every feature in this catalogue must appear in feature_ledger.parquet"
   },
   "summary": {
     "total_tables": 4888,
     "total_columns": 97322,
     "total_feature_columns": 86190,
-    "features_per_pair_eurusd": 6477,
+    "total_columns_per_pair": 11337,
+    "unique_features_per_pair": 1064,
+    "features_per_pair_eurusd_note": "CORRECTED 2025-12-10: 11,337 total columns across 462 tables, 1,064 unique after dedup",
     "features_breakdown_eurusd": {
       "pair_specific": 3813,
       "cross_pair_tri": 2088,
