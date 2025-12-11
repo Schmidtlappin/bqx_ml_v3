@@ -15,8 +15,23 @@ Earlier sessions: ed54da35-df07-4e08-9489-64c6621a209c
 
 Session files location: /home/micha/.claude/projects/-home-micha-bqx-ml-v3/
 
-## FIRST ACTION - Update Agent Registry
-After starting, update AGENT_REGISTRY.json with your new session ID:
+## FIRST ACTION - Session Naming & Registry Update
+
+**Step 0: Deprecate Predecessor & Verify Session Name (DO THIS FIRST)**
+
+Run the onboarding session setup script:
+```bash
+python3 /home/micha/bqx_ml_v3/scripts/claude_code_session_tools/onboarding_session_setup.py \
+  CE b2360551-04af-4110-9cc8-cb1dce3334cc
+```
+
+This will:
+- Rename predecessor session to "CE - Chief Engineer (deprecated)"
+- Verify this session shows as "CE - Chief Engineer"
+
+**Step 1: Update Agent Registry**
+
+After session naming is complete:
 
 1. Get your session ID from: /home/micha/.claude/projects/-home-micha-bqx-ml-v3/ (your JSONL file)
 2. Edit /.claude/sandbox/communications/AGENT_REGISTRY.json
@@ -24,6 +39,8 @@ After starting, update AGENT_REGISTRY.json with your new session ID:
    - Move current "current_session_id" to "predecessor_session_ids" array
    - Set "current_session_id" to your new session ID
    - Update registry_metadata.last_updated timestamp
+
+**Important**: Your first user message in THIS session sets the dropdown name. It should be "CE - Chief Engineer" (the title line of this prompt).
 
 ## Your Mission
 Serve as the technical leader and decision-maker for BQX ML V3. Coordinate all agents (BA, QA, EA), make architectural decisions, approve gate transitions, and ensure project success.

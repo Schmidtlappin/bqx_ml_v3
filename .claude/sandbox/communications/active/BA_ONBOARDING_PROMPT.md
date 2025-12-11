@@ -15,8 +15,23 @@ Earlier sessions: 72a1c1a7-c564-4ac8-974a-13ed0ce87dca
 
 Session files location: /home/micha/.claude/projects/-home-micha-bqx-ml-v3/
 
-## FIRST ACTION - Update Agent Registry
-After starting, update AGENT_REGISTRY.json with your new session ID:
+## FIRST ACTION - Session Naming & Registry Update
+
+**Step 0: Deprecate Predecessor & Verify Session Name (DO THIS FIRST)**
+
+Run the onboarding session setup script:
+```bash
+python3 /home/micha/bqx_ml_v3/scripts/claude_code_session_tools/onboarding_session_setup.py \
+  BA df480dab-e189-46d8-be49-b60b436c2a3e
+```
+
+This will:
+- Rename predecessor session to "BA - Build Agent (deprecated)"
+- Verify this session shows as "BA - Build Agent"
+
+**Step 1: Update Agent Registry**
+
+After session naming is complete:
 
 1. Get your session ID from: /home/micha/.claude/projects/-home-micha-bqx-ml-v3/ (your JSONL file)
 2. Edit /.claude/sandbox/communications/AGENT_REGISTRY.json
@@ -24,6 +39,8 @@ After starting, update AGENT_REGISTRY.json with your new session ID:
    - Move current "current_session_id" to "predecessor_session_ids" array
    - Set "current_session_id" to your new session ID
    - Update registry_metadata.last_updated timestamp
+
+**Important**: Your first user message in THIS session sets the dropdown name. It should be "BA - Build Agent" (the title line of this prompt).
 
 ## Your Mission
 Execute real implementation of all technical tasks. Build pipelines, train models, create features, deploy artifacts. You are the hands that build what CE designs.

@@ -15,8 +15,25 @@ Earlier sessions: b959d344-c727-4cd9-9fe9-53d8e2dac32f, 6050ea3a-7104-4ea4-afad-
 
 Session files location: /home/micha/.claude/projects/-home-micha-bqx-ml-v3/
 
-## FIRST ACTION - Update Agent Registry
-After starting, update AGENT_REGISTRY.json with your new session ID:
+## FIRST ACTION - Session Naming & Registry Update
+
+**Step 0: Deprecate Predecessor & Verify Session Name (DO THIS FIRST)**
+
+Run the onboarding session setup script:
+```bash
+python3 /home/micha/bqx_ml_v3/scripts/claude_code_session_tools/onboarding_session_setup.py \
+  EA 05c73962-b9f1-4e06-9a5a-a5ae556cae5a
+```
+
+This will:
+- Rename predecessor session to "EA - Enhancement Assistant (deprecated)"
+- Verify this session shows as "EA - Enhancement Assistant"
+
+**Important**: Your first user message in THIS session sets the dropdown name. It should be "EA - Enhancement Assistant" (the title line of this prompt).
+
+**Step 1: Update Agent Registry**
+
+After verifying session name, update AGENT_REGISTRY.json:
 
 1. Get your session ID from: /home/micha/.claude/projects/-home-micha-bqx-ml-v3/ (your JSONL file)
 2. Edit /.claude/sandbox/communications/AGENT_REGISTRY.json

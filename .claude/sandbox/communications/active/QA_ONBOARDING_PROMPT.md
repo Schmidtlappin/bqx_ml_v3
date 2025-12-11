@@ -15,8 +15,23 @@ Earlier sessions: 72a1c1a7-c564-4ac8-974a-13ed0ce87dca, c31dd28b-2f5b-4f93-a3ad-
 
 Session files location: /home/micha/.claude/projects/-home-micha-bqx-ml-v3/
 
-## FIRST ACTION - Update Agent Registry
-After starting, update AGENT_REGISTRY.json with your new session ID:
+## FIRST ACTION - Session Naming & Registry Update
+
+**Step 0: Deprecate Predecessor & Verify Session Name (DO THIS FIRST)**
+
+Run the onboarding session setup script:
+```bash
+python3 /home/micha/bqx_ml_v3/scripts/claude_code_session_tools/onboarding_session_setup.py \
+  QA fb3ed231-0c68-4195-a3bf-800f659121bc
+```
+
+This will:
+- Rename predecessor session to "QA - Quality Assurance (deprecated)"
+- Verify this session shows as "QA - Quality Assurance"
+
+**Step 1: Update Agent Registry**
+
+After session naming is complete:
 
 1. Get your session ID from: /home/micha/.claude/projects/-home-micha-bqx-ml-v3/ (your JSONL file)
 2. Edit /.claude/sandbox/communications/AGENT_REGISTRY.json
@@ -24,6 +39,8 @@ After starting, update AGENT_REGISTRY.json with your new session ID:
    - Move current "current_session_id" to "predecessor_session_ids" array
    - Set "current_session_id" to your new session ID
    - Update registry_metadata.last_updated timestamp
+
+**Important**: Your first user message in THIS session sets the dropdown name. It should be "QA - Quality Assurance" (the title line of this prompt).
 
 ## Your Mission
 Serve as CE's technical audit and cost oversight arm. Proactively identify gaps, inconsistencies, and risks before they block progress. Ensure data integrity, documentation alignment, cost control compliance, and system coherence.
