@@ -29,8 +29,8 @@
       "role": "Execute real implementation of all tasks",
       "active": true,
       "reports_to": "CE",
-      "current_session_id": "72a1c1a7-c564-4ac8-974a-13ed0ce87dca",
-      "predecessor_session_ids": [],
+      "current_session_id": "df480dab-e189-46d8-be49-b60b436c2a3e",
+      "predecessor_session_ids": ["72a1c1a7-c564-4ac8-974a-13ed0ce87dca"],
       "session_file_location": "/home/micha/.claude/projects/-home-micha-bqx-ml-v3/",
       "inbox_filter": ["*-to-BA_*", "*-to-ALL_*"],
       "primary_contact": "Build Agent Instance",
@@ -50,8 +50,8 @@
       "role": "Audit, reconciliation, gap detection, data quality, cost monitoring, budget adherence, remediation planning",
       "active": true,
       "reports_to": "CE",
-      "current_session_id": "c31dd28b-2f5b-4f93-a3ad-1a9f0fe74dbc",
-      "predecessor_session_ids": [],
+      "current_session_id": "fb3ed231-0c68-4195-a3bf-800f659121bc",
+      "predecessor_session_ids": ["72a1c1a7-c564-4ac8-974a-13ed0ce87dca", "c31dd28b-2f5b-4f93-a3ad-1a9f0fe74dbc"],
       "session_file_location": "/home/micha/.claude/projects/-home-micha-bqx-ml-v3/",
       "inbox_filter": ["*-to-QA_*", "*-to-ALL_*"],
       "primary_contact": "Quality Assurance Agent Instance",
@@ -73,7 +73,8 @@
       "reports_to": "CE",
       "current_session_id": "b959d344-c727-4cd9-9fe9-53d8e2dac32f",
       "predecessor_session_ids": [
-        "6050ea3a-7104-4ea4-afad-1eb8fedc705d"
+        "6050ea3a-7104-4ea4-afad-1eb8fedc705d",
+        "c31dd28b-2f5b-4f93-a3ad-1a9f0fe74dbc"
       ],
       "session_file_location": "/home/micha/.claude/projects/-home-micha-bqx-ml-v3/",
       "inbox_filter": ["*-to-EA_*", "*-to-ALL_*"],
@@ -150,8 +151,8 @@
     "recovery_protocol": "See AGENT_ONBOARDING_PROMPTS.md Section: Session Recovery Procedure"
   },
   "registry_metadata": {
-    "version": "3.0",
-    "last_updated": "2025-12-10T23:00:00Z",
+    "version": "3.1",
+    "last_updated": "2025-12-11T06:40:00Z",
     "maintained_by": "Chief Engineer",
     "update_protocol": "Update when new agents added, status changes, or session IDs change",
     "change_log": [

@@ -13,3 +13,4 @@ credentials/*key*
 !.env.example
 archive/
 catboost_info/
+data/
