@@ -284,10 +284,10 @@
     "Training_Platform": {
       "primary": "BigQuery ML (cost-optimized)",
       "alternative": "Vertex AI (for complex ensembles)",
-      "models_planned": 784,
+      "models_planned": 588,
       "models_trained": 0,
-      "structure": "28 pairs × 7 horizons × 4 ensemble members",
-      "status": "READY - V2 migration complete"
+      "structure": "28 pairs × 7 horizons × 3 ensemble members (ElasticNet removed)",
+      "status": "READY - V2 migration complete, Step 6 in progress"
     }
   }
 }

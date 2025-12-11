@@ -19,7 +19,7 @@
   "project_metadata": {
     "name": "BQX ML V3",
     "full_name": "BQX Machine Learning System Version 3.1",
-    "description": "784 ML models (28 pairs × 7 horizons × 4 ensemble) for forex momentum prediction using BQX paradigm",
+    "description": "588 ML models (28 pairs × 7 horizons × 3 ensemble) for forex momentum prediction using BQX paradigm",
     "type": "Machine Learning / Financial Technology",
     "domain": "Forex Trading / Quantitative Finance",
     "methodology": "Supervised Learning / Time Series Prediction",
@@ -69,8 +69,8 @@
       "stages_95plus": "74.3%",
       "gap_coverage": "100%"
     },
-    "current_phase": "BigQuery V2 Migration - 62% Complete",
-    "next_milestone": "Complete v2 migration, then train 784 models (28 pairs × 7 horizons × 4 ensemble)",
+    "current_phase": "Step 6 Feature Extraction - 93% Complete",
+    "next_milestone": "Complete Step 6, then train 588 models (28 pairs × 7 horizons × 3 ensemble)",
     "phase_status": {
       "Phase 0": "COMPLETE - Infrastructure setup",
       "Phase 1": "COMPLETE - Data ingestion and validation",
@@ -245,8 +245,8 @@
   },
   "model_metadata": {
     "architecture": "Multi-Horizon Ensemble Architecture",
-    "total_models": 784,
-    "breakdown": "28 pairs × 7 horizons × 4 ensemble members",
+    "total_models": 588,
+    "breakdown": "28 pairs × 7 horizons × 3 ensemble members (ElasticNet removed)",
     "prediction_horizons": [15, 30, 45, 60, 75, 90, 105],
     "horizon_note": "Intervals forward (row-based, NOT time-based). Deploy FARTHEST horizon achieving ≥95% accuracy.",
     "ensemble_members": [

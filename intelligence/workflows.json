@@ -90,10 +90,10 @@
     "name": "Multi-Horizon Ensemble Training",
     "trigger": "After V2 migration completion",
     "architecture": {
-      "total_models": 784,
-      "breakdown": "28 pairs × 7 horizons × 4 ensemble members",
+      "total_models": 588,
+      "breakdown": "28 pairs × 7 horizons × 3 ensemble members (ElasticNet removed)",
       "horizons": ["h15", "h30", "h45", "h60", "h75", "h90", "h105"],
-      "ensemble_members": ["LightGBM", "XGBoost", "CatBoost", "Meta-learner"],
+      "ensemble_members": ["LightGBM", "XGBoost", "CatBoost"],
       "accuracy_target": "95%+ directional accuracy",
       "deployment_strategy": "Deploy farthest horizon achieving ≥95% per pair"
     },

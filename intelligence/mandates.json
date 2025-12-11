@@ -91,14 +91,15 @@
         "current_status": "0 completed (reset after simulation attempt)"
       },
       "MODEL_COUNT": {
-        "total": 784,
-        "calculation": "28 currency pairs × 7 prediction horizons × 4 ensemble members",
+        "total": 588,
+        "calculation": "28 currency pairs × 7 prediction horizons × 3 ensemble members (ElasticNet removed)",
         "prediction_horizons": [15, 30, 45, 60, 75, 90, 105],
         "horizon_note": "7 horizons at 15-interval increments (h15-h105), deploy FARTHEST achieving 95%+ accuracy",
-        "ensemble_members": ["LightGBM", "XGBoost", "CatBoost", "Meta-learner (LSTM/LogReg)"],
+        "ensemble_members": ["LightGBM", "XGBoost", "CatBoost"],
+        "meta_learner": "LogisticRegression (regime-aware, aggregator)",
         "bqx_lookback_windows": [45, 90, 180, 360, 720, 1440, 2880],
         "lookback_note": "These are BQX CALCULATION lookback windows (bqx_45, bqx_90, etc.) - NOT prediction horizons",
-        "note": "Updated 2025-12-08: 784 models (28×7×4), multi-horizon strategy with horizon selection"
+        "note": "Updated 2025-12-11: 588 models (28×7×3), ElasticNet removed per EA-001"
       },
       "CURRENCY_PAIRS": {
         "count": 28,
@@ -263,9 +264,10 @@
       "regime": "100% (354 tables)"
     },
     "architecture": {
-      "total_models": 784,
+      "total_models": 588,
       "horizons": ["h15", "h30", "h45", "h60", "h75", "h90", "h105"],
-      "ensemble": ["LightGBM", "XGBoost", "CatBoost", "Meta-learner"],
+      "ensemble": ["LightGBM", "XGBoost", "CatBoost"],
+      "meta_learner": "LogisticRegression",
       "accuracy_target": "95%+ (deploy farthest horizon achieving this)"
     },
     "cost_estimate": {
@@ -277,9 +279,9 @@
     },
     "active_plan": "/home/micha/.claude/plans/gentle-skipping-wirth.md",
     "critical_findings": [
-      "V2 migration in progress - partitioned by DATE(interval_time), clustered by pair",
+      "V2 migration COMPLETE - partitioned by DATE(interval_time), clustered by pair",
       "Multi-horizon strategy: train h15-h105, deploy farthest achieving 95%+",
-      "784 total models (28 pairs × 7 horizons × 4 ensemble members)",
+      "588 total models (28 pairs × 7 horizons × 3 ensemble - ElasticNet removed)",
       "Cost optimized: BigQuery ML instead of Vertex AI (70% savings)",
       "Walk-forward validation mandatory for time series"
     ]

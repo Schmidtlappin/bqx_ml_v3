@@ -165,8 +165,8 @@
       "status": "READY",
       "table_count": 16,
       "total_gb": 0.01,
-      "planned_models": 784,
-      "note": "Will contain 784 trained models (28 pairs x 7 horizons x 4 ensemble)"
+      "planned_models": 588,
+      "note": "Will contain 588 trained models (28 pairs x 7 horizons x 3 ensemble - ElasticNet removed)"
     },
 
     "bqx_ml_v3_predictions": {
@@ -202,14 +202,14 @@
   ],
 
   "model_architecture": {
-    "total_models": 784,
+    "total_models": 588,
     "pairs": 28,
     "horizons": ["h15", "h30", "h45", "h60", "h75", "h90", "h105"],
-    "ensemble_members": ["LightGBM", "XGBoost", "CatBoost", "Meta-learner"],
-    "per_pair": 28,
-    "per_horizon": 112,
+    "ensemble_members": ["LightGBM", "XGBoost", "CatBoost"],
+    "per_pair": 21,
+    "per_horizon": 84,
     "base_models": 588,
-    "meta_learners": 196,
+    "meta_learner": "LogisticRegression (aggregator, not counted)",
     "accuracy_target": "95%+ directional accuracy",
     "deployment_strategy": "Deploy farthest horizon achieving ≥95% per pair"
   },

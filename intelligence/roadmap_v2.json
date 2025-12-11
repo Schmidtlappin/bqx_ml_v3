@@ -440,7 +440,7 @@
       }
     },
     "phase_4_5_governance_gate": {
-      "description": "Validation checkpoint before scaling to 784 models",
+      "description": "Validation checkpoint before scaling to 588 models",
       "requirements": [
         "Leakage audit tests pass",
         "Metric + persistence contracts locked",
