@@ -151,6 +151,43 @@
     "environment": "bqx-ml-master GCP instance",
     "primary_tools": ["Python", "BigQuery", "Vertex AI", "AirTable", "Claude Code"]
   },
+  "agent_coordination": {
+    "version": "3.0",
+    "last_updated": "2025-12-10",
+    "registry_file": "/.claude/sandbox/communications/AGENT_REGISTRY.json",
+    "session_file_location": "/home/micha/.claude/projects/-home-micha-bqx-ml-v3/",
+    "active_agents": {
+      "CE": {
+        "full_name": "Chief Engineer",
+        "status": "ACTIVE",
+        "current_session_id": "b2360551-04af-4110-9cc8-cb1dce3334cc",
+        "charge_document": "/.claude/sandbox/communications/active/CE_CHARGE_20251210.md"
+      },
+      "BA": {
+        "full_name": "Build Agent",
+        "status": "ACTIVE",
+        "current_session_id": "72a1c1a7-c564-4ac8-974a-13ed0ce87dca",
+        "charge_document": "/.claude/sandbox/communications/active/BA_CHARGE_20251210.md"
+      },
+      "QA": {
+        "full_name": "Quality Assurance Agent",
+        "status": "ACTIVE",
+        "current_session_id": "c31dd28b-2f5b-4f93-a3ad-1a9f0fe74dbc",
+        "charge_document": "/.claude/sandbox/communications/active/QA_CHARGE_20251209.md"
+      },
+      "EA": {
+        "full_name": "Enhancement Assistant",
+        "status": "ACTIVE",
+        "current_session_id": "b959d344-c727-4cd9-9fe9-53d8e2dac32f",
+        "charge_document": "/.claude/sandbox/communications/active/EA_CHARGE_20251209.md"
+      }
+    },
+    "session_continuity": {
+      "protocol": "See AGENT_ONBOARDING_PROMPTS.md for recovery procedures",
+      "common_errors": ["thinking blocks cannot be modified", "unexpected tool_use_id", "Prompt is too long"],
+      "recovery_action": "Archive corrupted session, start new session with onboarding prompt, ingest predecessor context"
+    }
+  },
   "current_phase": {
     "phase": "Enhanced Stacking Architecture (V2)",
     "name": "Calibrated Probability Stacking with Regime-Aware Meta-Learner",
@@ -174,15 +211,28 @@
       "SHAP analysis (100K+ samples - USER MANDATE)"
     ],
     "pipeline_status": {
-      "step_6_feature_extraction": "IN PROGRESS",
-      "stability_selection": "PENDING (pipeline fix required)",
-      "training": "PENDING (dynamic feature loading required)",
+      "step_6_feature_extraction": "READY - Gap remediation COMPLETE (2025-12-11)",
+      "stability_selection": "PENDING",
+      "training": "PENDING",
       "shap": "PENDING"
+    },
+    "feature_extraction": {
+      "tables_per_pair": 669,
+      "categories": 5,
+      "extraction_categories": {
+        "pair_specific": {"pattern": "%pair%", "tables": 256},
+        "triangulation": {"pattern": "tri_*", "tables": 194},
+        "market_wide": {"pattern": "mkt_*", "tables": 12},
+        "variance": {"pattern": "var_*", "tables": 63},
+        "currency_strength": {"pattern": "csi_*", "tables": 144}
+      },
+      "coverage": "100%",
+      "gap_remediation_date": "2025-12-11"
     },
     "feature_universe": {
       "total_columns_per_pair": 11337,
       "unique_features_per_pair": 1064,
-      "tables_per_pair": 462,
+      "tables_per_pair": 669,
       "current_h15_features": 59,
       "h15_model_status": "OBSOLETE - will be replaced after Step 6"
     },

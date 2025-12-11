@@ -697,10 +697,11 @@ def main():
     pair = sys.argv[1] if len(sys.argv) > 1 else "eurusd"
     sample_pct = float(sys.argv[2]) if len(sys.argv) > 2 else 5.0
     horizon = int(sys.argv[3]) if len(sys.argv) > 3 else 15
-    use_parquet = "--parquet" in sys.argv
+    # GAP-001 FIX: Default to parquet (Step 6 output), use --bq flag for BigQuery fallback
+    use_parquet = "--bq" not in sys.argv
 
     if use_parquet:
-        print("Using parquet mode (Step 6 output)")
+        print("Using parquet mode (Step 6 output) - DEFAULT")
         df = load_from_parquet(pair)
         if df is not None:
             # Run selection on parquet data
@@ -709,6 +710,7 @@ def main():
             print("ERROR: Parquet not found, falling back to BigQuery")
             run_robust_selection(pair, sample_pct, horizon)
     else:
+        print("Using BigQuery mode (--bq flag specified)")
         run_robust_selection(pair, sample_pct, horizon)
 
 

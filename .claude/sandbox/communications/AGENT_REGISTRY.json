@@ -3,11 +3,19 @@
     "CE": {
       "full_name": "Chief Engineer",
       "agent_id": "CE",
-      "role": "Project oversight and technical decisions",
+      "role": "Project oversight, technical decisions, agent coordination",
       "active": true,
+      "reports_to": "USER",
+      "current_session_id": "b2360551-04af-4110-9cc8-cb1dce3334cc",
+      "predecessor_session_ids": [
+        "ed54da35-df07-4e08-9489-64c6621a209c"
+      ],
+      "session_file_location": "/home/micha/.claude/projects/-home-micha-bqx-ml-v3/",
       "inbox_filter": ["*-to-CE_*", "*-to-ALL_*"],
       "primary_contact": "Claude (BQX ML V3)",
       "monitoring_pattern": "CE|ALL",
+      "charge_document": "/.claude/sandbox/communications/active/CE_CHARGE_20251210.md",
+      "todo_file": "/.claude/sandbox/communications/shared/CE_TODO.md",
       "response_sla_hours": {
         "URGENT": 1,
         "HIGH": 4,
@@ -16,16 +24,66 @@
       }
     },
     "BA": {
-      "full_name": "Builder Agent",
+      "full_name": "Build Agent",
       "agent_id": "BA",
       "role": "Execute real implementation of all tasks",
       "active": true,
+      "reports_to": "CE",
+      "current_session_id": "72a1c1a7-c564-4ac8-974a-13ed0ce87dca",
+      "predecessor_session_ids": [],
+      "session_file_location": "/home/micha/.claude/projects/-home-micha-bqx-ml-v3/",
       "inbox_filter": ["*-to-BA_*", "*-to-ALL_*"],
-      "primary_contact": "Builder Agent Instance",
+      "primary_contact": "Build Agent Instance",
       "monitoring_pattern": "BA|ALL",
+      "charge_document": "/.claude/sandbox/communications/active/BA_CHARGE_20251210.md",
+      "todo_file": "/.claude/sandbox/communications/shared/BA_TODO.md",
       "response_sla_hours": {
         "URGENT": 1,
         "HIGH": 4,
+        "NORMAL": 24,
+        "LOW": 48
+      }
+    },
+    "QA": {
+      "full_name": "Quality Assurance Agent",
+      "agent_id": "QA",
+      "role": "Audit, reconciliation, gap detection, data quality, cost monitoring, budget adherence, remediation planning",
+      "active": true,
+      "reports_to": "CE",
+      "current_session_id": "c31dd28b-2f5b-4f93-a3ad-1a9f0fe74dbc",
+      "predecessor_session_ids": [],
+      "session_file_location": "/home/micha/.claude/projects/-home-micha-bqx-ml-v3/",
+      "inbox_filter": ["*-to-QA_*", "*-to-ALL_*"],
+      "primary_contact": "Quality Assurance Agent Instance",
+      "monitoring_pattern": "QA|ALL",
+      "charge_document": "/.claude/sandbox/communications/active/QA_CHARGE_20251209.md",
+      "todo_file": "/.claude/sandbox/communications/shared/QA_TODO.md",
+      "response_sla_hours": {
+        "URGENT": 1,
+        "HIGH": 4,
+        "NORMAL": 12,
+        "LOW": 24
+      }
+    },
+    "EA": {
+      "full_name": "Enhancement Assistant",
+      "agent_id": "EA",
+      "role": "Performance optimization, cost reduction, workflow streamlining, workspace organization, agent coordination",
+      "active": true,
+      "reports_to": "CE",
+      "current_session_id": "b959d344-c727-4cd9-9fe9-53d8e2dac32f",
+      "predecessor_session_ids": [
+        "6050ea3a-7104-4ea4-afad-1eb8fedc705d"
+      ],
+      "session_file_location": "/home/micha/.claude/projects/-home-micha-bqx-ml-v3/",
+      "inbox_filter": ["*-to-EA_*", "*-to-ALL_*"],
+      "primary_contact": "Enhancement Assistant Instance",
+      "monitoring_pattern": "EA|ALL",
+      "charge_document": "/.claude/sandbox/communications/active/EA_CHARGE_20251209.md",
+      "todo_file": "/.claude/sandbox/communications/shared/EA_TODO.md",
+      "response_sla_hours": {
+        "URGENT": 2,
+        "HIGH": 6,
         "NORMAL": 24,
         "LOW": 48
       }
@@ -35,6 +93,8 @@
       "agent_id": "TA",
       "role": "Validate implementations and quality gates",
       "active": false,
+      "current_session_id": null,
+      "predecessor_session_ids": [],
       "inbox_filter": ["*-to-TA_*", "*-to-ALL_*"],
       "primary_contact": "Test Agent Instance",
       "monitoring_pattern": "TA|ALL",
@@ -50,6 +110,8 @@
       "agent_id": "MA",
       "role": "Monitor system health and performance",
       "active": false,
+      "current_session_id": null,
+      "predecessor_session_ids": [],
       "inbox_filter": ["*-to-MA_*", "*-to-ALL_*"],
       "primary_contact": "Monitoring Agent Instance",
       "monitoring_pattern": "MA|ALL",
@@ -60,43 +122,12 @@
         "LOW": 24
       }
     },
-    "QA": {
-      "full_name": "Quality Assurance Agent",
-      "agent_id": "QA",
-      "role": "Audit, reconciliation, gap detection, data quality, cost monitoring, budget adherence, remediation planning",
-      "active": true,
-      "reports_to": "CE",
-      "inbox_filter": ["*-to-QA_*", "*-to-ALL_*"],
-      "primary_contact": "Quality Assurance Agent Instance",
-      "monitoring_pattern": "QA|ALL",
-      "response_sla_hours": {
-        "URGENT": 1,
-        "HIGH": 4,
-        "NORMAL": 12,
-        "LOW": 24
-      }
-    },
-    "EA": {
-      "full_name": "Enhancement Assistant",
-      "agent_id": "EA",
-      "role": "Performance optimization, cost reduction, workflow streamlining, workspace organization, agent coordination",
-      "active": true,
-      "reports_to": "CE",
-      "inbox_filter": ["*-to-EA_*", "*-to-ALL_*"],
-      "primary_contact": "Enhancement Assistant Instance",
-      "monitoring_pattern": "EA|ALL",
-      "response_sla_hours": {
-        "URGENT": 2,
-        "HIGH": 6,
-        "NORMAL": 24,
-        "LOW": 48
-      }
-    },
     "USER": {
       "full_name": "Human User",
       "agent_id": "USER",
       "role": "Project owner and final authority",
       "active": true,
+      "current_session_id": null,
       "inbox_filter": ["*-to-USER_*"],
       "primary_contact": "Project Owner",
       "monitoring_pattern": "USER",
@@ -108,12 +139,32 @@
       }
     }
   },
+  "session_continuity": {
+    "session_file_base_path": "/home/micha/.claude/projects/-home-micha-bqx-ml-v3/",
+    "archive_path": "/home/micha/.claude/projects/-home-micha-bqx-ml-v3/archive/",
+    "common_errors": [
+      "thinking blocks cannot be modified",
+      "unexpected tool_use_id",
+      "Prompt is too long"
+    ],
+    "recovery_protocol": "See AGENT_ONBOARDING_PROMPTS.md Section: Session Recovery Procedure"
+  },
   "registry_metadata": {
-    "version": "2.0",
-    "last_updated": "2025-12-09T16:00:00Z",
+    "version": "3.0",
+    "last_updated": "2025-12-10T23:00:00Z",
     "maintained_by": "Chief Engineer",
-    "update_protocol": "Update when new agents added or status changes",
+    "update_protocol": "Update when new agents added, status changes, or session IDs change",
     "change_log": [
+      {
+        "version": "3.0",
+        "date": "2025-12-10",
+        "changes": [
+          "Added session continuity fields (current_session_id, predecessor_session_ids, session_file_location)",
+          "Added session_continuity section with paths and recovery protocol",
+          "Added charge_document and todo_file references",
+          "Updated all active agent session IDs"
+        ]
+      },
       {
         "version": "2.0",
         "date": "2025-12-09",

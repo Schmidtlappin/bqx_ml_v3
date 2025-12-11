@@ -1,0 +1,199 @@
+/home/micha/.local/lib/python3.10/site-packages/google/api_core/_python_version_support.py:266: FutureWarning: You are using a Python version (3.10.12) which Google will stop supporting in new releases of google.api_core once it reaches its end of life (2026-10-04). Please upgrade to the latest Python version, or at least Python 3.11, to continue receiving updates for google.api_core past that date.
+  warnings.warn(message, FutureWarning)
+
+*** FULL RUN - REQUIRES CE APPROVAL ***
+
+======================================================================
+SEQUENTIAL PAIR PROCESSING - USER MANDATE
+(All 12 workers focus on ONE pair at a time)
+======================================================================
+Pairs: 28
+Table workers per pair: 16
+Date range: 2020-01-01 to 2024-12-31
+======================================================================
+
+======================================================================
+PAIR 1/28: EURUSD
+======================================================================
+
+==================================================
+Processing EURUSD
+==================================================
+  Querying EURUSD (CHECKPOINT MODE - 16 parallel workers)...
+    Targets: CACHED
+    Tables: 669 total
+      - pair_specific: 256
+      - triangulation: 194
+      - market_wide: 12
+      - variance: 63
+      - currency_strength: 144
+    Fetching columns for 669 tables (batch query)...
+    Cached columns for 669 tables
+    Status: 316 cached, 353 pending
+    Starting PARALLEL extraction (16 workers)...
+      [317/669] tri_align_idx_eur_usd_nzd: +14 cols SAVED
+      [318/669] tri_align_idx_gbp_usd_aud: +14 cols SAVED
+      [319/669] tri_mom_bqx_aud_usd_nzd: +14 cols SAVED
+      [320/669] tri_align_idx_gbp_usd_cad: +14 cols SAVED
+      [321/669] tri_align_idx_gbp_usd_nzd: +14 cols SAVED
+      [322/669] tri_mom_bqx_aud_usd_cad: +14 cols SAVED
+      [323/669] tri_align_idx_gbp_usd_chf: +14 cols SAVED
+      [324/669] tri_mom_bqx_aud_usd_chf: +14 cols SAVED
+      [325/669] tri_mom_bqx_aud_usd_jpy: +14 cols SAVED
+      [326/669] tri_align_idx_nzd_usd_chf: +14 cols SAVED
+      [327/669] tri_align_idx_gbp_usd_jpy: +14 cols SAVED
+      [328/669] tri_align_idx_nzd_usd_jpy: +14 cols SAVED
+      [329/669] tri_align_idx_nzd_usd_cad: +14 cols SAVED
+      [330/669] tri_mom_bqx_eur_usd_chf: +14 cols SAVED
+      [331/669] tri_mom_bqx_eur_usd_aud: +14 cols SAVED
+      [332/669] tri_mom_bqx_eur_usd_gbp: +14 cols SAVED
+      [333/669] tri_mom_bqx_eur_usd_jpy: +14 cols SAVED
+      [334/669] tri_mom_bqx_eur_usd_cad: +14 cols SAVED
+      [335/669] tri_mom_bqx_eur_usd_nzd: +14 cols SAVED
+      [336/669] tri_mom_bqx_gbp_usd_aud: +14 cols SAVED
+      [337/669] tri_mom_bqx_gbp_usd_cad: +14 cols SAVED
+      [338/669] tri_mom_bqx_gbp_usd_nzd: +14 cols SAVED
+      [339/669] tri_mom_bqx_nzd_usd_chf: +14 cols SAVED
+      [340/669] tri_mom_bqx_gbp_usd_jpy: +14 cols SAVED
+      [341/669] tri_mom_bqx_nzd_usd_cad: +14 cols SAVED
+      [342/669] tri_mom_bqx_gbp_usd_chf: +14 cols SAVED
+      [343/669] tri_mom_idx_aud_usd_cad: +14 cols SAVED
+      [344/669] tri_mom_bqx_nzd_usd_jpy: +14 cols SAVED
+      [345/669] tri_mom_idx_aud_usd_jpy: +14 cols SAVED
+      [346/669] tri_mom_idx_aud_usd_chf: +14 cols SAVED
+      [347/669] tri_mom_idx_eur_usd_aud: +14 cols SAVED
+      [348/669] tri_mom_idx_eur_usd_chf: +14 cols SAVED
+      [349/669] tri_mom_idx_aud_usd_nzd: +14 cols SAVED
+      [350/669] tri_mom_idx_eur_usd_cad: +14 cols SAVED
+      [351/669] tri_mom_idx_eur_usd_gbp: +14 cols SAVED
+      [352/669] tri_mom_idx_eur_usd_jpy: +14 cols SAVED
+      [353/669] tri_mom_idx_eur_usd_nzd: +14 cols SAVED
+      [354/669] tri_mom_idx_gbp_usd_aud: +14 cols SAVED
+      [355/669] tri_mom_idx_gbp_usd_cad: +14 cols SAVED
+      [356/669] tri_mom_idx_gbp_usd_chf: +14 cols SAVED
+      [357/669] tri_mom_idx_gbp_usd_jpy: +14 cols SAVED
+      [358/669] tri_mom_idx_gbp_usd_nzd: +14 cols SAVED
+      [359/669] tri_mom_idx_nzd_usd_chf: +14 cols SAVED
+      [360/669] tri_mom_idx_nzd_usd_cad: +14 cols SAVED
+      [361/669] tri_reg_bqx_aud_usd_cad: +14 cols SAVED
+      [362/669] tri_mom_idx_nzd_usd_jpy: +14 cols SAVED
+      [363/669] tri_reg_bqx_aud_usd_chf: +14 cols SAVED
+      [364/669] tri_reg_bqx_aud_nzd_jpy: +118 cols SAVED
+      [365/669] tri_reg_bqx_aud_usd_jpy: +118 cols SAVED
+      [366/669] tri_reg_bqx_aud_usd_nzd: +118 cols SAVED
+      === Progress: 50/353 (0.1/s, ~4058s remaining) ===
+      [367/669] tri_reg_bqx_cad_chf_jpy: +118 cols SAVED
+      [368/669] tri_reg_bqx_cad_usd_jpy: +118 cols SAVED
+      [369/669] tri_reg_bqx_eur_gbp_chf: +118 cols SAVED
+      [370/669] tri_reg_bqx_eur_chf_jpy: +118 cols SAVED
+      [371/669] tri_reg_bqx_eur_usd_cad: +118 cols SAVED
+      [372/669] tri_reg_bqx_eur_gbp_jpy: +118 cols SAVED
+      [373/669] tri_reg_bqx_eur_usd_aud: +118 cols SAVED
+      [374/669] tri_reg_bqx_eur_usd_chf: +118 cols SAVED
+      [375/669] tri_reg_bqx_eur_usd_jpy: +118 cols SAVED
+      [376/669] tri_reg_bqx_eur_usd_gbp: +118 cols SAVED
+      [377/669] tri_reg_bqx_gbp_usd_cad: +14 cols SAVED
+      [378/669] tri_reg_bqx_nzd_usd_cad: +14 cols SAVED
+      [379/669] tri_reg_bqx_gbp_usd_nzd: +14 cols SAVED
+      [380/669] tri_reg_bqx_nzd_usd_chf: +14 cols SAVED
+      [381/669] tri_reg_bqx_nzd_usd_jpy: +14 cols SAVED
+      [382/669] tri_reg_idx_aud_usd_cad: +14 cols SAVED
+      [383/669] tri_reg_idx_aud_usd_chf: +14 cols SAVED
+      [384/669] reg_eurusd: +232 cols SAVED
+      [385/669] reg_idx_eurusd: +232 cols SAVED
+      [386/669] reg_bqx_eurusd: +232 cols SAVED
+      [387/669] tri_reg_bqx_eur_usd_nzd: +118 cols SAVED
+      [388/669] tri_reg_bqx_gbp_chf_jpy: +118 cols SAVED
+      [389/669] tri_reg_bqx_gbp_usd_aud: +118 cols SAVED
+      [390/669] tri_reg_bqx_gbp_usd_chf: +118 cols SAVED
+      [391/669] tri_reg_bqx_gbp_usd_jpy: +118 cols SAVED
+      [392/669] tri_reg_idx_aud_nzd_jpy: +118 cols SAVED
+      [393/669] tri_reg_idx_aud_usd_jpy: +118 cols SAVED
+      [394/669] tri_reg_idx_aud_usd_nzd: +118 cols SAVED
+      [395/669] tri_reg_idx_cad_usd_jpy: +118 cols SAVED
+      [396/669] tri_reg_idx_eur_chf_jpy: +118 cols SAVED
+      [397/669] tri_reg_idx_cad_chf_jpy: +118 cols SAVED
+      [398/669] tri_reg_idx_gbp_usd_cad: +14 cols SAVED
+      [399/669] tri_reg_idx_eur_gbp_chf: +118 cols SAVED
+      [400/669] tri_reg_idx_eur_gbp_jpy: +118 cols SAVED
+      [401/669] tri_reg_idx_gbp_usd_nzd: +14 cols SAVED
+      [402/669] tri_reg_idx_nzd_usd_cad: +14 cols SAVED
+      [403/669] tri_reg_idx_nzd_usd_chf: +14 cols SAVED
+      [404/669] tri_reg_idx_nzd_usd_jpy: +14 cols SAVED
+      [405/669] tri_vol_bqx_aud_usd_cad: +14 cols SAVED
+      [406/669] tri_vol_bqx_aud_usd_chf: +14 cols SAVED
+      [407/669] tri_vol_bqx_aud_usd_jpy: +14 cols SAVED
+      [408/669] tri_vol_bqx_aud_usd_nzd: +14 cols SAVED
+      [409/669] tri_vol_bqx_eur_usd_aud: +14 cols SAVED
+      [410/669] tri_vol_bqx_eur_usd_cad: +14 cols SAVED
+      [411/669] tri_vol_bqx_eur_usd_chf: +14 cols SAVED
+      [412/669] tri_vol_bqx_eur_usd_gbp: +14 cols SAVED
+      [413/669] tri_vol_bqx_eur_usd_jpy: +14 cols SAVED
+      [414/669] tri_vol_bqx_eur_usd_nzd: +14 cols SAVED
+      [415/669] tri_vol_bqx_gbp_usd_aud: +14 cols SAVED
+      [416/669] tri_vol_bqx_gbp_usd_cad: +14 cols SAVED
+      === Progress: 100/353 (0.1/s, ~3671s remaining) ===
+      [417/669] tri_vol_bqx_gbp_usd_chf: +14 cols SAVED
+      [418/669] tri_vol_bqx_gbp_usd_jpy: +14 cols SAVED
+      [419/669] tri_vol_bqx_gbp_usd_nzd: +14 cols SAVED
+      [420/669] tri_vol_bqx_nzd_usd_cad: +14 cols SAVED
+      [421/669] tri_vol_bqx_nzd_usd_chf: +14 cols SAVED
+      [422/669] tri_vol_bqx_nzd_usd_jpy: +14 cols SAVED
+      [423/669] tri_vol_idx_aud_usd_cad: +14 cols SAVED
+      [424/669] tri_vol_idx_aud_usd_chf: +14 cols SAVED
+      [425/669] tri_vol_idx_aud_usd_jpy: +14 cols SAVED
+      [426/669] tri_vol_idx_aud_usd_nzd: +14 cols SAVED
+      [427/669] tri_vol_idx_eur_usd_aud: +14 cols SAVED
+      [428/669] tri_vol_idx_eur_usd_chf: +14 cols SAVED
+      [429/669] tri_vol_idx_eur_usd_cad: +14 cols SAVED
+      [430/669] tri_vol_idx_eur_usd_gbp: +14 cols SAVED
+      [431/669] tri_vol_idx_eur_usd_jpy: +14 cols SAVED
+      [432/669] tri_reg_idx_eur_usd_aud: +118 cols SAVED
+      [433/669] tri_reg_idx_eur_usd_cad: +118 cols SAVED
+      [434/669] tri_reg_idx_eur_usd_chf: +118 cols SAVED
+      [435/669] tri_vol_idx_eur_usd_nzd: +14 cols SAVED
+      [436/669] tri_vol_idx_gbp_usd_aud: +14 cols SAVED
+      [437/669] tri_vol_idx_gbp_usd_cad: +14 cols SAVED
+      [438/669] tri_vol_idx_gbp_usd_chf: +14 cols SAVED
+      [439/669] tri_vol_idx_gbp_usd_jpy: +14 cols SAVED
+      [440/669] mkt_reg_bqx_summary: ERROR - 400 Unrecognized name: interval_time at [4:20]; reason: invalidQuery, location: query, message: Unrecognized name: interval_time at [4:20]
+
+Location: us-central1
+Job ID: 68e62c3c-5143-4463-9fcb-875c2a8784bc
+
+      [441/669] mkt_reg_summary: ERROR - 400 Unrecognized name: interval_time at [4:20]; reason: invalidQuery, location: query, message: Unrecognized name: interval_time at [4:20]
+
+Location: us-central1
+Job ID: 05d63977-2ffa-4e25-8d58-66f6846d8b51
+
+      [442/669] tri_vol_idx_gbp_usd_nzd: +14 cols SAVED
+      [443/669] tri_vol_idx_nzd_usd_cad: +14 cols SAVED
+      [444/669] tri_reg_idx_eur_usd_gbp: +118 cols SAVED
+      [445/669] tri_vol_idx_nzd_usd_chf: +14 cols SAVED
+      [446/669] mkt_corr: +11 cols SAVED
+      [447/669] mkt_corr_bqx: +11 cols SAVED
+      [448/669] tri_vol_idx_nzd_usd_jpy: +14 cols SAVED
+      [449/669] tri_reg_idx_eur_usd_jpy: +118 cols SAVED
+      [450/669] mkt_regime: +8 cols SAVED
+      [451/669] tri_reg_idx_eur_usd_nzd: +118 cols SAVED
+      [452/669] mkt_regime_bqx: +8 cols SAVED
+      [453/669] tri_reg_idx_gbp_chf_jpy: +118 cols SAVED
+      [454/669] mkt_dispersion: +17 cols SAVED
+      [455/669] mkt_dispersion_bqx: +17 cols SAVED
+      [456/669] tri_reg_idx_gbp_usd_aud: +118 cols SAVED
+      [457/669] mkt_sentiment: +17 cols SAVED
+      [458/669] var_agg_bqx_aud: +13 cols SAVED
+      [459/669] mkt_sentiment_bqx: +17 cols SAVED
+      [460/669] tri_reg_idx_gbp_usd_chf: +118 cols SAVED
+      [461/669] var_agg_bqx_gbp: +13 cols SAVED
+      [462/669] var_agg_bqx_cad: +13 cols SAVED
+      [463/669] var_agg_bqx_eur: +13 cols SAVED
+      [464/669] var_agg_bqx_chf: +13 cols SAVED
+      [465/669] var_agg_bqx_nzd: +13 cols SAVED
+      [466/669] var_agg_bqx_jpy: +13 cols SAVED
+      === Progress: 150/353 (0.1/s, ~2392s remaining) ===
+      [467/669] mkt_vol_bqx: +22 cols SAVED
+      [468/669] mkt_vol: +22 cols SAVED
+      [469/669] var_agg_idx_aud: +13 cols SAVED
+      [470/669] tri_reg_idx_gbp_usd_jpy: +118 cols SAVED
+      [471/669] var_agg_idx_cad: +13 cols SAVED

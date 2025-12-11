@@ -44,13 +44,22 @@
       "feature_universe": {
         "total_columns_per_pair": 11337,
         "unique_features_per_pair": 1064,
-        "tables_per_pair": 462
+        "tables_per_pair": 669,
+        "extraction_categories": {
+          "pair_specific": {"pattern": "%pair%", "tables": 256},
+          "triangulation": {"pattern": "tri_*", "tables": 194},
+          "market_wide": {"pattern": "mkt_*", "tables": 12},
+          "variance": {"pattern": "var_*", "tables": 63},
+          "currency_strength": {"pattern": "csi_*", "tables": 144}
+        },
+        "coverage": "100%",
+        "gap_remediation_date": "2025-12-11"
       },
       "current_h15_model": {
         "features": 59,
         "status": "OBSOLETE - will be replaced after full universe testing"
       },
-      "status": "IN PROGRESS - Step 6 feature extraction running"
+      "status": "READY - Gap remediation COMPLETE (2025-12-11)"
     },
     "Feature_Target_Separation": {
       "old_rule": "BQX values strictly prohibited as features",

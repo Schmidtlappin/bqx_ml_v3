@@ -3,8 +3,8 @@
 **Purpose**: This directory contains the authoritative architectural mandate documents for BQX ML V3.
 
 **Status**: DEFINITIVE SPECIFICATIONS
-**Date**: 2025-12-08 (Updated)
-**Migration Status**: IN PROGRESS → bqx_ml_v3_features_v2 / bqx_bq_uscen1_v2
+**Date**: 2025-12-10 (Updated)
+**Migration Status**: COMPLETE - V2 datasets active, V1 deleted
 
 ---
 
@@ -106,33 +106,37 @@ These documents represent **NON-NEGOTIABLE architectural decisions** that:
 
 ---
 
-## 📊 QUICK REFERENCE (UPDATED 2025-12-08)
+## 📊 QUICK REFERENCE (UPDATED 2025-12-10)
 
 ```
 BQX ML V3 Architecture:
 ├── Models: 28 independent currency pair systems
 ├── Horizons: 7 per system (h15, h30, h45, h60, h75, h90, h105)
-├── Total Models: 784 (28 pairs × 7 horizons × 4 ensemble members)
+├── Total Models: 588 (28 pairs × 7 horizons × 3 ensemble members)
+├── Ensemble: LightGBM + XGBoost + CatBoost (ElasticNet removed 2025-12-09)
 ├── Data Sources: IDX (price) + BQX (momentum) ONLY
 ├── Datasets: bqx_ml_v3_features_v2, bqx_bq_uscen1_v2 (partitioned)
 ├── Feature Types: 8 (regression, lag, regime, agg, align, corr, mom, vol)
 ├── Feature Perspectives: 6 (primary, variant, covariant, tri, secondary, tertiary)
-├── Total Tables: 4,218+ in BigQuery v2 (migration ~62% complete)
-├── Features per Model: 8,214+ generated → 500-1,000 selected via SHAP
-├── Target Accuracy: 95%+ directional accuracy (deploy farthest horizon achieving this)
-├── Algorithms: LightGBM, XGBoost, CatBoost → Stacking Ensemble + LSTM meta
+├── Total Tables: 4,888 in BigQuery v2 (MIGRATION COMPLETE)
+├── Features per Model: 11,337 columns (1,064 unique features)
+├── Target Accuracy: 85-95% called accuracy with 30-50% coverage
+├── Meta-Learner: Logistic Regression with regime features
 ├── Cost Estimate: ~$277/month (optimized with BigQuery ML + Spot VMs)
-└── Post-Migration Plan: /home/micha/.claude/plans/gentle-skipping-wirth.md
+├── Agent Coordination: CE, BA, QA, EA (see AGENT_REGISTRY.json)
+└── Pipeline Status: Step 6 feature extraction IN PROGRESS
 ```
 
-### Migration Progress (as of 2025-12-08)
+### Migration Status (as of 2025-12-10)
 | Dataset | Status | Tables | Size |
 |---------|--------|--------|------|
-| Features v2 | 72% | 3,031 / 4,218 | 924 GB |
-| Source v2 | 100% | 2,210 | 131 GB |
-| Analytics v2 | 100% | 54 | 68 GB |
+| Features v2 | ✅ COMPLETE | 4,888 | 1,479 GB |
+| Source v2 | ✅ COMPLETE | 2,210 | 131 GB |
+| Analytics v2 | ✅ COMPLETE | 54 | 68 GB |
+| V1 datasets | ❌ DELETED | - | $50/mo saved |
 
 **V2 Catalog**: See `/intelligence/bigquery_v2_catalog.json` for full details
+**Agent Registry**: See `/.claude/sandbox/communications/AGENT_REGISTRY.json`
 
 ---
 
@@ -176,6 +180,13 @@ BQX ML V3 Architecture:
 
 ## 📅 DOCUMENT HISTORY
 
+- **2025-12-10**: Agent coordination and V2 completion update
+  - V2 migration COMPLETE (4,888 feature tables, 1,479 GB)
+  - V1 datasets DELETED ($50/month savings realized)
+  - ElasticNet removed from ensemble (588 models, not 784)
+  - Multi-agent coordination: CE, BA, QA, EA (see AGENT_REGISTRY.json)
+  - Step 6 feature extraction in progress (28 pairs × 11,337 columns)
+  - Session continuity protocol established for all agents
 - **2025-12-08**: Major architecture update
   - Migration to v2 datasets (partitioned by DATE(interval_time), clustered by pair)
   - Updated to 7 horizons (h15-h105), 784 total models
@@ -194,6 +205,6 @@ BQX ML V3 Architecture:
 ---
 
 *Mandate documentation established: 2025-11-27*
-*Last updated: 2025-12-08*
+*Last updated: 2025-12-10*
 *Total size: 55KB across 1,800+ lines*
 *Status: DEFINITIVE AND AUTHORITATIVE*

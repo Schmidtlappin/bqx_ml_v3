@@ -1,11 +1,71 @@
 # BA Task List
 
-**Last Updated**: December 10, 2025 20:44
-**Maintained By**: BA
+**Last Updated**: December 11, 2025 06:20
+**Maintained By**: CE (refresh)
 
 ---
 
-## P0: URGENT - PIPELINE HOTFIXES (CE Directive 20:45) ✅ COMPLETE
+## P0: IMMEDIATE - ONBOARDING REQUIRED (CE Directive 06:20)
+
+**CE DIRECTIVE**: `inboxes/BA/20251211_0620_CE-to-BA_ONBOARDING_DIRECTIVE.md`
+
+**You MUST complete onboarding before any other tasks.**
+
+### Required Reading (in order):
+1. **Intelligence Files**: context.json, ontology.json, roadmap_v2.json, semantics.json, feature_catalogue.json
+2. **Mandate Files**: README.md, BQX_ML_V3_FEATURE_INVENTORY.md, FEATURE_LEDGER_100_PERCENT_MANDATE.md
+3. **Agent Files**: BA_TODO.md (this file), AGENT_ONBOARDING_PROMPTS.md, BA_SESSION_HANDOFF.md
+4. **Your Inbox**: All recent .md files in `inboxes/BA/`
+
+**After onboarding, report to CE**: `inboxes/CE/[timestamp]_BA-to-CE_ONBOARDING_COMPLETE.md`
+
+---
+
+## P0: **LEAD** - STEP 6 EXECUTION (CE Directive 04:55)
+
+**ROLE**: You are designated **LEAD** for Step 6 execution until complete.
+
+| Task | Priority | Status | Notes |
+|------|----------|--------|-------|
+| **Step 6 Lead** | **CRITICAL** | 🟢 **EXECUTING** | Own until complete |
+| **Real-time Remediation** | **CRITICAL** | 🔵 **ACTIVE** | Fix issues immediately |
+
+**CE LEAD DIRECTIVE**: `inboxes/BA/20251211_0455_CE-to-BA_STEP6_LEAD_DIRECTIVE.md`
+
+**CURRENT STATUS**:
+```
+PAIR 1/28: EURUSD
+Tables: 79/669 (12%)
+Progress: ~0.2/s, ~2850s remaining
+Workers: 12 (focused on EURUSD)
+```
+
+**YOUR RESPONSIBILITIES**:
+1. ✅ Monitor processes continuously
+2. ✅ Remediate issues in real-time
+3. ✅ Restart if process crashes (checkpoints preserved)
+4. ✅ Report milestones to CE
+
+**USER MANDATES**:
+1. ✅ All 12 workers focus on ONE pair at a time
+2. ✅ Parquet checkpoint/resume capability
+3. ✅ Sequential pair processing
+
+**MONITORING**:
+```bash
+tail -f logs/step6_sequential_*.log
+watch -n 60 'ps -p 1272452 -o pid,rss,%mem,%cpu'
+```
+
+**AUTHORITY**: Authorized to restart processes without CE approval.
+
+**COORDINATION**:
+- QA: Data audit
+- EA: System health
+
+---
+
+## P0: COMPLETE - PIPELINE HOTFIXES (CE Directive 20:45) ✅ COMPLETE
 
 | Task | Priority | Status | Notes |
 |------|----------|--------|-------|
@@ -36,24 +96,25 @@
 | ~~Step 4~~: Await CE approval | **APPROVED** | See directive below |
 | ~~Step 4b~~: Upgrade VM to 64GB RAM | **DONE** | 64GB confirmed |
 | ~~Step 5~~: Run single pair test | ✅ **DONE** | 10,783 features, $0.89 |
-| **Step 6**: Run full 28-pair test | 🔄 **IN PROGRESS** | Sequential (disk-safe) |
+| **Step 6**: Run full 28-pair test | 🟡 **READY** | Gap remediation COMPLETE, awaiting restart |
 
-**Step 6 Live**: EURUSD 155/462 tables (34%) - ETA ~3 hours
+**Step 6 Status**: READY - Gap remediation COMPLETE (03:40), awaiting user authorization
 
-**CORRECTED FEATURE COUNTS (2025-12-10):**
+**CORRECTED FEATURE COUNTS (2025-12-11):**
 
 | Metric | Value | Use Case |
 |--------|-------|----------|
-| Total columns | 11,337 | BigQuery cost (bytes scanned) |
-| Unique features | 1,064 | ML training (after merge/dedup) |
-| Tables per pair | 462 | Data organization |
+| Total tables per pair | 669 | Full extraction |
+| Unique features | ~1,064+ | ML training (after merge/dedup) |
 
-| Category | Tables | Total Cols | Unique Cols | Status |
-|----------|--------|------------|-------------|--------|
-| `%eurusd%` | 256 | 4,173 | 586 | ✅ DONE |
-| `tri_*` | 194 | 6,460 | 132 | ✅ DONE |
-| `mkt_*` | 12 | 704 | 346 | ✅ DONE |
-| **TOTAL** | **462** | **11,337** | **1,064** | ✅ COMPLETE |
+| Category | Tables | Status |
+|----------|--------|--------|
+| `%pair%` (pair-specific) | 256 | ✅ DONE |
+| `tri_*` (triangulation) | 194 | ✅ DONE |
+| `mkt_*` (market-wide) | 12 | ✅ DONE |
+| `var_*` (variance) | 63 | ✅ **NEW** |
+| `csi_*` (currency strength) | 144 | ✅ **NEW** |
+| **TOTAL** | **669** | **100% COVERAGE** |
 
 **CE APPROVALS**:
 - `inboxes/BA/20251210_0600_CE-to-BA_EXECUTION_APPROVED.md` (Steps 5-6)
@@ -145,4 +206,4 @@
 
 ---
 
-*Updated by CE - December 10, 2025 19:15*
+*Updated by CE - December 11, 2025 04:55*

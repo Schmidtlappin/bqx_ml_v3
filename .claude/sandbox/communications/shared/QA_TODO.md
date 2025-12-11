@@ -1,11 +1,230 @@
 # QA Task List
 
-**Last Updated**: December 10, 2025 22:00
-**Maintained By**: QA
+**Last Updated**: December 11, 2025 06:20
+**Maintained By**: CE (refresh)
+**Current Status**: **MONITORING** - Step 6 EXECUTING
+
+---
+
+## P0: IMMEDIATE - ONBOARDING REQUIRED (CE Directive 06:20)
+
+**CE DIRECTIVE**: `inboxes/QA/20251211_0620_CE-to-QA_ONBOARDING_DIRECTIVE.md`
+
+**You MUST complete onboarding before any other tasks.**
+
+### Required Reading (in order):
+1. **Intelligence Files**: context.json, ontology.json, roadmap_v2.json, semantics.json, feature_catalogue.json
+2. **Mandate Files**: README.md, BQX_ML_V3_FEATURE_INVENTORY.md, FEATURE_LEDGER_100_PERCENT_MANDATE.md
+3. **Agent Files**: QA_TODO.md (this file), AGENT_ONBOARDING_PROMPTS.md, QA_SESSION_HANDOFF.md
+4. **Your Inbox**: All recent .md files in `inboxes/QA/`
+
+**After onboarding, report to CE**: `inboxes/CE/[timestamp]_QA-to-CE_ONBOARDING_COMPLETE.md`
+
+---
+
+## 🟢 STEP 6 RESTART AUTHORIZED (04:25)
+
+| Status | Result |
+|--------|--------|
+| Step 6 | **AUTHORIZED - EXECUTING** |
+| Gap Remediation | ✅ **COMPLETE** |
+| var_* (Variance) | 63 tables ✅ |
+| csi_* (Currency Strength) | 144 tables ✅ |
+| Total Tables per Pair | **669 (100%)** |
+
+**Major Discovery**: CSI tables were FULLY IMPLEMENTED (catalogue was wrong, now corrected)
 
 ---
 
 ## CURRENT SPRINT
+
+### ✅ COMPLETE - Update Intelligence Files (CE Directive 04:10)
+
+| Task | Status | Report |
+|------|--------|--------|
+| **Update Intelligence Files** | ✅ **COMPLETE** | `20251211_0420_QA-to-CE_INTELLIGENCE_UPDATE_COMPLETE.md` |
+
+**Files Updated (04:20)**:
+1. ✅ `context.json` - Added feature_extraction section
+2. ✅ `ontology.json` - Added extraction_categories, updated CSI status
+3. ✅ `roadmap_v2.json` - Updated Step 6 status
+4. ✅ `semantics.json` - Updated feature counts
+5. ✅ `feature_catalogue.json` - (CE updated 03:40)
+
+---
+
+### P1: NEW - Claude Session File Inventory & Archive (CE Directive 05:30)
+
+**CE DIRECTIVE**: `inboxes/QA/20251211_0530_CE-to-QA_SESSION_FILE_INVENTORY.md`
+
+| Task | Status | Notes |
+|------|--------|-------|
+| Inventory all session files | PENDING | 249 files, 187 MB |
+| Identify active vs deprecated | PENDING | Keep Dec 10-11, archive older |
+| Archive deprecated sessions | PENDING | Move to `archive/claude_sessions_20251211/` |
+| Create archive manifest | PENDING | Include file list and sizes |
+| Verify dropdown still works | PENDING | Test after archive |
+
+**CRITICAL**: Archive to `/home/micha/bqx_ml_v3/archive/` NOT `~/.claude/`
+
+**CORRUPTED SESSIONS (MUST ARCHIVE)**:
+- `72a1c1a7-*` (QA OLD, 8.1 MB) - **CORRUPTED**
+- `b959d344-*` (BA OLD, 3.3 MB) - **CORRUPTED**
+
+**Active Sessions (DO NOT ARCHIVE)**:
+- `b2360551-*` (CE, 5.0 MB)
+- `c31dd28b-*` (EA, 2.3 MB)
+
+---
+
+### P0: ACTIVE - Step 6 Monitoring & Audit (CE Directive 04:50)
+
+**CE DIRECTIVE**: `inboxes/QA/20251211_0450_CE-to-QA_STEP6_AUDIT_DIRECTIVE.md`
+
+| Task | Priority | Trigger | Status |
+|------|----------|---------|--------|
+| **Monitor Step 6 process** | P0 | NOW | 🔵 **ACTIVE** |
+| **Audit EURUSD data** | P0 | EURUSD complete | PENDING |
+| **Verify feature coverage** | P0 | Each pair | PENDING |
+| ISSUE-003: Validate all outputs | P1 | All pairs complete | PENDING |
+| ISSUE-004: Pre-Step 7 gate | P2 | After ISSUE-003 | PENDING |
+
+**CURRENT PROCESS**:
+- PID: 1272452
+- Mode: SEQUENTIAL + CHECKPOINT
+- Log: `logs/step6_sequential_*.log`
+
+**USER MANDATES TO VERIFY**:
+- ✅ Sequential pairs (one at a time)
+- ✅ 12 workers per pair
+- ✅ Checkpoint/resume capability
+
+**DATA AUDIT CHECKLIST (Per Pair)**:
+- [ ] Parquet file exists
+- [ ] ~100K rows
+- [ ] >10K columns
+- [ ] All 5 feature categories present (pair, tri, mkt, var, csi)
+- [ ] No NULL in interval_time
+- [ ] Target columns h15-h105 present
+
+**REPORTING**:
+1. `QA-to-CE_STEP6_EURUSD_AUDIT.md` - After first pair
+2. `QA-to-CE_STEP6_PROGRESS_50PCT.md` - At 14 pairs
+3. `QA-to-CE_STEP6_FINAL_AUDIT.md` - After completion
+
+---
+
+### COMPLETED ISSUES
+
+| Issue | Priority | Completed | Status |
+|-------|----------|-----------|--------|
+| ~~GAP-FIX~~ | ~~P0~~ | 03:40 | ✅ **COMPLETE** |
+| ~~INTEL-UPDATE~~ | ~~P0~~ | 04:20 | ✅ **COMPLETE** |
+
+---
+
+### ✅ COMPLETE: EA Gap Remediation Validated
+
+| Task | Status |
+|------|--------|
+| **Validate Gap Remediation Fix** | ✅ **CE VERIFIED 03:40** |
+
+**Validation Checklist**:
+- [x] `var_*` query returns 63 tables ✅
+- [x] `csi_*` query returns 144 tables ✅
+- [x] Table count per pair: 256 + 194 + 12 + 63 + 144 = **669** ✅
+- [x] `feature_catalogue.json` reflects CSI as COMPLETE ✅
+- [x] Gap counts updated correctly ✅
+
+**Result**: 100% coverage achieved - Step 6 ready for restart
+
+---
+
+### PAUSED: ISSUE-006 - Test GAP-001 Remediation
+
+| Task | Trigger |
+|------|---------|
+| **Test GAP-001 Remediation** | First pair (EURUSD) ~00:25 UTC |
+
+**Checklist**:
+- [ ] Run Step 7 `feature_selection_robust.py` on EURUSD parquet
+- [ ] Verify parquet loading works without BQ fallback
+- [ ] Confirm $30 cost savings achieved
+
+**Deliverable**: `QA-to-CE_GAP001_TEST_RESULTS.md`
+
+---
+
+### STATUS: Awaiting Triggers
+
+| Item | Status |
+|------|--------|
+| QA Status | IDLE |
+| Step 6 | RUNNING (BA executing) |
+| ETA | ~3-4 hours |
+
+**No immediate action required** - Await Step 6 completion notification from BA.
+
+---
+
+### QUEUED: P1 - Step 6 Output Validation
+
+| Task | Trigger | Checklist |
+|------|---------|-----------|
+| **Validate Step 6 Output** | BA Step 6 complete | See below |
+
+**Validation Checklist**:
+- [ ] 28 parquet files exist in `data/features/`
+- [ ] Each file has ~100K rows
+- [ ] Each file has ~11,337 columns
+- [ ] No NULL in interval_time column
+- [ ] No NULL in target columns
+- [ ] File sizes reasonable (>100MB each)
+
+**Deliverable**: Step 6 output validation report to CE
+
+---
+
+### QUEUED: P1 - Pre-Step 7 Gate Check
+
+| Task | Trigger |
+|------|---------|
+| **Pre-Step 7 Gate Check** | After Step 6 validation |
+
+**Checklist**:
+- [ ] Parquet files accessible
+- [ ] `feature_selection_robust.py` ready
+- [ ] Stability selection parameters validated
+
+**Deliverable**: Pre-Step 7 gate check report to CE
+
+---
+
+### QUEUED: P2 - GATE_4 Validation Prep
+
+| Task | Trigger |
+|------|---------|
+| **GATE_4 Validation Prep** | After Step 8 completes |
+
+**Checklist**:
+- [ ] New model accuracy vs 59-feature baseline
+- [ ] Feature count comparison
+- [ ] Coverage within 30-50% target
+
+**Deliverable**: GATE_4 validation report to CE
+
+---
+
+### STANDING: Cost & Documentation Monitoring
+
+| Task | Frequency |
+|------|-----------|
+| Track BigQuery usage during pipeline | Continuous |
+| Report cost anomalies | As needed |
+| Update intelligence files post-pipeline | After each phase |
+| Archive obsolete documents | As needed |
+
+---
 
 ### P0: COMPLETED - STALE DOCS CLEANUP (22:00)
 
@@ -192,4 +411,4 @@
 
 ---
 
-*Updated by QA - December 10, 2025 22:00*
+*Updated by CE - December 11, 2025 04:00*

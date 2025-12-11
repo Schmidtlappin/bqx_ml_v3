@@ -78,7 +78,7 @@
       "completion_date": "2025-12-09",
       "methodology": "Group-First Stability Selection (replaces naive SHAP)",
       "milestones": [
-        {"item": "Feature Discovery", "status": "COMPLETE", "details": "28 pairs, 462 tables/pair, 11,337 columns, 1,064 unique features"},
+        {"item": "Feature Discovery", "status": "COMPLETE", "details": "28 pairs, 669 tables/pair (100% - gap remediation 2025-12-11), 11,337 columns, 1,064 unique features"},
         {"item": "Safe Pruning", "status": "COMPLETE", "details": "Removed constant/duplicate features"},
         {"item": "Correlation Clustering", "status": "COMPLETE", "details": "Grouped features with |r| > 0.95"},
         {"item": "Stability Selection", "status": "COMPLETE", "details": "5 folds x 3 seeds, 50% frequency threshold (USER APPROVED 2025-12-09)"},
@@ -237,9 +237,11 @@
         }
       },
       "pipeline_status": {
-        "step_6_feature_extraction": "IN PROGRESS (28 pairs × 11,337 columns)",
-        "stability_selection": "PENDING (pipeline fix required)",
-        "training": "PENDING (dynamic feature loading required)",
+        "step_6_feature_extraction": "READY FOR RESTART - Gap remediation COMPLETE (2025-12-11)",
+        "tables_per_pair": 669,
+        "extraction_categories": 5,
+        "stability_selection": "PENDING",
+        "training": "PENDING",
         "shap": "PENDING"
       }
     },
@@ -579,22 +581,28 @@
   },
   "agent_hierarchy": {
     "description": "Multi-agent coordination structure for BQX ML V3",
-    "version": "2.0",
-    "updated": "2025-12-09",
+    "version": "3.0",
+    "updated": "2025-12-10",
+    "registry_reference": "/.claude/sandbox/communications/AGENT_REGISTRY.json",
+    "session_file_location": "/home/micha/.claude/projects/-home-micha-bqx-ml-v3/",
     "agents": {
       "CE": {
         "full_name": "Chief Engineer",
         "role": "Project oversight and technical decisions",
         "status": "ACTIVE",
-        "direct_reports": ["BA", "QA", "EA"]
+        "direct_reports": ["BA", "QA", "EA"],
+        "current_session_id": "b2360551-04af-4110-9cc8-cb1dce3334cc",
+        "predecessor_sessions": ["ed54da35-df07-4e08-9489-64c6621a209c"]
       },
       "BA": {
-        "full_name": "Builder Agent",
+        "full_name": "Build Agent",
         "role": "Execute real implementation of all tasks",
         "status": "ACTIVE",
         "reports_to": "CE",
-        "current_phase": "Phase 4 - EURUSD Training",
-        "current_task": "SHAP value generation (100K+ samples)"
+        "current_phase": "Phase 4 - Step 6 Feature Extraction",
+        "current_task": "28-pair feature extraction (11,337 columns)",
+        "current_session_id": "72a1c1a7-c564-4ac8-974a-13ed0ce87dca",
+        "predecessor_sessions": []
       },
       "QA": {
         "full_name": "Quality Assurance Agent",
@@ -609,7 +617,9 @@
           "Cost monitoring",
           "Budget adherence",
           "Documentation currency"
-        ]
+        ],
+        "current_session_id": "c31dd28b-2f5b-4f93-a3ad-1a9f0fe74dbc",
+        "predecessor_sessions": []
       },
       "EA": {
         "full_name": "Enhancement Assistant",
@@ -622,7 +632,9 @@
           "Workflow streamlining",
           "Workspace organization",
           "Agent coordination enhancement"
-        ]
+        ],
+        "current_session_id": "b959d344-c727-4cd9-9fe9-53d8e2dac32f",
+        "predecessor_sessions": ["6050ea3a-7104-4ea4-afad-1eb8fedc705d"]
       },
       "TA": {
         "full_name": "Test Agent",
@@ -644,9 +656,20 @@
       "EA_to": ["CE", "BA", "QA"]
     },
     "charge_documents": {
-      "BA": "/.claude/sandbox/communications/active/BA_CHARGE_V2_ROADMAP_20251209.md",
+      "CE": "/.claude/sandbox/communications/active/CE_CHARGE_20251210.md",
+      "BA": "/.claude/sandbox/communications/active/BA_CHARGE_20251210.md",
       "QA": "/.claude/sandbox/communications/active/QA_CHARGE_20251209.md",
       "EA": "/.claude/sandbox/communications/active/EA_CHARGE_20251209.md"
+    },
+    "session_continuity": {
+      "protocol": "See AGENT_ONBOARDING_PROMPTS.md",
+      "recovery_steps": [
+        "Archive corrupted session to archive/ folder",
+        "Update AGENT_REGISTRY.json with new session ID",
+        "Start new Claude Code session with onboarding prompt",
+        "Agent ingests predecessor session for context",
+        "Agent continues from last known good state"
+      ]
     }
   }
 }

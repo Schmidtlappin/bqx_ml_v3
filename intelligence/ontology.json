@@ -80,14 +80,23 @@
           "mkt": "Market - global FX aggregations"
         },
         "currency_level": {
-          "csi": "Currency Strength Index - per-currency aggregations (MISSING)"
+          "csi": "Currency Strength Index - per-currency aggregations (COMPLETE - 144 tables)"
         }
       },
-      "implemented_types": ["cov", "corr", "lag", "tri", "regime", "agg", "align", "mom", "der", "rev", "vol", "mrt", "div", "reg", "base", "cyc", "ext", "tmp"],
-      "partial_types": ["var", "mkt"],
-      "missing_types": ["csi"],
+      "implemented_types": ["cov", "corr", "lag", "tri", "regime", "agg", "align", "mom", "der", "rev", "vol", "mrt", "div", "reg", "base", "cyc", "ext", "tmp", "var", "csi", "mkt"],
+      "partial_types": [],
+      "missing_types": [],
       "total_tables": 4888,
-      "tables_per_pair": 462,
+      "tables_per_pair": 669,
+      "extraction_categories": {
+        "pair_specific": {"pattern": "%pair%", "tables": 256},
+        "triangulation": {"pattern": "tri_*", "tables": 194},
+        "market_wide": {"pattern": "mkt_*", "tables": 12},
+        "variance": {"pattern": "var_*", "tables": 63},
+        "currency_strength": {"pattern": "csi_*", "tables": 144}
+      },
+      "coverage": "100%",
+      "gap_remediation_date": "2025-12-11",
       "columns_per_pair": 11337,
       "unique_features_per_pair": 1064,
       "features_breakdown": {

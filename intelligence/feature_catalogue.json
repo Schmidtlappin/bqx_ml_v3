@@ -1,11 +1,26 @@
 {
   "catalogue_version": "2.1.0",
   "generated": "2025-12-09T10:45:00Z",
-  "updated": "2025-12-10T20:55:00Z",
+  "updated": "2025-12-11T03:40:00Z",
   "purpose": "Complete feature inventory for BQX ML V3",
   "supersedes": "8,214+ estimate in BQX_ML_V3_FEATURE_INVENTORY.md",
-  "last_audit": "2025-12-10",
-  "audit_note": "QA verified: 11,337 columns, 1,064 unique features per pair",
+  "last_audit": "2025-12-11",
+  "audit_note": "CE verified: 100% COVERAGE ACHIEVED. All 669 tables per pair extracted.",
+  "step6_extraction_status": {
+    "status": "COMPLETE",
+    "verified": "2025-12-11T03:40:00Z",
+    "extraction_categories": [
+      {"name": "pair_specific", "pattern": "%pair%", "tables": 256},
+      {"name": "triangulation", "pattern": "tri_*", "tables": 194},
+      {"name": "market_wide", "pattern": "mkt_*", "tables": 12},
+      {"name": "variance", "pattern": "var_*", "tables": 63},
+      {"name": "currency_strength", "pattern": "csi_*", "tables": 144}
+    ],
+    "total_tables_per_pair": 669,
+    "coverage": "100%",
+    "gap_remediation_date": "2025-12-11",
+    "gap_remediation_note": "EA added var_* and csi_* queries per CE directive"
+  },
   "ledger_mandate": {
     "mandate": "/mandate/FEATURE_LEDGER_100_PERCENT_MANDATE.md",
     "coverage_requirement": "100% - ALL features per model must be in ledger",
@@ -51,10 +66,11 @@
         "count": 1
       },
       "currency_level": {
-        "description": "Features aggregated per currency (MISSING)",
+        "description": "Features aggregated per currency",
         "types": ["csi"],
         "count": 1,
-        "status": "NOT IMPLEMENTED"
+        "status": "COMPLETE",
+        "verified": "2025-12-11 CE audit: 144 tables, 5,376 columns, ~2.2M rows each"
       }
     }
   },

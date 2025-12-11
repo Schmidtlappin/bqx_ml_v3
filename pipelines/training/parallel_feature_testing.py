@@ -37,7 +37,7 @@ FEATURES_DATASET = "bqx_ml_v3_features_v2"
 ANALYTICS_DATASET = "bqx_ml_v3_analytics_v2"
 
 HORIZONS = [15, 30, 45, 60, 75, 90, 105]
-MAX_WORKERS = 1  # Sequential pairs (disk limit: 64GB, each pair ~7GB)
+MAX_WORKERS = 16  # CE authorized 05:10 - 16 workers for sequential mode (one pair at a time)
 MAX_TABLE_WORKERS = 8  # Parallel table queries per pair (CE approved)
 SAMPLE_LIMIT = 100000  # 100K samples - CE approved for 64GB RAM (n2-highmem-8)
 
@@ -58,12 +58,14 @@ def get_feature_tables_for_pair(pair: str) -> dict:
     """
     Get ALL feature tables for COMPLETE feature universe.
 
-    THREE categories per CE directive 05:40:
-    1. Pair-specific (%pair%): ~256 tables, 4,173 cols
-    2. Triangulation (tri_*): ~194 tables, 6,460 cols
-    3. Market-wide (mkt_*): ~12 tables, 704 cols
+    FIVE categories per CE directive 2025-12-11:
+    1. Pair-specific (%pair%): ~256 tables
+    2. Triangulation (tri_*): ~194 tables
+    3. Market-wide (mkt_*): ~12 tables
+    4. Variance (var_*): ~63 tables (currency-level)
+    5. Currency Strength (csi_*): ~144 tables (currency-level)
 
-    Total: ~462 tables, ~11,337 columns
+    Total: ~669 tables per pair (100% coverage)
     """
     client = bigquery.Client(project=PROJECT)
 
@@ -94,15 +96,78 @@ def get_feature_tables_for_pair(pair: str) -> dict:
     """
     mkt_tables = [row.table_name for row in client.query(mkt_query).result()]
 
+    # Category 4: Variance tables (currency-level, apply to all pairs)
+    # CE Directive 2025-12-11: 63 tables missing
+    var_query = f"""
+    SELECT table_name
+    FROM `{PROJECT}.{FEATURES_DATASET}.INFORMATION_SCHEMA.TABLES`
+    WHERE STARTS_WITH(table_name, 'var_')
+    ORDER BY table_name
+    """
+    var_tables = [row.table_name for row in client.query(var_query).result()]
+
+    # Category 5: Currency Strength Index tables (currency-level, apply to all pairs)
+    # CE Directive 2025-12-11: 144 tables missing
+    csi_query = f"""
+    SELECT table_name
+    FROM `{PROJECT}.{FEATURES_DATASET}.INFORMATION_SCHEMA.TABLES`
+    WHERE STARTS_WITH(table_name, 'csi_')
+    ORDER BY table_name
+    """
+    csi_tables = [row.table_name for row in client.query(csi_query).result()]
+
     return {
         'pair_specific': pair_tables,
         'triangulation': tri_tables,
-        'market_wide': mkt_tables
+        'market_wide': mkt_tables,
+        'variance': var_tables,
+        'currency_strength': csi_tables
     }
 
 
+# Global cache for table columns (populated once, used many times)
+_TABLE_COLUMNS_CACHE = {}
+
+def get_all_table_columns_batch(table_names: list) -> dict:
+    """
+    Batch query to get columns for ALL tables at once.
+    Much faster than per-table queries (1 query instead of 462).
+    """
+    global _TABLE_COLUMNS_CACHE
+    if _TABLE_COLUMNS_CACHE:
+        return _TABLE_COLUMNS_CACHE
+
+    client = bigquery.Client(project=PROJECT)
+    table_list = "', '".join(table_names)
+
+    query = f"""
+    SELECT table_name, column_name
+    FROM `{PROJECT}.{FEATURES_DATASET}.INFORMATION_SCHEMA.COLUMNS`
+    WHERE table_name IN ('{table_list}')
+    AND column_name NOT IN ('interval_time', 'pair')
+    ORDER BY table_name, ordinal_position
+    """
+
+    print(f"    Fetching columns for {len(table_names)} tables (batch query)...", flush=True)
+    result = client.query(query).result()
+
+    # Build cache
+    for row in result:
+        if row.table_name not in _TABLE_COLUMNS_CACHE:
+            _TABLE_COLUMNS_CACHE[row.table_name] = []
+        _TABLE_COLUMNS_CACHE[row.table_name].append(row.column_name)
+
+    print(f"    Cached columns for {len(_TABLE_COLUMNS_CACHE)} tables", flush=True)
+    return _TABLE_COLUMNS_CACHE
+
+
 def get_table_columns(table_name: str) -> list:
-    """Get ALL columns from a table (excluding interval_time, pair)."""
+    """Get ALL columns from a table (excluding interval_time, pair). Uses cache if available."""
+    global _TABLE_COLUMNS_CACHE
+    if _TABLE_COLUMNS_CACHE:
+        return _TABLE_COLUMNS_CACHE.get(table_name, [])
+
+    # Fallback to single query if cache not populated
     client = bigquery.Client(project=PROJECT)
 
     query = f"""
@@ -206,8 +271,9 @@ def merge_parquet_with_duckdb(targets_path: str, chunk_dir: str, output_path: st
             try:
                 feature_df = pd.read_parquet(pf_path)
                 if 'interval_time' in feature_df.columns:
-                    # Get feature columns (exclude interval_time)
-                    feature_cols = [c for c in feature_df.columns if c != 'interval_time']
+                    # Get feature columns (exclude duplicates already in current_df)
+                    existing_cols = set(current_df.columns)
+                    feature_cols = [c for c in feature_df.columns if c != 'interval_time' and c not in existing_cols]
                     if feature_cols:
                         current_df = current_df.merge(
                             feature_df[['interval_time'] + feature_cols],
@@ -257,6 +323,406 @@ def query_targets(pair: str, date_start: str, date_end: str) -> tuple:
     return df, bytes_scanned
 
 
+def query_pair_direct(pair: str, date_start: str, date_end: str) -> tuple:
+    """
+    Query ALL features for a pair using DIRECT IN-MEMORY merge.
+
+    SIMPLER APPROACH for 64GB RAM:
+    - Query targets first (100K rows)
+    - Query each table and merge immediately
+    - No intermediate parquet files
+    - Proven to work in Step 5 (24GB peak, 10,783 features)
+
+    Returns: (merged_df, cost_info)
+    """
+    client = bigquery.Client(project=PROJECT)
+    print(f"  Querying {pair.upper()} (DIRECT IN-MEMORY - 64GB RAM)...", flush=True)
+
+    # Step 1: Get targets
+    targets_df, targets_bytes = query_targets(pair, date_start, date_end)
+    if targets_df is None or len(targets_df) < 1000:
+        return None, {'error': 'Insufficient target data'}
+
+    print(f"    Targets: {len(targets_df):,} rows", flush=True)
+    total_bytes = targets_bytes
+
+    # Step 2: Get all feature tables
+    tables = get_feature_tables_for_pair(pair)
+    all_tables = (
+        tables['pair_specific'] +
+        tables['triangulation'] +
+        tables['market_wide'] +
+        tables.get('variance', []) +
+        tables.get('currency_strength', [])
+    )
+    print(f"    Tables: {len(all_tables)} total", flush=True)
+    print(f"      - pair_specific: {len(tables['pair_specific'])}", flush=True)
+    print(f"      - triangulation: {len(tables['triangulation'])}", flush=True)
+    print(f"      - market_wide: {len(tables['market_wide'])}", flush=True)
+    print(f"      - variance: {len(tables.get('variance', []))}", flush=True)
+    print(f"      - currency_strength: {len(tables.get('currency_strength', []))}", flush=True)
+
+    # Step 2.5: Batch fetch ALL column metadata (1 query instead of 462)
+    get_all_table_columns_batch(all_tables)
+
+    print(f"    Starting table-by-table extraction...", flush=True)
+
+    # Step 3: Query and merge each table directly
+    merged_df = targets_df.copy()
+    del targets_df
+    gc.collect()
+
+    success_count = 0
+    import time as _time
+    start_time = _time.time()
+
+    for i, table_name in enumerate(all_tables):
+        table_start = _time.time()
+
+        try:
+            # Get columns
+            cols = get_table_columns(table_name)
+            if not cols:
+                print(f"      [{i+1:3d}/{len(all_tables)}] {table_name}: SKIP (no cols)", flush=True)
+                continue
+
+            # Query table
+            col_list = ', '.join(cols)
+            query = f"""
+            SELECT interval_time, {col_list}
+            FROM `{PROJECT}.{FEATURES_DATASET}.{table_name}`
+            WHERE DATE(interval_time) BETWEEN '{date_start}' AND '{date_end}'
+            ORDER BY interval_time
+            LIMIT {SAMPLE_LIMIT}
+            """
+
+            job = client.query(query)
+            table_df = job.to_dataframe()
+            total_bytes += job.total_bytes_processed or 0
+
+            if len(table_df) == 0 or 'interval_time' not in table_df.columns:
+                print(f"      [{i+1:3d}/{len(all_tables)}] {table_name}: SKIP (empty)", flush=True)
+                continue
+
+            # Add column prefix based on table name to avoid collisions
+            # e.g., corr_bqx_ibkr_eurusd_ewa -> corr_bqx_ibkr_ewa
+            prefix = table_name.replace(f'_{pair}', '').replace('__', '_').strip('_')
+            rename_map = {c: f"{prefix}_{c}" for c in table_df.columns if c != 'interval_time'}
+            table_df = table_df.rename(columns=rename_map)
+
+            # Get feature columns (exclude duplicates already in merged_df)
+            existing_cols = set(merged_df.columns)
+            feature_cols = [c for c in table_df.columns if c != 'interval_time' and c not in existing_cols]
+            if not feature_cols:
+                # All columns already exist - skip silently
+                print(f"      [{i+1:3d}/{len(all_tables)}] {table_name}: SKIP (dup cols)", flush=True)
+                del table_df
+                continue
+
+            # Merge with main dataframe
+            merged_df = merged_df.merge(
+                table_df[['interval_time'] + feature_cols],
+                on='interval_time',
+                how='left'
+            )
+
+            elapsed = _time.time() - table_start
+            print(f"      [{i+1:3d}/{len(all_tables)}] {table_name}: +{len(feature_cols)} cols, {len(table_df):,} rows ({elapsed:.1f}s)", flush=True)
+
+            success_count += 1
+            del table_df
+
+            # Periodic garbage collection and progress summary
+            if (i + 1) % 100 == 0:
+                gc.collect()
+                total_elapsed = _time.time() - start_time
+                print(f"      === CHECKPOINT: {i+1}/{len(all_tables)} tables, {len(merged_df.columns)} total cols, {total_elapsed:.0f}s elapsed ===", flush=True)
+
+        except Exception as e:
+            print(f"      [{i+1:3d}/{len(all_tables)}] {table_name}: ERROR - {e}", flush=True)
+            continue
+
+    total_elapsed = _time.time() - start_time
+    print(f"      === COMPLETE: {len(all_tables)}/{len(all_tables)} tables in {total_elapsed:.0f}s ===", flush=True)
+
+    # Final stats
+    gb_scanned = total_bytes / (1024**3)
+    cost_estimate = gb_scanned * 5 / 1000  # $5 per TB
+
+    target_cols = [c for c in merged_df.columns if c.startswith('target_')]
+    feature_cols = [c for c in merged_df.columns if c not in target_cols and c not in ['interval_time', 'pair']]
+
+    print(f"    Merged: {len(merged_df):,} rows, {len(feature_cols):,} features")
+    print(f"    Cost: {gb_scanned:.2f} GB scanned, ~${cost_estimate:.2f}")
+
+    cost_info = {
+        'gb_scanned': gb_scanned,
+        'cost': cost_estimate,
+        'feature_count': len(feature_cols),
+        'table_count': success_count,
+        'bytes_scanned': total_bytes
+    }
+
+    # Save to persistent storage
+    features_dir = "/home/micha/bqx_ml_v3/data/features"
+    os.makedirs(features_dir, exist_ok=True)
+    parquet_path = os.path.join(features_dir, f"{pair}_merged_features.parquet")
+    merged_df.to_parquet(parquet_path, index=False)
+    print(f"    Saved: {parquet_path} ({os.path.getsize(parquet_path) / 1e9:.2f} GB)")
+
+    return merged_df, cost_info
+
+
+def _extract_single_table_checkpoint(args) -> dict:
+    """Worker function for parallel table extraction with checkpointing."""
+    table_name, pair, date_start, date_end, checkpoint_dir, cols = args
+    from pathlib import Path
+
+    parquet_path = Path(checkpoint_dir) / f"{table_name}.parquet"
+
+    # Skip if already exists (checkpoint)
+    if parquet_path.exists():
+        return {'table': table_name, 'status': 'cached', 'cols': 0, 'bytes': 0}
+
+    try:
+        client = bigquery.Client(project=PROJECT)
+
+        if not cols:
+            return {'table': table_name, 'status': 'skip_no_cols', 'cols': 0, 'bytes': 0}
+
+        col_list = ', '.join(cols)
+        query = f"""
+        SELECT interval_time, {col_list}
+        FROM `{PROJECT}.{FEATURES_DATASET}.{table_name}`
+        WHERE DATE(interval_time) BETWEEN '{date_start}' AND '{date_end}'
+        ORDER BY interval_time
+        LIMIT {SAMPLE_LIMIT}
+        """
+
+        job = client.query(query)
+        table_df = job.to_dataframe()
+        bytes_scanned = job.total_bytes_processed or 0
+
+        if len(table_df) == 0 or 'interval_time' not in table_df.columns:
+            return {'table': table_name, 'status': 'skip_empty', 'cols': 0, 'bytes': bytes_scanned}
+
+        # Apply column prefix (bug fix)
+        prefix = table_name.replace(f'_{pair}', '').replace('__', '_').strip('_')
+        rename_map = {c: f"{prefix}_{c}" for c in table_df.columns if c != 'interval_time'}
+        table_df = table_df.rename(columns=rename_map)
+
+        # Save checkpoint immediately
+        table_df.to_parquet(parquet_path, index=False)
+        col_count = len([c for c in table_df.columns if c != 'interval_time'])
+
+        return {'table': table_name, 'status': 'saved', 'cols': col_count, 'bytes': bytes_scanned}
+
+    except Exception as e:
+        return {'table': table_name, 'status': 'error', 'error': str(e), 'cols': 0, 'bytes': 0}
+
+
+def query_pair_with_checkpoints(pair: str, date_start: str, date_end: str, max_workers: int = MAX_WORKERS) -> tuple:
+    """
+    Query ALL features for a pair using PARQUET CHECKPOINT approach with PARALLEL extraction.
+
+    USER MANDATE: Resume capability - process MUST accommodate resume with saved data.
+    PARALLEL MODE: Uses all 12 workers for table queries on ONE pair at a time.
+
+    Architecture:
+    1. Create checkpoint directory: data/features/checkpoints/{pair}/
+    2. For each table (PARALLEL with 12 workers):
+       - Check if parquet exists: SKIP if yes (already done)
+       - If not: Query, prefix columns, save to parquet
+    3. After all tables extracted:
+       - Merge all parquets for pair
+       - Save final: data/features/{pair}_merged_features.parquet
+       - Mark pair complete: _COMPLETE marker
+
+    Returns: (merged_df, cost_info)
+    """
+    from pathlib import Path
+    import time as _time
+
+    # Checkpoint directory structure
+    checkpoint_base = Path("/home/micha/bqx_ml_v3/data/features/checkpoints")
+    checkpoint_dir = checkpoint_base / pair
+    checkpoint_dir.mkdir(parents=True, exist_ok=True)
+
+    complete_marker = checkpoint_dir / "_COMPLETE"
+    final_parquet_path = f"/home/micha/bqx_ml_v3/data/features/{pair}_merged_features.parquet"
+
+    # Check if already complete
+    if complete_marker.exists():
+        print(f"  {pair.upper()} already COMPLETE, loading cached result...", flush=True)
+        if os.path.exists(final_parquet_path):
+            merged_df = pd.read_parquet(final_parquet_path)
+            return merged_df, {'status': 'cached', 'cost': 0}
+        else:
+            complete_marker.unlink()
+            print(f"    Stale marker removed, re-processing...", flush=True)
+
+    print(f"  Querying {pair.upper()} (CHECKPOINT MODE - {max_workers} parallel workers)...", flush=True)
+
+    # Step 1: Get/check targets
+    targets_path = checkpoint_dir / "targets.parquet"
+    total_bytes = 0
+
+    if targets_path.exists():
+        print(f"    Targets: CACHED", flush=True)
+        targets_df = pd.read_parquet(targets_path)
+    else:
+        targets_df, targets_bytes = query_targets(pair, date_start, date_end)
+        if targets_df is None or len(targets_df) < 1000:
+            return None, {'error': 'Insufficient target data'}
+        targets_df.to_parquet(targets_path, index=False)
+        total_bytes += targets_bytes
+        print(f"    Targets: {len(targets_df):,} rows SAVED", flush=True)
+
+    # Step 2: Get all feature tables (5 categories per CE directive)
+    tables = get_feature_tables_for_pair(pair)
+    all_tables = (
+        tables['pair_specific'] +
+        tables['triangulation'] +
+        tables['market_wide'] +
+        tables.get('variance', []) +
+        tables.get('currency_strength', [])
+    )
+    print(f"    Tables: {len(all_tables)} total", flush=True)
+    print(f"      - pair_specific: {len(tables['pair_specific'])}", flush=True)
+    print(f"      - triangulation: {len(tables['triangulation'])}", flush=True)
+    print(f"      - market_wide: {len(tables['market_wide'])}", flush=True)
+    print(f"      - variance: {len(tables.get('variance', []))}", flush=True)
+    print(f"      - currency_strength: {len(tables.get('currency_strength', []))}", flush=True)
+
+    # Batch fetch column metadata
+    col_cache = get_all_table_columns_batch(all_tables)
+
+    # Count already cached
+    cached_count = sum(1 for t in all_tables if (checkpoint_dir / f"{t}.parquet").exists())
+    pending_tables = [t for t in all_tables if not (checkpoint_dir / f"{t}.parquet").exists()]
+    print(f"    Status: {cached_count} cached, {len(pending_tables)} pending", flush=True)
+
+    if len(pending_tables) == 0:
+        print(f"    All tables already extracted!", flush=True)
+        success_count = 0
+        error_count = 0
+    else:
+        print(f"    Starting PARALLEL extraction ({max_workers} workers)...", flush=True)
+
+        # Prepare work items
+        work_items = [
+            (table_name, pair, date_start, date_end, str(checkpoint_dir), col_cache.get(table_name, []))
+            for table_name in pending_tables
+        ]
+
+        start_time = _time.time()
+        success_count = 0
+        error_count = 0
+        completed = 0
+
+        with ThreadPoolExecutor(max_workers=max_workers) as executor:
+            futures = {executor.submit(_extract_single_table_checkpoint, item): item[0] for item in work_items}
+
+            for future in as_completed(futures):
+                table_name = futures[future]
+                completed += 1
+                try:
+                    result = future.result(timeout=300)
+
+                    if result['status'] == 'saved':
+                        success_count += 1
+                        total_bytes += result['bytes']
+                        print(f"      [{cached_count + completed:3d}/{len(all_tables)}] {table_name}: +{result['cols']} cols SAVED", flush=True)
+                    elif result['status'] == 'error':
+                        error_count += 1
+                        print(f"      [{cached_count + completed:3d}/{len(all_tables)}] {table_name}: ERROR - {result.get('error', 'unknown')}", flush=True)
+                    else:
+                        print(f"      [{cached_count + completed:3d}/{len(all_tables)}] {table_name}: SKIP ({result['status']})", flush=True)
+
+                    # Progress update every 50 tables
+                    if completed % 50 == 0:
+                        elapsed = _time.time() - start_time
+                        rate = completed / elapsed if elapsed > 0 else 0
+                        remaining = (len(pending_tables) - completed) / rate if rate > 0 else 0
+                        print(f"      === Progress: {completed}/{len(pending_tables)} ({rate:.1f}/s, ~{remaining:.0f}s remaining) ===", flush=True)
+
+                except Exception as e:
+                    error_count += 1
+                    print(f"      [{cached_count + completed:3d}/{len(all_tables)}] {table_name}: EXCEPTION - {e}", flush=True)
+
+        extraction_elapsed = _time.time() - start_time
+        print(f"    Extraction complete: {success_count} new, {cached_count} cached, {error_count} errors in {extraction_elapsed:.0f}s", flush=True)
+
+    # Step 3: Merge all checkpoints
+    print(f"    Merging checkpoints...", flush=True)
+    merge_start = _time.time()
+
+    merged_df = targets_df.copy()
+    del targets_df
+
+    checkpoint_files = sorted(checkpoint_dir.glob("*.parquet"))
+    merged_cols = set(merged_df.columns)
+
+    for pq_file in checkpoint_files:
+        if pq_file.name == "targets.parquet":
+            continue
+
+        try:
+            table_df = pd.read_parquet(pq_file)
+
+            # Get non-duplicate columns
+            feature_cols = [c for c in table_df.columns if c != 'interval_time' and c not in merged_cols]
+            if not feature_cols:
+                continue
+
+            # Merge
+            merged_df = merged_df.merge(
+                table_df[['interval_time'] + feature_cols],
+                on='interval_time',
+                how='left'
+            )
+            merged_cols.update(feature_cols)
+            del table_df
+
+        except Exception as e:
+            print(f"      Error merging {pq_file.name}: {e}", flush=True)
+            continue
+
+    merge_elapsed = _time.time() - merge_start
+    gc.collect()
+
+    # Final stats
+    gb_scanned = total_bytes / (1024**3)
+    cost_estimate = gb_scanned * 5 / 1000
+
+    target_cols = [c for c in merged_df.columns if c.startswith('target_')]
+    feature_cols = [c for c in merged_df.columns if c not in target_cols and c not in ['interval_time', 'pair']]
+
+    print(f"    Merged: {len(merged_df):,} rows, {len(feature_cols):,} features in {merge_elapsed:.0f}s")
+    print(f"    Cost: {gb_scanned:.2f} GB scanned, ~${cost_estimate:.2f}")
+
+    # Save final merged parquet
+    merged_df.to_parquet(final_parquet_path, index=False)
+    final_size = os.path.getsize(final_parquet_path) / 1e9
+    print(f"    Saved: {final_parquet_path} ({final_size:.2f} GB)")
+
+    # Mark as complete
+    complete_marker.touch()
+    print(f"    Marked COMPLETE: {complete_marker}")
+
+    cost_info = {
+        'gb_scanned': gb_scanned,
+        'cost': cost_estimate,
+        'feature_count': len(feature_cols),
+        'table_count': success_count + cached_count,
+        'new_tables': success_count,
+        'cached_tables': cached_count,
+        'bytes_scanned': total_bytes
+    }
+
+    return merged_df, cost_info
+
+
 def query_pair_batched(pair: str, date_start: str, date_end: str) -> tuple:
     """
     Query ALL features for a pair using PARQUET-CHUNKED approach with DuckDB.
@@ -296,6 +762,8 @@ def query_pair_batched(pair: str, date_start: str, date_end: str) -> tuple:
     print(f"      - pair_specific: {len(table_groups['pair_specific'])}")
     print(f"      - triangulation: {len(table_groups['triangulation'])}")
     print(f"      - market_wide: {len(table_groups['market_wide'])}")
+    print(f"      - variance: {len(table_groups.get('variance', []))}")
+    print(f"      - currency_strength: {len(table_groups.get('currency_strength', []))}")
 
     # Step 3: Query each table in parallel, save to parquet
     total_bytes = targets_bytes
@@ -306,7 +774,9 @@ def query_pair_batched(pair: str, date_start: str, date_end: str) -> tuple:
     all_tables = (
         table_groups['pair_specific'] +
         table_groups['triangulation'] +
-        table_groups['market_wide']
+        table_groups['market_wide'] +
+        table_groups.get('variance', []) +
+        table_groups.get('currency_strength', [])
     )
 
     print(f"    Querying tables to parquet (memory-efficient)...")
@@ -388,8 +858,8 @@ def process_pair_all_horizons(pair: str, date_start: str = '2020-01-01',
     print(f"{'='*50}")
 
     try:
-        # Query all features using batched approach
-        df, cost_info = query_pair_batched(pair, date_start, date_end)
+        # Query all features using CHECKPOINT approach (resume capability - USER MANDATE)
+        df, cost_info = query_pair_with_checkpoints(pair, date_start, date_end)
 
         if df is None or len(df) < 1000:
             return {'pair': pair, 'status': 'error', 'message': 'Insufficient data'}
@@ -435,15 +905,21 @@ def run_parallel_batch_testing(pairs: list = None, max_workers: int = MAX_WORKER
                                date_start: str = '2020-01-01',
                                date_end: str = '2024-12-31') -> dict:
     """
-    Run parallel batch processing across multiple pairs.
+    Run batch processing - ONE PAIR AT A TIME with parallel table queries.
+
+    USER MANDATE (2025-12-11): All 12 workers focus on completing ONE pair at a time.
+    - Pairs processed SEQUENTIALLY (one by one)
+    - Tables within each pair processed in PARALLEL (12 workers)
     """
     if pairs is None:
         pairs = ALL_28_PAIRS
 
     print("=" * 70)
-    print("PARALLEL BATCH FEATURE TESTING - FULL 11,337 COLUMN UNIVERSE")
+    print("SEQUENTIAL PAIR PROCESSING - USER MANDATE")
+    print(f"(All {max_workers} workers focus on ONE pair at a time)")
+    print("=" * 70)
     print(f"Pairs: {len(pairs)}")
-    print(f"Workers: {max_workers}")
+    print(f"Table workers per pair: {max_workers}")
     print(f"Date range: {date_start} to {date_end}")
     print("=" * 70)
 
@@ -451,21 +927,21 @@ def run_parallel_batch_testing(pairs: list = None, max_workers: int = MAX_WORKER
     all_results = {}
     total_cost = 0
 
-    with ProcessPoolExecutor(max_workers=max_workers) as executor:
-        futures = {
-            executor.submit(process_pair_all_horizons, pair, date_start, date_end): pair
-            for pair in pairs
-        }
+    # USER MANDATE: Process pairs SEQUENTIALLY, one at a time
+    for i, pair in enumerate(pairs, 1):
+        print(f"\n{'='*70}")
+        print(f"PAIR {i}/{len(pairs)}: {pair.upper()}")
+        print(f"{'='*70}")
 
-        for future in as_completed(futures):
-            pair = futures[future]
-            try:
-                result = future.result(timeout=3600)
-                all_results[pair] = result
-                if result.get('cost'):
-                    total_cost += result['cost'].get('cost', 0)
-            except Exception as e:
-                all_results[pair] = {'pair': pair, 'status': 'error', 'message': str(e)}
+        try:
+            result = process_pair_all_horizons(pair, date_start, date_end)
+            all_results[pair] = result
+            if result.get('cost'):
+                total_cost += result['cost'].get('cost', 0)
+            print(f"  ✓ {pair.upper()} COMPLETE")
+        except Exception as e:
+            all_results[pair] = {'pair': pair, 'status': 'error', 'message': str(e)}
+            print(f"  ✗ {pair.upper()} ERROR: {e}")
 
     end_time = datetime.now()
     duration = (end_time - start_time).total_seconds() / 3600
@@ -503,8 +979,8 @@ def dry_run_cost_validation(pair: str = 'eurusd') -> dict:
 
     client = bigquery.Client(project=PROJECT)
 
-    # Get ALL feature tables (3 categories)
-    print("\nDiscovering features (3 categories)...")
+    # Get ALL feature tables (5 categories per CE directive 2025-12-11)
+    print("\nDiscovering features (5 categories)...")
     table_groups = get_feature_tables_for_pair(pair)
 
     total_tables = sum(len(tables) for tables in table_groups.values())
@@ -512,17 +988,21 @@ def dry_run_cost_validation(pair: str = 'eurusd') -> dict:
     print(f"    - pair_specific: {len(table_groups['pair_specific'])}")
     print(f"    - triangulation: {len(table_groups['triangulation'])}")
     print(f"    - market_wide: {len(table_groups['market_wide'])}")
+    print(f"    - variance: {len(table_groups.get('variance', []))}")
+    print(f"    - currency_strength: {len(table_groups.get('currency_strength', []))}")
 
     # Combine all tables
     all_tables = (
         table_groups['pair_specific'] +
         table_groups['triangulation'] +
-        table_groups['market_wide']
+        table_groups['market_wide'] +
+        table_groups.get('variance', []) +
+        table_groups.get('currency_strength', [])
     )
 
     feature_count = 0
     total_bytes_estimate = 0
-    category_stats = {'pair_specific': 0, 'triangulation': 0, 'market_wide': 0}
+    category_stats = {'pair_specific': 0, 'triangulation': 0, 'market_wide': 0, 'variance': 0, 'currency_strength': 0}
 
     print("\n  Counting columns per category...")
     for category, tables in table_groups.items():
