@@ -37,7 +37,7 @@ FEATURES_DATASET = "bqx_ml_v3_features_v2"
 ANALYTICS_DATASET = "bqx_ml_v3_analytics_v2"
 
 HORIZONS = [15, 30, 45, 60, 75, 90, 105]
-MAX_WORKERS = 16  # CE authorized 05:10 - 16 workers for sequential mode (one pair at a time)
+MAX_WORKERS = 16  # CE approved 2025-12-11 (all workers focus on ONE pair at a time)
 MAX_TABLE_WORKERS = 8  # Parallel table queries per pair (CE approved)
 SAMPLE_LIMIT = 100000  # 100K samples - CE approved for 64GB RAM (n2-highmem-8)
 
@@ -88,6 +88,7 @@ def get_feature_tables_for_pair(pair: str) -> dict:
     tri_tables = [row.table_name for row in client.query(tri_query).result()]
 
     # Category 3: Market-wide tables (apply to all pairs)
+    # CE Directive 2025-12-11 08:35: EXCLUDE summary tables (metadata, not ML features)
     mkt_query = f"""
     SELECT table_name
     FROM `{PROJECT}.{FEATURES_DATASET}.INFORMATION_SCHEMA.TABLES`
@@ -95,6 +96,8 @@ def get_feature_tables_for_pair(pair: str) -> dict:
     ORDER BY table_name
     """
     mkt_tables = [row.table_name for row in client.query(mkt_query).result()]
+    # Exclude summary tables per CE directive - they are metadata, not interval features
+    mkt_tables = [t for t in mkt_tables if not t.endswith('_summary')]
 
     # Category 4: Variance tables (currency-level, apply to all pairs)
     # CE Directive 2025-12-11: 63 tables missing
@@ -477,6 +480,10 @@ def _extract_single_table_checkpoint(args) -> dict:
     """Worker function for parallel table extraction with checkpointing."""
     table_name, pair, date_start, date_end, checkpoint_dir, cols = args
     from pathlib import Path
+    import sys
+
+    print(f"      [DEBUG] Starting extraction: {table_name}", flush=True)
+    sys.stdout.flush()
 
     parquet_path = Path(checkpoint_dir) / f"{table_name}.parquet"
 
@@ -491,6 +498,9 @@ def _extract_single_table_checkpoint(args) -> dict:
             return {'table': table_name, 'status': 'skip_no_cols', 'cols': 0, 'bytes': 0}
 
         col_list = ', '.join(cols)
+
+        # CE Directive 2025-12-11 08:35: Summary tables EXCLUDED at query level
+        # All remaining tables have interval_time column
         query = f"""
         SELECT interval_time, {col_list}
         FROM `{PROJECT}.{FEATURES_DATASET}.{table_name}`

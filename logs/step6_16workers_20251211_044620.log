@@ -1,0 +1,43 @@
+/home/micha/.local/lib/python3.10/site-packages/google/api_core/_python_version_support.py:266: FutureWarning: You are using a Python version (3.10.12) which Google will stop supporting in new releases of google.api_core once it reaches its end of life (2026-10-04). Please upgrade to the latest Python version, or at least Python 3.11, to continue receiving updates for google.api_core past that date.
+  warnings.warn(message, FutureWarning)
+
+*** FULL RUN - REQUIRES CE APPROVAL ***
+
+======================================================================
+SEQUENTIAL PAIR PROCESSING - USER MANDATE
+(All 16 workers focus on ONE pair at a time)
+======================================================================
+Pairs: 28
+Table workers per pair: 16
+Date range: 2020-01-01 to 2024-12-31
+======================================================================
+
+======================================================================
+PAIR 1/28: EURUSD
+======================================================================
+
+==================================================
+Processing EURUSD
+==================================================
+  Querying EURUSD (CHECKPOINT MODE - 16 parallel workers)...
+    Targets: CACHED
+    Tables: 669 total
+      - pair_specific: 256
+      - triangulation: 194
+      - market_wide: 12
+      - variance: 63
+      - currency_strength: 144
+    Fetching columns for 669 tables (batch query)...
+    Cached columns for 669 tables
+    Status: 619 cached, 50 pending
+    Starting PARALLEL extraction (16 workers)...
+      [620/669] mkt_reg_bqx_summary: ERROR - 400 Unrecognized name: interval_time at [4:20]; reason: invalidQuery, location: query, message: Unrecognized name: interval_time at [4:20]
+
+Location: us-central1
+Job ID: ddd5dada-7f89-49de-871f-01c15b17916c
+
+      [621/669] mkt_reg_summary: ERROR - 400 Unrecognized name: interval_time at [4:20]; reason: invalidQuery, location: query, message: Unrecognized name: interval_time at [4:20]
+
+Location: us-central1
+Job ID: f9bfb9ef-a638-41aa-b712-7c52e8ed52b8
+

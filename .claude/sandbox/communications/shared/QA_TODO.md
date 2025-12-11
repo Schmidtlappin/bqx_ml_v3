@@ -6,19 +6,39 @@
 
 ---
 
-## P0: IMMEDIATE - ONBOARDING REQUIRED (CE Directive 06:20)
+## ✅ COMPLETE - ONBOARDING (CE Directive 06:20)
 
-**CE DIRECTIVE**: `inboxes/QA/20251211_0620_CE-to-QA_ONBOARDING_DIRECTIVE.md`
+Onboarding completed at 06:25. Report: `20251211_0625_QA-to-CE_ONBOARDING_COMPLETE.md`
 
-**You MUST complete onboarding before any other tasks.**
+---
 
-### Required Reading (in order):
-1. **Intelligence Files**: context.json, ontology.json, roadmap_v2.json, semantics.json, feature_catalogue.json
-2. **Mandate Files**: README.md, BQX_ML_V3_FEATURE_INVENTORY.md, FEATURE_LEDGER_100_PERCENT_MANDATE.md
-3. **Agent Files**: QA_TODO.md (this file), AGENT_ONBOARDING_PROMPTS.md, QA_SESSION_HANDOFF.md
-4. **Your Inbox**: All recent .md files in `inboxes/QA/`
+## P0: CRITICAL - STEP 6 VALIDATION (CE Directive 06:50)
 
-**After onboarding, report to CE**: `inboxes/CE/[timestamp]_QA-to-CE_ONBOARDING_COMPLETE.md`
+**CE DIRECTIVE**: `inboxes/QA/20251211_0650_CE-to-QA_STEP6_VALIDATION_DIRECTIVE.md`
+
+**GATE**: No pair proceeds to Step 7 without QA validation approval.
+
+### Trigger
+When EURUSD reaches 669/669 tables and merged parquet is created.
+
+### Current Progress
+| Pair | Tables | Status |
+|------|--------|--------|
+| EURUSD | 620/669 (93%) | EXTRACTING |
+
+### Validation Checklist (Per Pair)
+| Check | Expected | Status |
+|-------|----------|--------|
+| File integrity | Readable | [ ] |
+| Row count | ~100K | [ ] |
+| Column count | ~11,337 | [ ] |
+| Feature categories | 5/5 (100%) | [ ] |
+| NULL in key cols | 0% | [ ] |
+| NULL in features | <1% | [ ] |
+| Duplicates | 0 | [ ] |
+
+### Deliverable
+`inboxes/CE/[timestamp]_QA-to-CE_STEP6_EURUSD_AUDIT.md`
 
 ---
 

@@ -152,10 +152,20 @@
     "primary_tools": ["Python", "BigQuery", "Vertex AI", "AirTable", "Claude Code"]
   },
   "agent_coordination": {
-    "version": "3.0",
-    "last_updated": "2025-12-10",
+    "version": "3.1",
+    "last_updated": "2025-12-11",
     "registry_file": "/.claude/sandbox/communications/AGENT_REGISTRY.json",
     "session_file_location": "/home/micha/.claude/projects/-home-micha-bqx-ml-v3/",
+    "onboarding_protocol": {
+      "mandate": "/mandate/AGENT_ONBOARDING_PROTOCOL.md",
+      "prompts_reference": "/.claude/sandbox/communications/shared/AGENT_ONBOARDING_PROMPTS.md",
+      "individual_prompts": {
+        "CE": "/.claude/sandbox/communications/active/CE_ONBOARDING_PROMPT.md",
+        "BA": "/.claude/sandbox/communications/active/BA_ONBOARDING_PROMPT.md",
+        "QA": "/.claude/sandbox/communications/active/QA_ONBOARDING_PROMPT.md",
+        "EA": "/.claude/sandbox/communications/active/EA_ONBOARDING_PROMPT.md"
+      }
+    },
     "active_agents": {
       "CE": {
         "full_name": "Chief Engineer",

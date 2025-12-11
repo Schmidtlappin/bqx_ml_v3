@@ -1,0 +1,127 @@
+/home/micha/.local/lib/python3.10/site-packages/google/api_core/_python_version_support.py:266: FutureWarning: You are using a Python version (3.10.12) which Google will stop supporting in new releases of google.api_core once it reaches its end of life (2026-10-04). Please upgrade to the latest Python version, or at least Python 3.11, to continue receiving updates for google.api_core past that date.
+  warnings.warn(message, FutureWarning)
+
+*** FULL RUN - REQUIRES CE APPROVAL ***
+
+======================================================================
+SEQUENTIAL PAIR PROCESSING - USER MANDATE
+(All 16 workers focus on ONE pair at a time)
+======================================================================
+Pairs: 28
+Table workers per pair: 16
+Date range: 2020-01-01 to 2024-12-31
+======================================================================
+
+======================================================================
+PAIR 1/28: EURUSD
+======================================================================
+
+==================================================
+Processing EURUSD
+==================================================
+  Querying EURUSD (CHECKPOINT MODE - 16 parallel workers)...
+    Targets: CACHED
+    Tables: 667 total
+      - pair_specific: 256
+      - triangulation: 194
+      - market_wide: 10
+      - variance: 63
+      - currency_strength: 144
+    Fetching columns for 667 tables (batch query)...
+    Cached columns for 667 tables
+    Status: 621 cached, 46 pending
+    Starting PARALLEL extraction (16 workers)...
+      [DEBUG] Starting extraction: csi_reg_bqx_cad
+      [DEBUG] Starting extraction: csi_reg_bqx_chf
+      [DEBUG] Starting extraction: csi_reg_bqx_eur
+      [DEBUG] Starting extraction: csi_reg_bqx_gbp
+      [DEBUG] Starting extraction: csi_reg_bqx_jpy
+      [DEBUG] Starting extraction: csi_reg_bqx_nzd
+      [DEBUG] Starting extraction: csi_reg_bqx_usd
+      [DEBUG] Starting extraction: csi_reg_cad
+      [DEBUG] Starting extraction: csi_reg_chf
+      [DEBUG] Starting extraction: csi_reg_eur
+      [DEBUG] Starting extraction: csi_reg_gbp
+      [DEBUG] Starting extraction: csi_reg_jpy
+      [DEBUG] Starting extraction: csi_reg_nzd
+      [DEBUG] Starting extraction: csi_reg_usd
+      [DEBUG] Starting extraction: csi_rev_bqx_aud
+      [DEBUG] Starting extraction: csi_rev_aud
+      [DEBUG] Starting extraction: csi_rev_bqx_cad
+      [622/667] csi_rev_aud: +11 cols SAVED
+      [DEBUG] Starting extraction: csi_rev_bqx_chf
+      [623/667] csi_rev_bqx_aud: +11 cols SAVED
+      [DEBUG] Starting extraction: csi_rev_bqx_eur
+      [624/667] csi_rev_bqx_cad: +11 cols SAVED
+      [DEBUG] Starting extraction: csi_rev_bqx_gbp
+      [625/667] csi_rev_bqx_chf: +11 cols SAVED
+      [DEBUG] Starting extraction: csi_rev_bqx_jpy
+      [626/667] csi_rev_bqx_eur: +11 cols SAVED
+      [DEBUG] Starting extraction: csi_rev_bqx_nzd
+      [627/667] csi_rev_bqx_gbp: +11 cols SAVED
+      [DEBUG] Starting extraction: csi_rev_bqx_usd
+      [628/667] csi_rev_bqx_nzd: +11 cols SAVED
+      [DEBUG] Starting extraction: csi_rev_cad
+      [629/667] csi_rev_bqx_jpy: +11 cols SAVED
+      [DEBUG] Starting extraction: csi_rev_chf
+      [630/667] csi_rev_bqx_usd: +11 cols SAVED
+      [DEBUG] Starting extraction: csi_rev_eur
+      [631/667] csi_rev_cad: +11 cols SAVED
+      [DEBUG] Starting extraction: csi_rev_gbp
+      [632/667] csi_rev_chf: +11 cols SAVED
+      [DEBUG] Starting extraction: csi_rev_jpy
+      [633/667] csi_rev_eur: +11 cols SAVED
+      [DEBUG] Starting extraction: csi_rev_nzd
+      [634/667] csi_reg_jpy: +98 cols SAVED
+      [DEBUG] Starting extraction: csi_rev_usd
+      [635/667] csi_reg_cad: +98 cols SAVED
+      [DEBUG] Starting extraction: csi_vol_aud
+      [636/667] csi_reg_gbp: +98 cols SAVED
+      [DEBUG] Starting extraction: csi_vol_bqx_aud
+      [637/667] csi_reg_chf: +98 cols SAVED
+      [DEBUG] Starting extraction: csi_vol_bqx_cad
+      [638/667] csi_rev_jpy: +11 cols SAVED
+      [DEBUG] Starting extraction: csi_vol_bqx_chf
+      [639/667] csi_rev_gbp: +11 cols SAVED
+      [DEBUG] Starting extraction: csi_vol_bqx_eur
+      [640/667] csi_rev_usd: +11 cols SAVED
+      [DEBUG] Starting extraction: csi_vol_bqx_gbp
+      [641/667] csi_rev_nzd: +11 cols SAVED
+      [DEBUG] Starting extraction: csi_vol_bqx_jpy
+      [642/667] csi_reg_eur: +98 cols SAVED
+      [DEBUG] Starting extraction: csi_vol_bqx_nzd
+      [643/667] csi_reg_bqx_jpy: +98 cols SAVED
+      [DEBUG] Starting extraction: csi_vol_bqx_usd
+      [644/667] csi_vol_bqx_aud: +31 cols SAVED
+      [DEBUG] Starting extraction: csi_vol_cad
+      [645/667] csi_reg_bqx_chf: +98 cols SAVED
+      [DEBUG] Starting extraction: csi_vol_chf
+      [646/667] csi_reg_usd: +98 cols SAVED
+      [DEBUG] Starting extraction: csi_vol_eur
+      [647/667] csi_reg_nzd: +98 cols SAVED
+      [DEBUG] Starting extraction: csi_vol_gbp
+      [648/667] csi_vol_aud: +31 cols SAVED
+      [DEBUG] Starting extraction: csi_vol_jpy
+      [649/667] csi_reg_bqx_nzd: +98 cols SAVED
+      [DEBUG] Starting extraction: csi_vol_nzd
+      [650/667] csi_reg_bqx_cad: +98 cols SAVED
+      [DEBUG] Starting extraction: csi_vol_usd
+      [651/667] csi_reg_bqx_gbp: +98 cols SAVED
+      [652/667] csi_reg_bqx_eur: +98 cols SAVED
+      [653/667] csi_reg_bqx_usd: +98 cols SAVED
+      [654/667] csi_vol_bqx_chf: +31 cols SAVED
+      [655/667] csi_vol_bqx_cad: +31 cols SAVED
+      [656/667] csi_vol_bqx_gbp: +31 cols SAVED
+      [657/667] csi_vol_bqx_eur: +31 cols SAVED
+      [658/667] csi_vol_bqx_jpy: +31 cols SAVED
+      [659/667] csi_vol_bqx_nzd: +31 cols SAVED
+      [660/667] csi_vol_bqx_usd: +31 cols SAVED
+      [661/667] csi_vol_chf: +31 cols SAVED
+      [662/667] csi_vol_eur: +31 cols SAVED
+      [663/667] csi_vol_jpy: +31 cols SAVED
+      [664/667] csi_vol_cad: +31 cols SAVED
+      [665/667] csi_vol_gbp: +31 cols SAVED
+      [666/667] csi_vol_nzd: +31 cols SAVED
+      [667/667] csi_vol_usd: +31 cols SAVED
+    Extraction complete: 46 new, 621 cached, 0 errors in 593s
+    Merging checkpoints...

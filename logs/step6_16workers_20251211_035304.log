@@ -290,3 +290,63 @@ Job ID: 05d63977-2ffa-4e25-8d58-66f6846d8b51
       [561/669] csi_agg_nzd: +64 cols SAVED
       [562/669] csi_agg_usd: +64 cols SAVED
       [563/669] csi_align_jpy: +42 cols SAVED
+      [564/669] csi_der_bqx_cad: +16 cols SAVED
+      [565/669] csi_der_bqx_eur: +16 cols SAVED
+      [566/669] csi_der_bqx_chf: +16 cols SAVED
+      === Progress: 250/353 (0.1/s, ~1038s remaining) ===
+      [567/669] csi_der_aud: +16 cols SAVED
+      [568/669] csi_der_bqx_aud: +16 cols SAVED
+      [569/669] csi_der_bqx_gbp: +16 cols SAVED
+      [570/669] csi_der_bqx_nzd: +16 cols SAVED
+      [571/669] csi_der_bqx_jpy: +16 cols SAVED
+      [572/669] csi_der_cad: +16 cols SAVED
+      [573/669] csi_der_bqx_usd: +16 cols SAVED
+      [574/669] csi_der_chf: +16 cols SAVED
+      [575/669] csi_der_eur: +16 cols SAVED
+      [576/669] csi_der_jpy: +16 cols SAVED
+      [577/669] csi_der_gbp: +16 cols SAVED
+      [578/669] csi_align_usd: +42 cols SAVED
+      [579/669] csi_align_nzd: +42 cols SAVED
+      [580/669] csi_der_nzd: +16 cols SAVED
+      [581/669] csi_ext_bqx_aud: +17 cols SAVED
+      [582/669] csi_der_usd: +16 cols SAVED
+      [583/669] csi_ext_bqx_chf: +17 cols SAVED
+      [584/669] csi_ext_bqx_cad: +17 cols SAVED
+      [585/669] csi_ext_bqx_eur: +17 cols SAVED
+      [586/669] csi_ext_bqx_gbp: +17 cols SAVED
+      [587/669] csi_ext_bqx_jpy: +17 cols SAVED
+      [588/669] csi_ext_bqx_nzd: +17 cols SAVED
+      [589/669] csi_ext_bqx_usd: +17 cols SAVED
+      [590/669] csi_mom_bqx_aud: +43 cols SAVED
+      [591/669] csi_mom_aud: +43 cols SAVED
+      [592/669] csi_mom_bqx_eur: +43 cols SAVED
+      [593/669] csi_mom_bqx_cad: +43 cols SAVED
+      [594/669] csi_mom_bqx_chf: +43 cols SAVED
+      [595/669] csi_mom_bqx_gbp: +43 cols SAVED
+      [596/669] csi_mrt_aud: +11 cols SAVED
+      [597/669] csi_mom_bqx_jpy: +43 cols SAVED
+      [598/669] csi_mrt_bqx_aud: +11 cols SAVED
+      [599/669] csi_mom_bqx_nzd: +43 cols SAVED
+      [600/669] csi_mom_cad: +43 cols SAVED
+      [601/669] csi_mom_chf: +43 cols SAVED
+      [602/669] csi_mom_bqx_usd: +43 cols SAVED
+      [603/669] csi_mom_eur: +43 cols SAVED
+      [604/669] csi_mom_jpy: +43 cols SAVED
+      [605/669] csi_mrt_bqx_chf: +11 cols SAVED
+      [606/669] csi_mrt_bqx_cad: +11 cols SAVED
+      [607/669] csi_mom_gbp: +43 cols SAVED
+      [608/669] csi_mom_nzd: +43 cols SAVED
+      [609/669] csi_mrt_bqx_gbp: +11 cols SAVED
+      [610/669] csi_mom_usd: +43 cols SAVED
+      [611/669] csi_mrt_bqx_eur: +11 cols SAVED
+      [612/669] csi_mrt_bqx_jpy: +11 cols SAVED
+      [613/669] csi_mrt_chf: +11 cols SAVED
+      [614/669] csi_mrt_bqx_nzd: +11 cols SAVED
+      [615/669] csi_mrt_bqx_usd: +11 cols SAVED
+      [616/669] csi_mrt_gbp: +11 cols SAVED
+      === Progress: 300/353 (0.1/s, ~502s remaining) ===
+      [617/669] csi_mrt_cad: +11 cols SAVED
+      [618/669] csi_mrt_jpy: +11 cols SAVED
+      [619/669] csi_mrt_nzd: +11 cols SAVED
+      [620/669] csi_mrt_usd: +11 cols SAVED
+      [621/669] csi_mrt_eur: +11 cols SAVED

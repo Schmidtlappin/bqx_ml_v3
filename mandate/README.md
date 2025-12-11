@@ -10,14 +10,33 @@
 
 ## 📚 DOCUMENTS IN THIS DIRECTORY
 
-### 1. [BQX_ML_V3_ARCHITECTURE_CONFIRMATION.md](BQX_ML_V3_ARCHITECTURE_CONFIRMATION.md)
+### 1. [AGENT_ONBOARDING_PROTOCOL.md](AGENT_ONBOARDING_PROTOCOL.md) (NEW)
+**Size**: 12KB | **Lines**: 350+
+
+**What it mandates:**
+- Standardized onboarding prompt format for all agents (CE, BA, QA, EA)
+- Session continuity requirements
+- Registry update procedures
+- First-action sequences
+
+**What it defines:**
+- Agent definitions and roles
+- Communication protocol
+- Key file references
+- Error recovery procedures
+
+**Use this when:** Onboarding a new agent session or recovering from session corruption
+
+---
+
+### 2. [BQX_ML_V3_ARCHITECTURE_CONFIRMATION.md](BQX_ML_V3_ARCHITECTURE_CONFIRMATION.md)
 **Size**: 22KB | **Lines**: 700+
 
 **What it confirms:**
-- ✅ 28 independent currency pair models
-- ✅ 7 prediction horizons per model (15, 30, 45, 60, 75, 90, 105 intervals)
-- ✅ Total: 784 models (28 pairs × 7 horizons × 4 ensemble members)
-- ✅ Predicting future BQX momentum values (not raw prices)
+- 28 independent currency pair models
+- 7 prediction horizons per model (15, 30, 45, 60, 75, 90, 105 intervals)
+- Total: 588 models (28 pairs × 7 horizons × 3 ensemble members)
+- Predicting future BQX momentum values (not raw prices)
 
 **What it rationalizes:**
 - Why 28 independent models (unique dynamics per pair, no cross-contamination)
@@ -29,14 +48,14 @@
 
 ---
 
-### 2. [IDX_BQX_DUAL_FEATURE_DEEP_DIVE.md](IDX_BQX_DUAL_FEATURE_DEEP_DIVE.md)
+### 3. [IDX_BQX_DUAL_FEATURE_DEEP_DIVE.md](IDX_BQX_DUAL_FEATURE_DEEP_DIVE.md)
 **Size**: 16KB | **Lines**: 600+
 
 **What it confirms:**
-- ✅ ALL features are derived from IDX and BQX only
-- ✅ IDX = Indexed price data (OHLCV)
-- ✅ BQX = Backward-looking momentum calculation
-- ✅ NO external data sources
+- ALL features are derived from IDX and BQX only
+- IDX = Indexed price data (OHLCV)
+- BQX = Backward-looking momentum calculation
+- NO external data sources
 
 **What it explains:**
 - What IDX is and how it's used
@@ -50,7 +69,7 @@
 
 ---
 
-### 3. [BQX_ML_V3_FEATURE_INVENTORY.md](BQX_ML_V3_FEATURE_INVENTORY.md)
+### 4. [BQX_ML_V3_FEATURE_INVENTORY.md](BQX_ML_V3_FEATURE_INVENTORY.md)
 **Size**: 17KB | **Lines**: 500+
 
 **What it inventories:**
