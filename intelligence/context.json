@@ -217,12 +217,12 @@
       "shap": "PENDING"
     },
     "feature_extraction": {
-      "tables_per_pair": 669,
+      "tables_per_pair": 667,
       "categories": 5,
       "extraction_categories": {
         "pair_specific": {"pattern": "%pair%", "tables": 256},
         "triangulation": {"pattern": "tri_*", "tables": 194},
-        "market_wide": {"pattern": "mkt_*", "tables": 12},
+        "market_wide": {"pattern": "mkt_*", "tables": 10},
         "variance": {"pattern": "var_*", "tables": 63},
         "currency_strength": {"pattern": "csi_*", "tables": 144}
       },
@@ -232,7 +232,7 @@
     "feature_universe": {
       "total_columns_per_pair": 11337,
       "unique_features_per_pair": 1064,
-      "tables_per_pair": 669,
+      "tables_per_pair": 667,
       "current_h15_features": 59,
       "h15_model_status": "OBSOLETE - will be replaced after Step 6"
     },

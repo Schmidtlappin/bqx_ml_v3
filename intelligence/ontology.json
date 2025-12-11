@@ -87,11 +87,11 @@
       "partial_types": [],
       "missing_types": [],
       "total_tables": 4888,
-      "tables_per_pair": 669,
+      "tables_per_pair": 667,
       "extraction_categories": {
         "pair_specific": {"pattern": "%pair%", "tables": 256},
         "triangulation": {"pattern": "tri_*", "tables": 194},
-        "market_wide": {"pattern": "mkt_*", "tables": 12},
+        "market_wide": {"pattern": "mkt_*", "tables": 10},
         "variance": {"pattern": "var_*", "tables": 63},
         "currency_strength": {"pattern": "csi_*", "tables": 144}
       },

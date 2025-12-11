@@ -78,7 +78,7 @@
       "completion_date": "2025-12-09",
       "methodology": "Group-First Stability Selection (replaces naive SHAP)",
       "milestones": [
-        {"item": "Feature Discovery", "status": "COMPLETE", "details": "28 pairs, 669 tables/pair (100% - gap remediation 2025-12-11), 11,337 columns, 1,064 unique features"},
+        {"item": "Feature Discovery", "status": "COMPLETE", "details": "28 pairs, 667 tables/pair (100% - gap remediation 2025-12-11), 11,337 columns, 1,064 unique features"},
         {"item": "Safe Pruning", "status": "COMPLETE", "details": "Removed constant/duplicate features"},
         {"item": "Correlation Clustering", "status": "COMPLETE", "details": "Grouped features with |r| > 0.95"},
         {"item": "Stability Selection", "status": "COMPLETE", "details": "5 folds x 3 seeds, 50% frequency threshold (USER APPROVED 2025-12-09)"},
@@ -238,7 +238,7 @@
       },
       "pipeline_status": {
         "step_6_feature_extraction": "READY FOR RESTART - Gap remediation COMPLETE (2025-12-11)",
-        "tables_per_pair": 669,
+        "tables_per_pair": 667,
         "extraction_categories": 5,
         "stability_selection": "PENDING",
         "training": "PENDING",

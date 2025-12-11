@@ -5,18 +5,18 @@
   "purpose": "Complete feature inventory for BQX ML V3",
   "supersedes": "8,214+ estimate in BQX_ML_V3_FEATURE_INVENTORY.md",
   "last_audit": "2025-12-11",
-  "audit_note": "CE verified: 100% COVERAGE ACHIEVED. All 669 tables per pair extracted.",
+  "audit_note": "CE verified: 100% COVERAGE ACHIEVED. All 667 tables per pair extracted (2 summary tables excluded).",
   "step6_extraction_status": {
     "status": "COMPLETE",
     "verified": "2025-12-11T03:40:00Z",
     "extraction_categories": [
       {"name": "pair_specific", "pattern": "%pair%", "tables": 256},
       {"name": "triangulation", "pattern": "tri_*", "tables": 194},
-      {"name": "market_wide", "pattern": "mkt_*", "tables": 12},
+      {"name": "market_wide", "pattern": "mkt_*", "tables": 10},
       {"name": "variance", "pattern": "var_*", "tables": 63},
       {"name": "currency_strength", "pattern": "csi_*", "tables": 144}
     ],
-    "total_tables_per_pair": 669,
+    "total_tables_per_pair": 667,
     "coverage": "100%",
     "gap_remediation_date": "2025-12-11",
     "gap_remediation_note": "EA added var_* and csi_* queries per CE directive"
