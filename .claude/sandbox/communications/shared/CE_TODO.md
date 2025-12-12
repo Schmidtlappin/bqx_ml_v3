@@ -1,9 +1,32 @@
 # CE Task List
 
-**Last Updated**: December 12, 2025 21:10 UTC
+**Last Updated**: December 12, 2025 20:50 UTC
 **Maintained By**: CE (Chief Engineer)
 **Session**: 05c73962-b9f1-4e06-9a5a-a5ae556cae5a
 **Operating Under**: CE_CHARGE_20251212_v2.0.0.md
+
+---
+
+## CRITICAL DATA QUALITY INVESTIGATION (20:50 UTC)
+
+**User Mandate**: "direct EA to deep dive and investigate the root cause of so many NULL values in extracted feature and target data AND recommend remediation actions. user expects data to be complete. no short cuts."
+
+**QA Validation Findings** (EURUSD validated 20:50 UTC):
+- **Missing Values**: **12.43%** (threshold: <5%) ⚠️ **EXCEEDS BY 2.5×**
+- **Target Nulls**: **3.89%** max (threshold: <1%) ⚠️ **EXCEEDS BY 3.9×**
+
+**User Expectation**: Complete data with minimal nulls - "no short cuts"
+
+**CE Action** (20:50 UTC):
+- ✅ Directive issued: `20251212_2050_CE-to-EA_CRITICAL_NULL_INVESTIGATION.md`
+- Comprehensive 3-phase investigation (Profiling → Root Cause → Remediation)
+- **Goal**: Reduce nulls to <5% overall, <1% target nulls within 24 hours
+- **Timeline**: EA deliverables at 22:50 UTC, 02:00 UTC, 04:00 UTC (Dec 13)
+
+**Impact on Production Rollout**:
+- **HOLD**: Production rollout for remaining 26 pairs pending NULL remediation
+- **Dependency**: EA investigation → BA remediation → EURUSD re-extraction → validation
+- **Expected Delay**: ~27 hours if remediation required
 
 ---
 
@@ -56,7 +79,53 @@
 
 ## P0: ACTIVE TASKS (CRITICAL PATH)
 
-### 1. Monitor Bifurcated EURUSD Deployment (Round 1)
+### 1. EA NULL Value Root Cause Investigation
+**Status**: 🔴 **ACTIVE** (EA investigating)
+**Priority**: P0-CRITICAL (blocks production rollout until resolved)
+**Timeline**: 20:50-04:00 UTC Dec 13 (7h 10min)
+
+**User Mandate**: "user expects data to be complete. no short cuts."
+
+**Investigation Phases**:
+1. **Phase 1: Data Profiling** (20:50-22:50 UTC, 2h)
+   - Download EURUSD training file from GCS
+   - Feature-level null analysis (all 16,988 features)
+   - Target-level null analysis (all 49 targets)
+   - Temporal pattern analysis
+   - **Deliverable**: `NULL_PROFILING_REPORT_EURUSD.md` by 22:50 UTC
+
+2. **Phase 2: Root Cause Analysis** (22:50-02:00 UTC Dec 13, 4h)
+   - Cross-pair feature availability analysis
+   - Target lookahead insufficiency validation
+   - BigQuery extraction error investigation
+   - Feature calculation dependency analysis
+   - Data type mismatch validation
+   - **Deliverable**: `NULL_ROOT_CAUSE_ANALYSIS_EURUSD.md` by 02:00 UTC
+
+3. **Phase 3: Remediation Recommendations** (02:00-04:00 UTC Dec 13, 2h)
+   - Remediation action matrix (cost-benefit analysis)
+   - Prioritized remediation plan (Phase A/B/C)
+   - Expected null reduction percentages
+   - Validation plan
+   - **Deliverable**: `NULL_REMEDIATION_PLAN.md` by 04:00 UTC
+   - **MUST achieve**: <5% overall nulls, <1% target nulls
+
+**Success Criteria**:
+- ✅ Null percentage reduced from 12.43% → <5%
+- ✅ Target nulls reduced from 3.89% → <1%
+- ✅ Root cause identified for ≥90% of nulls
+- ✅ Remediation plan with clear actions, timelines, costs
+
+**Coordination**:
+- With BA: Extraction code review, source data verification, re-extraction if needed
+- With QA: Re-validation after remediation (must pass <5% / <1% thresholds)
+- With CE: Interim reports at 22:50, 02:00, 04:00 UTC
+
+**Directive**: `20251212_2050_CE-to-EA_CRITICAL_NULL_INVESTIGATION.md`
+
+---
+
+### 2. Monitor Bifurcated EURUSD Deployment (Round 1)
 **Status**: 🟡 **IN PROGRESS** (BA implementing, EA monitoring)
 **Priority**: P0-CRITICAL (validates bifurcated architecture for 27-pair rollout)
 **Timeline**: 20:25-22:55 UTC (2h 30min)
@@ -500,7 +569,9 @@
 ## CURRENT BLOCKERS
 
 **P0-CRITICAL Blockers**:
-- 🔴 **Bifurcated architecture validation pending** - Round 1 (EURUSD) in progress (resolution expected 22:55 UTC)
+- 🔴 **Data Quality: 12.43% missing values, 3.89% target nulls** - EA investigating root causes (resolution expected 04:00 UTC Dec 13)
+- 🔴 **Production rollout HOLD pending NULL remediation** - Remaining 26 pairs blocked until data quality meets thresholds (<5% / <1%)
+- 🟡 **Bifurcated architecture validation pending** - Round 1 (EURUSD) in progress (resolution expected 22:55 UTC)
 
 **Recent Blockers Resolved**:
 - ✅ Cloud Run ephemeral storage issue → Bifurcated architecture + GCS checkpoints (20:20 UTC)
