@@ -1,7 +1,7 @@
 {
-  "roadmap_version": "2.3.1",
+  "roadmap_version": "2.3.2",
   "created": "2025-12-09",
-  "updated": "2025-12-10",
+  "updated": "2025-12-12",
   "status": "ACTIVE",
   "supersedes": "v2.2.0 (added agent hierarchy with QA and EA agents)",
   "summary": {
@@ -102,10 +102,11 @@
       }
     },
     "phase_2_5": {
-      "name": "Feature Ledger Generation",
-      "status": "COMPLETE",
-      "completion_date": "2025-12-10",
-      "dependencies": ["phase_1_5", "phase_2"],
+      "name": "Cloud Run Deployment with Polars",
+      "status": "OPERATIONAL",
+      "operational_date": "2025-12-12",
+      "dependencies": ["phase_1_5", "phase_2", "phase_4"],
+      "supersedes": "Phase 2.5 Feature Ledger (moved to Phase 4)",
       "milestones": [
         {"item": "Create generate_feature_ledger.py", "status": "COMPLETE", "details": "Batch INFORMATION_SCHEMA approach, 15.7 sec"},
         {"item": "Generate initial ledger", "status": "COMPLETE", "details": "3,215,366 rows (253% of target - includes shared features)"},
@@ -237,12 +238,57 @@
         }
       },
       "pipeline_status": {
-        "step_6_feature_extraction": "READY FOR RESTART - Gap remediation COMPLETE (2025-12-11)",
-        "tables_per_pair": 667,
-        "extraction_categories": 5,
-        "stability_selection": "PENDING",
-        "training": "PENDING",
-        "shap": "PENDING"
+        "cloud_run_deployment": {
+          "status": "OPERATIONAL",
+          "deployment_date": "2025-12-12",
+          "job_name": "bqx-ml-pipeline",
+          "image": "gcr.io/bqx-ml/bqx-ml-polars-pipeline:latest",
+          "region": "us-central1",
+          "merge_protocol": "Polars (user-mandated)",
+          "resources": {"cpus": 4, "memory_gb": 12, "timeout_seconds": 7200},
+          "completed_pairs": ["EURUSD", "AUDUSD"],
+          "in_progress_pairs": ["GBPUSD"],
+          "pending_pairs": 25,
+          "total_pairs": 28
+        },
+        "eurusd_training_file": {
+          "status": "COMPLETE",
+          "validation_date": "2025-12-12",
+          "file": "data/training/training_eurusd.parquet",
+          "merge_method": "Polars (local, 2025-12-11 21:04 UTC)",
+          "metrics": {
+            "rows": 177748,
+            "columns": 17038,
+            "targets": 56,
+            "features": 16981,
+            "file_size_gb": 9.3,
+            "date_range": "2020-01-01 to 2020-04-10"
+          },
+          "validated_by": "QA-0120 (all 8 criteria MET)",
+          "approved_by": "CE-0125"
+        },
+        "audusd_training_file": {
+          "status": "COMPLETE",
+          "validation_date": "2025-12-12",
+          "merge_method": "Polars (local, 2025-12-12)",
+          "metrics": {
+            "duration_min": 13,
+            "file_size_gb": 9.0,
+            "rows": "~177K",
+            "columns": "~17K"
+          },
+          "validated": true
+        },
+        "deployment_architecture": "Cloud Run serverless with Polars merge (user-mandated)",
+        "pipeline_stages": ["BigQuery Extraction (60-70 min)", "Polars Merge (13-20 min)", "Validation (1-2 min)", "GCS Backup (2-3 min)", "Cleanup (1 min)"],
+        "cost_per_pair": "$0.71 (Cloud Run compute)",
+        "total_cost": "$19.90 (28 pairs) + $1.03/month (GCS storage)",
+        "tables_per_pair": 668,
+        "extraction_categories": "18 feature categories (agg, align, base, corr, cov, csi, cyc, der, div, ext, mkt, mom, reg, tri, var, vol, targets, interval_time)",
+        "merge_evolution": "DuckDB (FAILED: OOM) → Polars (SUCCESS: EURUSD+AUDUSD) → BigQuery 668-JOIN (FAILED: limit) → BigQuery Iterative (BYPASSED: user mandate) → Cloud Run + Polars (OPERATIONAL)",
+        "stability_selection": "PENDING - awaiting all 28 training files",
+        "training": "PENDING - awaiting all 28 training files",
+        "shap": "PENDING - awaiting model training"
       }
     },
     "phase_5": {

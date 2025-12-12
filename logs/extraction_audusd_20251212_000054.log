@@ -1,0 +1,1367 @@
+/home/micha/.local/lib/python3.10/site-packages/google/api_core/_python_version_support.py:266: FutureWarning: You are using a Python version (3.10.12) which Google will stop supporting in new releases of google.api_core once it reaches its end of life (2026-10-04). Please upgrade to the latest Python version, or at least Python 3.11, to continue receiving updates for google.api_core past that date.
+  warnings.warn(message, FutureWarning)
+
+==================================================
+Processing AUDUSD
+==================================================
+  Querying AUDUSD (CHECKPOINT MODE - 16 parallel workers)...
+    Targets: 100,000 rows SAVED
+    Tables: 667 total
+      - pair_specific: 256
+      - triangulation: 194
+      - market_wide: 10
+      - variance: 63
+      - currency_strength: 144
+    Fetching columns for 667 tables (batch query)...
+    Cached columns for 667 tables
+    Status: 0 cached, 667 pending
+    Starting PARALLEL extraction (16 workers)...
+      [DEBUG] Starting extraction: agg_audusd
+      [DEBUG] Starting extraction: agg_bqx_audusd
+      [DEBUG] Starting extraction: agg_idx_audusd
+      [DEBUG] Starting extraction: align_bqx_audusd
+      [DEBUG] Starting extraction: align_idx_audusd
+      [DEBUG] Starting extraction: base_bqx_audusd
+      [DEBUG] Starting extraction: base_idx_audusd
+      [DEBUG] Starting extraction: corr_bqx_ibkr_audusd_ewg
+      [DEBUG] Starting extraction: corr_bqx_ibkr_audusd_ewj
+      [DEBUG] Starting extraction: corr_bqx_ibkr_audusd_gld
+      [DEBUG] Starting extraction: corr_bqx_ibkr_audusd_ewu
+      [DEBUG] Starting extraction: align_audusd
+      [DEBUG] Starting extraction: corr_bqx_ibkr_audusd_vix
+      [DEBUG] Starting extraction: corr_bqx_ibkr_audusd_ewa
+      [DEBUG] Starting extraction: corr_bqx_ibkr_audusd_spy
+      [DEBUG] Starting extraction: corr_bqx_ibkr_audusd_uup
+      [DEBUG] Starting extraction: corr_etf_bqx_audusd_ewa
+      [  1/667] base_idx_audusd: +5 cols SAVED
+      [DEBUG] Starting extraction: corr_etf_bqx_audusd_ewg
+      [  2/667] corr_bqx_ibkr_audusd_ewg: +7 cols SAVED
+      [DEBUG] Starting extraction: corr_etf_bqx_audusd_ewj
+      [  3/667] corr_bqx_ibkr_audusd_uup: +7 cols SAVED
+      [DEBUG] Starting extraction: corr_etf_bqx_audusd_ewu
+      [  4/667] corr_bqx_ibkr_audusd_ewu: +7 cols SAVED
+      [DEBUG] Starting extraction: corr_etf_bqx_audusd_gld
+      [  5/667] corr_bqx_ibkr_audusd_gld: +7 cols SAVED
+      [DEBUG] Starting extraction: corr_etf_bqx_audusd_spy
+      [  6/667] corr_bqx_ibkr_audusd_ewa: +7 cols SAVED
+      [DEBUG] Starting extraction: corr_etf_bqx_audusd_uup
+      [  7/667] corr_bqx_ibkr_audusd_ewj: +7 cols SAVED
+      [DEBUG] Starting extraction: corr_etf_bqx_audusd_vix
+      [  8/667] corr_bqx_ibkr_audusd_spy: +7 cols SAVED
+      [DEBUG] Starting extraction: corr_etf_idx_audusd_ewa
+      [  9/667] corr_bqx_ibkr_audusd_vix: +7 cols SAVED
+      [DEBUG] Starting extraction: corr_etf_idx_audusd_ewg
+      [ 10/667] corr_etf_bqx_audusd_ewa: +7 cols SAVED
+      [DEBUG] Starting extraction: corr_etf_idx_audusd_ewj
+      [ 11/667] base_bqx_audusd: +14 cols SAVED
+      [DEBUG] Starting extraction: corr_etf_idx_audusd_ewu
+      [ 12/667] corr_etf_bqx_audusd_spy: +7 cols SAVED
+      [DEBUG] Starting extraction: corr_etf_idx_audusd_gld
+      [ 13/667] corr_etf_bqx_audusd_ewg: +7 cols SAVED
+      [DEBUG] Starting extraction: corr_etf_idx_audusd_spy
+      [ 14/667] corr_etf_bqx_audusd_gld: +7 cols SAVED
+      [DEBUG] Starting extraction: corr_etf_idx_audusd_uup
+      [ 15/667] corr_etf_bqx_audusd_ewj: +7 cols SAVED
+      [DEBUG] Starting extraction: corr_etf_idx_audusd_vix
+      [ 16/667] corr_etf_bqx_audusd_ewu: +7 cols SAVED
+      [DEBUG] Starting extraction: corr_ibkr_audusd_ewa
+      [ 17/667] corr_etf_bqx_audusd_uup: +7 cols SAVED
+      [DEBUG] Starting extraction: corr_ibkr_audusd_ewg
+      [ 18/667] corr_etf_idx_audusd_ewa: +8 cols SAVED
+      [DEBUG] Starting extraction: corr_ibkr_audusd_ewj
+      [ 19/667] corr_etf_bqx_audusd_vix: +7 cols SAVED
+      [DEBUG] Starting extraction: corr_ibkr_audusd_ewu
+      [ 20/667] corr_etf_idx_audusd_ewg: +8 cols SAVED
+      [DEBUG] Starting extraction: corr_ibkr_audusd_gld
+      [ 21/667] corr_etf_idx_audusd_ewj: +8 cols SAVED
+      [DEBUG] Starting extraction: corr_ibkr_audusd_spy
+      [ 22/667] corr_etf_idx_audusd_ewu: +8 cols SAVED
+      [DEBUG] Starting extraction: corr_ibkr_audusd_uup
+      [ 23/667] corr_etf_idx_audusd_gld: +8 cols SAVED
+      [DEBUG] Starting extraction: corr_ibkr_audusd_vix
+      [ 24/667] corr_etf_idx_audusd_spy: +8 cols SAVED
+      [DEBUG] Starting extraction: cov_agg_audcad_audusd
+      [ 25/667] corr_ibkr_audusd_ewa: +8 cols SAVED
+      [DEBUG] Starting extraction: cov_agg_audchf_audusd
+      [ 26/667] corr_etf_idx_audusd_uup: +8 cols SAVED
+      [DEBUG] Starting extraction: cov_agg_audjpy_audusd
+      [ 27/667] corr_ibkr_audusd_ewg: +8 cols SAVED
+      [DEBUG] Starting extraction: cov_agg_audnzd_audusd
+      [ 28/667] corr_etf_idx_audusd_vix: +8 cols SAVED
+      [DEBUG] Starting extraction: cov_agg_audusd_euraud
+      [ 29/667] corr_ibkr_audusd_ewj: +8 cols SAVED
+      [DEBUG] Starting extraction: cov_agg_audusd_eurusd
+      [ 30/667] corr_ibkr_audusd_ewu: +8 cols SAVED
+      [DEBUG] Starting extraction: cov_agg_audusd_gbpaud
+      [ 31/667] corr_ibkr_audusd_gld: +8 cols SAVED
+      [DEBUG] Starting extraction: cov_agg_audusd_gbpusd
+      [ 32/667] align_bqx_audusd: +42 cols SAVED
+      [DEBUG] Starting extraction: cov_agg_audusd_nzdusd
+      [ 33/667] corr_ibkr_audusd_uup: +8 cols SAVED
+      [DEBUG] Starting extraction: cov_agg_audusd_usdcad
+      [ 34/667] corr_ibkr_audusd_spy: +8 cols SAVED
+      [DEBUG] Starting extraction: cov_agg_audusd_usdchf
+      [ 35/667] align_idx_audusd: +42 cols SAVED
+      [DEBUG] Starting extraction: cov_agg_audusd_usdjpy
+      [ 36/667] corr_ibkr_audusd_vix: +8 cols SAVED
+      [DEBUG] Starting extraction: cov_agg_bqx_audcad_audusd
+      [ 37/667] align_audusd: +42 cols SAVED
+      [DEBUG] Starting extraction: cov_agg_bqx_audchf_audusd
+      [ 38/667] cov_agg_audchf_audusd: +13 cols SAVED
+      [DEBUG] Starting extraction: cov_agg_bqx_audjpy_audusd
+      [ 39/667] cov_agg_audcad_audusd: +13 cols SAVED
+      [DEBUG] Starting extraction: cov_agg_bqx_audnzd_audusd
+      [ 40/667] cov_agg_audjpy_audusd: +13 cols SAVED
+      [DEBUG] Starting extraction: cov_agg_bqx_audusd_euraud
+      [ 41/667] cov_agg_audnzd_audusd: +13 cols SAVED
+      [DEBUG] Starting extraction: cov_agg_bqx_audusd_eurusd
+      [ 42/667] cov_agg_audusd_euraud: +13 cols SAVED
+      [DEBUG] Starting extraction: cov_agg_bqx_audusd_gbpaud
+      [ 43/667] cov_agg_audusd_eurusd: +13 cols SAVED
+      [DEBUG] Starting extraction: cov_agg_bqx_audusd_gbpusd
+      [ 44/667] cov_agg_audusd_gbpaud: +13 cols SAVED
+      [DEBUG] Starting extraction: cov_agg_bqx_audusd_nzdusd
+      [ 45/667] cov_agg_audusd_usdcad: +13 cols SAVED
+      [DEBUG] Starting extraction: cov_agg_bqx_audusd_usdcad
+      [ 46/667] cov_agg_audusd_gbpusd: +13 cols SAVED
+      [DEBUG] Starting extraction: cov_agg_bqx_audusd_usdchf
+      [ 47/667] cov_agg_audusd_nzdusd: +13 cols SAVED
+      [DEBUG] Starting extraction: cov_agg_bqx_audusd_usdjpy
+      [ 48/667] cov_agg_audusd_usdchf: +13 cols SAVED
+      [DEBUG] Starting extraction: cov_agg_idx_audcad_audusd
+      [ 49/667] cov_agg_bqx_audcad_audusd: +13 cols SAVED
+      [DEBUG] Starting extraction: cov_agg_idx_audchf_audusd
+      [ 50/667] cov_agg_audusd_usdjpy: +13 cols SAVED
+      === Progress: 50/667 (0.2/s, ~4015s remaining) ===
+      [DEBUG] Starting extraction: cov_agg_idx_audjpy_audusd
+      [ 51/667] cov_agg_bqx_audjpy_audusd: +13 cols SAVED
+      [DEBUG] Starting extraction: cov_agg_idx_audnzd_audusd
+      [ 52/667] cov_agg_bqx_audnzd_audusd: +13 cols SAVED
+      [DEBUG] Starting extraction: cov_agg_idx_audusd_euraud
+      [ 53/667] cov_agg_bqx_audusd_euraud: +13 cols SAVED
+      [DEBUG] Starting extraction: cov_agg_idx_audusd_eurusd
+      [ 54/667] cov_agg_bqx_audchf_audusd: +13 cols SAVED
+      [DEBUG] Starting extraction: cov_agg_idx_audusd_gbpaud
+      [ 55/667] cov_agg_bqx_audusd_eurusd: +13 cols SAVED
+      [DEBUG] Starting extraction: cov_agg_idx_audusd_gbpusd
+      [ 56/667] cov_agg_bqx_audusd_gbpaud: +13 cols SAVED
+      [DEBUG] Starting extraction: cov_agg_idx_audusd_nzdusd
+      [ 57/667] cov_agg_bqx_audusd_gbpusd: +13 cols SAVED
+      [DEBUG] Starting extraction: cov_agg_idx_audusd_usdcad
+      [ 58/667] cov_agg_bqx_audusd_usdcad: +13 cols SAVED
+      [DEBUG] Starting extraction: cov_agg_idx_audusd_usdchf
+      [ 59/667] agg_audusd: +64 cols SAVED
+      [DEBUG] Starting extraction: cov_agg_idx_audusd_usdjpy
+      [ 60/667] cov_agg_bqx_audusd_usdchf: +13 cols SAVED
+      [DEBUG] Starting extraction: cov_align_audcad_audusd
+      [ 61/667] cov_agg_bqx_audusd_nzdusd: +13 cols SAVED
+      [DEBUG] Starting extraction: cov_align_audchf_audusd
+      [ 62/667] agg_idx_audusd: +64 cols SAVED
+      [DEBUG] Starting extraction: cov_align_audjpy_audusd
+      [ 63/667] cov_agg_bqx_audusd_usdjpy: +13 cols SAVED
+      [DEBUG] Starting extraction: cov_align_audnzd_audusd
+      [ 64/667] cov_agg_idx_audcad_audusd: +13 cols SAVED
+      [DEBUG] Starting extraction: cov_align_audusd_euraud
+      [ 65/667] cov_agg_idx_audchf_audusd: +13 cols SAVED
+      [DEBUG] Starting extraction: cov_align_audusd_eurusd
+      [ 66/667] cov_agg_idx_audjpy_audusd: +13 cols SAVED
+      [DEBUG] Starting extraction: cov_align_audusd_gbpaud
+      [ 67/667] cov_agg_idx_audnzd_audusd: +13 cols SAVED
+      [DEBUG] Starting extraction: cov_align_audusd_gbpusd
+      [ 68/667] cov_agg_idx_audusd_eurusd: +13 cols SAVED
+      [DEBUG] Starting extraction: cov_align_audusd_nzdusd
+      [ 69/667] agg_bqx_audusd: +64 cols SAVED
+      [DEBUG] Starting extraction: cov_align_audusd_usdcad
+      [ 70/667] cov_agg_idx_audusd_euraud: +13 cols SAVED
+      [DEBUG] Starting extraction: cov_align_audusd_usdchf
+      [ 71/667] cov_agg_idx_audusd_gbpaud: +13 cols SAVED
+      [DEBUG] Starting extraction: cov_align_audusd_usdjpy
+      [DEBUG] Starting extraction: cov_align_bqx_audcad_audusd
+      [ 72/667] cov_align_audcad_audusd: +13 cols SAVED
+      [ 73/667] cov_align_audchf_audusd: +13 cols SAVED
+      [DEBUG] Starting extraction: cov_align_bqx_audchf_audusd
+      [ 74/667] cov_align_audjpy_audusd: +13 cols SAVED
+      [DEBUG] Starting extraction: cov_align_bqx_audjpy_audusd
+      [ 75/667] cov_align_audnzd_audusd: +13 cols SAVED
+      [DEBUG] Starting extraction: cov_align_bqx_audnzd_audusd
+      [ 76/667] cov_agg_idx_audusd_gbpusd: +13 cols SAVED
+      [DEBUG] Starting extraction: cov_align_bqx_audusd_euraud
+      [ 77/667] cov_align_audusd_euraud: +13 cols SAVED
+      [DEBUG] Starting extraction: cov_align_bqx_audusd_eurusd
+      [ 78/667] cov_align_audusd_eurusd: +13 cols SAVED
+      [DEBUG] Starting extraction: cov_align_bqx_audusd_gbpaud
+      [ 79/667] cov_align_audusd_nzdusd: +13 cols SAVED
+      [DEBUG] Starting extraction: cov_align_bqx_audusd_gbpusd
+      [ 80/667] cov_agg_idx_audusd_nzdusd: +13 cols SAVED
+      [DEBUG] Starting extraction: cov_align_bqx_audusd_nzdusd
+      [ 81/667] cov_align_audusd_gbpaud: +13 cols SAVED
+      [DEBUG] Starting extraction: cov_align_bqx_audusd_usdcad
+      [ 82/667] cov_align_audusd_gbpusd: +13 cols SAVED
+      [DEBUG] Starting extraction: cov_align_bqx_audusd_usdchf
+      [ 83/667] cov_align_audusd_usdcad: +13 cols SAVED
+      [DEBUG] Starting extraction: cov_align_bqx_audusd_usdjpy
+      [ 84/667] cov_align_bqx_audcad_audusd: +13 cols SAVED
+      [DEBUG] Starting extraction: cov_lag_audcad_audusd
+      [DEBUG] Starting extraction: cov_lag_audchf_audusd
+      [ 85/667] cov_align_bqx_audchf_audusd: +13 cols SAVED
+      [ 86/667] cov_agg_idx_audusd_usdcad: +13 cols SAVED
+      [DEBUG] Starting extraction: cov_lag_audjpy_audusd
+      [ 87/667] cov_agg_idx_audusd_usdchf: +13 cols SAVED
+      [DEBUG] Starting extraction: cov_lag_audnzd_audusd
+      [ 88/667] cov_align_audusd_usdchf: +13 cols SAVED
+      [DEBUG] Starting extraction: cov_lag_audusd_euraud
+      [ 89/667] cov_agg_idx_audusd_usdjpy: +13 cols SAVED
+      [DEBUG] Starting extraction: cov_lag_audusd_eurusd
+      [ 90/667] cov_align_audusd_usdjpy: +13 cols SAVED
+      [DEBUG] Starting extraction: cov_lag_audusd_gbpaud
+      [ 91/667] cov_align_bqx_audjpy_audusd: +13 cols SAVED
+      [DEBUG] Starting extraction: cov_lag_audusd_gbpusd
+      [ 92/667] cov_align_bqx_audnzd_audusd: +13 cols SAVED
+      [DEBUG] Starting extraction: cov_lag_audusd_nzdusd
+      [ 93/667] cov_align_bqx_audusd_nzdusd: +13 cols SAVED
+      [DEBUG] Starting extraction: cov_lag_audusd_usdcad
+      [ 94/667] cov_align_bqx_audusd_eurusd: +13 cols SAVED
+      [DEBUG] Starting extraction: cov_lag_audusd_usdchf
+      [ 95/667] cov_align_bqx_audusd_euraud: +13 cols SAVED
+      [DEBUG] Starting extraction: cov_lag_audusd_usdjpy
+      [ 96/667] cov_align_bqx_audusd_gbpaud: +13 cols SAVED
+      [DEBUG] Starting extraction: cov_lag_bqx_audcad_audusd
+      [ 97/667] cov_align_bqx_audusd_gbpusd: +13 cols SAVED
+      [DEBUG] Starting extraction: cov_lag_bqx_audchf_audusd
+      [ 98/667] cov_align_bqx_audusd_usdcad: +13 cols SAVED
+      [DEBUG] Starting extraction: cov_lag_bqx_audjpy_audusd
+      [ 99/667] cov_align_bqx_audusd_usdjpy: +13 cols SAVED
+      [DEBUG] Starting extraction: cov_lag_bqx_audnzd_audusd
+      [100/667] cov_align_bqx_audusd_usdchf: +13 cols SAVED
+      === Progress: 100/667 (0.2/s, ~3341s remaining) ===
+      [DEBUG] Starting extraction: cov_lag_bqx_audusd_euraud
+      [101/667] cov_lag_audchf_audusd: +15 cols SAVED
+      [DEBUG] Starting extraction: cov_lag_bqx_audusd_eurusd
+      [102/667] cov_lag_audcad_audusd: +15 cols SAVED
+      [DEBUG] Starting extraction: cov_lag_bqx_audusd_gbpaud
+      [103/667] cov_lag_audjpy_audusd: +15 cols SAVED
+      [DEBUG] Starting extraction: cov_lag_bqx_audusd_gbpusd
+      [104/667] cov_lag_audusd_eurusd: +15 cols SAVED
+      [DEBUG] Starting extraction: cov_lag_bqx_audusd_nzdusd
+      [105/667] cov_lag_audnzd_audusd: +15 cols SAVED
+      [DEBUG] Starting extraction: cov_lag_bqx_audusd_usdcad
+      [106/667] cov_lag_audusd_euraud: +15 cols SAVED
+      [DEBUG] Starting extraction: cov_lag_bqx_audusd_usdchf
+      [107/667] cov_lag_audusd_gbpaud: +15 cols SAVED
+      [DEBUG] Starting extraction: cov_lag_bqx_audusd_usdjpy
+      [108/667] cov_lag_audusd_gbpusd: +15 cols SAVED
+      [DEBUG] Starting extraction: cov_mom_audcad_audusd
+      [109/667] cov_lag_audusd_usdchf: +15 cols SAVED
+      [DEBUG] Starting extraction: cov_mom_audchf_audusd
+      [110/667] cov_lag_audusd_nzdusd: +15 cols SAVED
+      [DEBUG] Starting extraction: cov_mom_audjpy_audusd
+      [111/667] cov_lag_audusd_usdcad: +15 cols SAVED
+      [DEBUG] Starting extraction: cov_mom_audnzd_audusd
+      [112/667] cov_lag_audusd_usdjpy: +15 cols SAVED
+      [DEBUG] Starting extraction: cov_mom_audusd_euraud
+      [113/667] cov_lag_bqx_audcad_audusd: +15 cols SAVED
+      [DEBUG] Starting extraction: cov_mom_audusd_eurusd
+      [114/667] cov_lag_bqx_audchf_audusd: +15 cols SAVED
+      [DEBUG] Starting extraction: cov_mom_audusd_gbpaud
+      [115/667] cov_lag_bqx_audjpy_audusd: +15 cols SAVED
+      [DEBUG] Starting extraction: cov_mom_audusd_gbpusd
+      [116/667] cov_lag_bqx_audnzd_audusd: +15 cols SAVED
+      [DEBUG] Starting extraction: cov_mom_audusd_nzdusd
+      [117/667] cov_lag_bqx_audusd_eurusd: +15 cols SAVED
+      [DEBUG] Starting extraction: cov_mom_audusd_usdcad
+      [118/667] cov_lag_bqx_audusd_euraud: +15 cols SAVED
+      [DEBUG] Starting extraction: cov_mom_audusd_usdchf
+      [119/667] cov_lag_bqx_audusd_gbpaud: +15 cols SAVED
+      [DEBUG] Starting extraction: cov_mom_audusd_usdjpy
+      [120/667] cov_lag_bqx_audusd_nzdusd: +15 cols SAVED
+      [DEBUG] Starting extraction: cov_mom_bqx_audcad_audusd
+      [121/667] cov_lag_bqx_audusd_gbpusd: +15 cols SAVED
+      [DEBUG] Starting extraction: cov_mom_bqx_audchf_audusd
+      [122/667] cov_lag_bqx_audusd_usdcad: +15 cols SAVED
+      [DEBUG] Starting extraction: cov_mom_bqx_audjpy_audusd
+      [123/667] cov_lag_bqx_audusd_usdchf: +15 cols SAVED
+      [DEBUG] Starting extraction: cov_mom_bqx_audnzd_audusd
+      [124/667] cov_lag_bqx_audusd_usdjpy: +15 cols SAVED
+      [DEBUG] Starting extraction: cov_mom_bqx_audusd_euraud
+      [125/667] cov_mom_audcad_audusd: +13 cols SAVED
+      [DEBUG] Starting extraction: cov_mom_bqx_audusd_eurusd
+      [126/667] cov_mom_audjpy_audusd: +13 cols SAVED
+      [DEBUG] Starting extraction: cov_mom_bqx_audusd_gbpaud
+      [127/667] cov_mom_audchf_audusd: +13 cols SAVED
+      [DEBUG] Starting extraction: cov_mom_bqx_audusd_gbpusd
+      [128/667] cov_mom_audnzd_audusd: +13 cols SAVED
+      [DEBUG] Starting extraction: cov_mom_bqx_audusd_nzdusd
+      [129/667] cov_mom_audusd_euraud: +13 cols SAVED
+      [DEBUG] Starting extraction: cov_mom_bqx_audusd_usdcad
+      [130/667] cov_mom_audusd_eurusd: +13 cols SAVED
+      [DEBUG] Starting extraction: cov_mom_bqx_audusd_usdchf
+      [131/667] cov_mom_audusd_gbpaud: +13 cols SAVED
+      [DEBUG] Starting extraction: cov_mom_bqx_audusd_usdjpy
+      [132/667] cov_mom_audusd_gbpusd: +13 cols SAVED
+      [DEBUG] Starting extraction: cov_reg_audcad_audusd
+      [133/667] cov_mom_audusd_nzdusd: +13 cols SAVED
+      [DEBUG] Starting extraction: cov_reg_audchf_audusd
+      [134/667] cov_mom_audusd_usdcad: +13 cols SAVED
+      [DEBUG] Starting extraction: cov_reg_audjpy_audusd
+      [135/667] cov_mom_audusd_usdchf: +13 cols SAVED
+      [DEBUG] Starting extraction: cov_reg_audnzd_audusd
+      [136/667] cov_mom_audusd_usdjpy: +13 cols SAVED
+      [DEBUG] Starting extraction: cov_reg_audusd_euraud
+      [137/667] cov_mom_bqx_audcad_audusd: +13 cols SAVED
+      [DEBUG] Starting extraction: cov_reg_audusd_eurusd
+      [138/667] cov_mom_bqx_audjpy_audusd: +13 cols SAVED
+      [DEBUG] Starting extraction: cov_reg_audusd_gbpaud
+      [139/667] cov_mom_bqx_audchf_audusd: +13 cols SAVED
+      [DEBUG] Starting extraction: cov_reg_audusd_gbpusd
+      [140/667] cov_mom_bqx_audusd_eurusd: +13 cols SAVED
+      [DEBUG] Starting extraction: cov_reg_audusd_nzdusd
+      [141/667] cov_mom_bqx_audusd_euraud: +13 cols SAVED
+      [DEBUG] Starting extraction: cov_reg_audusd_usdcad
+      [142/667] cov_mom_bqx_audnzd_audusd: +13 cols SAVED
+      [DEBUG] Starting extraction: cov_reg_audusd_usdchf
+      [143/667] cov_mom_bqx_audusd_gbpaud: +13 cols SAVED
+      [DEBUG] Starting extraction: cov_reg_audusd_usdjpy
+      [144/667] cov_mom_bqx_audusd_gbpusd: +13 cols SAVED
+      [DEBUG] Starting extraction: cov_reg_bqx_audcad_audusd
+      [145/667] cov_mom_bqx_audusd_nzdusd: +13 cols SAVED
+      [DEBUG] Starting extraction: cov_reg_bqx_audchf_audusd
+      [146/667] cov_mom_bqx_audusd_usdcad: +13 cols SAVED
+      [DEBUG] Starting extraction: cov_reg_bqx_audjpy_audusd
+      [147/667] cov_mom_bqx_audusd_usdchf: +13 cols SAVED
+      [DEBUG] Starting extraction: cov_reg_bqx_audnzd_audusd
+      [148/667] cov_mom_bqx_audusd_usdjpy: +13 cols SAVED
+      [DEBUG] Starting extraction: cov_reg_bqx_audusd_euraud
+      [149/667] cov_reg_audcad_audusd: +13 cols SAVED
+      [DEBUG] Starting extraction: cov_reg_bqx_audusd_eurusd
+      [DEBUG] Starting extraction: cov_reg_bqx_audusd_gbpaud
+      [150/667] cov_reg_audchf_audusd: +13 cols SAVED
+      === Progress: 150/667 (0.2/s, ~3059s remaining) ===
+      [151/667] cov_reg_audjpy_audusd: +13 cols SAVED
+      [DEBUG] Starting extraction: cov_reg_bqx_audusd_gbpusd
+      [152/667] cov_reg_audnzd_audusd: +13 cols SAVED
+      [DEBUG] Starting extraction: cov_reg_bqx_audusd_nzdusd
+      [153/667] cov_reg_audusd_euraud: +13 cols SAVED
+      [DEBUG] Starting extraction: cov_reg_bqx_audusd_usdcad
+      [154/667] cov_reg_audusd_eurusd: +13 cols SAVED
+      [DEBUG] Starting extraction: cov_reg_bqx_audusd_usdchf
+      [155/667] cov_reg_audusd_gbpaud: +13 cols SAVED
+      [DEBUG] Starting extraction: cov_reg_bqx_audusd_usdjpy
+      [156/667] cov_reg_audusd_gbpusd: +13 cols SAVED
+      [DEBUG] Starting extraction: cov_regime_audcad_audusd
+      [157/667] cov_reg_audusd_nzdusd: +13 cols SAVED
+      [DEBUG] Starting extraction: cov_regime_audchf_audusd
+      [158/667] cov_reg_audusd_usdcad: +13 cols SAVED
+      [DEBUG] Starting extraction: cov_regime_audjpy_audusd
+      [159/667] cov_reg_audusd_usdchf: +13 cols SAVED
+      [DEBUG] Starting extraction: cov_regime_audnzd_audusd
+      [160/667] cov_reg_audusd_usdjpy: +13 cols SAVED
+      [DEBUG] Starting extraction: cov_regime_audusd_euraud
+      [161/667] cov_reg_bqx_audcad_audusd: +13 cols SAVED
+      [DEBUG] Starting extraction: cov_regime_audusd_eurusd
+      [162/667] cov_reg_bqx_audchf_audusd: +13 cols SAVED
+      [DEBUG] Starting extraction: cov_regime_audusd_gbpaud
+      [163/667] cov_regime_audcad_audusd: +12 cols SAVED
+      [DEBUG] Starting extraction: cov_regime_audusd_gbpusd
+      [164/667] cov_reg_bqx_audjpy_audusd: +13 cols SAVED
+      [DEBUG] Starting extraction: cov_regime_audusd_nzdusd
+      [165/667] cov_regime_audchf_audusd: +12 cols SAVED
+      [DEBUG] Starting extraction: cov_regime_audusd_usdcad
+      [166/667] cov_regime_audjpy_audusd: +12 cols SAVED
+      [DEBUG] Starting extraction: cov_regime_audusd_usdchf
+      [167/667] cov_reg_bqx_audnzd_audusd: +13 cols SAVED
+      [DEBUG] Starting extraction: cov_regime_audusd_usdjpy
+      [168/667] cov_regime_audnzd_audusd: +12 cols SAVED
+      [DEBUG] Starting extraction: cov_regime_bqx_audcad_audusd
+      [169/667] cov_regime_audusd_euraud: +12 cols SAVED
+      [DEBUG] Starting extraction: cov_regime_bqx_audchf_audusd
+      [170/667] cov_reg_bqx_audusd_eurusd: +13 cols SAVED
+      [DEBUG] Starting extraction: cov_regime_bqx_audjpy_audusd
+      [171/667] cov_reg_bqx_audusd_euraud: +13 cols SAVED
+      [DEBUG] Starting extraction: cov_regime_bqx_audnzd_audusd
+      [172/667] cov_regime_audusd_eurusd: +12 cols SAVED
+      [DEBUG] Starting extraction: cov_regime_bqx_audusd_euraud
+      [173/667] cov_regime_audusd_gbpaud: +12 cols SAVED
+      [DEBUG] Starting extraction: cov_regime_bqx_audusd_eurusd
+      [174/667] cov_reg_bqx_audusd_gbpaud: +13 cols SAVED
+      [DEBUG] Starting extraction: cov_regime_bqx_audusd_gbpaud
+      [175/667] cov_regime_audusd_nzdusd: +12 cols SAVED
+      [DEBUG] Starting extraction: cov_regime_bqx_audusd_gbpusd
+      [176/667] cov_regime_audusd_usdcad: +12 cols SAVED
+      [DEBUG] Starting extraction: cov_regime_bqx_audusd_nzdusd
+      [177/667] cov_reg_bqx_audusd_gbpusd: +13 cols SAVED
+      [DEBUG] Starting extraction: cov_regime_bqx_audusd_usdcad
+      [178/667] cov_regime_audusd_gbpusd: +12 cols SAVED
+      [DEBUG] Starting extraction: cov_regime_bqx_audusd_usdchf
+      [179/667] cov_reg_bqx_audusd_nzdusd: +13 cols SAVED
+      [DEBUG] Starting extraction: cov_regime_bqx_audusd_usdjpy
+      [180/667] cov_reg_bqx_audusd_usdcad: +13 cols SAVED
+      [DEBUG] Starting extraction: cov_vol_audcad_audusd
+      [181/667] cov_regime_audusd_usdchf: +12 cols SAVED
+      [DEBUG] Starting extraction: cov_vol_audchf_audusd
+      [182/667] cov_regime_audusd_usdjpy: +12 cols SAVED
+      [DEBUG] Starting extraction: cov_vol_audjpy_audusd
+      [183/667] cov_reg_bqx_audusd_usdchf: +13 cols SAVED
+      [DEBUG] Starting extraction: cov_vol_audnzd_audusd
+      [184/667] cov_reg_bqx_audusd_usdjpy: +13 cols SAVED
+      [DEBUG] Starting extraction: cov_vol_audusd_euraud
+      [185/667] cov_regime_bqx_audcad_audusd: +12 cols SAVED
+      [DEBUG] Starting extraction: cov_vol_audusd_eurusd
+      [186/667] cov_regime_bqx_audchf_audusd: +12 cols SAVED
+      [DEBUG] Starting extraction: cov_vol_audusd_gbpaud
+      [187/667] cov_regime_bqx_audjpy_audusd: +12 cols SAVED
+      [DEBUG] Starting extraction: cov_vol_audusd_gbpusd
+      [188/667] cov_regime_bqx_audusd_euraud: +12 cols SAVED
+      [DEBUG] Starting extraction: cov_vol_audusd_nzdusd
+      [189/667] cov_regime_bqx_audnzd_audusd: +12 cols SAVED
+      [DEBUG] Starting extraction: cov_vol_audusd_usdcad
+      [190/667] cov_regime_bqx_audusd_eurusd: +12 cols SAVED
+      [DEBUG] Starting extraction: cov_vol_audusd_usdchf
+      [191/667] cov_regime_bqx_audusd_gbpaud: +12 cols SAVED
+      [DEBUG] Starting extraction: cov_vol_audusd_usdjpy
+      [192/667] cov_regime_bqx_audusd_nzdusd: +12 cols SAVED
+      [DEBUG] Starting extraction: cov_vol_bqx_audcad_audusd
+      [193/667] cov_regime_bqx_audusd_gbpusd: +12 cols SAVED
+      [DEBUG] Starting extraction: cov_vol_bqx_audchf_audusd
+      [194/667] cov_regime_bqx_audusd_usdcad: +12 cols SAVED
+      [DEBUG] Starting extraction: cov_vol_bqx_audjpy_audusd
+      [195/667] cov_regime_bqx_audusd_usdchf: +12 cols SAVED
+      [DEBUG] Starting extraction: cov_vol_bqx_audnzd_audusd
+      [196/667] cov_regime_bqx_audusd_usdjpy: +12 cols SAVED
+      [DEBUG] Starting extraction: cov_vol_bqx_audusd_euraud
+      [197/667] cov_vol_audcad_audusd: +13 cols SAVED
+      [DEBUG] Starting extraction: cov_vol_bqx_audusd_eurusd
+      [198/667] cov_vol_audchf_audusd: +13 cols SAVED
+      [DEBUG] Starting extraction: cov_vol_bqx_audusd_gbpaud
+      [199/667] cov_vol_audjpy_audusd: +13 cols SAVED
+      [DEBUG] Starting extraction: cov_vol_bqx_audusd_gbpusd
+      [200/667] cov_vol_audnzd_audusd: +13 cols SAVED
+      === Progress: 200/667 (0.2/s, ~2649s remaining) ===
+      [DEBUG] Starting extraction: cov_vol_bqx_audusd_nzdusd
+      [201/667] cov_vol_audusd_euraud: +13 cols SAVED
+      [DEBUG] Starting extraction: cov_vol_bqx_audusd_usdcad
+      [202/667] cov_vol_audusd_gbpaud: +13 cols SAVED
+      [DEBUG] Starting extraction: cov_vol_bqx_audusd_usdchf
+      [203/667] cov_vol_audusd_eurusd: +13 cols SAVED
+      [DEBUG] Starting extraction: cov_vol_bqx_audusd_usdjpy
+      [204/667] cov_vol_audusd_usdcad: +13 cols SAVED
+      [DEBUG] Starting extraction: cyc_bqx_audusd
+      [205/667] cov_vol_audusd_nzdusd: +13 cols SAVED
+      [DEBUG] Starting extraction: der_audusd
+      [206/667] cov_vol_audusd_usdchf: +13 cols SAVED
+      [DEBUG] Starting extraction: der_bqx_audusd
+      [207/667] cov_vol_audusd_gbpusd: +13 cols SAVED
+      [DEBUG] Starting extraction: der_idx_audusd
+      [208/667] cov_vol_bqx_audjpy_audusd: +13 cols SAVED
+      [DEBUG] Starting extraction: div_audusd
+      [209/667] cov_vol_bqx_audcad_audusd: +13 cols SAVED
+      [DEBUG] Starting extraction: div_bqx_audusd
+      [210/667] cov_vol_bqx_audchf_audusd: +13 cols SAVED
+      [DEBUG] Starting extraction: div_idx_audusd
+      [211/667] cov_vol_audusd_usdjpy: +13 cols SAVED
+      [DEBUG] Starting extraction: ext_bqx_audusd
+      [212/667] cov_vol_bqx_audnzd_audusd: +13 cols SAVED
+      [DEBUG] Starting extraction: lag_audusd_45
+      [213/667] cyc_bqx_audusd: +4 cols SAVED
+      [DEBUG] Starting extraction: lag_audusd_90
+      [214/667] cov_vol_bqx_audusd_eurusd: +13 cols SAVED
+      [DEBUG] Starting extraction: lag_bqx_audusd_45
+      [215/667] cov_vol_bqx_audusd_euraud: +13 cols SAVED
+      [DEBUG] Starting extraction: lag_bqx_audusd_90
+      [216/667] div_audusd: +6 cols SAVED
+      [DEBUG] Starting extraction: lag_bqx_audusd_w45
+      [217/667] div_bqx_audusd: +6 cols SAVED
+      [DEBUG] Starting extraction: lag_bqx_audusd_w90
+      [218/667] cov_vol_bqx_audusd_gbpaud: +13 cols SAVED
+      [DEBUG] Starting extraction: lag_idx_audusd_w45
+      [219/667] div_idx_audusd: +6 cols SAVED
+      [DEBUG] Starting extraction: lag_idx_audusd_w90
+      [220/667] cov_vol_bqx_audusd_gbpusd: +13 cols SAVED
+      [DEBUG] Starting extraction: mom_audusd
+      [221/667] cov_vol_bqx_audusd_nzdusd: +13 cols SAVED
+      [DEBUG] Starting extraction: mom_bqx_audusd
+      [222/667] cov_vol_bqx_audusd_usdcad: +13 cols SAVED
+      [DEBUG] Starting extraction: mom_idx_audusd
+      [223/667] cov_vol_bqx_audusd_usdchf: +13 cols SAVED
+      [DEBUG] Starting extraction: mrt_audusd
+      [224/667] cov_vol_bqx_audusd_usdjpy: +13 cols SAVED
+      [DEBUG] Starting extraction: mrt_bqx_audusd
+      [225/667] der_audusd: +15 cols SAVED
+      [DEBUG] Starting extraction: mrt_idx_audusd
+      [226/667] der_idx_audusd: +15 cols SAVED
+      [DEBUG] Starting extraction: reg_audusd
+      [227/667] lag_audusd_45: +11 cols SAVED
+      [DEBUG] Starting extraction: reg_bqx_audusd
+      [228/667] lag_bqx_audusd_45: +10 cols SAVED
+      [DEBUG] Starting extraction: reg_idx_audusd
+      [229/667] lag_audusd_90: +11 cols SAVED
+      [DEBUG] Starting extraction: regime_audusd_45
+      [230/667] lag_bqx_audusd_w90: +10 cols SAVED
+      [DEBUG] Starting extraction: regime_audusd_90
+      [231/667] lag_bqx_audusd_90: +10 cols SAVED
+      [DEBUG] Starting extraction: regime_bqx_audusd_45
+      [232/667] lag_idx_audusd_w45: +11 cols SAVED
+      [DEBUG] Starting extraction: regime_bqx_audusd_90
+      [233/667] lag_bqx_audusd_w45: +10 cols SAVED
+      [DEBUG] Starting extraction: rev_audusd
+      [234/667] lag_idx_audusd_w90: +11 cols SAVED
+      [DEBUG] Starting extraction: rev_bqx_audusd
+      [235/667] der_bqx_audusd: +15 cols SAVED
+      [DEBUG] Starting extraction: rev_idx_audusd
+      [236/667] ext_bqx_audusd: +16 cols SAVED
+      [DEBUG] Starting extraction: tmp_audusd
+      [237/667] mrt_audusd: +10 cols SAVED
+      [DEBUG] Starting extraction: vol_audusd
+      [238/667] mrt_bqx_audusd: +10 cols SAVED
+      [DEBUG] Starting extraction: vol_bqx_audusd
+      [239/667] regime_audusd_45: +13 cols SAVED
+      [DEBUG] Starting extraction: vol_idx_audusd
+      [240/667] mrt_idx_audusd: +10 cols SAVED
+      [DEBUG] Starting extraction: tri_agg_bqx_aud_usd_cad
+      [241/667] regime_audusd_90: +13 cols SAVED
+      [DEBUG] Starting extraction: tri_agg_bqx_aud_usd_chf
+      [242/667] rev_audusd: +10 cols SAVED
+      [DEBUG] Starting extraction: tri_agg_bqx_aud_usd_jpy
+      [243/667] rev_idx_audusd: +10 cols SAVED
+      [DEBUG] Starting extraction: tri_agg_bqx_aud_usd_nzd
+      [244/667] regime_bqx_audusd_45: +19 cols SAVED
+      [DEBUG] Starting extraction: tri_agg_bqx_eur_usd_aud
+      [245/667] regime_bqx_audusd_90: +19 cols SAVED
+      [DEBUG] Starting extraction: tri_agg_bqx_eur_usd_cad
+      [246/667] tmp_audusd: +23 cols SAVED
+      [DEBUG] Starting extraction: tri_agg_bqx_eur_usd_chf
+      [247/667] rev_bqx_audusd: +10 cols SAVED
+      [DEBUG] Starting extraction: tri_agg_bqx_eur_usd_gbp
+      [248/667] tri_agg_bqx_aud_usd_cad: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_agg_bqx_eur_usd_jpy
+      [249/667] tri_agg_bqx_aud_usd_chf: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_agg_bqx_eur_usd_nzd
+      [250/667] tri_agg_bqx_aud_usd_jpy: +14 cols SAVED
+      === Progress: 250/667 (0.2/s, ~2393s remaining) ===
+      [DEBUG] Starting extraction: tri_agg_bqx_gbp_usd_aud
+      [251/667] tri_agg_bqx_aud_usd_nzd: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_agg_bqx_gbp_usd_cad
+      [252/667] tri_agg_bqx_eur_usd_aud: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_agg_bqx_gbp_usd_chf
+      [253/667] tri_agg_bqx_eur_usd_cad: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_agg_bqx_gbp_usd_jpy
+      [254/667] tri_agg_bqx_eur_usd_chf: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_agg_bqx_gbp_usd_nzd
+      [255/667] mom_audusd: +43 cols SAVED
+      [DEBUG] Starting extraction: tri_agg_bqx_nzd_usd_cad
+      [256/667] mom_idx_audusd: +43 cols SAVED
+      [DEBUG] Starting extraction: tri_agg_bqx_nzd_usd_chf
+      [257/667] tri_agg_bqx_eur_usd_gbp: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_agg_bqx_nzd_usd_jpy
+      [258/667] tri_agg_bqx_eur_usd_nzd: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_agg_idx_aud_usd_cad
+      [259/667] mom_bqx_audusd: +43 cols SAVED
+      [DEBUG] Starting extraction: tri_agg_idx_aud_usd_chf
+      [260/667] tri_agg_bqx_eur_usd_jpy: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_agg_idx_aud_usd_jpy
+      [261/667] tri_agg_bqx_gbp_usd_aud: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_agg_idx_aud_usd_nzd
+      [262/667] tri_agg_bqx_gbp_usd_cad: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_agg_idx_eur_usd_aud
+      [263/667] tri_agg_bqx_gbp_usd_chf: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_agg_idx_eur_usd_cad
+      [264/667] vol_bqx_audusd: +31 cols SAVED
+      [DEBUG] Starting extraction: tri_agg_idx_eur_usd_chf
+      [265/667] tri_agg_bqx_gbp_usd_jpy: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_agg_idx_eur_usd_gbp
+      [266/667] vol_audusd: +31 cols SAVED
+      [DEBUG] Starting extraction: tri_agg_idx_eur_usd_jpy
+      [267/667] tri_agg_bqx_gbp_usd_nzd: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_agg_idx_eur_usd_nzd
+      [268/667] tri_agg_bqx_nzd_usd_cad: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_agg_idx_gbp_usd_aud
+      [269/667] tri_agg_bqx_nzd_usd_chf: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_agg_idx_gbp_usd_cad
+      [270/667] vol_idx_audusd: +31 cols SAVED
+      [DEBUG] Starting extraction: tri_agg_idx_gbp_usd_chf
+      [271/667] tri_agg_idx_aud_usd_cad: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_agg_idx_gbp_usd_jpy
+      [272/667] tri_agg_bqx_nzd_usd_jpy: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_agg_idx_gbp_usd_nzd
+      [273/667] tri_agg_idx_aud_usd_chf: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_agg_idx_nzd_usd_cad
+      [274/667] tri_agg_idx_aud_usd_jpy: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_agg_idx_nzd_usd_chf
+      [275/667] tri_agg_idx_aud_usd_nzd: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_agg_idx_nzd_usd_jpy
+      [276/667] tri_agg_idx_eur_usd_aud: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_align_bqx_aud_usd_cad
+      [277/667] tri_agg_idx_eur_usd_cad: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_align_bqx_aud_usd_chf
+      [278/667] tri_agg_idx_eur_usd_chf: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_align_bqx_aud_usd_jpy
+      [279/667] tri_agg_idx_eur_usd_gbp: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_align_bqx_aud_usd_nzd
+      [280/667] tri_agg_idx_eur_usd_jpy: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_align_bqx_eur_usd_aud
+      [281/667] tri_agg_idx_eur_usd_nzd: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_align_bqx_eur_usd_cad
+      [282/667] tri_agg_idx_gbp_usd_cad: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_align_bqx_eur_usd_chf
+      [283/667] tri_agg_idx_gbp_usd_aud: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_align_bqx_eur_usd_gbp
+      [284/667] tri_agg_idx_gbp_usd_chf: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_align_bqx_eur_usd_jpy
+      [285/667] tri_agg_idx_gbp_usd_jpy: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_align_bqx_eur_usd_nzd
+      [286/667] tri_agg_idx_nzd_usd_cad: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_align_bqx_gbp_usd_aud
+      [287/667] tri_agg_idx_gbp_usd_nzd: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_align_bqx_gbp_usd_cad
+      [288/667] tri_agg_idx_nzd_usd_jpy: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_align_bqx_gbp_usd_chf
+      [289/667] tri_agg_idx_nzd_usd_chf: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_align_bqx_gbp_usd_jpy
+      [290/667] tri_align_bqx_aud_usd_cad: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_align_bqx_gbp_usd_nzd
+      [291/667] tri_align_bqx_aud_usd_chf: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_align_bqx_nzd_usd_cad
+      [292/667] tri_align_bqx_aud_usd_jpy: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_align_bqx_nzd_usd_chf
+      [293/667] tri_align_bqx_aud_usd_nzd: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_align_bqx_nzd_usd_jpy
+      [294/667] tri_align_bqx_eur_usd_aud: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_align_idx_aud_usd_cad
+      [295/667] tri_align_bqx_eur_usd_chf: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_align_idx_aud_usd_chf
+      [296/667] tri_align_bqx_eur_usd_cad: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_align_idx_aud_usd_jpy
+      [297/667] tri_align_bqx_eur_usd_jpy: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_align_idx_aud_usd_nzd
+      [298/667] tri_align_bqx_eur_usd_gbp: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_align_idx_eur_usd_aud
+      [299/667] tri_align_bqx_gbp_usd_aud: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_align_idx_eur_usd_cad
+      [300/667] tri_align_bqx_eur_usd_nzd: +14 cols SAVED
+      === Progress: 300/667 (0.2/s, ~2175s remaining) ===
+      [DEBUG] Starting extraction: tri_align_idx_eur_usd_chf
+      [301/667] tri_align_bqx_gbp_usd_cad: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_align_idx_eur_usd_gbp
+      [302/667] tri_align_bqx_gbp_usd_chf: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_align_idx_eur_usd_jpy
+      [303/667] tri_align_bqx_gbp_usd_jpy: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_align_idx_eur_usd_nzd
+      [304/667] tri_align_bqx_gbp_usd_nzd: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_align_idx_gbp_usd_aud
+      [305/667] tri_align_bqx_nzd_usd_cad: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_align_idx_gbp_usd_cad
+      [306/667] tri_align_bqx_nzd_usd_chf: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_align_idx_gbp_usd_chf
+      [307/667] tri_align_bqx_nzd_usd_jpy: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_align_idx_gbp_usd_jpy
+      [308/667] tri_align_idx_aud_usd_cad: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_align_idx_gbp_usd_nzd
+      [309/667] tri_align_idx_aud_usd_chf: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_align_idx_nzd_usd_cad
+      [310/667] tri_align_idx_aud_usd_jpy: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_align_idx_nzd_usd_chf
+      [311/667] tri_align_idx_eur_usd_aud: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_align_idx_nzd_usd_jpy
+      [312/667] tri_align_idx_aud_usd_nzd: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_mom_bqx_aud_usd_cad
+      [313/667] tri_align_idx_eur_usd_cad: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_mom_bqx_aud_usd_chf
+      [314/667] tri_align_idx_eur_usd_chf: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_mom_bqx_aud_usd_jpy
+      [315/667] tri_align_idx_eur_usd_gbp: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_mom_bqx_aud_usd_nzd
+      [316/667] tri_align_idx_eur_usd_jpy: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_mom_bqx_eur_usd_aud
+      [317/667] tri_align_idx_eur_usd_nzd: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_mom_bqx_eur_usd_cad
+      [318/667] tri_align_idx_gbp_usd_aud: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_mom_bqx_eur_usd_chf
+      [319/667] tri_align_idx_gbp_usd_cad: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_mom_bqx_eur_usd_gbp
+      [320/667] tri_align_idx_gbp_usd_chf: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_mom_bqx_eur_usd_jpy
+      [321/667] tri_align_idx_gbp_usd_jpy: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_mom_bqx_eur_usd_nzd
+      [322/667] tri_align_idx_gbp_usd_nzd: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_mom_bqx_gbp_usd_aud
+      [323/667] tri_align_idx_nzd_usd_cad: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_mom_bqx_gbp_usd_cad
+      [324/667] tri_align_idx_nzd_usd_chf: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_mom_bqx_gbp_usd_chf
+      [325/667] tri_align_idx_nzd_usd_jpy: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_mom_bqx_gbp_usd_jpy
+      [326/667] tri_mom_bqx_aud_usd_chf: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_mom_bqx_gbp_usd_nzd
+      [327/667] tri_mom_bqx_aud_usd_cad: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_mom_bqx_nzd_usd_cad
+      [328/667] tri_mom_bqx_aud_usd_jpy: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_mom_bqx_nzd_usd_chf
+      [329/667] tri_mom_bqx_aud_usd_nzd: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_mom_bqx_nzd_usd_jpy
+      [330/667] tri_mom_bqx_eur_usd_cad: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_mom_idx_aud_usd_cad
+      [331/667] tri_mom_bqx_eur_usd_aud: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_mom_idx_aud_usd_chf
+      [332/667] tri_mom_bqx_eur_usd_chf: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_mom_idx_aud_usd_jpy
+      [333/667] tri_mom_bqx_eur_usd_gbp: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_mom_idx_aud_usd_nzd
+      [334/667] tri_mom_bqx_eur_usd_jpy: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_mom_idx_eur_usd_aud
+      [335/667] tri_mom_bqx_eur_usd_nzd: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_mom_idx_eur_usd_cad
+      [336/667] tri_mom_bqx_gbp_usd_aud: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_mom_idx_eur_usd_chf
+      [337/667] tri_mom_bqx_gbp_usd_cad: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_mom_idx_eur_usd_gbp
+      [338/667] tri_mom_bqx_gbp_usd_jpy: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_mom_idx_eur_usd_jpy
+      [339/667] tri_mom_bqx_gbp_usd_chf: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_mom_idx_eur_usd_nzd
+      [340/667] tri_mom_bqx_nzd_usd_cad: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_mom_idx_gbp_usd_aud
+      [341/667] tri_mom_bqx_gbp_usd_nzd: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_mom_idx_gbp_usd_cad
+      [342/667] tri_mom_bqx_nzd_usd_chf: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_mom_idx_gbp_usd_chf
+      [343/667] tri_mom_bqx_nzd_usd_jpy: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_mom_idx_gbp_usd_jpy
+      [344/667] tri_mom_idx_aud_usd_cad: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_mom_idx_gbp_usd_nzd
+      [345/667] tri_mom_idx_aud_usd_chf: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_mom_idx_nzd_usd_cad
+      [346/667] tri_mom_idx_aud_usd_jpy: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_mom_idx_nzd_usd_chf
+      [347/667] tri_mom_idx_aud_usd_nzd: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_mom_idx_nzd_usd_jpy
+      [348/667] tri_mom_idx_eur_usd_aud: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_reg_bqx_aud_nzd_jpy
+      [349/667] tri_mom_idx_eur_usd_cad: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_reg_bqx_aud_usd_cad
+      [350/667] tri_mom_idx_eur_usd_chf: +14 cols SAVED
+      === Progress: 350/667 (0.2/s, ~1925s remaining) ===
+      [DEBUG] Starting extraction: tri_reg_bqx_aud_usd_chf
+      [351/667] tri_mom_idx_eur_usd_jpy: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_reg_bqx_aud_usd_jpy
+      [352/667] tri_mom_idx_eur_usd_gbp: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_reg_bqx_aud_usd_nzd
+      [353/667] tri_mom_idx_gbp_usd_aud: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_reg_bqx_cad_chf_jpy
+      [354/667] tri_mom_idx_eur_usd_nzd: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_reg_bqx_cad_usd_jpy
+      [355/667] tri_mom_idx_gbp_usd_cad: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_reg_bqx_eur_chf_jpy
+      [356/667] tri_mom_idx_gbp_usd_chf: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_reg_bqx_eur_gbp_chf
+      [357/667] tri_mom_idx_gbp_usd_jpy: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_reg_bqx_eur_gbp_jpy
+      [358/667] tri_mom_idx_gbp_usd_nzd: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_reg_bqx_eur_usd_aud
+      [359/667] tri_mom_idx_nzd_usd_cad: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_reg_bqx_eur_usd_cad
+      [360/667] tri_mom_idx_nzd_usd_chf: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_reg_bqx_eur_usd_chf
+      [361/667] tri_mom_idx_nzd_usd_jpy: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_reg_bqx_eur_usd_gbp
+      [362/667] tri_reg_bqx_aud_usd_cad: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_reg_bqx_eur_usd_jpy
+      [363/667] tri_reg_bqx_aud_usd_chf: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_reg_bqx_eur_usd_nzd
+      [364/667] tri_reg_bqx_aud_nzd_jpy: +118 cols SAVED
+      [DEBUG] Starting extraction: tri_reg_bqx_gbp_chf_jpy
+      [365/667] tri_reg_bqx_aud_usd_jpy: +118 cols SAVED
+      [DEBUG] Starting extraction: tri_reg_bqx_gbp_usd_aud
+      [366/667] tri_reg_bqx_aud_usd_nzd: +118 cols SAVED
+      [DEBUG] Starting extraction: tri_reg_bqx_gbp_usd_cad
+      [367/667] tri_reg_bqx_cad_chf_jpy: +118 cols SAVED
+      [DEBUG] Starting extraction: tri_reg_bqx_gbp_usd_chf
+      [368/667] tri_reg_bqx_cad_usd_jpy: +118 cols SAVED
+      [DEBUG] Starting extraction: tri_reg_bqx_gbp_usd_jpy
+      [369/667] reg_audusd: +232 cols SAVED
+      [DEBUG] Starting extraction: tri_reg_bqx_gbp_usd_nzd
+      [370/667] tri_reg_bqx_eur_chf_jpy: +118 cols SAVED
+      [DEBUG] Starting extraction: tri_reg_bqx_nzd_usd_cad
+      [371/667] tri_reg_bqx_eur_usd_aud: +118 cols SAVED
+      [DEBUG] Starting extraction: tri_reg_bqx_nzd_usd_chf
+      [372/667] tri_reg_bqx_eur_gbp_jpy: +118 cols SAVED
+      [DEBUG] Starting extraction: tri_reg_bqx_nzd_usd_jpy
+      [373/667] tri_reg_bqx_eur_usd_cad: +118 cols SAVED
+      [DEBUG] Starting extraction: tri_reg_idx_aud_nzd_jpy
+      [374/667] tri_reg_bqx_eur_gbp_chf: +118 cols SAVED
+      [DEBUG] Starting extraction: tri_reg_idx_aud_usd_cad
+      [375/667] reg_idx_audusd: +232 cols SAVED
+      [DEBUG] Starting extraction: tri_reg_idx_aud_usd_chf
+      [376/667] tri_reg_bqx_eur_usd_chf: +118 cols SAVED
+      [DEBUG] Starting extraction: tri_reg_idx_aud_usd_jpy
+      [377/667] tri_reg_bqx_eur_usd_gbp: +118 cols SAVED
+      [DEBUG] Starting extraction: tri_reg_idx_aud_usd_nzd
+      [378/667] tri_reg_bqx_eur_usd_jpy: +118 cols SAVED
+      [DEBUG] Starting extraction: tri_reg_idx_cad_chf_jpy
+      [379/667] reg_bqx_audusd: +232 cols SAVED
+      [DEBUG] Starting extraction: tri_reg_idx_cad_usd_jpy
+      [380/667] tri_reg_bqx_gbp_usd_cad: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_reg_idx_eur_chf_jpy
+      [381/667] tri_reg_bqx_gbp_usd_nzd: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_reg_idx_eur_gbp_chf
+      [382/667] tri_reg_bqx_nzd_usd_cad: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_reg_idx_eur_gbp_jpy
+      [383/667] tri_reg_bqx_nzd_usd_chf: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_reg_idx_eur_usd_aud
+      [384/667] tri_reg_bqx_nzd_usd_jpy: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_reg_idx_eur_usd_cad
+      [385/667] tri_reg_idx_aud_usd_cad: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_reg_idx_eur_usd_chf
+      [386/667] tri_reg_idx_aud_usd_chf: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_reg_idx_eur_usd_gbp
+      [387/667] tri_reg_bqx_eur_usd_nzd: +118 cols SAVED
+      [DEBUG] Starting extraction: tri_reg_idx_eur_usd_jpy
+      [388/667] tri_reg_bqx_gbp_chf_jpy: +118 cols SAVED
+      [DEBUG] Starting extraction: tri_reg_idx_eur_usd_nzd
+      [389/667] tri_reg_bqx_gbp_usd_aud: +118 cols SAVED
+      [DEBUG] Starting extraction: tri_reg_idx_gbp_chf_jpy
+      [390/667] tri_reg_bqx_gbp_usd_chf: +118 cols SAVED
+      [DEBUG] Starting extraction: tri_reg_idx_gbp_usd_aud
+      [391/667] tri_reg_bqx_gbp_usd_jpy: +118 cols SAVED
+      [DEBUG] Starting extraction: tri_reg_idx_gbp_usd_cad
+      [392/667] tri_reg_idx_aud_usd_jpy: +118 cols SAVED
+      [DEBUG] Starting extraction: tri_reg_idx_gbp_usd_chf
+      [393/667] tri_reg_idx_aud_nzd_jpy: +118 cols SAVED
+      [DEBUG] Starting extraction: tri_reg_idx_gbp_usd_jpy
+      [394/667] tri_reg_idx_aud_usd_nzd: +118 cols SAVED
+      [DEBUG] Starting extraction: tri_reg_idx_gbp_usd_nzd
+      [395/667] tri_reg_idx_cad_chf_jpy: +118 cols SAVED
+      [DEBUG] Starting extraction: tri_reg_idx_nzd_usd_cad
+      [396/667] tri_reg_idx_cad_usd_jpy: +118 cols SAVED
+      [DEBUG] Starting extraction: tri_reg_idx_nzd_usd_chf
+      [397/667] tri_reg_idx_eur_gbp_chf: +118 cols SAVED
+      [DEBUG] Starting extraction: tri_reg_idx_nzd_usd_jpy
+      [398/667] tri_reg_idx_eur_chf_jpy: +118 cols SAVED
+      [DEBUG] Starting extraction: tri_vol_bqx_aud_usd_cad
+      [399/667] tri_reg_idx_eur_usd_aud: +118 cols SAVED
+      [DEBUG] Starting extraction: tri_vol_bqx_aud_usd_chf
+      [400/667] tri_reg_idx_gbp_usd_cad: +14 cols SAVED
+      === Progress: 400/667 (0.1/s, ~2516s remaining) ===
+      [DEBUG] Starting extraction: tri_vol_bqx_aud_usd_jpy
+      [401/667] tri_reg_idx_eur_gbp_jpy: +118 cols SAVED
+      [DEBUG] Starting extraction: tri_vol_bqx_aud_usd_nzd
+      [402/667] tri_reg_idx_eur_usd_cad: +118 cols SAVED
+      [DEBUG] Starting extraction: tri_vol_bqx_eur_usd_aud
+      [403/667] tri_reg_idx_eur_usd_chf: +118 cols SAVED
+      [DEBUG] Starting extraction: tri_vol_bqx_eur_usd_cad
+      [404/667] tri_reg_idx_gbp_usd_nzd: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_vol_bqx_eur_usd_chf
+      [405/667] tri_reg_idx_nzd_usd_cad: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_vol_bqx_eur_usd_gbp
+      [406/667] tri_reg_idx_nzd_usd_chf: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_vol_bqx_eur_usd_jpy
+      [407/667] tri_reg_idx_nzd_usd_jpy: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_vol_bqx_eur_usd_nzd
+      [408/667] tri_vol_bqx_aud_usd_cad: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_vol_bqx_gbp_usd_aud
+      [409/667] tri_vol_bqx_aud_usd_chf: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_vol_bqx_gbp_usd_cad
+      [410/667] tri_vol_bqx_aud_usd_jpy: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_vol_bqx_gbp_usd_chf
+      [411/667] tri_vol_bqx_aud_usd_nzd: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_vol_bqx_gbp_usd_jpy
+      [412/667] tri_vol_bqx_eur_usd_aud: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_vol_bqx_gbp_usd_nzd
+      [413/667] tri_vol_bqx_eur_usd_cad: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_vol_bqx_nzd_usd_cad
+      [414/667] tri_vol_bqx_eur_usd_chf: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_vol_bqx_nzd_usd_chf
+      [415/667] tri_vol_bqx_eur_usd_gbp: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_vol_bqx_nzd_usd_jpy
+      [416/667] tri_vol_bqx_eur_usd_jpy: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_vol_idx_aud_usd_cad
+      [417/667] tri_vol_bqx_eur_usd_nzd: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_vol_idx_aud_usd_chf
+      [418/667] tri_vol_bqx_gbp_usd_aud: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_vol_idx_aud_usd_jpy
+      [419/667] tri_vol_bqx_gbp_usd_chf: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_vol_idx_aud_usd_nzd
+      [420/667] tri_vol_bqx_gbp_usd_cad: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_vol_idx_eur_usd_aud
+      [421/667] tri_vol_bqx_gbp_usd_jpy: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_vol_idx_eur_usd_cad
+      [422/667] tri_vol_bqx_gbp_usd_nzd: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_vol_idx_eur_usd_chf
+      [423/667] tri_vol_bqx_nzd_usd_cad: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_vol_idx_eur_usd_gbp
+      [424/667] tri_vol_bqx_nzd_usd_chf: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_vol_idx_eur_usd_jpy
+      [425/667] tri_vol_bqx_nzd_usd_jpy: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_vol_idx_eur_usd_nzd
+      [426/667] tri_vol_idx_aud_usd_cad: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_vol_idx_gbp_usd_aud
+      [427/667] tri_vol_idx_aud_usd_chf: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_vol_idx_gbp_usd_cad
+      [428/667] tri_vol_idx_aud_usd_jpy: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_vol_idx_gbp_usd_chf
+      [429/667] tri_vol_idx_aud_usd_nzd: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_vol_idx_gbp_usd_jpy
+      [430/667] tri_vol_idx_eur_usd_aud: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_vol_idx_gbp_usd_nzd
+      [431/667] tri_vol_idx_eur_usd_cad: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_vol_idx_nzd_usd_cad
+      [432/667] tri_vol_idx_eur_usd_chf: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_vol_idx_nzd_usd_chf
+      [433/667] tri_vol_idx_eur_usd_jpy: +14 cols SAVED
+      [DEBUG] Starting extraction: tri_vol_idx_nzd_usd_jpy
+      [434/667] tri_vol_idx_eur_usd_gbp: +14 cols SAVED
+      [DEBUG] Starting extraction: mkt_corr
+      [435/667] tri_vol_idx_eur_usd_nzd: +14 cols SAVED
+      [DEBUG] Starting extraction: mkt_corr_bqx
+      [436/667] tri_vol_idx_gbp_usd_aud: +14 cols SAVED
+      [DEBUG] Starting extraction: mkt_dispersion
+      [437/667] tri_vol_idx_gbp_usd_cad: +14 cols SAVED
+      [DEBUG] Starting extraction: mkt_dispersion_bqx
+      [438/667] tri_vol_idx_gbp_usd_chf: +14 cols SAVED
+      [DEBUG] Starting extraction: mkt_regime
+      [439/667] tri_vol_idx_gbp_usd_jpy: +14 cols SAVED
+      [DEBUG] Starting extraction: mkt_regime_bqx
+      [440/667] tri_vol_idx_gbp_usd_nzd: +14 cols SAVED
+      [DEBUG] Starting extraction: mkt_sentiment
+      [441/667] tri_vol_idx_nzd_usd_cad: +14 cols SAVED
+      [DEBUG] Starting extraction: mkt_sentiment_bqx
+      [442/667] tri_vol_idx_nzd_usd_jpy: +14 cols SAVED
+      [DEBUG] Starting extraction: mkt_vol
+      [443/667] tri_vol_idx_nzd_usd_chf: +14 cols SAVED
+      [DEBUG] Starting extraction: mkt_vol_bqx
+      [444/667] mkt_corr: +11 cols SAVED
+      [DEBUG] Starting extraction: var_agg_bqx_aud
+      [445/667] mkt_regime: +8 cols SAVED
+      [DEBUG] Starting extraction: var_agg_bqx_cad
+      [446/667] mkt_corr_bqx: +11 cols SAVED
+      [DEBUG] Starting extraction: var_agg_bqx_chf
+      [447/667] mkt_regime_bqx: +8 cols SAVED
+      [DEBUG] Starting extraction: var_agg_bqx_eur
+      [448/667] mkt_dispersion: +17 cols SAVED
+      [DEBUG] Starting extraction: var_agg_bqx_gbp
+      [449/667] mkt_dispersion_bqx: +17 cols SAVED
+      [DEBUG] Starting extraction: var_agg_bqx_jpy
+      [450/667] mkt_sentiment: +17 cols SAVED
+      === Progress: 450/667 (0.1/s, ~2057s remaining) ===
+      [DEBUG] Starting extraction: var_agg_bqx_nzd
+      [451/667] mkt_sentiment_bqx: +17 cols SAVED
+      [DEBUG] Starting extraction: var_agg_bqx_usd
+      [452/667] var_agg_bqx_aud: +13 cols SAVED
+      [DEBUG] Starting extraction: var_agg_idx_aud
+      [453/667] var_agg_bqx_cad: +13 cols SAVED
+      [DEBUG] Starting extraction: var_agg_idx_cad
+      [454/667] var_agg_bqx_chf: +13 cols SAVED
+      [DEBUG] Starting extraction: var_agg_idx_chf
+      [455/667] mkt_vol_bqx: +22 cols SAVED
+      [DEBUG] Starting extraction: var_agg_idx_eur
+      [456/667] var_agg_bqx_eur: +13 cols SAVED
+      [DEBUG] Starting extraction: var_agg_idx_gbp
+      [457/667] mkt_vol: +22 cols SAVED
+      [DEBUG] Starting extraction: var_agg_idx_jpy
+      [458/667] var_agg_bqx_gbp: +13 cols SAVED
+      [DEBUG] Starting extraction: var_agg_idx_nzd
+      [459/667] var_agg_bqx_jpy: +13 cols SAVED
+      [DEBUG] Starting extraction: var_agg_idx_usd
+      [460/667] var_agg_bqx_nzd: +13 cols SAVED
+      [DEBUG] Starting extraction: var_align_bqx_aud
+      [461/667] tri_reg_idx_eur_usd_gbp: +118 cols SAVED
+      [DEBUG] Starting extraction: var_align_bqx_cad
+      [462/667] var_agg_idx_aud: +13 cols SAVED
+      [DEBUG] Starting extraction: var_align_bqx_chf
+      [463/667] var_agg_idx_cad: +13 cols SAVED
+      [DEBUG] Starting extraction: var_align_bqx_eur
+      [464/667] var_agg_idx_chf: +13 cols SAVED
+      [DEBUG] Starting extraction: var_align_bqx_gbp
+      [465/667] tri_reg_idx_gbp_chf_jpy: +118 cols SAVED
+      [DEBUG] Starting extraction: var_align_bqx_jpy
+      [466/667] tri_reg_idx_eur_usd_jpy: +118 cols SAVED
+      [DEBUG] Starting extraction: var_align_bqx_nzd
+      [467/667] tri_reg_idx_eur_usd_nzd: +118 cols SAVED
+      [DEBUG] Starting extraction: var_align_bqx_usd
+      [468/667] var_agg_idx_eur: +13 cols SAVED
+      [DEBUG] Starting extraction: var_align_idx_aud
+      [469/667] var_agg_idx_gbp: +13 cols SAVED
+      [DEBUG] Starting extraction: var_align_idx_cad
+      [470/667] var_align_bqx_aud: +10 cols SAVED
+      [DEBUG] Starting extraction: var_align_idx_chf
+      [471/667] var_agg_idx_jpy: +13 cols SAVED
+      [DEBUG] Starting extraction: var_align_idx_eur
+      [472/667] var_align_bqx_cad: +10 cols SAVED
+      [DEBUG] Starting extraction: var_align_idx_gbp
+      [473/667] var_align_bqx_chf: +10 cols SAVED
+      [DEBUG] Starting extraction: var_align_idx_jpy
+      [474/667] tri_reg_idx_gbp_usd_aud: +118 cols SAVED
+      [DEBUG] Starting extraction: var_align_idx_nzd
+      [475/667] var_agg_idx_nzd: +13 cols SAVED
+      [DEBUG] Starting extraction: var_align_idx_usd
+      [476/667] var_align_bqx_eur: +10 cols SAVED
+      [DEBUG] Starting extraction: var_corr_aud
+      [477/667] var_align_bqx_gbp: +10 cols SAVED
+      [DEBUG] Starting extraction: var_corr_bqx_aud
+      [478/667] tri_reg_idx_gbp_usd_chf: +118 cols SAVED
+      [DEBUG] Starting extraction: var_corr_bqx_cad
+      [479/667] var_align_bqx_nzd: +10 cols SAVED
+      [DEBUG] Starting extraction: var_corr_bqx_chf
+      [480/667] var_align_bqx_jpy: +10 cols SAVED
+      [DEBUG] Starting extraction: var_corr_bqx_eur
+      [481/667] tri_reg_idx_gbp_usd_jpy: +118 cols SAVED
+      [DEBUG] Starting extraction: var_corr_bqx_gbp
+      [482/667] var_align_idx_aud: +10 cols SAVED
+      [DEBUG] Starting extraction: var_corr_bqx_jpy
+      [483/667] var_align_idx_cad: +10 cols SAVED
+      [DEBUG] Starting extraction: var_corr_bqx_usd
+      [484/667] var_align_idx_chf: +10 cols SAVED
+      [DEBUG] Starting extraction: var_corr_cad
+      [485/667] var_align_idx_eur: +10 cols SAVED
+      [DEBUG] Starting extraction: var_corr_chf
+      [486/667] var_align_idx_gbp: +10 cols SAVED
+      [DEBUG] Starting extraction: var_corr_eur
+      [487/667] var_align_idx_jpy: +10 cols SAVED
+      [DEBUG] Starting extraction: var_corr_gbp
+      [488/667] var_align_idx_nzd: +10 cols SAVED
+      [DEBUG] Starting extraction: var_corr_idx_aud
+      [489/667] var_corr_aud: +9 cols SAVED
+      [DEBUG] Starting extraction: var_corr_idx_cad
+      [490/667] var_corr_bqx_aud: +9 cols SAVED
+      [DEBUG] Starting extraction: var_corr_idx_chf
+      [491/667] var_corr_bqx_chf: +9 cols SAVED
+      [DEBUG] Starting extraction: var_corr_idx_eur
+      [492/667] var_corr_bqx_cad: +9 cols SAVED
+      [DEBUG] Starting extraction: var_corr_idx_gbp
+      [493/667] var_corr_bqx_eur: +9 cols SAVED
+      [DEBUG] Starting extraction: var_corr_idx_jpy
+      [494/667] var_corr_bqx_gbp: +9 cols SAVED
+      [DEBUG] Starting extraction: var_corr_idx_usd
+      [495/667] var_corr_bqx_jpy: +9 cols SAVED
+      [DEBUG] Starting extraction: var_corr_jpy
+      [496/667] var_corr_cad: +9 cols SAVED
+      [DEBUG] Starting extraction: var_corr_usd
+      [497/667] var_corr_bqx_usd: +9 cols SAVED
+      [DEBUG] Starting extraction: var_lag_bqx_aud
+      [498/667] var_corr_chf: +9 cols SAVED
+      [DEBUG] Starting extraction: var_lag_bqx_cad
+      [499/667] var_corr_eur: +9 cols SAVED
+      [DEBUG] Starting extraction: var_lag_bqx_chf
+      [500/667] var_corr_gbp: +9 cols SAVED
+      === Progress: 500/667 (0.1/s, ~1532s remaining) ===
+      [DEBUG] Starting extraction: var_lag_bqx_eur
+      [501/667] var_corr_idx_aud: +9 cols SAVED
+      [DEBUG] Starting extraction: var_lag_bqx_gbp
+      [502/667] var_corr_idx_cad: +9 cols SAVED
+      [DEBUG] Starting extraction: var_lag_bqx_jpy
+      [503/667] var_corr_idx_chf: +9 cols SAVED
+      [DEBUG] Starting extraction: var_lag_bqx_nzd
+      [504/667] var_corr_idx_eur: +9 cols SAVED
+      [DEBUG] Starting extraction: var_lag_idx_aud
+      [505/667] var_corr_idx_gbp: +9 cols SAVED
+      [DEBUG] Starting extraction: var_lag_idx_cad
+      [506/667] var_corr_idx_jpy: +9 cols SAVED
+      [DEBUG] Starting extraction: var_lag_idx_chf
+      [507/667] var_corr_jpy: +9 cols SAVED
+      [DEBUG] Starting extraction: csi_agg_aud
+      [508/667] var_corr_idx_usd: +9 cols SAVED
+      [DEBUG] Starting extraction: csi_agg_bqx_aud
+      [509/667] var_corr_usd: +9 cols SAVED
+      [DEBUG] Starting extraction: csi_agg_bqx_cad
+      [510/667] var_lag_bqx_aud: +13 cols SAVED
+      [DEBUG] Starting extraction: csi_agg_bqx_chf
+      [511/667] var_lag_bqx_cad: +13 cols SAVED
+      [DEBUG] Starting extraction: csi_agg_bqx_eur
+      [512/667] var_align_bqx_usd: +38 cols SAVED
+      [DEBUG] Starting extraction: csi_agg_bqx_gbp
+      [513/667] var_lag_bqx_chf: +13 cols SAVED
+      [DEBUG] Starting extraction: csi_agg_bqx_jpy
+      [514/667] var_lag_bqx_eur: +13 cols SAVED
+      [DEBUG] Starting extraction: csi_agg_bqx_nzd
+      [515/667] var_lag_bqx_gbp: +13 cols SAVED
+      [DEBUG] Starting extraction: csi_agg_bqx_usd
+      [516/667] var_lag_idx_aud: +13 cols SAVED
+      [DEBUG] Starting extraction: csi_agg_cad
+      [517/667] var_lag_bqx_jpy: +13 cols SAVED
+      [DEBUG] Starting extraction: csi_agg_chf
+      [518/667] var_lag_bqx_nzd: +13 cols SAVED
+      [DEBUG] Starting extraction: csi_agg_eur
+      [519/667] var_align_idx_usd: +38 cols SAVED
+      [DEBUG] Starting extraction: csi_agg_gbp
+      [520/667] var_lag_idx_cad: +13 cols SAVED
+      [DEBUG] Starting extraction: csi_agg_jpy
+      [521/667] var_lag_idx_chf: +13 cols SAVED
+      [DEBUG] Starting extraction: csi_agg_nzd
+      [522/667] csi_agg_bqx_cad: +64 cols SAVED
+      [DEBUG] Starting extraction: csi_agg_usd
+      [523/667] csi_agg_aud: +64 cols SAVED
+      [DEBUG] Starting extraction: csi_align_aud
+      [524/667] csi_agg_bqx_aud: +64 cols SAVED
+      [DEBUG] Starting extraction: csi_align_bqx_aud
+      [525/667] csi_agg_bqx_chf: +64 cols SAVED
+      [DEBUG] Starting extraction: csi_align_bqx_cad
+      [526/667] csi_agg_bqx_eur: +64 cols SAVED
+      [DEBUG] Starting extraction: csi_align_bqx_chf
+      [527/667] csi_agg_bqx_gbp: +64 cols SAVED
+      [DEBUG] Starting extraction: csi_align_bqx_eur
+      [528/667] csi_agg_bqx_nzd: +64 cols SAVED
+      [DEBUG] Starting extraction: csi_align_bqx_gbp
+      [529/667] csi_agg_bqx_jpy: +64 cols SAVED
+      [DEBUG] Starting extraction: csi_align_bqx_jpy
+      [DEBUG] Starting extraction: csi_align_bqx_nzd
+      [530/667] csi_agg_bqx_usd: +64 cols SAVED
+      [531/667] csi_agg_cad: +64 cols SAVED
+      [DEBUG] Starting extraction: csi_align_bqx_usd
+      [532/667] csi_agg_eur: +64 cols SAVED
+      [DEBUG] Starting extraction: csi_align_cad
+      [533/667] csi_agg_chf: +64 cols SAVED
+      [DEBUG] Starting extraction: csi_align_chf
+      [534/667] csi_agg_gbp: +64 cols SAVED
+      [DEBUG] Starting extraction: csi_align_eur
+      [535/667] csi_agg_jpy: +64 cols SAVED
+      [DEBUG] Starting extraction: csi_align_gbp
+      [536/667] var_agg_bqx_usd: +128 cols SAVED
+      [DEBUG] Starting extraction: csi_align_jpy
+      [537/667] var_agg_idx_usd: +128 cols SAVED
+      [DEBUG] Starting extraction: csi_align_nzd
+      [538/667] csi_align_aud: +42 cols SAVED
+      [DEBUG] Starting extraction: csi_align_usd
+      [539/667] csi_align_bqx_aud: +42 cols SAVED
+      [DEBUG] Starting extraction: csi_cyc_bqx_aud
+      [540/667] csi_align_bqx_chf: +42 cols SAVED
+      [DEBUG] Starting extraction: csi_cyc_bqx_cad
+      [541/667] csi_align_bqx_cad: +42 cols SAVED
+      [DEBUG] Starting extraction: csi_cyc_bqx_chf
+      [542/667] csi_align_bqx_gbp: +42 cols SAVED
+      [DEBUG] Starting extraction: csi_cyc_bqx_eur
+      [543/667] csi_align_bqx_eur: +42 cols SAVED
+      [DEBUG] Starting extraction: csi_cyc_bqx_gbp
+      [544/667] csi_cyc_bqx_aud: +5 cols SAVED
+      [DEBUG] Starting extraction: csi_cyc_bqx_jpy
+      [545/667] csi_cyc_bqx_cad: +5 cols SAVED
+      [DEBUG] Starting extraction: csi_cyc_bqx_nzd
+      [546/667] csi_align_bqx_jpy: +42 cols SAVED
+      [DEBUG] Starting extraction: csi_cyc_bqx_usd
+      [547/667] csi_cyc_bqx_chf: +5 cols SAVED
+      [DEBUG] Starting extraction: csi_der_aud
+      [548/667] csi_align_bqx_usd: +42 cols SAVED
+      [DEBUG] Starting extraction: csi_der_bqx_aud
+      [549/667] csi_align_cad: +42 cols SAVED
+      [DEBUG] Starting extraction: csi_der_bqx_cad
+      [550/667] csi_align_bqx_nzd: +42 cols SAVED
+      === Progress: 550/667 (0.1/s, ~1135s remaining) ===
+      [DEBUG] Starting extraction: csi_der_bqx_chf
+      [551/667] csi_cyc_bqx_eur: +5 cols SAVED
+      [DEBUG] Starting extraction: csi_der_bqx_eur
+      [552/667] csi_align_chf: +42 cols SAVED
+      [DEBUG] Starting extraction: csi_der_bqx_gbp
+      [553/667] csi_align_eur: +42 cols SAVED
+      [DEBUG] Starting extraction: csi_der_bqx_jpy
+      [554/667] csi_cyc_bqx_gbp: +5 cols SAVED
+      [DEBUG] Starting extraction: csi_der_bqx_nzd
+      [555/667] csi_cyc_bqx_jpy: +5 cols SAVED
+      [DEBUG] Starting extraction: csi_der_bqx_usd
+      [556/667] csi_cyc_bqx_nzd: +5 cols SAVED
+      [DEBUG] Starting extraction: csi_der_cad
+      [557/667] csi_align_gbp: +42 cols SAVED
+      [DEBUG] Starting extraction: csi_der_chf
+      [558/667] csi_cyc_bqx_usd: +5 cols SAVED
+      [DEBUG] Starting extraction: csi_der_eur
+      [559/667] csi_agg_nzd: +64 cols SAVED
+      [DEBUG] Starting extraction: csi_der_gbp
+      [560/667] csi_agg_usd: +64 cols SAVED
+      [DEBUG] Starting extraction: csi_der_jpy
+      [561/667] csi_align_jpy: +42 cols SAVED
+      [DEBUG] Starting extraction: csi_der_nzd
+      [562/667] csi_der_aud: +16 cols SAVED
+      [DEBUG] Starting extraction: csi_der_usd
+      [563/667] csi_der_bqx_cad: +16 cols SAVED
+      [DEBUG] Starting extraction: csi_ext_bqx_aud
+      [564/667] csi_der_bqx_aud: +16 cols SAVED
+      [DEBUG] Starting extraction: csi_ext_bqx_cad
+      [565/667] csi_der_bqx_chf: +16 cols SAVED
+      [DEBUG] Starting extraction: csi_ext_bqx_chf
+      [566/667] csi_der_bqx_eur: +16 cols SAVED
+      [DEBUG] Starting extraction: csi_ext_bqx_eur
+      [567/667] csi_der_bqx_jpy: +16 cols SAVED
+      [DEBUG] Starting extraction: csi_ext_bqx_gbp
+      [568/667] csi_der_bqx_usd: +16 cols SAVED
+      [DEBUG] Starting extraction: csi_ext_bqx_jpy
+      [569/667] csi_der_bqx_gbp: +16 cols SAVED
+      [DEBUG] Starting extraction: csi_ext_bqx_nzd
+      [570/667] csi_der_chf: +16 cols SAVED
+      [DEBUG] Starting extraction: csi_ext_bqx_usd
+      [571/667] csi_der_bqx_nzd: +16 cols SAVED
+      [DEBUG] Starting extraction: csi_mom_aud
+      [572/667] csi_der_cad: +16 cols SAVED
+      [DEBUG] Starting extraction: csi_mom_bqx_aud
+      [573/667] csi_der_gbp: +16 cols SAVED
+      [DEBUG] Starting extraction: csi_mom_bqx_cad
+      [574/667] csi_der_eur: +16 cols SAVED
+      [DEBUG] Starting extraction: csi_mom_bqx_chf
+      [575/667] csi_align_nzd: +42 cols SAVED
+      [DEBUG] Starting extraction: csi_mom_bqx_eur
+      [576/667] csi_align_usd: +42 cols SAVED
+      [DEBUG] Starting extraction: csi_mom_bqx_gbp
+      [577/667] csi_der_jpy: +16 cols SAVED
+      [DEBUG] Starting extraction: csi_mom_bqx_jpy
+      [578/667] csi_der_nzd: +16 cols SAVED
+      [DEBUG] Starting extraction: csi_mom_bqx_nzd
+      [579/667] csi_ext_bqx_aud: +17 cols SAVED
+      [DEBUG] Starting extraction: csi_mom_bqx_usd
+      [580/667] csi_der_usd: +16 cols SAVED
+      [DEBUG] Starting extraction: csi_mom_cad
+      [581/667] csi_ext_bqx_cad: +17 cols SAVED
+      [DEBUG] Starting extraction: csi_mom_chf
+      [582/667] csi_ext_bqx_chf: +17 cols SAVED
+      [DEBUG] Starting extraction: csi_mom_eur
+      [583/667] csi_ext_bqx_jpy: +17 cols SAVED
+      [DEBUG] Starting extraction: csi_mom_gbp
+      [584/667] csi_ext_bqx_gbp: +17 cols SAVED
+      [DEBUG] Starting extraction: csi_mom_jpy
+      [585/667] csi_ext_bqx_nzd: +17 cols SAVED
+      [DEBUG] Starting extraction: csi_mom_nzd
+      [586/667] csi_ext_bqx_eur: +17 cols SAVED
+      [DEBUG] Starting extraction: csi_mom_usd
+      [587/667] csi_ext_bqx_usd: +17 cols SAVED
+      [DEBUG] Starting extraction: csi_mrt_aud
+      [588/667] csi_mom_aud: +43 cols SAVED
+      [DEBUG] Starting extraction: csi_mrt_bqx_aud
+      [589/667] csi_mom_bqx_aud: +43 cols SAVED
+      [DEBUG] Starting extraction: csi_mrt_bqx_cad
+      [590/667] csi_mom_bqx_chf: +43 cols SAVED
+      [DEBUG] Starting extraction: csi_mrt_bqx_chf
+      [591/667] csi_mom_bqx_eur: +43 cols SAVED
+      [DEBUG] Starting extraction: csi_mrt_bqx_eur
+      [592/667] csi_mom_bqx_cad: +43 cols SAVED
+      [DEBUG] Starting extraction: csi_mrt_bqx_gbp
+      [593/667] csi_mom_bqx_gbp: +43 cols SAVED
+      [DEBUG] Starting extraction: csi_mrt_bqx_jpy
+      [594/667] csi_mrt_aud: +11 cols SAVED
+      [DEBUG] Starting extraction: csi_mrt_bqx_nzd
+      [595/667] csi_mom_bqx_jpy: +43 cols SAVED
+      [DEBUG] Starting extraction: csi_mrt_bqx_usd
+      [596/667] csi_mom_bqx_usd: +43 cols SAVED
+      [DEBUG] Starting extraction: csi_mrt_cad
+      [597/667] csi_mom_bqx_nzd: +43 cols SAVED
+      [DEBUG] Starting extraction: csi_mrt_chf
+      [598/667] csi_mom_nzd: +43 cols SAVED
+      [DEBUG] Starting extraction: csi_mrt_eur
+      [599/667] csi_mrt_bqx_aud: +11 cols SAVED
+      [DEBUG] Starting extraction: csi_mrt_gbp
+      [600/667] csi_mom_cad: +43 cols SAVED
+      === Progress: 600/667 (0.1/s, ~652s remaining) ===
+      [DEBUG] Starting extraction: csi_mrt_jpy
+      [601/667] csi_mom_chf: +43 cols SAVED
+      [DEBUG] Starting extraction: csi_mrt_nzd
+      [602/667] csi_mom_jpy: +43 cols SAVED
+      [DEBUG] Starting extraction: csi_mrt_usd
+      [603/667] csi_mom_eur: +43 cols SAVED
+      [DEBUG] Starting extraction: csi_reg_aud
+      [604/667] csi_mom_gbp: +43 cols SAVED
+      [DEBUG] Starting extraction: csi_reg_bqx_aud
+      [605/667] csi_mom_usd: +43 cols SAVED
+      [DEBUG] Starting extraction: csi_reg_bqx_cad
+      [606/667] csi_mrt_bqx_cad: +11 cols SAVED
+      [DEBUG] Starting extraction: csi_reg_bqx_chf
+      [607/667] csi_mrt_bqx_chf: +11 cols SAVED
+      [DEBUG] Starting extraction: csi_reg_bqx_eur
+      [608/667] csi_mrt_bqx_eur: +11 cols SAVED
+      [DEBUG] Starting extraction: csi_reg_bqx_gbp
+      [609/667] csi_mrt_bqx_gbp: +11 cols SAVED
+      [DEBUG] Starting extraction: csi_reg_bqx_jpy
+      [610/667] csi_mrt_bqx_jpy: +11 cols SAVED
+      [DEBUG] Starting extraction: csi_reg_bqx_nzd
+      [611/667] csi_mrt_bqx_nzd: +11 cols SAVED
+      [DEBUG] Starting extraction: csi_reg_bqx_usd
+      [612/667] csi_mrt_bqx_usd: +11 cols SAVED
+      [DEBUG] Starting extraction: csi_reg_cad
+      [613/667] csi_mrt_cad: +11 cols SAVED
+      [DEBUG] Starting extraction: csi_reg_chf
+      [614/667] csi_mrt_chf: +11 cols SAVED
+      [DEBUG] Starting extraction: csi_reg_eur
+      [615/667] csi_mrt_eur: +11 cols SAVED
+      [DEBUG] Starting extraction: csi_reg_gbp
+      [616/667] csi_mrt_jpy: +11 cols SAVED
+      [DEBUG] Starting extraction: csi_reg_jpy
+      [617/667] csi_mrt_gbp: +11 cols SAVED
+      [DEBUG] Starting extraction: csi_reg_nzd
+      [618/667] csi_mrt_usd: +11 cols SAVED
+      [DEBUG] Starting extraction: csi_reg_usd
+      [619/667] csi_mrt_nzd: +11 cols SAVED
+      [DEBUG] Starting extraction: csi_rev_aud
+      [620/667] csi_reg_bqx_chf: +98 cols SAVED
+      [DEBUG] Starting extraction: csi_rev_bqx_aud
+      [621/667] csi_reg_aud: +98 cols SAVED
+      [DEBUG] Starting extraction: csi_rev_bqx_cad
+      [622/667] csi_reg_bqx_cad: +98 cols SAVED
+      [DEBUG] Starting extraction: csi_rev_bqx_chf
+      [623/667] csi_reg_bqx_eur: +98 cols SAVED
+      [DEBUG] Starting extraction: csi_rev_bqx_eur
+      [624/667] csi_reg_bqx_aud: +98 cols SAVED
+      [DEBUG] Starting extraction: csi_rev_bqx_gbp
+      [625/667] csi_reg_chf: +98 cols SAVED
+      [DEBUG] Starting extraction: csi_rev_bqx_jpy
+      [626/667] csi_reg_bqx_jpy: +98 cols SAVED
+      [DEBUG] Starting extraction: csi_rev_bqx_nzd
+      [627/667] csi_reg_bqx_nzd: +98 cols SAVED
+      [DEBUG] Starting extraction: csi_rev_bqx_usd
+      [628/667] csi_reg_eur: +98 cols SAVED
+      [DEBUG] Starting extraction: csi_rev_cad
+      [629/667] csi_reg_cad: +98 cols SAVED
+      [DEBUG] Starting extraction: csi_rev_chf
+      [630/667] csi_reg_usd: +98 cols SAVED
+      [DEBUG] Starting extraction: csi_rev_eur
+      [631/667] csi_reg_gbp: +98 cols SAVED
+      [DEBUG] Starting extraction: csi_rev_gbp
+      [632/667] csi_reg_bqx_gbp: +98 cols SAVED
+      [DEBUG] Starting extraction: csi_rev_jpy
+      [633/667] csi_reg_jpy: +98 cols SAVED
+      [DEBUG] Starting extraction: csi_rev_nzd
+      [634/667] csi_reg_bqx_usd: +98 cols SAVED
+      [DEBUG] Starting extraction: csi_rev_usd
+      [635/667] csi_reg_nzd: +98 cols SAVED
+      [DEBUG] Starting extraction: csi_vol_aud
+      [636/667] csi_rev_aud: +11 cols SAVED
+      [DEBUG] Starting extraction: csi_vol_bqx_aud
+      [637/667] csi_rev_bqx_aud: +11 cols SAVED
+      [DEBUG] Starting extraction: csi_vol_bqx_cad
+      [638/667] csi_rev_bqx_cad: +11 cols SAVED
+      [DEBUG] Starting extraction: csi_vol_bqx_chf
+      [639/667] csi_rev_bqx_eur: +11 cols SAVED
+      [DEBUG] Starting extraction: csi_vol_bqx_eur
+      [640/667] csi_rev_bqx_chf: +11 cols SAVED
+      [DEBUG] Starting extraction: csi_vol_bqx_gbp
+      [641/667] csi_rev_bqx_nzd: +11 cols SAVED
+      [DEBUG] Starting extraction: csi_vol_bqx_jpy
+      [642/667] csi_rev_bqx_gbp: +11 cols SAVED
+      [DEBUG] Starting extraction: csi_vol_bqx_nzd
+      [643/667] csi_rev_jpy: +11 cols SAVED
+      [DEBUG] Starting extraction: csi_vol_bqx_usd
+      [644/667] csi_rev_bqx_jpy: +11 cols SAVED
+      [DEBUG] Starting extraction: csi_vol_cad
+      [645/667] csi_rev_gbp: +11 cols SAVED
+      [DEBUG] Starting extraction: csi_vol_chf
+      [646/667] csi_rev_bqx_usd: +11 cols SAVED
+      [DEBUG] Starting extraction: csi_vol_eur
+      [647/667] csi_rev_chf: +11 cols SAVED
+      [DEBUG] Starting extraction: csi_vol_gbp
+      [648/667] csi_rev_cad: +11 cols SAVED
+      [DEBUG] Starting extraction: csi_vol_jpy
+      [649/667] csi_rev_eur: +11 cols SAVED
+      [DEBUG] Starting extraction: csi_vol_nzd
+      [650/667] csi_rev_usd: +11 cols SAVED
+      === Progress: 650/667 (0.1/s, ~173s remaining) ===
+      [DEBUG] Starting extraction: csi_vol_usd
+      [651/667] csi_rev_nzd: +11 cols SAVED
+      [652/667] csi_vol_bqx_cad: +31 cols SAVED
+      [653/667] csi_vol_bqx_aud: +31 cols SAVED
+      [654/667] csi_vol_bqx_chf: +31 cols SAVED
+      [655/667] csi_vol_bqx_eur: +31 cols SAVED
+      [656/667] csi_vol_aud: +31 cols SAVED
+      [657/667] csi_vol_bqx_jpy: +31 cols SAVED
+      [658/667] csi_vol_bqx_gbp: +31 cols SAVED
+      [659/667] csi_vol_bqx_usd: +31 cols SAVED
+      [660/667] csi_vol_bqx_nzd: +31 cols SAVED
+      [661/667] csi_vol_cad: +31 cols SAVED
+      [662/667] csi_vol_chf: +31 cols SAVED
+      [663/667] csi_vol_eur: +31 cols SAVED
+      [664/667] csi_vol_gbp: +31 cols SAVED
+      [665/667] csi_vol_jpy: +31 cols SAVED
+      [666/667] csi_vol_nzd: +31 cols SAVED
+      [667/667] csi_vol_usd: +31 cols SAVED
+    Extraction complete: 667 new, 0 cached, 0 errors in 6772s
+    Merging checkpoints...

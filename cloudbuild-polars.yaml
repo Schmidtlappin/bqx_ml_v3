@@ -1,0 +1,21 @@
+# Cloud Build configuration for Polars-enabled Cloud Run pipeline
+
+steps:
+  # Build Docker image
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      - 'build'
+      - '-f'
+      - 'Dockerfile.cloudrun-polars'
+      - '-t'
+      - 'gcr.io/$PROJECT_ID/bqx-ml-polars-pipeline:latest'
+      - '-t'
+      - 'gcr.io/$PROJECT_ID/bqx-ml-polars-pipeline:v2-${SHORT_SHA}'
+      - '.'
+
+# Push both tags
+images:
+  - 'gcr.io/$PROJECT_ID/bqx-ml-polars-pipeline:latest'
+  - 'gcr.io/$PROJECT_ID/bqx-ml-polars-pipeline:v2-${SHORT_SHA}'
+
+timeout: '1200s'  # 20 minutes for build

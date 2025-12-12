@@ -1,9 +1,10 @@
 # Feature Ledger Mandate: 100% Coverage Requirement
 
 **Document Type**: MANDATE (Authoritative)
-**Date**: December 9, 2025
-**Version**: 1.0.0
+**Date**: December 12, 2025 (Updated)
+**Version**: 1.1.0
 **Status**: ACTIVE
+**Deployment**: Cloud Run serverless with Polars merge
 
 ---
 
@@ -11,7 +12,13 @@
 
 **Every model must account for 100% of all features in the feature universe.**
 
-This mandate ensures complete traceability and auditability of feature selection decisions across all 784 planned models (28 pairs × 7 horizons × 4 ensemble members).
+This mandate ensures complete traceability and auditability of feature selection decisions across all 588 models (28 pairs × 7 horizons × 3 ensemble members - ElasticNet removed).
+
+**Pipeline Architecture** (Updated 2025-12-12):
+- **Extraction**: Cloud Run serverless (BigQuery → Parquet checkpoints, 60-70 min)
+- **Merge**: Polars (user-mandated, soft memory monitoring, 13-20 min)
+- **Validation**: Comprehensive (dimensions, targets, features, nulls, 1-2 min)
+- **Storage**: GCS (`gs://bqx-ml-output/`)
 
 ---
 

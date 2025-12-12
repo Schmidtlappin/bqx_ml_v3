@@ -1,10 +1,22 @@
 {
-  "catalog_version": "2.1",
-  "last_updated": "2025-12-09",
+  "catalog_version": "2.2",
+  "last_updated": "2025-12-12",
   "project": "bqx-ml",
   "location": "us-central1",
   "migration_status": "COMPLETE",
   "migration_completion": "100%",
+
+  "deployment": {
+    "extraction_method": "Cloud Run serverless (BigQuery → Parquet checkpoints)",
+    "merge_protocol": "Polars (user-mandated, resource-monitored)",
+    "job_name": "bqx-ml-pipeline",
+    "image": "gcr.io/bqx-ml/bqx-ml-polars-pipeline:latest",
+    "region": "us-central1",
+    "resources": {"cpus": 4, "memory_gb": 12, "timeout_seconds": 7200},
+    "pipeline_stages": ["BigQuery Extraction", "Polars Merge", "Validation", "GCS Backup", "Cleanup"],
+    "cost_per_pair": "$0.71",
+    "deployment_date": "2025-12-12"
+  },
 
   "datasets": {
     "bqx_bq_uscen1_v2": {

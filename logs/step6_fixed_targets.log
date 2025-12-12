@@ -5,10 +5,10 @@
 
 ======================================================================
 SEQUENTIAL PAIR PROCESSING - USER MANDATE
-(All 4 workers focus on ONE pair at a time)
+(All 16 workers focus on ONE pair at a time)
 ======================================================================
 Pairs: 28
-Table workers per pair: 4
+Table workers per pair: 16
 Date range: 2020-01-01 to 2024-12-31
 ======================================================================
 
@@ -19,15 +19,16 @@ PAIR 1/28: EURUSD
 ==================================================
 Processing EURUSD
 ==================================================
-  Querying EURUSD (CHECKPOINT MODE - 4 parallel workers)...
-    Targets: CACHED
-    Tables: 669 total
+  Querying EURUSD (CHECKPOINT MODE - 16 parallel workers)...
+    Targets: 100,000 rows SAVED
+    Tables: 667 total
       - pair_specific: 256
       - triangulation: 194
-      - market_wide: 12
+      - market_wide: 10
       - variance: 63
       - currency_strength: 144
-    Fetching columns for 669 tables (batch query)...
-    Cached columns for 669 tables
-    Status: 619 cached, 50 pending
-    Starting PARALLEL extraction (4 workers)...
+    Fetching columns for 667 tables (batch query)...
+    Cached columns for 667 tables
+    Status: 667 cached, 0 pending
+    All tables already extracted!
+    Merging checkpoints...

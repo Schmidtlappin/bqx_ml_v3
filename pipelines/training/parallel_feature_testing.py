@@ -27,6 +27,7 @@ from datetime import datetime
 from concurrent.futures import ProcessPoolExecutor, ThreadPoolExecutor, as_completed
 import multiprocessing
 from google.cloud import bigquery
+from google.cloud import storage
 import warnings
 import gc
 warnings.filterwarnings('ignore')
@@ -37,12 +38,19 @@ FEATURES_DATASET = "bqx_ml_v3_features_v2"
 ANALYTICS_DATASET = "bqx_ml_v3_analytics_v2"
 
 HORIZONS = [15, 30, 45, 60, 75, 90, 105]
-MAX_WORKERS = 16  # CE approved 2025-12-11 (all workers focus on ONE pair at a time)
+
+# Auto-detect optimal worker count based on CPU cores
+# Cloud Run (4 CPUs): 4 workers, VM (8+ CPUs): 16 workers
+CPU_COUNT = multiprocessing.cpu_count()
+MAX_WORKERS = min(CPU_COUNT, 16) if CPU_COUNT <= 4 else 16  # Use CPU count for Cloud Run (≤4), 16 for VM
 MAX_TABLE_WORKERS = 8  # Parallel table queries per pair (CE approved)
 SAMPLE_LIMIT = 100000  # 100K samples - CE approved for 64GB RAM (n2-highmem-8)
 
 # Chunk directory for parquet files
 CHUNK_DIR = "/tmp/feature_chunks"
+
+# GCS configuration (optional - for Cloud Run deployment)
+GCS_STAGING_BUCKET = "bqx-ml-staging"  # Will use gs://bqx-ml-staging/{pair}/ for checkpoints
 
 ALL_28_PAIRS = [
     "eurusd", "gbpusd", "usdjpy", "usdchf", "audusd", "usdcad", "nzdusd",
@@ -52,6 +60,95 @@ ALL_28_PAIRS = [
     "nzdjpy", "nzdchf", "nzdcad",
     "cadjpy", "cadchf", "chfjpy"
 ]
+
+
+# ============================================================================
+# GCS Helper Functions (Cloud Run Support)
+# ============================================================================
+
+def _write_parquet_to_gcs(df: pd.DataFrame, gcs_path: str) -> None:
+    """Write DataFrame to GCS as parquet file."""
+    # Parse gs://bucket/path format
+    if not gcs_path.startswith('gs://'):
+        raise ValueError(f"GCS path must start with gs://, got: {gcs_path}")
+
+    parts = gcs_path.replace('gs://', '').split('/', 1)
+    bucket_name = parts[0]
+    blob_path = parts[1] if len(parts) > 1 else ''
+
+    # Write to temporary local file first (more reliable than direct GCS write)
+    import tempfile
+    with tempfile.NamedTemporaryFile(suffix='.parquet', delete=False) as tmp:
+        tmp_path = tmp.name
+        df.to_parquet(tmp_path, index=False)
+
+    try:
+        # Upload to GCS
+        storage_client = storage.Client(project=PROJECT)
+        bucket = storage_client.bucket(bucket_name)
+        blob = bucket.blob(blob_path)
+        blob.upload_from_filename(tmp_path)
+    finally:
+        # Clean up temp file
+        if os.path.exists(tmp_path):
+            os.remove(tmp_path)
+
+
+def _read_parquet_from_gcs(gcs_path: str) -> pd.DataFrame:
+    """Read DataFrame from GCS parquet file."""
+    if not gcs_path.startswith('gs://'):
+        raise ValueError(f"GCS path must start with gs://, got: {gcs_path}")
+
+    parts = gcs_path.replace('gs://', '').split('/', 1)
+    bucket_name = parts[0]
+    blob_path = parts[1] if len(parts) > 1 else ''
+
+    # Download to temp file
+    import tempfile
+    with tempfile.NamedTemporaryFile(suffix='.parquet', delete=False) as tmp:
+        tmp_path = tmp.name
+
+    try:
+        storage_client = storage.Client(project=PROJECT)
+        bucket = storage_client.bucket(bucket_name)
+        blob = bucket.blob(blob_path)
+        blob.download_to_filename(tmp_path)
+        return pd.read_parquet(tmp_path)
+    finally:
+        if os.path.exists(tmp_path):
+            os.remove(tmp_path)
+
+
+def _parquet_exists(path: str) -> bool:
+    """Check if parquet file exists (local or GCS)."""
+    if path.startswith('gs://'):
+        parts = path.replace('gs://', '').split('/', 1)
+        bucket_name = parts[0]
+        blob_path = parts[1] if len(parts) > 1 else ''
+
+        storage_client = storage.Client(project=PROJECT)
+        bucket = storage_client.bucket(bucket_name)
+        blob = bucket.blob(blob_path)
+        return blob.exists()
+    else:
+        from pathlib import Path
+        return Path(path).exists()
+
+
+def _write_parquet(df: pd.DataFrame, path: str) -> None:
+    """Write DataFrame to parquet (local or GCS)."""
+    if path.startswith('gs://'):
+        _write_parquet_to_gcs(df, path)
+    else:
+        df.to_parquet(path, index=False)
+
+
+def _read_parquet(path: str) -> pd.DataFrame:
+    """Read DataFrame from parquet (local or GCS)."""
+    if path.startswith('gs://'):
+        return _read_parquet_from_gcs(path)
+    else:
+        return pd.read_parquet(path)
 
 
 def get_feature_tables_for_pair(pair: str) -> dict:
@@ -299,19 +396,24 @@ def merge_parquet_with_duckdb(targets_path: str, chunk_dir: str, output_path: st
 
 
 def query_targets(pair: str, date_start: str, date_end: str) -> tuple:
-    """Query targets table with all 7 horizons."""
+    """Query targets table with all 7 windows × 7 horizons = 49 columns."""
     client = bigquery.Client(project=PROJECT)
+
+    # All 7 BQX windows and 7 horizons per mandate
+    windows = [45, 90, 180, 360, 720, 1440, 2880]
+    horizons = [15, 30, 45, 60, 75, 90, 105]
+
+    # Generate all 49 target column names
+    target_cols = ',\n        '.join([
+        f'target_bqx{w}_h{h}'
+        for w in windows
+        for h in horizons
+    ])
 
     query = f"""
     SELECT
         interval_time,
-        target_bqx45_h15,
-        target_bqx45_h30,
-        target_bqx45_h45,
-        target_bqx45_h60,
-        target_bqx45_h75,
-        target_bqx45_h90,
-        target_bqx45_h105
+        {target_cols}
     FROM `{PROJECT}.{ANALYTICS_DATASET}.targets_{pair}`
     WHERE DATE(interval_time) BETWEEN '{date_start}' AND '{date_end}'
     AND target_bqx45_h15 IS NOT NULL
@@ -479,16 +581,20 @@ def query_pair_direct(pair: str, date_start: str, date_end: str) -> tuple:
 def _extract_single_table_checkpoint(args) -> dict:
     """Worker function for parallel table extraction with checkpointing."""
     table_name, pair, date_start, date_end, checkpoint_dir, cols = args
-    from pathlib import Path
     import sys
 
     print(f"      [DEBUG] Starting extraction: {table_name}", flush=True)
     sys.stdout.flush()
 
-    parquet_path = Path(checkpoint_dir) / f"{table_name}.parquet"
+    # Support both local and GCS paths
+    if checkpoint_dir.startswith('gs://'):
+        parquet_path = f"{checkpoint_dir}/{table_name}.parquet"
+    else:
+        from pathlib import Path
+        parquet_path = str(Path(checkpoint_dir) / f"{table_name}.parquet")
 
     # Skip if already exists (checkpoint)
-    if parquet_path.exists():
+    if _parquet_exists(parquet_path):
         return {'table': table_name, 'status': 'cached', 'cols': 0, 'bytes': 0}
 
     try:
@@ -521,8 +627,8 @@ def _extract_single_table_checkpoint(args) -> dict:
         rename_map = {c: f"{prefix}_{c}" for c in table_df.columns if c != 'interval_time'}
         table_df = table_df.rename(columns=rename_map)
 
-        # Save checkpoint immediately
-        table_df.to_parquet(parquet_path, index=False)
+        # Save checkpoint immediately (supports local or GCS)
+        _write_parquet(table_df, parquet_path)
         col_count = len([c for c in table_df.columns if c != 'interval_time'])
 
         return {'table': table_name, 'status': 'saved', 'cols': col_count, 'bytes': bytes_scanned}
@@ -531,7 +637,7 @@ def _extract_single_table_checkpoint(args) -> dict:
         return {'table': table_name, 'status': 'error', 'error': str(e), 'cols': 0, 'bytes': 0}
 
 
-def query_pair_with_checkpoints(pair: str, date_start: str, date_end: str, max_workers: int = MAX_WORKERS) -> tuple:
+def query_pair_with_checkpoints(pair: str, date_start: str, date_end: str, max_workers: int = MAX_WORKERS, gcs_output: str = None) -> tuple:
     """
     Query ALL features for a pair using PARQUET CHECKPOINT approach with PARALLEL extraction.
 
@@ -539,52 +645,70 @@ def query_pair_with_checkpoints(pair: str, date_start: str, date_end: str, max_w
     PARALLEL MODE: Uses all 12 workers for table queries on ONE pair at a time.
 
     Architecture:
-    1. Create checkpoint directory: data/features/checkpoints/{pair}/
+    1. Create checkpoint directory: data/features/checkpoints/{pair}/ OR gs://bucket/path/{pair}/
     2. For each table (PARALLEL with 12 workers):
        - Check if parquet exists: SKIP if yes (already done)
        - If not: Query, prefix columns, save to parquet
     3. After all tables extracted:
        - Merge all parquets for pair
-       - Save final: data/features/{pair}_merged_features.parquet
+       - Save final: data/features/{pair}_merged_features.parquet OR gs://bucket/path/training_{pair}.parquet
        - Mark pair complete: _COMPLETE marker
+
+    Args:
+        pair: Currency pair (e.g., 'eurusd')
+        date_start: Start date for queries
+        date_end: End date for queries
+        max_workers: Number of parallel workers
+        gcs_output: Optional GCS path (e.g., 'gs://bqx-ml-staging') for Cloud Run mode
 
     Returns: (merged_df, cost_info)
     """
     from pathlib import Path
     import time as _time
 
-    # Checkpoint directory structure
-    checkpoint_base = Path("/home/micha/bqx_ml_v3/data/features/checkpoints")
-    checkpoint_dir = checkpoint_base / pair
-    checkpoint_dir.mkdir(parents=True, exist_ok=True)
-
-    complete_marker = checkpoint_dir / "_COMPLETE"
-    final_parquet_path = f"/home/micha/bqx_ml_v3/data/features/{pair}_merged_features.parquet"
+    # Checkpoint directory structure (local or GCS)
+    if gcs_output:
+        # GCS mode (Cloud Run)
+        checkpoint_dir = f"{gcs_output}/{pair}"
+        complete_marker = f"{checkpoint_dir}/_COMPLETE"
+        final_parquet_path = f"{gcs_output.replace('staging', 'output')}/training_{pair}.parquet"
+    else:
+        # Local mode (VM)
+        checkpoint_base = Path("/home/micha/bqx_ml_v3/data/features/checkpoints")
+        checkpoint_dir = str(checkpoint_base / pair)
+        checkpoint_base.mkdir(parents=True, exist_ok=True)
+        Path(checkpoint_dir).mkdir(parents=True, exist_ok=True)
+        complete_marker = str(checkpoint_base / pair / "_COMPLETE")
+        final_parquet_path = f"/home/micha/bqx_ml_v3/data/features/{pair}_merged_features.parquet"
 
     # Check if already complete
-    if complete_marker.exists():
+    if _parquet_exists(complete_marker):
         print(f"  {pair.upper()} already COMPLETE, loading cached result...", flush=True)
-        if os.path.exists(final_parquet_path):
-            merged_df = pd.read_parquet(final_parquet_path)
+        if _parquet_exists(final_parquet_path):
+            merged_df = _read_parquet(final_parquet_path)
             return merged_df, {'status': 'cached', 'cost': 0}
         else:
-            complete_marker.unlink()
-            print(f"    Stale marker removed, re-processing...", flush=True)
+            # Stale marker - would need to delete via GCS API if on GCS
+            print(f"    Stale marker detected, re-processing...", flush=True)
 
     print(f"  Querying {pair.upper()} (CHECKPOINT MODE - {max_workers} parallel workers)...", flush=True)
 
     # Step 1: Get/check targets
-    targets_path = checkpoint_dir / "targets.parquet"
+    if gcs_output:
+        targets_path = f"{checkpoint_dir}/targets.parquet"
+    else:
+        from pathlib import Path
+        targets_path = str(Path(checkpoint_dir) / "targets.parquet")
     total_bytes = 0
 
-    if targets_path.exists():
+    if _parquet_exists(targets_path):
         print(f"    Targets: CACHED", flush=True)
-        targets_df = pd.read_parquet(targets_path)
+        targets_df = _read_parquet(targets_path)
     else:
         targets_df, targets_bytes = query_targets(pair, date_start, date_end)
         if targets_df is None or len(targets_df) < 1000:
             return None, {'error': 'Insufficient target data'}
-        targets_df.to_parquet(targets_path, index=False)
+        _write_parquet(targets_df, targets_path)
         total_bytes += targets_bytes
         print(f"    Targets: {len(targets_df):,} rows SAVED", flush=True)
 
@@ -608,8 +732,15 @@ def query_pair_with_checkpoints(pair: str, date_start: str, date_end: str, max_w
     col_cache = get_all_table_columns_batch(all_tables)
 
     # Count already cached
-    cached_count = sum(1 for t in all_tables if (checkpoint_dir / f"{t}.parquet").exists())
-    pending_tables = [t for t in all_tables if not (checkpoint_dir / f"{t}.parquet").exists()]
+    def _get_checkpoint_path(table):
+        if gcs_output:
+            return f"{checkpoint_dir}/{table}.parquet"
+        else:
+            from pathlib import Path
+            return str(Path(checkpoint_dir) / f"{table}.parquet")
+
+    cached_count = sum(1 for t in all_tables if _parquet_exists(_get_checkpoint_path(t)))
+    pending_tables = [t for t in all_tables if not _parquet_exists(_get_checkpoint_path(t))]
     print(f"    Status: {cached_count} cached, {len(pending_tables)} pending", flush=True)
 
     if len(pending_tables) == 0:
@@ -859,9 +990,15 @@ def query_pair_batched(pair: str, date_start: str, date_end: str) -> tuple:
 
 
 def process_pair_all_horizons(pair: str, date_start: str = '2020-01-01',
-                              date_end: str = '2024-12-31') -> dict:
+                              date_end: str = '2024-12-31', gcs_output: str = None) -> dict:
     """
     Process ONE pair: query all features (batched), then process 7 horizons locally.
+
+    Args:
+        pair: Currency pair (e.g., 'eurusd')
+        date_start: Start date
+        date_end: End date
+        gcs_output: Optional GCS path for Cloud Run mode (e.g., 'gs://bqx-ml-staging')
     """
     print(f"\n{'='*50}")
     print(f"Processing {pair.upper()}")
@@ -869,7 +1006,7 @@ def process_pair_all_horizons(pair: str, date_start: str = '2020-01-01',
 
     try:
         # Query all features using CHECKPOINT approach (resume capability - USER MANDATE)
-        df, cost_info = query_pair_with_checkpoints(pair, date_start, date_end)
+        df, cost_info = query_pair_with_checkpoints(pair, date_start, date_end, gcs_output=gcs_output)
 
         if df is None or len(df) < 1000:
             return {'pair': pair, 'status': 'error', 'message': 'Insufficient data'}
@@ -1135,7 +1272,16 @@ if __name__ == "__main__":
 
     elif mode == "single":
         pair = sys.argv[2] if len(sys.argv) > 2 else "eurusd"
-        result = process_pair_all_horizons(pair)
+
+        # Check for --gcs-output flag
+        gcs_output = None
+        for i, arg in enumerate(sys.argv):
+            if arg == "--gcs-output" and i + 1 < len(sys.argv):
+                gcs_output = sys.argv[i + 1]
+                print(f"GCS Output Mode: {gcs_output}")
+                break
+
+        result = process_pair_all_horizons(pair, gcs_output=gcs_output)
         print(json.dumps(result, indent=2, default=str))
         # Save results to file
         output_file = f"/tmp/parallel_batch_single_{pair}.json"
@@ -1156,4 +1302,8 @@ if __name__ == "__main__":
         print("  python parallel_feature_testing.py dry_run")
         print("  python parallel_feature_testing.py count eurusd")
         print("  python parallel_feature_testing.py single eurusd")
+        print("  python parallel_feature_testing.py single eurusd --gcs-output gs://bqx-ml-staging")
         print("  python parallel_feature_testing.py full")
+        print("")
+        print("Options:")
+        print("  --gcs-output <bucket>  Write checkpoints to GCS (for Cloud Run deployment)")

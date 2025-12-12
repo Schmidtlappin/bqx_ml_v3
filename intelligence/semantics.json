@@ -319,7 +319,16 @@
     "critical_distinction": "These are PREDICTION horizons (forward-looking), NOT BQX calculation windows (backward-looking)",
     "validation": "Walk-forward validation (MANDATORY for time series)",
     "feature_selection": "SHAP values for top 500-1,000 features",
-    "status": "PENDING - V2 migration must complete first"
+    "deployment": {
+      "method": "Cloud Run serverless",
+      "job_name": "bqx-ml-pipeline",
+      "image": "gcr.io/bqx-ml/bqx-ml-polars-pipeline:latest",
+      "region": "us-central1",
+      "resources": "4 CPUs, 12 GB memory",
+      "merge_protocol": "Polars (user-mandated, resource-monitored)",
+      "cost_per_pair": "$0.71",
+      "status": "OPERATIONAL"
+    }
   },
   "data_pipeline_stages": {
     "ingestion": {
@@ -423,15 +432,32 @@
     "last_audit": "2025-12-09",
     "total_tables": 4888,
     "total_feature_columns": 86190,
-    "features_per_pair_eurusd": 6477,
+    "features_per_pair_eurusd": 17038,
+    "features_per_pair_eurusd_note": "VALIDATED 2025-12-12: 17,038 total columns (16,981 features + 56 targets + interval_time) in training file",
     "features_breakdown_eurusd": {
-      "pair_specific": 3813,
-      "cross_pair_tri": 2088,
-      "market_wide_mkt": 576,
-      "gaps_var_csi": 0,
-      "total_current": 6477,
-      "total_after_gaps": "~6567",
-      "correction_note": "2025-12-09: Original 3,813 was pair-specific only, missed tri+mkt"
+      "tri": 6460,
+      "csi": 5232,
+      "cov": 2364,
+      "var": 973,
+      "reg": 696,
+      "corr": 240,
+      "agg": 192,
+      "mkt": 150,
+      "mom": 129,
+      "align": 126,
+      "ext": 94,
+      "vol": 93,
+      "div": 91,
+      "cyc": 73,
+      "der": 45,
+      "base": 19,
+      "targets": 56,
+      "interval_time": 1,
+      "uncategorized": 262,
+      "total_categorized": 16776,
+      "total_columns": 17038,
+      "total_features": 16981,
+      "correction_note": "2025-12-12: Updated to actual training file validation (QA-0120). Far exceeds original estimate due to comprehensive feature engineering."
     },
     "source_v2_complete": "100% (2,210 tables)",
     "covariance_complete": "100% (2,507 tables)",

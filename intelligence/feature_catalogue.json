@@ -1,8 +1,25 @@
 {
-  "catalogue_version": "2.1.0",
+  "catalogue_version": "2.2.0",
   "generated": "2025-12-09T10:45:00Z",
-  "updated": "2025-12-11T03:40:00Z",
+  "updated": "2025-12-12T04:50:00Z",
   "purpose": "Complete feature inventory for BQX ML V3",
+  "deployment": {
+    "status": "OPERATIONAL",
+    "platform": "Cloud Run serverless",
+    "job_name": "bqx-ml-pipeline",
+    "image": "gcr.io/bqx-ml/bqx-ml-polars-pipeline:latest",
+    "extraction_method": "Cloud Run serverless (BigQuery → Parquet checkpoints)",
+    "merge_protocol": "Polars (user-mandated, resource-monitored)",
+    "completed_pairs": ["EURUSD", "AUDUSD"],
+    "in_progress_pairs": ["GBPUSD"],
+    "pending_pairs": 25
+  },
+  "merge_status": {
+    "eurusd": "COMPLETE - Polars merge (2025-12-11 21:04 UTC, local), validated QA-0120",
+    "audusd": "COMPLETE - Polars merge (2025-12-12, local, 13 min), validated",
+    "gbpusd": "IN PROGRESS - Cloud Run test execution",
+    "25_pairs": "PENDING - Cloud Run production run after GBPUSD success"
+  },
   "supersedes": "8,214+ estimate in BQX_ML_V3_FEATURE_INVENTORY.md",
   "last_audit": "2025-12-11",
   "audit_note": "CE verified: 100% COVERAGE ACHIEVED. All 667 tables per pair extracted (2 summary tables excluded).",

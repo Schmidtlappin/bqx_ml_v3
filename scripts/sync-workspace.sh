@@ -1,15 +1,19 @@
 #!/bin/bash
 #
 # BQX-ML-V3 Unified Workspace Sync
-# Syncs to BOTH Google Drive AND Box.com for disaster recovery
+# UPDATED 2025-12-11: Bidirectional sync with reduced aggression
+# Changes in Google Drive sync back to VM, and vice versa.
+# Default: Google Drive only. Box.com sync disabled by default.
 #
 # Usage:
-#   ./sync-workspace.sh [--gdrive-only] [--box-only] [--background]
+#   ./sync-workspace.sh [--gdrive-only] [--box-only] [--background] [--enable-box] [--resync]
 #
 # Options:
 #   --gdrive-only    Only sync to Google Drive
 #   --box-only       Only sync to Box.com
+#   --enable-box     Enable Box.com sync (disabled by default)
 #   --background     Run sync in background (nohup)
+#   --resync         Force resync (required for first run or after conflicts)
 #
 
 set -e
@@ -26,6 +30,8 @@ mkdir -p "$LOG_DIR"
 GDRIVE_ONLY=false
 BOX_ONLY=false
 BACKGROUND=false
+ENABLE_BOX=false  # Box.com disabled by default (2025-12-11)
+RESYNC=false      # Force resync flag
 
 for arg in "$@"; do
     case $arg in
@@ -37,8 +43,16 @@ for arg in "$@"; do
             BOX_ONLY=true
             shift
             ;;
+        --enable-box)
+            ENABLE_BOX=true
+            shift
+            ;;
         --background)
             BACKGROUND=true
+            shift
+            ;;
+        --resync)
+            RESYNC=true
             shift
             ;;
     esac
@@ -49,11 +63,22 @@ log() {
 }
 
 sync_gdrive() {
-    log "=== Google Drive Sync Starting ==="
+    log "=== Google Drive Bidirectional Sync Starting (Reduced Aggression Mode) ==="
+    log "NOTE: Changes in BOTH directions will be synced (VM ↔ Google Drive)"
 
     if command -v rclone &> /dev/null; then
-        log "Syncing to gdrive:bqx_ml_v3..."
-        rclone sync "$PROJECT_ROOT" gdrive:bqx_ml_v3 \
+        # Check if this is first run or resync requested
+        BISYNC_OPTS=""
+        if [ "$RESYNC" = true ]; then
+            log "RESYNC mode: Establishing new baseline..."
+            BISYNC_OPTS="--resync"
+        fi
+
+        log "Syncing with gdrive:bqx_ml_v3 (bidirectional)..."
+        log "Settings: --transfers 2, --checkers 4, --bwlimit 10M"
+        log "Conflict resolution: newer file wins"
+
+        rclone bisync "$PROJECT_ROOT" gdrive:bqx_ml_v3 \
             --exclude ".git/**" \
             --exclude ".secrets/**" \
             --exclude "__pycache__/**" \
@@ -64,10 +89,23 @@ sync_gdrive() {
             --exclude "*.pkl" \
             --exclude "*.model" \
             --exclude "logs/**" \
-            --progress \
+            --transfers 2 \
+            --checkers 4 \
+            --bwlimit 10M \
+            --conflict-resolve newer \
+            --conflict-loser num \
+            --conflict-suffix conflict \
+            --create-empty-src-dirs \
+            --verbose \
+            $BISYNC_OPTS \
             2>&1 | tee -a "$LOG_FILE"
 
-        log "Google Drive sync completed"
+        if [ $? -eq 0 ]; then
+            log "Google Drive bidirectional sync completed successfully"
+        else
+            log "ERROR: Bidirectional sync failed. You may need to run with --resync"
+            return 1
+        fi
     else
         log "ERROR: rclone not found. Cannot sync to Google Drive."
         return 1
@@ -105,13 +143,16 @@ main() {
         fi
     fi
 
-    # Sync to Box.com
-    if [ "$GDRIVE_ONLY" = false ]; then
+    # Sync to Box.com (disabled by default unless --enable-box or --box-only)
+    if [ "$GDRIVE_ONLY" = false ] && { [ "$ENABLE_BOX" = true ] || [ "$BOX_ONLY" = true ]; }; then
         if sync_box; then
             BOX_STATUS="SUCCESS"
         else
             BOX_STATUS="FAILED"
         fi
+    else
+        BOX_STATUS="DISABLED"
+        log "Box.com sync DISABLED (use --enable-box to enable)"
     fi
 
     log "=============================================="

@@ -186,6 +186,66 @@ grep -l "[Agent Name]" /home/micha/.claude/projects/-home-micha-bqx-ml-v3/*.json
 cat /.claude/sandbox/communications/AGENT_REGISTRY.json | jq '.agent_registry.[AGENT_ID]'
 ```
 
+### 4.4 Session Naming for VS Code Dropdown (CRITICAL)
+
+**How the Dropdown Works:**
+
+The VS Code Claude Code extension displays session names in the "Past Conversations" dropdown based on the **first user message text** in the session file.
+
+**Session Naming Protocol:**
+
+When onboarding a new agent session, you MUST:
+
+1. **Deprecate Predecessor Session**
+   ```bash
+   # Rename predecessor session to mark it as deprecated
+   python3 /home/micha/bqx_ml_v3/scripts/claude_code_session_tools/update_first_message.py \
+     /home/micha/.claude/projects/-home-micha-bqx-ml-v3/[PREDECESSOR_SESSION_ID].jsonl \
+     "[AGENT_ID] - [Full Name] (deprecated)"
+   ```
+
+   Example for BA:
+   ```bash
+   python3 /home/micha/bqx_ml_v3/scripts/claude_code_session_tools/update_first_message.py \
+     /home/micha/.claude/projects/-home-micha-bqx-ml-v3/df480dab-e189-46d8-be49-b60b436c2a3e.jsonl \
+     "BA - Build Agent (deprecated)"
+   ```
+
+2. **Set Current Session Name**
+
+   Your **first user message** in this new session MUST be:
+   ```
+   [AGENT_ID] - [Full Name]
+   ```
+
+   Examples:
+   - CE: "CE - Chief Engineer"
+   - BA: "BA - Build Agent"
+   - QA: "QA - Quality Assurance"
+   - EA: "EA - Enhancement Assistant"
+
+3. **Verify Dropdown Name**
+   ```bash
+   # Check all session names
+   python3 /home/micha/bqx_ml_v3/scripts/claude_code_session_tools/verify_session_names.py
+
+   # Reload VS Code window to see changes
+   # Press Cmd/Ctrl + Shift + P → "Developer: Reload Window"
+   ```
+
+**Important:**
+- The session name appears BEFORE you update the registry
+- Your first user message IS the onboarding prompt title line
+- If incorrect, use `update_first_message.py` to fix it
+- See `/docs/CLAUDE_CODE_SESSION_RENAMING_GUIDE.md` for complete guide
+
+**Automated Helper Script:**
+
+Use the batch renaming script to update all agent sessions:
+```bash
+/home/micha/bqx_ml_v3/scripts/claude_code_session_tools/batch_rename_agents.sh
+```
+
 ---
 
 ## 5. REGISTRY UPDATE PROCEDURE
@@ -305,7 +365,27 @@ USER     Yes   No    No    No    -
 
 Every newly onboarded agent MUST execute these actions in order:
 
-### Step 1: Update Registry (MANDATORY FIRST ACTION)
+### Step 0: Deprecate Predecessor & Set Session Name (FIRST ACTION)
+
+**CRITICAL**: This happens BEFORE registry update because the session name is set by your first user message.
+
+```bash
+# 1. Deprecate predecessor session
+python3 /home/micha/bqx_ml_v3/scripts/claude_code_session_tools/update_first_message.py \
+  /home/micha/.claude/projects/-home-micha-bqx-ml-v3/[PREDECESSOR_ID].jsonl \
+  "[AGENT_ID] - [Full Name] (deprecated)"
+
+# 2. Verify this session's name is correct
+python3 /home/micha/bqx_ml_v3/scripts/claude_code_session_tools/verify_session_names.py
+```
+
+**Expected Result**:
+- Your predecessor session shows: "[AGENT_ID] - [Full Name] (deprecated)"
+- This current session shows: "[AGENT_ID] - [Full Name]"
+
+**Note**: Your first user message in THIS session sets the dropdown name. It should already be correct if you used the standardized onboarding prompt.
+
+### Step 1: Update Registry (MANDATORY SECOND ACTION)
 ```
 Edit AGENT_REGISTRY.json:
 - Move current_session_id → predecessor_session_ids

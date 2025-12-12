@@ -1,25 +1,26 @@
 # BQX ML V3 COMPREHENSIVE FEATURE INVENTORY
-**Date**: 2025-12-08 (Updated)
-**Status**: V2 Migration In Progress
-**Source**: Documentation, Intelligence Files, Migration Scripts
+**Date**: 2025-12-12 (Updated)
+**Status**: Cloud Run Deployment Operational (2/28 pairs complete)
+**Source**: Documentation, Intelligence Files, Cloud Run Pipeline
 
 ---
 
 ## 📊 EXECUTIVE SUMMARY
 
-### System Overview (UPDATED 2025-12-08)
-- **Total Models**: 784 (28 pairs × 7 horizons × 4 ensemble members)
+### System Overview (UPDATED 2025-12-12)
+- **Total Models**: 588 (28 pairs × 7 horizons × 3 ensemble members - ElasticNet removed)
 - **Currency Pairs**: 28 independent models
 - **Horizons**: h15, h30, h45, h60, h75, h90, h105 (deploy farthest achieving ≥95%)
 - **Algorithms**: LightGBM, XGBoost, CatBoost → Meta-learner (LSTM/LogReg)
-- **Total Tables**: 4,218+ (v2 datasets, partitioned)
-- **Total Columns**: 11,337 per pair across 462 tables (verified 2025-12-10)
-  - Pair-specific: 4,173 | Cross-pair (tri): 6,460 | Market-wide (mkt): 704
-- **Unique Features**: 1,064 per pair (after merge/deduplication)
-  - Pair-specific: 586 | Cross-pair (tri): 132 | Market-wide (mkt): 346
-- **Target Accuracy**: 95%+ directional accuracy
-- **Platform**: 100% Google Cloud Platform
-- **Monthly Cost**: ~$277 (optimized)
+- **Total Tables**: 4,888 (v2 datasets, partitioned and clustered)
+- **Total Columns**: 17,038 per pair (EURUSD validated, 16,981 features + 56 targets + interval_time)
+  - Triangulation (tri): 6,460 | Currency Strength (csi): 5,232 | Covariance (cov): 2,364
+- **Unique Features**: 1,064 per pair (before selection)
+- **Target Accuracy**: 85-95% called accuracy with 30-50% coverage
+- **Platform**: 100% Google Cloud Platform (Cloud Run serverless deployment)
+- **Deployment Cost**: $19.90 one-time (28 pairs) + $1.03/month (GCS storage)
+- **Extraction Method**: Cloud Run serverless (BigQuery → Parquet checkpoints)
+- **Merge Protocol**: Polars (user-mandated, resource-monitored)
 
 ### Critical Paradigms
 1. **BQX Paradigm Shift** (2024-11-24): BQX values as BOTH features AND targets

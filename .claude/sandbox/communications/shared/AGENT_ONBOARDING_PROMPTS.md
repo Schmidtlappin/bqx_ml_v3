@@ -3,7 +3,7 @@
 **Document Type**: ONBOARDING REFERENCE
 **Date**: December 11, 2025
 **Maintained By**: Chief Engineer (CE)
-**Version**: 3.0.0
+**Version**: 3.1.0
 
 **AUTHORITATIVE MANDATE**: `/mandate/AGENT_ONBOARDING_PROTOCOL.md`
 
@@ -14,7 +14,8 @@
 This document provides **copy-paste ready** onboarding prompts to initialize agents in new Claude Code sessions. The prompt format is defined by the authoritative mandate.
 
 **CRITICAL**: Each agent must:
-1. Update AGENT_REGISTRY.json with new session ID (FIRST ACTION)
+0. Deprecate predecessor session and verify current session name (use onboarding_session_setup.py)
+1. Update AGENT_REGISTRY.json with new session ID
 2. Ingest predecessor's session file for context continuity
 3. Read charge document, TODO file, and inbox
 4. Report ready status to CE
@@ -56,6 +57,62 @@ All Claude Code session files are stored at:
 1. Check AGENT_REGISTRY.json for last known session ID
 2. Or search: `grep -l "[AGENT_NAME]" /home/micha/.claude/projects/-home-micha-bqx-ml-v3/*.jsonl`
 3. Or list by size/date: `ls -latS /home/micha/.claude/projects/-home-micha-bqx-ml-v3/*.jsonl | head -10`
+
+### Session Naming for VS Code Dropdown (CRITICAL)
+
+**How the Dropdown Works:**
+
+The VS Code Claude Code extension displays session names in the "Past Conversations" dropdown based on the **first user message text** in the session file.
+
+**Session Naming Protocol:**
+
+When onboarding a new agent session, you MUST:
+
+1. **Deprecate Predecessor Session**
+
+   Use the automated setup script:
+   ```bash
+   python3 /home/micha/bqx_ml_v3/scripts/claude_code_session_tools/onboarding_session_setup.py \
+     [AGENT_ID] [PREDECESSOR_SESSION_ID]
+   ```
+
+   Examples:
+   ```bash
+   # CE onboarding
+   python3 /home/micha/bqx_ml_v3/scripts/claude_code_session_tools/onboarding_session_setup.py \
+     CE b2360551-04af-4110-9cc8-cb1dce3334cc
+
+   # BA onboarding
+   python3 /home/micha/bqx_ml_v3/scripts/claude_code_session_tools/onboarding_session_setup.py \
+     BA df480dab-e189-46d8-be49-b60b436c2a3e
+   ```
+
+   This script will:
+   - Rename predecessor session to "[AGENT_ID] - [Full Name] (deprecated)"
+   - Verify current session shows as "[AGENT_ID] - [Full Name]"
+   - Provide next steps for registry update
+
+2. **Verify Session Names**
+   ```bash
+   python3 /home/micha/bqx_ml_v3/scripts/claude_code_session_tools/verify_session_names.py
+   ```
+
+3. **Reload VS Code**
+   - Press Cmd/Ctrl + Shift + P
+   - Type "Developer: Reload Window"
+   - Press Enter
+
+**Important:**
+- Your first user message in the new session sets the dropdown name
+- It should be: "[AGENT_ID] - [Full Name]" (the title line of your onboarding prompt)
+- Session naming happens BEFORE registry update
+- See `/docs/CLAUDE_CODE_SESSION_RENAMING_GUIDE.md` for complete guide
+- See `/mandate/AGENT_ONBOARDING_PROTOCOL.md` Section 4.4 for full protocol
+
+**Batch Rename All Agents:**
+```bash
+/home/micha/bqx_ml_v3/scripts/claude_code_session_tools/batch_rename_agents.sh
+```
 
 ---
 
@@ -398,5 +455,5 @@ Update the `last_session_id` field for the agent.
 ---
 
 **Maintained By**: Chief Engineer (CE)
-**Last Updated**: December 10, 2025
-**Version**: 2.0.0
+**Last Updated**: December 11, 2025
+**Version**: 3.1.0

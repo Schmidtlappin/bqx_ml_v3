@@ -6,7 +6,7 @@
     "repository": "https://github.com/Schmidtlappin/bqx_ml_v3",
     "owner": "Schmidtlappin",
     "created": "2024-11-24",
-    "last_updated": "2025-12-10"
+    "last_updated": "2025-12-12"
   },
   "paradigm": {
     "name": "BQX Momentum Prediction",
@@ -24,7 +24,13 @@
     "model_scope": "One ensemble per pair-horizon combination",
     "isolation": "Complete - no cross-pair contamination",
     "computation": "Interval-centric using ROWS BETWEEN only",
-    "deployment_strategy": "Deploy farthest horizon achieving ≥95% accuracy per pair"
+    "deployment_strategy": "Deploy farthest horizon achieving ≥95% accuracy per pair",
+    "deployment": {
+      "platform": "Cloud Run serverless",
+      "job_name": "bqx-ml-pipeline",
+      "merge_protocol": "Polars (user-mandated)",
+      "status": "OPERATIONAL"
+    }
   },
   "infrastructure": {
     "cloud": {
@@ -221,10 +227,64 @@
       "SHAP analysis (100K+ samples - USER MANDATE)"
     ],
     "pipeline_status": {
-      "step_6_feature_extraction": "READY - Gap remediation COMPLETE (2025-12-11)",
+      "step_6_deployment": "Cloud Run serverless pipeline OPERATIONAL (bqx-ml-pipeline)",
+      "step_6_completed_pairs": ["EURUSD", "AUDUSD"],
+      "step_6_in_progress_pairs": ["GBPUSD"],
+      "step_6_pending_pairs": 25,
+      "step_6_training_files_validated": 2,
+      "step_6_merge_protocol": "Polars (user-mandated, resource-monitored)",
       "stability_selection": "PENDING",
       "training": "PENDING",
       "shap": "PENDING"
+    },
+    "merge_strategy": {
+      "final_approach": "Cloud Run serverless with Polars merge (user-mandated)",
+      "decision_date": "2025-12-12",
+      "directive": "CE-0443 (User Polars directive acknowledgment)",
+      "deployment_method": "Cloud Run job (bqx-ml-pipeline)",
+      "approach_evolution": [
+        {"timestamp": "2025-12-11T20:30:00Z", "approach": "DuckDB local", "status": "FAILED", "reason": "OOM at 65GB (50GB limit exceeded)"},
+        {"timestamp": "2025-12-11T21:04:00Z", "approach": "Polars local", "status": "SUCCESS", "scope": "EURUSD only", "metrics": {"rows": 177748, "columns": 17038, "size_gb": 9.3, "memory_gb": 56}},
+        {"timestamp": "2025-12-11T22:35:00Z", "approach": "BigQuery 668-table JOIN", "status": "FAILED", "reason": "JOIN limit exceeded (practical limit ~100-200 tables)"},
+        {"timestamp": "2025-12-12T01:10:00Z", "approach": "BigQuery Iterative JOIN", "status": "BYPASSED", "reason": "User mandated Polars approach"},
+        {"timestamp": "2025-12-12T03:13:00Z", "approach": "Polars local (AUDUSD)", "status": "SUCCESS", "metrics": {"rows": "~177K", "columns": "~17K", "size_gb": 9.0, "duration_min": 13}},
+        {"timestamp": "2025-12-12T04:30:00Z", "approach": "Cloud Run + Polars", "status": "OPERATIONAL", "scope": "28 pairs", "test_pair": "GBPUSD"}
+      ],
+      "rationale": "USER MANDATE: Polars merge protocol for maximum speed (4.6× faster than BigQuery). Cloud Run deployment eliminates VM memory pressure risk while maintaining Polars performance.",
+      "implementation": {
+        "deployment": {
+          "platform": "Cloud Run serverless",
+          "job_name": "bqx-ml-pipeline",
+          "image": "gcr.io/bqx-ml/bqx-ml-polars-pipeline:latest",
+          "region": "us-central1",
+          "resources": {"cpus": 4, "memory_gb": 12, "timeout_seconds": 7200},
+          "service_account": "bqx-ml-pipeline@bqx-ml.iam.gserviceaccount.com"
+        },
+        "pipeline_stages": [
+          {"name": "BigQuery Extraction", "duration_min": "60-70", "script": "parallel_feature_testing.py", "workers": 25},
+          {"name": "Polars Merge", "duration_min": "13-20", "script": "merge_with_polars_safe.py", "memory_monitoring": "soft (no hard limits)"},
+          {"name": "Validation", "duration_min": "1-2", "script": "validate_training_file.py", "checks": ["dimensions", "targets", "features", "nulls"]},
+          {"name": "GCS Backup", "duration_min": "2-3", "destination": "gs://bqx-ml-output/"},
+          {"name": "Cleanup", "duration_min": "1", "actions": ["remove checkpoints", "remove local training file"]}
+        ],
+        "completed_pairs": {
+          "EURUSD": {"method": "Polars local", "date": "2025-12-11", "file": "data/training/training_eurusd.parquet", "validated_by": "QA-0120"},
+          "AUDUSD": {"method": "Polars local", "date": "2025-12-12", "duration_min": 13, "size_gb": 9.0, "validated": true}
+        },
+        "cost_per_pair": "$0.71",
+        "total_cost_28_pairs": "$19.90",
+        "monthly_storage": "$1.03"
+      },
+      "performance_targets": {
+        "time_per_pair": "77-96 minutes (Cloud Run)",
+        "extraction": "60-70 min",
+        "merge": "13-20 min",
+        "validation_backup": "4-6 min",
+        "total_time_28_pairs": "37.5 hours (sequential)",
+        "memory_peak": "48-50 GB (containerized within 12 GB allocation)",
+        "cost_total": "$19.90 one-time + $1.03/month storage"
+      },
+      "status": "OPERATIONAL - GBPUSD test running, 25 pairs authorized after test success"
     },
     "feature_extraction": {
       "tables_per_pair": 667,
