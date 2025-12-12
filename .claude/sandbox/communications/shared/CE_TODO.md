@@ -1,9 +1,31 @@
 # CE Task List
 
-**Last Updated**: December 12, 2025 18:44 UTC
+**Last Updated**: December 12, 2025 20:05 UTC
 **Maintained By**: CE (Chief Engineer)
 **Session**: 05c73962-b9f1-4e06-9a5a-a5ae556cae5a
 **Operating Under**: CE_CHARGE_20251212_v2.0.0.md
+
+---
+
+## CRITICAL SITUATION UPDATE (20:05 UTC)
+
+**GBPUSD Status**: ❌ **BOTH ATTEMPTS FAILED**
+- Attempt #1: Checkpoints disappeared (ephemeral storage `/tmp/checkpoints/` cleaned up during 105-min execution)
+- Attempt #2: Timed out (insufficient time to complete 667 tables)
+
+**Root Cause** (BA Analysis): Ephemeral storage cleanup by Cloud Run during long execution
+
+**Solution Approved** (CE Decision 20:05 UTC): **GCS Checkpoint Fix**
+- Change checkpoint path: `/tmp/checkpoints/` → `gs://bqx-ml-staging/checkpoints/`
+- Persist checkpoints to GCS instead of ephemeral container storage
+- EA endorsement: 85% confidence, 2.5hr delay for permanent serverless solution
+
+**Current Phase**: **EURUSD RE-TEST** (validating GCS checkpoint approach)
+- BA: Implementing GCS fix (20:05-20:50 UTC, 45 min)
+- Container rebuild (20:50-21:00 UTC, 10 min)
+- EURUSD execution (21:00-22:15 UTC, 75 min)
+- QA validation + EA cost analysis (22:15-22:30 UTC, 15 min)
+- **GO/NO-GO DECISION**: 22:30 UTC
 
 ---
 
@@ -22,113 +44,231 @@
 
 ---
 
-## CURRENT SITUATION (18:44 UTC)
-
-**Project Phase**: Agent Charge v2.0.0 Deployed, GBPUSD Cloud Run Validation Test
-**Critical Path**: GBPUSD execution (88 min elapsed, 13-33 min remaining), Agent work product inventories due 21:45 UTC
-**Status**: 🟢 **CHARGE v2.0.0 COORDINATION COMPLETE** - All agents ingested charges, autonomously executing
-
-**Recent Major Accomplishments** (18:17-18:44 UTC):
-- ✅ Finalized all 4 agent charges v2.0.0 (CE, BA, QA, EA)
-- ✅ Updated AGENT_REGISTRY.json to v3.3
-- ✅ Directed all agents to ingest updated charges (deadline 19:35 UTC)
-- ✅ Directed QA to update intelligence/mandate files (deadline 21:00 UTC)
-- ✅ Audited all agent TODO files, issued reconciliation directives
-- ✅ Committed 26 files to git (charges, directives, reconciliations)
-
----
-
 ## P0: ACTIVE TASKS (CRITICAL PATH)
 
-### 1. Monitor GBPUSD Cloud Run Test Completion
-**Status**: 🟡 **IN PROGRESS** (88 min elapsed, expected completion 18:57-19:17 UTC)
-**Priority**: P0-CRITICAL
-**Timeline**: 13-33 minutes remaining
+### 1. Monitor EURUSD Re-Test Execution (GCS Checkpoint Validation)
+**Status**: 🟡 **AUTHORIZED** (awaiting BA implementation)
+**Priority**: P0-CRITICAL (blocks production rollout)
+**Timeline**: 20:05-22:30 UTC (2h 25min)
 
-**Execution Status**:
-- Execution ID: bqx-ml-pipeline-54fxl
-- Start Time: 17:16 UTC
-- Elapsed: 88 minutes
-- Expected: 77-101 min (currently 15% over expected low, within range)
-- Risk: 🟢 LOW (32-52 min buffer before 120-min timeout)
-- Current Stage: BigQuery extraction (Stage 1)
+**Phase Breakdown**:
+1. **Implementation** (20:05-20:50 UTC, 45 min) - BA executing
+   - Modify 3 files: `parallel_feature_testing.py`, `cloud_run_polars_pipeline.sh`, `merge_with_polars_safe.py`
+   - Change checkpoint paths to `gs://bqx-ml-staging/checkpoints/`
+   - Self-review code changes
 
-**Next Actions Upon Completion**:
-1. BA validates output file (10 min)
-2. BA reports validation results to CE
-3. BA creates cost/timeline model (15 min)
-4. CE reviews GBPUSD results and authorizes 25-pair rollout
+2. **Container Rebuild** (20:50-21:00 UTC, 10 min) - BA executing
+   - `gcloud builds submit --config cloudbuild-polars.yaml`
+   - Push updated container to Artifact Registry
 
----
+3. **EURUSD Execution** (21:00-22:15 UTC, 75 min) - BA monitoring
+   - Execute EURUSD on Cloud Run with GCS checkpoints
+   - Monitor checkpoint persistence
+   - Expected: 667 tables extracted, no checkpoint disappearance
 
-### 2. Review Agent Work Product Inventories
-**Status**: ⏸️ **PENDING** (awaiting submissions by 21:45 UTC)
-**Priority**: P0-CRITICAL (blocks production rollout authorization)
-**Deadline**: 21:45 UTC (2h 1min remaining)
+4. **Validation** (22:15-22:30 UTC, 15 min) - QA + EA executing
+   - QA: Quality validation (file dimensions, schema, data quality)
+   - EA: Cost validation (execution cost, ROI accuracy)
+   - Both deliver GO/NO-GO reports to CE by 22:30 UTC
 
-**Submissions Expected**:
-- **BA**: ✅ SUBMITTED (18:26 UTC, 3h 19min EARLY) - 32 pages, EXCELLENT quality
-- **QA**: 🟡 IN PROGRESS (directive completion audit submitted 19:00 UTC, full inventory in progress)
-- **EA**: 🟡 IN PROGRESS (directive completion audit submitted 18:50 UTC, work product audit complete)
-- **OPS**: N/A (no OPS agent in current session)
+**CE Action at 22:30 UTC**: **GO/NO-GO DECISION**
+- **IF GO**: Authorize 26-pair production rollout using GCS checkpoint approach
+- **IF NO-GO**: Immediate fallback to VM-based execution (37 hours)
 
-**Submissions Received Early**:
-1. ✅ **BA Work Product Inventory** (18:26 UTC) - 1,088 lines, comprehensive
-2. ✅ **EA Directive Completion Audit** (18:50 UTC) - 30KB, 95.4% completion rate
-3. ✅ **BA Directive Compliance Audit** (19:00 UTC) - 15,843 bytes, 60% complete, 87% on-track
-
-**Review Timeline**:
-- 21:45-22:30 UTC: Review all inventories
-- 22:30-23:00 UTC: Synthesize findings
-- 23:00+ UTC: Authorize remediations
+**Directives Issued** (20:05 UTC):
+- ✅ `20251212_2005_CE-to-BA_GCS_CHECKPOINT_FIX_APPROVED.md` - Full implementation authority
+- ✅ `20251212_2005_CE-to-QA_EURUSD_VALIDATION_PROTOCOL.md` - Validation checklist and GO/NO-GO criteria
+- ✅ `20251212_2005_CE-to-EA_EURUSD_COST_MONITORING.md` - Cost analysis and ROI framework
 
 ---
 
-### 3. Synthesize All Audits and Prioritize Improvements
-**Status**: ⏸️ **PENDING** (after inventories received)
+### 2. Review QA Quality Standards Framework
+**Status**: ⏸️ **PENDING** (review during EURUSD execution)
+**Priority**: P0-CRITICAL (required for production rollout)
+**Timeline**: 21:00-21:30 UTC (30 min review)
+
+**Context**:
+- QA completed Quality Standards Framework ahead of schedule (20:00 UTC)
+- File: `docs/QUALITY_STANDARDS_FRAMEWORK.md` (21 KB)
+- Coverage: Code, Data, Documentation, Process standards + validation protocols
+- Purpose: P1 remediation from comprehensive gap analysis
+
+**Review Criteria**:
+- Completeness (all 4 standard categories covered)
+- Applicability (relevant to BQX ML V3 work)
+- Validation protocols (pre-production, production batch, failure recovery)
+- Success metrics (aligned with QA charge v2.0.0)
+
+**CE Action After Review**:
+- Approve framework for agent adoption
+- Direct all agents to ingest and apply framework
+- Apply framework to EURUSD validation (QA already doing this)
+- Apply framework to 26-pair production rollout
+
+---
+
+### 3. GO/NO-GO Decision: 26-Pair Production Rollout
+**Status**: ⏸️ **PENDING** (decision at 22:30 UTC)
 **Priority**: P0-CRITICAL
-**Timeline**: 22:30-23:00 UTC
+**Timeline**: 22:30-22:45 UTC (15 min decision)
 
-**Inputs to Synthesize**:
-1. BA work product inventory (received)
-2. QA work product inventory (pending)
-3. EA work product inventory (received)
-4. BA directive compliance audit (received)
-5. EA directive completion audit (received)
-6. Agent TODO reconciliation findings (CE completed)
+**Decision Inputs** (Due 22:30 UTC):
+1. **QA Validation Results**:
+   - File existence & dimensions (9-10 GB, 458 columns, >100K rows)
+   - Checkpoint persistence (667 checkpoints, no disappearance)
+   - Schema validation (7 target horizons, 6,477 features)
+   - Data quality (missing <1%, no infinities, timestamps monotonic)
+   - **GO/NO-GO recommendation**
 
-**Outputs to Produce**:
-- Comprehensive gap analysis across all agents
-- Prioritized remediation list (P0/P1/P2/P3)
-- Cross-agent coordination improvements
-- Production rollout readiness assessment
+2. **EA Cost Validation**:
+   - Execution cost vs projection (ROI accuracy ≥80%)
+   - GCS storage cost impact (~$4.31/month)
+   - Revised per-pair cost model
+   - Strategic ROI assessment (GCS fix investment vs return)
+   - **GO/NO-GO recommendation from cost perspective**
+
+**Decision Framework**:
+
+**GO ✅ Criteria** (ALL must be met):
+- ✅ QA validation: All quality checks passed
+- ✅ EA cost validation: ROI accuracy ≥80%, cost acceptable
+- ✅ No checkpoint disappearance (root cause resolved)
+- ✅ Output file quality matches VM-based reference
+
+**Action if GO**: Authorize BA to execute 26 remaining pairs on Cloud Run using GCS checkpoint approach
+
+**NO-GO ❌ Criteria** (ANY single failure):
+- ❌ QA validation failures (file corrupted, missing data, schema issues)
+- ❌ EA cost overrun (ROI accuracy <80%)
+- ❌ Checkpoints still disappear (GCS fix didn't work)
+
+**Action if NO-GO**: Immediate fallback to VM-based execution (37 hours, Dec 14 completion)
 
 ---
 
 ## P1: HIGH PRIORITY TASKS
 
-### 1. Authorize 25-Pair Production Rollout
-**Status**: ⏸️ **PENDING** (blocked by GBPUSD validation + P0 remediations)
+### 1. Update CE_TODO.md After GO/NO-GO Decision
+**Status**: ⏸️ **PENDING** (after 22:30 UTC decision)
 **Priority**: P1-HIGH
-**Timeline**: After GBPUSD success + P0 complete
+**Timeline**: 22:45-23:00 UTC (15 min)
 
-**Prerequisites**:
-- ✅ Cloud Run deployment operational
-- ✅ EURUSD validated (9.3 GB, 100K rows, 11,337 cols)
-- ✅ AUDUSD validated (9.0 GB, 100K rows, 11,337 cols)
-- 🟡 GBPUSD validation (in progress, expected ~19:00 UTC)
-- ⏸️ P0 remediations complete (after inventory synthesis)
-- ⏸️ Cost/timeline model reviewed (BA to create after GBPUSD)
-
-**Decision Points**:
-- Sequential vs parallel execution (EA to recommend)
-- Batch size (1, 2, 4, or 8 concurrent executions)
-- Timeline target (Dec 14-15 completion)
-- Cost vs speed tradeoff
+**Actions**:
+- Document GO/NO-GO decision rationale
+- Update pipeline status (Step 6 progress)
+- Update agent status with production rollout assignments
+- Commit to git
 
 ---
 
-## P2: COMPLETED TASKS (18:17-18:44 UTC)
+### 2. Monitor 26-Pair Production Rollout (If GO)
+**Status**: ⏸️ **PENDING** (if GO decision)
+**Priority**: P1-HIGH
+**Timeline**: Dec 13-14 (26 pairs × ~75 min/pair = 33 hours)
+
+**Prerequisites**:
+- ✅ EURUSD re-test successful (validates GCS checkpoint approach)
+- ✅ QA Quality Standards Framework approved
+- ✅ Cost model validated (EA ROI accuracy ≥80%)
+- ⏸️ GO decision at 22:30 UTC
+
+**Execution Strategy** (TBD - depends on EA recommendation):
+- Sequential: 1 pair at a time (safe, predictable, 33 hours)
+- Parallel 2x: 2 pairs concurrently (faster, 16.5 hours)
+- Parallel 4x: 4 pairs concurrently (fastest, 8.25 hours, cost +4x)
+
+**Monitoring Protocol**:
+- QA validates every 5 pairs (production batch validation)
+- EA tracks cumulative costs vs projections
+- BA reports completion of each pair
+- CE reviews progress every 6 hours
+
+---
+
+### 3. Execute VM Fallback (If NO-GO)
+**Status**: ⏸️ **PENDING** (if NO-GO decision)
+**Priority**: P1-HIGH
+**Timeline**: Dec 13-14 (26 pairs × 85 min/pair = 37 hours)
+
+**Execution Strategy**:
+- Use VM-based extraction (known to work from EURUSD/AUDUSD)
+- Execute 26 pairs sequentially on VM
+- Timeline: Dec 14 morning completion
+
+**Drawbacks**:
+- Does not satisfy user's serverless mandate
+- $82/month higher cost (VM persistent disk)
+- Technical debt (must re-implement Cloud Run later)
+
+**Mitigation**:
+- Document Cloud Run blocker for future investigation
+- Plan Cloud Run retry after root cause fully understood
+
+---
+
+## P2: COMPLETED TASKS (18:17-20:05 UTC)
+
+### Comprehensive Work Gap Analysis ✅ COMPLETE
+
+**Status**: ✅ COMPLETE (19:45 UTC)
+**File**: `.claude/sandbox/communications/COMPREHENSIVE_WORK_GAP_ANALYSIS_20251212.md`
+**Size**: 840 lines, comprehensive analysis
+
+**Gaps Identified**: 27 total
+- P0-CRITICAL: 6 gaps (blocking production rollout)
+- P1-HIGH: 11 gaps (complete this week)
+- P2-MEDIUM: 7 gaps (complete next week)
+- P3-LOW: 3 gaps (backlog)
+
+**Key Findings**:
+- GBPUSD delayed +33-57 min (134+ min vs 77-101 min expected) - later discovered FAILED
+- Full feature universe (11,337 columns) extraction in progress (2/28 complete)
+- Quality Standards Framework not yet created - **QA COMPLETED PROACTIVELY** ✅
+- Cost model validation incomplete (pending GBPUSD data) - **GBPUSD FAILED, now testing EURUSD**
+
+**Critical Path**: 4-6 hours from EURUSD completion to production rollout authorization
+
+---
+
+### Gap Remediation Directives ✅ ISSUED
+
+**Status**: ✅ ISSUED (19:45 UTC)
+**Files Created**:
+1. `20251212_1945_CE-to-BA_REMEDIATION_DIRECTIVE_COMPREHENSIVE.md` - 7 actions (2 P0, 1 P1, 4 P2)
+2. `20251212_1945_CE-to-QA_REMEDIATION_DIRECTIVE_COMPREHENSIVE.md` - 6 actions (3 P0, 1 P1, 2 P2)
+3. `20251212_1945_CE-to-EA_REMEDIATION_DIRECTIVE_COMPREHENSIVE.md` - 6 actions (1 P0, 3 P1, 2 P2)
+
+**Agent Responses** (received after gap analysis):
+- **BA** (19:06 UTC): Comprehensive GBPUSD failure alert - identified root cause, recommended GCS fix ✅ EXCELLENT
+- **EA** (19:12 UTC): Retracted false success claim, endorsed BA's GCS fix with 85% confidence ✅ CORRECTED
+- **QA** (20:00 UTC): Completed Quality Standards Framework ahead of schedule (P1 remediation) ✅ PROACTIVE
+
+**Git Commit**: 0f649e0 (4 files, 2,360 insertions)
+
+---
+
+### GCS Checkpoint Fix Decision ✅ APPROVED
+
+**Status**: ✅ APPROVED (20:05 UTC)
+**Decision**: Implement GCS checkpoint fix, validate with EURUSD re-test
+
+**Rationale**:
+1. ✅ BA's root cause analysis accurate (ephemeral storage cleanup)
+2. ✅ EA's endorsement well-reasoned (85% confidence, thorough ROI)
+3. ✅ Aligns with user's serverless mandate
+4. ✅ 2.5hr investment vs 37hr VM fallback (minimal risk, high value)
+5. ✅ Validates Cloud Run approach permanently
+
+**Authorization**:
+- BA: Implement GCS fix (3 files, 45 min)
+- BA: Rebuild container (10 min)
+- BA: Execute EURUSD re-test (75 min)
+- QA: Validate EURUSD output (15 min, GO/NO-GO by 22:30 UTC)
+- EA: Cost validation (15 min, GO/NO-GO by 22:30 UTC)
+
+**Directives Issued**: 3 comprehensive directives (BA, QA, EA) at 20:05 UTC
+
+---
 
 ### Agent Charge v2.0.0 Finalization ✅ COMPLETE
 
@@ -164,38 +304,6 @@
 
 ---
 
-### Agent Charge Ingestion Directives ✅ ISSUED
-
-**Status**: ✅ DIRECTIVES SENT (18:35 UTC)
-**File**: `20251212_1835_CE-to-ALL_INGEST_UPDATED_CHARGES_V2.md`
-**Deadline**: 19:35 UTC (1-hour timeline)
-
-**Agent Responses** (all received by 18:45 UTC):
-- ✅ **BA**: Adopted 18:35 UTC, 3 clarification questions asked (answered 18:50 UTC)
-- ✅ **QA**: Adopted 18:35 UTC, 2 clarification questions asked
-- ✅ **EA**: Adopted 18:45 UTC, no questions (excellent understanding)
-
-**CE Clarifications Provided**:
-- ✅ BA clarifications answered 18:50 UTC (innovation metric, EOD summaries, proactive alerts)
-- ✅ Phase 1 proactive tasks AUTHORIZED for BA (3 tasks, 50 min, ROI 150:1)
-
----
-
-### Intelligence File Update Directive ✅ ISSUED
-
-**Status**: ✅ DIRECTIVE SENT to QA (18:40 UTC)
-**File**: `20251212_1840_CE-to-QA_UPDATE_INTELLIGENCE_MANDATE_FILES.md`
-**Deadline**: 21:00 UTC
-
-**Scope**:
-- 5 intelligence files (context.json, roadmap_v2.json, semantics.json, ontology.json, feature_catalogue.json)
-- 2 mandate files (BQX_ML_V3_FEATURE_INVENTORY.md, README.md)
-- Updates: Cloud Run architecture, model count 784→588, table count 669→667
-
-**QA Status**: Paused intelligence updates at 40% (2/5 files) to focus on work product inventory (higher priority per CE guidance)
-
----
-
 ### Agent TODO File Audits ✅ COMPLETE
 
 **Status**: ✅ AUDITED ALL 3 AGENTS (19:00 UTC)
@@ -213,63 +321,59 @@
 
 **Performance Rankings**:
 1. EA & QA (tied): ⭐⭐⭐⭐⭐ 95% alignment - EXEMPLARY
-2. BA: ⭐⭐⭐ 60% alignment (excellent work, TODO just needed update)
+2. BA: ⭐⭐⭐⭐ 85% alignment (excellent work, improved from 60%)
 
 ---
 
-### Git Commits ✅ COMPLETE
-
-**Commits This Session**:
-1. ✅ Finalized agent charges v2.0.0 (26 files, 8,105 insertions)
-2. ✅ Agent TODO reconciliation directives (3 files, 915 insertions)
-
-**Total Committed**: 29 files, 9,020 insertions
-
----
-
-## AGENT STATUS (18:44 UTC - CURRENT)
+## AGENT STATUS (20:05 UTC - CURRENT)
 
 | Agent | Session ID | Charge | Status | Current Task | TODO Status |
 |-------|------------|--------|--------|--------------|-------------|
-| **CE** | 05c73962 | v2.0.0 ✅ | ACTIVE | Strategic coordination | ✅ CURRENT (this file) |
-| **BA** | 05c73962 | v2.0.0 ✅ | EXECUTING | GBPUSD monitoring | ✅ UPDATED 19:01 UTC |
-| **QA** | fb3ed231 | v2.0.0 ✅ | EXECUTING | Work product inventory | ✅ EXCELLENT 19:00 UTC |
-| **EA** | 05c73962 | v2.0.0 ✅ | EXECUTING | Work product inventory | ✅ EXCELLENT 18:55 UTC |
+| **CE** | 05c73962 | v2.0.0 ✅ | ACTIVE | GCS fix coordination | ✅ CURRENT (this file) |
+| **BA** | 05c73962 | v2.0.0 ✅ | EXECUTING | GCS fix implementation | ✅ UPDATED 19:01 UTC |
+| **QA** | fb3ed231 | v2.0.0 ✅ | EXECUTING | EURUSD validation prep | ✅ EXCELLENT 20:00 UTC |
+| **EA** | 05c73962 | v2.0.0 ✅ | EXECUTING | EURUSD cost monitoring | ✅ EXCELLENT 19:20 UTC |
 
-**All agents operating under v2.0.0 charges as of 18:45 UTC**
+**All agents operating under v2.0.0 charges, coordinating on EURUSD re-test**
 
 ---
 
-## CLOUD RUN STATUS (18:44 UTC)
+## CLOUD RUN STATUS (20:05 UTC)
 
 **Deployment**:
-- Container: `gcr.io/bqx-ml/bqx-ml-pipeline:optimized`
-- Build ID: bf5beb92-2d82-49ea-9cfe-d15d2c654ae8
+- Container: `gcr.io/bqx-ml/bqx-ml-pipeline:optimized` (UPDATING)
+- Build ID: bf5beb92 (to be replaced with GCS checkpoint fix)
 - CPU Optimization: Auto-detection (4 workers on 4 CPUs)
-- Status: ✅ DEPLOYED AND OPERATIONAL
+- Status: 🟡 REBUILDING (20:50-21:00 UTC expected)
 
-**Current Execution** (GBPUSD):
-- Execution ID: bqx-ml-pipeline-54fxl
-- Pair: GBPUSD
-- Start Time: 17:16 UTC
-- Elapsed: 88 minutes
-- Expected Completion: 18:57-19:17 UTC (13-33 min remaining)
-- Configuration: 4 CPUs, 12GB memory, 4 workers
-- Status: 🟡 RUNNING (Stage 1 BigQuery extraction)
+**Recent Executions**:
+- GBPUSD Attempt #1: ❌ FAILED (checkpoints disappeared, 105 min)
+- GBPUSD Attempt #2: ❌ FAILED (timed out, 11 min)
+- **Total Cost Wasted**: ~$1.27
+
+**Next Execution** (EURUSD Re-Test):
+- Pair: EURUSD
+- Purpose: Validate GCS checkpoint fix
+- Expected Start: 21:00 UTC
+- Expected Completion: 22:15 UTC (75 min)
+- Configuration: 4 CPUs, 12GB memory, 4 workers, **GCS checkpoints**
 
 ---
 
 ## TRAINING FILE STATUS
 
 **Completed** (2/28):
-- ✅ EURUSD: 9.3 GB, 100K rows, 11,337 cols (local Polars merge)
-- ✅ AUDUSD: 9.0 GB, 100K rows, 11,337 cols (local Polars merge)
+- ✅ EURUSD: 9.3 GB, 100K rows, 11,337 cols (local Polars merge, VM-based)
+- ✅ AUDUSD: 9.0 GB, 100K rows, 11,337 cols (local Polars merge, VM-based)
+
+**Failed** (1/28):
+- ❌ GBPUSD: Both Cloud Run attempts failed (ephemeral storage issue)
 
 **In Progress** (1/28):
-- 🟡 GBPUSD: Cloud Run execution (88 min elapsed)
+- 🟡 EURUSD Re-Test: Cloud Run with GCS checkpoint fix (21:00-22:15 UTC expected)
 
 **Pending** (25/28):
-- All other major pairs + crosses (after GBPUSD validation + production authorization)
+- All other major pairs + crosses (after EURUSD validation + GO/NO-GO decision)
 
 ---
 
@@ -278,8 +382,8 @@
 | Step | Status | Progress | Notes |
 |------|--------|----------|-------|
 | Step 5 (Single Pair Test) | ✅ COMPLETE | 1/1 | EURUSD prototype |
-| **Step 6 (Cloud Run Deployment)** | ✅ **OPERATIONAL** | - | CPU-optimized container |
-| **Step 6 (Training Files)** | 🟡 **IN PROGRESS** | **2/28** | EURUSD ✅, AUDUSD ✅, GBPUSD 🟡 |
+| **Step 6 (Cloud Run Deployment)** | 🟡 **TESTING** | - | GCS checkpoint fix in progress |
+| **Step 6 (Training Files)** | 🟡 **IN PROGRESS** | **2/28** | EURUSD ✅, AUDUSD ✅, GBPUSD ❌ (retry as EURUSD) |
 | Step 7 (Stability Selection) | PENDING | - | After 28 training files |
 | Step 8 (Retrain h15) | PENDING | - | After Step 7 |
 | Step 9 (SHAP 100K+) | PENDING | - | After Step 8 |
@@ -299,13 +403,15 @@
 
 ## CURRENT BLOCKERS
 
-**NONE** - All systems operational, all agents executing autonomously
+**P0-CRITICAL Blocker**:
+- 🔴 **Cloud Run ephemeral storage issue** - GCS checkpoint fix in progress (resolution expected 22:30 UTC)
 
 **Recent Blockers Resolved**:
-- ✅ Agent charges outdated → v2.0.0 finalized and distributed
-- ✅ Agent TODO files stale → Audited and reconciled
-- ✅ Agent role boundaries unclear → v2.0.0 charges define clear boundaries
-- ✅ Success metrics undefined → All agents now have success metric frameworks
+- ✅ Agent charges outdated → v2.0.0 finalized and distributed (18:35 UTC)
+- ✅ Agent TODO files stale → Audited and reconciled (19:00 UTC)
+- ✅ Work gap analysis needed → Comprehensive analysis complete (19:45 UTC)
+- ✅ GBPUSD failure root cause unknown → BA identified ephemeral storage cleanup (19:06 UTC)
+- ✅ Quality standards undefined → QA created framework proactively (20:00 UTC)
 
 ---
 
@@ -313,82 +419,80 @@
 
 | Item | From | ETA | Priority | Action When Received |
 |------|------|-----|----------|----------------------|
-| **GBPUSD completion** | Cloud Run | 18:57-19:17 UTC | P0 | Validate, authorize cost model |
-| **QA work product inventory** | QA | 21:45 UTC | P0 | Review for completeness |
-| **EA work product inventory** | EA | 21:45 UTC | P0 (optional) | Review if submitted |
-| **BA GBPUSD validation** | BA | 19:00-19:15 UTC | P0 | Review results |
-| **BA cost/timeline model** | BA | 19:15-19:30 UTC | P1 | Review for production decision |
+| **BA GCS fix implementation complete** | BA | 20:50 UTC | P0 | Review, authorize container rebuild |
+| **Container rebuild complete** | BA | 21:00 UTC | P0 | Authorize EURUSD execution |
+| **EURUSD execution complete** | Cloud Run | 22:15 UTC | P0 | Hand off to QA + EA for validation |
+| **QA validation results** | QA | 22:30 UTC | P0 | Review for GO/NO-GO decision |
+| **EA cost validation** | EA | 22:30 UTC | P0 | Review for GO/NO-GO decision |
 
 ---
 
-## EXPECTED TIMELINE (18:44-24:00 UTC)
+## EXPECTED TIMELINE (20:05-23:00 UTC)
 
-### GBPUSD Completion (18:44-19:17)
-- 18:44-19:17: Stage 1 extraction continues (expected 13-33 min)
-- 19:17-19:37: Stage 2 Polars merge (13-20 min)
-- 19:37-19:39: Stage 3 validation (1-2 min)
-- 19:39-19:42: Stage 4 GCS backup (2-3 min)
-- 19:42-19:43: Stage 5 cleanup (1 min)
-- 19:43: GBPUSD complete ✅
+### GCS Fix Implementation (20:05-20:50 UTC)
+- 20:05-20:50: BA modifies 3 files, self-reviews code
+- 20:50: BA reports implementation complete
 
-### Agent Inventory Review (21:45-23:00)
-- 21:45: Receive QA inventory (BA already received, EA optional)
-- 21:45-22:30: Synthesize all findings
-- 22:30-23:00: Prioritize remediations (P0/P1/P2/P3)
+### Container Rebuild (20:50-21:00 UTC)
+- 20:50-21:00: `gcloud builds submit` (6-8 min)
+- 21:00: BA reports container ready
 
-### P0 Remediation & Authorization (23:00-00:00)
-- 23:00-23:30: Authorize and execute P0 remediations
-- 23:30-00:00: Review GBPUSD validation, authorize 25-pair rollout
+### EURUSD Re-Test (21:00-22:15 UTC)
+- 21:00: EURUSD execution starts on Cloud Run
+- 21:00-22:07: Stage 1 extraction (667 tables → GCS checkpoints)
+- 22:07-22:15: Stage 2 Polars merge (using GCS checkpoints)
+- 22:15: EURUSD execution completes
 
-### 25-Pair Production Rollout (Dec 13, 00:00+)
-- Planning: Based on GBPUSD cost/performance data
-- Method: Cloud Run serverless (sequential or parallel per EA recommendation)
-- Timeline: TBD (target Dec 14-15 completion)
+### Validation (22:15-22:30 UTC)
+- 22:15-22:30: QA validates output quality (15 min)
+- 22:15-22:30: EA validates costs and ROI (15 min)
+- 22:30: Both deliver GO/NO-GO reports to CE
+
+### GO/NO-GO Decision (22:30-22:45 UTC)
+- 22:30: CE reviews QA + EA reports
+- 22:35: CE analyzes GO/NO-GO criteria
+- 22:40: CE makes final decision
+- 22:45: CE issues directive (26-pair rollout OR VM fallback)
+
+### Post-Decision (22:45-23:00 UTC)
+- 22:45-23:00: Update CE_TODO.md, commit to git
+- 23:00+: Execute production rollout (GO) or VM fallback (NO-GO)
 
 ---
 
 ## NEXT CHECKPOINTS
 
-### Checkpoint 1: GBPUSD Completion (18:57-19:17 UTC)
-- Cloud Run execution completes
-- **Action**: Monitor BA validation, review results
+### Checkpoint 1: GCS Fix Implementation Complete (20:50 UTC)
+- BA completes code changes
+- **Action**: Review implementation, authorize container rebuild
 
-### Checkpoint 2: Agent Inventories Received (21:45 UTC)
-- QA submits work product inventory
-- EA optionally submits inventory
-- **Action**: Review all inventories for completeness
+### Checkpoint 2: Container Rebuild Complete (21:00 UTC)
+- Updated container pushed to Artifact Registry
+- **Action**: Authorize EURUSD execution
 
-### Checkpoint 3: Inventory Synthesis (21:45-22:30 UTC)
-- Synthesize findings across all agent inventories
-- **Action**: Identify common gaps, cross-agent issues
+### Checkpoint 3: EURUSD Execution Complete (22:15 UTC)
+- Cloud Run execution finishes
+- **Action**: Monitor QA + EA validation progress
 
-### Checkpoint 4: Remediation Prioritization (22:30-23:00 UTC)
-- Prioritize all remediations as P0/P1/P2/P3
-- **Action**: Authorize P0 remediations (must complete before production)
+### Checkpoint 4: Validation Reports Received (22:30 UTC)
+- QA + EA deliver GO/NO-GO reports
+- **Action**: Review both reports, make GO/NO-GO decision
 
-### Checkpoint 5: 25-Pair Rollout Authorization (23:00-00:00 UTC)
-- GBPUSD validated + P0 remediations complete
-- **Action**: Issue 25-pair production rollout directive to BA
+### Checkpoint 5: GO/NO-GO Decision Issued (22:45 UTC)
+- CE directive issued to BA (26-pair rollout OR VM fallback)
+- **Action**: Monitor production rollout start OR VM fallback execution
 
 ---
 
 ## TODO LIST RECONCILIATION (CE TodoWrite ↔ CE_TODO.md)
 
-**Status**: ✅ **FULLY RECONCILED** (18:44 UTC)
+**Status**: ✅ **FULLY RECONCILED** (20:05 UTC)
 
 **TodoWrite List** (internal tracking):
-1. ✅ [completed] Audit all agent charges and make improvements
-2. ✅ [completed] Direct agents to audit their own charges and recommend improvements
-3. ✅ [completed] Direct agents to peer-audit other agents' charges
-4. ✅ [completed] Finalize all agent charges v2.0.0
-5. ✅ [completed] Reconcile agent registry with finalized charges
-6. ✅ [completed] Direct agents to ingest updated charges
-7. ✅ [completed] Direct agents to update intelligence and mandate files
-8. ✅ [completed] Commit finalized charges and directives to git
-9. ✅ [completed] Audit each agent's TODO.md file and reconcile with expectations
-10. 🟡 [in_progress] Monitor GBPUSD Cloud Run test completion
-11. ⏸️ [pending] Review agent inventory submissions (by 21:45 UTC)
-12. ⏸️ [pending] Synthesize all audits and prioritize improvements
+1. ✅ [completed] Commit gap analysis and directives to git
+2. ✅ [completed] Respond to GBPUSD failure and GCS checkpoint fix recommendation
+3. ⏸️ [pending] Review QA Quality Standards Framework (21:00-21:30 UTC)
+4. ⏸️ [pending] Update CE_TODO.md with current status (22:45-23:00 UTC)
 
 **CE_TODO.md** (this file):
 - All completed tasks documented in "COMPLETED TASKS" section
@@ -402,107 +506,104 @@
 ## SUCCESS METRICS (v2.0.0 CE Charge)
 
 ### Project Delivery (Target: On-time, on-budget)
-**Status**: ✅ ON TRACK
-- GBPUSD execution: 88 min (within 77-101 min expected range)
-- Cost: ~$0.04-0.06 per execution (within budget)
-- Timeline: 2/28 pairs complete, on track for Dec 14-15 completion
+**Status**: 🟡 AT RISK → MITIGATING
+- GBPUSD failures: Cost wasted ~$1.27
+- GCS checkpoint fix: 2.5hr delay but validates serverless approach
+- Timeline: If EURUSD succeeds, Dec 14 completion still achievable (GO decision 22:30 UTC + 33hr rollout)
+- **Mitigation**: GCS fix approved, EURUSD re-test authorized
 
 ### Agent Performance Management (Target: All agents meet/exceed metrics)
 **Status**: ✅ EXCELLENT
-- BA: 4/5 metrics met or exceeded (documentation improving)
-- QA: Exemplary TODO management (95% alignment)
-- EA: Exemplary TODO management (95% alignment), lessons learned section outstanding
+- **BA**: Exemplary failure analysis (identified root cause within 5 min), proactive GCS fix recommendation
+- **QA**: Proactive Quality Standards Framework (completed P1 remediation ahead of schedule)
+- **EA**: Acknowledged error properly, corrected validation process, thorough ROI endorsement (85% confidence)
 
 ### Team Development (Target: Measurable skill improvement)
-**Status**: 🟡 IN PROGRESS
-- Agent charge v2.0.0: Team development mandate integrated
-- TODO file audits: Provided constructive feedback to all agents
-- Next: Monitor agent skill development over coming weeks
+**Status**: ✅ EXCELLENT
+- EA: Improved validation process after error (check all status fields, cross-check with agents, verify artifacts)
+- QA: Proactive remediation (completed P1 task before CE review)
+- BA: Strengthened root cause analysis skills (identified ephemeral storage issue quickly)
 
 ### Decision Quality (Target: Data-driven, documented decisions)
 **Status**: ✅ EXCELLENT
-- All major decisions documented (CPU optimization, charge v2.0.0 finalization)
-- Agent charge enhancements: Comprehensive (proactive innovation, success metrics, collaboration protocols)
-- TODO reconciliation: Evidence-based assessment with performance rankings
+- GCS checkpoint fix approval: Based on BA's accurate analysis + EA's thorough ROI (85% confidence)
+- Comprehensive gap analysis: 27 gaps identified, prioritized (P0/P1/P2/P3)
+- GO/NO-GO framework: Clear criteria, dual validation (QA + EA), fallback plan defined
 
 ### Communication Effectiveness (Target: Clear directives, timely responses)
 **Status**: ✅ EXCELLENT
-- Agent clarifications answered: <1 hour (BA: 18:50 UTC, QA: 18:00 UTC)
-- Directives clear: All agents acknowledged and executed
-- TODO reconciliation: Urgent directive to BA, acknowledgment to QA/EA
+- GCS fix directives: Comprehensive (BA: implementation authority, QA: validation protocol, EA: cost monitoring)
+- Agent coordination: All 3 agents aligned on EURUSD re-test, deliverables by 22:30 UTC
+- Timeline clarity: Phased execution (implementation → rebuild → test → validation → decision)
 
 ---
 
 ## STRATEGIC INITIATIVES (v2.0.0 Enhancements)
 
-### 1. Agent Charge Enhancement (COMPLETE)
-**Status**: ✅ COMPLETE (18:35 UTC)
+### 1. Comprehensive Work Gap Analysis (COMPLETE)
+**Status**: ✅ COMPLETE (19:45 UTC)
 **Deliverables**:
-- 4 agent charges v2.0.0 created
-- Proactive innovation mandates integrated
-- Success metrics frameworks defined
-- Role boundaries clarified
-- Collaboration protocols established
-
-**Impact**: Agents now have clear expectations, success criteria, and collaboration protocols
+- 840-line comprehensive analysis
+- 27 gaps identified (6 P0, 11 P1, 7 P2, 3 P3)
+- 3 remediation directives issued to agents
+**Impact**: Unprecedented visibility into project gaps, remediation plan in place
 
 ---
 
-### 2. Agent TODO File Quality (COMPLETE)
-**Status**: ✅ COMPLETE (19:00 UTC)
+### 2. Quality Standards Framework (COMPLETE - QA Proactive)
+**Status**: ✅ COMPLETE (20:00 UTC, QA proactive execution)
 **Deliverables**:
-- Audited all 3 agent TODO files
-- Issued reconciliation directives
-- Identified best practices (EA lessons learned section)
-
-**Impact**: QA and EA set standard for TODO file excellence, BA improving
+- `docs/QUALITY_STANDARDS_FRAMEWORK.md` (21 KB)
+- 4 core standards (Code, Data, Documentation, Process)
+- Validation protocols + success metrics
+**Impact**: Production-ready quality gates, QA applying to EURUSD validation immediately
 
 ---
 
-### 3. Work Product Inventory Transparency (IN PROGRESS)
-**Status**: 🟡 IN PROGRESS (deadline 21:45 UTC)
+### 3. GCS Checkpoint Fix Validation (IN PROGRESS)
+**Status**: 🟡 IN PROGRESS (20:05-22:30 UTC)
 **Deliverables Expected**:
-- BA: ✅ Submitted (comprehensive, early)
-- QA: 🟡 In progress
-- EA: 🟡 In progress (optional)
-
-**Impact**: Unprecedented visibility into agent work, gaps, and alignment
+- BA: GCS fix implementation + EURUSD execution
+- QA: EURUSD validation report with GO/NO-GO
+- EA: Cost validation report with ROI accuracy
+**Impact**: Validates Cloud Run serverless approach permanently OR identifies need for VM fallback
 
 ---
 
 ## REMINDERS
 
-- **GBPUSD is critical validation**: First Cloud Run production test, validates cost/performance model
-- **Agent inventories due 21:45 UTC**: Review all submissions for completeness
-- **P0 remediations must complete before production**: Cannot authorize 25-pair rollout until gaps closed
-- **All agents operating under v2.0.0 charges**: Enhanced responsibilities, success metrics, collaboration protocols
-- **Agent TODO files audited**: QA and EA exemplary (95% alignment), BA improving
+- **EURUSD re-test is CRITICAL**: Validates GCS checkpoint fix for 26-pair production rollout
+- **GO/NO-GO decision at 22:30 UTC**: Based on QA validation + EA cost analysis
+- **Fallback plan ready**: VM-based execution (37 hours) if GCS fix fails
+- **QA Quality Standards Framework**: Ready for CE review during EURUSD execution (21:00-21:30 UTC)
+- **All agents coordinated**: BA (implementation), QA (validation), EA (cost analysis)
 
 ---
 
 ## NOTES
 
-**Major Accomplishments This Session** (18:17-18:44 UTC):
-1. Finalized all 4 agent charges v2.0.0 with enhanced responsibilities
-2. Updated AGENT_REGISTRY.json to v3.3
-3. Directed all agents to ingest updated charges (all adopted by 18:45 UTC)
-4. Answered BA clarification questions, authorized Phase 1 proactive tasks
-5. Directed QA to update intelligence/mandate files
-6. Audited all agent TODO files, issued reconciliation directives
-7. Committed 29 files to git (charges, directives, reconciliations)
+**Major Accomplishments This Session** (18:17-20:05 UTC):
+1. ✅ Comprehensive work gap analysis (840 lines, 27 gaps identified)
+2. ✅ Gap remediation directives issued to all agents
+3. ✅ GBPUSD failure root cause identified (BA: ephemeral storage cleanup)
+4. ✅ GCS checkpoint fix approved (CE decision based on BA + EA analysis)
+5. ✅ EURUSD re-test authorized (full implementation → validation → decision timeline)
+6. ✅ Quality Standards Framework completed (QA proactive, P1 remediation)
+7. ✅ Agent coordination excellent (BA, QA, EA all aligned on EURUSD test)
 
 **Critical Success Factors**:
-- Agent charge v2.0.0: Clear role boundaries, success metrics, collaboration protocols
-- Agent TODO audits: Identified best practices (EA lessons learned, QA proactive planning)
-- Agent autonomy: All agents executing independently under v2.0.0 charges
-- GBPUSD execution: On track (88 min, within expected range)
+- BA's proactive failure analysis: Identified root cause within 5 min, recommended solution
+- EA's error correction: Acknowledged mistake, improved validation process, provided thorough ROI endorsement
+- QA's proactive work: Completed Quality Standards Framework ahead of schedule
+- CE's decision framework: Clear GO/NO-GO criteria, dual validation (QA + EA), fallback plan
 
 **Timeline Impact**:
-- Agent charge enhancements: Will improve long-term team efficiency and collaboration
-- TODO file quality: QA and EA set exemplary standard for other agents
-- Work product inventories: Will provide comprehensive gap analysis for production readiness
+- GBPUSD failures: 2 attempts wasted (~$1.27 cost, 116 min elapsed)
+- GCS fix: 2.5hr delay for permanent serverless solution (worth the investment per EA's 85% confidence)
+- If EURUSD succeeds: Dec 14 completion achievable (GO decision 22:30 UTC + 33hr rollout = Dec 13 23:30 UTC)
+- If EURUSD fails: VM fallback (Dec 14 completion, but violates user's serverless mandate)
 
 ---
 
-*Updated by CE - December 12, 2025 18:44 UTC*
-*Status: v2.0.0 charge coordination complete, GBPUSD monitoring active, agent inventories pending*
+*Updated by CE - December 12, 2025 20:05 UTC*
+*Status: GCS checkpoint fix approved, EURUSD re-test authorized, GO/NO-GO decision at 22:30 UTC*
