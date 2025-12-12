@@ -668,8 +668,8 @@ def query_pair_with_checkpoints(pair: str, date_start: str, date_end: str, max_w
 
     # Checkpoint directory structure (local or GCS)
     if gcs_output:
-        # GCS mode (Cloud Run)
-        checkpoint_dir = f"{gcs_output}/{pair}"
+        # GCS mode (Cloud Run) - CE Directive 2025-12-12: Use /checkpoints/ subdir
+        checkpoint_dir = f"{gcs_output}/checkpoints/{pair}"
         complete_marker = f"{checkpoint_dir}/_COMPLETE"
         final_parquet_path = f"{gcs_output.replace('staging', 'output')}/training_{pair}.parquet"
     else:
@@ -841,6 +841,18 @@ def query_pair_with_checkpoints(pair: str, date_start: str, date_end: str, max_w
 
     print(f"    Merged: {len(merged_df):,} rows, {len(feature_cols):,} features in {merge_elapsed:.0f}s")
     print(f"    Cost: {gb_scanned:.2f} GB scanned, ~${cost_estimate:.2f}")
+
+    # TIER 2A: Exclude final 2,880 rows (target lookahead edge case)
+    # CE Directive 2025-12-12 23:00: Decision 4 approved
+    # Ensures 100% target completeness by excluding rows where h2880 targets cannot be calculated
+    MAX_HORIZON_MINUTES = 2880  # h2880 = 48 hours (maximum horizon)
+    original_row_count = len(merged_df)
+    if 'interval_time' in merged_df.columns:
+        cutoff_date = merged_df['interval_time'].max() - pd.Timedelta(minutes=MAX_HORIZON_MINUTES)
+        merged_df = merged_df[merged_df['interval_time'] <= cutoff_date].copy()
+        excluded_rows = original_row_count - len(merged_df)
+        print(f"    Tier 2A: Excluded {excluded_rows:,} final rows (target lookahead edge)")
+        print(f"    Final row count: {len(merged_df):,} ({len(merged_df)/original_row_count*100:.1f}% retained)")
 
     # Save final merged parquet
     merged_df.to_parquet(final_parquet_path, index=False)
