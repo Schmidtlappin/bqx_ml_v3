@@ -6,15 +6,16 @@
       "role": "Project oversight, technical decisions, agent coordination",
       "active": true,
       "reports_to": "USER",
-      "current_session_id": "b2360551-04af-4110-9cc8-cb1dce3334cc",
+      "current_session_id": "05c73962-b9f1-4e06-9a5a-a5ae556cae5a",
       "predecessor_session_ids": [
+        "b2360551-04af-4110-9cc8-cb1dce3334cc",
         "ed54da35-df07-4e08-9489-64c6621a209c"
       ],
       "session_file_location": "/home/micha/.claude/projects/-home-micha-bqx-ml-v3/",
       "inbox_filter": ["*-to-CE_*", "*-to-ALL_*"],
       "primary_contact": "Claude (BQX ML V3)",
       "monitoring_pattern": "CE|ALL",
-      "charge_document": "/.claude/sandbox/communications/active/CE_CHARGE_20251210.md",
+      "charge_document": "/.claude/sandbox/communications/active/CE_CHARGE_20251212_v2.0.0.md",
       "todo_file": "/.claude/sandbox/communications/shared/CE_TODO.md",
       "response_sla_hours": {
         "URGENT": 1,
@@ -35,7 +36,7 @@
       "inbox_filter": ["*-to-BA_*", "*-to-ALL_*"],
       "primary_contact": "Build Agent Instance",
       "monitoring_pattern": "BA|ALL",
-      "charge_document": "/.claude/sandbox/communications/active/BA_CHARGE_20251210.md",
+      "charge_document": "/.claude/sandbox/communications/active/BA_CHARGE_20251212_v2.0.0.md",
       "todo_file": "/.claude/sandbox/communications/shared/BA_TODO.md",
       "response_sla_hours": {
         "URGENT": 1,
@@ -56,7 +57,7 @@
       "inbox_filter": ["*-to-QA_*", "*-to-ALL_*"],
       "primary_contact": "Quality Assurance Agent Instance",
       "monitoring_pattern": "QA|ALL",
-      "charge_document": "/.claude/sandbox/communications/active/QA_CHARGE_20251209.md",
+      "charge_document": "/.claude/sandbox/communications/active/QA_CHARGE_20251212_v2.0.0.md",
       "todo_file": "/.claude/sandbox/communications/shared/QA_TODO.md",
       "response_sla_hours": {
         "URGENT": 1,
@@ -81,7 +82,7 @@
       "inbox_filter": ["*-to-EA_*", "*-to-ALL_*"],
       "primary_contact": "Enhancement Assistant Instance",
       "monitoring_pattern": "EA|ALL",
-      "charge_document": "/.claude/sandbox/communications/active/EA_CHARGE_20251209.md",
+      "charge_document": "/.claude/sandbox/communications/active/EA_CHARGE_20251212_v2.0.0.md",
       "todo_file": "/.claude/sandbox/communications/shared/EA_TODO.md",
       "response_sla_hours": {
         "URGENT": 2,
@@ -164,11 +165,21 @@
     "prompt_format_version": "3.0"
   },
   "registry_metadata": {
-    "version": "3.2",
-    "last_updated": "2025-12-11T10:00:00Z",
+    "version": "3.3",
+    "last_updated": "2025-12-12T18:35:00Z",
     "maintained_by": "Chief Engineer",
     "update_protocol": "Update when new agents added, status changes, or session IDs change",
     "change_log": [
+      {
+        "version": "3.3",
+        "date": "2025-12-12",
+        "changes": [
+          "Updated all agent charge_document paths to v2.0.0 (CE, BA, QA, EA)",
+          "CE session ID updated to 05c73962-b9f1-4e06-9a5a-a5ae556cae5a",
+          "Added b2360551-04af-4110-9cc8-cb1dce3334cc to CE predecessor_session_ids",
+          "Agent charges enhanced with success metrics, role boundaries, collaboration protocols"
+        ]
+      },
       {
         "version": "3.2",
         "date": "2025-12-11",

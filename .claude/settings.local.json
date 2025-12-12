@@ -318,7 +318,14 @@
       "Bash(gcloud run jobs delete:*)",
       "Bash(gcloud logging read:*)",
       "Bash(timeout 10 tail:*)",
-      "Bash(/tmp/monitor_gbpusd_optimized.sh)"
+      "Bash(/tmp/monitor_gbpusd_optimized.sh)",
+      "Bash(git -C /home/micha/bqx_ml_v3 status --short .claude/sandbox/communications/inboxes/)",
+      "Bash(git -C /home/micha/bqx_ml_v3 add .claude/sandbox/communications/inboxes/BA/20251212_1805_CE-to-BA_AUDIT_SCOPE_CLARIFICATION.md .claude/sandbox/communications/inboxes/QA/20251212_1810_CE-to-QA_AUDIT_SCOPE_CLARIFICATION.md)",
+      "Bash(git -C /home/micha/bqx_ml_v3 add .claude/sandbox/communications/shared/BA_TODO.md)",
+      "Bash(git -C /home/micha/bqx_ml_v3 add .claude/sandbox/communications/inboxes/CE/20251212_1820_BA-to-CE_CLARIFICATION_REMINDER.md .claude/sandbox/communications/shared/BA_TODO.md)",
+      "Bash(git -C /home/micha/bqx_ml_v3 add .claude/sandbox/communications/outboxes/BA/20251212_1825_BA-to-CE_CLARIFICATIONS_ACKNOWLEDGED.md)",
+      "Bash(git -C /home/micha/bqx_ml_v3 add .claude/sandbox/communications/inboxes/CE/20251212_1826_BA-to-CE_WORK_PRODUCT_INVENTORY_AUDIT.md)",
+      "Bash(git -C /home/micha/bqx_ml_v3 add .claude/sandbox/communications/outboxes/BA/20251212_1827_BA-to-CE_AUDIT_SUBMISSION_NOTICE.md)"
     ],
     "deny": [],
     "ask": []
