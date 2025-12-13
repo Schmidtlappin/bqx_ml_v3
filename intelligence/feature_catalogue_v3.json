@@ -1,6 +1,6 @@
 {
-  "catalogue_version": "3.1.0",
-  "generated": "2025-12-13T05:16:42.870505Z",
+  "catalogue_version": "3.2.0",
+  "generated": "2025-12-13T10:20:53.532758Z",
   "purpose": "Comprehensive feature catalogue - PROGRAMMATIC SOURCE OF TRUTH (CORRECTED 2025-12-13)",
   "authority": "This file is the authoritative programmatic source for all feature definitions",
   "reconciliation_target": "mandate/BQX_ML_V3_FEATURE_INVENTORY.md (human-readable counterpart)",
@@ -1643,7 +1643,7 @@
         "M005": false,
         "M006": false,
         "M007": true,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -1885,7 +1885,7 @@
         "M005": false,
         "M006": false,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -1907,7 +1907,7 @@
         "M005": false,
         "M006": false,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -2194,7 +2194,7 @@
         "M005": false,
         "M006": true,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -2215,7 +2215,7 @@
         "M005": false,
         "M006": false,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -2656,7 +2656,7 @@
         "M005": false,
         "M006": false,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -4114,7 +4114,7 @@
         "M005": false,
         "M006": true,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -4150,7 +4150,7 @@
         "M005": false,
         "M006": false,
         "M007": true,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -4186,7 +4186,7 @@
         "M005": false,
         "M006": false,
         "M007": true,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -4222,7 +4222,7 @@
         "M005": false,
         "M006": false,
         "M007": true,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -4258,7 +4258,7 @@
         "M005": false,
         "M006": false,
         "M007": true,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -4294,7 +4294,7 @@
         "M005": false,
         "M006": false,
         "M007": true,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -4330,7 +4330,7 @@
         "M005": false,
         "M006": false,
         "M007": true,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -4366,7 +4366,7 @@
         "M005": false,
         "M006": false,
         "M007": true,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -4389,7 +4389,7 @@
         "M005": false,
         "M006": false,
         "M007": true,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -4451,7 +4451,7 @@
         "M005": false,
         "M006": false,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -4608,7 +4608,7 @@
         "M005": false,
         "M006": false,
         "M007": true,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -4643,7 +4643,7 @@
         "M005": false,
         "M006": false,
         "M007": true,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -4678,7 +4678,7 @@
         "M005": false,
         "M006": false,
         "M007": true,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -4739,7 +4739,7 @@
         "M005": false,
         "M006": false,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -4821,7 +4821,7 @@
         "M005": false,
         "M006": false,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -4856,7 +4856,7 @@
         "M005": false,
         "M006": false,
         "M007": true,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -5033,7 +5033,7 @@
         "M005": false,
         "M006": true,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -7448,7 +7448,7 @@
         "M005": false,
         "M006": false,
         "M007": true,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -7833,7 +7833,7 @@
         "M005": false,
         "M006": false,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -7868,7 +7868,7 @@
         "M005": false,
         "M006": false,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -8070,7 +8070,7 @@
         "M005": false,
         "M006": false,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -8097,7 +8097,7 @@
         "M005": false,
         "M006": false,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -8124,7 +8124,7 @@
         "M005": false,
         "M006": false,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -8151,7 +8151,7 @@
         "M005": false,
         "M006": false,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -8676,7 +8676,7 @@
         "M005": false,
         "M006": false,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -8913,7 +8913,7 @@
         "M005": false,
         "M006": false,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -9129,7 +9129,7 @@
         "M005": false,
         "M006": false,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -10823,7 +10823,7 @@
         "M005": false,
         "M006": false,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -10858,7 +10858,7 @@
         "M005": false,
         "M006": false,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -11138,7 +11138,7 @@
         "M005": false,
         "M006": false,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -15023,7 +15023,7 @@
         "M005": false,
         "M006": false,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -15058,7 +15058,7 @@
         "M005": false,
         "M006": false,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -15093,7 +15093,7 @@
         "M005": false,
         "M006": false,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -16547,7 +16547,7 @@
         "M005": false,
         "M006": false,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -16602,7 +16602,7 @@
         "M005": false,
         "M006": true,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -16657,7 +16657,7 @@
         "M005": false,
         "M006": true,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -16712,7 +16712,7 @@
         "M005": false,
         "M006": true,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -16763,7 +16763,7 @@
         "M005": false,
         "M006": false,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -16783,7 +16783,7 @@
         "M005": false,
         "M006": false,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -16803,7 +16803,7 @@
         "M005": false,
         "M006": false,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -16823,7 +16823,7 @@
         "M005": false,
         "M006": false,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -16843,7 +16843,7 @@
         "M005": false,
         "M006": false,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -16863,7 +16863,7 @@
         "M005": false,
         "M006": false,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -16883,7 +16883,7 @@
         "M005": false,
         "M006": false,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -16903,7 +16903,7 @@
         "M005": false,
         "M006": false,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -16923,7 +16923,7 @@
         "M005": false,
         "M006": false,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -17253,7 +17253,7 @@
         "M005": false,
         "M006": false,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -17275,7 +17275,7 @@
         "M005": false,
         "M006": false,
         "M007": true,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -17297,7 +17297,7 @@
         "M005": false,
         "M006": false,
         "M007": true,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -17319,7 +17319,7 @@
         "M005": false,
         "M006": false,
         "M007": true,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -17341,7 +17341,7 @@
         "M005": false,
         "M006": false,
         "M007": true,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -17363,7 +17363,7 @@
         "M005": false,
         "M006": false,
         "M007": true,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -17385,7 +17385,7 @@
         "M005": false,
         "M006": false,
         "M007": true,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -17473,7 +17473,7 @@
         "M005": false,
         "M006": false,
         "M007": true,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -17495,7 +17495,7 @@
         "M005": false,
         "M006": false,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -17517,7 +17517,7 @@
         "M005": false,
         "M006": false,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -17538,7 +17538,7 @@
         "M005": false,
         "M006": false,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -17559,7 +17559,7 @@
         "M005": false,
         "M006": false,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -18090,7 +18090,7 @@
         "M005": false,
         "M006": true,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -18444,7 +18444,7 @@
         "M005": false,
         "M006": true,
         "M007": true,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -18465,7 +18465,7 @@
         "M005": false,
         "M006": false,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -18485,7 +18485,7 @@
         "M005": false,
         "M006": false,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -18645,7 +18645,7 @@
         "M005": false,
         "M006": false,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -19016,7 +19016,7 @@
         "M005": false,
         "M006": false,
         "M007": true,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -19049,7 +19049,7 @@
         "M005": false,
         "M006": false,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -19082,7 +19082,7 @@
         "M005": false,
         "M006": false,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -19111,7 +19111,7 @@
         "M005": false,
         "M006": false,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -19151,7 +19151,7 @@
         "M005": false,
         "M006": false,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -19180,7 +19180,7 @@
         "M005": false,
         "M006": false,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -19209,7 +19209,7 @@
         "M005": false,
         "M006": false,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -19238,7 +19238,7 @@
         "M005": false,
         "M006": false,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -19267,7 +19267,7 @@
         "M005": false,
         "M006": false,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -19296,7 +19296,7 @@
         "M005": false,
         "M006": false,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -19325,7 +19325,7 @@
         "M005": false,
         "M006": false,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -19383,7 +19383,7 @@
         "M005": false,
         "M006": false,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -19412,7 +19412,7 @@
         "M005": false,
         "M006": false,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -19459,7 +19459,7 @@
         "M005": false,
         "M006": false,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -19506,7 +19506,7 @@
         "M005": false,
         "M006": false,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -19647,7 +19647,7 @@
         "M005": false,
         "M006": false,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -19676,7 +19676,7 @@
         "M005": false,
         "M006": false,
         "M007": true,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -19697,7 +19697,7 @@
         "M005": false,
         "M006": false,
         "M007": true,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -19732,7 +19732,7 @@
         "M005": false,
         "M006": false,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -19767,7 +19767,7 @@
         "M005": false,
         "M006": false,
         "M007": true,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -19788,7 +19788,7 @@
         "M005": false,
         "M006": false,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -19808,7 +19808,7 @@
         "M005": false,
         "M006": false,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -19920,7 +19920,7 @@
         "M005": false,
         "M006": false,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -19940,7 +19940,7 @@
         "M005": false,
         "M006": false,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -19960,7 +19960,7 @@
         "M005": false,
         "M006": false,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -19995,7 +19995,7 @@
         "M005": false,
         "M006": false,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -20030,7 +20030,7 @@
         "M005": false,
         "M006": false,
         "M007": true,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -20051,7 +20051,7 @@
         "M005": false,
         "M006": false,
         "M007": true,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -20071,7 +20071,7 @@
         "M005": false,
         "M006": false,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -20091,7 +20091,7 @@
         "M005": false,
         "M006": false,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -20111,7 +20111,7 @@
         "M005": false,
         "M006": false,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -20131,7 +20131,7 @@
         "M005": false,
         "M006": false,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -20151,7 +20151,7 @@
         "M005": false,
         "M006": false,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -20171,7 +20171,7 @@
         "M005": false,
         "M006": false,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -20191,7 +20191,7 @@
         "M005": false,
         "M006": false,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -20211,7 +20211,7 @@
         "M005": false,
         "M006": false,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -20231,7 +20231,7 @@
         "M005": false,
         "M006": false,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -20251,7 +20251,7 @@
         "M005": false,
         "M006": false,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -20272,7 +20272,7 @@
         "M005": false,
         "M006": false,
         "M007": true,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -20292,7 +20292,7 @@
         "M005": false,
         "M006": false,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -20355,7 +20355,7 @@
         "M005": false,
         "M006": false,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -20376,7 +20376,7 @@
         "M005": false,
         "M006": false,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -20599,7 +20599,7 @@
         "M005": false,
         "M006": true,
         "M007": true,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -22681,7 +22681,7 @@
         "M005": false,
         "M006": false,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -22705,7 +22705,7 @@
         "M005": false,
         "M006": false,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -22726,7 +22726,7 @@
         "M005": false,
         "M006": false,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -22747,7 +22747,7 @@
         "M005": false,
         "M006": false,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -22768,7 +22768,7 @@
         "M005": false,
         "M006": false,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -22789,7 +22789,7 @@
         "M005": false,
         "M006": false,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -22809,7 +22809,7 @@
         "M005": false,
         "M006": false,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -22829,7 +22829,7 @@
         "M005": false,
         "M006": false,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -22849,7 +22849,7 @@
         "M005": false,
         "M006": false,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -22871,7 +22871,7 @@
         "M005": false,
         "M006": false,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -22893,7 +22893,7 @@
         "M005": false,
         "M006": false,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -23069,7 +23069,7 @@
         "M005": false,
         "M006": false,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -23089,7 +23089,7 @@
         "M005": false,
         "M006": false,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -23171,7 +23171,7 @@
         "M005": false,
         "M006": false,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -23211,7 +23211,7 @@
         "M005": false,
         "M006": false,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -23251,7 +23251,7 @@
         "M005": false,
         "M006": false,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -23522,7 +23522,7 @@
         "M005": false,
         "M006": true,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -23699,7 +23699,7 @@
         "M005": false,
         "M006": true,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -23970,7 +23970,7 @@
         "M005": false,
         "M006": true,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -24147,7 +24147,7 @@
         "M005": false,
         "M006": true,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -24324,7 +24324,7 @@
         "M005": false,
         "M006": true,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -24379,7 +24379,7 @@
         "M005": false,
         "M006": true,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -24434,7 +24434,7 @@
         "M005": false,
         "M006": true,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -24489,7 +24489,7 @@
         "M005": false,
         "M006": true,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -24518,7 +24518,7 @@
         "M005": false,
         "M006": false,
         "M007": true,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -24545,7 +24545,7 @@
         "M005": false,
         "M006": false,
         "M007": true,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -24596,7 +24596,7 @@
         "M005": false,
         "M006": false,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -24659,7 +24659,7 @@
         "M005": false,
         "M006": false,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -24684,7 +24684,7 @@
         "M005": false,
         "M006": false,
         "M007": true,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -24706,7 +24706,7 @@
         "M005": false,
         "M006": false,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -24728,7 +24728,7 @@
         "M005": false,
         "M006": false,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -24750,7 +24750,7 @@
         "M005": false,
         "M006": false,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -24772,7 +24772,7 @@
         "M005": false,
         "M006": false,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -24794,7 +24794,7 @@
         "M005": false,
         "M006": false,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -24816,7 +24816,7 @@
         "M005": false,
         "M006": false,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -24878,7 +24878,7 @@
         "M005": false,
         "M006": false,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -25055,7 +25055,7 @@
         "M005": false,
         "M006": true,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -25078,7 +25078,7 @@
         "M005": false,
         "M006": false,
         "M007": true,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -25101,7 +25101,7 @@
         "M005": false,
         "M006": false,
         "M007": true,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -25124,7 +25124,7 @@
         "M005": false,
         "M006": false,
         "M007": true,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -25147,7 +25147,7 @@
         "M005": false,
         "M006": false,
         "M007": true,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -25418,7 +25418,7 @@
         "M005": false,
         "M006": true,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -30837,7 +30837,7 @@
         "M005": false,
         "M006": true,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -30910,7 +30910,7 @@
         "M005": false,
         "M006": false,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -30933,7 +30933,7 @@
         "M005": false,
         "M006": false,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -31109,7 +31109,7 @@
         "M005": false,
         "M006": false,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -31131,7 +31131,7 @@
         "M005": false,
         "M006": false,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -31153,7 +31153,7 @@
         "M005": false,
         "M006": false,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -31174,7 +31174,7 @@
         "M005": false,
         "M006": false,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -31448,7 +31448,7 @@
         "M005": false,
         "M006": false,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -31671,7 +31671,7 @@
         "M005": false,
         "M006": true,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -31694,7 +31694,7 @@
         "M005": false,
         "M006": false,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -31717,7 +31717,7 @@
         "M005": false,
         "M006": false,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -31988,7 +31988,7 @@
         "M005": false,
         "M006": true,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -32031,7 +32031,7 @@
         "M005": false,
         "M006": true,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -32074,7 +32074,7 @@
         "M005": false,
         "M006": true,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -32117,7 +32117,7 @@
         "M005": false,
         "M006": true,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -32160,7 +32160,7 @@
         "M005": false,
         "M006": true,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -32203,7 +32203,7 @@
         "M005": false,
         "M006": true,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -32246,7 +32246,7 @@
         "M005": false,
         "M006": true,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -32332,7 +32332,7 @@
         "M005": false,
         "M006": true,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -32375,7 +32375,7 @@
         "M005": false,
         "M006": true,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -33363,7 +33363,7 @@
         "M005": false,
         "M006": true,
         "M007": true,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -39273,7 +39273,7 @@
         "M005": false,
         "M006": true,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -39293,7 +39293,7 @@
         "M005": false,
         "M006": false,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -39313,7 +39313,7 @@
         "M005": false,
         "M006": false,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -39333,7 +39333,7 @@
         "M005": false,
         "M006": false,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -39353,7 +39353,7 @@
         "M005": false,
         "M006": false,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -39373,7 +39373,7 @@
         "M005": false,
         "M006": false,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -39393,7 +39393,7 @@
         "M005": false,
         "M006": false,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -39413,7 +39413,7 @@
         "M005": false,
         "M006": false,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -39433,7 +39433,7 @@
         "M005": false,
         "M006": false,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -43075,7 +43075,7 @@
         "M005": false,
         "M006": true,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -45791,7 +45791,7 @@
         "M005": false,
         "M006": false,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -46062,7 +46062,7 @@
         "M005": false,
         "M006": true,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -46333,7 +46333,7 @@
         "M005": false,
         "M006": true,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -48387,7 +48387,7 @@
         "M005": false,
         "M006": false,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -48410,7 +48410,7 @@
         "M005": false,
         "M006": false,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -48765,7 +48765,7 @@
         "M005": false,
         "M006": false,
         "M007": true,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -48790,7 +48790,7 @@
         "M005": false,
         "M006": false,
         "M007": true,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -48813,7 +48813,7 @@
         "M005": false,
         "M006": false,
         "M007": true,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -48836,7 +48836,7 @@
         "M005": false,
         "M006": false,
         "M007": true,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -48856,7 +48856,7 @@
         "M005": false,
         "M006": false,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -48960,7 +48960,7 @@
         "M005": false,
         "M006": false,
         "M007": false,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -48982,7 +48982,7 @@
         "M005": false,
         "M006": false,
         "M007": true,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -49004,7 +49004,7 @@
         "M005": false,
         "M006": false,
         "M007": true,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -49026,7 +49026,7 @@
         "M005": false,
         "M006": false,
         "M007": true,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -49048,7 +49048,7 @@
         "M005": false,
         "M006": false,
         "M007": true,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -49070,7 +49070,7 @@
         "M005": false,
         "M006": false,
         "M007": true,
-        "M008": true
+        "M008": false
       }
     },
     {
@@ -49092,7 +49092,7 @@
         "M005": false,
         "M006": false,
         "M007": true,
-        "M008": true
+        "M008": false
       }
     }
   ],
@@ -49114,5 +49114,13 @@
         "currency_level": 5232
       }
     }
+  },
+  "m008_validation": {
+    "validated": true,
+    "validation_date": "2025-12-13T10:20:53.532784Z",
+    "total_features": 1604,
+    "compliant_features": 1402,
+    "non_compliant_features": 202,
+    "compliance_percentage": 87.41
   }
 }
