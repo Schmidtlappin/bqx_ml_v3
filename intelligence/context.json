@@ -1,12 +1,12 @@
 {
   "project": {
     "name": "BQX ML V3",
-    "version": "3.1.0",
+    "version": "3.2.0",
     "description": "588 ML models (28 pairs × 7 horizons × 3 ensemble) for forex momentum prediction using BQX paradigm",
     "repository": "https://github.com/Schmidtlappin/bqx_ml_v3",
     "owner": "Schmidtlappin",
     "created": "2024-11-24",
-    "last_updated": "2025-12-12"
+    "last_updated": "2025-12-12T18:45:00Z"
   },
   "paradigm": {
     "name": "BQX Momentum Prediction",
@@ -28,8 +28,41 @@
     "deployment": {
       "platform": "Cloud Run serverless",
       "job_name": "bqx-ml-pipeline",
+      "image": "gcr.io/bqx-ml/bqx-ml-pipeline:optimized",
+      "build_id": "bf5beb92-2d82-49ea-9cfe-d15d2c654ae8",
+      "region": "us-central1",
       "merge_protocol": "Polars (user-mandated)",
-      "status": "OPERATIONAL"
+      "user_mandate_date": "2025-12-12",
+      "status": "OPERATIONAL",
+      "resources": {
+        "cpus": 4,
+        "memory_gb": 12,
+        "timeout_hours": 2,
+        "cpu_optimization": "Auto-detection (prevents oversubscription)"
+      },
+      "performance": {
+        "execution_time_per_pair_minutes": "77-101",
+        "stage_1_extraction_minutes": "60-75",
+        "stage_2_polars_merge_minutes": "13-20",
+        "stage_3_validation_minutes": "1-2",
+        "stage_4_gcs_backup_minutes": "2-3",
+        "stage_5_cleanup_minutes": 1
+      },
+      "cost": {
+        "per_pair_usd": 0.71,
+        "total_28_pairs_usd": 19.90,
+        "monthly_storage_usd": 1.03,
+        "annual_total_usd": 30.82,
+        "vs_vm_monthly": "99% reduction ($277 → $2.57)"
+      },
+      "pairs_complete": 2,
+      "pairs_in_progress": 1,
+      "pairs_pending": 25,
+      "test_pair": "GBPUSD",
+      "test_status": "RUNNING",
+      "test_execution_id": "bqx-ml-pipeline-54fxl",
+      "test_started": "2025-12-12T17:16:12Z",
+      "test_expected_completion": "2025-12-12T18:33-18:57Z"
     }
   },
   "infrastructure": {
@@ -158,8 +191,8 @@
     "primary_tools": ["Python", "BigQuery", "Vertex AI", "AirTable", "Claude Code"]
   },
   "agent_coordination": {
-    "version": "3.1",
-    "last_updated": "2025-12-11",
+    "version": "3.3",
+    "last_updated": "2025-12-13",
     "registry_file": "/.claude/sandbox/communications/AGENT_REGISTRY.json",
     "session_file_location": "/home/micha/.claude/projects/-home-micha-bqx-ml-v3/",
     "onboarding_protocol": {
@@ -177,25 +210,30 @@
         "full_name": "Chief Engineer",
         "status": "ACTIVE",
         "current_session_id": "b2360551-04af-4110-9cc8-cb1dce3334cc",
-        "charge_document": "/.claude/sandbox/communications/active/CE_CHARGE_20251210.md"
+        "charge_document": "/.claude/sandbox/communications/active/CE_CHARGE_20251212_v2.0.0.md",
+        "charge_version": "2.0.0"
       },
       "BA": {
         "full_name": "Build Agent",
         "status": "ACTIVE",
         "current_session_id": "72a1c1a7-c564-4ac8-974a-13ed0ce87dca",
-        "charge_document": "/.claude/sandbox/communications/active/BA_CHARGE_20251210.md"
+        "charge_document": "/.claude/sandbox/communications/active/BA_CHARGE_20251212_v2.0.0.md",
+        "charge_version": "2.0.0"
       },
       "QA": {
         "full_name": "Quality Assurance Agent",
         "status": "ACTIVE",
         "current_session_id": "c31dd28b-2f5b-4f93-a3ad-1a9f0fe74dbc",
-        "charge_document": "/.claude/sandbox/communications/active/QA_CHARGE_20251209.md"
+        "charge_document": "/.claude/sandbox/communications/active/QA_CHARGE_20251212_v2.0.0.md",
+        "charge_version": "2.0.0"
       },
       "EA": {
         "full_name": "Enhancement Assistant",
         "status": "ACTIVE",
-        "current_session_id": "b959d344-c727-4cd9-9fe9-53d8e2dac32f",
-        "charge_document": "/.claude/sandbox/communications/active/EA_CHARGE_20251209.md"
+        "current_session_id": "df480dab-e189-46d8-be49-b60b436c2a3e",
+        "charge_document": "/.claude/sandbox/communications/active/EA_CHARGE_20251212_v2.0.0.md",
+        "charge_version": "2.0.0",
+        "note": "Current session - workspace organization and intelligence file updates"
       }
     },
     "session_continuity": {
@@ -304,7 +342,27 @@
       "unique_features_per_pair": 1064,
       "tables_per_pair": 667,
       "current_h15_features": 59,
-      "h15_model_status": "OBSOLETE - will be replaced after Step 6"
+      "h15_model_status": "OBSOLETE - will be replaced after Step 6",
+      "regression_feature_mandate": {
+        "mandate_id": "BQX-ML-M005",
+        "status": "P0-CRITICAL",
+        "mandate_date": "2025-12-13",
+        "mandate_file": "/mandate/REGRESSION_FEATURE_ARCHITECTURE_MANDATE.md",
+        "requirement": "TRI/COV/VAR tables MUST include regression features from source pairs",
+        "compliance_status": {
+          "tri_tables": "NON-COMPLIANT (15 columns, should be 78)",
+          "cov_tables": "NON-COMPLIANT (14 columns, should be 56)",
+          "var_tables": "NON-COMPLIANT (14 columns, should be 35)"
+        },
+        "impact": {
+          "tri_additional_columns": 63,
+          "cov_additional_columns": 42,
+          "var_additional_columns": 21,
+          "total_unique_features_increase": "1,064 → 1,127 (+63)",
+          "remediation_cost_usd": "50-60",
+          "remediation_time_hours": "14-19"
+        }
+      }
     },
     "active_plan": "/home/micha/.claude/plans/gentle-skipping-wirth.md",
     "target_accuracy": {
@@ -377,6 +435,11 @@
     ]
   },
   "recent_milestones": {
+    "2025-12-13": [
+      "Phase 0C REG table regeneration COMPLETE (84/84 tables, 248 columns)",
+      "M008 Phase 4A COMPLETE (224 duplicate tables deleted, $0 cost)",
+      "M008 Phase 4B COMPLETE (131 TRI tables renamed: 72 IDX + 59 BQX, 100% success, $0 cost)"
+    ],
     "2025-12-09": [
       "Roadmap V2 complete - Enhanced Stacking Architecture",
       "Robust feature selection complete (399 stable features)",
@@ -419,6 +482,21 @@
     ]
   },
   "critical_context": {
+    "regression_feature_mandate": {
+      "status": "P0-CRITICAL NON-COMPLIANCE IDENTIFIED",
+      "mandate_id": "BQX-ML-M005",
+      "mandate_date": "2025-12-13",
+      "discovery": "REG features exist in reg_* tables but are NOT included in TRI/COV/VAR tables",
+      "user_mandate": "reg_idx_* and reg_bqx_* features including lin_term, quad_term, and residual MUST be among the var_, cov_, and tri_ features",
+      "schema_changes_required": {
+        "tri": "15 → 78 columns (+63 regression features from 3 legs × 7 windows × 3 features)",
+        "cov": "14 → 56 columns (+42 regression features from 2 pairs × 7 windows × 3 features)",
+        "var": "14 → 35 columns (+21 regression features from 7 windows × 3 features)"
+      },
+      "decision_pending": "HALT Tier 1 to refactor scripts OR proceed with non-compliant schemas",
+      "mandate_document": "/mandate/REGRESSION_FEATURE_ARCHITECTURE_MANDATE.md",
+      "impact_summary": "/intelligence/REG_FEATURE_MANDATE_IMPACT.json"
+    },
     "v2_migration": {
       "status": "COMPLETE",
       "features_v2": "bqx_ml_v3_features_v2 (4,888 tables, 1,479 GB)",

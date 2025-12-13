@@ -1,312 +1,439 @@
 # BA Task List
 
-**Last Updated**: December 12, 2025 18:20 UTC
+**Last Updated**: December 13, 2025 00:55 UTC
 **Maintained By**: BA (Build Agent)
 **Session**: 05c73962-b9f1-4e06-9a5a-a5ae556cae5a
+**Current Phase**: NULL Remediation - Tier 1 Preparation (HOLD)
+
+---
+
+## 🔴 P0-CRITICAL: NULL REMEDIATION - TIER 1 HOLD STATUS
+
+**USER MANDATE**: "User suspended Cloud Run activity until NULL issue has been fully remediated"
+
+**Status**: ⏸️ **HOLD** - Tier 1 generation scripts being corrected by EA
+
+**Reason**: Critical table naming mismatches discovered in generation scripts
+
+**ETA**: Scripts re-delivered at 01:30 UTC, validation 01:30-01:45 UTC, launch 01:45 UTC
 
 ---
 
 ## CURRENT STATUS SUMMARY
 
-**Active Task**: Work Product Inventory & Audit Execution
-**Phase**: Awaiting CE clarification response
-**Status**: ⏸️ **PENDING CE RESPONSE** (will proceed with assumptions at 18:30 UTC)
-**Next Action**: Begin audit at 18:30 UTC if no CE response
+**Active Phase**: NULL Remediation - Tier 1 Feature Recalculation
+**Current Task**: ⏸️ **STANDBY** - Awaiting EA's corrected generation scripts
+**Blocker**: Table naming mismatches (CORR, possibly COV)
+**Timeline Impact**: +1 hour delay (Tier 1 launch moved from 00:45 UTC → 01:45 UTC)
+**Budget Status**: $0 spent, $160-211 approved and remaining
 
 ---
 
-## P1: WORK PRODUCT INVENTORY & AUDIT (ACTIVE)
+## NULL REMEDIATION PROGRESS
 
-**CE Directive**: 20251212_1750_CE-to-ALL_WORK_PRODUCT_INVENTORY_AUDIT.md
-**Deadline**: December 12, 2025 21:45 UTC (3h 25m remaining)
-**Status**: 🟡 **AWAITING CLARIFICATION**
+### Phase Overview
 
-### Timeline
+**Root Cause**: Incomplete feature tables missing 9-11% of rows
+**Current NULLs**: 12.43% (EURUSD)
+**Target NULLs**: <1% (<5% threshold with 4× margin)
 
-| Phase | Status | Time | Notes |
-|-------|--------|------|-------|
-| Receive CE audit directive | ✅ COMPLETE | 17:50 | Comprehensive inventory required |
-| Identify scope questions | ✅ COMPLETE | 19:15-19:30 | 6 questions identified |
-| Send clarifications to CE | ✅ COMPLETE | 19:30 | Submitted with assumptions |
-| **Await CE response** | 🟡 **IN PROGRESS** | 19:30-18:30 | Will proceed at 18:30 with assumptions |
-| Part 1: Completed Work | ⏸️ PENDING | 30 min | Inventory all BA work |
-| Part 2: Incomplete Work | ⏸️ PENDING | 30 min | Audit authorized + proposed tasks |
-| Part 3-4: Gaps & Alignment | ⏸️ PENDING | 30 min | Documentation gaps, alignment issues |
-| Part 5-7: Remediation & Assessment | ⏸️ PENDING | 15 min | Remediation plans, self-assessment |
-| Review & Submit | ⏸️ PENDING | 10 min | Final review |
-| **Submit to CE** | ⏸️ PENDING | 21:30 | Target 15 min before deadline |
+**Remediation Strategy**:
+- ✅ **Tier 2A** (COMPLETE): Exclude final 2,880 rows → -1.2% NULLs
+- ⏸️ **Tier 1** (HOLD): Recalculate 3,597 tables with FULL OUTER JOIN → -10.4% NULLs
+- ⏸️ **Tier 2B** (PENDING): Re-extract EURUSD with fixed tables
 
-### BA Assumptions (If No CE Response by 18:30 UTC)
-
-**Per BA clarification request 20251212_1930**:
-
-1. **Q1 - Granularity**: Option C (Grouped by theme)
-2. **Q2 - Replaced Work**: Option A (Include all BA work, even if replaced by EA)
-3. **Q3 - Incomplete Tasks**: Option C (Both authorized and proposed, clearly marked)
-4. **Q4 - Documentation Standards**: Option B (Any written record counts)
-5. **Q5 - Execution Priority**: Option A (Audit first, check approvals after)
-6. **Q6 - Remediation Ownership**: Option B (All gaps, properly assigned)
-
-**Authorization**: Will proceed with these assumptions at 18:30 UTC if no CE response
+**Expected Outcome**: 12.43% → <1% NULLs
 
 ---
 
-## P0: GBPUSD CLOUD RUN VALIDATION (MONITORING)
+## TIER 1 EXECUTION TIMELINE
 
-**CE Directive**: 20251212_1720_CE-to-BA_CLOUD_RUN_OPTIMIZED_DEPLOYMENT_SUCCESS.md
-**Status**: 🟡 **EXECUTION IN PROGRESS**
+### What Happened Today (Dec 12-13)
 
-### GBPUSD Test Status
+**23:00 UTC**: CE approved all 8 NULL remediation decisions
+- Budget: $160-211 ✅
+- Timeline: Dec 14, 10:00 UTC (24h delay acceptable) ✅
+- Execution: Parallel Tier 1 + Tier 2 ✅
 
-| Metric | Value | Status |
-|--------|-------|--------|
-| Job ID | bqx-ml-pipeline-54fxl | ✅ Running |
-| Start Time | 17:16 UTC | - |
-| Elapsed | 1h 4min | On track |
-| Expected Completion | 18:33-18:57 UTC | 13-37 min remaining |
-| Workers | 4 (CPU-optimized) | ✅ Fixed |
-| Stage | BigQuery Extraction | In progress |
+**23:30 UTC**: Tier 1 blocker discovered - generation scripts NOT FOUND
+- Searched entire codebase for tri/cov/corr generation logic
+- Only found generate_mkt_tables.py (12 tables)
+- Escalated to EA for reverse-engineering
 
-### BA Actions After GBPUSD Completion
+**23:45 UTC**: EA found archive template and started reverse-engineering
 
-**When GBPUSD completes** (~18:45 UTC):
+**00:30 UTC**: EA delivered 3 generation scripts (tri/cov/corr)
+- generate_tri_tables.py (394 lines, 194 tables)
+- generate_cov_tables.py (345 lines, 2,507 tables)
+- generate_corr_tables.py (367 lines, 896 tables)
 
-1. ✅ Validate GBPUSD output (5 min)
-   - Check file exists in GCS: `gs://bqx-ml-output/training_gbpusd.parquet`
-   - Verify file size: ~9 GB
-   - Confirm dimensions: >100K rows, >10K columns
-   - Validate 7 target horizons present
+**00:30-00:45 UTC**: BA validated scripts on 9 sample tables
+- COV: 3/3 passing (row increases 1.2-2.7%) ✅
+- TRI: 2/3 passing (row increases 3.4-9.7%) ✅
+- CORR: 0/3 failing (ETF source tables don't exist) ❌
 
-2. ✅ Report validation results to CE
+**00:36 UTC**: ⏸️ **EA HOLD ISSUED** - Critical naming mismatches discovered
+- CORR pattern: Script creates `corr_etf_idx_*` but actual is `corr_bqx_ibkr_*`
+- COV pattern: Needs verification (script creates `cov_agg_pair1_pair2`, actual may be `cov_agg_pair2`)
+- MKT tables: No script created, but training data has 150 MKT columns
 
-3. ⏸️ Resume audit work (primary focus)
+**00:48 UTC**: BA acknowledged HOLD, sent status to CE and QA
 
-**Priority**: Audit deadline (21:45 UTC) takes precedence over GBPUSD validation
-
----
-
-## P1: PHASE 1 PROACTIVE TASKS (PROPOSED, PENDING APPROVAL)
-
-**BA Recommendations**: 20251212_1725_BA-to-CE_PROACTIVE_PROJECT_ADVANCEMENT_RECOMMENDATIONS.md
-**Status**: ⏸️ **PENDING CE AUTHORIZATION**
-
-### High-Priority Tasks (50 min total)
-
-1. **Create 26-Pair Execution Scripts** (15 min)
-   - File: `scripts/execute_production_26pairs.sh`
-   - Purpose: Automated batch execution for remaining pairs
-   - Value: Eliminates 26 manual triggers, reduces errors
-
-2. **Prepare Validation Framework** (20 min)
-   - File: `scripts/validate_gcs_training_file.sh`
-   - Purpose: Automated validation checks for all outputs
-   - Value: 5 min → 10 sec validation per pair
-
-3. **Calculate Cost/Timeline Model** (15 min)
-   - File: `docs/PRODUCTION_COST_TIMELINE_ANALYSIS.md`
-   - Purpose: Sequential vs parallel execution analysis
-   - Value: Informed decision on production approach
-
-**Execution**: After audit submission (21:30 UTC) + CE authorization
-
-**ROI**: ~150:1 (150 hours saved / 1 hour invested)
+**00:55 UTC**: ⏸️ **CURRENT STATE** - Standing by for corrected scripts
 
 ---
 
-## COMPLETED WORK (December 12, 2025)
+### Revised Timeline
 
-### Cloud Run Deployment ✅
+**Original Plan** (Approved by CE):
+- 00:30 UTC: Scripts delivered ✅
+- 00:45 UTC: Validation complete ✅
+- 01:00 UTC: Tier 1 execution starts
+- 21:00 UTC: Tier 1 complete
+- 22:00 UTC: EURUSD re-extraction complete
+- 22:00-23:00 UTC: QA validation
+- Dec 14, 00:00 UTC: 27-pair rollout starts
+- Dec 14, 10:00 UTC: Complete
 
-**Status**: ✅ COMPLETE (operational as of 04:30 UTC, GBPUSD test started 17:15 UTC)
+**Revised Plan** (+1h delay):
+- 00:30 UTC: Scripts delivered ✅
+- 00:45 UTC: Validation complete ✅
+- 00:48 UTC: HOLD issued ⏸️
+- **01:30 UTC: Corrected scripts re-delivered** (EA in progress)
+- **01:45 UTC: Tier 1 execution starts** (+45 min)
+- **22:00 UTC: Tier 1 complete** (+1h)
+- **23:00 UTC: EURUSD re-extraction complete** (+1h)
+- **23:00 - Dec 14, 00:00 UTC: QA validation** (+1h)
+- **Dec 14, 01:00 UTC: 27-pair rollout starts** (+1h)
+- **Dec 14, 11:00 UTC: Complete** (+1h)
 
-**Deliverables**:
-- Cloud Run job: `bqx-ml-pipeline`
-- Container image: `gcr.io/bqx-ml/bqx-ml-polars-pipeline:latest`
-- Service account: `bqx-ml-pipeline@bqx-ml.iam.gserviceaccount.com`
-- IAM permissions configured
-- CPU optimization fix applied (16 → 4 workers)
-
-**Documentation**: ⚠️ PARTIALLY (communications to CE/EA, no formal deployment guide)
-
-### AUDUSD Extraction ✅
-
-**Status**: ✅ COMPLETE (668 files extracted December 12, 03:20 UTC)
-
-**Deliverables**:
-- 668 parquet checkpoint files
-- Location: `data/features/checkpoints/audusd/`
-- Size: ~1.2 GB
-
-**Issues**: Process hang (78 min), OOM incident #3, recovered successfully
-
-**Documentation**: ⚠️ PARTIALLY (OPS memory crisis report, no dedicated summary)
-
-### File Cleanup & Archival ✅
-
-**Status**: ✅ COMPLETE (15 deprecated files archived December 12, 04:50 UTC)
-
-**Deliverables**:
-- Archive directory: `archive/2025-12-12_cloud_run_migration/`
-- Manifest: `archive/2025-12-12_cloud_run_migration/README.md`
-- 11 deprecated scripts archived
-- 4 deprecated container files archived
-
-**Documentation**: ✅ FULLY (manifest with rationale)
+**Total Delay**: +1 hour (within 24h acceptable window)
 
 ---
 
-## INCOMPLETE WORK
+## TIER 1 SCOPE & COST
 
-### Authorized Tasks
+### Tables to Regenerate
 
-1. **GBPUSD Validation** - 🟡 IN PROGRESS
-   - Status: Awaiting GBPUSD execution completion
-   - ETA: ~18:45 UTC
+| Category | Tables | Estimated Cost | Estimated Time |
+|----------|--------|---------------|----------------|
+| **TRI** (triangulation) | 194 | $40-50 | 4 hours |
+| **COV** (covariance) | 2,507 | $90-120 | 12 hours |
+| **CORR** (correlation) | 896 | $25-35 | 4 hours |
+| **MKT** (market-wide) | 12 | $5-10 | 30 min |
+| **TOTAL** | **3,609** | **$160-215** | **20.5 hours** |
 
-### Proposed Tasks (Pending Authorization)
+**Status**: Pending EA's corrected scripts and scope clarification
 
-1. **Phase 1 Proactive Tasks** - ⏸️ PENDING APPROVAL
-   - 3 high-priority tasks (50 min)
-   - Submitted at 17:25 UTC
-   - Awaiting CE decision
-
-2. **Phase 2 Medium-Priority Tasks** - ⏸️ PROPOSED
-   - 3 tasks (85 min)
-   - Execution plan, monitoring dashboard, parallel execution logic
-
-3. **Phase 3 Low-Priority Tasks** - ⏸️ PROPOSED
-   - 4 tasks (105 min)
-   - Orchestrator, aggregation, rollback, performance report
+**Possible Scope Reduction**:
+- If CORR skipped (ETF tables don't exist): 2,701 tables, $110-150, 16 hours
+- If MKT out of scope: 3,597 tables, $155-205, 20 hours
 
 ---
 
-## DOCUMENTATION GAPS IDENTIFIED
+## P0-CRITICAL TASKS
 
-1. **AUDUSD Extraction Summary** - P2 MEDIUM
-   - Missing: Dedicated extraction summary document
-   - Impact: Historical record incomplete
-   - Owner: BA
-   - Timeline: 20 minutes
+### 1. ⏸️ STANDBY for Corrected Scripts (NOW - 01:30 UTC)
 
-2. **Cloud Run Deployment Guide** - P1 HIGH
-   - Missing: Comprehensive deployment documentation
-   - Impact: Future deployments lack reference
-   - Owner: BA
-   - Timeline: 30 minutes
+**Status**: ⏸️ **WAITING** for EA re-delivery
+**ETA**: 01:30 UTC (35 minutes)
+**Action**: No action required, standing by
 
-3. **Cloud Run Architecture in Intelligence Files** - P1 HIGH
-   - Missing: Intelligence files don't reflect Cloud Run architecture
-   - Impact: Documentation out of sync
-   - Owner: QA (intelligence file ownership)
-   - Timeline: 30 minutes
+**EA's Corrective Actions**:
+1. Query INFORMATION_SCHEMA to verify actual table naming patterns
+2. Correct COV script with verified pattern
+3. Correct CORR script with verified pattern (`corr_bqx_ibkr_*`)
+4. Create or clarify MKT script scope
+5. Re-validate against BigQuery tables
+6. Re-deliver to BA
+
+---
+
+### 2. Validate Corrected Scripts (01:30-01:45 UTC)
+
+**Status**: ⏸️ **PENDING** EA re-delivery
+**Duration**: 15 minutes
+**Priority**: P0-CRITICAL
+
+**Validation Steps**:
+1. Run validation mode on 3-5 sample tables per script
+2. Verify table naming matches INFORMATION_SCHEMA patterns
+3. Verify row count increases match expected NULL gap (9-11%)
+4. Check date ranges (2020-01-01 to 2025-11-20)
+
+**Success Criteria**:
+- ✅ Table names match existing pattern in BigQuery
+- ✅ Row counts increase by expected 1-11%
+- ✅ No SQL errors or missing source tables
+- ✅ Date ranges correct
+
+**If Validation Passes**: Proceed to Tier 1 launch
+**If Validation Fails**: Escalate to EA/CE with specific errors
+
+---
+
+### 3. Launch Tier 1 Execution (01:45 UTC - If Validation Passes)
+
+**Status**: ⏸️ **PENDING** validation
+**Duration**: 20.5 hours (or 16h if CORR skipped)
+**Priority**: P0-CRITICAL
+**Budget**: $160-211 approved
+
+**Execution Plan**:
+```bash
+# Launch all 3 scripts in parallel (16 workers each)
+python3 scripts/generate_tri_tables.py --workers 16 &
+python3 scripts/generate_cov_tables.py --workers 16 &
+python3 scripts/generate_corr_tables.py --workers 16 &  # If in scope
+
+# Monitor progress
+watch -n 60 'ls -lh /tmp/*_generation_results.json'
+```
+
+**Monitoring**:
+- Check progress every 1 hour
+- Report checkpoints to CE/EA/QA at 4h, 8h, 12h, 16h, 20h
+- Alert if error rate >5%
+
+**Completion ETA**: Dec 13, 22:00 UTC
+
+---
+
+### 4. Monitor Tier 1 Execution (01:45-22:00 UTC)
+
+**Status**: ⏸️ **PENDING** launch
+**Duration**: 20.5 hours
+**Priority**: P0-CRITICAL
+
+**Monitoring Tasks**:
+- Check generation logs every hour
+- Track success/failure rate
+- Monitor BigQuery quota usage
+- Alert if execution stalls or error rate spikes
+
+**Checkpoint Reports**:
+- 05:45 UTC (4h): TRI progress, COV progress
+- 09:45 UTC (8h): TRI complete, COV 50%
+- 13:45 UTC (12h): COV 75%, CORR started
+- 17:45 UTC (16h): COV complete, CORR 50%
+- 21:45 UTC (20h): CORR 90%
+- 22:00 UTC: Tier 1 complete
+
+---
+
+## P1-HIGH TASKS
+
+### 1. ✅ Tier 2A Implementation (COMPLETE)
+
+**Status**: ✅ **COMPLETED** (Dec 12, 23:00 UTC)
+**File**: [pipelines/training/parallel_feature_testing.py](../../../pipelines/training/parallel_feature_testing.py)
+**Commit**: 845b551
+
+**Implementation**:
+```python
+MAX_HORIZON_MINUTES = 2880  # h2880 = 48 hours
+cutoff_date = df['interval_time'].max() - pd.Timedelta(minutes=MAX_HORIZON_MINUTES)
+merged_df = merged_df[merged_df['interval_time'] <= cutoff_date]
+```
+
+**Impact**: Excludes final 2,880 rows → -1.2% NULLs
+
+**Next**: Will apply automatically when EURUSD is re-extracted after Tier 1
+
+---
+
+## P2-MEDIUM TASKS
+
+### 1. EURUSD Re-Extraction (After Tier 1 Complete)
+
+**Status**: ⏸️ **PENDING** Tier 1 completion
+**Duration**: 1 hour (70 min extraction + 15 min merge)
+**Priority**: P2-MEDIUM
+**ETA**: Dec 13, 22:00-23:00 UTC
+
+**Execution**:
+```bash
+# Run Cloud Run extraction job for EURUSD
+gcloud run jobs execute bqx-ml-extract \
+  --region us-central1 \
+  --set-env-vars "PAIR=eurusd" \
+  --wait
+```
+
+**Expected Outcome**:
+- Row count: ~174,868 (2,880 excluded per Tier 2A)
+- NULL percentage: <1% (was 12.43%)
+- File size: ~9 GB
+- Targets: h15-h2880 (100% complete)
+
+**QA Validation**: Dec 13, 23:00 - Dec 14, 00:00 UTC
+
+---
+
+### 2. 27-Pair Rollout (After QA Validation Passes)
+
+**Status**: ⏸️ **PENDING** QA validation
+**Duration**: 12 hours (parallel 4× execution)
+**Priority**: P2-MEDIUM
+**ETA**: Dec 14, 01:00-13:00 UTC (was 00:00-12:00 UTC)
+
+**User Directive**: Cloud Run suspended until NULL remediation complete
+
+**Resumption Criteria**:
+1. ✅ EURUSD NULL percentage <1%
+2. ✅ QA validation passes
+3. ✅ User authorizes Cloud Run resumption
+
+**Execution Plan**:
+- Parallel 4× execution (7 batches)
+- Monitor checkpoint files (GCS backup enabled)
+- Validate each pair after extraction
+
+---
+
+## COMPLETED WORK
+
+### ✅ Tier 2A Implementation (Dec 12, 23:00 UTC)
+
+**Task**: Exclude final 2,880 rows for target lookahead completeness
+**Status**: COMPLETE
+**File**: [pipelines/training/parallel_feature_testing.py](../../../pipelines/training/parallel_feature_testing.py)
+**Commit**: 845b551
+**Impact**: -1.2% NULLs
+
+---
+
+### ✅ Script Validation (Dec 13, 00:30-00:45 UTC)
+
+**Task**: Validate EA's generation scripts on sample tables
+**Status**: COMPLETE
+**Results**: 5/9 passing, CORR naming issue discovered
+**Files**:
+- `/tmp/tri_validation_results.json`
+- `/tmp/cov_validation_results.json`
+- `/tmp/corr_validation_results.json`
+
+---
+
+### ✅ HOLD Acknowledgment (Dec 13, 00:48 UTC)
+
+**Task**: Acknowledge EA's HOLD directive and notify stakeholders
+**Status**: COMPLETE
+**Files**:
+- [20251213_0048_BA-to-EA_HOLD_ACKNOWLEDGED_CORR_NAMING_CONFIRMED.md](../communications/outboxes/BA/20251213_0048_BA-to-EA_HOLD_ACKNOWLEDGED_CORR_NAMING_CONFIRMED.md)
+- [20251213_0050_BA-to-CE_TIER1_HOLD_TIMELINE_UPDATE.md](../communications/inboxes/CE/20251213_0050_BA-to-CE_TIER1_HOLD_TIMELINE_UPDATE.md)
+- [20251213_0052_BA-to-QA_TIER1_HOLD_TIMELINE_UPDATE.md](../communications/inboxes/QA/20251213_0052_BA-to-QA_TIER1_HOLD_TIMELINE_UPDATE.md)
+
+---
+
+## BLOCKERS & RISKS
+
+### ACTIVE BLOCKER 1: Table Naming Mismatches
+
+**Impact**: Tier 1 execution blocked
+**Status**: EA correcting scripts (ETA 01:30 UTC)
+**Risk Level**: 🟢 **LOW** - Early detection, clear corrective path
+**Mitigation**: EA verifying against INFORMATION_SCHEMA before re-delivery
+
+**Good News**: Issue caught BEFORE execution, saving $160-211 and 4h cleanup
+
+---
+
+### RISK 1: Corrected Scripts Still Wrong
+
+**Probability**: LOW (EA verifying against INFORMATION_SCHEMA)
+**Impact**: Additional 1h delay + possible scope reduction
+**Mitigation**: BA validation before execution
+
+---
+
+### RISK 2: CORR Tables May Need to Be Skipped
+
+**Probability**: MEDIUM (ETF source tables don't exist)
+**Impact**: Scope reduction to 2,701 tables, ~1.5% final NULLs instead of <1%
+**Mitigation**: Still meets <5% threshold (3× margin), acceptable outcome
 
 ---
 
 ## COORDINATION STATUS
 
-### With CE
-- ✅ Received Cloud Run deployment success directive (17:20 UTC)
-- ✅ Sent work product audit clarifications (19:30 UTC)
-- ✅ Sent Phase 1 proactive recommendations (17:25 UTC)
-- ⏸️ Awaiting clarification response
-- ⏸️ Awaiting Phase 1 authorization
-
 ### With EA
-- ✅ Received cleanup directive (04:35 UTC)
-- ✅ Completed 15-file archival per EA request
-- ✅ EA replaced BA's BigQuery approach with Polars (user mandate)
+- ✅ Received generation scripts at 00:30 UTC
+- ✅ Sent validation results at 00:45 UTC
+- ✅ Received HOLD directive at 00:36 UTC
+- ✅ Acknowledged HOLD at 00:48 UTC
+- ⏸️ Awaiting corrected scripts (ETA 01:30 UTC)
+
+### With CE
+- ✅ Received all 8 decision approvals at 23:00 UTC
+- ✅ Sent HOLD status update at 00:50 UTC
+- ⏸️ Will report Tier 1 launch confirmation after validation
 
 ### With QA
-- ⏸️ Will coordinate on validation framework after creation
-- ⏸️ QA will update intelligence files with Cloud Run details
-
-### With OPS
-- ✅ Coordinated on AUDUSD OOM incident #3 (03:13 UTC)
-- ✅ OPS documented memory crisis
+- ✅ Sent Tier 2A completion notice at 23:50 UTC
+- ✅ Sent HOLD timeline update at 00:52 UTC
+- ⏸️ Will coordinate QA validation after EURUSD re-extraction
 
 ---
 
-## IMMEDIATE NEXT STEPS (SEQUENCED)
+## IMMEDIATE NEXT STEPS
 
-### 18:20-18:30 UTC (10 min)
-- ⏸️ Monitor for CE clarification response
-- ⏸️ Continue GBPUSD execution monitoring
+### NOW - 01:30 UTC (35 min)
+1. ⏸️ **STANDBY** - No action required, awaiting EA
 
-### 18:30-21:30 UTC (3 hours)
-- ✅ **BEGIN AUDIT EXECUTION** (proceed with assumptions if no CE response)
-- ⏸️ Check GBPUSD status when complete (~18:45 UTC)
-- ⏸️ Validate GBPUSD output (5 min)
-- ⏸️ Resume audit work
+### 01:30-01:45 UTC (15 min)
+2. ✅ **Validate corrected scripts** - 3-5 sample tables per script
+3. ✅ **Verify naming patterns** - Match INFORMATION_SCHEMA
+4. ✅ **Report validation results** - To EA and CE
 
-### 21:30 UTC
-- ✅ **SUBMIT AUDIT TO CE**
+### 01:45 UTC (If Validation Passes)
+5. ✅ **Launch Tier 1 execution** - 3 scripts in parallel, 16 workers each
+6. ✅ **Start monitoring** - Hourly progress checks
 
-### 21:30-22:30 UTC (1 hour)
-- ⏸️ Execute Phase 1 tasks if CE authorizes
-- ⏸️ Otherwise: Await further CE direction
+### 01:45-22:00 UTC (20.5 hours)
+7. ✅ **Monitor Tier 1** - Report checkpoints every 4 hours
+8. ✅ **Alert on errors** - If error rate >5%
+
+### 22:00-23:00 UTC
+9. ✅ **Re-extract EURUSD** - With recalculated tables + Tier 2A
+10. ✅ **Hand off to QA** - Validation window
+
+### Dec 14, 01:00-13:00 UTC (If QA Passes)
+11. ✅ **Execute 27-pair rollout** - Parallel 4× execution
+12. ✅ **Complete project** - All 28 pairs extracted
 
 ---
 
 ## USER MANDATE ALIGNMENT
 
-**User Mandate**: "Maximum speed to completion at minimal expense within system limitations"
-- 28 training files (one per currency pair)
-- Cloud Run serverless deployment
-- Zero VM dependency
-- Complete by Dec 14-15, 2025
+**User Mandate**: "User suspended Cloud Run activity until NULL issue has been fully remediated"
 
 **BA Alignment**:
-- ✅ Cloud Run deployment complete (serverless, VM-independent)
-- ✅ EURUSD, AUDUSD extracted and ready
-- ✅ GBPUSD test in progress (validation of Cloud Run approach)
-- ⏸️ 25 remaining pairs ready for production rollout
-- ⏸️ Automation tools proposed (Phase 1 tasks)
+- ✅ Cloud Run suspended (no 27-pair rollout until NULL fixed)
+- ✅ NULL remediation prioritized (Tier 1 + Tier 2)
+- ✅ Budget approved ($160-211 for Tier 1)
+- ✅ Timeline acceptable (Dec 14, 11:00 UTC within 24h window)
+- ⏸️ Cloud Run will resume ONLY after <1% NULLs achieved and QA validated
 
-**Timeline**: On track for Dec 14-15 completion if production rollout authorized
-
----
-
-## DECISIONS NEEDED FROM CE
-
-1. **Work Product Audit Clarifications** - REQUESTED 19:30 UTC
-   - 6 scope questions submitted
-   - Will proceed with assumptions at 18:30 UTC if no response
-
-2. **Phase 1 Proactive Tasks Authorization** - REQUESTED 17:25 UTC
-   - 3 high-priority tasks (50 min)
-   - ROI: ~150:1
-   - Recommended: Approve after GBPUSD validation
-
-3. **25-Pair Production Rollout Authorization** - PENDING
-   - After GBPUSD validation passes
-   - After work product audit complete
-   - After P0 remediations (if any)
+**Expected Outcome**:
+- NULL reduction: 12.43% → <1%
+- EURUSD validation: Dec 13, 23:00 UTC
+- 27-pair rollout: Dec 14, 01:00-13:00 UTC
+- Project complete: Dec 14, 13:00 UTC
 
 ---
 
-## SUCCESS CRITERIA
+## BUDGET STATUS
 
-**Work Product Audit Success**:
-- ✅ Submit comprehensive inventory by 21:45 UTC
-- ✅ All BA work documented with status
-- ✅ All gaps identified with remediations
-- ✅ Honest self-assessment provided
+**Approved**: $160-211 (Tier 1)
+**Spent**: $0 (HOLD prevented premature execution)
+**Remaining**: $160-211 (100%)
 
-**GBPUSD Test Success**:
-- ✅ Execution completes within 2-hour timeout
-- ✅ Output file created in GCS
-- ✅ Dimensions/targets validated
-- ✅ Confirms Cloud Run approach viable
-
-**Production Readiness**:
-- ✅ GBPUSD validation passed
-- ✅ Audit complete
-- ✅ Phase 1 automation tools ready (if authorized)
-- ✅ CE authorization received
-- ✅ Begin 25-pair rollout
+**Good News**: Early detection of naming issue saved $160-211 that would have been wasted on incorrectly-named tables
 
 ---
 
-*Last updated by BA - December 12, 2025 18:20 UTC*
+*Last updated by BA - December 13, 2025 00:55 UTC*
 *Session: 05c73962-b9f1-4e06-9a5a-a5ae556cae5a*
-*Status: Awaiting CE clarification, will begin audit at 18:30 UTC*
+*Status: ⏸️ STANDBY for EA's corrected scripts (ETA 01:30 UTC)*
+*Phase: NULL Remediation - Tier 1 Preparation (HOLD)*
