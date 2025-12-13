@@ -1,0 +1,456 @@
+{
+  "mandate_id": "BQX-ML-M005",
+  "title": "Regression Feature Architecture Mandate - Intelligence Impact Summary",
+  "issued": "2025-12-13T02:00:00Z",
+  "priority": "P0-CRITICAL",
+  "status": "ACTIVE - PENDING IMPLEMENTATION",
+
+  "mandate_summary": {
+    "description": "REG regression features (lin_term, quad_term, residual) MUST be included in all cross-pair relationship tables (TRI, COV, VAR)",
+    "rationale": "Multi-level feature hierarchy: Raw State → Relationship Metrics → Regression Dynamics",
+    "impact_scope": "ALL TRI/COV/VAR table generation scripts"
+  },
+
+  "schema_changes": {
+    "tri_tables": {
+      "current_schema": {
+        "columns": 15,
+        "categories": ["arbitrage_metrics", "error_statistics"]
+      },
+      "mandated_schema": {
+        "columns": 78,
+        "additions": 63,
+        "new_categories": [
+          "pair1_regression_features (21 columns × 7 windows)",
+          "pair2_regression_features (21 columns × 7 windows)",
+          "pair3_regression_features (21 columns × 7 windows)"
+        ]
+      },
+      "affected_tables": 72,
+      "table_patterns": ["tri_agg_bqx_*", "tri_agg_idx_*", "tri_align_bqx_*", "tri_align_idx_*"]
+    },
+
+    "cov_tables": {
+      "current_schema": {
+        "columns": 14,
+        "categories": ["spread_ratio_metrics"]
+      },
+      "mandated_schema": {
+        "columns": 56,
+        "additions": 42,
+        "new_categories": [
+          "pair1_regression_features (21 columns × 7 windows)",
+          "pair2_regression_features (21 columns × 7 windows)"
+        ]
+      },
+      "affected_tables": 3024,
+      "table_patterns": ["cov_agg_*", "cov_align_*", "cov_agg_idx_*", "cov_align_idx_*"]
+    },
+
+    "var_tables": {
+      "current_schema": {
+        "columns": 14,
+        "categories": ["family_variance_metrics"]
+      },
+      "mandated_schema": {
+        "columns": 35,
+        "additions": 21,
+        "new_categories": [
+          "family_regression_aggregates (21 columns × 7 windows)"
+        ]
+      },
+      "affected_tables": 63,
+      "table_patterns": ["var_agg_bqx_*", "var_agg_idx_*", "var_align_bqx_*", "var_align_idx_*", "var_corr_*"]
+    }
+  },
+
+  "regression_features_spec": {
+    "source_tables": {
+      "reg_bqx": {
+        "count": 28,
+        "pattern": "reg_bqx_{pair}",
+        "source_data": "base_bqx.bqx_45",
+        "windows": [45, 90, 180, 360, 720, 1440, 2880],
+        "features_per_window": {
+          "lin_term": "Linear component (lin_coef × x)",
+          "quad_term": "Quadratic component (quad_coef × x²)",
+          "const_term": "Constant term",
+          "residual": "y - (quad_term + lin_term + const_term)"
+        }
+      },
+      "reg_idx": {
+        "count": 28,
+        "pattern": "reg_idx_{pair}",
+        "source_data": "base_idx.close_idx",
+        "windows": [45, 90, 180, 360, 720, 1440, 2880],
+        "features_per_window": {
+          "lin_term": "Linear component (lin_coef × x)",
+          "quad_term": "Quadratic component (quad_coef × x²)",
+          "const_term": "Constant term",
+          "residual": "y - (quad_term + lin_term + const_term)"
+        }
+      }
+    },
+
+    "polynomial_regression_formula": {
+      "model": "y = quad_coef × x² + lin_coef × x + constant",
+      "decomposition": {
+        "lin_term": "lin_coef × x (linear trend component)",
+        "quad_term": "quad_coef × x² (acceleration/curvature component)",
+        "residual": "y - (quad_term + lin_term + constant) (unexplained variance)"
+      },
+      "windows": [45, 90, 180, 360, 720, 1440, 2880],
+      "total_features_per_pair": 21
+    }
+  },
+
+  "feature_catalogue_updates": {
+    "previous_unique_features_per_pair": 1064,
+    "regression_features_from_tri_cov": 63,
+    "new_unique_features_per_pair": 1127,
+    "feature_increase_percentage": 5.9,
+
+    "feature_breakdown_eurusd": {
+      "pair_specific": 3813,
+      "cross_pair_tri": 2151,
+      "cross_pair_cov": 2088,
+      "cross_pair_corr": 240,
+      "market_wide_mkt": 576,
+      "total": 8868,
+      "note": "Increased from 8,214 due to regression features in TRI/COV"
+    },
+
+    "tri_feature_expansion": {
+      "previous": "2,088 features (arbitrage metrics only)",
+      "current": "2,151 features (arbitrage + regression from 3 legs)",
+      "addition": "+63 features per TRI table (21 per leg × 3 legs)"
+    },
+
+    "cov_feature_expansion": {
+      "previous": "No regression features",
+      "current": "Includes regression from both pairs",
+      "addition": "+42 features per COV table (21 per pair × 2 pairs)"
+    }
+  },
+
+  "feature_ledger_impact": {
+    "ledger_mandate_id": "BQX-ML-M001",
+    "previous_calculation": {
+      "features_per_pair": 6477,
+      "total_ledger_rows": 1269492,
+      "formula": "28 pairs × 7 horizons × 6,477 features"
+    },
+    "updated_calculation": {
+      "features_per_pair": 6540,
+      "total_ledger_rows": 1282044,
+      "formula": "28 pairs × 7 horizons × 6,540 features",
+      "increase": "+12,552 rows (+0.99%)"
+    },
+    "note": "Feature ledger must include all regression features from TRI/COV/VAR tables"
+  },
+
+  "implementation_requirements": {
+    "scripts_to_refactor": [
+      "scripts/generate_tri_tables.py",
+      "scripts/generate_cov_tables.py",
+      "scripts/generate_var_tables.py (if exists, otherwise create)"
+    ],
+
+    "refactoring_tasks": {
+      "tri_script": {
+        "add_ctes": 3,
+        "add_joins": 3,
+        "add_columns": 63,
+        "cte_names": ["pair1_reg", "pair2_reg", "pair3_reg"],
+        "join_tables": ["reg_{source_variant}_{pair1}", "reg_{source_variant}_{pair2}", "reg_{source_variant}_{pair3}"],
+        "estimated_hours": "4-6"
+      },
+      "cov_script": {
+        "add_ctes": 2,
+        "add_joins": 2,
+        "add_columns": 42,
+        "cte_names": ["pair1_reg", "pair2_reg"],
+        "join_tables": ["reg_{source_variant}_{pair1}", "reg_{source_variant}_{pair2}"],
+        "estimated_hours": "3-4"
+      },
+      "var_script": {
+        "modify_union": true,
+        "add_aggregations": 21,
+        "add_columns": 21,
+        "aggregation_logic": "AVG(reg_lin_term_[w] * direction), AVG(reg_quad_term_[w] * direction), AVG(reg_residual_[w])",
+        "estimated_hours": "2-3"
+      }
+    },
+
+    "testing_requirements": {
+      "tri_tables": "Test on 3 triangles (EUR-USD-GBP, EUR-USD-JPY, GBP-USD-JPY)",
+      "cov_tables": "Test on 3 pair combinations (EURUSD-GBPUSD, EURUSD-USDJPY, GBPUSD-USDJPY)",
+      "var_tables": "Test on 3 currencies (EUR, GBP, USD)",
+      "validation_criteria": [
+        "Schema: TRI 78 cols, COV 56 cols, VAR 35 cols",
+        "Row count parity with existing tables",
+        "NULL rate ≤ existing NULL rate",
+        "Regression values are reasonable (not all NULL, not all 0)"
+      ]
+    }
+  },
+
+  "tier_1_remediation_impact": {
+    "previous_scope": {
+      "tables": 2032,
+      "tri_columns": 15,
+      "cov_columns": 14,
+      "total_feature_columns": 22248,
+      "cost_estimate_usd": "100-140",
+      "timeline_hours": "12-15"
+    },
+    "revised_scope": {
+      "tables": 2032,
+      "tri_columns": 78,
+      "cov_columns": 56,
+      "total_feature_columns": 90288,
+      "cost_estimate_usd": "150-200",
+      "timeline_hours": "15-20",
+      "refactoring_delay_hours": "11-16",
+      "total_delay_hours": "14-19"
+    },
+    "cost_increase": {
+      "amount_usd": "50-60",
+      "percentage": 50,
+      "reason": "Additional JOINs to REG tables increase BigQuery processing"
+    },
+    "feature_increase": {
+      "columns_added": 68040,
+      "percentage": 305,
+      "tri_increase": "+4,536 columns (72 tables × 63 additions)",
+      "cov_increase": "+63,504 columns (1,512 tables × 42 additions)"
+    }
+  },
+
+  "ontology_updates": {
+    "feature_entity": {
+      "new_attributes": {
+        "regression_source": "reg_bqx or reg_idx table that provides regression features",
+        "regression_enriched": "Boolean - indicates if table includes regression features from source pairs",
+        "regression_feature_count": "Number of regression features included (21, 42, or 63)"
+      }
+    },
+    "tri_entity": {
+      "schema_version": "2.0",
+      "column_count": 78,
+      "regression_legs": 3,
+      "regression_features_per_leg": 21
+    },
+    "cov_entity": {
+      "schema_version": "2.0",
+      "column_count": 56,
+      "regression_pairs": 2,
+      "regression_features_per_pair": 21
+    },
+    "var_entity": {
+      "schema_version": "2.0",
+      "column_count": 35,
+      "regression_aggregates": 21
+    }
+  },
+
+  "semantics_updates": {
+    "new_feature_semantics": {
+      "pair1_lin_term_[w]": {
+        "description": "Linear trend component from polynomial regression on pair 1",
+        "formula": "lin_coef × x",
+        "source": "reg_{variant}_{pair1}.reg_lin_term_[w]",
+        "interpretation": "Positive = uptrend, Negative = downtrend, magnitude = trend strength",
+        "windows": [45, 90, 180, 360, 720, 1440, 2880]
+      },
+      "pair1_quad_term_[w]": {
+        "description": "Quadratic acceleration component from polynomial regression on pair 1",
+        "formula": "quad_coef × x²",
+        "source": "reg_{variant}_{pair1}.reg_quad_term_[w]",
+        "interpretation": "Positive = accelerating up, Negative = accelerating down",
+        "windows": [45, 90, 180, 360, 720, 1440, 2880]
+      },
+      "pair1_residual_[w]": {
+        "description": "Unexplained variance from polynomial regression on pair 1",
+        "formula": "y - (quad_term + lin_term + const_term)",
+        "source": "reg_{variant}_{pair1}.reg_residual_[w]",
+        "interpretation": "Deviation from polynomial fit, regime change indicator",
+        "windows": [45, 90, 180, 360, 720, 1440, 2880]
+      },
+      "family_lin_term_[w]": {
+        "description": "Currency family aggregate linear trend (directionally adjusted)",
+        "formula": "AVG(reg_lin_term_[w] × direction)",
+        "source": "Aggregated from all pairs in currency family",
+        "interpretation": "Overall currency momentum across all pairs",
+        "windows": [45, 90, 180, 360, 720, 1440, 2880]
+      }
+    },
+
+    "multi_level_feature_hierarchy": {
+      "level_1_raw_state": {
+        "features": ["bqx_45", "close_idx", "pair_val"],
+        "description": "Current values representing instantaneous state"
+      },
+      "level_2_relationship_metrics": {
+        "features": ["spread", "ratio", "tri_error", "family_variance"],
+        "description": "Derived metrics showing pair dynamics and relationships"
+      },
+      "level_3_regression_features": {
+        "features": ["lin_term", "quad_term", "residual"],
+        "description": "Polynomial regression features capturing trend dynamics",
+        "new_in_mandate": true
+      }
+    }
+  },
+
+  "roadmap_updates": {
+    "tier_1_status": "BLOCKED - Scripts non-compliant with REG mandate",
+    "required_actions": [
+      {
+        "action": "Refactor TRI generation script",
+        "status": "PENDING",
+        "estimated_hours": "4-6",
+        "blocker_for": "Tier 1 launch"
+      },
+      {
+        "action": "Refactor COV generation script",
+        "status": "PENDING",
+        "estimated_hours": "3-4",
+        "blocker_for": "Tier 1 launch"
+      },
+      {
+        "action": "Create/refactor VAR generation script",
+        "status": "PENDING",
+        "estimated_hours": "2-3",
+        "blocker_for": "Complete regression feature coverage"
+      },
+      {
+        "action": "Test refactored scripts (3 samples each)",
+        "status": "PENDING",
+        "estimated_hours": "2-3",
+        "blocker_for": "Tier 1 launch"
+      },
+      {
+        "action": "Launch Tier 1 with complete schemas",
+        "status": "PENDING",
+        "estimated_hours": "15-20",
+        "depends_on": "All refactoring complete"
+      }
+    ],
+
+    "revised_timeline": {
+      "original_tier_1_completion": "2025-12-13T17:00:00Z",
+      "refactoring_delay": "11-16 hours",
+      "longer_generation_time": "3-5 hours",
+      "revised_tier_1_completion": "2025-12-14T04:00:00Z to 2025-12-14T08:00:00Z"
+    }
+  },
+
+  "compliance_status": {
+    "reg_source_tables": {
+      "status": "COMPLIANT",
+      "verified": true,
+      "reg_bqx_count": 28,
+      "reg_idx_count": 28,
+      "features_verified": ["reg_lin_term_[w]", "reg_quad_term_[w]", "reg_const_term_[w]", "reg_residual_[w]"]
+    },
+
+    "tri_tables": {
+      "status": "NON-COMPLIANT",
+      "current_columns": 15,
+      "required_columns": 78,
+      "missing_columns": 63,
+      "action_required": "Refactor generate_tri_tables.py"
+    },
+
+    "cov_tables": {
+      "status": "NON-COMPLIANT",
+      "current_columns": 14,
+      "required_columns": 56,
+      "missing_columns": 42,
+      "action_required": "Refactor generate_cov_tables.py"
+    },
+
+    "var_tables": {
+      "status": "NON-COMPLIANT",
+      "current_columns": 14,
+      "required_columns": 35,
+      "missing_columns": 21,
+      "action_required": "Create/refactor VAR generation script"
+    }
+  },
+
+  "related_documents": {
+    "mandates": [
+      "mandate/REGRESSION_FEATURE_ARCHITECTURE_MANDATE.md (Primary)",
+      "mandate/FEATURE_LEDGER_100_PERCENT_MANDATE.md (Feature count implications)",
+      "mandate/BQX_ML_V3_FEATURE_INVENTORY.md (Feature matrix updates)"
+    ],
+    "intelligence": [
+      "intelligence/ontology.json (Entity schema updates)",
+      "intelligence/semantics.json (Feature definitions)",
+      "intelligence/feature_catalogue.json (Feature counts)",
+      "intelligence/roadmap_v2.json (Timeline impacts)",
+      "intelligence/context.json (Project status)"
+    ],
+    "technical": [
+      "docs/REGRESSION_FEATURE_MANDATE_ANALYSIS.md (Detailed analysis)",
+      "scripts/generate_tri_tables.py (TO BE REFACTORED)",
+      "scripts/generate_cov_tables.py (TO BE REFACTORED)",
+      "scripts/generate_var_tables.py (TO BE CREATED)"
+    ]
+  },
+
+  "next_actions": [
+    {
+      "priority": 1,
+      "action": "User decision: HALT Tier 1 to refactor scripts OR proceed with incomplete schemas",
+      "owner": "User",
+      "blocking": true
+    },
+    {
+      "priority": 2,
+      "action": "Refactor TRI script to include regression features",
+      "owner": "CE",
+      "estimated_hours": "4-6",
+      "depends_on": "User decision to HALT"
+    },
+    {
+      "priority": 3,
+      "action": "Refactor COV script to include regression features",
+      "owner": "CE",
+      "estimated_hours": "3-4",
+      "depends_on": "User decision to HALT"
+    },
+    {
+      "priority": 4,
+      "action": "Test refactored scripts on sample data",
+      "owner": "CE/QA",
+      "estimated_hours": "2-3",
+      "depends_on": "Script refactoring complete"
+    },
+    {
+      "priority": 5,
+      "action": "Update intelligence files with final schema specifications",
+      "owner": "CE",
+      "estimated_hours": "1-2",
+      "depends_on": "Testing complete"
+    },
+    {
+      "priority": 6,
+      "action": "Launch Tier 1 with regression-enriched schemas",
+      "owner": "BA",
+      "estimated_hours": "15-20",
+      "depends_on": "All testing and updates complete"
+    }
+  ],
+
+  "critical_notes": [
+    "⚠️ Current Tier 1 scripts are NON-COMPLIANT with user mandate",
+    "⚠️ Launching without regression features violates P0-CRITICAL mandate",
+    "⚠️ Proceeding then refactoring later = double cost ($250-340 total)",
+    "✅ Halting to refactor now = single cost ($150-200 total), correct architecture",
+    "✅ Regression features have high ML predictive value",
+    "✅ Multi-level feature hierarchy is foundational architecture requirement"
+  ]
+}

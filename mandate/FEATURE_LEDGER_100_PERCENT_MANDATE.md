@@ -1,18 +1,24 @@
 # Feature Ledger Mandate: 100% Coverage Requirement
 
 **Document Type**: MANDATE (Authoritative)
-**Date**: December 12, 2025 (Updated)
-**Version**: 1.1.0
+**Date**: December 13, 2025 (Updated - Post-Audit Reconciliation)
+**Version**: 1.2.0
 **Status**: ACTIVE
 **Deployment**: Cloud Run serverless with Polars merge
+**Mandate Compliance**: M005, M006, M007, M008 integrated
 
 ---
 
 ## MANDATE STATEMENT
 
-**Every model must account for 100% of all features in the feature universe.**
+**Every model must account for 100% of all features (columns) in the feature universe.**
 
-This mandate ensures complete traceability and auditability of feature selection decisions across all 588 models (28 pairs × 7 horizons × 3 ensemble members - ElasticNet removed).
+This mandate ensures complete traceability and auditability of feature selection decisions across all **784 models** (28 pairs × 7 horizons × 4 ensemble members).
+
+**CLARIFICATION** (2025-12-13 Audit):
+- **Total columns per model**: ~11,337 (for cost estimation, includes duplicates across tables)
+- **Unique features per model**: 1,127 (after merge/dedup, for ML training, M005/M006/M007 compliant)
+- **Ledger tracks**: ALL columns that contribute to the 1,127 unique features
 
 **Pipeline Architecture** (Updated 2025-12-12):
 - **Extraction**: Cloud Run serverless (BigQuery → Parquet checkpoints, 60-70 min)
@@ -24,15 +30,22 @@ This mandate ensures complete traceability and auditability of feature selection
 
 ## FEATURE UNIVERSE DEFINITION
 
-### Total Features Per Model: 6,477
+### Total Unique Features Per Model: 1,127 (POST-AUDIT 2025-12-13)
 
-| Category | Features | Percentage | Description |
-|----------|----------|------------|-------------|
-| Pair-Specific | 1,569 | 24% | Features computed for the model's target pair |
-| Cross-Pair | 4,332 | 67% | cov (2,004) + corr (240) + tri (2,088) |
-| Market-Wide | 576 | 9% | mkt features aggregated across all pairs |
-| Currency-Level (CSI) | 0 | 0% | GAP - Implementation in progress (192 tables) |
-| **TOTAL** | **6,477** | **100%** | All features must be in ledger |
+**IMPORTANT CLARIFICATION**:
+- **11,337 total columns** across all BigQuery tables (includes duplicates, used for cost estimation)
+- **1,127 unique features** after merge/dedup (actual ML training features, M005/M006/M007 compliant)
+- **Ledger requirement**: Track ALL columns, deduplicate to unique features for validation
+
+| Category | Unique Features | Percentage | Description |
+|----------|-----------------|------------|-------------|
+| Pair-Specific | ~590 | 52% | Features computed for the model's target pair (agg, mom, vol, reg, etc.) |
+| Cross-Pair (TRI) | ~132 | 12% | Triangular arbitrage features (tri_*) |
+| Market-Wide | ~346 | 31% | mkt features aggregated across all pairs |
+| Other (CSI, etc.) | ~59 | 5% | Currency strength indices and other specialized features |
+| **TOTAL** | **1,127** | **100%** | All unique features must be in ledger (M005/M006/M007 compliant) |
+
+**Note**: Previous estimates cited "6,477 features" which was the total column count before deduplication. Corrected after 2025-12-13 audit.
 
 ### Feature Type Breakdown (20 Types)
 
@@ -85,19 +98,22 @@ This mandate ensures complete traceability and auditability of feature selection
 
 ## EXPECTED LEDGER SIZE
 
-### Per Pair-Horizon-Model Combination
+### Per Pair-Horizon-Model Combination (UPDATED 2025-12-13)
 
-| Configuration | Count |
-|---------------|-------|
-| Pairs | 28 |
-| Horizons | 7 |
-| Ensemble Members | 4 |
-| Features per Model | 6,477 |
-| **Total Ledger Rows** | **1,269,492** |
+| Configuration | Count | Notes |
+|---------------|-------|-------|
+| Pairs | 28 | All forex pairs |
+| Horizons | 7 | h15, h30, h45, h60, h75, h90, h105 |
+| Ensemble Members | 4 | LightGBM, XGBoost, CatBoost, Meta-learner |
+| **Total Models** | **784** | 28 × 7 × 4 |
+| **Unique Features per Model** | **1,127** | POST-AUDIT (M005/M006/M007 compliant) |
+| **Total Ledger Rows** | **883,568** | 784 × 1,127 (if tracked per model) |
 
-Formula: `28 × 7 × 4 × 6,477 = 5,077,968` (full expansion)
+Formula Options:
+- **Per-model tracking**: `28 × 7 × 4 × 1,127 = 883,568 rows` (tracks each ensemble member separately)
+- **Per-pair-horizon tracking**: `28 × 7 × 1,127 = 220,892 rows` (shared across ensemble members)
 
-Note: If tracking at pair-horizon level (not per ensemble member): `28 × 7 × 6,477 = 1,269,492`
+**Recommended**: Per-pair-horizon tracking (220,892 rows) - ensemble members share feature selection within each pair-horizon.
 
 ---
 
@@ -106,16 +122,16 @@ Note: If tracking at pair-horizon level (not per ensemble member): `28 × 7 × 6
 ### V1: Row Count Validation (CRITICAL)
 
 ```sql
--- Must equal expected count for each pair-horizon
+-- Must equal expected count for each pair-horizon (POST-AUDIT: 1,127 unique features)
 SELECT pair, horizon,
        COUNT(*) as row_count,
        COUNT(DISTINCT feature_name) as unique_features
 FROM feature_ledger
 GROUP BY pair, horizon
-HAVING COUNT(*) != 6477 OR COUNT(DISTINCT feature_name) != 6477
+HAVING COUNT(*) != 1127 OR COUNT(DISTINCT feature_name) != 1127
 ```
 
-**Failure Mode**: Any pair-horizon with != 6,477 rows is INVALID.
+**Failure Mode**: Any pair-horizon with != 1,127 rows is INVALID (updated from 6,477 after 2025-12-13 audit).
 
 ### V2: Status Coverage Validation (CRITICAL)
 
@@ -142,11 +158,12 @@ GROUP BY pair, horizon, feature_scope
 ORDER BY pair, horizon, feature_scope
 ```
 
-**Expected per pair-horizon:**
-- pair_specific: 1,569
-- cross_pair: 4,332
-- market_wide: 576
-- currency_level: 0 (until CSI implemented)
+**Expected per pair-horizon** (POST-AUDIT 2025-12-13):
+- pair_specific: ~590 (52%)
+- cross_pair: ~132 (12% - TRI features)
+- market_wide: ~346 (31%)
+- other (CSI, etc.): ~59 (5%)
+- **TOTAL**: 1,127 unique features (M005/M006/M007 compliant)
 
 ### V4: Pruned Feature Audit (AUDIT)
 
@@ -165,12 +182,13 @@ GROUP BY pair, horizon
 ### V5: Cross-Reference with Feature Catalogue (CRITICAL)
 
 ```python
-# Every feature in catalogue must appear in ledger
-catalogue_features = load_catalogue()  # 6,477 per pair
+# Every feature in catalogue must appear in ledger (POST-AUDIT: 1,127 unique features)
+catalogue_features = load_catalogue()  # 1,127 unique features per pair (M005/M006/M007 compliant)
 ledger_features = load_ledger(pair='EURUSD', horizon='h15')
 
 missing = set(catalogue_features) - set(ledger_features['feature_name'])
 assert len(missing) == 0, f"Missing features: {missing}"
+assert len(catalogue_features) == 1127, f"Expected 1,127 features, got {len(catalogue_features)}"
 ```
 
 ---
@@ -182,11 +200,13 @@ assert len(missing) == 0, f"Missing features: {missing}"
 **File**: `scripts/generate_feature_ledger.py`
 
 **Responsibilities**:
-1. Query all 4,888 tables in bqx_ml_v3_features_v2
+1. Query all 6,069 tables in bqx_ml_v3_features_v2 (AUDITED 2025-12-13)
 2. Extract all feature columns per table
 3. Classify by scope (pair, cross_pair, market_wide, currency_level)
-4. Generate initial ledger with final_status = 'PENDING'
-5. Output: `feature_ledger_initial.parquet`
+4. Deduplicate to 1,127 unique features per pair (M005/M006/M007 compliant)
+5. Generate initial ledger with final_status = 'PENDING'
+6. Validate M008 naming standard compliance for all feature columns
+7. Output: `feature_ledger_initial.parquet`
 
 ### Phase 2: Feature Selection Integration
 
@@ -318,19 +338,26 @@ Each feature ledger must include metadata:
 
 ```json
 {
-  "ledger_version": "1.0.0",
-  "generated": "2025-12-09T12:00:00Z",
+  "ledger_version": "1.2.0",
+  "generated": "2025-12-13T12:00:00Z",
   "pair": "EURUSD",
   "horizon": "h15",
-  "feature_universe_count": 6477,
+  "feature_universe_count": 1127,
   "retained_count": 399,
-  "pruned_count": 6078,
+  "pruned_count": 728,
   "excluded_count": 0,
+  "mandate_compliance": {
+    "M005_regression_features": true,
+    "M006_maximize_comparisons": true,
+    "M007_semantic_compatibility": true,
+    "M008_naming_standard": true
+  },
   "validation": {
     "row_count_valid": true,
     "status_coverage_valid": true,
     "scope_distribution_valid": true,
-    "shap_coverage_valid": true
+    "shap_coverage_valid": true,
+    "mandate_compliance_valid": true
   }
 }
 ```
@@ -355,15 +382,52 @@ No model deployment until:
 
 ---
 
+## FOUR-MANDATE INTEGRATION (2025-12-13)
+
+This Feature Ledger Mandate integrates with and depends on four architectural mandates:
+
+### M005: Regression Feature Architecture
+**Impact on Ledger**: Adds 35 regression features per pair (lin_coef, quad_coef, lin_term, quad_term, residual)
+- **Ledger requirement**: Track all regression feature columns across REG, COV, TRI tables
+- **Validation**: Verify presence of all 5 regression metrics × 7 windows × relevant tables
+
+### M006: Maximize Feature Comparisons
+**Impact on Ledger**: Expands cross-pair features through comprehensive COV/TRI coverage
+- **Ledger requirement**: Track 3,528 COV tables (all 378 pair combinations)
+- **Validation**: Ensure each pair-horizon receives appropriate cross-pair features
+
+### M007: Semantic Feature Compatibility
+**Impact on Ledger**: Defines 9 semantic groups, constrains valid feature comparisons
+- **Ledger requirement**: Tag features with semantic group (1-9)
+- **Validation**: Verify only semantically compatible features are compared in COV/TRI
+
+### M008: Naming Standard Mandate
+**Impact on Ledger**: Ensures consistent naming across all 6,069 tables and 1,127 features
+- **Ledger requirement**: Validate all feature_name entries comply with M008 patterns
+- **Validation**: Reject any non-compliant feature names (95.6% currently compliant)
+
+**Combined Impact**: The 1,127 unique features per model result from M005 (WHAT to add), M006 (HOW MUCH to compare), M007 (WHICH are valid), and M008 (HOW to name).
+
+---
+
 ## REFERENCES
 
-- [feature_catalogue.json](../intelligence/feature_catalogue.json) - Authoritative feature inventory
+### Intelligence Files
+- [feature_catalogue.json](../intelligence/feature_catalogue.json) - Authoritative feature inventory (1,127 features)
 - [roadmap_v2.json](../intelligence/roadmap_v2.json) - Phase 4/5 governance gate
 - [ontology.json](../intelligence/ontology.json) - Feature type taxonomy
+- [context.json](../intelligence/context.json) - Project context (6,069 tables, 784 models)
+
+### Mandate Files
+- [REGRESSION_FEATURE_ARCHITECTURE_MANDATE.md](./REGRESSION_FEATURE_ARCHITECTURE_MANDATE.md) - M005 (WHAT to add)
+- [MAXIMIZE_FEATURE_COMPARISONS_MANDATE.md](./MAXIMIZE_FEATURE_COMPARISONS_MANDATE.md) - M006 (HOW MUCH to compare)
+- [SEMANTIC_FEATURE_COMPATIBILITY_MANDATE.md](./SEMANTIC_FEATURE_COMPATIBILITY_MANDATE.md) - M007 (WHICH are valid)
+- [NAMING_STANDARD_MANDATE.md](./NAMING_STANDARD_MANDATE.md) - M008 (HOW to name)
 - [BQX_TARGET_FORMULA_MANDATE.md](./BQX_TARGET_FORMULA_MANDATE.md) - Target specification
 
 ---
 
 **CE Signature**: Claude (Chief Engineer, BQX ML V3)
-**Date**: December 9, 2025
+**Date**: December 13, 2025 (Updated - Post-Audit Reconciliation)
 **Mandate Status**: ACTIVE AND BINDING
+**Version**: 1.2.0 (M005/M006/M007/M008 integrated)

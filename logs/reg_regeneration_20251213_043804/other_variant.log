@@ -1,0 +1,158 @@
+======================================================================
+REG Table Generator V5 - BQX-ML-M005 MANDATE COMPLIANT
+======================================================================
+Variant:     OTHER
+Dataset:     bqx_ml_v3_features_v2
+Pairs:       28
+Test mode:   False
+Dry run:     False
+
+NEW COLUMNS (14 per table):
+  - reg_lin_coef_45, reg_lin_coef_90, ..., reg_lin_coef_2880 (7)
+  - reg_quad_coef_45, reg_quad_coef_90, ..., reg_quad_coef_2880 (7)
+
+Total columns: 248 (was 234)
+======================================================================
+Creating reg_eurusd... ❌ FAILED: reg_eurusd
+  Error: BigQuery error in query operation: Error processing job 'bqx-
+ml:bqjob_r795ee53000dfdb45_0000019b16b403f4_1': Not found: Table bqx-
+ml:bqx_ml_v3_features_v2.eurusd_idx was not found in location us-central1
+
+Creating reg_gbpusd... ❌ FAILED: reg_gbpusd
+  Error: BigQuery error in query operation: Error processing job 'bqx-
+ml:bqjob_r7064eabe766d3f5_0000019b16b4118e_1': Not found: Table bqx-
+ml:bqx_ml_v3_features_v2.gbpusd_idx was not found in location us-central1
+
+Creating reg_usdjpy... ❌ FAILED: reg_usdjpy
+  Error: BigQuery error in query operation: Error processing job 'bqx-
+ml:bqjob_r584084b4849e6b83_0000019b16b41ea0_1': Not found: Table bqx-
+ml:bqx_ml_v3_features_v2.usdjpy_idx was not found in location us-central1
+
+Creating reg_usdchf... ❌ FAILED: reg_usdchf
+  Error: BigQuery error in query operation: Error processing job 'bqx-
+ml:bqjob_r37418116ae3c8381_0000019b16b42c0c_1': Not found: Table bqx-
+ml:bqx_ml_v3_features_v2.usdchf_idx was not found in location us-central1
+
+Creating reg_audusd... ❌ FAILED: reg_audusd
+  Error: BigQuery error in query operation: Error processing job 'bqx-
+ml:bqjob_r7d657c507d25c14f_0000019b16b4395e_1': Not found: Table bqx-
+ml:bqx_ml_v3_features_v2.audusd_idx was not found in location us-central1
+
+Creating reg_usdcad... ❌ FAILED: reg_usdcad
+  Error: BigQuery error in query operation: Error processing job 'bqx-
+ml:bqjob_r20b72cd12427b37_0000019b16b44634_1': Not found: Table bqx-
+ml:bqx_ml_v3_features_v2.usdcad_idx was not found in location us-central1
+
+Creating reg_nzdusd... ❌ FAILED: reg_nzdusd
+  Error: BigQuery error in query operation: Error processing job 'bqx-
+ml:bqjob_r497bb027c5467b22_0000019b16b4538b_1': Not found: Table bqx-
+ml:bqx_ml_v3_features_v2.nzdusd_idx was not found in location us-central1
+
+Creating reg_eurgbp... ❌ FAILED: reg_eurgbp
+  Error: BigQuery error in query operation: Error processing job 'bqx-
+ml:bqjob_r57fee6fc6349a4e9_0000019b16b4608c_1': Not found: Table bqx-
+ml:bqx_ml_v3_features_v2.eurgbp_idx was not found in location us-central1
+
+Creating reg_eurjpy... ❌ FAILED: reg_eurjpy
+  Error: BigQuery error in query operation: Error processing job 'bqx-
+ml:bqjob_rf45eae36befaa21_0000019b16b46d89_1': Not found: Table bqx-
+ml:bqx_ml_v3_features_v2.eurjpy_idx was not found in location us-central1
+
+Creating reg_eurchf... ❌ FAILED: reg_eurchf
+  Error: BigQuery error in query operation: Error processing job 'bqx-
+ml:bqjob_r3e0250319c244bda_0000019b16b47a99_1': Not found: Table bqx-
+ml:bqx_ml_v3_features_v2.eurchf_idx was not found in location us-central1
+
+Creating reg_euraud... ❌ FAILED: reg_euraud
+  Error: BigQuery error in query operation: Error processing job 'bqx-
+ml:bqjob_r4e736b2ee6c24a50_0000019b16b48790_1': Not found: Table bqx-
+ml:bqx_ml_v3_features_v2.euraud_idx was not found in location us-central1
+
+Creating reg_eurcad... ❌ FAILED: reg_eurcad
+  Error: BigQuery error in query operation: Error processing job 'bqx-
+ml:bqjob_r17302173f3ab3e91_0000019b16b4948d_1': Not found: Table bqx-
+ml:bqx_ml_v3_features_v2.eurcad_idx was not found in location us-central1
+
+Creating reg_eurnzd... ❌ FAILED: reg_eurnzd
+  Error: BigQuery error in query operation: Error processing job 'bqx-
+ml:bqjob_r5d899948d1d7e809_0000019b16b4a154_1': Not found: Table bqx-
+ml:bqx_ml_v3_features_v2.eurnzd_idx was not found in location us-central1
+
+Creating reg_gbpjpy... ❌ FAILED: reg_gbpjpy
+  Error: BigQuery error in query operation: Error processing job 'bqx-
+ml:bqjob_r24d74e6618474d12_0000019b16b4ae39_1': Not found: Table bqx-
+ml:bqx_ml_v3_features_v2.gbpjpy_idx was not found in location us-central1
+
+Creating reg_gbpchf... ❌ FAILED: reg_gbpchf
+  Error: BigQuery error in query operation: Error processing job 'bqx-
+ml:bqjob_r4d3a2de38e5689d1_0000019b16b4bb61_1': Not found: Table bqx-
+ml:bqx_ml_v3_features_v2.gbpchf_idx was not found in location us-central1
+
+Creating reg_gbpaud... ❌ FAILED: reg_gbpaud
+  Error: BigQuery error in query operation: Error processing job 'bqx-
+ml:bqjob_r5fb846fe5c274ab4_0000019b16b4c849_1': Not found: Table bqx-
+ml:bqx_ml_v3_features_v2.gbpaud_idx was not found in location us-central1
+
+Creating reg_gbpcad... ❌ FAILED: reg_gbpcad
+  Error: BigQuery error in query operation: Error processing job 'bqx-
+ml:bqjob_r6221dd4b4bea6a1b_0000019b16b4d53f_1': Not found: Table bqx-
+ml:bqx_ml_v3_features_v2.gbpcad_idx was not found in location us-central1
+
+Creating reg_gbpnzd... ❌ FAILED: reg_gbpnzd
+  Error: BigQuery error in query operation: Error processing job 'bqx-
+ml:bqjob_r65d744c125b5aa37_0000019b16b4e1ea_1': Not found: Table bqx-
+ml:bqx_ml_v3_features_v2.gbpnzd_idx was not found in location us-central1
+
+Creating reg_audjpy... ❌ FAILED: reg_audjpy
+  Error: BigQuery error in query operation: Error processing job 'bqx-
+ml:bqjob_r75dfbcb38ae57ce4_0000019b16b4eeb2_1': Not found: Table bqx-
+ml:bqx_ml_v3_features_v2.audjpy_idx was not found in location us-central1
+
+Creating reg_audchf... ❌ FAILED: reg_audchf
+  Error: BigQuery error in query operation: Error processing job 'bqx-
+ml:bqjob_r1c3d31091e852494_0000019b16b4fb72_1': Not found: Table bqx-
+ml:bqx_ml_v3_features_v2.audchf_idx was not found in location us-central1
+
+Creating reg_audcad... ❌ FAILED: reg_audcad
+  Error: BigQuery error in query operation: Error processing job 'bqx-
+ml:bqjob_r283343c41bd8262c_0000019b16b5080f_1': Not found: Table bqx-
+ml:bqx_ml_v3_features_v2.audcad_idx was not found in location us-central1
+
+Creating reg_audnzd... ❌ FAILED: reg_audnzd
+  Error: BigQuery error in query operation: Error processing job 'bqx-
+ml:bqjob_r7b338490364c9862_0000019b16b51560_1': Not found: Table bqx-
+ml:bqx_ml_v3_features_v2.audnzd_idx was not found in location us-central1
+
+Creating reg_nzdjpy... ❌ FAILED: reg_nzdjpy
+  Error: BigQuery error in query operation: Error processing job 'bqx-
+ml:bqjob_r2057190829336223_0000019b16b522b7_1': Not found: Table bqx-
+ml:bqx_ml_v3_features_v2.nzdjpy_idx was not found in location us-central1
+
+Creating reg_nzdchf... ❌ FAILED: reg_nzdchf
+  Error: BigQuery error in query operation: Error processing job 'bqx-
+ml:bqjob_r23afd935abb5f137_0000019b16b52f74_1': Not found: Table bqx-
+ml:bqx_ml_v3_features_v2.nzdchf_idx was not found in location us-central1
+
+Creating reg_nzdcad... ❌ FAILED: reg_nzdcad
+  Error: BigQuery error in query operation: Error processing job 'bqx-
+ml:bqjob_r5365cdc508230a11_0000019b16b53c8f_1': Not found: Table bqx-
+ml:bqx_ml_v3_features_v2.nzdcad_idx was not found in location us-central1
+
+Creating reg_cadjpy... ❌ FAILED: reg_cadjpy
+  Error: BigQuery error in query operation: Error processing job 'bqx-
+ml:bqjob_ra7906deba780d08_0000019b16b549a4_1': Not found: Table bqx-
+ml:bqx_ml_v3_features_v2.cadjpy_idx was not found in location us-central1
+
+Creating reg_cadchf... ❌ FAILED: reg_cadchf
+  Error: BigQuery error in query operation: Error processing job 'bqx-
+ml:bqjob_r6461473965e8e380_0000019b16b556f5_1': Not found: Table bqx-
+ml:bqx_ml_v3_features_v2.cadchf_idx was not found in location us-central1
+
+Creating reg_chfjpy... ❌ FAILED: reg_chfjpy
+  Error: BigQuery error in query operation: Error processing job 'bqx-
+ml:bqjob_r4054cca8facf6603_0000019b16b563d6_1': Not found: Table bqx-
+ml:bqx_ml_v3_features_v2.chfjpy_idx was not found in location us-central1
+
+======================================================================
+Success: 0, Failed: 28
+⚠️ WARNING: 28 tables failed to generate

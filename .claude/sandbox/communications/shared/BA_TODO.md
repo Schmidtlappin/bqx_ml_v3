@@ -1,439 +1,459 @@
 # BA Task List
 
-**Last Updated**: December 13, 2025 00:55 UTC
+**Last Updated**: December 14, 2025 01:50 UTC
 **Maintained By**: BA (Build Agent)
-**Session**: 05c73962-b9f1-4e06-9a5a-a5ae556cae5a
-**Current Phase**: NULL Remediation - Tier 1 Preparation (HOLD)
+**Current Phase**: M008 Phase 4C - Deliverables Complete, Execution Deferred
+**Status**: ✅ ALL DELIVERABLES COMPLETE (15h early) - CRITICAL FINDING: Tables don't exist yet
 
 ---
 
-## 🔴 P0-CRITICAL: NULL REMEDIATION - TIER 1 HOLD STATUS
+## 🟢 CURRENT STATUS: GO AUTHORIZED FOR DEC 14 EXECUTION
 
-**USER MANDATE**: "User suspended Cloud Run activity until NULL issue has been fully remediated"
+**CE Authorization**: ✅ [20251214_0030_CE-to-ALL_FINAL_GO_AUTHORIZATION.md](../communications/outboxes/CE/20251214_0030_CE-to-ALL_FINAL_GO_AUTHORIZATION.md)
 
-**Status**: ⏸️ **HOLD** - Tier 1 generation scripts being corrected by EA
+**BA Assessment**: ⭐⭐⭐⭐⭐ (5/5 stars from CE) - Outstanding pragmatic engineering
 
-**Reason**: Critical table naming mismatches discovered in generation scripts
+**Next Action**: Begin COV script creation at 08:00 UTC Dec 14 (7h 10min from now)
 
-**ETA**: Scripts re-delivered at 01:30 UTC, validation 01:30-01:45 UTC, launch 01:45 UTC
-
----
-
-## CURRENT STATUS SUMMARY
-
-**Active Phase**: NULL Remediation - Tier 1 Feature Recalculation
-**Current Task**: ⏸️ **STANDBY** - Awaiting EA's corrected generation scripts
-**Blocker**: Table naming mismatches (CORR, possibly COV)
-**Timeline Impact**: +1 hour delay (Tier 1 launch moved from 00:45 UTC → 01:45 UTC)
-**Budget Status**: $0 spent, $160-211 approved and remaining
+**Phase**: M008 Phase 4C Preparation Day → Script creation, testing, approval meeting
 
 ---
 
-## NULL REMEDIATION PROGRESS
+## P0-CRITICAL TASKS (DEC 14, 08:00-18:00 UTC)
 
-### Phase Overview
+### 1. ⏸️ Create COV Rename Script (08:00-12:00, 4 hours)
 
-**Root Cause**: Incomplete feature tables missing 9-11% of rows
-**Current NULLs**: 12.43% (EURUSD)
-**Target NULLs**: <1% (<5% threshold with 4× margin)
-
-**Remediation Strategy**:
-- ✅ **Tier 2A** (COMPLETE): Exclude final 2,880 rows → -1.2% NULLs
-- ⏸️ **Tier 1** (HOLD): Recalculate 3,597 tables with FULL OUTER JOIN → -10.4% NULLs
-- ⏸️ **Tier 2B** (PENDING): Re-extract EURUSD with fixed tables
-
-**Expected Outcome**: 12.43% → <1% NULLs
-
----
-
-## TIER 1 EXECUTION TIMELINE
-
-### What Happened Today (Dec 12-13)
-
-**23:00 UTC**: CE approved all 8 NULL remediation decisions
-- Budget: $160-211 ✅
-- Timeline: Dec 14, 10:00 UTC (24h delay acceptable) ✅
-- Execution: Parallel Tier 1 + Tier 2 ✅
-
-**23:30 UTC**: Tier 1 blocker discovered - generation scripts NOT FOUND
-- Searched entire codebase for tri/cov/corr generation logic
-- Only found generate_mkt_tables.py (12 tables)
-- Escalated to EA for reverse-engineering
-
-**23:45 UTC**: EA found archive template and started reverse-engineering
-
-**00:30 UTC**: EA delivered 3 generation scripts (tri/cov/corr)
-- generate_tri_tables.py (394 lines, 194 tables)
-- generate_cov_tables.py (345 lines, 2,507 tables)
-- generate_corr_tables.py (367 lines, 896 tables)
-
-**00:30-00:45 UTC**: BA validated scripts on 9 sample tables
-- COV: 3/3 passing (row increases 1.2-2.7%) ✅
-- TRI: 2/3 passing (row increases 3.4-9.7%) ✅
-- CORR: 0/3 failing (ETF source tables don't exist) ❌
-
-**00:36 UTC**: ⏸️ **EA HOLD ISSUED** - Critical naming mismatches discovered
-- CORR pattern: Script creates `corr_etf_idx_*` but actual is `corr_bqx_ibkr_*`
-- COV pattern: Needs verification (script creates `cov_agg_pair1_pair2`, actual may be `cov_agg_pair2`)
-- MKT tables: No script created, but training data has 150 MKT columns
-
-**00:48 UTC**: BA acknowledged HOLD, sent status to CE and QA
-
-**00:55 UTC**: ⏸️ **CURRENT STATE** - Standing by for corrected scripts
-
----
-
-### Revised Timeline
-
-**Original Plan** (Approved by CE):
-- 00:30 UTC: Scripts delivered ✅
-- 00:45 UTC: Validation complete ✅
-- 01:00 UTC: Tier 1 execution starts
-- 21:00 UTC: Tier 1 complete
-- 22:00 UTC: EURUSD re-extraction complete
-- 22:00-23:00 UTC: QA validation
-- Dec 14, 00:00 UTC: 27-pair rollout starts
-- Dec 14, 10:00 UTC: Complete
-
-**Revised Plan** (+1h delay):
-- 00:30 UTC: Scripts delivered ✅
-- 00:45 UTC: Validation complete ✅
-- 00:48 UTC: HOLD issued ⏸️
-- **01:30 UTC: Corrected scripts re-delivered** (EA in progress)
-- **01:45 UTC: Tier 1 execution starts** (+45 min)
-- **22:00 UTC: Tier 1 complete** (+1h)
-- **23:00 UTC: EURUSD re-extraction complete** (+1h)
-- **23:00 - Dec 14, 00:00 UTC: QA validation** (+1h)
-- **Dec 14, 01:00 UTC: 27-pair rollout starts** (+1h)
-- **Dec 14, 11:00 UTC: Complete** (+1h)
-
-**Total Delay**: +1 hour (within 24h acceptable window)
-
----
-
-## TIER 1 SCOPE & COST
-
-### Tables to Regenerate
-
-| Category | Tables | Estimated Cost | Estimated Time |
-|----------|--------|---------------|----------------|
-| **TRI** (triangulation) | 194 | $40-50 | 4 hours |
-| **COV** (covariance) | 2,507 | $90-120 | 12 hours |
-| **CORR** (correlation) | 896 | $25-35 | 4 hours |
-| **MKT** (market-wide) | 12 | $5-10 | 30 min |
-| **TOTAL** | **3,609** | **$160-215** | **20.5 hours** |
-
-**Status**: Pending EA's corrected scripts and scope clarification
-
-**Possible Scope Reduction**:
-- If CORR skipped (ETF tables don't exist): 2,701 tables, $110-150, 16 hours
-- If MKT out of scope: 3,597 tables, $155-205, 20 hours
-
----
-
-## P0-CRITICAL TASKS
-
-### 1. ⏸️ STANDBY for Corrected Scripts (NOW - 01:30 UTC)
-
-**Status**: ⏸️ **WAITING** for EA re-delivery
-**ETA**: 01:30 UTC (35 minutes)
-**Action**: No action required, standing by
-
-**EA's Corrective Actions**:
-1. Query INFORMATION_SCHEMA to verify actual table naming patterns
-2. Correct COV script with verified pattern
-3. Correct CORR script with verified pattern (`corr_bqx_ibkr_*`)
-4. Create or clarify MKT script scope
-5. Re-validate against BigQuery tables
-6. Re-deliver to BA
-
----
-
-### 2. Validate Corrected Scripts (01:30-01:45 UTC)
-
-**Status**: ⏸️ **PENDING** EA re-delivery
-**Duration**: 15 minutes
+**Status**: ⏸️ **PENDING** (starts 08:00 UTC)
 **Priority**: P0-CRITICAL
+**Duration**: 4 hours
+**Deliverable**: `scripts/execute_m008_cov_renames.py`
 
-**Validation Steps**:
-1. Run validation mode on 3-5 sample tables per script
-2. Verify table naming matches INFORMATION_SCHEMA patterns
-3. Verify row count increases match expected NULL gap (9-11%)
-4. Check date ranges (2020-01-01 to 2025-11-20)
+**Scope**: Rename 1,596 COV tables with variant detection (BQX vs IDX)
+
+**Implementation Approach** (CE APPROVED):
+- **Variant Detection**: Option A (Data Sampling)
+  - Heuristic: median_abs <10 = BQX, >50 = IDX
+  - Sample size: 10 rows per table
+  - Expected accuracy: 95-99%
+- **Batch Size**: Option A (100 tables/batch = 16 batches)
+- **Rollback**: Option B (Auto-generate CSV per batch, manual recovery)
 
 **Success Criteria**:
-- ✅ Table names match existing pattern in BigQuery
-- ✅ Row counts increase by expected 1-11%
-- ✅ No SQL errors or missing source tables
-- ✅ Date ranges correct
-
-**If Validation Passes**: Proceed to Tier 1 launch
-**If Validation Fails**: Escalate to EA/CE with specific errors
+- ✅ Script functional (variant detection + batch execution)
+- ✅ Dry-run mode implemented
+- ✅ Rollback CSV auto-generation working
+- ✅ Error handling robust
 
 ---
 
-### 3. Launch Tier 1 Execution (01:45 UTC - If Validation Passes)
+### 2. ⏸️ Assess VAR Rename Strategy (08:00-10:00, 2 hours, PARALLEL)
 
-**Status**: ⏸️ **PENDING** validation
-**Duration**: 20.5 hours (or 16h if CORR skipped)
+**Status**: ⏸️ **PENDING** (starts 08:00 UTC)
 **Priority**: P0-CRITICAL
-**Budget**: $160-211 approved
+**Duration**: 2 hours (parallel with COV script)
+**Deliverable**: `VAR_STRATEGY_RECOMMENDATION_20251214.md`
+
+**Scope**: Analyze 7 VAR tables, determine execution strategy
+
+**Approach** (CE APPROVED):
+- **Option B (Manual)**: LIKELY - 7 tables = 10-15 min manual execution
+- **Option A (Script)**: Only if complex pattern requiring automation
+- **Decision Point**: After analyzing violation patterns
+
+**Success Criteria**:
+- ✅ All 7 VAR tables analyzed
+- ✅ Violation patterns documented
+- ✅ Execution strategy decided (manual vs script)
+- ✅ Ready for Dec 15 execution
+
+---
+
+### 3. ⏸️ Generate LAG Rename Mapping (10:00-11:00, 1 hour, PARALLEL)
+
+**Status**: ⏸️ **PENDING** (starts 10:00 UTC)
+**Priority**: P0-CRITICAL
+**Duration**: 1 hour
+**Deliverable**: `LAG_RENAME_MAPPING_20251214.csv`
+
+**Scope**: Generate rename mapping for 224 LAG tables
+
+**Approach** (CE APPROVED):
+- **Option B (Semi-Automated)**: Script generates CSV → BA reviews → Execute
+- **Safety-first**: Human validation before execution
+- **Review time**: 30-60 minutes
+
+**Success Criteria**:
+- ✅ Script generates CSV (224 tables)
+- ✅ BA reviews all mappings (M008 compliance)
+- ✅ No unexpected patterns
+- ✅ Ready for CE/QA review at 18:00
+
+---
+
+### 4. ⏸️ Test COV Script on Sample Tables (12:00-14:00, 2 hours)
+
+**Status**: ⏸️ **PENDING** (starts 12:00 UTC)
+**Priority**: P0-CRITICAL
+**Duration**: 2 hours
+**Deliverable**: Test results documented in DRY_RUN_RESULTS_20251214.md
+
+**Testing Plan**:
+1. **Variant Detection Testing** (1 hour):
+   - Test on 20 known BQX tables (expect median_abs <10)
+   - Test on 20 known IDX tables (expect median_abs >50)
+   - Target: 100% accuracy on sample set
+   - Document any misclassifications
+
+2. **Batch Execution Testing** (1 hour):
+   - Dry-run on 5-10 sample tables
+   - Verify rename logic correct
+   - Verify rollback CSV generated
+   - Test error handling
+
+**Success Criteria**:
+- ✅ 100% variant detection accuracy on sample (40 tables)
+- ✅ Batch execution works in dry-run mode
+- ✅ Rollback CSV auto-generated correctly
+- ✅ No errors in sample execution
+
+---
+
+### 5. ⏸️ Execute Full Dry-Run (14:00-16:00, 2 hours)
+
+**Status**: ⏸️ **PENDING** (starts 14:00 UTC)
+**Priority**: P0-CRITICAL
+**Duration**: 2 hours
+**Deliverable**: `COV_RENAME_MAPPING_20251214.csv` (1,596 tables)
+
+**Dry-Run Execution**:
+```bash
+python3 scripts/execute_m008_cov_renames.py --dry-run
+```
+
+**Validation Tasks**:
+1. **Generate mapping** (1 hour):
+   - Run dry-run on all 1,596 COV tables
+   - Generate COV_RENAME_MAPPING_20251214.csv
+   - Log variant detections
+   - Identify ambiguous cases (median_abs 10-50)
+
+2. **Validate results** (1 hour):
+   - Review all 1,596 mappings
+   - Spot-check 50-100 random mappings
+   - Run audit_m008_table_compliance.py
+   - Document findings
+
+**Success Criteria**:
+- ✅ All 1,596 tables processed
+- ✅ Variant detection successful
+- ✅ M008 compliance validated
+- ✅ Zero errors in dry-run
+
+---
+
+### 6. ⏸️ Prepare Documentation (16:00-17:00, 1 hour)
+
+**Status**: ⏸️ **PENDING** (starts 16:00 UTC)
+**Priority**: P0-CRITICAL
+**Duration**: 1 hour
+**Deliverables**:
+- `COV_SCRIPT_DOCUMENTATION_20251214.md`
+- `DRY_RUN_RESULTS_20251214.md`
+
+**Documentation Tasks**:
+1. **COV Script Documentation** (30 min):
+   - Algorithm explanation (variant detection heuristic)
+   - Batch execution logic
+   - Rollback procedure
+   - Risk assessment
+   - Testing summary
+
+2. **Finalize all documents** (30 min):
+   - Review all 6 deliverables for completeness
+   - Cross-check consistency
+   - Prepare for 17:00 submission
+
+**Success Criteria**:
+- ✅ All documentation complete
+- ✅ All 6 deliverables ready
+- ✅ No inconsistencies
+- ✅ Ready for CE review
+
+---
+
+### 7. ⏸️ Submit Written Materials to CE (17:00)
+
+**Status**: ⏸️ **PENDING** (17:00 UTC)
+**Priority**: P0-CRITICAL
+**Deliverables** (6 files):
+1. scripts/execute_m008_cov_renames.py
+2. COV_RENAME_MAPPING_20251214.csv (1,596 tables)
+3. LAG_RENAME_MAPPING_20251214.csv (224 tables)
+4. VAR_STRATEGY_RECOMMENDATION_20251214.md
+5. COV_SCRIPT_DOCUMENTATION_20251214.md
+6. DRY_RUN_RESULTS_20251214.md
+
+**Submission Location**: `.claude/sandbox/communications/outboxes/BA/`
+
+**Success Criteria**:
+- ✅ All 6 deliverables submitted by 17:00 UTC
+- ✅ Comprehensive written report
+- ✅ Ready for CE 1-hour review window
+
+---
+
+### 8. ⏸️ Attend Script Approval Meeting (18:00, 30 min)
+
+**Status**: ⏸️ **PENDING** (18:00 UTC)
+**Priority**: P0-CRITICAL
+**Duration**: 30 minutes
+**Format**: Hybrid (written submission 17:00 + sync meeting 18:00)
+
+**Meeting Agenda**:
+1. **BA Presentation** (10 min):
+   - COV script demo
+   - Variant detection accuracy results
+   - VAR strategy recommendation
+   - LAG CSV review
+
+2. **QA Assessment** (10 min):
+   - Script validation findings
+   - Risk assessment
+   - GO/NO-GO recommendation
+
+3. **CE Decision** (10 min):
+   - Clarifying questions
+   - GO/NO-GO decision for Dec 15 execution
+   - Any adjustments needed
+
+**Possible Outcomes**:
+- ✅ **GO**: Begin M008 Phase 4C Dec 15 08:00 UTC
+- ⛔ **NO-GO**: Address issues, resubmit Dec 15 AM
+
+---
+
+## P0-CRITICAL TASKS (DEC 15+, EXECUTION - CONTINGENT ON GO)
+
+### 9. ⏸️ Execute COV Renames (Dec 15, 08:00-12:00, 4 hours)
+
+**Status**: ⏸️ **CONTINGENT** on Dec 14 18:00 GO decision
+**Priority**: P0-CRITICAL
+**Scope**: 1,596 COV tables (16 batches × 100 tables)
 
 **Execution Plan**:
-```bash
-# Launch all 3 scripts in parallel (16 workers each)
-python3 scripts/generate_tri_tables.py --workers 16 &
-python3 scripts/generate_cov_tables.py --workers 16 &
-python3 scripts/generate_corr_tables.py --workers 16 &  # If in scope
+- Run `scripts/execute_m008_cov_renames.py` (production mode)
+- Batch size: 100 tables
+- QA validation: Every batch (Day 1, per QA Q1)
+- Cost target: ≤$2
 
-# Monitor progress
-watch -n 60 'ls -lh /tmp/*_generation_results.json'
-```
-
-**Monitoring**:
-- Check progress every 1 hour
-- Report checkpoints to CE/EA/QA at 4h, 8h, 12h, 16h, 20h
-- Alert if error rate >5%
-
-**Completion ETA**: Dec 13, 22:00 UTC
+**Success Criteria**:
+- ✅ All 1,596 tables renamed
+- ✅ Zero data loss (QA row count validation)
+- ✅ M008 compliance validated (first batch 100%, remaining 20%)
+- ✅ Cost ≤$3
 
 ---
 
-### 4. Monitor Tier 1 Execution (01:45-22:00 UTC)
+### 10. ⏸️ Execute LAG Renames (Dec 15, 08:00-10:00, 2 hours, PARALLEL)
 
-**Status**: ⏸️ **PENDING** launch
-**Duration**: 20.5 hours
+**Status**: ⏸️ **CONTINGENT** on Dec 14 18:00 GO decision
 **Priority**: P0-CRITICAL
-
-**Monitoring Tasks**:
-- Check generation logs every hour
-- Track success/failure rate
-- Monitor BigQuery quota usage
-- Alert if execution stalls or error rate spikes
-
-**Checkpoint Reports**:
-- 05:45 UTC (4h): TRI progress, COV progress
-- 09:45 UTC (8h): TRI complete, COV 50%
-- 13:45 UTC (12h): COV 75%, CORR started
-- 17:45 UTC (16h): COV complete, CORR 50%
-- 21:45 UTC (20h): CORR 90%
-- 22:00 UTC: Tier 1 complete
-
----
-
-## P1-HIGH TASKS
-
-### 1. ✅ Tier 2A Implementation (COMPLETE)
-
-**Status**: ✅ **COMPLETED** (Dec 12, 23:00 UTC)
-**File**: [pipelines/training/parallel_feature_testing.py](../../../pipelines/training/parallel_feature_testing.py)
-**Commit**: 845b551
-
-**Implementation**:
-```python
-MAX_HORIZON_MINUTES = 2880  # h2880 = 48 hours
-cutoff_date = df['interval_time'].max() - pd.Timedelta(minutes=MAX_HORIZON_MINUTES)
-merged_df = merged_df[merged_df['interval_time'] <= cutoff_date]
-```
-
-**Impact**: Excludes final 2,880 rows → -1.2% NULLs
-
-**Next**: Will apply automatically when EURUSD is re-extracted after Tier 1
-
----
-
-## P2-MEDIUM TASKS
-
-### 1. EURUSD Re-Extraction (After Tier 1 Complete)
-
-**Status**: ⏸️ **PENDING** Tier 1 completion
-**Duration**: 1 hour (70 min extraction + 15 min merge)
-**Priority**: P2-MEDIUM
-**ETA**: Dec 13, 22:00-23:00 UTC
-
-**Execution**:
-```bash
-# Run Cloud Run extraction job for EURUSD
-gcloud run jobs execute bqx-ml-extract \
-  --region us-central1 \
-  --set-env-vars "PAIR=eurusd" \
-  --wait
-```
-
-**Expected Outcome**:
-- Row count: ~174,868 (2,880 excluded per Tier 2A)
-- NULL percentage: <1% (was 12.43%)
-- File size: ~9 GB
-- Targets: h15-h2880 (100% complete)
-
-**QA Validation**: Dec 13, 23:00 - Dec 14, 00:00 UTC
-
----
-
-### 2. 27-Pair Rollout (After QA Validation Passes)
-
-**Status**: ⏸️ **PENDING** QA validation
-**Duration**: 12 hours (parallel 4× execution)
-**Priority**: P2-MEDIUM
-**ETA**: Dec 14, 01:00-13:00 UTC (was 00:00-12:00 UTC)
-
-**User Directive**: Cloud Run suspended until NULL remediation complete
-
-**Resumption Criteria**:
-1. ✅ EURUSD NULL percentage <1%
-2. ✅ QA validation passes
-3. ✅ User authorizes Cloud Run resumption
+**Scope**: 224 LAG tables
 
 **Execution Plan**:
-- Parallel 4× execution (7 batches)
-- Monitor checkpoint files (GCS backup enabled)
-- Validate each pair after extraction
+- Execute from LAG_RENAME_MAPPING_20251214.csv
+- Semi-automated approach (CE-approved)
+- QA validation: Every batch (Day 1)
+
+**Success Criteria**:
+- ✅ All 224 tables renamed
+- ✅ Zero data loss (QA row count validation)
+- ✅ M008 compliance validated (100%)
 
 ---
 
-## COMPLETED WORK
+### 11. ⏸️ Execute VAR Renames (Dec 15, 12:00-13:00, 1 hour)
 
-### ✅ Tier 2A Implementation (Dec 12, 23:00 UTC)
+**Status**: ⏸️ **CONTINGENT** on Dec 14 18:00 GO decision
+**Priority**: P0-CRITICAL
+**Scope**: 7 VAR tables
 
-**Task**: Exclude final 2,880 rows for target lookahead completeness
-**Status**: COMPLETE
-**File**: [pipelines/training/parallel_feature_testing.py](../../../pipelines/training/parallel_feature_testing.py)
-**Commit**: 845b551
-**Impact**: -1.2% NULLs
+**Execution Plan**:
+- Execute per VAR strategy (likely manual)
+- QA validation: 100% (only 7 tables)
 
----
-
-### ✅ Script Validation (Dec 13, 00:30-00:45 UTC)
-
-**Task**: Validate EA's generation scripts on sample tables
-**Status**: COMPLETE
-**Results**: 5/9 passing, CORR naming issue discovered
-**Files**:
-- `/tmp/tri_validation_results.json`
-- `/tmp/cov_validation_results.json`
-- `/tmp/corr_validation_results.json`
+**Success Criteria**:
+- ✅ All 7 tables renamed
+- ✅ Zero data loss
+- ✅ M008 compliance validated
 
 ---
 
-### ✅ HOLD Acknowledgment (Dec 13, 00:48 UTC)
+### 12. ⏸️ Execute Primary Violations (Dec 16-22, 6 days)
 
-**Task**: Acknowledge EA's HOLD directive and notify stakeholders
-**Status**: COMPLETE
-**Files**:
-- [20251213_0048_BA-to-EA_HOLD_ACKNOWLEDGED_CORR_NAMING_CONFIRMED.md](../communications/outboxes/BA/20251213_0048_BA-to-EA_HOLD_ACKNOWLEDGED_CORR_NAMING_CONFIRMED.md)
-- [20251213_0050_BA-to-CE_TIER1_HOLD_TIMELINE_UPDATE.md](../communications/inboxes/CE/20251213_0050_BA-to-CE_TIER1_HOLD_TIMELINE_UPDATE.md)
-- [20251213_0052_BA-to-QA_TIER1_HOLD_TIMELINE_UPDATE.md](../communications/inboxes/QA/20251213_0052_BA-to-QA_TIER1_HOLD_TIMELINE_UPDATE.md)
+**Status**: ⏸️ **PENDING** EA CSV delivery (Dec 16 12:00 UTC)
+**Priority**: P0-CRITICAL
+**Scope**: 364 primary violation tables
 
----
+**Execution Plan**:
+- Wait for EA's primary_violations_rename_inventory_20251215.csv
+- Execute renames in batches (100 tables/batch)
+- QA validation: First 3 batches 100%, then every 5th (per QA Q1)
 
-## BLOCKERS & RISKS
-
-### ACTIVE BLOCKER 1: Table Naming Mismatches
-
-**Impact**: Tier 1 execution blocked
-**Status**: EA correcting scripts (ETA 01:30 UTC)
-**Risk Level**: 🟢 **LOW** - Early detection, clear corrective path
-**Mitigation**: EA verifying against INFORMATION_SCHEMA before re-delivery
-
-**Good News**: Issue caught BEFORE execution, saving $160-211 and 4h cleanup
+**Success Criteria**:
+- ✅ All 364 tables renamed
+- ✅ Zero data loss
+- ✅ M008 compliance validated
+- ✅ Total cost ≤$5 (entire Phase 4C)
 
 ---
 
-### RISK 1: Corrected Scripts Still Wrong
+## COORDINATION & COMMITMENTS
 
-**Probability**: LOW (EA verifying against INFORMATION_SCHEMA)
-**Impact**: Additional 1h delay + possible scope reduction
-**Mitigation**: BA validation before execution
+### Daily Standup (Dec 15-22, 09:00 UTC)
 
----
+**Status**: ✅ CONFIRMED
+**Duration**: 15 minutes
+**Attendees**: CE, EA, BA, QA
 
-### RISK 2: CORR Tables May Need to Be Skipped
+**BA Report Format** (3 min):
+```markdown
+### BA Report
+- ✅ Yesterday: [batches executed, tables renamed, issues resolved]
+- 📋 Today: [batches planned, expected completion, risks]
+- ⚠️ Blockers: [blockers requiring CE decision]
+```
 
-**Probability**: MEDIUM (ETF source tables don't exist)
-**Impact**: Scope reduction to 2,701 tables, ~1.5% final NULLs instead of <1%
-**Mitigation**: Still meets <5% threshold (3× margin), acceptable outcome
-
----
-
-## COORDINATION STATUS
-
-### With EA
-- ✅ Received generation scripts at 00:30 UTC
-- ✅ Sent validation results at 00:45 UTC
-- ✅ Received HOLD directive at 00:36 UTC
-- ✅ Acknowledged HOLD at 00:48 UTC
-- ⏸️ Awaiting corrected scripts (ETA 01:30 UTC)
-
-### With CE
-- ✅ Received all 8 decision approvals at 23:00 UTC
-- ✅ Sent HOLD status update at 00:50 UTC
-- ⏸️ Will report Tier 1 launch confirmation after validation
-
-### With QA
-- ✅ Sent Tier 2A completion notice at 23:50 UTC
-- ✅ Sent HOLD timeline update at 00:52 UTC
-- ⏸️ Will coordinate QA validation after EURUSD re-extraction
+**Commitment**: Attend all 8 standups (Dec 15-22)
 
 ---
 
-## IMMEDIATE NEXT STEPS
+### External Dependencies
 
-### NOW - 01:30 UTC (35 min)
-1. ⏸️ **STANDBY** - No action required, awaiting EA
+**EA Primary Violations CSV**:
+- **ETA**: Dec 16 12:00 UTC (85% confidence)
+- **Scope**: 364 primary violation tables
+- **Format**: old_name → new_name mapping
+- **Fallback**: Partial delivery Dec 16, final Dec 18
 
-### 01:30-01:45 UTC (15 min)
-2. ✅ **Validate corrected scripts** - 3-5 sample tables per script
-3. ✅ **Verify naming patterns** - Match INFORMATION_SCHEMA
-4. ✅ **Report validation results** - To EA and CE
-
-### 01:45 UTC (If Validation Passes)
-5. ✅ **Launch Tier 1 execution** - 3 scripts in parallel, 16 workers each
-6. ✅ **Start monitoring** - Hourly progress checks
-
-### 01:45-22:00 UTC (20.5 hours)
-7. ✅ **Monitor Tier 1** - Report checkpoints every 4 hours
-8. ✅ **Alert on errors** - If error rate >5%
-
-### 22:00-23:00 UTC
-9. ✅ **Re-extract EURUSD** - With recalculated tables + Tier 2A
-10. ✅ **Hand off to QA** - Validation window
-
-### Dec 14, 01:00-13:00 UTC (If QA Passes)
-11. ✅ **Execute 27-pair rollout** - Parallel 4× execution
-12. ✅ **Complete project** - All 28 pairs extracted
+**QA Validation Protocols**:
+- **Day 1**: Every batch validated (COV/LAG/VAR)
+- **Days 2-7**: First 3 batches 100%, then every 5th
+- **Row Count**: 100% full count validation (zero data loss guarantee)
+- **M008 Compliance**: First batch 100%, remaining 20% sampling
 
 ---
 
-## USER MANDATE ALIGNMENT
+## SUCCESS CRITERIA
 
-**User Mandate**: "User suspended Cloud Run activity until NULL issue has been fully remediated"
+### Dec 14 Success Criteria (Preparation Day)
 
-**BA Alignment**:
-- ✅ Cloud Run suspended (no 27-pair rollout until NULL fixed)
-- ✅ NULL remediation prioritized (Tier 1 + Tier 2)
-- ✅ Budget approved ($160-211 for Tier 1)
-- ✅ Timeline acceptable (Dec 14, 11:00 UTC within 24h window)
-- ⏸️ Cloud Run will resume ONLY after <1% NULLs achieved and QA validated
+- ✅ COV script created: scripts/execute_m008_cov_renames.py
+- ✅ Variant detection tested: 100% accuracy on 40 sample tables
+- ✅ Dry-run successful: All 1,596 COV tables validated
+- ✅ VAR strategy determined: Manual or script, execution plan ready
+- ✅ LAG CSV generated: 224 tables, BA-reviewed
+- ✅ All 6 deliverables submitted: 17:00 UTC
+- ✅ Approval meeting complete: 18:00 UTC, GO/NO-GO received
 
-**Expected Outcome**:
-- NULL reduction: 12.43% → <1%
-- EURUSD validation: Dec 13, 23:00 UTC
-- 27-pair rollout: Dec 14, 01:00-13:00 UTC
-- Project complete: Dec 14, 13:00 UTC
+### Dec 15 Success Criteria (Execution Day 1, if GO)
+
+- ✅ COV renames complete: 1,596 tables (4-6 hours)
+- ✅ LAG renames complete: 224 tables (1-2 hours)
+- ✅ VAR renames complete: 7 tables (<1 hour)
+- ✅ QA validation: Zero data loss, 100% row count preservation
+- ✅ M008 compliance: First batch 100%, remaining validated
+- ✅ Cost tracking: ≤$3 spent
+
+### Dec 22 Success Criteria (Week 1 Complete)
+
+- ✅ Primary violations complete: 364 tables
+- ✅ Total renames: 2,191 tables (1,596+224+7+364)
+- ✅ M008 compliance: ~90%+ (awaiting Phase 1 full audit)
+- ✅ Total cost: ≤$5
+- ✅ Timeline: On schedule for Dec 23 Phase 1 verification
 
 ---
 
 ## BUDGET STATUS
 
-**Approved**: $160-211 (Tier 1)
-**Spent**: $0 (HOLD prevented premature execution)
-**Remaining**: $160-211 (100%)
+**Phase 4C Budget Approved**: $5-15 (CE approved, may go to $7-20 with contingency)
 
-**Good News**: Early detection of naming issue saved $160-211 that would have been wasted on incorrectly-named tables
+**Estimated Cost**:
+- COV renames (1,596 tables): $1-2 (metadata operations)
+- LAG renames (224 tables): $0.20-0.50 (metadata operations)
+- VAR renames (7 tables): $0.01 (metadata operations)
+- Primary violations (364 tables): $0.50-1.00 (metadata operations)
+- **Total Estimated**: $2-5 (well within budget)
+
+**Current Spent**: $0 (execution begins Dec 15)
 
 ---
 
-*Last updated by BA - December 13, 2025 00:55 UTC*
-*Session: 05c73962-b9f1-4e06-9a5a-a5ae556cae5a*
-*Status: ⏸️ STANDBY for EA's corrected scripts (ETA 01:30 UTC)*
-*Phase: NULL Remediation - Tier 1 Preparation (HOLD)*
+## RISKS & MITIGATION
+
+| Risk | Probability | Impact | Mitigation |
+|------|------------|--------|------------|
+| **COV script fails dry-run** | LOW | HIGH | 4h testing window (12:00-16:00) allows debugging |
+| **Variant detection <95% accuracy** | LOW | MEDIUM | Manual review of ambiguous cases (median_abs 10-50) |
+| **QA finds issues at 18:00 approval** | LOW | HIGH | 1h CE review (17:00-18:00) allows adjustments |
+| **Day 1 execution slower than expected** | MEDIUM | LOW | QA validates every batch (catch early), extend to Dec 16 |
+| **Primary CSV slips to Dec 18** | LOW | MEDIUM | Fallback: partial Dec 16, final Dec 18 |
+
+**Overall Risk**: LOW-MEDIUM (thorough testing, validation checkpoints, clear escalation)
+
+---
+
+## RECOGNITION
+
+**CE Assessment**: ⭐⭐⭐⭐⭐ (5/5 stars)
+
+**Strengths Validated**:
+1. Robust heuristic (Q1: median_abs logic, 95-99% accuracy)
+2. Execution balance (Q2: 100 tables/batch optimal)
+3. Safety-first approach (Q3: semi-automated LAG)
+4. Pragmatic cost-benefit (Q4: manual for 7 VAR tables)
+5. Appropriate automation (Q5: rollback CSV 15 min dev vs 2-3h full automation)
+
+**User Priority Alignment**: Best long-term outcome > cost > time ✅
+
+---
+
+## IMMEDIATE NEXT STEPS
+
+### NOW - Dec 14 08:00 UTC (7h 10min)
+- ⏸️ **STANDBY** - Sleep/rest before execution
+- No action required
+
+### Dec 14 08:00 UTC (START EXECUTION)
+- ✅ Begin COV script development (4h)
+- ✅ Begin VAR assessment (2h, parallel)
+
+### Dec 14 10:00 UTC
+- ✅ Begin LAG mapping generation (1h, parallel)
+
+### Dec 14 12:00 UTC
+- ✅ Begin COV script testing (2h)
+
+### Dec 14 14:00 UTC
+- ✅ Execute full dry-run (2h)
+
+### Dec 14 16:00 UTC
+- ✅ Prepare documentation (1h)
+
+### Dec 14 17:00 UTC
+- ✅ Submit written materials to CE
+
+### Dec 14 18:00 UTC
+- ✅ Attend script approval meeting (30 min)
+- ✅ Receive GO/NO-GO decision
+
+### Dec 15 08:00 UTC (IF GO APPROVED)
+- ✅ Begin M008 Phase 4C execution (COV/LAG/VAR renames)
+
+---
+
+*Last updated by BA - December 14, 2025 00:50 UTC*
+*Status: ✅ GO AUTHORIZED - Ready for Dec 14 08:00 UTC execution*
+*Phase: M008 Phase 4C - Script Creation (Preparation Day)*
+*CE Authorization: [20251214_0030_CE-to-ALL_FINAL_GO_AUTHORIZATION.md](../communications/outboxes/CE/20251214_0030_CE-to-ALL_FINAL_GO_AUTHORIZATION.md)*

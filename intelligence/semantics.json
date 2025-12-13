@@ -158,7 +158,42 @@
       "actual_tables": 84,
       "breakdown": "28 bqx + 28 idx + 28 other variants",
       "completion_date": "2025-12-08",
-      "note": "Updated 2025-12-09 from BQ audit"
+      "note": "Updated 2025-12-09 from BQ audit",
+      "regression_feature_mandate": {
+        "mandate_id": "BQX-ML-M005",
+        "status": "P0-CRITICAL NON-COMPLIANCE",
+        "mandate_date": "2025-12-13",
+        "requirement": "Regression features (lin_term, quad_term, residual) from reg_* tables MUST be included in TRI/COV/VAR tables",
+        "formula": {
+          "lin_term": "lin_coef × x",
+          "quad_term": "quad_coef × x²",
+          "residual": "y - (quad_term + lin_term + constant)"
+        },
+        "windows": [45, 90, 180, 360, 720, 1440, 2880],
+        "tri_schema_impact": {
+          "current_columns": 15,
+          "mandated_columns": 78,
+          "additional_features": 63,
+          "calculation": "3 triangle legs × 3 features (lin_term, quad_term, residual) × 7 windows = 63",
+          "example_features": ["pair1_lin_term_45", "pair1_quad_term_45", "pair1_residual_45", "pair2_lin_term_45", "pair3_lin_term_45"]
+        },
+        "cov_schema_impact": {
+          "current_columns": 14,
+          "mandated_columns": 56,
+          "additional_features": 42,
+          "calculation": "2 pairs × 3 features × 7 windows = 42",
+          "example_features": ["pair1_lin_term_45", "pair1_quad_term_45", "pair1_residual_45", "pair2_lin_term_45"]
+        },
+        "var_schema_impact": {
+          "current_columns": 14,
+          "mandated_columns": 35,
+          "additional_features": 21,
+          "calculation": "3 features × 7 windows = 21",
+          "example_features": ["lin_term_45", "quad_term_45", "residual_45"]
+        },
+        "mandate_document": "/mandate/REGRESSION_FEATURE_ARCHITECTURE_MANDATE.md",
+        "impact_analysis": "/intelligence/REG_FEATURE_MANDATE_IMPACT.json"
+      }
     },
     "AGGREGATION_Features": {
       "status": "COMPLETE",
@@ -243,19 +278,37 @@
     },
     "COVARIANCE_Features": {
       "prefix": "cov",
-      "status": "COMPLETE",
+      "status": "COMPLETE (schema NON-COMPLIANT per BQX-ML-M005)",
       "actual_tables": 2507,
       "breakdown": "Cross-pair covariance matrices",
       "completion_date": "2025-12-08",
-      "category": "cross_pair"
+      "category": "cross_pair",
+      "regression_mandate_compliance": {
+        "mandate_id": "BQX-ML-M005",
+        "status": "NON-COMPLIANT",
+        "current_schema_columns": 14,
+        "mandated_schema_columns": 56,
+        "missing_features": 42,
+        "remediation_required": "Must add 2 REG table JOINs (pair1_reg, pair2_reg) to include regression features from both pairs",
+        "example_missing_features": ["pair1_lin_term_45", "pair1_quad_term_45", "pair1_residual_45", "pair2_lin_term_45"]
+      }
     },
     "TRIANGULATION_Features": {
       "prefix": "tri",
-      "status": "COMPLETE",
+      "status": "COMPLETE (schema NON-COMPLIANT per BQX-ML-M005)",
       "actual_tables": 194,
       "breakdown": "Triangular arbitrage relationships",
       "completion_date": "2025-12-08",
-      "category": "cross_pair"
+      "category": "cross_pair",
+      "regression_mandate_compliance": {
+        "mandate_id": "BQX-ML-M005",
+        "status": "NON-COMPLIANT",
+        "current_schema_columns": 15,
+        "mandated_schema_columns": 78,
+        "missing_features": 63,
+        "remediation_required": "Must add 3 REG table JOINs (pair1_reg, pair2_reg, pair3_reg) to include regression features from all 3 triangle legs",
+        "example_missing_features": ["pair1_lin_term_45", "pair1_quad_term_45", "pair1_residual_45", "pair2_lin_term_45", "pair3_lin_term_45"]
+      }
     },
     "BASE_Features": {
       "prefix": "base",
@@ -267,13 +320,22 @@
     },
     "VARIANCE_Features": {
       "prefix": "var",
-      "status": "COMPLETE",
+      "status": "COMPLETE (schema NON-COMPLIANT per BQX-ML-M005)",
       "expected_tables": 63,
       "actual_tables": 63,
       "gap": 0,
       "category": "pair_level",
       "completion_date": "2025-12-09",
-      "note": "Phase 1.5 GATE_1 complete"
+      "note": "Phase 1.5 GATE_1 complete",
+      "regression_mandate_compliance": {
+        "mandate_id": "BQX-ML-M005",
+        "status": "NON-COMPLIANT",
+        "current_schema_columns": 14,
+        "mandated_schema_columns": 35,
+        "missing_features": 21,
+        "remediation_required": "Must add aggregated regression features across currency family members",
+        "example_missing_features": ["lin_term_45", "quad_term_45", "residual_45", "lin_term_90"]
+      }
     },
     "MARKET_Features": {
       "prefix": "mkt",
@@ -306,28 +368,60 @@
       "XGBoost",
       "CatBoost"
     ],
-    "meta_learner": "LSTM or Logistic Regression",
+    "meta_learner": "LogisticRegression (regime-aware)",
     "ensemble_strategy": "Stacking: 3 base learners → Meta-learner",
     "total_models_planned": 588,
     "total_models_trained": 0,
-    "breakdown": "28 pairs × 7 horizons × 3 ensemble members (ElasticNet removed)",
+    "breakdown": "28 pairs × 7 horizons × 3 ensemble members (ElasticNet removed per EA-001)",
     "horizons": [15, 30, 45, 60, 75, 90, 105],
     "horizon_definition": "7 prediction horizons at 15-interval increments (h15 through h105)",
     "horizon_targets": "Each model predicts bqx_* values N intervals into the future",
     "deployment_strategy": "Deploy FARTHEST horizon achieving ≥95% accuracy per pair",
-    "accuracy_target": "95%+ directional accuracy",
+    "accuracy_target": "85-95% called accuracy with 30-50% coverage",
     "critical_distinction": "These are PREDICTION horizons (forward-looking), NOT BQX calculation windows (backward-looking)",
     "validation": "Walk-forward validation (MANDATORY for time series)",
-    "feature_selection": "SHAP values for top 500-1,000 features",
-    "deployment": {
-      "method": "Cloud Run serverless",
+    "feature_selection": "Robust Group-First Stability Selection (399 stable features per pair-horizon)",
+    "feature_universe": {
+      "total_per_pair": 6477,
+      "stable_selected": 399,
+      "stability_threshold": "60% (features retained in 60%+ of bootstrap iterations)",
+      "split": {
+        "idx_features": 168,
+        "bqx_features": 270,
+        "cross_pair": "cov, corr, tri features"
+      },
+      "note": "User mandated 100K+ SHAP samples (not 10K) for final feature importance"
+    },
+    "cloud_run_architecture": {
+      "platform": "GCP Cloud Run serverless",
       "job_name": "bqx-ml-pipeline",
-      "image": "gcr.io/bqx-ml/bqx-ml-polars-pipeline:latest",
+      "image": "gcr.io/bqx-ml/bqx-ml-pipeline:optimized",
+      "build_id": "bf5beb92-2d82-49ea-9cfe-d15d2c654ae8",
       "region": "us-central1",
-      "resources": "4 CPUs, 12 GB memory",
-      "merge_protocol": "Polars (user-mandated, resource-monitored)",
-      "cost_per_pair": "$0.71",
-      "status": "OPERATIONAL"
+      "resources": {
+        "cpus": 4,
+        "memory_gb": 12,
+        "timeout_hours": 2,
+        "worker_optimization": "Auto-detection (4 workers on 4 CPUs, prevents oversubscription)"
+      },
+      "merge_protocol": "Polars (user-mandated 2025-12-12)",
+      "merge_rationale": "4.6× faster than BigQuery merge, resource-efficient",
+      "pipeline_stages": [
+        "Stage 1: Feature extraction from BigQuery (60-75 min)",
+        "Stage 2: Polars merge (13-20 min)",
+        "Stage 3: Validation (1-2 min)",
+        "Stage 4: GCS backup (2-3 min)",
+        "Stage 5: Cleanup (1 min)"
+      ],
+      "execution_time_per_pair": "77-101 minutes",
+      "cost_per_pair_usd": 0.71,
+      "cost_annual_28_pairs_usd": 30.82,
+      "cost_vs_vm": "99% reduction ($277/mo → $2.57/mo)",
+      "status": "OPERATIONAL",
+      "pairs_completed": ["EURUSD", "AUDUSD"],
+      "pairs_in_progress": ["GBPUSD"],
+      "pairs_pending": 25,
+      "deployment_date": "2025-12-12"
     }
   },
   "data_pipeline_stages": {

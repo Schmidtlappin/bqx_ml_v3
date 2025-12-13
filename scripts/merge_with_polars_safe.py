@@ -21,6 +21,7 @@ import resource
 import gc
 from pathlib import Path
 from datetime import datetime
+from google.cloud import storage  # For GCS checkpoint support
 
 # ============================================================================
 # SAFETY CONFIGURATION (OPS Requirements)
@@ -36,6 +37,70 @@ CHECKPOINT_INTERVAL = 50  # Log progress every N files
 MAX_MEMORY_BYTES = MAX_MEMORY_GB * 1024 * 1024 * 1024
 
 print(f"✅ Memory monitoring configured: {MAX_MEMORY_GB} GB target (soft)")
+
+
+# ============================================================================
+# GCS SUPPORT FUNCTIONS (CE Directive 2025-12-12)
+# ============================================================================
+
+def download_gcs_checkpoints_to_tmp(gcs_checkpoint_dir: str, pair: str) -> Path:
+    """
+    Download all checkpoint files from GCS to local /tmp directory.
+
+    CE Directive 2025-12-12: If Polars cannot read GCS URIs directly,
+    download checkpoints to /tmp first before merging.
+
+    Args:
+        gcs_checkpoint_dir: GCS path (e.g., "gs://bqx-ml-staging/checkpoints/eurusd")
+        pair: Currency pair name
+
+    Returns:
+        Path to local /tmp checkpoint directory
+    """
+    print(f"\n{'='*70}")
+    print(f"DOWNLOADING GCS CHECKPOINTS TO LOCAL /tmp")
+    print(f"{'='*70}")
+    print(f"Source: {gcs_checkpoint_dir}")
+
+    # Parse GCS path
+    if not gcs_checkpoint_dir.startswith('gs://'):
+        raise ValueError(f"Invalid GCS path: {gcs_checkpoint_dir}")
+
+    parts = gcs_checkpoint_dir.replace('gs://', '').split('/', 1)
+    bucket_name = parts[0]
+    prefix = parts[1] if len(parts) > 1 else ''
+    if not prefix.endswith('/'):
+        prefix += '/'
+
+    # Create local temp directory
+    local_dir = Path(f"/tmp/checkpoints_{pair}")
+    local_dir.mkdir(parents=True, exist_ok=True)
+    print(f"Destination: {local_dir}")
+
+    # Download all .parquet files from GCS
+    storage_client = storage.Client(project="bqx-ml")
+    bucket = storage_client.bucket(bucket_name)
+    blobs = list(bucket.list_blobs(prefix=prefix))
+
+    parquet_blobs = [b for b in blobs if b.name.endswith('.parquet')]
+    print(f"Found {len(parquet_blobs)} parquet files in GCS")
+
+    if len(parquet_blobs) == 0:
+        raise ValueError(f"No parquet files found in {gcs_checkpoint_dir}")
+
+    print("Downloading files...")
+    for i, blob in enumerate(parquet_blobs, 1):
+        filename = blob.name.split('/')[-1]
+        local_path = local_dir / filename
+        blob.download_to_filename(str(local_path))
+
+        if i % 100 == 0 or i == len(parquet_blobs):
+            print(f"  Downloaded: {i}/{len(parquet_blobs)} files")
+
+    print(f"✅ All {len(parquet_blobs)} checkpoint files downloaded to {local_dir}")
+    print(f"{'='*70}\n")
+
+    return local_dir
 
 
 def check_available_memory() -> float:
@@ -247,10 +312,18 @@ if __name__ == "__main__":
     pair = sys.argv[1].lower()
 
     # Support both VM and Cloud Run environments
-    # Check if running in Cloud Run (paths in /tmp) or VM (paths in /home/micha)
+    # CE Directive 2025-12-12: Support GCS checkpoint paths
     if len(sys.argv) >= 3:
-        # Custom paths provided (Cloud Run)
-        checkpoint_dir = Path(sys.argv[2])
+        # Custom paths provided (Cloud Run or VM)
+        checkpoint_dir_arg = sys.argv[2]
+
+        # Check if GCS path - download to /tmp first
+        if checkpoint_dir_arg.startswith('gs://'):
+            print(f"GCS checkpoint path detected: {checkpoint_dir_arg}")
+            checkpoint_dir = download_gcs_checkpoints_to_tmp(checkpoint_dir_arg, pair)
+        else:
+            checkpoint_dir = Path(checkpoint_dir_arg)
+
         output_path = Path(sys.argv[3]) if len(sys.argv) >= 4 else Path(f"/tmp/training_{pair}.parquet")
     else:
         # Default VM paths

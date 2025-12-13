@@ -1,9 +1,9 @@
 {
-  "roadmap_version": "2.3.2",
+  "roadmap_version": "2.3.4",
   "created": "2025-12-09",
-  "updated": "2025-12-12",
+  "updated": "2025-12-14T00:50:00Z",
   "status": "ACTIVE",
-  "supersedes": "v2.2.0 (added agent hierarchy with QA and EA agents)",
+  "supersedes": "v2.3.3 (Phase 0 verification - 5,817 tables confirmed)",
   "summary": {
     "objective": "Train 588 ML models achieving 85-95%+ directional accuracy with persistence",
     "architecture": "Calibrated Probability Stacking with Regime-Aware Meta-Learner",
@@ -283,7 +283,7 @@
         "pipeline_stages": ["BigQuery Extraction (60-70 min)", "Polars Merge (13-20 min)", "Validation (1-2 min)", "GCS Backup (2-3 min)", "Cleanup (1 min)"],
         "cost_per_pair": "$0.71 (Cloud Run compute)",
         "total_cost": "$19.90 (28 pairs) + $1.03/month (GCS storage)",
-        "tables_per_pair": 668,
+        "tables_per_pair": 667,
         "extraction_categories": "18 feature categories (agg, align, base, corr, cov, csi, cyc, der, div, ext, mkt, mom, reg, tri, var, vol, targets, interval_time)",
         "merge_evolution": "DuckDB (FAILED: OOM) → Polars (SUCCESS: EURUSD+AUDUSD) → BigQuery 668-JOIN (FAILED: limit) → BigQuery Iterative (BYPASSED: user mandate) → Cloud Run + Polars (OPERATIONAL)",
         "stability_selection": "PENDING - awaiting all 28 training files",
@@ -552,6 +552,48 @@
       }
     }
   },
+  "regression_feature_mandate": {
+    "mandate_id": "BQX-ML-M005",
+    "status": "P0-CRITICAL NON-COMPLIANCE IDENTIFIED",
+    "mandate_date": "2025-12-13",
+    "discovery": "REG features exist in reg_* tables but are NOT included in TRI/COV/VAR tables per user mandate",
+    "user_requirement": "reg_idx_* and reg_bqx_* features including lin_term, quad_term, and residual MUST be among the var_, cov_, and tri_ features",
+    "compliance_analysis": {
+      "tri_tables": {
+        "current_columns": 15,
+        "mandated_columns": 78,
+        "missing_features": 63,
+        "calculation": "3 triangle legs × 3 features × 7 windows = 63"
+      },
+      "cov_tables": {
+        "current_columns": 14,
+        "mandated_columns": 56,
+        "missing_features": 42,
+        "calculation": "2 pairs × 3 features × 7 windows = 42"
+      },
+      "var_tables": {
+        "current_columns": 14,
+        "mandated_columns": 35,
+        "missing_features": 21,
+        "calculation": "3 features × 7 windows = 21"
+      }
+    },
+    "feature_universe_impact": {
+      "current_unique_features": 1064,
+      "new_unique_features": 1127,
+      "additional_features": 63,
+      "feature_ledger_impact": "208,572 → 221,228 rows (+12,656)"
+    },
+    "remediation_impact": {
+      "cost_increase_usd": "50-60",
+      "timeline_delay_hours": "14-19",
+      "script_refactoring_hours": "11-16",
+      "regeneration_hours": "3-5"
+    },
+    "mandate_document": "/mandate/REGRESSION_FEATURE_ARCHITECTURE_MANDATE.md",
+    "impact_analysis": "/intelligence/REG_FEATURE_MANDATE_IMPACT.json",
+    "decision_pending": "HALT Tier 1 to refactor scripts OR proceed with non-compliant schemas"
+  },
   "risk_register": {
     "description": "Identified risks and mitigation strategies",
     "risks": [
@@ -592,6 +634,32 @@
         "mitigation": "Run selection on full 11,337 columns (1,064 unique features) after gap remediation",
         "owner": "BA",
         "status": "PLANNED"
+      },
+      {
+        "id": "RISK-006",
+        "description": "P0-CRITICAL: TRI/COV/VAR tables missing regression features (BQX-ML-M005)",
+        "impact": "CRITICAL",
+        "probability": "CONFIRMED",
+        "discovery_date": "2025-12-13",
+        "current_state": "TRI (15 cols), COV (14 cols), VAR (14 cols) all NON-COMPLIANT",
+        "mandated_state": "TRI (78 cols), COV (56 cols), VAR (35 cols) with regression features",
+        "mitigation_options": {
+          "option_1": {
+            "action": "HALT Tier 1, refactor scripts, regenerate tables",
+            "cost": "$150-200 total",
+            "timeline": "+14-19 hours delay",
+            "outcome": "Compliant architecture, correct from start"
+          },
+          "option_2": {
+            "action": "Proceed with Tier 1 as-is, refactor later",
+            "cost": "$250-340 (double cost)",
+            "timeline": "No immediate delay, but double work later",
+            "outcome": "Non-compliant architecture, violates P0-CRITICAL mandate"
+          }
+        },
+        "user_mandate": "Regression features (lin_term, quad_term, residual) MUST be among TRI/COV/VAR features",
+        "owner": "CE",
+        "status": "PENDING USER DECISION"
       },
       {
         "id": "RISK-005",
@@ -645,8 +713,9 @@
         "role": "Execute real implementation of all tasks",
         "status": "ACTIVE",
         "reports_to": "CE",
-        "current_phase": "Phase 4 - Step 6 Feature Extraction",
-        "current_task": "28-pair feature extraction (11,337 columns)",
+        "current_phase": "M008 Phase 4C - Table Naming Remediation (Week 1: Dec 15-22)",
+        "current_task": "COV/LAG/VAR/Primary table renames (1,968 tables)",
+        "current_plan": "COMPREHENSIVE_REMEDIATION_PLAN_20251213.md (supersedes M008_NAMING_STANDARD_REMEDIATION_PLAN.md)",
         "current_session_id": "72a1c1a7-c564-4ac8-974a-13ed0ce87dca",
         "predecessor_sessions": []
       },
@@ -679,6 +748,9 @@
           "Workspace organization",
           "Agent coordination enhancement"
         ],
+        "current_phase": "Phase 0 - Documentation Reconciliation (Dec 14, 08:00-18:00 UTC)",
+        "current_task": "Intelligence file updates, COV surplus investigation, M008 LAG exception documentation",
+        "current_plan": "COMPREHENSIVE_REMEDIATION_PLAN_20251213.md (10-phase mandate compliance plan)",
         "current_session_id": "b959d344-c727-4cd9-9fe9-53d8e2dac32f",
         "predecessor_sessions": ["6050ea3a-7104-4ea4-afad-1eb8fedc705d"]
       },

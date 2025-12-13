@@ -1,4 +1,14 @@
-# CE Task List
+---
+🚫 **DEPRECATED**: This file is superseded by `.claude/sandbox/agents/CE_TODO.md`
+
+**Deprecation Date**: December 14, 2025 01:05 UTC
+**Reason**: Outdated (12+ hours old), missing Phase 0, clarifying questions, and final GO authorization
+**Authoritative Version**: [.claude/sandbox/agents/CE_TODO.md](./../agents/CE_TODO.md)
+
+**DO NOT UPDATE THIS FILE** - All CE task tracking has moved to the agents/ directory
+---
+
+# CE Task List [DEPRECATED]
 
 **Last Updated**: December 13, 2025 20:20 UTC
 **Maintained By**: CE (Chief Engineer)

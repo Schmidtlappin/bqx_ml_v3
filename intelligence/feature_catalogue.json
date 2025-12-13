@@ -1,37 +1,74 @@
 {
-  "catalogue_version": "2.2.0",
+  "catalogue_version": "2.3.4",
   "generated": "2025-12-09T10:45:00Z",
-  "updated": "2025-12-12T04:50:00Z",
+  "updated": "2025-12-14T00:45:00Z",
   "purpose": "Complete feature inventory for BQX ML V3",
+  "update_note": "v2.3.4: Phase 0 final verification - VERIFIED 5,817 tables via bq query INFORMATION_SCHEMA, last_verified updated to 2025-12-14",
   "deployment": {
     "status": "OPERATIONAL",
     "platform": "Cloud Run serverless",
     "job_name": "bqx-ml-pipeline",
-    "image": "gcr.io/bqx-ml/bqx-ml-polars-pipeline:latest",
-    "extraction_method": "Cloud Run serverless (BigQuery → Parquet checkpoints)",
-    "merge_protocol": "Polars (user-mandated, resource-monitored)",
-    "completed_pairs": ["EURUSD", "AUDUSD"],
-    "in_progress_pairs": ["GBPUSD"],
+    "image": "gcr.io/bqx-ml/bqx-ml-pipeline:optimized",
+    "build_id": "bf5beb92-2d82-49ea-9cfe-d15d2c654ae8",
+    "resources": {
+      "cpus": 4,
+      "memory_gb": 12,
+      "timeout_hours": 2,
+      "worker_optimization": "Auto-detection (4 workers on 4 CPUs)"
+    },
+    "extraction_method": "Cloud Run serverless (BigQuery \u2192 Parquet checkpoints)",
+    "merge_protocol": "Polars (user-mandated 2025-12-12)",
+    "execution_time_per_pair_minutes": "77-101",
+    "cost_per_pair_usd": 0.71,
+    "cost_28_pairs_usd": 19.9,
+    "completed_pairs": [
+      "EURUSD",
+      "AUDUSD"
+    ],
+    "in_progress_pairs": [
+      "GBPUSD"
+    ],
     "pending_pairs": 25
   },
   "merge_status": {
     "eurusd": "COMPLETE - Polars merge (2025-12-11 21:04 UTC, local), validated QA-0120",
     "audusd": "COMPLETE - Polars merge (2025-12-12, local, 13 min), validated",
-    "gbpusd": "IN PROGRESS - Cloud Run test execution",
-    "25_pairs": "PENDING - Cloud Run production run after GBPUSD success"
+    "gbpusd": "IN PROGRESS - Cloud Run test execution (started 2025-12-12 17:17 UTC)",
+    "25_pairs": "PENDING - Cloud Run production rollout authorized after GBPUSD validation"
   },
   "supersedes": "8,214+ estimate in BQX_ML_V3_FEATURE_INVENTORY.md",
-  "last_audit": "2025-12-11",
-  "audit_note": "CE verified: 100% COVERAGE ACHIEVED. All 667 tables per pair extracted (2 summary tables excluded).",
+  "last_audit": "2025-12-14",
+  "last_verified": "2025-12-14",
+  "audit_note": "CE verified: 100% COVERAGE ACHIEVED. All 667 tables per pair extracted (2 summary tables excluded). Phase 0 verification: 5,817 tables confirmed via bq query.",
   "step6_extraction_status": {
     "status": "COMPLETE",
     "verified": "2025-12-11T03:40:00Z",
     "extraction_categories": [
-      {"name": "pair_specific", "pattern": "%pair%", "tables": 256},
-      {"name": "triangulation", "pattern": "tri_*", "tables": 194},
-      {"name": "market_wide", "pattern": "mkt_*", "tables": 10},
-      {"name": "variance", "pattern": "var_*", "tables": 63},
-      {"name": "currency_strength", "pattern": "csi_*", "tables": 144}
+      {
+        "name": "pair_specific",
+        "pattern": "%pair%",
+        "tables": 256
+      },
+      {
+        "name": "triangulation",
+        "pattern": "tri_*",
+        "tables": 194
+      },
+      {
+        "name": "market_wide",
+        "pattern": "mkt_*",
+        "tables": 10
+      },
+      {
+        "name": "variance",
+        "pattern": "var_*",
+        "tables": 63
+      },
+      {
+        "name": "currency_strength",
+        "pattern": "csi_*",
+        "tables": 144
+      }
     ],
     "total_tables_per_pair": 667,
     "coverage": "100%",
@@ -42,16 +79,37 @@
     "mandate": "/mandate/FEATURE_LEDGER_100_PERCENT_MANDATE.md",
     "coverage_requirement": "100% - ALL features per model must be in ledger",
     "expected_ledger_rows": 208572,
-    "calculation": "28 pairs × 7 horizons × 1,064 unique features",
-    "validation": "Every feature in this catalogue must appear in feature_ledger.parquet"
+    "expected_ledger_rows_after_reg_mandate": 221228,
+    "calculation": "28 pairs \u00d7 7 horizons \u00d7 1,064 unique features",
+    "calculation_after_reg_mandate": "28 pairs \u00d7 7 horizons \u00d7 1,127 unique features",
+    "validation": "Every feature in this catalogue must appear in feature_ledger.parquet",
+    "regression_mandate_impact": {
+      "mandate_id": "BQX-ML-M005",
+      "ledger_regeneration_required": true,
+      "new_feature_count": 1127,
+      "new_row_count": 221228,
+      "note": "Ledger must be regenerated after TRI/COV/VAR schema updates"
+    }
   },
   "summary": {
-    "total_tables": 4888,
+    "total_tables": 5817,
     "total_columns": 97322,
     "total_feature_columns": 86190,
     "total_columns_per_pair": 11337,
     "unique_features_per_pair": 1064,
+    "unique_features_after_reg_mandate": 1127,
     "features_per_pair_eurusd_note": "CORRECTED 2025-12-10: 11,337 total columns across 462 tables, 1,064 unique after dedup",
+    "regression_feature_mandate": {
+      "mandate_id": "BQX-ML-M005",
+      "status": "P0-CRITICAL NON-COMPLIANCE",
+      "mandate_date": "2025-12-13",
+      "additional_unique_features": 63,
+      "new_total_unique_features": 1127,
+      "calculation": "21 regression features from TRI/COV (lin_term, quad_term, residual \u00d7 7 windows)",
+      "note": "TRI/COV/VAR tables currently NON-COMPLIANT - missing regression features",
+      "mandate_document": "/mandate/REGRESSION_FEATURE_ARCHITECTURE_MANDATE.md",
+      "impact_analysis": "/intelligence/REG_FEATURE_MANDATE_IMPACT.json"
+    },
     "features_breakdown_eurusd": {
       "pair_specific": 3813,
       "cross_pair_tri": 2088,
@@ -61,7 +119,19 @@
     },
     "feature_types_count": 20,
     "feature_selection_tested": 608,
-    "feature_selection_coverage": "9.4%"
+    "feature_selection_coverage": "9.4%",
+    "semantic_compatibility_mandate": {
+      "mandate_id": "BQX-ML-M007",
+      "status": "P0-CRITICAL ARCHITECTURAL REQUIREMENT",
+      "mandate_date": "2025-12-13",
+      "mandate_document": "/mandate/SEMANTIC_FEATURE_COMPATIBILITY_MANDATE.md",
+      "purpose": "Establish semantic compatibility rules for cross-feature comparisons",
+      "semantic_groups": 9,
+      "comparable_features_per_pair": 266,
+      "note": "Constrains M006 (Maximize Comparisons) to semantically valid features only"
+    },
+    "audit_date": "2025-12-13",
+    "audit_report": "/tmp/catalogue_audit_report_20251213.md"
   },
   "feature_type_taxonomy": {
     "description": "Complete taxonomy of all 20 feature type prefixes in BQ",
@@ -69,22 +139,47 @@
     "categories": {
       "pair_level": {
         "description": "Features computed per currency pair",
-        "types": ["agg", "mom", "vol", "reg", "regime", "lag", "align", "der", "rev", "div", "mrt", "cyc", "ext", "tmp", "base", "var"],
+        "types": [
+          "agg",
+          "mom",
+          "vol",
+          "reg",
+          "regime",
+          "lag",
+          "align",
+          "der",
+          "rev",
+          "div",
+          "mrt",
+          "cyc",
+          "ext",
+          "tmp",
+          "base",
+          "var"
+        ],
         "count": 16
       },
       "cross_pair": {
         "description": "Features computed across multiple pairs",
-        "types": ["cov", "corr", "tri"],
+        "types": [
+          "cov",
+          "corr",
+          "tri"
+        ],
         "count": 3
       },
       "market_wide": {
         "description": "Features aggregated across all pairs",
-        "types": ["mkt"],
+        "types": [
+          "mkt"
+        ],
         "count": 1
       },
       "currency_level": {
         "description": "Features aggregated per currency",
-        "types": ["csi"],
+        "types": [
+          "csi"
+        ],
         "count": 1,
         "status": "COMPLETE",
         "verified": "2025-12-11 CE audit: 144 tables, 5,376 columns, ~2.2M rows each"
@@ -95,14 +190,22 @@
     "cov": {
       "name": "Covariance",
       "prefix": "cov",
-      "count": 2507,
-      "bqx": 1176,
-      "idx": 155,
-      "other": 1176,
-      "status": "COMPLETE",
+      "count": 3528,
+      "bqx": 1764,
+      "idx": 0,
+      "other": 1764,
+      "status": "COMPLETE (schema NON-COMPLIANT per BQX-ML-M005)",
       "description": "Cross-pair covariance features measuring co-movement",
       "category": "cross_pair",
-      "csi_applicable": false
+      "csi_applicable": false,
+      "regression_mandate_compliance": {
+        "mandate_id": "BQX-ML-M005",
+        "status": "NON-COMPLIANT",
+        "current_schema_columns": 14,
+        "mandated_schema_columns": 56,
+        "missing_features": 42,
+        "remediation": "Must add regression features from both pairs"
+      }
     },
     "corr": {
       "name": "Correlation",
@@ -135,10 +238,18 @@
       "bqx": 97,
       "idx": 97,
       "other": 0,
-      "status": "COMPLETE",
+      "status": "COMPLETE (schema NON-COMPLIANT per BQX-ML-M005)",
       "description": "Triangular arbitrage relationships",
       "category": "cross_pair",
-      "csi_applicable": false
+      "csi_applicable": false,
+      "regression_mandate_compliance": {
+        "mandate_id": "BQX-ML-M005",
+        "status": "NON-COMPLIANT",
+        "current_schema_columns": 15,
+        "mandated_schema_columns": 78,
+        "missing_features": 63,
+        "remediation": "Must add regression features from all 3 triangle legs"
+      }
     },
     "regime": {
       "name": "Regime",
@@ -251,10 +362,10 @@
     "reg": {
       "name": "Regression",
       "prefix": "reg",
-      "count": 84,
+      "count": 56,
       "bqx": 28,
       "idx": 28,
-      "other": 28,
+      "other": 0,
       "status": "COMPLETE",
       "description": "Polynomial regression trends and predictions",
       "category": "pair_level",
@@ -275,16 +386,24 @@
     "var": {
       "name": "Variance",
       "prefix": "var",
-      "count": 55,
-      "bqx": 26,
-      "idx": 22,
-      "other": 7,
-      "status": "PARTIAL",
-      "expected": 114,
-      "gap": 59,
+      "count": 63,
+      "bqx": 0,
+      "idx": 0,
+      "other": 63,
+      "status": "COMPLETE (schema NON-COMPLIANT per BQX-ML-M005)",
+      "expected": 63,
+      "gap": 0,
       "description": "Variance and volatility regime features",
       "category": "pair_level",
-      "csi_applicable": false
+      "csi_applicable": false,
+      "regression_mandate_compliance": {
+        "mandate_id": "BQX-ML-M005",
+        "status": "NON-COMPLIANT",
+        "current_schema_columns": 14,
+        "mandated_schema_columns": 35,
+        "missing_features": 21,
+        "remediation": "Must add aggregated regression features across currency family"
+      }
     },
     "cyc": {
       "name": "Cycle",
@@ -325,13 +444,13 @@
     "mkt": {
       "name": "Market",
       "prefix": "mkt",
-      "count": 4,
-      "bqx": 2,
+      "count": 12,
+      "bqx": 6,
       "idx": 0,
-      "other": 2,
-      "status": "PARTIAL",
-      "expected": 18,
-      "gap": 14,
+      "other": 6,
+      "status": "COMPLETE",
+      "expected": 12,
+      "gap": 0,
       "description": "Market-wide aggregated features",
       "category": "market_wide",
       "csi_applicable": false
@@ -352,66 +471,144 @@
   },
   "csi_specification": {
     "description": "Currency Strength Index - aggregates pair features per currency",
-    "currencies": ["USD", "EUR", "GBP", "JPY", "CHF", "CAD", "AUD", "NZD"],
+    "currencies": [
+      "USD",
+      "EUR",
+      "GBP",
+      "JPY",
+      "CHF",
+      "CAD",
+      "AUD",
+      "NZD"
+    ],
     "currency_count": 8,
     "applicable_feature_types_with_idx": [
-      {"prefix": "agg", "name": "Aggregation"},
-      {"prefix": "mom", "name": "Momentum"},
-      {"prefix": "vol", "name": "Volatility"},
-      {"prefix": "reg", "name": "Regression"},
-      {"prefix": "align", "name": "Alignment"},
-      {"prefix": "der", "name": "Derivative"},
-      {"prefix": "rev", "name": "Reversal"},
-      {"prefix": "mrt", "name": "Mean Reversion"}
+      {
+        "prefix": "agg",
+        "name": "Aggregation"
+      },
+      {
+        "prefix": "mom",
+        "name": "Momentum"
+      },
+      {
+        "prefix": "vol",
+        "name": "Volatility"
+      },
+      {
+        "prefix": "reg",
+        "name": "Regression"
+      },
+      {
+        "prefix": "align",
+        "name": "Alignment"
+      },
+      {
+        "prefix": "der",
+        "name": "Derivative"
+      },
+      {
+        "prefix": "rev",
+        "name": "Reversal"
+      },
+      {
+        "prefix": "mrt",
+        "name": "Mean Reversion"
+      }
     ],
     "applicable_feature_types_bqx_only": [
-      {"prefix": "cyc", "name": "Cycle", "note": "IDX source unavailable"},
-      {"prefix": "ext", "name": "Extremity", "note": "IDX source unavailable"},
-      {"prefix": "lag", "name": "Lag", "note": "IDX source unavailable"},
-      {"prefix": "div", "name": "Divergence", "note": "IDX source unavailable"}
+      {
+        "prefix": "cyc",
+        "name": "Cycle",
+        "note": "IDX source unavailable"
+      },
+      {
+        "prefix": "ext",
+        "name": "Extremity",
+        "note": "IDX source unavailable"
+      },
+      {
+        "prefix": "lag",
+        "name": "Lag",
+        "note": "IDX source unavailable"
+      },
+      {
+        "prefix": "div",
+        "name": "Divergence",
+        "note": "IDX source unavailable"
+      }
     ],
     "feature_type_count": 12,
     "feature_type_note": "CE REVISED 2025-12-09: 8 types have IDX+BQX (16 per currency), 4 types BQX-only (4 per currency) = 144 total",
-    "variants": ["IDX", "BQX"],
+    "variants": [
+      "IDX",
+      "BQX"
+    ],
     "variant_count": 2,
     "total_tables": 144,
     "calculation": "8 currencies x ((8 types x 2 variants) + (4 types x 1 variant)) = 8 x 18 = 144",
     "naming_convention": {
       "idx": "csi_{feature}_{currency}",
       "bqx": "csi_{feature}_bqx_{currency}",
-      "examples": ["csi_agg_usd", "csi_agg_bqx_usd", "csi_mom_eur", "csi_der_gbp"]
+      "examples": [
+        "csi_agg_usd",
+        "csi_agg_bqx_usd",
+        "csi_mom_eur",
+        "csi_der_gbp"
+      ]
     }
   },
   "table_totals": {
     "complete": {
-      "cov": 2507,
+      "cov": 3528,
       "corr": 896,
       "lag": 224,
       "tri": 194,
       "regime": 112,
-      "agg": 84,
-      "align": 84,
-      "mom": 84,
-      "der": 84,
-      "rev": 84,
-      "vol": 84,
-      "mrt": 84,
-      "div": 84,
-      "reg": 84,
+      "agg": 56,
+      "align": 56,
+      "mom": 56,
+      "der": 56,
+      "rev": 56,
+      "vol": 56,
+      "mrt": 56,
+      "div": 56,
+      "reg": 56,
       "base": 56,
       "cyc": 28,
       "ext": 28,
       "tmp": 28,
-      "subtotal": 4829
+      "subtotal": 5598
     },
     "partial": {},
     "complete_phase_1_5": {
-      "csi": {"current": 144, "expected": 144, "gap": 0, "status": "COMPLETE", "date": "2025-12-09"},
-      "var": {"current": 63, "expected": 63, "gap": 0, "status": "COMPLETE", "date": "2025-12-09"},
-      "mkt": {"current": 12, "expected": 12, "gap": 0, "status": "COMPLETE", "date": "2025-12-09"}
+      "csi": {
+        "current": 144,
+        "expected": 144,
+        "gap": 0,
+        "status": "COMPLETE",
+        "date": "2025-12-09",
+        "note": "Phase 0 verified 2025-12-13"
+      },
+      "var": {
+        "current": 63,
+        "expected": 63,
+        "gap": 0,
+        "status": "COMPLETE",
+        "date": "2025-12-09",
+        "note": "Phase 0 verified 2025-12-13"
+      },
+      "mkt": {
+        "current": 12,
+        "expected": 12,
+        "gap": 0,
+        "status": "COMPLETE",
+        "date": "2025-12-09",
+        "note": "Phase 0 verified 2025-12-13 - includes mkt_reg_summary and mkt_reg_bqx_summary"
+      }
     },
-    "grand_total_current": 5048,
-    "grand_total_expected": 5048,
+    "grand_total_current": 5817,
+    "grand_total_expected": 5817,
     "total_gap": 0,
     "total_gap_target": 219,
     "gate_1_passed": "2025-12-09",
@@ -420,49 +617,165 @@
   "feature_breakdown_eurusd": {
     "_note": "Complete breakdown by feature type prefix (BQ verified 2025-12-09)",
     "by_prefix": {
-      "tri": {"tables": 60, "features": 2088, "category": "cross_pair"},
-      "cov": {"tables": 180, "features": 2004, "category": "cross_pair"},
-      "reg": {"tables": 3, "features": 696, "category": "pair"},
-      "mkt": {"tables": 4, "features": 576, "category": "market_wide"},
-      "corr": {"tables": 32, "features": 240, "category": "cross_pair"},
-      "agg": {"tables": 3, "features": 192, "category": "pair"},
-      "mom": {"tables": 3, "features": 129, "category": "pair"},
-      "align": {"tables": 3, "features": 126, "category": "pair"},
-      "vol": {"tables": 3, "features": 93, "category": "pair"},
-      "lag": {"tables": 8, "features": 84, "category": "pair"},
-      "regime": {"tables": 4, "features": 64, "category": "pair"},
-      "der": {"tables": 3, "features": 45, "category": "pair"},
-      "mrt": {"tables": 3, "features": 30, "category": "pair"},
-      "rev": {"tables": 3, "features": 30, "category": "pair"},
-      "tmp": {"tables": 1, "features": 23, "category": "pair"},
-      "base": {"tables": 2, "features": 19, "category": "pair"},
-      "div": {"tables": 3, "features": 18, "category": "pair"},
-      "ext": {"tables": 1, "features": 16, "category": "pair"},
-      "cyc": {"tables": 1, "features": 4, "category": "pair"},
-      "var": {"tables": 0, "features": 0, "category": "pair", "status": "GAP"},
-      "csi": {"tables": 0, "features": 0, "category": "currency_level", "status": "GAP"}
+      "tri": {
+        "tables": 60,
+        "features": 2088,
+        "category": "cross_pair"
+      },
+      "cov": {
+        "tables": 180,
+        "features": 2004,
+        "category": "cross_pair"
+      },
+      "reg": {
+        "tables": 3,
+        "features": 696,
+        "category": "pair"
+      },
+      "mkt": {
+        "tables": 12,
+        "features": 1728,
+        "category": "market_wide",
+        "note": "Updated Phase 0: 12 tables including mkt_reg_summary variants"
+      },
+      "corr": {
+        "tables": 32,
+        "features": 240,
+        "category": "cross_pair"
+      },
+      "agg": {
+        "tables": 3,
+        "features": 192,
+        "category": "pair"
+      },
+      "mom": {
+        "tables": 3,
+        "features": 129,
+        "category": "pair"
+      },
+      "align": {
+        "tables": 3,
+        "features": 126,
+        "category": "pair"
+      },
+      "vol": {
+        "tables": 3,
+        "features": 93,
+        "category": "pair"
+      },
+      "lag": {
+        "tables": 8,
+        "features": 84,
+        "category": "pair"
+      },
+      "regime": {
+        "tables": 4,
+        "features": 64,
+        "category": "pair"
+      },
+      "der": {
+        "tables": 3,
+        "features": 45,
+        "category": "pair"
+      },
+      "mrt": {
+        "tables": 3,
+        "features": 30,
+        "category": "pair"
+      },
+      "rev": {
+        "tables": 3,
+        "features": 30,
+        "category": "pair"
+      },
+      "tmp": {
+        "tables": 1,
+        "features": 23,
+        "category": "pair"
+      },
+      "base": {
+        "tables": 2,
+        "features": 19,
+        "category": "pair"
+      },
+      "div": {
+        "tables": 3,
+        "features": 18,
+        "category": "pair"
+      },
+      "ext": {
+        "tables": 1,
+        "features": 16,
+        "category": "pair"
+      },
+      "cyc": {
+        "tables": 1,
+        "features": 4,
+        "category": "pair"
+      },
+      "var": {
+        "tables": 63,
+        "features": 882,
+        "category": "currency_level",
+        "status": "COMPLETE (schema NON-COMPLIANT per M005)",
+        "note": "Updated Phase 0: 63 tables verified"
+      },
+      "csi": {
+        "tables": 0,
+        "features": 0,
+        "category": "currency_level",
+        "status": "GAP"
+      }
     },
     "by_scope": {
       "pair_specific": {
         "features": 1569,
         "percentage": "24%",
-        "types": ["reg", "agg", "mom", "align", "vol", "lag", "regime", "der", "mrt", "rev", "tmp", "base", "div", "ext", "cyc"]
+        "types": [
+          "reg",
+          "agg",
+          "mom",
+          "align",
+          "vol",
+          "lag",
+          "regime",
+          "der",
+          "mrt",
+          "rev",
+          "tmp",
+          "base",
+          "div",
+          "ext",
+          "cyc"
+        ]
       },
       "cross_pair": {
         "features": 4332,
         "percentage": "67%",
-        "breakdown": {"cov": 2004, "corr": 240, "tri": 2088},
-        "types": ["cov", "corr", "tri"]
+        "breakdown": {
+          "cov": 2004,
+          "corr": 240,
+          "tri": 2088
+        },
+        "types": [
+          "cov",
+          "corr",
+          "tri"
+        ]
       },
       "market_wide": {
         "features": 576,
         "percentage": "9%",
-        "types": ["mkt"]
+        "types": [
+          "mkt"
+        ]
       },
       "currency_level": {
         "features": 0,
         "percentage": "0%",
-        "types": ["csi"],
+        "types": [
+          "csi"
+        ],
         "status": "GAP"
       }
     },
@@ -524,12 +837,299 @@
     "updated": [
       "semantics.json - CSI corrected to 192 (QA 2025-12-09)",
       "feature_catalogue.json - CSI corrected to 192 (QA 2025-12-09)",
-      "BQX_ML_V3_FEATURE_INVENTORY.md - Feature count corrected to 3,813"
+      "BQX_ML_V3_FEATURE_INVENTORY.md - Feature count corrected to 3,813",
+      "context.json - Cloud Run deployment details (QA 2025-12-12)",
+      "roadmap_v2.json - Version and table count updates (QA 2025-12-12)",
+      "semantics.json - Cloud Run architecture section (QA 2025-12-12)",
+      "ontology.json - Training pipeline section (QA 2025-12-12)",
+      "feature_catalogue.json - Deployment updates v2.2.1 (QA 2025-12-12)"
     ],
-    "pending": [
-      "ontology.json - Add complete feature type taxonomy"
-    ],
-    "qa_audit_date": "2025-12-09",
-    "ce_authorization": "CSI = 192 tables (regime excluded)"
+    "pending": [],
+    "qa_audit_date": "2025-12-12",
+    "ce_authorization": "CSI = 192 tables (regime excluded)",
+    "intelligence_files_status": "100% CURRENT (all 5 files updated 2025-12-12 19:25 UTC)"
+  },
+  "semantic_compatibility_groups": {
+    "description": "Nine semantic feature groups for valid cross-feature comparisons",
+    "mandate": "BQX-ML-M007",
+    "groups": {
+      "group_1_regression": {
+        "name": "Regression Features",
+        "features": [
+          "lin_term",
+          "quad_term",
+          "lin_coef",
+          "quad_coef",
+          "residual"
+        ],
+        "windows": [
+          45,
+          90,
+          180,
+          360,
+          720,
+          1440,
+          2880
+        ],
+        "features_per_pair": 35,
+        "valid_operations": [
+          "spread",
+          "ratio",
+          "correlation",
+          "agreement"
+        ],
+        "example": "pair1_lin_term_45 - pair2_lin_term_45 (trend divergence)",
+        "source_tables": [
+          "reg_bqx_*",
+          "reg_idx_*"
+        ]
+      },
+      "group_2_aggregates": {
+        "name": "Statistical Aggregates",
+        "features": [
+          "mean",
+          "std",
+          "min",
+          "max",
+          "range",
+          "sum",
+          "count",
+          "first",
+          "last"
+        ],
+        "windows": [
+          45,
+          90,
+          180,
+          360,
+          720,
+          1440,
+          2880
+        ],
+        "features_per_pair": 63,
+        "valid_operations": [
+          "spread",
+          "ratio",
+          "zscore"
+        ],
+        "example": "pair1_mean_45 - pair2_mean_45 (average divergence)",
+        "source_tables": [
+          "agg_bqx_*",
+          "agg_idx_*"
+        ]
+      },
+      "group_3_normalized": {
+        "name": "Normalized Metrics",
+        "features": [
+          "zscore",
+          "position",
+          "cv",
+          "deviation"
+        ],
+        "windows": [
+          45,
+          90,
+          180,
+          360,
+          720,
+          1440,
+          2880
+        ],
+        "features_per_pair": 28,
+        "valid_operations": [
+          "spread",
+          "agreement",
+          "magnitude"
+        ],
+        "example": "pair1_zscore_45 - pair2_zscore_45 (normalized divergence)",
+        "source_tables": [
+          "agg_*",
+          "align_*"
+        ]
+      },
+      "group_4_directional": {
+        "name": "Directional Indicators",
+        "features": [
+          "dir",
+          "direction",
+          "slope"
+        ],
+        "windows": [
+          45,
+          90,
+          180,
+          360,
+          720,
+          1440,
+          2880
+        ],
+        "features_per_pair": 21,
+        "valid_operations": [
+          "agreement",
+          "spread",
+          "match_rate"
+        ],
+        "example": "pair1_dir_45 = pair2_dir_45 (directional sync)",
+        "source_tables": [
+          "align_*",
+          "reg_*"
+        ]
+      },
+      "group_5_momentum": {
+        "name": "Momentum Oscillators",
+        "features": [
+          "bqx",
+          "mom"
+        ],
+        "windows": [
+          45,
+          90,
+          180,
+          360,
+          720,
+          1440,
+          2880
+        ],
+        "features_per_pair": 14,
+        "valid_operations": [
+          "spread",
+          "ratio",
+          "correlation"
+        ],
+        "example": "pair1_bqx_45 - pair2_bqx_45 (momentum divergence)",
+        "source_tables": [
+          "base_bqx_*",
+          "mom_*"
+        ],
+        "note": "Current COV tables already implement this (val1/val2 = bqx_45)"
+      },
+      "group_6_volatility": {
+        "name": "Volatility Measures",
+        "features": [
+          "atr",
+          "volatility",
+          "vol_ratio"
+        ],
+        "windows": [
+          45,
+          90,
+          180,
+          360,
+          720,
+          1440,
+          2880
+        ],
+        "features_per_pair": 21,
+        "valid_operations": [
+          "ratio",
+          "spread",
+          "regime"
+        ],
+        "example": "pair1_atr_45 / pair2_atr_45 (relative volatility)",
+        "source_tables": [
+          "vol_*"
+        ]
+      },
+      "group_7_derivatives": {
+        "name": "Derivative Features",
+        "features": [
+          "first_derivative",
+          "second_derivative"
+        ],
+        "windows": [
+          45,
+          90,
+          180,
+          360,
+          720,
+          1440,
+          2880
+        ],
+        "features_per_pair": 14,
+        "valid_operations": [
+          "spread",
+          "agreement"
+        ],
+        "example": "pair1_first_derivative_45 - pair2_first_derivative_45",
+        "source_tables": [
+          "der_*"
+        ]
+      },
+      "group_8_mean_reversion": {
+        "name": "Mean Reversion Indicators",
+        "features": [
+          "reversion_signal",
+          "reversion_strength"
+        ],
+        "windows": [
+          45,
+          90,
+          180,
+          360,
+          720,
+          1440,
+          2880
+        ],
+        "features_per_pair": 14,
+        "valid_operations": [
+          "agreement",
+          "spread"
+        ],
+        "example": "pair1_reversion_signal_45 = pair2_reversion_signal_45",
+        "source_tables": [
+          "rev_*"
+        ]
+      },
+      "group_9_correlation": {
+        "name": "Correlation Coefficients",
+        "features": [
+          "corr_spy",
+          "corr_gld",
+          "corr_vix",
+          "corr_ewa",
+          "corr_ewg",
+          "corr_ewj",
+          "corr_ewu",
+          "corr_uup"
+        ],
+        "windows": [
+          45,
+          90,
+          180,
+          360,
+          720,
+          1440,
+          2880
+        ],
+        "features_per_pair": 56,
+        "valid_operations": [
+          "spread",
+          "max_min",
+          "divergence"
+        ],
+        "example": "pair1_corr_spy_45 - pair2_corr_spy_45 (relative SPY exposure)",
+        "source_tables": [
+          "corr_etf_*",
+          "corr_bqx_*",
+          "corr_ibkr_*"
+        ]
+      }
+    },
+    "incompatible_features": {
+      "raw_prices": [
+        "close_idx",
+        "open",
+        "high",
+        "low",
+        "close"
+      ],
+      "reason": "Different absolute scales per pair (EURUSD ~1.1, USDJPY ~150)",
+      "prohibition": "NEVER compare raw prices across pairs in COV/TRI tables"
+    },
+    "validation_rules": {
+      "rule_1_homogeneity": "All pair features in comparison table MUST come from same semantic group",
+      "rule_2_window_consistency": "Compared features MUST use same window size",
+      "rule_3_variant_separation": "BQX and IDX variants MUST NOT be mixed in same comparison"
+    }
   }
 }

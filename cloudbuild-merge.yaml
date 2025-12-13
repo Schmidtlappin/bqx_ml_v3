@@ -1,0 +1,18 @@
+# Cloud Build configuration for bqx-ml-merge (Job 2)
+# CE Directive 2025-12-12 20:20: Bifurcated Architecture
+# Builds merge-only container image
+
+steps:
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      - 'build'
+      - '-t'
+      - 'gcr.io/bqx-ml/bqx-ml-merge:latest'
+      - '-f'
+      - 'Dockerfile.merge'
+      - '.'
+
+images:
+  - 'gcr.io/bqx-ml/bqx-ml-merge:latest'
+
+timeout: '600s'  # 10 minutes

@@ -1,0 +1,43 @@
+======================================================================
+REG Table Regeneration - Phase 0C (BQX-ML-M005 Compliance)
+======================================================================
+Start time: Sat Dec 13 04:38:04 UTC 2025
+Log directory: /home/micha/bqx_ml_v3/scripts/../logs/reg_regeneration_20251213_043804
+
+Starting regeneration of 84 REG tables...
+
+======================================================================
+Processing BQX variant (28 tables)...
+Log: /home/micha/bqx_ml_v3/scripts/../logs/reg_regeneration_20251213_043804/bqx_variant.log
+Start: Sat Dec 13 04:38:04 UTC 2025
+
+======================================================================
+Processing IDX variant (28 tables)...
+Log: /home/micha/bqx_ml_v3/scripts/../logs/reg_regeneration_20251213_043804/idx_variant.log
+Start: Sat Dec 13 06:13:55 UTC 2025
+
+======================================================================
+Processing OTHER variant (28 tables)...
+Log: /home/micha/bqx_ml_v3/scripts/../logs/reg_regeneration_20251213_043804/other_variant.log
+Start: Sat Dec 13 07:54:12 UTC 2025
+
+======================================================================
+REGENERATION COMPLETE
+======================================================================
+End time: Sat Dec 13 07:55:45 UTC 2025
+
+Results:
+  Total tables: 84
+  Success: 56
+  Failed:  0
+
+✅ SUCCESS: All 84 REG tables regenerated successfully!
+
+Schema verification:
+  - All tables should now have 248 columns (was 234)
+  - New columns: reg_lin_coef_* and reg_quad_coef_* (14 total)
+
+Next steps:
+  1. Verify schema with: bq show bqx-ml:bqx_ml_v3_features_v2.reg_bqx_eurusd
+  2. Proceed to Phase 1: Refactor TRI/COV/VAR scripts
+  3. Update intelligence files and catalogues

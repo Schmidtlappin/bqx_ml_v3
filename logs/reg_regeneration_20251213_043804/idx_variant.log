@@ -1,0 +1,45 @@
+======================================================================
+REG Table Generator V5 - BQX-ML-M005 MANDATE COMPLIANT
+======================================================================
+Variant:     IDX
+Dataset:     bqx_ml_v3_features_v2
+Pairs:       28
+Test mode:   False
+Dry run:     False
+
+NEW COLUMNS (14 per table):
+  - reg_lin_coef_45, reg_lin_coef_90, ..., reg_lin_coef_2880 (7)
+  - reg_quad_coef_45, reg_quad_coef_90, ..., reg_quad_coef_2880 (7)
+
+Total columns: 248 (was 234)
+======================================================================
+Creating reg_idx_eurusd... ✅ OK: reg_idx_eurusd
+Creating reg_idx_gbpusd... ✅ OK: reg_idx_gbpusd
+Creating reg_idx_usdjpy... ✅ OK: reg_idx_usdjpy
+Creating reg_idx_usdchf... ✅ OK: reg_idx_usdchf
+Creating reg_idx_audusd... ✅ OK: reg_idx_audusd
+Creating reg_idx_usdcad... ✅ OK: reg_idx_usdcad
+Creating reg_idx_nzdusd... ✅ OK: reg_idx_nzdusd
+Creating reg_idx_eurgbp... ✅ OK: reg_idx_eurgbp
+Creating reg_idx_eurjpy... ✅ OK: reg_idx_eurjpy
+Creating reg_idx_eurchf... ✅ OK: reg_idx_eurchf
+Creating reg_idx_euraud... ✅ OK: reg_idx_euraud
+Creating reg_idx_eurcad... ✅ OK: reg_idx_eurcad
+Creating reg_idx_eurnzd... ✅ OK: reg_idx_eurnzd
+Creating reg_idx_gbpjpy... ✅ OK: reg_idx_gbpjpy
+Creating reg_idx_gbpchf... ✅ OK: reg_idx_gbpchf
+Creating reg_idx_gbpaud... ✅ OK: reg_idx_gbpaud
+Creating reg_idx_gbpcad... ✅ OK: reg_idx_gbpcad
+Creating reg_idx_gbpnzd... ✅ OK: reg_idx_gbpnzd
+Creating reg_idx_audjpy... ✅ OK: reg_idx_audjpy
+Creating reg_idx_audchf... ✅ OK: reg_idx_audchf
+Creating reg_idx_audcad... ✅ OK: reg_idx_audcad
+Creating reg_idx_audnzd... ✅ OK: reg_idx_audnzd
+Creating reg_idx_nzdjpy... ✅ OK: reg_idx_nzdjpy
+Creating reg_idx_nzdchf... ✅ OK: reg_idx_nzdchf
+Creating reg_idx_nzdcad... ✅ OK: reg_idx_nzdcad
+Creating reg_idx_cadjpy... ✅ OK: reg_idx_cadjpy
+Creating reg_idx_cadchf... ✅ OK: reg_idx_cadchf
+Creating reg_idx_chfjpy... ✅ OK: reg_idx_chfjpy
+======================================================================
+Success: 28, Failed: 0

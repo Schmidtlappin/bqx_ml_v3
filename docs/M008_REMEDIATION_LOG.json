@@ -1,0 +1,1169 @@
+{
+  "generated": "2025-12-13T10:36:41.171286Z",
+  "dry_run": true,
+  "delete_results": {
+    "total": 285,
+    "verified": 252,
+    "deleted": 252,
+    "skipped": 33,
+    "errors": [],
+    "deleted_tables": [
+      "agg_audcad",
+      "agg_audchf",
+      "agg_audjpy",
+      "agg_audnzd",
+      "agg_audusd",
+      "agg_cadchf",
+      "agg_cadjpy",
+      "agg_chfjpy",
+      "agg_euraud",
+      "agg_eurcad",
+      "agg_eurchf",
+      "agg_eurgbp",
+      "agg_eurjpy",
+      "agg_eurnzd",
+      "agg_eurusd",
+      "agg_gbpaud",
+      "agg_gbpcad",
+      "agg_gbpchf",
+      "agg_gbpjpy",
+      "agg_gbpnzd",
+      "agg_gbpusd",
+      "agg_nzdcad",
+      "agg_nzdchf",
+      "agg_nzdjpy",
+      "agg_nzdusd",
+      "agg_usdcad",
+      "agg_usdchf",
+      "agg_usdjpy",
+      "align_audcad",
+      "align_audchf",
+      "align_audjpy",
+      "align_audnzd",
+      "align_audusd",
+      "align_cadchf",
+      "align_cadjpy",
+      "align_chfjpy",
+      "align_euraud",
+      "align_eurcad",
+      "align_eurchf",
+      "align_eurgbp",
+      "align_eurjpy",
+      "align_eurnzd",
+      "align_eurusd",
+      "align_gbpaud",
+      "align_gbpcad",
+      "align_gbpchf",
+      "align_gbpjpy",
+      "align_gbpnzd",
+      "align_gbpusd",
+      "align_nzdcad",
+      "align_nzdchf",
+      "align_nzdjpy",
+      "align_nzdusd",
+      "align_usdcad",
+      "align_usdchf",
+      "align_usdjpy",
+      "der_audcad",
+      "der_audchf",
+      "der_audjpy",
+      "der_audnzd",
+      "der_audusd",
+      "der_cadchf",
+      "der_cadjpy",
+      "der_chfjpy",
+      "der_euraud",
+      "der_eurcad",
+      "der_eurchf",
+      "der_eurgbp",
+      "der_eurjpy",
+      "der_eurnzd",
+      "der_eurusd",
+      "der_gbpaud",
+      "der_gbpcad",
+      "der_gbpchf",
+      "der_gbpjpy",
+      "der_gbpnzd",
+      "der_gbpusd",
+      "der_nzdcad",
+      "der_nzdchf",
+      "der_nzdjpy",
+      "der_nzdusd",
+      "der_usdcad",
+      "der_usdchf",
+      "der_usdjpy",
+      "div_audcad",
+      "div_audchf",
+      "div_audjpy",
+      "div_audnzd",
+      "div_audusd",
+      "div_cadchf",
+      "div_cadjpy",
+      "div_chfjpy",
+      "div_euraud",
+      "div_eurcad",
+      "div_eurchf",
+      "div_eurgbp",
+      "div_eurjpy",
+      "div_eurnzd",
+      "div_eurusd",
+      "div_gbpaud",
+      "div_gbpcad",
+      "div_gbpchf",
+      "div_gbpjpy",
+      "div_gbpnzd",
+      "div_gbpusd",
+      "div_nzdcad",
+      "div_nzdchf",
+      "div_nzdjpy",
+      "div_nzdusd",
+      "div_usdcad",
+      "div_usdchf",
+      "div_usdjpy",
+      "mom_audcad",
+      "mom_audchf",
+      "mom_audjpy",
+      "mom_audnzd",
+      "mom_audusd",
+      "mom_cadchf",
+      "mom_cadjpy",
+      "mom_chfjpy",
+      "mom_euraud",
+      "mom_eurcad",
+      "mom_eurchf",
+      "mom_eurgbp",
+      "mom_eurjpy",
+      "mom_eurnzd",
+      "mom_eurusd",
+      "mom_gbpaud",
+      "mom_gbpcad",
+      "mom_gbpchf",
+      "mom_gbpjpy",
+      "mom_gbpnzd",
+      "mom_gbpusd",
+      "mom_nzdcad",
+      "mom_nzdchf",
+      "mom_nzdjpy",
+      "mom_nzdusd",
+      "mom_usdcad",
+      "mom_usdchf",
+      "mom_usdjpy",
+      "mrt_audcad",
+      "mrt_audchf",
+      "mrt_audjpy",
+      "mrt_audnzd",
+      "mrt_audusd",
+      "mrt_cadchf",
+      "mrt_cadjpy",
+      "mrt_chfjpy",
+      "mrt_euraud",
+      "mrt_eurcad",
+      "mrt_eurchf",
+      "mrt_eurgbp",
+      "mrt_eurjpy",
+      "mrt_eurnzd",
+      "mrt_eurusd",
+      "mrt_gbpaud",
+      "mrt_gbpcad",
+      "mrt_gbpchf",
+      "mrt_gbpjpy",
+      "mrt_gbpnzd",
+      "mrt_gbpusd",
+      "mrt_nzdcad",
+      "mrt_nzdchf",
+      "mrt_nzdjpy",
+      "mrt_nzdusd",
+      "mrt_usdcad",
+      "mrt_usdchf",
+      "mrt_usdjpy",
+      "reg_audcad",
+      "reg_audchf",
+      "reg_audjpy",
+      "reg_audnzd",
+      "reg_audusd",
+      "reg_cadchf",
+      "reg_cadjpy",
+      "reg_chfjpy",
+      "reg_euraud",
+      "reg_eurcad",
+      "reg_eurchf",
+      "reg_eurgbp",
+      "reg_eurjpy",
+      "reg_eurnzd",
+      "reg_eurusd",
+      "reg_gbpaud",
+      "reg_gbpcad",
+      "reg_gbpchf",
+      "reg_gbpjpy",
+      "reg_gbpnzd",
+      "reg_gbpusd",
+      "reg_nzdcad",
+      "reg_nzdchf",
+      "reg_nzdjpy",
+      "reg_nzdusd",
+      "reg_usdcad",
+      "reg_usdchf",
+      "reg_usdjpy",
+      "rev_audcad",
+      "rev_audchf",
+      "rev_audjpy",
+      "rev_audnzd",
+      "rev_audusd",
+      "rev_cadchf",
+      "rev_cadjpy",
+      "rev_chfjpy",
+      "rev_euraud",
+      "rev_eurcad",
+      "rev_eurchf",
+      "rev_eurgbp",
+      "rev_eurjpy",
+      "rev_eurnzd",
+      "rev_eurusd",
+      "rev_gbpaud",
+      "rev_gbpcad",
+      "rev_gbpchf",
+      "rev_gbpjpy",
+      "rev_gbpnzd",
+      "rev_gbpusd",
+      "rev_nzdcad",
+      "rev_nzdchf",
+      "rev_nzdjpy",
+      "rev_nzdusd",
+      "rev_usdcad",
+      "rev_usdchf",
+      "rev_usdjpy",
+      "vol_audcad",
+      "vol_audchf",
+      "vol_audjpy",
+      "vol_audnzd",
+      "vol_audusd",
+      "vol_cadchf",
+      "vol_cadjpy",
+      "vol_chfjpy",
+      "vol_euraud",
+      "vol_eurcad",
+      "vol_eurchf",
+      "vol_eurgbp",
+      "vol_eurjpy",
+      "vol_eurnzd",
+      "vol_eurusd",
+      "vol_gbpaud",
+      "vol_gbpcad",
+      "vol_gbpchf",
+      "vol_gbpjpy",
+      "vol_gbpnzd",
+      "vol_gbpusd",
+      "vol_nzdcad",
+      "vol_nzdchf",
+      "vol_nzdjpy",
+      "vol_nzdusd",
+      "vol_usdcad",
+      "vol_usdchf",
+      "vol_usdjpy"
+    ],
+    "skipped_tables": [
+      {
+        "table": "mkt_corr",
+        "reason": "Missing compliant versions"
+      },
+      {
+        "table": "mkt_dispersion",
+        "reason": "Missing compliant versions"
+      },
+      {
+        "table": "mkt_regime",
+        "reason": "Missing compliant versions"
+      },
+      {
+        "table": "mkt_sentiment",
+        "reason": "Missing compliant versions"
+      },
+      {
+        "table": "mkt_vol",
+        "reason": "Missing compliant versions"
+      },
+      {
+        "table": "tmp_audcad",
+        "reason": "Missing compliant versions"
+      },
+      {
+        "table": "tmp_audchf",
+        "reason": "Missing compliant versions"
+      },
+      {
+        "table": "tmp_audjpy",
+        "reason": "Missing compliant versions"
+      },
+      {
+        "table": "tmp_audnzd",
+        "reason": "Missing compliant versions"
+      },
+      {
+        "table": "tmp_audusd",
+        "reason": "Missing compliant versions"
+      },
+      {
+        "table": "tmp_cadchf",
+        "reason": "Missing compliant versions"
+      },
+      {
+        "table": "tmp_cadjpy",
+        "reason": "Missing compliant versions"
+      },
+      {
+        "table": "tmp_chfjpy",
+        "reason": "Missing compliant versions"
+      },
+      {
+        "table": "tmp_euraud",
+        "reason": "Missing compliant versions"
+      },
+      {
+        "table": "tmp_eurcad",
+        "reason": "Missing compliant versions"
+      },
+      {
+        "table": "tmp_eurchf",
+        "reason": "Missing compliant versions"
+      },
+      {
+        "table": "tmp_eurgbp",
+        "reason": "Missing compliant versions"
+      },
+      {
+        "table": "tmp_eurjpy",
+        "reason": "Missing compliant versions"
+      },
+      {
+        "table": "tmp_eurnzd",
+        "reason": "Missing compliant versions"
+      },
+      {
+        "table": "tmp_eurusd",
+        "reason": "Missing compliant versions"
+      },
+      {
+        "table": "tmp_gbpaud",
+        "reason": "Missing compliant versions"
+      },
+      {
+        "table": "tmp_gbpcad",
+        "reason": "Missing compliant versions"
+      },
+      {
+        "table": "tmp_gbpchf",
+        "reason": "Missing compliant versions"
+      },
+      {
+        "table": "tmp_gbpjpy",
+        "reason": "Missing compliant versions"
+      },
+      {
+        "table": "tmp_gbpnzd",
+        "reason": "Missing compliant versions"
+      },
+      {
+        "table": "tmp_gbpusd",
+        "reason": "Missing compliant versions"
+      },
+      {
+        "table": "tmp_nzdcad",
+        "reason": "Missing compliant versions"
+      },
+      {
+        "table": "tmp_nzdchf",
+        "reason": "Missing compliant versions"
+      },
+      {
+        "table": "tmp_nzdjpy",
+        "reason": "Missing compliant versions"
+      },
+      {
+        "table": "tmp_nzdusd",
+        "reason": "Missing compliant versions"
+      },
+      {
+        "table": "tmp_usdcad",
+        "reason": "Missing compliant versions"
+      },
+      {
+        "table": "tmp_usdchf",
+        "reason": "Missing compliant versions"
+      },
+      {
+        "table": "tmp_usdjpy",
+        "reason": "Missing compliant versions"
+      }
+    ]
+  },
+  "rename_results": {
+    "total": 190,
+    "verified": 190,
+    "renamed": 190,
+    "skipped": 0,
+    "errors": [],
+    "renamed_tables": [
+      {
+        "old": "tri_agg_bqx_aud_usd_cad",
+        "new": "tri_agg_bqx_aud_cad_usd"
+      },
+      {
+        "old": "tri_agg_bqx_aud_usd_chf",
+        "new": "tri_agg_bqx_aud_chf_usd"
+      },
+      {
+        "old": "tri_agg_bqx_aud_usd_jpy",
+        "new": "tri_agg_bqx_aud_jpy_usd"
+      },
+      {
+        "old": "tri_agg_bqx_aud_usd_nzd",
+        "new": "tri_agg_bqx_aud_nzd_usd"
+      },
+      {
+        "old": "tri_agg_bqx_eur_usd_aud",
+        "new": "tri_agg_bqx_aud_eur_usd"
+      },
+      {
+        "old": "tri_agg_bqx_eur_usd_cad",
+        "new": "tri_agg_bqx_cad_eur_usd"
+      },
+      {
+        "old": "tri_agg_bqx_eur_usd_chf",
+        "new": "tri_agg_bqx_chf_eur_usd"
+      },
+      {
+        "old": "tri_agg_bqx_eur_usd_gbp",
+        "new": "tri_agg_bqx_eur_gbp_usd"
+      },
+      {
+        "old": "tri_agg_bqx_eur_usd_jpy",
+        "new": "tri_agg_bqx_eur_jpy_usd"
+      },
+      {
+        "old": "tri_agg_bqx_eur_usd_nzd",
+        "new": "tri_agg_bqx_eur_nzd_usd"
+      },
+      {
+        "old": "tri_agg_bqx_gbp_usd_aud",
+        "new": "tri_agg_bqx_aud_gbp_usd"
+      },
+      {
+        "old": "tri_agg_bqx_gbp_usd_cad",
+        "new": "tri_agg_bqx_cad_gbp_usd"
+      },
+      {
+        "old": "tri_agg_bqx_gbp_usd_chf",
+        "new": "tri_agg_bqx_chf_gbp_usd"
+      },
+      {
+        "old": "tri_agg_bqx_gbp_usd_jpy",
+        "new": "tri_agg_bqx_gbp_jpy_usd"
+      },
+      {
+        "old": "tri_agg_bqx_gbp_usd_nzd",
+        "new": "tri_agg_bqx_gbp_nzd_usd"
+      },
+      {
+        "old": "tri_agg_bqx_nzd_usd_cad",
+        "new": "tri_agg_bqx_cad_nzd_usd"
+      },
+      {
+        "old": "tri_agg_bqx_nzd_usd_chf",
+        "new": "tri_agg_bqx_chf_nzd_usd"
+      },
+      {
+        "old": "tri_agg_bqx_nzd_usd_jpy",
+        "new": "tri_agg_bqx_jpy_nzd_usd"
+      },
+      {
+        "old": "tri_agg_idx_aud_usd_cad",
+        "new": "tri_agg_idx_aud_cad_usd"
+      },
+      {
+        "old": "tri_agg_idx_aud_usd_chf",
+        "new": "tri_agg_idx_aud_chf_usd"
+      },
+      {
+        "old": "tri_agg_idx_aud_usd_jpy",
+        "new": "tri_agg_idx_aud_jpy_usd"
+      },
+      {
+        "old": "tri_agg_idx_aud_usd_nzd",
+        "new": "tri_agg_idx_aud_nzd_usd"
+      },
+      {
+        "old": "tri_agg_idx_eur_usd_aud",
+        "new": "tri_agg_idx_aud_eur_usd"
+      },
+      {
+        "old": "tri_agg_idx_eur_usd_cad",
+        "new": "tri_agg_idx_cad_eur_usd"
+      },
+      {
+        "old": "tri_agg_idx_eur_usd_chf",
+        "new": "tri_agg_idx_chf_eur_usd"
+      },
+      {
+        "old": "tri_agg_idx_eur_usd_gbp",
+        "new": "tri_agg_idx_eur_gbp_usd"
+      },
+      {
+        "old": "tri_agg_idx_eur_usd_jpy",
+        "new": "tri_agg_idx_eur_jpy_usd"
+      },
+      {
+        "old": "tri_agg_idx_eur_usd_nzd",
+        "new": "tri_agg_idx_eur_nzd_usd"
+      },
+      {
+        "old": "tri_agg_idx_gbp_usd_aud",
+        "new": "tri_agg_idx_aud_gbp_usd"
+      },
+      {
+        "old": "tri_agg_idx_gbp_usd_cad",
+        "new": "tri_agg_idx_cad_gbp_usd"
+      },
+      {
+        "old": "tri_agg_idx_gbp_usd_chf",
+        "new": "tri_agg_idx_chf_gbp_usd"
+      },
+      {
+        "old": "tri_agg_idx_gbp_usd_jpy",
+        "new": "tri_agg_idx_gbp_jpy_usd"
+      },
+      {
+        "old": "tri_agg_idx_gbp_usd_nzd",
+        "new": "tri_agg_idx_gbp_nzd_usd"
+      },
+      {
+        "old": "tri_agg_idx_nzd_usd_cad",
+        "new": "tri_agg_idx_cad_nzd_usd"
+      },
+      {
+        "old": "tri_agg_idx_nzd_usd_chf",
+        "new": "tri_agg_idx_chf_nzd_usd"
+      },
+      {
+        "old": "tri_agg_idx_nzd_usd_jpy",
+        "new": "tri_agg_idx_jpy_nzd_usd"
+      },
+      {
+        "old": "tri_align_bqx_aud_usd_cad",
+        "new": "tri_align_bqx_aud_cad_usd"
+      },
+      {
+        "old": "tri_align_bqx_aud_usd_chf",
+        "new": "tri_align_bqx_aud_chf_usd"
+      },
+      {
+        "old": "tri_align_bqx_aud_usd_jpy",
+        "new": "tri_align_bqx_aud_jpy_usd"
+      },
+      {
+        "old": "tri_align_bqx_aud_usd_nzd",
+        "new": "tri_align_bqx_aud_nzd_usd"
+      },
+      {
+        "old": "tri_align_bqx_eur_usd_aud",
+        "new": "tri_align_bqx_aud_eur_usd"
+      },
+      {
+        "old": "tri_align_bqx_eur_usd_cad",
+        "new": "tri_align_bqx_cad_eur_usd"
+      },
+      {
+        "old": "tri_align_bqx_eur_usd_chf",
+        "new": "tri_align_bqx_chf_eur_usd"
+      },
+      {
+        "old": "tri_align_bqx_eur_usd_gbp",
+        "new": "tri_align_bqx_eur_gbp_usd"
+      },
+      {
+        "old": "tri_align_bqx_eur_usd_jpy",
+        "new": "tri_align_bqx_eur_jpy_usd"
+      },
+      {
+        "old": "tri_align_bqx_eur_usd_nzd",
+        "new": "tri_align_bqx_eur_nzd_usd"
+      },
+      {
+        "old": "tri_align_bqx_gbp_usd_aud",
+        "new": "tri_align_bqx_aud_gbp_usd"
+      },
+      {
+        "old": "tri_align_bqx_gbp_usd_cad",
+        "new": "tri_align_bqx_cad_gbp_usd"
+      },
+      {
+        "old": "tri_align_bqx_gbp_usd_chf",
+        "new": "tri_align_bqx_chf_gbp_usd"
+      },
+      {
+        "old": "tri_align_bqx_gbp_usd_jpy",
+        "new": "tri_align_bqx_gbp_jpy_usd"
+      },
+      {
+        "old": "tri_align_bqx_gbp_usd_nzd",
+        "new": "tri_align_bqx_gbp_nzd_usd"
+      },
+      {
+        "old": "tri_align_bqx_nzd_usd_cad",
+        "new": "tri_align_bqx_cad_nzd_usd"
+      },
+      {
+        "old": "tri_align_bqx_nzd_usd_chf",
+        "new": "tri_align_bqx_chf_nzd_usd"
+      },
+      {
+        "old": "tri_align_bqx_nzd_usd_jpy",
+        "new": "tri_align_bqx_jpy_nzd_usd"
+      },
+      {
+        "old": "tri_align_idx_aud_usd_cad",
+        "new": "tri_align_idx_aud_cad_usd"
+      },
+      {
+        "old": "tri_align_idx_aud_usd_chf",
+        "new": "tri_align_idx_aud_chf_usd"
+      },
+      {
+        "old": "tri_align_idx_aud_usd_jpy",
+        "new": "tri_align_idx_aud_jpy_usd"
+      },
+      {
+        "old": "tri_align_idx_aud_usd_nzd",
+        "new": "tri_align_idx_aud_nzd_usd"
+      },
+      {
+        "old": "tri_align_idx_eur_usd_aud",
+        "new": "tri_align_idx_aud_eur_usd"
+      },
+      {
+        "old": "tri_align_idx_eur_usd_cad",
+        "new": "tri_align_idx_cad_eur_usd"
+      },
+      {
+        "old": "tri_align_idx_eur_usd_chf",
+        "new": "tri_align_idx_chf_eur_usd"
+      },
+      {
+        "old": "tri_align_idx_eur_usd_gbp",
+        "new": "tri_align_idx_eur_gbp_usd"
+      },
+      {
+        "old": "tri_align_idx_eur_usd_jpy",
+        "new": "tri_align_idx_eur_jpy_usd"
+      },
+      {
+        "old": "tri_align_idx_eur_usd_nzd",
+        "new": "tri_align_idx_eur_nzd_usd"
+      },
+      {
+        "old": "tri_align_idx_gbp_usd_aud",
+        "new": "tri_align_idx_aud_gbp_usd"
+      },
+      {
+        "old": "tri_align_idx_gbp_usd_cad",
+        "new": "tri_align_idx_cad_gbp_usd"
+      },
+      {
+        "old": "tri_align_idx_gbp_usd_chf",
+        "new": "tri_align_idx_chf_gbp_usd"
+      },
+      {
+        "old": "tri_align_idx_gbp_usd_jpy",
+        "new": "tri_align_idx_gbp_jpy_usd"
+      },
+      {
+        "old": "tri_align_idx_gbp_usd_nzd",
+        "new": "tri_align_idx_gbp_nzd_usd"
+      },
+      {
+        "old": "tri_align_idx_nzd_usd_cad",
+        "new": "tri_align_idx_cad_nzd_usd"
+      },
+      {
+        "old": "tri_align_idx_nzd_usd_chf",
+        "new": "tri_align_idx_chf_nzd_usd"
+      },
+      {
+        "old": "tri_align_idx_nzd_usd_jpy",
+        "new": "tri_align_idx_jpy_nzd_usd"
+      },
+      {
+        "old": "tri_mom_bqx_aud_usd_cad",
+        "new": "tri_mom_bqx_aud_cad_usd"
+      },
+      {
+        "old": "tri_mom_bqx_aud_usd_chf",
+        "new": "tri_mom_bqx_aud_chf_usd"
+      },
+      {
+        "old": "tri_mom_bqx_aud_usd_jpy",
+        "new": "tri_mom_bqx_aud_jpy_usd"
+      },
+      {
+        "old": "tri_mom_bqx_aud_usd_nzd",
+        "new": "tri_mom_bqx_aud_nzd_usd"
+      },
+      {
+        "old": "tri_mom_bqx_eur_usd_aud",
+        "new": "tri_mom_bqx_aud_eur_usd"
+      },
+      {
+        "old": "tri_mom_bqx_eur_usd_cad",
+        "new": "tri_mom_bqx_cad_eur_usd"
+      },
+      {
+        "old": "tri_mom_bqx_eur_usd_chf",
+        "new": "tri_mom_bqx_chf_eur_usd"
+      },
+      {
+        "old": "tri_mom_bqx_eur_usd_gbp",
+        "new": "tri_mom_bqx_eur_gbp_usd"
+      },
+      {
+        "old": "tri_mom_bqx_eur_usd_jpy",
+        "new": "tri_mom_bqx_eur_jpy_usd"
+      },
+      {
+        "old": "tri_mom_bqx_eur_usd_nzd",
+        "new": "tri_mom_bqx_eur_nzd_usd"
+      },
+      {
+        "old": "tri_mom_bqx_gbp_usd_aud",
+        "new": "tri_mom_bqx_aud_gbp_usd"
+      },
+      {
+        "old": "tri_mom_bqx_gbp_usd_cad",
+        "new": "tri_mom_bqx_cad_gbp_usd"
+      },
+      {
+        "old": "tri_mom_bqx_gbp_usd_chf",
+        "new": "tri_mom_bqx_chf_gbp_usd"
+      },
+      {
+        "old": "tri_mom_bqx_gbp_usd_jpy",
+        "new": "tri_mom_bqx_gbp_jpy_usd"
+      },
+      {
+        "old": "tri_mom_bqx_gbp_usd_nzd",
+        "new": "tri_mom_bqx_gbp_nzd_usd"
+      },
+      {
+        "old": "tri_mom_bqx_nzd_usd_cad",
+        "new": "tri_mom_bqx_cad_nzd_usd"
+      },
+      {
+        "old": "tri_mom_bqx_nzd_usd_chf",
+        "new": "tri_mom_bqx_chf_nzd_usd"
+      },
+      {
+        "old": "tri_mom_bqx_nzd_usd_jpy",
+        "new": "tri_mom_bqx_jpy_nzd_usd"
+      },
+      {
+        "old": "tri_mom_idx_aud_usd_cad",
+        "new": "tri_mom_idx_aud_cad_usd"
+      },
+      {
+        "old": "tri_mom_idx_aud_usd_chf",
+        "new": "tri_mom_idx_aud_chf_usd"
+      },
+      {
+        "old": "tri_mom_idx_aud_usd_jpy",
+        "new": "tri_mom_idx_aud_jpy_usd"
+      },
+      {
+        "old": "tri_mom_idx_aud_usd_nzd",
+        "new": "tri_mom_idx_aud_nzd_usd"
+      },
+      {
+        "old": "tri_mom_idx_eur_usd_aud",
+        "new": "tri_mom_idx_aud_eur_usd"
+      },
+      {
+        "old": "tri_mom_idx_eur_usd_cad",
+        "new": "tri_mom_idx_cad_eur_usd"
+      },
+      {
+        "old": "tri_mom_idx_eur_usd_chf",
+        "new": "tri_mom_idx_chf_eur_usd"
+      },
+      {
+        "old": "tri_mom_idx_eur_usd_gbp",
+        "new": "tri_mom_idx_eur_gbp_usd"
+      },
+      {
+        "old": "tri_mom_idx_eur_usd_jpy",
+        "new": "tri_mom_idx_eur_jpy_usd"
+      },
+      {
+        "old": "tri_mom_idx_eur_usd_nzd",
+        "new": "tri_mom_idx_eur_nzd_usd"
+      },
+      {
+        "old": "tri_mom_idx_gbp_usd_aud",
+        "new": "tri_mom_idx_aud_gbp_usd"
+      },
+      {
+        "old": "tri_mom_idx_gbp_usd_cad",
+        "new": "tri_mom_idx_cad_gbp_usd"
+      },
+      {
+        "old": "tri_mom_idx_gbp_usd_chf",
+        "new": "tri_mom_idx_chf_gbp_usd"
+      },
+      {
+        "old": "tri_mom_idx_gbp_usd_jpy",
+        "new": "tri_mom_idx_gbp_jpy_usd"
+      },
+      {
+        "old": "tri_mom_idx_gbp_usd_nzd",
+        "new": "tri_mom_idx_gbp_nzd_usd"
+      },
+      {
+        "old": "tri_mom_idx_nzd_usd_cad",
+        "new": "tri_mom_idx_cad_nzd_usd"
+      },
+      {
+        "old": "tri_mom_idx_nzd_usd_chf",
+        "new": "tri_mom_idx_chf_nzd_usd"
+      },
+      {
+        "old": "tri_mom_idx_nzd_usd_jpy",
+        "new": "tri_mom_idx_jpy_nzd_usd"
+      },
+      {
+        "old": "tri_reg_bqx_aud_nzd_jpy",
+        "new": "tri_reg_bqx_aud_jpy_nzd"
+      },
+      {
+        "old": "tri_reg_bqx_aud_usd_cad",
+        "new": "tri_reg_bqx_aud_cad_usd"
+      },
+      {
+        "old": "tri_reg_bqx_aud_usd_chf",
+        "new": "tri_reg_bqx_aud_chf_usd"
+      },
+      {
+        "old": "tri_reg_bqx_aud_usd_jpy",
+        "new": "tri_reg_bqx_aud_jpy_usd"
+      },
+      {
+        "old": "tri_reg_bqx_aud_usd_nzd",
+        "new": "tri_reg_bqx_aud_nzd_usd"
+      },
+      {
+        "old": "tri_reg_bqx_cad_usd_jpy",
+        "new": "tri_reg_bqx_cad_jpy_usd"
+      },
+      {
+        "old": "tri_reg_bqx_eur_chf_jpy",
+        "new": "tri_reg_bqx_chf_eur_jpy"
+      },
+      {
+        "old": "tri_reg_bqx_eur_gbp_chf",
+        "new": "tri_reg_bqx_chf_eur_gbp"
+      },
+      {
+        "old": "tri_reg_bqx_eur_usd_aud",
+        "new": "tri_reg_bqx_aud_eur_usd"
+      },
+      {
+        "old": "tri_reg_bqx_eur_usd_cad",
+        "new": "tri_reg_bqx_cad_eur_usd"
+      },
+      {
+        "old": "tri_reg_bqx_eur_usd_chf",
+        "new": "tri_reg_bqx_chf_eur_usd"
+      },
+      {
+        "old": "tri_reg_bqx_eur_usd_gbp",
+        "new": "tri_reg_bqx_eur_gbp_usd"
+      },
+      {
+        "old": "tri_reg_bqx_eur_usd_jpy",
+        "new": "tri_reg_bqx_eur_jpy_usd"
+      },
+      {
+        "old": "tri_reg_bqx_eur_usd_nzd",
+        "new": "tri_reg_bqx_eur_nzd_usd"
+      },
+      {
+        "old": "tri_reg_bqx_gbp_chf_jpy",
+        "new": "tri_reg_bqx_chf_gbp_jpy"
+      },
+      {
+        "old": "tri_reg_bqx_gbp_usd_aud",
+        "new": "tri_reg_bqx_aud_gbp_usd"
+      },
+      {
+        "old": "tri_reg_bqx_gbp_usd_cad",
+        "new": "tri_reg_bqx_cad_gbp_usd"
+      },
+      {
+        "old": "tri_reg_bqx_gbp_usd_chf",
+        "new": "tri_reg_bqx_chf_gbp_usd"
+      },
+      {
+        "old": "tri_reg_bqx_gbp_usd_jpy",
+        "new": "tri_reg_bqx_gbp_jpy_usd"
+      },
+      {
+        "old": "tri_reg_bqx_gbp_usd_nzd",
+        "new": "tri_reg_bqx_gbp_nzd_usd"
+      },
+      {
+        "old": "tri_reg_bqx_nzd_usd_cad",
+        "new": "tri_reg_bqx_cad_nzd_usd"
+      },
+      {
+        "old": "tri_reg_bqx_nzd_usd_chf",
+        "new": "tri_reg_bqx_chf_nzd_usd"
+      },
+      {
+        "old": "tri_reg_bqx_nzd_usd_jpy",
+        "new": "tri_reg_bqx_jpy_nzd_usd"
+      },
+      {
+        "old": "tri_reg_idx_aud_nzd_jpy",
+        "new": "tri_reg_idx_aud_jpy_nzd"
+      },
+      {
+        "old": "tri_reg_idx_aud_usd_cad",
+        "new": "tri_reg_idx_aud_cad_usd"
+      },
+      {
+        "old": "tri_reg_idx_aud_usd_chf",
+        "new": "tri_reg_idx_aud_chf_usd"
+      },
+      {
+        "old": "tri_reg_idx_aud_usd_jpy",
+        "new": "tri_reg_idx_aud_jpy_usd"
+      },
+      {
+        "old": "tri_reg_idx_aud_usd_nzd",
+        "new": "tri_reg_idx_aud_nzd_usd"
+      },
+      {
+        "old": "tri_reg_idx_cad_usd_jpy",
+        "new": "tri_reg_idx_cad_jpy_usd"
+      },
+      {
+        "old": "tri_reg_idx_eur_chf_jpy",
+        "new": "tri_reg_idx_chf_eur_jpy"
+      },
+      {
+        "old": "tri_reg_idx_eur_gbp_chf",
+        "new": "tri_reg_idx_chf_eur_gbp"
+      },
+      {
+        "old": "tri_reg_idx_eur_usd_aud",
+        "new": "tri_reg_idx_aud_eur_usd"
+      },
+      {
+        "old": "tri_reg_idx_eur_usd_cad",
+        "new": "tri_reg_idx_cad_eur_usd"
+      },
+      {
+        "old": "tri_reg_idx_eur_usd_chf",
+        "new": "tri_reg_idx_chf_eur_usd"
+      },
+      {
+        "old": "tri_reg_idx_eur_usd_gbp",
+        "new": "tri_reg_idx_eur_gbp_usd"
+      },
+      {
+        "old": "tri_reg_idx_eur_usd_jpy",
+        "new": "tri_reg_idx_eur_jpy_usd"
+      },
+      {
+        "old": "tri_reg_idx_eur_usd_nzd",
+        "new": "tri_reg_idx_eur_nzd_usd"
+      },
+      {
+        "old": "tri_reg_idx_gbp_chf_jpy",
+        "new": "tri_reg_idx_chf_gbp_jpy"
+      },
+      {
+        "old": "tri_reg_idx_gbp_usd_aud",
+        "new": "tri_reg_idx_aud_gbp_usd"
+      },
+      {
+        "old": "tri_reg_idx_gbp_usd_cad",
+        "new": "tri_reg_idx_cad_gbp_usd"
+      },
+      {
+        "old": "tri_reg_idx_gbp_usd_chf",
+        "new": "tri_reg_idx_chf_gbp_usd"
+      },
+      {
+        "old": "tri_reg_idx_gbp_usd_jpy",
+        "new": "tri_reg_idx_gbp_jpy_usd"
+      },
+      {
+        "old": "tri_reg_idx_gbp_usd_nzd",
+        "new": "tri_reg_idx_gbp_nzd_usd"
+      },
+      {
+        "old": "tri_reg_idx_nzd_usd_cad",
+        "new": "tri_reg_idx_cad_nzd_usd"
+      },
+      {
+        "old": "tri_reg_idx_nzd_usd_chf",
+        "new": "tri_reg_idx_chf_nzd_usd"
+      },
+      {
+        "old": "tri_reg_idx_nzd_usd_jpy",
+        "new": "tri_reg_idx_jpy_nzd_usd"
+      },
+      {
+        "old": "tri_vol_bqx_aud_usd_cad",
+        "new": "tri_vol_bqx_aud_cad_usd"
+      },
+      {
+        "old": "tri_vol_bqx_aud_usd_chf",
+        "new": "tri_vol_bqx_aud_chf_usd"
+      },
+      {
+        "old": "tri_vol_bqx_aud_usd_jpy",
+        "new": "tri_vol_bqx_aud_jpy_usd"
+      },
+      {
+        "old": "tri_vol_bqx_aud_usd_nzd",
+        "new": "tri_vol_bqx_aud_nzd_usd"
+      },
+      {
+        "old": "tri_vol_bqx_eur_usd_aud",
+        "new": "tri_vol_bqx_aud_eur_usd"
+      },
+      {
+        "old": "tri_vol_bqx_eur_usd_cad",
+        "new": "tri_vol_bqx_cad_eur_usd"
+      },
+      {
+        "old": "tri_vol_bqx_eur_usd_chf",
+        "new": "tri_vol_bqx_chf_eur_usd"
+      },
+      {
+        "old": "tri_vol_bqx_eur_usd_gbp",
+        "new": "tri_vol_bqx_eur_gbp_usd"
+      },
+      {
+        "old": "tri_vol_bqx_eur_usd_jpy",
+        "new": "tri_vol_bqx_eur_jpy_usd"
+      },
+      {
+        "old": "tri_vol_bqx_eur_usd_nzd",
+        "new": "tri_vol_bqx_eur_nzd_usd"
+      },
+      {
+        "old": "tri_vol_bqx_gbp_usd_aud",
+        "new": "tri_vol_bqx_aud_gbp_usd"
+      },
+      {
+        "old": "tri_vol_bqx_gbp_usd_cad",
+        "new": "tri_vol_bqx_cad_gbp_usd"
+      },
+      {
+        "old": "tri_vol_bqx_gbp_usd_chf",
+        "new": "tri_vol_bqx_chf_gbp_usd"
+      },
+      {
+        "old": "tri_vol_bqx_gbp_usd_jpy",
+        "new": "tri_vol_bqx_gbp_jpy_usd"
+      },
+      {
+        "old": "tri_vol_bqx_gbp_usd_nzd",
+        "new": "tri_vol_bqx_gbp_nzd_usd"
+      },
+      {
+        "old": "tri_vol_bqx_nzd_usd_cad",
+        "new": "tri_vol_bqx_cad_nzd_usd"
+      },
+      {
+        "old": "tri_vol_bqx_nzd_usd_chf",
+        "new": "tri_vol_bqx_chf_nzd_usd"
+      },
+      {
+        "old": "tri_vol_bqx_nzd_usd_jpy",
+        "new": "tri_vol_bqx_jpy_nzd_usd"
+      },
+      {
+        "old": "tri_vol_idx_aud_usd_cad",
+        "new": "tri_vol_idx_aud_cad_usd"
+      },
+      {
+        "old": "tri_vol_idx_aud_usd_chf",
+        "new": "tri_vol_idx_aud_chf_usd"
+      },
+      {
+        "old": "tri_vol_idx_aud_usd_jpy",
+        "new": "tri_vol_idx_aud_jpy_usd"
+      },
+      {
+        "old": "tri_vol_idx_aud_usd_nzd",
+        "new": "tri_vol_idx_aud_nzd_usd"
+      },
+      {
+        "old": "tri_vol_idx_eur_usd_aud",
+        "new": "tri_vol_idx_aud_eur_usd"
+      },
+      {
+        "old": "tri_vol_idx_eur_usd_cad",
+        "new": "tri_vol_idx_cad_eur_usd"
+      },
+      {
+        "old": "tri_vol_idx_eur_usd_chf",
+        "new": "tri_vol_idx_chf_eur_usd"
+      },
+      {
+        "old": "tri_vol_idx_eur_usd_gbp",
+        "new": "tri_vol_idx_eur_gbp_usd"
+      },
+      {
+        "old": "tri_vol_idx_eur_usd_jpy",
+        "new": "tri_vol_idx_eur_jpy_usd"
+      },
+      {
+        "old": "tri_vol_idx_eur_usd_nzd",
+        "new": "tri_vol_idx_eur_nzd_usd"
+      },
+      {
+        "old": "tri_vol_idx_gbp_usd_aud",
+        "new": "tri_vol_idx_aud_gbp_usd"
+      },
+      {
+        "old": "tri_vol_idx_gbp_usd_cad",
+        "new": "tri_vol_idx_cad_gbp_usd"
+      },
+      {
+        "old": "tri_vol_idx_gbp_usd_chf",
+        "new": "tri_vol_idx_chf_gbp_usd"
+      },
+      {
+        "old": "tri_vol_idx_gbp_usd_jpy",
+        "new": "tri_vol_idx_gbp_jpy_usd"
+      },
+      {
+        "old": "tri_vol_idx_gbp_usd_nzd",
+        "new": "tri_vol_idx_gbp_nzd_usd"
+      },
+      {
+        "old": "tri_vol_idx_nzd_usd_cad",
+        "new": "tri_vol_idx_cad_nzd_usd"
+      },
+      {
+        "old": "tri_vol_idx_nzd_usd_chf",
+        "new": "tri_vol_idx_chf_nzd_usd"
+      },
+      {
+        "old": "tri_vol_idx_nzd_usd_jpy",
+        "new": "tri_vol_idx_jpy_nzd_usd"
+      }
+    ]
+  },
+  "verification_results": null
+}

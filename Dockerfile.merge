@@ -1,0 +1,55 @@
+FROM python:3.10-slim
+
+# CE Directive 2025-12-12 20:20: Bifurcated Architecture - Job 2 (Merge)
+# Purpose: Merge GCS checkpoints to training file
+# Resources: 1 vCPU, 2 GB memory (BigQuery mode) or 8+ vCPUs, 64+ GB (Polars mode)
+# Input: 667 checkpoint files from gs://bqx-ml-staging/checkpoints/{pair}/
+# Output: gs://bqx-ml-output/training_{pair}.parquet
+
+# Install system dependencies
+RUN apt-get update && apt-get install -y \
+    curl \
+    gnupg \
+    lsb-release \
+    bc \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install Google Cloud SDK (for gsutil)
+RUN curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | \
+    gpg --dearmor -o /usr/share/keyrings/cloud.google.gpg && \
+    echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.cloud.google.com/apt cloud-sdk main" | \
+    tee -a /etc/apt/sources.list.d/google-cloud-sdk.list && \
+    apt-get update && apt-get install -y google-cloud-sdk && \
+    rm -rf /var/lib/apt/lists/*
+
+# Install Python dependencies (merge-focused, both BigQuery and Polars)
+RUN pip install --no-cache-dir \
+    polars==0.19.19 \
+    pyarrow==14.0.1 \
+    google-cloud-bigquery==3.11.4 \
+    google-cloud-storage==2.10.0 \
+    psutil==5.9.6 \
+    db-dtypes==1.1.1
+
+# Set working directory
+WORKDIR /workspace
+
+# Copy merge scripts ONLY (no extraction scripts)
+COPY scripts/merge_only.sh /workspace/scripts/
+COPY scripts/merge_in_bigquery.py /workspace/scripts/
+COPY scripts/merge_with_polars_safe.py /workspace/scripts/
+
+# Make scripts executable
+RUN chmod +x /workspace/scripts/merge_only.sh \
+    /workspace/scripts/merge_in_bigquery.py \
+    /workspace/scripts/merge_with_polars_safe.py
+
+# Environment variables
+ENV PYTHONUNBUFFERED=1
+ENV PROJECT_ID=bqx-ml
+ENV GCS_CHECKPOINT_BUCKET=gs://bqx-ml-staging
+ENV GCS_OUTPUT_BUCKET=gs://bqx-ml-output
+ENV MERGE_METHOD=bigquery
+
+# Entrypoint: Merge-only script
+ENTRYPOINT ["/bin/bash", "/workspace/scripts/merge_only.sh"]

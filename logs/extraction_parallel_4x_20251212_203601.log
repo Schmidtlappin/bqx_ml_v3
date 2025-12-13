@@ -1,0 +1,64 @@
+========================================================================
+CLOUD RUN JOB 1: Parallel 4× Extraction (All Remaining Pairs)
+========================================================================
+Total pairs to process: 26
+Concurrency: 4× (4 simultaneous executions)
+Estimated time: 7 hours (vs 30 hours sequential)
+Time savings: ~21 hours
+Start time: Fri Dec 12 20:36:02 UTC 2025
+Log directory: /home/micha/bqx_ml_v3/logs/extraction
+========================================================================
+
+
+========================================================================
+BATCH 1: Processing 4 pairs in parallel
+========================================================================
+Start time: Fri Dec 12 20:36:02 UTC 2025
+
+Launching: GBPUSD (1/26)
+Launching: USDJPY (2/26)
+Launching: USDCHF (3/26)
+Launching: USDCAD (4/26)
+
+Waiting for 4 parallel executions to complete...
+PIDs: 2125652 2125653 2125655 2125657
+
+[1/26] Starting: GBPUSD (PID: 2125646)
+[2/26] Starting: USDJPY (PID: 2125646)
+[3/26] Starting: USDCHF (PID: 2125646)
+[4/26] Starting: USDCAD (PID: 2125646)
+[2/26] ✅ SUCCESS: USDJPY
+[2/26] Checkpoints: 0
+[2/26] ⚠️  WARNING: Only 0 checkpoints (expected 667)
+[4/26] ✅ SUCCESS: USDCAD
+[4/26] Checkpoints: 0
+[4/26] ⚠️  WARNING: Only 0 checkpoints (expected 667)
+[3/26] ✅ SUCCESS: USDCHF
+[3/26] Checkpoints: 0
+[3/26] ⚠️  WARNING: Only 0 checkpoints (expected 667)
+[1/26] ✅ SUCCESS: GBPUSD
+[1/26] Checkpoints: 0
+[1/26] ⚠️  WARNING: Only 0 checkpoints (expected 667)
+
+Batch 1 complete at Fri Dec 12 20:38:13 UTC 2025
+/home/micha/bqx_ml_v3/scripts/extract_all_remaining_pairs_parallel.sh: line 125: 0
+0: syntax error in expression (error token is "0")
+
+========================================================================
+PARALLEL EXTRACTION COMPLETE
+========================================================================
+End time: Fri Dec 12 20:38:13 UTC 2025
+Total pairs processed: 26
+Successful: 4
+Failed: 0
+0
+
+/home/micha/bqx_ml_v3/scripts/extract_all_remaining_pairs_parallel.sh: line 137: [: too many arguments
+Warnings (incomplete checkpoints):
+usdjpy (incomplete: 0 files)
+usdcad (incomplete: 0 files)
+usdchf (incomplete: 0 files)
+gbpusd (incomplete: 0 files)
+
+/home/micha/bqx_ml_v3/scripts/extract_all_remaining_pairs_parallel.sh: line 152: [: too many arguments
+✅ All 26 pairs extracted successfully!
