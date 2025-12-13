@@ -1,0 +1,3342 @@
+{
+  "generated": "2025-12-13T05:35:14.576231Z",
+  "total_tables": 6069,
+  "compliant_tables": 5594,
+  "non_compliant_tables": 475,
+  "compliance_percentage": 92.17,
+  "violation_summary": {
+    "ALPHABETICAL_ORDER_VIOLATION": 190,
+    "PATTERN_VIOLATION": 285
+  },
+  "violations_by_type": {
+    "PATTERN_VIOLATION": [
+      {
+        "table_name": "agg_audcad",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "agg_audcad"
+      },
+      {
+        "table_name": "agg_audchf",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "agg_audchf"
+      },
+      {
+        "table_name": "agg_audjpy",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "agg_audjpy"
+      },
+      {
+        "table_name": "agg_audnzd",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "agg_audnzd"
+      },
+      {
+        "table_name": "agg_audusd",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "agg_audusd"
+      },
+      {
+        "table_name": "agg_cadchf",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "agg_cadchf"
+      },
+      {
+        "table_name": "agg_cadjpy",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "agg_cadjpy"
+      },
+      {
+        "table_name": "agg_chfjpy",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "agg_chfjpy"
+      },
+      {
+        "table_name": "agg_euraud",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "agg_euraud"
+      },
+      {
+        "table_name": "agg_eurcad",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "agg_eurcad"
+      },
+      {
+        "table_name": "agg_eurchf",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "agg_eurchf"
+      },
+      {
+        "table_name": "agg_eurgbp",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "agg_eurgbp"
+      },
+      {
+        "table_name": "agg_eurjpy",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "agg_eurjpy"
+      },
+      {
+        "table_name": "agg_eurnzd",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "agg_eurnzd"
+      },
+      {
+        "table_name": "agg_eurusd",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "agg_eurusd"
+      },
+      {
+        "table_name": "agg_gbpaud",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "agg_gbpaud"
+      },
+      {
+        "table_name": "agg_gbpcad",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "agg_gbpcad"
+      },
+      {
+        "table_name": "agg_gbpchf",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "agg_gbpchf"
+      },
+      {
+        "table_name": "agg_gbpjpy",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "agg_gbpjpy"
+      },
+      {
+        "table_name": "agg_gbpnzd",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "agg_gbpnzd"
+      },
+      {
+        "table_name": "agg_gbpusd",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "agg_gbpusd"
+      },
+      {
+        "table_name": "agg_nzdcad",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "agg_nzdcad"
+      },
+      {
+        "table_name": "agg_nzdchf",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "agg_nzdchf"
+      },
+      {
+        "table_name": "agg_nzdjpy",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "agg_nzdjpy"
+      },
+      {
+        "table_name": "agg_nzdusd",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "agg_nzdusd"
+      },
+      {
+        "table_name": "agg_usdcad",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "agg_usdcad"
+      },
+      {
+        "table_name": "agg_usdchf",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "agg_usdchf"
+      },
+      {
+        "table_name": "agg_usdjpy",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "agg_usdjpy"
+      },
+      {
+        "table_name": "align_audcad",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "align_audcad"
+      },
+      {
+        "table_name": "align_audchf",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "align_audchf"
+      },
+      {
+        "table_name": "align_audjpy",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "align_audjpy"
+      },
+      {
+        "table_name": "align_audnzd",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "align_audnzd"
+      },
+      {
+        "table_name": "align_audusd",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "align_audusd"
+      },
+      {
+        "table_name": "align_cadchf",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "align_cadchf"
+      },
+      {
+        "table_name": "align_cadjpy",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "align_cadjpy"
+      },
+      {
+        "table_name": "align_chfjpy",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "align_chfjpy"
+      },
+      {
+        "table_name": "align_euraud",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "align_euraud"
+      },
+      {
+        "table_name": "align_eurcad",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "align_eurcad"
+      },
+      {
+        "table_name": "align_eurchf",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "align_eurchf"
+      },
+      {
+        "table_name": "align_eurgbp",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "align_eurgbp"
+      },
+      {
+        "table_name": "align_eurjpy",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "align_eurjpy"
+      },
+      {
+        "table_name": "align_eurnzd",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "align_eurnzd"
+      },
+      {
+        "table_name": "align_eurusd",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "align_eurusd"
+      },
+      {
+        "table_name": "align_gbpaud",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "align_gbpaud"
+      },
+      {
+        "table_name": "align_gbpcad",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "align_gbpcad"
+      },
+      {
+        "table_name": "align_gbpchf",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "align_gbpchf"
+      },
+      {
+        "table_name": "align_gbpjpy",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "align_gbpjpy"
+      },
+      {
+        "table_name": "align_gbpnzd",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "align_gbpnzd"
+      },
+      {
+        "table_name": "align_gbpusd",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "align_gbpusd"
+      },
+      {
+        "table_name": "align_nzdcad",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "align_nzdcad"
+      },
+      {
+        "table_name": "align_nzdchf",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "align_nzdchf"
+      },
+      {
+        "table_name": "align_nzdjpy",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "align_nzdjpy"
+      },
+      {
+        "table_name": "align_nzdusd",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "align_nzdusd"
+      },
+      {
+        "table_name": "align_usdcad",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "align_usdcad"
+      },
+      {
+        "table_name": "align_usdchf",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "align_usdchf"
+      },
+      {
+        "table_name": "align_usdjpy",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "align_usdjpy"
+      },
+      {
+        "table_name": "der_audcad",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "der_audcad"
+      },
+      {
+        "table_name": "der_audchf",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "der_audchf"
+      },
+      {
+        "table_name": "der_audjpy",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "der_audjpy"
+      },
+      {
+        "table_name": "der_audnzd",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "der_audnzd"
+      },
+      {
+        "table_name": "der_audusd",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "der_audusd"
+      },
+      {
+        "table_name": "der_cadchf",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "der_cadchf"
+      },
+      {
+        "table_name": "der_cadjpy",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "der_cadjpy"
+      },
+      {
+        "table_name": "der_chfjpy",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "der_chfjpy"
+      },
+      {
+        "table_name": "der_euraud",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "der_euraud"
+      },
+      {
+        "table_name": "der_eurcad",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "der_eurcad"
+      },
+      {
+        "table_name": "der_eurchf",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "der_eurchf"
+      },
+      {
+        "table_name": "der_eurgbp",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "der_eurgbp"
+      },
+      {
+        "table_name": "der_eurjpy",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "der_eurjpy"
+      },
+      {
+        "table_name": "der_eurnzd",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "der_eurnzd"
+      },
+      {
+        "table_name": "der_eurusd",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "der_eurusd"
+      },
+      {
+        "table_name": "der_gbpaud",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "der_gbpaud"
+      },
+      {
+        "table_name": "der_gbpcad",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "der_gbpcad"
+      },
+      {
+        "table_name": "der_gbpchf",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "der_gbpchf"
+      },
+      {
+        "table_name": "der_gbpjpy",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "der_gbpjpy"
+      },
+      {
+        "table_name": "der_gbpnzd",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "der_gbpnzd"
+      },
+      {
+        "table_name": "der_gbpusd",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "der_gbpusd"
+      },
+      {
+        "table_name": "der_nzdcad",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "der_nzdcad"
+      },
+      {
+        "table_name": "der_nzdchf",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "der_nzdchf"
+      },
+      {
+        "table_name": "der_nzdjpy",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "der_nzdjpy"
+      },
+      {
+        "table_name": "der_nzdusd",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "der_nzdusd"
+      },
+      {
+        "table_name": "der_usdcad",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "der_usdcad"
+      },
+      {
+        "table_name": "der_usdchf",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "der_usdchf"
+      },
+      {
+        "table_name": "der_usdjpy",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "der_usdjpy"
+      },
+      {
+        "table_name": "div_audcad",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "div_audcad"
+      },
+      {
+        "table_name": "div_audchf",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "div_audchf"
+      },
+      {
+        "table_name": "div_audjpy",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "div_audjpy"
+      },
+      {
+        "table_name": "div_audnzd",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "div_audnzd"
+      },
+      {
+        "table_name": "div_audusd",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "div_audusd"
+      },
+      {
+        "table_name": "div_cadchf",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "div_cadchf"
+      },
+      {
+        "table_name": "div_cadjpy",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "div_cadjpy"
+      },
+      {
+        "table_name": "div_chfjpy",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "div_chfjpy"
+      },
+      {
+        "table_name": "div_euraud",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "div_euraud"
+      },
+      {
+        "table_name": "div_eurcad",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "div_eurcad"
+      },
+      {
+        "table_name": "div_eurchf",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "div_eurchf"
+      },
+      {
+        "table_name": "div_eurgbp",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "div_eurgbp"
+      },
+      {
+        "table_name": "div_eurjpy",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "div_eurjpy"
+      },
+      {
+        "table_name": "div_eurnzd",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "div_eurnzd"
+      },
+      {
+        "table_name": "div_eurusd",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "div_eurusd"
+      },
+      {
+        "table_name": "div_gbpaud",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "div_gbpaud"
+      },
+      {
+        "table_name": "div_gbpcad",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "div_gbpcad"
+      },
+      {
+        "table_name": "div_gbpchf",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "div_gbpchf"
+      },
+      {
+        "table_name": "div_gbpjpy",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "div_gbpjpy"
+      },
+      {
+        "table_name": "div_gbpnzd",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "div_gbpnzd"
+      },
+      {
+        "table_name": "div_gbpusd",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "div_gbpusd"
+      },
+      {
+        "table_name": "div_nzdcad",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "div_nzdcad"
+      },
+      {
+        "table_name": "div_nzdchf",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "div_nzdchf"
+      },
+      {
+        "table_name": "div_nzdjpy",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "div_nzdjpy"
+      },
+      {
+        "table_name": "div_nzdusd",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "div_nzdusd"
+      },
+      {
+        "table_name": "div_usdcad",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "div_usdcad"
+      },
+      {
+        "table_name": "div_usdchf",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "div_usdchf"
+      },
+      {
+        "table_name": "div_usdjpy",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "div_usdjpy"
+      },
+      {
+        "table_name": "mkt_corr",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "mkt_corr"
+      },
+      {
+        "table_name": "mkt_dispersion",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "mkt_dispersion"
+      },
+      {
+        "table_name": "mkt_regime",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "mkt_regime"
+      },
+      {
+        "table_name": "mkt_sentiment",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "mkt_sentiment"
+      },
+      {
+        "table_name": "mkt_vol",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "mkt_vol"
+      },
+      {
+        "table_name": "mom_audcad",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "mom_audcad"
+      },
+      {
+        "table_name": "mom_audchf",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "mom_audchf"
+      },
+      {
+        "table_name": "mom_audjpy",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "mom_audjpy"
+      },
+      {
+        "table_name": "mom_audnzd",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "mom_audnzd"
+      },
+      {
+        "table_name": "mom_audusd",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "mom_audusd"
+      },
+      {
+        "table_name": "mom_cadchf",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "mom_cadchf"
+      },
+      {
+        "table_name": "mom_cadjpy",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "mom_cadjpy"
+      },
+      {
+        "table_name": "mom_chfjpy",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "mom_chfjpy"
+      },
+      {
+        "table_name": "mom_euraud",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "mom_euraud"
+      },
+      {
+        "table_name": "mom_eurcad",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "mom_eurcad"
+      },
+      {
+        "table_name": "mom_eurchf",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "mom_eurchf"
+      },
+      {
+        "table_name": "mom_eurgbp",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "mom_eurgbp"
+      },
+      {
+        "table_name": "mom_eurjpy",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "mom_eurjpy"
+      },
+      {
+        "table_name": "mom_eurnzd",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "mom_eurnzd"
+      },
+      {
+        "table_name": "mom_eurusd",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "mom_eurusd"
+      },
+      {
+        "table_name": "mom_gbpaud",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "mom_gbpaud"
+      },
+      {
+        "table_name": "mom_gbpcad",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "mom_gbpcad"
+      },
+      {
+        "table_name": "mom_gbpchf",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "mom_gbpchf"
+      },
+      {
+        "table_name": "mom_gbpjpy",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "mom_gbpjpy"
+      },
+      {
+        "table_name": "mom_gbpnzd",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "mom_gbpnzd"
+      },
+      {
+        "table_name": "mom_gbpusd",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "mom_gbpusd"
+      },
+      {
+        "table_name": "mom_nzdcad",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "mom_nzdcad"
+      },
+      {
+        "table_name": "mom_nzdchf",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "mom_nzdchf"
+      },
+      {
+        "table_name": "mom_nzdjpy",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "mom_nzdjpy"
+      },
+      {
+        "table_name": "mom_nzdusd",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "mom_nzdusd"
+      },
+      {
+        "table_name": "mom_usdcad",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "mom_usdcad"
+      },
+      {
+        "table_name": "mom_usdchf",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "mom_usdchf"
+      },
+      {
+        "table_name": "mom_usdjpy",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "mom_usdjpy"
+      },
+      {
+        "table_name": "mrt_audcad",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "mrt_audcad"
+      },
+      {
+        "table_name": "mrt_audchf",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "mrt_audchf"
+      },
+      {
+        "table_name": "mrt_audjpy",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "mrt_audjpy"
+      },
+      {
+        "table_name": "mrt_audnzd",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "mrt_audnzd"
+      },
+      {
+        "table_name": "mrt_audusd",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "mrt_audusd"
+      },
+      {
+        "table_name": "mrt_cadchf",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "mrt_cadchf"
+      },
+      {
+        "table_name": "mrt_cadjpy",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "mrt_cadjpy"
+      },
+      {
+        "table_name": "mrt_chfjpy",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "mrt_chfjpy"
+      },
+      {
+        "table_name": "mrt_euraud",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "mrt_euraud"
+      },
+      {
+        "table_name": "mrt_eurcad",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "mrt_eurcad"
+      },
+      {
+        "table_name": "mrt_eurchf",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "mrt_eurchf"
+      },
+      {
+        "table_name": "mrt_eurgbp",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "mrt_eurgbp"
+      },
+      {
+        "table_name": "mrt_eurjpy",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "mrt_eurjpy"
+      },
+      {
+        "table_name": "mrt_eurnzd",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "mrt_eurnzd"
+      },
+      {
+        "table_name": "mrt_eurusd",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "mrt_eurusd"
+      },
+      {
+        "table_name": "mrt_gbpaud",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "mrt_gbpaud"
+      },
+      {
+        "table_name": "mrt_gbpcad",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "mrt_gbpcad"
+      },
+      {
+        "table_name": "mrt_gbpchf",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "mrt_gbpchf"
+      },
+      {
+        "table_name": "mrt_gbpjpy",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "mrt_gbpjpy"
+      },
+      {
+        "table_name": "mrt_gbpnzd",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "mrt_gbpnzd"
+      },
+      {
+        "table_name": "mrt_gbpusd",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "mrt_gbpusd"
+      },
+      {
+        "table_name": "mrt_nzdcad",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "mrt_nzdcad"
+      },
+      {
+        "table_name": "mrt_nzdchf",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "mrt_nzdchf"
+      },
+      {
+        "table_name": "mrt_nzdjpy",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "mrt_nzdjpy"
+      },
+      {
+        "table_name": "mrt_nzdusd",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "mrt_nzdusd"
+      },
+      {
+        "table_name": "mrt_usdcad",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "mrt_usdcad"
+      },
+      {
+        "table_name": "mrt_usdchf",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "mrt_usdchf"
+      },
+      {
+        "table_name": "mrt_usdjpy",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "mrt_usdjpy"
+      },
+      {
+        "table_name": "reg_audcad",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "reg_audcad"
+      },
+      {
+        "table_name": "reg_audchf",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "reg_audchf"
+      },
+      {
+        "table_name": "reg_audjpy",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "reg_audjpy"
+      },
+      {
+        "table_name": "reg_audnzd",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "reg_audnzd"
+      },
+      {
+        "table_name": "reg_audusd",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "reg_audusd"
+      },
+      {
+        "table_name": "reg_cadchf",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "reg_cadchf"
+      },
+      {
+        "table_name": "reg_cadjpy",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "reg_cadjpy"
+      },
+      {
+        "table_name": "reg_chfjpy",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "reg_chfjpy"
+      },
+      {
+        "table_name": "reg_euraud",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "reg_euraud"
+      },
+      {
+        "table_name": "reg_eurcad",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "reg_eurcad"
+      },
+      {
+        "table_name": "reg_eurchf",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "reg_eurchf"
+      },
+      {
+        "table_name": "reg_eurgbp",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "reg_eurgbp"
+      },
+      {
+        "table_name": "reg_eurjpy",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "reg_eurjpy"
+      },
+      {
+        "table_name": "reg_eurnzd",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "reg_eurnzd"
+      },
+      {
+        "table_name": "reg_eurusd",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "reg_eurusd"
+      },
+      {
+        "table_name": "reg_gbpaud",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "reg_gbpaud"
+      },
+      {
+        "table_name": "reg_gbpcad",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "reg_gbpcad"
+      },
+      {
+        "table_name": "reg_gbpchf",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "reg_gbpchf"
+      },
+      {
+        "table_name": "reg_gbpjpy",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "reg_gbpjpy"
+      },
+      {
+        "table_name": "reg_gbpnzd",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "reg_gbpnzd"
+      },
+      {
+        "table_name": "reg_gbpusd",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "reg_gbpusd"
+      },
+      {
+        "table_name": "reg_nzdcad",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "reg_nzdcad"
+      },
+      {
+        "table_name": "reg_nzdchf",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "reg_nzdchf"
+      },
+      {
+        "table_name": "reg_nzdjpy",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "reg_nzdjpy"
+      },
+      {
+        "table_name": "reg_nzdusd",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "reg_nzdusd"
+      },
+      {
+        "table_name": "reg_usdcad",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "reg_usdcad"
+      },
+      {
+        "table_name": "reg_usdchf",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "reg_usdchf"
+      },
+      {
+        "table_name": "reg_usdjpy",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "reg_usdjpy"
+      },
+      {
+        "table_name": "rev_audcad",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "rev_audcad"
+      },
+      {
+        "table_name": "rev_audchf",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "rev_audchf"
+      },
+      {
+        "table_name": "rev_audjpy",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "rev_audjpy"
+      },
+      {
+        "table_name": "rev_audnzd",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "rev_audnzd"
+      },
+      {
+        "table_name": "rev_audusd",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "rev_audusd"
+      },
+      {
+        "table_name": "rev_cadchf",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "rev_cadchf"
+      },
+      {
+        "table_name": "rev_cadjpy",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "rev_cadjpy"
+      },
+      {
+        "table_name": "rev_chfjpy",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "rev_chfjpy"
+      },
+      {
+        "table_name": "rev_euraud",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "rev_euraud"
+      },
+      {
+        "table_name": "rev_eurcad",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "rev_eurcad"
+      },
+      {
+        "table_name": "rev_eurchf",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "rev_eurchf"
+      },
+      {
+        "table_name": "rev_eurgbp",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "rev_eurgbp"
+      },
+      {
+        "table_name": "rev_eurjpy",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "rev_eurjpy"
+      },
+      {
+        "table_name": "rev_eurnzd",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "rev_eurnzd"
+      },
+      {
+        "table_name": "rev_eurusd",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "rev_eurusd"
+      },
+      {
+        "table_name": "rev_gbpaud",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "rev_gbpaud"
+      },
+      {
+        "table_name": "rev_gbpcad",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "rev_gbpcad"
+      },
+      {
+        "table_name": "rev_gbpchf",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "rev_gbpchf"
+      },
+      {
+        "table_name": "rev_gbpjpy",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "rev_gbpjpy"
+      },
+      {
+        "table_name": "rev_gbpnzd",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "rev_gbpnzd"
+      },
+      {
+        "table_name": "rev_gbpusd",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "rev_gbpusd"
+      },
+      {
+        "table_name": "rev_nzdcad",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "rev_nzdcad"
+      },
+      {
+        "table_name": "rev_nzdchf",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "rev_nzdchf"
+      },
+      {
+        "table_name": "rev_nzdjpy",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "rev_nzdjpy"
+      },
+      {
+        "table_name": "rev_nzdusd",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "rev_nzdusd"
+      },
+      {
+        "table_name": "rev_usdcad",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "rev_usdcad"
+      },
+      {
+        "table_name": "rev_usdchf",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "rev_usdchf"
+      },
+      {
+        "table_name": "rev_usdjpy",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "rev_usdjpy"
+      },
+      {
+        "table_name": "tmp_audcad",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "tmp_audcad"
+      },
+      {
+        "table_name": "tmp_audchf",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "tmp_audchf"
+      },
+      {
+        "table_name": "tmp_audjpy",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "tmp_audjpy"
+      },
+      {
+        "table_name": "tmp_audnzd",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "tmp_audnzd"
+      },
+      {
+        "table_name": "tmp_audusd",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "tmp_audusd"
+      },
+      {
+        "table_name": "tmp_cadchf",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "tmp_cadchf"
+      },
+      {
+        "table_name": "tmp_cadjpy",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "tmp_cadjpy"
+      },
+      {
+        "table_name": "tmp_chfjpy",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "tmp_chfjpy"
+      },
+      {
+        "table_name": "tmp_euraud",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "tmp_euraud"
+      },
+      {
+        "table_name": "tmp_eurcad",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "tmp_eurcad"
+      },
+      {
+        "table_name": "tmp_eurchf",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "tmp_eurchf"
+      },
+      {
+        "table_name": "tmp_eurgbp",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "tmp_eurgbp"
+      },
+      {
+        "table_name": "tmp_eurjpy",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "tmp_eurjpy"
+      },
+      {
+        "table_name": "tmp_eurnzd",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "tmp_eurnzd"
+      },
+      {
+        "table_name": "tmp_eurusd",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "tmp_eurusd"
+      },
+      {
+        "table_name": "tmp_gbpaud",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "tmp_gbpaud"
+      },
+      {
+        "table_name": "tmp_gbpcad",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "tmp_gbpcad"
+      },
+      {
+        "table_name": "tmp_gbpchf",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "tmp_gbpchf"
+      },
+      {
+        "table_name": "tmp_gbpjpy",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "tmp_gbpjpy"
+      },
+      {
+        "table_name": "tmp_gbpnzd",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "tmp_gbpnzd"
+      },
+      {
+        "table_name": "tmp_gbpusd",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "tmp_gbpusd"
+      },
+      {
+        "table_name": "tmp_nzdcad",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "tmp_nzdcad"
+      },
+      {
+        "table_name": "tmp_nzdchf",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "tmp_nzdchf"
+      },
+      {
+        "table_name": "tmp_nzdjpy",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "tmp_nzdjpy"
+      },
+      {
+        "table_name": "tmp_nzdusd",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "tmp_nzdusd"
+      },
+      {
+        "table_name": "tmp_usdcad",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "tmp_usdcad"
+      },
+      {
+        "table_name": "tmp_usdchf",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "tmp_usdchf"
+      },
+      {
+        "table_name": "tmp_usdjpy",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "tmp_usdjpy"
+      },
+      {
+        "table_name": "vol_audcad",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "vol_audcad"
+      },
+      {
+        "table_name": "vol_audchf",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "vol_audchf"
+      },
+      {
+        "table_name": "vol_audjpy",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "vol_audjpy"
+      },
+      {
+        "table_name": "vol_audnzd",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "vol_audnzd"
+      },
+      {
+        "table_name": "vol_audusd",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "vol_audusd"
+      },
+      {
+        "table_name": "vol_cadchf",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "vol_cadchf"
+      },
+      {
+        "table_name": "vol_cadjpy",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "vol_cadjpy"
+      },
+      {
+        "table_name": "vol_chfjpy",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "vol_chfjpy"
+      },
+      {
+        "table_name": "vol_euraud",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "vol_euraud"
+      },
+      {
+        "table_name": "vol_eurcad",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "vol_eurcad"
+      },
+      {
+        "table_name": "vol_eurchf",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "vol_eurchf"
+      },
+      {
+        "table_name": "vol_eurgbp",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "vol_eurgbp"
+      },
+      {
+        "table_name": "vol_eurjpy",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "vol_eurjpy"
+      },
+      {
+        "table_name": "vol_eurnzd",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "vol_eurnzd"
+      },
+      {
+        "table_name": "vol_eurusd",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "vol_eurusd"
+      },
+      {
+        "table_name": "vol_gbpaud",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "vol_gbpaud"
+      },
+      {
+        "table_name": "vol_gbpcad",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "vol_gbpcad"
+      },
+      {
+        "table_name": "vol_gbpchf",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "vol_gbpchf"
+      },
+      {
+        "table_name": "vol_gbpjpy",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "vol_gbpjpy"
+      },
+      {
+        "table_name": "vol_gbpnzd",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "vol_gbpnzd"
+      },
+      {
+        "table_name": "vol_gbpusd",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "vol_gbpusd"
+      },
+      {
+        "table_name": "vol_nzdcad",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "vol_nzdcad"
+      },
+      {
+        "table_name": "vol_nzdchf",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "vol_nzdchf"
+      },
+      {
+        "table_name": "vol_nzdjpy",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "vol_nzdjpy"
+      },
+      {
+        "table_name": "vol_nzdusd",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "vol_nzdusd"
+      },
+      {
+        "table_name": "vol_usdcad",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "vol_usdcad"
+      },
+      {
+        "table_name": "vol_usdchf",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "vol_usdchf"
+      },
+      {
+        "table_name": "vol_usdjpy",
+        "violation_details": [
+          "Does not match M008 pattern"
+        ],
+        "suggested_fix": "vol_usdjpy"
+      }
+    ],
+    "ALPHABETICAL_ORDER_VIOLATION": [
+      {
+        "table_name": "tri_agg_bqx_aud_usd_cad",
+        "violation_details": [
+          "Wrong alphabetical order: aud_usd_cad (should be aud_cad_usd)"
+        ],
+        "suggested_fix": "tri_agg_bqx_aud_cad_usd"
+      },
+      {
+        "table_name": "tri_agg_bqx_aud_usd_chf",
+        "violation_details": [
+          "Wrong alphabetical order: aud_usd_chf (should be aud_chf_usd)"
+        ],
+        "suggested_fix": "tri_agg_bqx_aud_chf_usd"
+      },
+      {
+        "table_name": "tri_agg_bqx_aud_usd_jpy",
+        "violation_details": [
+          "Wrong alphabetical order: aud_usd_jpy (should be aud_jpy_usd)"
+        ],
+        "suggested_fix": "tri_agg_bqx_aud_jpy_usd"
+      },
+      {
+        "table_name": "tri_agg_bqx_aud_usd_nzd",
+        "violation_details": [
+          "Wrong alphabetical order: aud_usd_nzd (should be aud_nzd_usd)"
+        ],
+        "suggested_fix": "tri_agg_bqx_aud_nzd_usd"
+      },
+      {
+        "table_name": "tri_agg_bqx_eur_usd_aud",
+        "violation_details": [
+          "Wrong alphabetical order: eur_usd_aud (should be aud_eur_usd)"
+        ],
+        "suggested_fix": "tri_agg_bqx_aud_eur_usd"
+      },
+      {
+        "table_name": "tri_agg_bqx_eur_usd_cad",
+        "violation_details": [
+          "Wrong alphabetical order: eur_usd_cad (should be cad_eur_usd)"
+        ],
+        "suggested_fix": "tri_agg_bqx_cad_eur_usd"
+      },
+      {
+        "table_name": "tri_agg_bqx_eur_usd_chf",
+        "violation_details": [
+          "Wrong alphabetical order: eur_usd_chf (should be chf_eur_usd)"
+        ],
+        "suggested_fix": "tri_agg_bqx_chf_eur_usd"
+      },
+      {
+        "table_name": "tri_agg_bqx_eur_usd_gbp",
+        "violation_details": [
+          "Wrong alphabetical order: eur_usd_gbp (should be eur_gbp_usd)"
+        ],
+        "suggested_fix": "tri_agg_bqx_eur_gbp_usd"
+      },
+      {
+        "table_name": "tri_agg_bqx_eur_usd_jpy",
+        "violation_details": [
+          "Wrong alphabetical order: eur_usd_jpy (should be eur_jpy_usd)"
+        ],
+        "suggested_fix": "tri_agg_bqx_eur_jpy_usd"
+      },
+      {
+        "table_name": "tri_agg_bqx_eur_usd_nzd",
+        "violation_details": [
+          "Wrong alphabetical order: eur_usd_nzd (should be eur_nzd_usd)"
+        ],
+        "suggested_fix": "tri_agg_bqx_eur_nzd_usd"
+      },
+      {
+        "table_name": "tri_agg_bqx_gbp_usd_aud",
+        "violation_details": [
+          "Wrong alphabetical order: gbp_usd_aud (should be aud_gbp_usd)"
+        ],
+        "suggested_fix": "tri_agg_bqx_aud_gbp_usd"
+      },
+      {
+        "table_name": "tri_agg_bqx_gbp_usd_cad",
+        "violation_details": [
+          "Wrong alphabetical order: gbp_usd_cad (should be cad_gbp_usd)"
+        ],
+        "suggested_fix": "tri_agg_bqx_cad_gbp_usd"
+      },
+      {
+        "table_name": "tri_agg_bqx_gbp_usd_chf",
+        "violation_details": [
+          "Wrong alphabetical order: gbp_usd_chf (should be chf_gbp_usd)"
+        ],
+        "suggested_fix": "tri_agg_bqx_chf_gbp_usd"
+      },
+      {
+        "table_name": "tri_agg_bqx_gbp_usd_jpy",
+        "violation_details": [
+          "Wrong alphabetical order: gbp_usd_jpy (should be gbp_jpy_usd)"
+        ],
+        "suggested_fix": "tri_agg_bqx_gbp_jpy_usd"
+      },
+      {
+        "table_name": "tri_agg_bqx_gbp_usd_nzd",
+        "violation_details": [
+          "Wrong alphabetical order: gbp_usd_nzd (should be gbp_nzd_usd)"
+        ],
+        "suggested_fix": "tri_agg_bqx_gbp_nzd_usd"
+      },
+      {
+        "table_name": "tri_agg_bqx_nzd_usd_cad",
+        "violation_details": [
+          "Wrong alphabetical order: nzd_usd_cad (should be cad_nzd_usd)"
+        ],
+        "suggested_fix": "tri_agg_bqx_cad_nzd_usd"
+      },
+      {
+        "table_name": "tri_agg_bqx_nzd_usd_chf",
+        "violation_details": [
+          "Wrong alphabetical order: nzd_usd_chf (should be chf_nzd_usd)"
+        ],
+        "suggested_fix": "tri_agg_bqx_chf_nzd_usd"
+      },
+      {
+        "table_name": "tri_agg_bqx_nzd_usd_jpy",
+        "violation_details": [
+          "Wrong alphabetical order: nzd_usd_jpy (should be jpy_nzd_usd)"
+        ],
+        "suggested_fix": "tri_agg_bqx_jpy_nzd_usd"
+      },
+      {
+        "table_name": "tri_agg_idx_aud_usd_cad",
+        "violation_details": [
+          "Wrong alphabetical order: aud_usd_cad (should be aud_cad_usd)"
+        ],
+        "suggested_fix": "tri_agg_idx_aud_cad_usd"
+      },
+      {
+        "table_name": "tri_agg_idx_aud_usd_chf",
+        "violation_details": [
+          "Wrong alphabetical order: aud_usd_chf (should be aud_chf_usd)"
+        ],
+        "suggested_fix": "tri_agg_idx_aud_chf_usd"
+      },
+      {
+        "table_name": "tri_agg_idx_aud_usd_jpy",
+        "violation_details": [
+          "Wrong alphabetical order: aud_usd_jpy (should be aud_jpy_usd)"
+        ],
+        "suggested_fix": "tri_agg_idx_aud_jpy_usd"
+      },
+      {
+        "table_name": "tri_agg_idx_aud_usd_nzd",
+        "violation_details": [
+          "Wrong alphabetical order: aud_usd_nzd (should be aud_nzd_usd)"
+        ],
+        "suggested_fix": "tri_agg_idx_aud_nzd_usd"
+      },
+      {
+        "table_name": "tri_agg_idx_eur_usd_aud",
+        "violation_details": [
+          "Wrong alphabetical order: eur_usd_aud (should be aud_eur_usd)"
+        ],
+        "suggested_fix": "tri_agg_idx_aud_eur_usd"
+      },
+      {
+        "table_name": "tri_agg_idx_eur_usd_cad",
+        "violation_details": [
+          "Wrong alphabetical order: eur_usd_cad (should be cad_eur_usd)"
+        ],
+        "suggested_fix": "tri_agg_idx_cad_eur_usd"
+      },
+      {
+        "table_name": "tri_agg_idx_eur_usd_chf",
+        "violation_details": [
+          "Wrong alphabetical order: eur_usd_chf (should be chf_eur_usd)"
+        ],
+        "suggested_fix": "tri_agg_idx_chf_eur_usd"
+      },
+      {
+        "table_name": "tri_agg_idx_eur_usd_gbp",
+        "violation_details": [
+          "Wrong alphabetical order: eur_usd_gbp (should be eur_gbp_usd)"
+        ],
+        "suggested_fix": "tri_agg_idx_eur_gbp_usd"
+      },
+      {
+        "table_name": "tri_agg_idx_eur_usd_jpy",
+        "violation_details": [
+          "Wrong alphabetical order: eur_usd_jpy (should be eur_jpy_usd)"
+        ],
+        "suggested_fix": "tri_agg_idx_eur_jpy_usd"
+      },
+      {
+        "table_name": "tri_agg_idx_eur_usd_nzd",
+        "violation_details": [
+          "Wrong alphabetical order: eur_usd_nzd (should be eur_nzd_usd)"
+        ],
+        "suggested_fix": "tri_agg_idx_eur_nzd_usd"
+      },
+      {
+        "table_name": "tri_agg_idx_gbp_usd_aud",
+        "violation_details": [
+          "Wrong alphabetical order: gbp_usd_aud (should be aud_gbp_usd)"
+        ],
+        "suggested_fix": "tri_agg_idx_aud_gbp_usd"
+      },
+      {
+        "table_name": "tri_agg_idx_gbp_usd_cad",
+        "violation_details": [
+          "Wrong alphabetical order: gbp_usd_cad (should be cad_gbp_usd)"
+        ],
+        "suggested_fix": "tri_agg_idx_cad_gbp_usd"
+      },
+      {
+        "table_name": "tri_agg_idx_gbp_usd_chf",
+        "violation_details": [
+          "Wrong alphabetical order: gbp_usd_chf (should be chf_gbp_usd)"
+        ],
+        "suggested_fix": "tri_agg_idx_chf_gbp_usd"
+      },
+      {
+        "table_name": "tri_agg_idx_gbp_usd_jpy",
+        "violation_details": [
+          "Wrong alphabetical order: gbp_usd_jpy (should be gbp_jpy_usd)"
+        ],
+        "suggested_fix": "tri_agg_idx_gbp_jpy_usd"
+      },
+      {
+        "table_name": "tri_agg_idx_gbp_usd_nzd",
+        "violation_details": [
+          "Wrong alphabetical order: gbp_usd_nzd (should be gbp_nzd_usd)"
+        ],
+        "suggested_fix": "tri_agg_idx_gbp_nzd_usd"
+      },
+      {
+        "table_name": "tri_agg_idx_nzd_usd_cad",
+        "violation_details": [
+          "Wrong alphabetical order: nzd_usd_cad (should be cad_nzd_usd)"
+        ],
+        "suggested_fix": "tri_agg_idx_cad_nzd_usd"
+      },
+      {
+        "table_name": "tri_agg_idx_nzd_usd_chf",
+        "violation_details": [
+          "Wrong alphabetical order: nzd_usd_chf (should be chf_nzd_usd)"
+        ],
+        "suggested_fix": "tri_agg_idx_chf_nzd_usd"
+      },
+      {
+        "table_name": "tri_agg_idx_nzd_usd_jpy",
+        "violation_details": [
+          "Wrong alphabetical order: nzd_usd_jpy (should be jpy_nzd_usd)"
+        ],
+        "suggested_fix": "tri_agg_idx_jpy_nzd_usd"
+      },
+      {
+        "table_name": "tri_align_bqx_aud_usd_cad",
+        "violation_details": [
+          "Wrong alphabetical order: aud_usd_cad (should be aud_cad_usd)"
+        ],
+        "suggested_fix": "tri_align_bqx_aud_cad_usd"
+      },
+      {
+        "table_name": "tri_align_bqx_aud_usd_chf",
+        "violation_details": [
+          "Wrong alphabetical order: aud_usd_chf (should be aud_chf_usd)"
+        ],
+        "suggested_fix": "tri_align_bqx_aud_chf_usd"
+      },
+      {
+        "table_name": "tri_align_bqx_aud_usd_jpy",
+        "violation_details": [
+          "Wrong alphabetical order: aud_usd_jpy (should be aud_jpy_usd)"
+        ],
+        "suggested_fix": "tri_align_bqx_aud_jpy_usd"
+      },
+      {
+        "table_name": "tri_align_bqx_aud_usd_nzd",
+        "violation_details": [
+          "Wrong alphabetical order: aud_usd_nzd (should be aud_nzd_usd)"
+        ],
+        "suggested_fix": "tri_align_bqx_aud_nzd_usd"
+      },
+      {
+        "table_name": "tri_align_bqx_eur_usd_aud",
+        "violation_details": [
+          "Wrong alphabetical order: eur_usd_aud (should be aud_eur_usd)"
+        ],
+        "suggested_fix": "tri_align_bqx_aud_eur_usd"
+      },
+      {
+        "table_name": "tri_align_bqx_eur_usd_cad",
+        "violation_details": [
+          "Wrong alphabetical order: eur_usd_cad (should be cad_eur_usd)"
+        ],
+        "suggested_fix": "tri_align_bqx_cad_eur_usd"
+      },
+      {
+        "table_name": "tri_align_bqx_eur_usd_chf",
+        "violation_details": [
+          "Wrong alphabetical order: eur_usd_chf (should be chf_eur_usd)"
+        ],
+        "suggested_fix": "tri_align_bqx_chf_eur_usd"
+      },
+      {
+        "table_name": "tri_align_bqx_eur_usd_gbp",
+        "violation_details": [
+          "Wrong alphabetical order: eur_usd_gbp (should be eur_gbp_usd)"
+        ],
+        "suggested_fix": "tri_align_bqx_eur_gbp_usd"
+      },
+      {
+        "table_name": "tri_align_bqx_eur_usd_jpy",
+        "violation_details": [
+          "Wrong alphabetical order: eur_usd_jpy (should be eur_jpy_usd)"
+        ],
+        "suggested_fix": "tri_align_bqx_eur_jpy_usd"
+      },
+      {
+        "table_name": "tri_align_bqx_eur_usd_nzd",
+        "violation_details": [
+          "Wrong alphabetical order: eur_usd_nzd (should be eur_nzd_usd)"
+        ],
+        "suggested_fix": "tri_align_bqx_eur_nzd_usd"
+      },
+      {
+        "table_name": "tri_align_bqx_gbp_usd_aud",
+        "violation_details": [
+          "Wrong alphabetical order: gbp_usd_aud (should be aud_gbp_usd)"
+        ],
+        "suggested_fix": "tri_align_bqx_aud_gbp_usd"
+      },
+      {
+        "table_name": "tri_align_bqx_gbp_usd_cad",
+        "violation_details": [
+          "Wrong alphabetical order: gbp_usd_cad (should be cad_gbp_usd)"
+        ],
+        "suggested_fix": "tri_align_bqx_cad_gbp_usd"
+      },
+      {
+        "table_name": "tri_align_bqx_gbp_usd_chf",
+        "violation_details": [
+          "Wrong alphabetical order: gbp_usd_chf (should be chf_gbp_usd)"
+        ],
+        "suggested_fix": "tri_align_bqx_chf_gbp_usd"
+      },
+      {
+        "table_name": "tri_align_bqx_gbp_usd_jpy",
+        "violation_details": [
+          "Wrong alphabetical order: gbp_usd_jpy (should be gbp_jpy_usd)"
+        ],
+        "suggested_fix": "tri_align_bqx_gbp_jpy_usd"
+      },
+      {
+        "table_name": "tri_align_bqx_gbp_usd_nzd",
+        "violation_details": [
+          "Wrong alphabetical order: gbp_usd_nzd (should be gbp_nzd_usd)"
+        ],
+        "suggested_fix": "tri_align_bqx_gbp_nzd_usd"
+      },
+      {
+        "table_name": "tri_align_bqx_nzd_usd_cad",
+        "violation_details": [
+          "Wrong alphabetical order: nzd_usd_cad (should be cad_nzd_usd)"
+        ],
+        "suggested_fix": "tri_align_bqx_cad_nzd_usd"
+      },
+      {
+        "table_name": "tri_align_bqx_nzd_usd_chf",
+        "violation_details": [
+          "Wrong alphabetical order: nzd_usd_chf (should be chf_nzd_usd)"
+        ],
+        "suggested_fix": "tri_align_bqx_chf_nzd_usd"
+      },
+      {
+        "table_name": "tri_align_bqx_nzd_usd_jpy",
+        "violation_details": [
+          "Wrong alphabetical order: nzd_usd_jpy (should be jpy_nzd_usd)"
+        ],
+        "suggested_fix": "tri_align_bqx_jpy_nzd_usd"
+      },
+      {
+        "table_name": "tri_align_idx_aud_usd_cad",
+        "violation_details": [
+          "Wrong alphabetical order: aud_usd_cad (should be aud_cad_usd)"
+        ],
+        "suggested_fix": "tri_align_idx_aud_cad_usd"
+      },
+      {
+        "table_name": "tri_align_idx_aud_usd_chf",
+        "violation_details": [
+          "Wrong alphabetical order: aud_usd_chf (should be aud_chf_usd)"
+        ],
+        "suggested_fix": "tri_align_idx_aud_chf_usd"
+      },
+      {
+        "table_name": "tri_align_idx_aud_usd_jpy",
+        "violation_details": [
+          "Wrong alphabetical order: aud_usd_jpy (should be aud_jpy_usd)"
+        ],
+        "suggested_fix": "tri_align_idx_aud_jpy_usd"
+      },
+      {
+        "table_name": "tri_align_idx_aud_usd_nzd",
+        "violation_details": [
+          "Wrong alphabetical order: aud_usd_nzd (should be aud_nzd_usd)"
+        ],
+        "suggested_fix": "tri_align_idx_aud_nzd_usd"
+      },
+      {
+        "table_name": "tri_align_idx_eur_usd_aud",
+        "violation_details": [
+          "Wrong alphabetical order: eur_usd_aud (should be aud_eur_usd)"
+        ],
+        "suggested_fix": "tri_align_idx_aud_eur_usd"
+      },
+      {
+        "table_name": "tri_align_idx_eur_usd_cad",
+        "violation_details": [
+          "Wrong alphabetical order: eur_usd_cad (should be cad_eur_usd)"
+        ],
+        "suggested_fix": "tri_align_idx_cad_eur_usd"
+      },
+      {
+        "table_name": "tri_align_idx_eur_usd_chf",
+        "violation_details": [
+          "Wrong alphabetical order: eur_usd_chf (should be chf_eur_usd)"
+        ],
+        "suggested_fix": "tri_align_idx_chf_eur_usd"
+      },
+      {
+        "table_name": "tri_align_idx_eur_usd_gbp",
+        "violation_details": [
+          "Wrong alphabetical order: eur_usd_gbp (should be eur_gbp_usd)"
+        ],
+        "suggested_fix": "tri_align_idx_eur_gbp_usd"
+      },
+      {
+        "table_name": "tri_align_idx_eur_usd_jpy",
+        "violation_details": [
+          "Wrong alphabetical order: eur_usd_jpy (should be eur_jpy_usd)"
+        ],
+        "suggested_fix": "tri_align_idx_eur_jpy_usd"
+      },
+      {
+        "table_name": "tri_align_idx_eur_usd_nzd",
+        "violation_details": [
+          "Wrong alphabetical order: eur_usd_nzd (should be eur_nzd_usd)"
+        ],
+        "suggested_fix": "tri_align_idx_eur_nzd_usd"
+      },
+      {
+        "table_name": "tri_align_idx_gbp_usd_aud",
+        "violation_details": [
+          "Wrong alphabetical order: gbp_usd_aud (should be aud_gbp_usd)"
+        ],
+        "suggested_fix": "tri_align_idx_aud_gbp_usd"
+      },
+      {
+        "table_name": "tri_align_idx_gbp_usd_cad",
+        "violation_details": [
+          "Wrong alphabetical order: gbp_usd_cad (should be cad_gbp_usd)"
+        ],
+        "suggested_fix": "tri_align_idx_cad_gbp_usd"
+      },
+      {
+        "table_name": "tri_align_idx_gbp_usd_chf",
+        "violation_details": [
+          "Wrong alphabetical order: gbp_usd_chf (should be chf_gbp_usd)"
+        ],
+        "suggested_fix": "tri_align_idx_chf_gbp_usd"
+      },
+      {
+        "table_name": "tri_align_idx_gbp_usd_jpy",
+        "violation_details": [
+          "Wrong alphabetical order: gbp_usd_jpy (should be gbp_jpy_usd)"
+        ],
+        "suggested_fix": "tri_align_idx_gbp_jpy_usd"
+      },
+      {
+        "table_name": "tri_align_idx_gbp_usd_nzd",
+        "violation_details": [
+          "Wrong alphabetical order: gbp_usd_nzd (should be gbp_nzd_usd)"
+        ],
+        "suggested_fix": "tri_align_idx_gbp_nzd_usd"
+      },
+      {
+        "table_name": "tri_align_idx_nzd_usd_cad",
+        "violation_details": [
+          "Wrong alphabetical order: nzd_usd_cad (should be cad_nzd_usd)"
+        ],
+        "suggested_fix": "tri_align_idx_cad_nzd_usd"
+      },
+      {
+        "table_name": "tri_align_idx_nzd_usd_chf",
+        "violation_details": [
+          "Wrong alphabetical order: nzd_usd_chf (should be chf_nzd_usd)"
+        ],
+        "suggested_fix": "tri_align_idx_chf_nzd_usd"
+      },
+      {
+        "table_name": "tri_align_idx_nzd_usd_jpy",
+        "violation_details": [
+          "Wrong alphabetical order: nzd_usd_jpy (should be jpy_nzd_usd)"
+        ],
+        "suggested_fix": "tri_align_idx_jpy_nzd_usd"
+      },
+      {
+        "table_name": "tri_mom_bqx_aud_usd_cad",
+        "violation_details": [
+          "Wrong alphabetical order: aud_usd_cad (should be aud_cad_usd)"
+        ],
+        "suggested_fix": "tri_mom_bqx_aud_cad_usd"
+      },
+      {
+        "table_name": "tri_mom_bqx_aud_usd_chf",
+        "violation_details": [
+          "Wrong alphabetical order: aud_usd_chf (should be aud_chf_usd)"
+        ],
+        "suggested_fix": "tri_mom_bqx_aud_chf_usd"
+      },
+      {
+        "table_name": "tri_mom_bqx_aud_usd_jpy",
+        "violation_details": [
+          "Wrong alphabetical order: aud_usd_jpy (should be aud_jpy_usd)"
+        ],
+        "suggested_fix": "tri_mom_bqx_aud_jpy_usd"
+      },
+      {
+        "table_name": "tri_mom_bqx_aud_usd_nzd",
+        "violation_details": [
+          "Wrong alphabetical order: aud_usd_nzd (should be aud_nzd_usd)"
+        ],
+        "suggested_fix": "tri_mom_bqx_aud_nzd_usd"
+      },
+      {
+        "table_name": "tri_mom_bqx_eur_usd_aud",
+        "violation_details": [
+          "Wrong alphabetical order: eur_usd_aud (should be aud_eur_usd)"
+        ],
+        "suggested_fix": "tri_mom_bqx_aud_eur_usd"
+      },
+      {
+        "table_name": "tri_mom_bqx_eur_usd_cad",
+        "violation_details": [
+          "Wrong alphabetical order: eur_usd_cad (should be cad_eur_usd)"
+        ],
+        "suggested_fix": "tri_mom_bqx_cad_eur_usd"
+      },
+      {
+        "table_name": "tri_mom_bqx_eur_usd_chf",
+        "violation_details": [
+          "Wrong alphabetical order: eur_usd_chf (should be chf_eur_usd)"
+        ],
+        "suggested_fix": "tri_mom_bqx_chf_eur_usd"
+      },
+      {
+        "table_name": "tri_mom_bqx_eur_usd_gbp",
+        "violation_details": [
+          "Wrong alphabetical order: eur_usd_gbp (should be eur_gbp_usd)"
+        ],
+        "suggested_fix": "tri_mom_bqx_eur_gbp_usd"
+      },
+      {
+        "table_name": "tri_mom_bqx_eur_usd_jpy",
+        "violation_details": [
+          "Wrong alphabetical order: eur_usd_jpy (should be eur_jpy_usd)"
+        ],
+        "suggested_fix": "tri_mom_bqx_eur_jpy_usd"
+      },
+      {
+        "table_name": "tri_mom_bqx_eur_usd_nzd",
+        "violation_details": [
+          "Wrong alphabetical order: eur_usd_nzd (should be eur_nzd_usd)"
+        ],
+        "suggested_fix": "tri_mom_bqx_eur_nzd_usd"
+      },
+      {
+        "table_name": "tri_mom_bqx_gbp_usd_aud",
+        "violation_details": [
+          "Wrong alphabetical order: gbp_usd_aud (should be aud_gbp_usd)"
+        ],
+        "suggested_fix": "tri_mom_bqx_aud_gbp_usd"
+      },
+      {
+        "table_name": "tri_mom_bqx_gbp_usd_cad",
+        "violation_details": [
+          "Wrong alphabetical order: gbp_usd_cad (should be cad_gbp_usd)"
+        ],
+        "suggested_fix": "tri_mom_bqx_cad_gbp_usd"
+      },
+      {
+        "table_name": "tri_mom_bqx_gbp_usd_chf",
+        "violation_details": [
+          "Wrong alphabetical order: gbp_usd_chf (should be chf_gbp_usd)"
+        ],
+        "suggested_fix": "tri_mom_bqx_chf_gbp_usd"
+      },
+      {
+        "table_name": "tri_mom_bqx_gbp_usd_jpy",
+        "violation_details": [
+          "Wrong alphabetical order: gbp_usd_jpy (should be gbp_jpy_usd)"
+        ],
+        "suggested_fix": "tri_mom_bqx_gbp_jpy_usd"
+      },
+      {
+        "table_name": "tri_mom_bqx_gbp_usd_nzd",
+        "violation_details": [
+          "Wrong alphabetical order: gbp_usd_nzd (should be gbp_nzd_usd)"
+        ],
+        "suggested_fix": "tri_mom_bqx_gbp_nzd_usd"
+      },
+      {
+        "table_name": "tri_mom_bqx_nzd_usd_cad",
+        "violation_details": [
+          "Wrong alphabetical order: nzd_usd_cad (should be cad_nzd_usd)"
+        ],
+        "suggested_fix": "tri_mom_bqx_cad_nzd_usd"
+      },
+      {
+        "table_name": "tri_mom_bqx_nzd_usd_chf",
+        "violation_details": [
+          "Wrong alphabetical order: nzd_usd_chf (should be chf_nzd_usd)"
+        ],
+        "suggested_fix": "tri_mom_bqx_chf_nzd_usd"
+      },
+      {
+        "table_name": "tri_mom_bqx_nzd_usd_jpy",
+        "violation_details": [
+          "Wrong alphabetical order: nzd_usd_jpy (should be jpy_nzd_usd)"
+        ],
+        "suggested_fix": "tri_mom_bqx_jpy_nzd_usd"
+      },
+      {
+        "table_name": "tri_mom_idx_aud_usd_cad",
+        "violation_details": [
+          "Wrong alphabetical order: aud_usd_cad (should be aud_cad_usd)"
+        ],
+        "suggested_fix": "tri_mom_idx_aud_cad_usd"
+      },
+      {
+        "table_name": "tri_mom_idx_aud_usd_chf",
+        "violation_details": [
+          "Wrong alphabetical order: aud_usd_chf (should be aud_chf_usd)"
+        ],
+        "suggested_fix": "tri_mom_idx_aud_chf_usd"
+      },
+      {
+        "table_name": "tri_mom_idx_aud_usd_jpy",
+        "violation_details": [
+          "Wrong alphabetical order: aud_usd_jpy (should be aud_jpy_usd)"
+        ],
+        "suggested_fix": "tri_mom_idx_aud_jpy_usd"
+      },
+      {
+        "table_name": "tri_mom_idx_aud_usd_nzd",
+        "violation_details": [
+          "Wrong alphabetical order: aud_usd_nzd (should be aud_nzd_usd)"
+        ],
+        "suggested_fix": "tri_mom_idx_aud_nzd_usd"
+      },
+      {
+        "table_name": "tri_mom_idx_eur_usd_aud",
+        "violation_details": [
+          "Wrong alphabetical order: eur_usd_aud (should be aud_eur_usd)"
+        ],
+        "suggested_fix": "tri_mom_idx_aud_eur_usd"
+      },
+      {
+        "table_name": "tri_mom_idx_eur_usd_cad",
+        "violation_details": [
+          "Wrong alphabetical order: eur_usd_cad (should be cad_eur_usd)"
+        ],
+        "suggested_fix": "tri_mom_idx_cad_eur_usd"
+      },
+      {
+        "table_name": "tri_mom_idx_eur_usd_chf",
+        "violation_details": [
+          "Wrong alphabetical order: eur_usd_chf (should be chf_eur_usd)"
+        ],
+        "suggested_fix": "tri_mom_idx_chf_eur_usd"
+      },
+      {
+        "table_name": "tri_mom_idx_eur_usd_gbp",
+        "violation_details": [
+          "Wrong alphabetical order: eur_usd_gbp (should be eur_gbp_usd)"
+        ],
+        "suggested_fix": "tri_mom_idx_eur_gbp_usd"
+      },
+      {
+        "table_name": "tri_mom_idx_eur_usd_jpy",
+        "violation_details": [
+          "Wrong alphabetical order: eur_usd_jpy (should be eur_jpy_usd)"
+        ],
+        "suggested_fix": "tri_mom_idx_eur_jpy_usd"
+      },
+      {
+        "table_name": "tri_mom_idx_eur_usd_nzd",
+        "violation_details": [
+          "Wrong alphabetical order: eur_usd_nzd (should be eur_nzd_usd)"
+        ],
+        "suggested_fix": "tri_mom_idx_eur_nzd_usd"
+      },
+      {
+        "table_name": "tri_mom_idx_gbp_usd_aud",
+        "violation_details": [
+          "Wrong alphabetical order: gbp_usd_aud (should be aud_gbp_usd)"
+        ],
+        "suggested_fix": "tri_mom_idx_aud_gbp_usd"
+      },
+      {
+        "table_name": "tri_mom_idx_gbp_usd_cad",
+        "violation_details": [
+          "Wrong alphabetical order: gbp_usd_cad (should be cad_gbp_usd)"
+        ],
+        "suggested_fix": "tri_mom_idx_cad_gbp_usd"
+      },
+      {
+        "table_name": "tri_mom_idx_gbp_usd_chf",
+        "violation_details": [
+          "Wrong alphabetical order: gbp_usd_chf (should be chf_gbp_usd)"
+        ],
+        "suggested_fix": "tri_mom_idx_chf_gbp_usd"
+      },
+      {
+        "table_name": "tri_mom_idx_gbp_usd_jpy",
+        "violation_details": [
+          "Wrong alphabetical order: gbp_usd_jpy (should be gbp_jpy_usd)"
+        ],
+        "suggested_fix": "tri_mom_idx_gbp_jpy_usd"
+      },
+      {
+        "table_name": "tri_mom_idx_gbp_usd_nzd",
+        "violation_details": [
+          "Wrong alphabetical order: gbp_usd_nzd (should be gbp_nzd_usd)"
+        ],
+        "suggested_fix": "tri_mom_idx_gbp_nzd_usd"
+      },
+      {
+        "table_name": "tri_mom_idx_nzd_usd_cad",
+        "violation_details": [
+          "Wrong alphabetical order: nzd_usd_cad (should be cad_nzd_usd)"
+        ],
+        "suggested_fix": "tri_mom_idx_cad_nzd_usd"
+      },
+      {
+        "table_name": "tri_mom_idx_nzd_usd_chf",
+        "violation_details": [
+          "Wrong alphabetical order: nzd_usd_chf (should be chf_nzd_usd)"
+        ],
+        "suggested_fix": "tri_mom_idx_chf_nzd_usd"
+      },
+      {
+        "table_name": "tri_mom_idx_nzd_usd_jpy",
+        "violation_details": [
+          "Wrong alphabetical order: nzd_usd_jpy (should be jpy_nzd_usd)"
+        ],
+        "suggested_fix": "tri_mom_idx_jpy_nzd_usd"
+      },
+      {
+        "table_name": "tri_reg_bqx_aud_nzd_jpy",
+        "violation_details": [
+          "Wrong alphabetical order: aud_nzd_jpy (should be aud_jpy_nzd)"
+        ],
+        "suggested_fix": "tri_reg_bqx_aud_jpy_nzd"
+      },
+      {
+        "table_name": "tri_reg_bqx_aud_usd_cad",
+        "violation_details": [
+          "Wrong alphabetical order: aud_usd_cad (should be aud_cad_usd)"
+        ],
+        "suggested_fix": "tri_reg_bqx_aud_cad_usd"
+      },
+      {
+        "table_name": "tri_reg_bqx_aud_usd_chf",
+        "violation_details": [
+          "Wrong alphabetical order: aud_usd_chf (should be aud_chf_usd)"
+        ],
+        "suggested_fix": "tri_reg_bqx_aud_chf_usd"
+      },
+      {
+        "table_name": "tri_reg_bqx_aud_usd_jpy",
+        "violation_details": [
+          "Wrong alphabetical order: aud_usd_jpy (should be aud_jpy_usd)"
+        ],
+        "suggested_fix": "tri_reg_bqx_aud_jpy_usd"
+      },
+      {
+        "table_name": "tri_reg_bqx_aud_usd_nzd",
+        "violation_details": [
+          "Wrong alphabetical order: aud_usd_nzd (should be aud_nzd_usd)"
+        ],
+        "suggested_fix": "tri_reg_bqx_aud_nzd_usd"
+      },
+      {
+        "table_name": "tri_reg_bqx_cad_usd_jpy",
+        "violation_details": [
+          "Wrong alphabetical order: cad_usd_jpy (should be cad_jpy_usd)"
+        ],
+        "suggested_fix": "tri_reg_bqx_cad_jpy_usd"
+      },
+      {
+        "table_name": "tri_reg_bqx_eur_chf_jpy",
+        "violation_details": [
+          "Wrong alphabetical order: eur_chf_jpy (should be chf_eur_jpy)"
+        ],
+        "suggested_fix": "tri_reg_bqx_chf_eur_jpy"
+      },
+      {
+        "table_name": "tri_reg_bqx_eur_gbp_chf",
+        "violation_details": [
+          "Wrong alphabetical order: eur_gbp_chf (should be chf_eur_gbp)"
+        ],
+        "suggested_fix": "tri_reg_bqx_chf_eur_gbp"
+      },
+      {
+        "table_name": "tri_reg_bqx_eur_usd_aud",
+        "violation_details": [
+          "Wrong alphabetical order: eur_usd_aud (should be aud_eur_usd)"
+        ],
+        "suggested_fix": "tri_reg_bqx_aud_eur_usd"
+      },
+      {
+        "table_name": "tri_reg_bqx_eur_usd_cad",
+        "violation_details": [
+          "Wrong alphabetical order: eur_usd_cad (should be cad_eur_usd)"
+        ],
+        "suggested_fix": "tri_reg_bqx_cad_eur_usd"
+      },
+      {
+        "table_name": "tri_reg_bqx_eur_usd_chf",
+        "violation_details": [
+          "Wrong alphabetical order: eur_usd_chf (should be chf_eur_usd)"
+        ],
+        "suggested_fix": "tri_reg_bqx_chf_eur_usd"
+      },
+      {
+        "table_name": "tri_reg_bqx_eur_usd_gbp",
+        "violation_details": [
+          "Wrong alphabetical order: eur_usd_gbp (should be eur_gbp_usd)"
+        ],
+        "suggested_fix": "tri_reg_bqx_eur_gbp_usd"
+      },
+      {
+        "table_name": "tri_reg_bqx_eur_usd_jpy",
+        "violation_details": [
+          "Wrong alphabetical order: eur_usd_jpy (should be eur_jpy_usd)"
+        ],
+        "suggested_fix": "tri_reg_bqx_eur_jpy_usd"
+      },
+      {
+        "table_name": "tri_reg_bqx_eur_usd_nzd",
+        "violation_details": [
+          "Wrong alphabetical order: eur_usd_nzd (should be eur_nzd_usd)"
+        ],
+        "suggested_fix": "tri_reg_bqx_eur_nzd_usd"
+      },
+      {
+        "table_name": "tri_reg_bqx_gbp_chf_jpy",
+        "violation_details": [
+          "Wrong alphabetical order: gbp_chf_jpy (should be chf_gbp_jpy)"
+        ],
+        "suggested_fix": "tri_reg_bqx_chf_gbp_jpy"
+      },
+      {
+        "table_name": "tri_reg_bqx_gbp_usd_aud",
+        "violation_details": [
+          "Wrong alphabetical order: gbp_usd_aud (should be aud_gbp_usd)"
+        ],
+        "suggested_fix": "tri_reg_bqx_aud_gbp_usd"
+      },
+      {
+        "table_name": "tri_reg_bqx_gbp_usd_cad",
+        "violation_details": [
+          "Wrong alphabetical order: gbp_usd_cad (should be cad_gbp_usd)"
+        ],
+        "suggested_fix": "tri_reg_bqx_cad_gbp_usd"
+      },
+      {
+        "table_name": "tri_reg_bqx_gbp_usd_chf",
+        "violation_details": [
+          "Wrong alphabetical order: gbp_usd_chf (should be chf_gbp_usd)"
+        ],
+        "suggested_fix": "tri_reg_bqx_chf_gbp_usd"
+      },
+      {
+        "table_name": "tri_reg_bqx_gbp_usd_jpy",
+        "violation_details": [
+          "Wrong alphabetical order: gbp_usd_jpy (should be gbp_jpy_usd)"
+        ],
+        "suggested_fix": "tri_reg_bqx_gbp_jpy_usd"
+      },
+      {
+        "table_name": "tri_reg_bqx_gbp_usd_nzd",
+        "violation_details": [
+          "Wrong alphabetical order: gbp_usd_nzd (should be gbp_nzd_usd)"
+        ],
+        "suggested_fix": "tri_reg_bqx_gbp_nzd_usd"
+      },
+      {
+        "table_name": "tri_reg_bqx_nzd_usd_cad",
+        "violation_details": [
+          "Wrong alphabetical order: nzd_usd_cad (should be cad_nzd_usd)"
+        ],
+        "suggested_fix": "tri_reg_bqx_cad_nzd_usd"
+      },
+      {
+        "table_name": "tri_reg_bqx_nzd_usd_chf",
+        "violation_details": [
+          "Wrong alphabetical order: nzd_usd_chf (should be chf_nzd_usd)"
+        ],
+        "suggested_fix": "tri_reg_bqx_chf_nzd_usd"
+      },
+      {
+        "table_name": "tri_reg_bqx_nzd_usd_jpy",
+        "violation_details": [
+          "Wrong alphabetical order: nzd_usd_jpy (should be jpy_nzd_usd)"
+        ],
+        "suggested_fix": "tri_reg_bqx_jpy_nzd_usd"
+      },
+      {
+        "table_name": "tri_reg_idx_aud_nzd_jpy",
+        "violation_details": [
+          "Wrong alphabetical order: aud_nzd_jpy (should be aud_jpy_nzd)"
+        ],
+        "suggested_fix": "tri_reg_idx_aud_jpy_nzd"
+      },
+      {
+        "table_name": "tri_reg_idx_aud_usd_cad",
+        "violation_details": [
+          "Wrong alphabetical order: aud_usd_cad (should be aud_cad_usd)"
+        ],
+        "suggested_fix": "tri_reg_idx_aud_cad_usd"
+      },
+      {
+        "table_name": "tri_reg_idx_aud_usd_chf",
+        "violation_details": [
+          "Wrong alphabetical order: aud_usd_chf (should be aud_chf_usd)"
+        ],
+        "suggested_fix": "tri_reg_idx_aud_chf_usd"
+      },
+      {
+        "table_name": "tri_reg_idx_aud_usd_jpy",
+        "violation_details": [
+          "Wrong alphabetical order: aud_usd_jpy (should be aud_jpy_usd)"
+        ],
+        "suggested_fix": "tri_reg_idx_aud_jpy_usd"
+      },
+      {
+        "table_name": "tri_reg_idx_aud_usd_nzd",
+        "violation_details": [
+          "Wrong alphabetical order: aud_usd_nzd (should be aud_nzd_usd)"
+        ],
+        "suggested_fix": "tri_reg_idx_aud_nzd_usd"
+      },
+      {
+        "table_name": "tri_reg_idx_cad_usd_jpy",
+        "violation_details": [
+          "Wrong alphabetical order: cad_usd_jpy (should be cad_jpy_usd)"
+        ],
+        "suggested_fix": "tri_reg_idx_cad_jpy_usd"
+      },
+      {
+        "table_name": "tri_reg_idx_eur_chf_jpy",
+        "violation_details": [
+          "Wrong alphabetical order: eur_chf_jpy (should be chf_eur_jpy)"
+        ],
+        "suggested_fix": "tri_reg_idx_chf_eur_jpy"
+      },
+      {
+        "table_name": "tri_reg_idx_eur_gbp_chf",
+        "violation_details": [
+          "Wrong alphabetical order: eur_gbp_chf (should be chf_eur_gbp)"
+        ],
+        "suggested_fix": "tri_reg_idx_chf_eur_gbp"
+      },
+      {
+        "table_name": "tri_reg_idx_eur_usd_aud",
+        "violation_details": [
+          "Wrong alphabetical order: eur_usd_aud (should be aud_eur_usd)"
+        ],
+        "suggested_fix": "tri_reg_idx_aud_eur_usd"
+      },
+      {
+        "table_name": "tri_reg_idx_eur_usd_cad",
+        "violation_details": [
+          "Wrong alphabetical order: eur_usd_cad (should be cad_eur_usd)"
+        ],
+        "suggested_fix": "tri_reg_idx_cad_eur_usd"
+      },
+      {
+        "table_name": "tri_reg_idx_eur_usd_chf",
+        "violation_details": [
+          "Wrong alphabetical order: eur_usd_chf (should be chf_eur_usd)"
+        ],
+        "suggested_fix": "tri_reg_idx_chf_eur_usd"
+      },
+      {
+        "table_name": "tri_reg_idx_eur_usd_gbp",
+        "violation_details": [
+          "Wrong alphabetical order: eur_usd_gbp (should be eur_gbp_usd)"
+        ],
+        "suggested_fix": "tri_reg_idx_eur_gbp_usd"
+      },
+      {
+        "table_name": "tri_reg_idx_eur_usd_jpy",
+        "violation_details": [
+          "Wrong alphabetical order: eur_usd_jpy (should be eur_jpy_usd)"
+        ],
+        "suggested_fix": "tri_reg_idx_eur_jpy_usd"
+      },
+      {
+        "table_name": "tri_reg_idx_eur_usd_nzd",
+        "violation_details": [
+          "Wrong alphabetical order: eur_usd_nzd (should be eur_nzd_usd)"
+        ],
+        "suggested_fix": "tri_reg_idx_eur_nzd_usd"
+      },
+      {
+        "table_name": "tri_reg_idx_gbp_chf_jpy",
+        "violation_details": [
+          "Wrong alphabetical order: gbp_chf_jpy (should be chf_gbp_jpy)"
+        ],
+        "suggested_fix": "tri_reg_idx_chf_gbp_jpy"
+      },
+      {
+        "table_name": "tri_reg_idx_gbp_usd_aud",
+        "violation_details": [
+          "Wrong alphabetical order: gbp_usd_aud (should be aud_gbp_usd)"
+        ],
+        "suggested_fix": "tri_reg_idx_aud_gbp_usd"
+      },
+      {
+        "table_name": "tri_reg_idx_gbp_usd_cad",
+        "violation_details": [
+          "Wrong alphabetical order: gbp_usd_cad (should be cad_gbp_usd)"
+        ],
+        "suggested_fix": "tri_reg_idx_cad_gbp_usd"
+      },
+      {
+        "table_name": "tri_reg_idx_gbp_usd_chf",
+        "violation_details": [
+          "Wrong alphabetical order: gbp_usd_chf (should be chf_gbp_usd)"
+        ],
+        "suggested_fix": "tri_reg_idx_chf_gbp_usd"
+      },
+      {
+        "table_name": "tri_reg_idx_gbp_usd_jpy",
+        "violation_details": [
+          "Wrong alphabetical order: gbp_usd_jpy (should be gbp_jpy_usd)"
+        ],
+        "suggested_fix": "tri_reg_idx_gbp_jpy_usd"
+      },
+      {
+        "table_name": "tri_reg_idx_gbp_usd_nzd",
+        "violation_details": [
+          "Wrong alphabetical order: gbp_usd_nzd (should be gbp_nzd_usd)"
+        ],
+        "suggested_fix": "tri_reg_idx_gbp_nzd_usd"
+      },
+      {
+        "table_name": "tri_reg_idx_nzd_usd_cad",
+        "violation_details": [
+          "Wrong alphabetical order: nzd_usd_cad (should be cad_nzd_usd)"
+        ],
+        "suggested_fix": "tri_reg_idx_cad_nzd_usd"
+      },
+      {
+        "table_name": "tri_reg_idx_nzd_usd_chf",
+        "violation_details": [
+          "Wrong alphabetical order: nzd_usd_chf (should be chf_nzd_usd)"
+        ],
+        "suggested_fix": "tri_reg_idx_chf_nzd_usd"
+      },
+      {
+        "table_name": "tri_reg_idx_nzd_usd_jpy",
+        "violation_details": [
+          "Wrong alphabetical order: nzd_usd_jpy (should be jpy_nzd_usd)"
+        ],
+        "suggested_fix": "tri_reg_idx_jpy_nzd_usd"
+      },
+      {
+        "table_name": "tri_vol_bqx_aud_usd_cad",
+        "violation_details": [
+          "Wrong alphabetical order: aud_usd_cad (should be aud_cad_usd)"
+        ],
+        "suggested_fix": "tri_vol_bqx_aud_cad_usd"
+      },
+      {
+        "table_name": "tri_vol_bqx_aud_usd_chf",
+        "violation_details": [
+          "Wrong alphabetical order: aud_usd_chf (should be aud_chf_usd)"
+        ],
+        "suggested_fix": "tri_vol_bqx_aud_chf_usd"
+      },
+      {
+        "table_name": "tri_vol_bqx_aud_usd_jpy",
+        "violation_details": [
+          "Wrong alphabetical order: aud_usd_jpy (should be aud_jpy_usd)"
+        ],
+        "suggested_fix": "tri_vol_bqx_aud_jpy_usd"
+      },
+      {
+        "table_name": "tri_vol_bqx_aud_usd_nzd",
+        "violation_details": [
+          "Wrong alphabetical order: aud_usd_nzd (should be aud_nzd_usd)"
+        ],
+        "suggested_fix": "tri_vol_bqx_aud_nzd_usd"
+      },
+      {
+        "table_name": "tri_vol_bqx_eur_usd_aud",
+        "violation_details": [
+          "Wrong alphabetical order: eur_usd_aud (should be aud_eur_usd)"
+        ],
+        "suggested_fix": "tri_vol_bqx_aud_eur_usd"
+      },
+      {
+        "table_name": "tri_vol_bqx_eur_usd_cad",
+        "violation_details": [
+          "Wrong alphabetical order: eur_usd_cad (should be cad_eur_usd)"
+        ],
+        "suggested_fix": "tri_vol_bqx_cad_eur_usd"
+      },
+      {
+        "table_name": "tri_vol_bqx_eur_usd_chf",
+        "violation_details": [
+          "Wrong alphabetical order: eur_usd_chf (should be chf_eur_usd)"
+        ],
+        "suggested_fix": "tri_vol_bqx_chf_eur_usd"
+      },
+      {
+        "table_name": "tri_vol_bqx_eur_usd_gbp",
+        "violation_details": [
+          "Wrong alphabetical order: eur_usd_gbp (should be eur_gbp_usd)"
+        ],
+        "suggested_fix": "tri_vol_bqx_eur_gbp_usd"
+      },
+      {
+        "table_name": "tri_vol_bqx_eur_usd_jpy",
+        "violation_details": [
+          "Wrong alphabetical order: eur_usd_jpy (should be eur_jpy_usd)"
+        ],
+        "suggested_fix": "tri_vol_bqx_eur_jpy_usd"
+      },
+      {
+        "table_name": "tri_vol_bqx_eur_usd_nzd",
+        "violation_details": [
+          "Wrong alphabetical order: eur_usd_nzd (should be eur_nzd_usd)"
+        ],
+        "suggested_fix": "tri_vol_bqx_eur_nzd_usd"
+      },
+      {
+        "table_name": "tri_vol_bqx_gbp_usd_aud",
+        "violation_details": [
+          "Wrong alphabetical order: gbp_usd_aud (should be aud_gbp_usd)"
+        ],
+        "suggested_fix": "tri_vol_bqx_aud_gbp_usd"
+      },
+      {
+        "table_name": "tri_vol_bqx_gbp_usd_cad",
+        "violation_details": [
+          "Wrong alphabetical order: gbp_usd_cad (should be cad_gbp_usd)"
+        ],
+        "suggested_fix": "tri_vol_bqx_cad_gbp_usd"
+      },
+      {
+        "table_name": "tri_vol_bqx_gbp_usd_chf",
+        "violation_details": [
+          "Wrong alphabetical order: gbp_usd_chf (should be chf_gbp_usd)"
+        ],
+        "suggested_fix": "tri_vol_bqx_chf_gbp_usd"
+      },
+      {
+        "table_name": "tri_vol_bqx_gbp_usd_jpy",
+        "violation_details": [
+          "Wrong alphabetical order: gbp_usd_jpy (should be gbp_jpy_usd)"
+        ],
+        "suggested_fix": "tri_vol_bqx_gbp_jpy_usd"
+      },
+      {
+        "table_name": "tri_vol_bqx_gbp_usd_nzd",
+        "violation_details": [
+          "Wrong alphabetical order: gbp_usd_nzd (should be gbp_nzd_usd)"
+        ],
+        "suggested_fix": "tri_vol_bqx_gbp_nzd_usd"
+      },
+      {
+        "table_name": "tri_vol_bqx_nzd_usd_cad",
+        "violation_details": [
+          "Wrong alphabetical order: nzd_usd_cad (should be cad_nzd_usd)"
+        ],
+        "suggested_fix": "tri_vol_bqx_cad_nzd_usd"
+      },
+      {
+        "table_name": "tri_vol_bqx_nzd_usd_chf",
+        "violation_details": [
+          "Wrong alphabetical order: nzd_usd_chf (should be chf_nzd_usd)"
+        ],
+        "suggested_fix": "tri_vol_bqx_chf_nzd_usd"
+      },
+      {
+        "table_name": "tri_vol_bqx_nzd_usd_jpy",
+        "violation_details": [
+          "Wrong alphabetical order: nzd_usd_jpy (should be jpy_nzd_usd)"
+        ],
+        "suggested_fix": "tri_vol_bqx_jpy_nzd_usd"
+      },
+      {
+        "table_name": "tri_vol_idx_aud_usd_cad",
+        "violation_details": [
+          "Wrong alphabetical order: aud_usd_cad (should be aud_cad_usd)"
+        ],
+        "suggested_fix": "tri_vol_idx_aud_cad_usd"
+      },
+      {
+        "table_name": "tri_vol_idx_aud_usd_chf",
+        "violation_details": [
+          "Wrong alphabetical order: aud_usd_chf (should be aud_chf_usd)"
+        ],
+        "suggested_fix": "tri_vol_idx_aud_chf_usd"
+      },
+      {
+        "table_name": "tri_vol_idx_aud_usd_jpy",
+        "violation_details": [
+          "Wrong alphabetical order: aud_usd_jpy (should be aud_jpy_usd)"
+        ],
+        "suggested_fix": "tri_vol_idx_aud_jpy_usd"
+      },
+      {
+        "table_name": "tri_vol_idx_aud_usd_nzd",
+        "violation_details": [
+          "Wrong alphabetical order: aud_usd_nzd (should be aud_nzd_usd)"
+        ],
+        "suggested_fix": "tri_vol_idx_aud_nzd_usd"
+      },
+      {
+        "table_name": "tri_vol_idx_eur_usd_aud",
+        "violation_details": [
+          "Wrong alphabetical order: eur_usd_aud (should be aud_eur_usd)"
+        ],
+        "suggested_fix": "tri_vol_idx_aud_eur_usd"
+      },
+      {
+        "table_name": "tri_vol_idx_eur_usd_cad",
+        "violation_details": [
+          "Wrong alphabetical order: eur_usd_cad (should be cad_eur_usd)"
+        ],
+        "suggested_fix": "tri_vol_idx_cad_eur_usd"
+      },
+      {
+        "table_name": "tri_vol_idx_eur_usd_chf",
+        "violation_details": [
+          "Wrong alphabetical order: eur_usd_chf (should be chf_eur_usd)"
+        ],
+        "suggested_fix": "tri_vol_idx_chf_eur_usd"
+      },
+      {
+        "table_name": "tri_vol_idx_eur_usd_gbp",
+        "violation_details": [
+          "Wrong alphabetical order: eur_usd_gbp (should be eur_gbp_usd)"
+        ],
+        "suggested_fix": "tri_vol_idx_eur_gbp_usd"
+      },
+      {
+        "table_name": "tri_vol_idx_eur_usd_jpy",
+        "violation_details": [
+          "Wrong alphabetical order: eur_usd_jpy (should be eur_jpy_usd)"
+        ],
+        "suggested_fix": "tri_vol_idx_eur_jpy_usd"
+      },
+      {
+        "table_name": "tri_vol_idx_eur_usd_nzd",
+        "violation_details": [
+          "Wrong alphabetical order: eur_usd_nzd (should be eur_nzd_usd)"
+        ],
+        "suggested_fix": "tri_vol_idx_eur_nzd_usd"
+      },
+      {
+        "table_name": "tri_vol_idx_gbp_usd_aud",
+        "violation_details": [
+          "Wrong alphabetical order: gbp_usd_aud (should be aud_gbp_usd)"
+        ],
+        "suggested_fix": "tri_vol_idx_aud_gbp_usd"
+      },
+      {
+        "table_name": "tri_vol_idx_gbp_usd_cad",
+        "violation_details": [
+          "Wrong alphabetical order: gbp_usd_cad (should be cad_gbp_usd)"
+        ],
+        "suggested_fix": "tri_vol_idx_cad_gbp_usd"
+      },
+      {
+        "table_name": "tri_vol_idx_gbp_usd_chf",
+        "violation_details": [
+          "Wrong alphabetical order: gbp_usd_chf (should be chf_gbp_usd)"
+        ],
+        "suggested_fix": "tri_vol_idx_chf_gbp_usd"
+      },
+      {
+        "table_name": "tri_vol_idx_gbp_usd_jpy",
+        "violation_details": [
+          "Wrong alphabetical order: gbp_usd_jpy (should be gbp_jpy_usd)"
+        ],
+        "suggested_fix": "tri_vol_idx_gbp_jpy_usd"
+      },
+      {
+        "table_name": "tri_vol_idx_gbp_usd_nzd",
+        "violation_details": [
+          "Wrong alphabetical order: gbp_usd_nzd (should be gbp_nzd_usd)"
+        ],
+        "suggested_fix": "tri_vol_idx_gbp_nzd_usd"
+      },
+      {
+        "table_name": "tri_vol_idx_nzd_usd_cad",
+        "violation_details": [
+          "Wrong alphabetical order: nzd_usd_cad (should be cad_nzd_usd)"
+        ],
+        "suggested_fix": "tri_vol_idx_cad_nzd_usd"
+      },
+      {
+        "table_name": "tri_vol_idx_nzd_usd_chf",
+        "violation_details": [
+          "Wrong alphabetical order: nzd_usd_chf (should be chf_nzd_usd)"
+        ],
+        "suggested_fix": "tri_vol_idx_chf_nzd_usd"
+      },
+      {
+        "table_name": "tri_vol_idx_nzd_usd_jpy",
+        "violation_details": [
+          "Wrong alphabetical order: nzd_usd_jpy (should be jpy_nzd_usd)"
+        ],
+        "suggested_fix": "tri_vol_idx_jpy_nzd_usd"
+      }
+    ]
+  }
+}
